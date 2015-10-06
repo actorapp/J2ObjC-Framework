@@ -21,5 +21,5 @@ Pod::Spec.new do |s|
 
   s.preserve_paths = 'Frameworks/j2objc.framework'
   s.frameworks = 'j2objc'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/J2ObjC-Framework/Franeworks"' }
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/J2ObjC-Framework/Frameworks"' }
 end
