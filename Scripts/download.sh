@@ -1,7 +1,7 @@
 #!/bin/bash
 set -ev
 
-j2objc_version=0.9.8.2.1
+j2objc_version=0.9.8.2.2
 sha1_checksum=ba24a3cbae4f21e5f33f26b2db2bc3d4568cb198
 
 rm -fr Frameworks
