@@ -15,5 +15,10 @@ Pod::Spec.new do |s|
   s.frameworks      = 'Security'
   s.libraries       = 'icucore', 'z'
 
-  s.vendored_frameworks = 'Frameworks/j2objc.framework'
+  s.prepare_command = <<-CMD
+      Scripts/download.sh
+  CMD
+
+  s.frameworks = 'j2objc'
+  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/J2ObjC-Framework/Franeworks"' }
 end
