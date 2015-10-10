@@ -1,15 +1,18 @@
 #!/bin/bash
 set -ev
 
-j2objc_version=0.9.8.2.3
-sha1_checksum=2962ab080bf08ed89f9222b0b9c5b3d19e21d78e
+j2objc_version=0.9.8.2.1
+sha1_checksum=1acbe5cfc1a782687a6f4020e2db151087645bfc
 
-rm -fr Frameworks
+echo "fetching j2objc dist"
+curl -OL https://github.com/google/j2objc/releases/download/${j2objc_version}/j2objc-${j2objc_version}.zip
+echo "${sha1_checksum}  j2objc-${j2objc_version}.zip" | shasum -c
+unzip -o -q j2objc-${j2objc_version}.zip
+mv j2objc-${j2objc_version} Distributive
+rm j2objc-${j2objc_version}.zip
 
-echo "fetching j2objc.framework"
-curl -OL https://github.com/actorapp/J2ObjC-Framework/releases/download/v${j2objc_version}/j2objc.framework.zip
-echo "${sha1_checksum}  j2objc.framework.zip" | shasum -c
-unzip -o -q j2objc.framework.zip
-mkdir -p Frameworks
-mv j2objc.framework Frameworks
-rm j2objc.framework.zip
+echo "Creating framework"
+mkdir Frameworks
+mkdir Frameworks/j2objc.framework
+cp -a Scripts/Template/* Frameworks/j2objc.framework/
+cp Distributive/lib/libjre_emul_core.a Frameworks/j2objc.framework/j2objc
