@@ -15,4 +15,4 @@ echo "Creating framework"
 mkdir Frameworks
 mkdir Frameworks/j2objc.framework
 cp -a Scripts/Template/* Frameworks/j2objc.framework/
-cp Distributive/lib/libjre_emul_core.a Frameworks/j2objc.framework/j2objc
+cp Distributive/lib/libjre_emul.a Frameworks/j2objc.framework/j2objc
