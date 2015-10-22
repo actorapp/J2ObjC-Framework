@@ -6,7 +6,7 @@
 #ifndef _JavaNetURLDecoder_H_
 #define _JavaNetURLDecoder_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief This class is used to decode a string which is encoded in the <code>application/x-www-form-urlencoded</code>

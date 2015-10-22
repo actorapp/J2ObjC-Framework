@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalVerificationCheckersAtLeastDiscrepancy_H_
 #define _OrgMockitoInternalVerificationCheckersAtLeastDiscrepancy_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/reporting/Discrepancy.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/mockito/internal/reporting/Discrepancy.h"
 
 @interface OrgMockitoInternalVerificationCheckersAtLeastDiscrepancy : OrgMockitoInternalReportingDiscrepancy
 

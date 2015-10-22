@@ -6,12 +6,12 @@
 #ifndef _JavaUtilLinkedList_H_
 #define _JavaUtilLinkedList_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/AbstractSequentialList.h>
-#include <j2objc/java/util/Deque.h>
-#include <j2objc/java/util/List.h>
-#include <j2objc/java/util/Queue.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/util/AbstractSequentialList.h"
+#include "../../java/util/Deque.h"
+#include "../../java/util/List.h"
+#include "../../java/util/Queue.h"
 
 @class IOSObjectArray;
 @class JavaUtilLinkedList_Link;

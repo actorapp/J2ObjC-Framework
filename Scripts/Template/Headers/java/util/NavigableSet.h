@@ -6,8 +6,8 @@
 #ifndef _JavaUtilNavigableSet_H_
 #define _JavaUtilNavigableSet_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/SortedSet.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/SortedSet.h"
 
 @protocol JavaUtilIterator;
 

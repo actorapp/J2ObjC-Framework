@@ -6,8 +6,8 @@
 #ifndef _JavaUtilPropertyResourceBundle_H_
 #define _JavaUtilPropertyResourceBundle_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/ResourceBundle.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/ResourceBundle.h"
 
 @class JavaIoInputStream;
 @class JavaIoReader;

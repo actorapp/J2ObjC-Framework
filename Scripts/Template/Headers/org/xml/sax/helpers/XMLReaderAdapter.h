@@ -6,10 +6,10 @@
 #ifndef _OrgXmlSaxHelpersXMLReaderAdapter_H_
 #define _OrgXmlSaxHelpersXMLReaderAdapter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/AttributeList.h>
-#include <j2objc/org/xml/sax/ContentHandler.h>
-#include <j2objc/org/xml/sax/Parser.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/AttributeList.h"
+#include "../../../../org/xml/sax/ContentHandler.h"
+#include "../../../../org/xml/sax/Parser.h"
 
 @class IOSCharArray;
 @class JavaUtilLocale;

@@ -6,8 +6,8 @@
 #ifndef _OrgJunitRulesVerifier_H_
 #define _OrgJunitRulesVerifier_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/rules/TestRule.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/rules/TestRule.h"
 
 @class OrgJunitRunnerDescription;
 @class OrgJunitRunnersModelStatement;

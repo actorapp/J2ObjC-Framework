@@ -6,7 +6,7 @@
 #ifndef _OrgApacheHarmonySecurityX509DistributionPointName_H_
 #define _OrgApacheHarmonySecurityX509DistributionPointName_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../../J2ObjC_header.h"
 
 @class JavaLangStringBuilder;
 @class OrgApacheHarmonySecurityAsn1ASN1Choice;

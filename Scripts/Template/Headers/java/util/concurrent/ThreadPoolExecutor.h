@@ -6,9 +6,9 @@
 #ifndef _JavaUtilConcurrentThreadPoolExecutor_H_
 #define _JavaUtilConcurrentThreadPoolExecutor_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/concurrent/AbstractExecutorService.h>
-#include <j2objc/java/util/concurrent/RejectedExecutionHandler.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/concurrent/AbstractExecutorService.h"
+#include "../../../java/util/concurrent/RejectedExecutionHandler.h"
 
 @class JavaLangThread;
 @class JavaLangThrowable;

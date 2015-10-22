@@ -6,11 +6,11 @@
 #ifndef _JavaUtilWeakHashMap_H_
 #define _JavaUtilWeakHashMap_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/ref/WeakReference.h>
-#include <j2objc/java/util/AbstractMap.h>
-#include <j2objc/java/util/Iterator.h>
-#include <j2objc/java/util/Map.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/ref/WeakReference.h"
+#include "../../java/util/AbstractMap.h"
+#include "../../java/util/Iterator.h"
+#include "../../java/util/Map.h"
 
 @class IOSObjectArray;
 @class JavaLangRefReferenceQueue;

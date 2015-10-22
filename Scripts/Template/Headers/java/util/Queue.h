@@ -6,8 +6,8 @@
 #ifndef _JavaUtilQueue_H_
 #define _JavaUtilQueue_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Collection.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Collection.h"
 
 /*!
  @brief A collection designed for holding elements prior to processing.

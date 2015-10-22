@@ -6,7 +6,7 @@
 #ifndef _JavaLangRealToString_H_
 #define _JavaLangRealToString_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class JavaLangAbstractStringBuilder;
 

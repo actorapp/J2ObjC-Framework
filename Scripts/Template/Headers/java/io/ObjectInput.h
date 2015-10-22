@@ -6,9 +6,9 @@
 #ifndef _JavaIoObjectInput_H_
 #define _JavaIoObjectInput_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/DataInput.h>
-#include <j2objc/java/lang/AutoCloseable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/DataInput.h"
+#include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
 

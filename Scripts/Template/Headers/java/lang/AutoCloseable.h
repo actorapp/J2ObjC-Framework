@@ -6,7 +6,7 @@
 #ifndef _JavaLangAutoCloseable_H_
 #define _JavaLangAutoCloseable_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Defines an interface for classes that can (or need to) be closed once they

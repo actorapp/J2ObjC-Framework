@@ -6,7 +6,7 @@
 #ifndef _JavaUtilObservable_H_
 #define _JavaUtilObservable_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @protocol JavaUtilList;
 @protocol JavaUtilObserver;

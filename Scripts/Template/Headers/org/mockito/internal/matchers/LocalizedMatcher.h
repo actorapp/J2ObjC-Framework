@@ -6,12 +6,12 @@
 #ifndef _OrgMockitoInternalMatchersLocalizedMatcher_H_
 #define _OrgMockitoInternalMatchersLocalizedMatcher_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/hamcrest/Matcher.h>
-#include <j2objc/org/mockito/internal/matchers/CapturesArguments.h>
-#include <j2objc/org/mockito/internal/matchers/ContainsExtraTypeInformation.h>
-#include <j2objc/org/mockito/internal/matchers/MatcherDecorator.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../org/hamcrest/Matcher.h"
+#include "../../../../org/mockito/internal/matchers/CapturesArguments.h"
+#include "../../../../org/mockito/internal/matchers/ContainsExtraTypeInformation.h"
+#include "../../../../org/mockito/internal/matchers/MatcherDecorator.h"
 
 @protocol OrgHamcrestDescription;
 @protocol OrgHamcrestSelfDescribing;

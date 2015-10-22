@@ -6,8 +6,8 @@
 #ifndef _JavaNetStandardSocketOptions_H_
 #define _JavaNetStandardSocketOptions_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/SocketOption.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/SocketOption.h"
 
 @class IOSClass;
 @class JavaIoFileDescriptor;

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilStack_H_
 #define _JavaUtilStack_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Vector.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Vector.h"
 
 /*!
  @brief <code>Stack</code> is a Last-In/First-Out(LIFO) data structure which represents a

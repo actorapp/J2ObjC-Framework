@@ -6,8 +6,8 @@
 #ifndef _JavaNioByteBufferAsFloatBuffer_H_
 #define _JavaNioByteBufferAsFloatBuffer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/FloatBuffer.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/FloatBuffer.h"
 
 @class IOSFloatArray;
 @class JavaNioByteBuffer;

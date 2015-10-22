@@ -6,11 +6,11 @@
 #ifndef _JunitFrameworkJUnit4TestAdapter_H_
 #define _JunitFrameworkJUnit4TestAdapter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/junit/framework/Test.h>
-#include <j2objc/org/junit/runner/Describable.h>
-#include <j2objc/org/junit/runner/manipulation/Filterable.h>
-#include <j2objc/org/junit/runner/manipulation/Sortable.h>
+#include "../../J2ObjC_header.h"
+#include "../../junit/framework/Test.h"
+#include "../../org/junit/runner/Describable.h"
+#include "../../org/junit/runner/manipulation/Filterable.h"
+#include "../../org/junit/runner/manipulation/Sortable.h"
 
 @class IOSClass;
 @class JunitFrameworkJUnit4TestAdapterCache;

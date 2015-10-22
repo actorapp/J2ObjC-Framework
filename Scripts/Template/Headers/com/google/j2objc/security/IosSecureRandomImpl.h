@@ -6,8 +6,8 @@
 #ifndef _ComGoogleJ2objcSecurityIosSecureRandomImpl_H_
 #define _ComGoogleJ2objcSecurityIosSecureRandomImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/SecureRandomSpi.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/security/SecureRandomSpi.h"
 
 @class IOSByteArray;
 

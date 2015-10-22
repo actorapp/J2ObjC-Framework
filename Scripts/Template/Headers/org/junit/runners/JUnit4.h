@@ -6,8 +6,8 @@
 #ifndef _OrgJunitRunnersJUnit4_H_
 #define _OrgJunitRunnersJUnit4_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runners/BlockJUnit4ClassRunner.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/runners/BlockJUnit4ClassRunner.h"
 
 @class IOSClass;
 

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilEventObject_H_
 #define _JavaUtilEventObject_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief <code>EventObject</code>s represent events.

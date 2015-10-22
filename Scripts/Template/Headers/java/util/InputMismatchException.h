@@ -6,9 +6,9 @@
 #ifndef _JavaUtilInputMismatchException_H_
 #define _JavaUtilInputMismatchException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/NoSuchElementException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/util/NoSuchElementException.h"
 
 /*!
  @brief An <code>InputMismatchException</code> is thrown by a scanner to indicate that the

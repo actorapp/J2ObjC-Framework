@@ -6,11 +6,11 @@
 #ifndef _JavaUtilConcurrentScheduledThreadPoolExecutor_H_
 #define _JavaUtilConcurrentScheduledThreadPoolExecutor_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/AbstractQueue.h>
-#include <j2objc/java/util/concurrent/BlockingQueue.h>
-#include <j2objc/java/util/concurrent/ScheduledExecutorService.h>
-#include <j2objc/java/util/concurrent/ThreadPoolExecutor.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/AbstractQueue.h"
+#include "../../../java/util/concurrent/BlockingQueue.h"
+#include "../../../java/util/concurrent/ScheduledExecutorService.h"
+#include "../../../java/util/concurrent/ThreadPoolExecutor.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentTimeUnitEnum;

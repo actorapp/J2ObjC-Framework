@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsIllegalBlockingModeException_H_
 #define _JavaNioChannelsIllegalBlockingModeException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IllegalStateException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/IllegalStateException.h"
 
 /*!
  @brief An <code>IllegalBlockingModeException</code> is thrown when an operation that

@@ -22,8 +22,8 @@
 #ifndef _AccessibleObject_H_
 #define _AccessibleObject_H_
 
-#import <j2objc/IOSClass.h>
-#import <j2objc/java/lang/reflect/AnnotatedElement.h>
+#import "../../../IOSClass.h"
+#import "../../../java/lang/reflect/AnnotatedElement.h"
 
 // Base class for fields, methods, and constructors.
 @interface JavaLangReflectAccessibleObject : NSObject < JavaLangReflectAnnotatedElement > {

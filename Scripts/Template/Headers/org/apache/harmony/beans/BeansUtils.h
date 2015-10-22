@@ -6,7 +6,7 @@
 #ifndef _OrgApacheHarmonyBeansBeansUtils_H_
 #define _OrgApacheHarmonyBeansBeansUtils_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @interface OrgApacheHarmonyBeansBeansUtils : NSObject
 

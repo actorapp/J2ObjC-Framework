@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalVerificationNoMoreInteractions_H_
 #define _OrgMockitoInternalVerificationNoMoreInteractions_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/verification/api/VerificationInOrderMode.h>
-#include <j2objc/org/mockito/verification/VerificationMode.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/verification/api/VerificationInOrderMode.h"
+#include "../../../../org/mockito/verification/VerificationMode.h"
 
 @protocol OrgMockitoInternalVerificationApiVerificationData;
 @protocol OrgMockitoInternalVerificationApiVerificationDataInOrder;

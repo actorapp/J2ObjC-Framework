@@ -6,8 +6,8 @@
 #ifndef _JavaSecurityInvalidParameterException_H_
 #define _JavaSecurityInvalidParameterException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IllegalArgumentException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/IllegalArgumentException.h"
 
 /*!
  @brief <code>InvalidParameterException</code> indicates exceptional conditions, caused by

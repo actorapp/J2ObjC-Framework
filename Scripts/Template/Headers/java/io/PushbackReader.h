@@ -6,8 +6,8 @@
 #ifndef _JavaIoPushbackReader_H_
 #define _JavaIoPushbackReader_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/FilterReader.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/FilterReader.h"
 
 @class IOSCharArray;
 @class JavaIoReader;

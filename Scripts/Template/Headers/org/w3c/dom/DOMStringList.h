@@ -6,7 +6,7 @@
 #ifndef _OrgW3cDomDOMStringList_H_
 #define _OrgW3cDomDOMStringList_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief The <code>DOMStringList</code> interface provides the abstraction of an

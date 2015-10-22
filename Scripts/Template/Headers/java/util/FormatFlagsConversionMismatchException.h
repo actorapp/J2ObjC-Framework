@@ -6,9 +6,9 @@
 #ifndef _JavaUtilFormatFlagsConversionMismatchException_H_
 #define _JavaUtilFormatFlagsConversionMismatchException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/IllegalFormatException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief A <code>FormatFlagsConversionMismatchException</code> will be thrown if a

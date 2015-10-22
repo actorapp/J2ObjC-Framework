@@ -6,7 +6,7 @@
 #ifndef _OrgW3cDomTraversalNodeIterator_H_
 #define _OrgW3cDomTraversalNodeIterator_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @protocol OrgW3cDomNode;
 @protocol OrgW3cDomTraversalNodeFilter;

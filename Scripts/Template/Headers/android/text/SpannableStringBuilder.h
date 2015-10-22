@@ -6,12 +6,12 @@
 #ifndef _AndroidTextSpannableStringBuilder_H_
 #define _AndroidTextSpannableStringBuilder_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/android/text/Editable.h>
-#include <j2objc/android/text/GetChars.h>
-#include <j2objc/android/text/Spannable.h>
-#include <j2objc/java/lang/Appendable.h>
-#include <j2objc/java/lang/CharSequence.h>
+#include "../../J2ObjC_header.h"
+#include "../../android/text/Editable.h"
+#include "../../android/text/GetChars.h"
+#include "../../android/text/Spannable.h"
+#include "../../java/lang/Appendable.h"
+#include "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
 @class IOSClass;

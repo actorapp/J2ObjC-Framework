@@ -6,7 +6,7 @@
 #ifndef _OrgW3cDomNameList_H_
 #define _OrgW3cDomNameList_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief The <code>NameList</code> interface provides the abstraction of an ordered

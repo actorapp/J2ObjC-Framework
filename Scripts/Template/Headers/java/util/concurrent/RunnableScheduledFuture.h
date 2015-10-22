@@ -6,9 +6,9 @@
 #ifndef _JavaUtilConcurrentRunnableScheduledFuture_H_
 #define _JavaUtilConcurrentRunnableScheduledFuture_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/concurrent/RunnableFuture.h>
-#include <j2objc/java/util/concurrent/ScheduledFuture.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/concurrent/RunnableFuture.h"
+#include "../../../java/util/concurrent/ScheduledFuture.h"
 
 /*!
  @brief A <code>ScheduledFuture</code> that is <code>Runnable</code>.

@@ -6,8 +6,8 @@
 #ifndef _JavaIoFileInputStream_H_
 #define _JavaIoFileInputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/InputStream.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
 @class JavaIoFile;

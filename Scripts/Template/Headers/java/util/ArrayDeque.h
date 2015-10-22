@@ -6,10 +6,10 @@
 #ifndef _JavaUtilArrayDeque_H_
 #define _JavaUtilArrayDeque_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/AbstractCollection.h>
-#include <j2objc/java/util/Deque.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/util/AbstractCollection.h"
+#include "../../java/util/Deque.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;

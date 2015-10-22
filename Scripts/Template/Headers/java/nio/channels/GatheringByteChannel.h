@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsGatheringByteChannel_H_
 #define _JavaNioChannelsGatheringByteChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/WritableByteChannel.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/channels/WritableByteChannel.h"
 
 @class IOSObjectArray;
 

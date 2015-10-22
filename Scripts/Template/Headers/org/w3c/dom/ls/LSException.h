@@ -6,8 +6,8 @@
 #ifndef _OrgW3cDomLsLSException_H_
 #define _OrgW3cDomLsLSException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/lang/RuntimeException.h"
 
 #define OrgW3cDomLsLSException_PARSE_ERR 81
 #define OrgW3cDomLsLSException_SERIALIZE_ERR 82

@@ -6,10 +6,10 @@
 #ifndef _OrgApacheHarmonyXmlDomElementImpl_H_
 #define _OrgApacheHarmonyXmlDomElementImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/xml/dom/InnerNodeImpl.h>
-#include <j2objc/org/w3c/dom/Element.h>
-#include <j2objc/org/w3c/dom/NamedNodeMap.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/xml/dom/InnerNodeImpl.h"
+#include "../../../../../org/w3c/dom/Element.h"
+#include "../../../../../org/w3c/dom/NamedNodeMap.h"
 
 @class OrgApacheHarmonyXmlDomAttrImpl;
 @class OrgApacheHarmonyXmlDomDocumentImpl;

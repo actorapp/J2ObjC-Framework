@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalCreationIosInvocationHandlerAdapter_H_
 #define _OrgMockitoInternalCreationIosInvocationHandlerAdapter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/reflect/InvocationHandler.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../java/lang/reflect/InvocationHandler.h"
 
 @class IOSObjectArray;
 @class JavaLangReflectMethod;

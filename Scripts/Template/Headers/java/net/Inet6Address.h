@@ -6,8 +6,8 @@
 #ifndef _JavaNetInet6Address_H_
 #define _JavaNetInet6Address_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/InetAddress.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/InetAddress.h"
 
 @class IOSByteArray;
 @class JavaNetNetworkInterface;

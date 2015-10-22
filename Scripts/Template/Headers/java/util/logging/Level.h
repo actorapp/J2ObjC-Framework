@@ -6,8 +6,8 @@
 #ifndef _JavaUtilLoggingLevel_H_
 #define _JavaUtilLoggingLevel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
 
 /*!
  @brief <code>Level</code> objects are used to indicate the level of logging.

@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalExceptionsStacktraceDefaultStackTraceCleaner_H_
 #define _OrgMockitoInternalExceptionsStacktraceDefaultStackTraceCleaner_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/exceptions/stacktrace/StackTraceCleaner.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/mockito/exceptions/stacktrace/StackTraceCleaner.h"
 
 @class JavaLangStackTraceElement;
 

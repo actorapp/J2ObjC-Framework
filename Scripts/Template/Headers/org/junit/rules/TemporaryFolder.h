@@ -6,8 +6,8 @@
 #ifndef _OrgJunitRulesTemporaryFolder_H_
 #define _OrgJunitRulesTemporaryFolder_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/rules/ExternalResource.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/rules/ExternalResource.h"
 
 @class IOSObjectArray;
 @class JavaIoFile;

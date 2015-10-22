@@ -6,10 +6,10 @@
 #ifndef _JavaUtilJarJarFile_H_
 #define _JavaUtilJarJarFile_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/FilterInputStream.h>
-#include <j2objc/java/util/Enumeration.h>
-#include <j2objc/java/util/zip/ZipFile.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/FilterInputStream.h"
+#include "../../../java/util/Enumeration.h"
+#include "../../../java/util/zip/ZipFile.h"
 
 @class IOSByteArray;
 @class JavaIoFile;

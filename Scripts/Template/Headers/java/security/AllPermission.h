@@ -6,8 +6,8 @@
 #ifndef _JavaSecurityAllPermission_H_
 #define _JavaSecurityAllPermission_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/Permission.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/security/Permission.h"
 
 /*!
  @brief Legacy security code; do not use.

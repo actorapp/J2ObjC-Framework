@@ -6,8 +6,8 @@
 #ifndef _OrgJunitInternalRunnersStatementsFailOnTimeout_H_
 #define _OrgJunitInternalRunnersStatementsFailOnTimeout_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runners/model/Statement.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/junit/runners/model/Statement.h"
 
 @interface OrgJunitInternalRunnersStatementsFailOnTimeout : OrgJunitRunnersModelStatement
 

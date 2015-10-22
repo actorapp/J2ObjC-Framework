@@ -6,7 +6,7 @@
 #ifndef _JavaSqlTypes_H_
 #define _JavaSqlTypes_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define JavaSqlTypes_ARRAY 2003
 #define JavaSqlTypes_BIGINT -5

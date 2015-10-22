@@ -6,8 +6,8 @@
 #ifndef _OrgJunitInternalTextListener_H_
 #define _OrgJunitInternalTextListener_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runner/notification/RunListener.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/runner/notification/RunListener.h"
 
 @class JavaIoPrintStream;
 @class OrgJunitRunnerDescription;

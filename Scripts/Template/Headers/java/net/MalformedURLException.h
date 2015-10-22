@@ -6,8 +6,8 @@
 #ifndef _JavaNetMalformedURLException_H_
 #define _JavaNetMalformedURLException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/IOException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/IOException.h"
 
 @class JavaLangThrowable;
 

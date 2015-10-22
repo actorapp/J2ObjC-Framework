@@ -6,8 +6,8 @@
 #ifndef _JavaLangExceptionInInitializerError_H_
 #define _JavaLangExceptionInInitializerError_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/LinkageError.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/LinkageError.h"
 
 @class JavaLangThrowable;
 

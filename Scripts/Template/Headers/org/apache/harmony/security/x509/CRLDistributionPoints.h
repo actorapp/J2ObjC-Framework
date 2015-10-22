@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonySecurityX509CRLDistributionPoints_H_
 #define _OrgApacheHarmonySecurityX509CRLDistributionPoints_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/security/x509/ExtensionValue.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/security/x509/ExtensionValue.h"
 
 @class IOSByteArray;
 @class JavaLangStringBuilder;

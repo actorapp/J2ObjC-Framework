@@ -6,8 +6,8 @@
 #ifndef _JavaUtilCollection_H_
 #define _JavaUtilCollection_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Iterable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Iterable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilIterator;

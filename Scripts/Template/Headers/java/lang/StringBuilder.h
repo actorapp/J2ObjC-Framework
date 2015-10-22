@@ -6,11 +6,11 @@
 #ifndef _JavaLangStringBuilder_H_
 #define _JavaLangStringBuilder_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/lang/AbstractStringBuilder.h>
-#include <j2objc/java/lang/Appendable.h>
-#include <j2objc/java/lang/CharSequence.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/lang/AbstractStringBuilder.h"
+#include "../../java/lang/Appendable.h"
+#include "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
 @class JavaLangStringBuffer;

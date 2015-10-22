@@ -6,10 +6,10 @@
 #ifndef _JavaUtilConcurrentConcurrentLinkedQueue_H_
 #define _JavaUtilConcurrentConcurrentLinkedQueue_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/AbstractQueue.h>
-#include <j2objc/java/util/Queue.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
+#include "../../../java/util/AbstractQueue.h"
+#include "../../../java/util/Queue.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentConcurrentLinkedQueue_Node;

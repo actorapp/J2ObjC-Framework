@@ -6,8 +6,8 @@
 #ifndef _OrgKxml2IoKXmlSerializer_H_
 #define _OrgKxml2IoKXmlSerializer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xmlpull/v1/XmlSerializer.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/xmlpull/v1/XmlSerializer.h"
 
 @class IOSCharArray;
 @class JavaIoOutputStream;

@@ -6,15 +6,15 @@
 #ifndef _JavaUtilCollections_H_
 #define _JavaUtilCollections_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/Collection.h>
-#include <j2objc/java/util/List.h>
-#include <j2objc/java/util/Map.h>
-#include <j2objc/java/util/RandomAccess.h>
-#include <j2objc/java/util/Set.h>
-#include <j2objc/java/util/SortedMap.h>
-#include <j2objc/java/util/SortedSet.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/util/Collection.h"
+#include "../../java/util/List.h"
+#include "../../java/util/Map.h"
+#include "../../java/util/RandomAccess.h"
+#include "../../java/util/Set.h"
+#include "../../java/util/SortedMap.h"
+#include "../../java/util/SortedSet.h"
 
 @class IOSClass;
 @class IOSObjectArray;

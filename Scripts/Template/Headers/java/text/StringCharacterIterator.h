@@ -6,8 +6,8 @@
 #ifndef _JavaTextStringCharacterIterator_H_
 #define _JavaTextStringCharacterIterator_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/text/CharacterIterator.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/text/CharacterIterator.h"
 
 /*!
  @brief An implementation of <code>CharacterIterator</code> for strings.

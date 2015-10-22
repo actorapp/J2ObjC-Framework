@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoMockito_H_
 #define _OrgMockitoMockito_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/Matchers.h>
+#include "../../J2ObjC_header.h"
+#include "../../org/mockito/Matchers.h"
 
 @class IOSClass;
 @class IOSObjectArray;

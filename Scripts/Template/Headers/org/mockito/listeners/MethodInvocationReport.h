@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoListenersMethodInvocationReport_H_
 #define _OrgMockitoListenersMethodInvocationReport_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaLangThrowable;
 @protocol OrgMockitoInvocationDescribedInvocation;

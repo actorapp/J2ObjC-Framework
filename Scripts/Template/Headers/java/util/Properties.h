@@ -6,8 +6,8 @@
 #ifndef _JavaUtilProperties_H_
 #define _JavaUtilProperties_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Hashtable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Hashtable.h"
 
 @class JavaIoInputStream;
 @class JavaIoOutputStream;

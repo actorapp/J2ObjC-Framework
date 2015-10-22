@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoInternalCreationClassNameFinder_H_
 #define _OrgMockitoInternalCreationClassNameFinder_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @interface OrgMockitoInternalCreationClassNameFinder : NSObject
 

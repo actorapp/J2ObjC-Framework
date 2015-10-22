@@ -6,9 +6,9 @@
 #ifndef _OrgApacheHarmonyXmlDomEntityImpl_H_
 #define _OrgApacheHarmonyXmlDomEntityImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/xml/dom/NodeImpl.h>
-#include <j2objc/org/w3c/dom/Entity.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/xml/dom/NodeImpl.h"
+#include "../../../../../org/w3c/dom/Entity.h"
 
 @class OrgApacheHarmonyXmlDomDocumentImpl;
 

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilConcurrentBlockingQueue_H_
 #define _JavaUtilConcurrentBlockingQueue_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Queue.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/Queue.h"
 
 @class JavaUtilConcurrentTimeUnitEnum;
 @protocol JavaUtilCollection;

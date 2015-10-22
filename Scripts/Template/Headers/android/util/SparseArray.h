@@ -6,7 +6,7 @@
 #ifndef _AndroidUtilSparseArray_H_
 #define _AndroidUtilSparseArray_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief SparseArrays map integers to Objects.

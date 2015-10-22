@@ -6,8 +6,8 @@
 #ifndef _JavaNetDefaultFileNameMap_H_
 #define _JavaNetDefaultFileNameMap_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/FileNameMap.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/FileNameMap.h"
 
 /*!
  @brief Implements <code>FileNameMap</code> in terms of <code>libcore.net.MimeUtils</code>.

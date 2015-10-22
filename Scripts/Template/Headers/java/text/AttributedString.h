@@ -6,8 +6,8 @@
 #ifndef _JavaTextAttributedString_H_
 #define _JavaTextAttributedString_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/text/AttributedCharacterIterator.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/text/AttributedCharacterIterator.h"
 
 @class IOSObjectArray;
 @class JavaTextAttributedCharacterIterator_Attribute;

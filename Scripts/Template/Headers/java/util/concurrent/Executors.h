@@ -6,11 +6,11 @@
 #ifndef _JavaUtilConcurrentExecutors_H_
 #define _JavaUtilConcurrentExecutors_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/concurrent/AbstractExecutorService.h>
-#include <j2objc/java/util/concurrent/Callable.h>
-#include <j2objc/java/util/concurrent/ScheduledExecutorService.h>
-#include <j2objc/java/util/concurrent/ThreadFactory.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/concurrent/AbstractExecutorService.h"
+#include "../../../java/util/concurrent/Callable.h"
+#include "../../../java/util/concurrent/ScheduledExecutorService.h"
+#include "../../../java/util/concurrent/ThreadFactory.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentTimeUnitEnum;

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilConcurrentThreadLocalRandom_H_
 #define _JavaUtilConcurrentThreadLocalRandom_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Random.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/Random.h"
 
 /*!
  @brief A random number generator isolated to the current thread.

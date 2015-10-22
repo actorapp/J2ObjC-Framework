@@ -6,10 +6,10 @@
 #ifndef _OrgKxml2IoKXmlParser_H_
 #define _OrgKxml2IoKXmlParser_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
-#include <j2objc/java/lang/Enum.h>
-#include <j2objc/org/xmlpull/v1/XmlPullParser.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Closeable.h"
+#include "../../../java/lang/Enum.h"
+#include "../../../org/xmlpull/v1/XmlPullParser.h"
 
 @class IOSCharArray;
 @class IOSIntArray;

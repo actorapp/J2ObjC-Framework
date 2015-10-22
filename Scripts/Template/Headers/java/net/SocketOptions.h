@@ -6,7 +6,7 @@
 #ifndef _JavaNetSocketOptions_H_
 #define _JavaNetSocketOptions_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define JavaNetSocketOptions_SO_LINGER 128
 #define JavaNetSocketOptions_SO_TIMEOUT 4102

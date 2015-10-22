@@ -6,8 +6,8 @@
 #ifndef _JavaLangNoClassDefFoundError_H_
 #define _JavaLangNoClassDefFoundError_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/LinkageError.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/LinkageError.h"
 
 /*!
  @brief Thrown when the VM is unable to locate a class which it has been

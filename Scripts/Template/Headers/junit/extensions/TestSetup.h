@@ -6,8 +6,8 @@
 #ifndef _JunitExtensionsTestSetup_H_
 #define _JunitExtensionsTestSetup_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/junit/extensions/TestDecorator.h>
+#include "../../J2ObjC_header.h"
+#include "../../junit/extensions/TestDecorator.h"
 
 @class JunitFrameworkTestResult;
 @protocol JunitFrameworkTest;

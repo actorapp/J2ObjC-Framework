@@ -6,9 +6,9 @@
 #ifndef _OrgApacheHarmonyXmlDomTextImpl_H_
 #define _OrgApacheHarmonyXmlDomTextImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/xml/dom/CharacterDataImpl.h>
-#include <j2objc/org/w3c/dom/Text.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/xml/dom/CharacterDataImpl.h"
+#include "../../../../../org/w3c/dom/Text.h"
 
 @class OrgApacheHarmonyXmlDomDocumentImpl;
 

@@ -6,8 +6,8 @@
 #ifndef _OrgJunitExperimentalParallelComputer_H_
 #define _OrgJunitExperimentalParallelComputer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runner/Computer.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/runner/Computer.h"
 
 @class IOSClass;
 @class IOSObjectArray;

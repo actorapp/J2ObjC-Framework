@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalHandlerMockHandlerImpl_H_
 #define _OrgMockitoInternalHandlerMockHandlerImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/InternalMockHandler.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/InternalMockHandler.h"
 
 @class OrgMockitoInternalInvocationMatchersBinder;
 @class OrgMockitoInternalStubbingInvocationContainerImpl;

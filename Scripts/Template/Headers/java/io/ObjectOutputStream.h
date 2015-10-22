@@ -6,10 +6,10 @@
 #ifndef _JavaIoObjectOutputStream_H_
 #define _JavaIoObjectOutputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/ObjectOutput.h>
-#include <j2objc/java/io/ObjectStreamConstants.h>
-#include <j2objc/java/io/OutputStream.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/ObjectOutput.h"
+#include "../../java/io/ObjectStreamConstants.h"
+#include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
 @class IOSClass;

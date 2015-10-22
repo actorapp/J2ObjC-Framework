@@ -6,10 +6,10 @@
 #ifndef _JavaNioChannelsNetworkChannel_H_
 #define _JavaNioChannelsNetworkChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
-#include <j2objc/java/lang/AutoCloseable.h>
-#include <j2objc/java/nio/channels/Channel.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Closeable.h"
+#include "../../../java/lang/AutoCloseable.h"
+#include "../../../java/nio/channels/Channel.h"
 
 @class JavaNetSocketAddress;
 @protocol JavaNetSocketOption;

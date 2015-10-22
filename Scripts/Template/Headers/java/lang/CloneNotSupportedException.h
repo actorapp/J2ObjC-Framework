@@ -6,8 +6,8 @@
 #ifndef _JavaLangCloneNotSupportedException_H_
 #define _JavaLangCloneNotSupportedException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Exception.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Exception.h"
 
 /*!
  @brief Thrown when a program attempts to clone an object which does not support the

@@ -6,8 +6,8 @@
 #ifndef _JavaxSecurityCertCertificateEncodingException_H_
 #define _JavaxSecurityCertCertificateEncodingException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/security/cert/CertificateException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../javax/security/cert/CertificateException.h"
 
 /*!
  @brief The exception that is thrown when an error occurs while a <code>Certificate</code>

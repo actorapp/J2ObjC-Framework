@@ -6,7 +6,7 @@
 #ifndef _JavaSecurityAlgorithmParameterGeneratorSpi_H_
 #define _JavaSecurityAlgorithmParameterGeneratorSpi_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class JavaSecurityAlgorithmParameters;
 @class JavaSecuritySecureRandom;

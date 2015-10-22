@@ -6,8 +6,8 @@
 #ifndef _JavaLangIndexOutOfBoundsException_H_
 #define _JavaLangIndexOutOfBoundsException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/RuntimeException.h"
 
 /*!
  @brief Thrown when a program attempts to access a value in an indexable collection

@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalListenersNotifiedMethodInvocationReport_H_
 #define _OrgMockitoInternalListenersNotifiedMethodInvocationReport_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/listeners/MethodInvocationReport.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/listeners/MethodInvocationReport.h"
 
 @class JavaLangThrowable;
 @protocol OrgMockitoInvocationDescribedInvocation;

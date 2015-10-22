@@ -6,7 +6,7 @@
 #ifndef _JavaSecurityKeyFactory_H_
 #define _JavaSecurityKeyFactory_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class IOSClass;
 @class JavaSecurityKeyFactorySpi;

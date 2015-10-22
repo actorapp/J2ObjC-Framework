@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonyXmlParsersDocumentBuilderFactoryImpl_H_
 #define _OrgApacheHarmonyXmlParsersDocumentBuilderFactoryImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/xml/parsers/DocumentBuilderFactory.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../javax/xml/parsers/DocumentBuilderFactory.h"
 
 @class JavaxXmlParsersDocumentBuilder;
 

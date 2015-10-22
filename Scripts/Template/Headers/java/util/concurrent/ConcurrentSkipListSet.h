@@ -6,10 +6,10 @@
 #ifndef _JavaUtilConcurrentConcurrentSkipListSet_H_
 #define _JavaUtilConcurrentConcurrentSkipListSet_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/AbstractSet.h>
-#include <j2objc/java/util/NavigableSet.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
+#include "../../../java/util/AbstractSet.h"
+#include "../../../java/util/NavigableSet.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;

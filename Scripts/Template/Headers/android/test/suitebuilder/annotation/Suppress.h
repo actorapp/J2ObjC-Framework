@@ -6,8 +6,8 @@
 #ifndef _AndroidTestSuitebuilderAnnotationSuppress_H_
 #define _AndroidTestSuitebuilderAnnotationSuppress_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/annotation/Annotation.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/lang/annotation/Annotation.h"
 
 /*!
  @brief Use this annotation on test classes or test methods that should not be included in a test

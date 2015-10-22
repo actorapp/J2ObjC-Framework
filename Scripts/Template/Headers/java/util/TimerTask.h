@@ -6,8 +6,8 @@
 #ifndef _JavaUtilTimerTask_H_
 #define _JavaUtilTimerTask_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Runnable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Runnable.h"
 
 /*!
  @brief The <code>TimerTask</code> class represents a task to run at a specified time.

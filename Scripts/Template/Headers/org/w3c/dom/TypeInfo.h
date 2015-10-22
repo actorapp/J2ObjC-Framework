@@ -6,7 +6,7 @@
 #ifndef _OrgW3cDomTypeInfo_H_
 #define _OrgW3cDomTypeInfo_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 #define OrgW3cDomTypeInfo_DERIVATION_RESTRICTION 1
 #define OrgW3cDomTypeInfo_DERIVATION_EXTENSION 2

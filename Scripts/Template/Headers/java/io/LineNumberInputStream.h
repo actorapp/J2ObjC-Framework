@@ -6,8 +6,8 @@
 #ifndef _JavaIoLineNumberInputStream_H_
 #define _JavaIoLineNumberInputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/FilterInputStream.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;

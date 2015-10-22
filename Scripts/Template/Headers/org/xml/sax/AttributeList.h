@@ -6,7 +6,7 @@
 #ifndef _OrgXmlSaxAttributeList_H_
 #define _OrgXmlSaxAttributeList_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief Interface for an element's attribute specifications.

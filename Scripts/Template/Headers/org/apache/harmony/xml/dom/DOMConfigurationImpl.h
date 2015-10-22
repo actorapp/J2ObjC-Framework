@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonyXmlDomDOMConfigurationImpl_H_
 #define _OrgApacheHarmonyXmlDomDOMConfigurationImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/w3c/dom/DOMConfiguration.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/w3c/dom/DOMConfiguration.h"
 
 @protocol OrgW3cDomDOMStringList;
 @protocol OrgW3cDomNode;

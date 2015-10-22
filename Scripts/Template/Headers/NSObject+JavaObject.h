@@ -24,8 +24,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import <j2objc/J2ObjC_common.h>
-#import <j2objc/JavaObject.h>
+#import "J2ObjC_common.h"
+#import "JavaObject.h"
 
 @class IOSClass;
 

@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoInternalProgressIOngoingStubbing_H_
 #define _OrgMockitoInternalProgressIOngoingStubbing_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @protocol OrgMockitoInternalProgressIOngoingStubbing < NSObject, JavaObject >
 

@@ -6,8 +6,8 @@
 #ifndef _LibcoreIcuTimeZones_H_
 #define _LibcoreIcuTimeZones_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/libcore/util/BasicLruCache.h>
+#include "../../J2ObjC_header.h"
+#include "../../libcore/util/BasicLruCache.h"
 
 @class IOSObjectArray;
 @class JavaUtilLocale;

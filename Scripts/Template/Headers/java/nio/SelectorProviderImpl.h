@@ -6,8 +6,8 @@
 #ifndef _JavaNioSelectorProviderImpl_H_
 #define _JavaNioSelectorProviderImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/spi/SelectorProvider.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/channels/spi/SelectorProvider.h"
 
 @class JavaNioChannelsDatagramChannel;
 @class JavaNioChannelsPipe;

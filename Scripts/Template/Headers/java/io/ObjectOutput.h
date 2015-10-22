@@ -6,9 +6,9 @@
 #ifndef _JavaIoObjectOutput_H_
 #define _JavaIoObjectOutput_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/DataOutput.h>
-#include <j2objc/java/lang/AutoCloseable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/DataOutput.h"
+#include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
 

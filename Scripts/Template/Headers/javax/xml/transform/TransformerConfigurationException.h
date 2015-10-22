@@ -6,8 +6,8 @@
 #ifndef _JavaxXmlTransformTransformerConfigurationException_H_
 #define _JavaxXmlTransformTransformerConfigurationException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/xml/transform/TransformerException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../javax/xml/transform/TransformerException.h"
 
 @class JavaLangThrowable;
 @protocol JavaxXmlTransformSourceLocator;

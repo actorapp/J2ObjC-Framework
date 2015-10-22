@@ -6,7 +6,7 @@
 #ifndef _JavaUtilConcurrentThreadFactory_H_
 #define _JavaUtilConcurrentThreadFactory_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaLangThread;
 @protocol JavaLangRunnable;

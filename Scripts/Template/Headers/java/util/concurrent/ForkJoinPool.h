@@ -6,9 +6,9 @@
 #ifndef _JavaUtilConcurrentForkJoinPool_H_
 #define _JavaUtilConcurrentForkJoinPool_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/concurrent/AbstractExecutorService.h>
-#include <j2objc/java/util/concurrent/ForkJoinTask.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/concurrent/AbstractExecutorService.h"
+#include "../../../java/util/concurrent/ForkJoinTask.h"
 
 @class IOSObjectArray;
 @class JavaLangThread;

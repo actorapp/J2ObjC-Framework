@@ -6,7 +6,7 @@
 #ifndef _JunitRunnerTestRunListener_H_
 #define _JunitRunnerTestRunListener_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define JunitRunnerTestRunListener_STATUS_ERROR 1
 #define JunitRunnerTestRunListener_STATUS_FAILURE 2

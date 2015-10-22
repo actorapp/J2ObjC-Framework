@@ -6,7 +6,7 @@
 #ifndef _JavaNioChannelsChannels_H_
 #define _JavaNioChannelsChannels_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaIoInputStream;
 @class JavaIoOutputStream;

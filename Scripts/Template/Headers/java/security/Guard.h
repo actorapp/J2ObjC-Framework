@@ -6,7 +6,7 @@
 #ifndef _JavaSecurityGuard_H_
 #define _JavaSecurityGuard_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief <code>Guard</code> implementors protect access to other objects.

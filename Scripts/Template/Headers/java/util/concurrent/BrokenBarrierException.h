@@ -6,8 +6,8 @@
 #ifndef _JavaUtilConcurrentBrokenBarrierException_H_
 #define _JavaUtilConcurrentBrokenBarrierException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Exception.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/Exception.h"
 
 /*!
  @brief Exception thrown when a thread tries to wait upon a barrier that is

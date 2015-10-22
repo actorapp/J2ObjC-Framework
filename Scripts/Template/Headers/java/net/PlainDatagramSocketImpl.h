@@ -6,8 +6,8 @@
 #ifndef _JavaNetPlainDatagramSocketImpl_H_
 #define _JavaNetPlainDatagramSocketImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/DatagramSocketImpl.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/DatagramSocketImpl.h"
 
 @class JavaIoFileDescriptor;
 @class JavaNetDatagramPacket;

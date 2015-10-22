@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalConfigurationGlobalConfiguration_H_
 #define _OrgMockitoInternalConfigurationGlobalConfiguration_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/mockito/configuration/IMockitoConfiguration.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../org/mockito/configuration/IMockitoConfiguration.h"
 
 @protocol OrgMockitoConfigurationAnnotationEngine;
 @protocol OrgMockitoReturnValues;

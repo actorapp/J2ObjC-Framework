@@ -6,8 +6,8 @@
 #ifndef _JavaSqlDatabaseMetaData_H_
 #define _JavaSqlDatabaseMetaData_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/sql/Wrapper.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/sql/Wrapper.h"
 
 @class IOSIntArray;
 @class IOSObjectArray;

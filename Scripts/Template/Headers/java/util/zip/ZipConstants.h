@@ -6,7 +6,7 @@
 #ifndef _JavaUtilZipZipConstants_H_
 #define _JavaUtilZipZipConstants_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 #define JavaUtilZipZipConstants_LOCSIG 67324752LL
 #define JavaUtilZipZipConstants_EXTSIG 134695760LL

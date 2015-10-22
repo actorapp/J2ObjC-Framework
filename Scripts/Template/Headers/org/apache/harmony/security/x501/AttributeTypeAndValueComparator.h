@@ -6,9 +6,9 @@
 #ifndef _OrgApacheHarmonySecurityX501AttributeTypeAndValueComparator_H_
 #define _OrgApacheHarmonySecurityX501AttributeTypeAndValueComparator_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/Comparator.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../java/io/Serializable.h"
+#include "../../../../../java/util/Comparator.h"
 
 @class OrgApacheHarmonySecurityX501AttributeTypeAndValue;
 

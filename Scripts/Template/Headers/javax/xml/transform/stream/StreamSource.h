@@ -6,8 +6,8 @@
 #ifndef _JavaxXmlTransformStreamStreamSource_H_
 #define _JavaxXmlTransformStreamStreamSource_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/xml/transform/Source.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../javax/xml/transform/Source.h"
 
 @class JavaIoFile;
 @class JavaIoInputStream;

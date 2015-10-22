@@ -6,8 +6,8 @@
 #ifndef _JavaSecurityAccessControlException_H_
 #define _JavaSecurityAccessControlException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/SecurityException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/SecurityException.h"
 
 @class JavaSecurityPermission;
 

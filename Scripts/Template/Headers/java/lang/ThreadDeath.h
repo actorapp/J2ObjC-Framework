@@ -6,8 +6,8 @@
 #ifndef _JavaLangThreadDeath_H_
 #define _JavaLangThreadDeath_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Error.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Error.h"
 
 /*!
  @brief ThreadDeath is thrown when a thread stops executing.

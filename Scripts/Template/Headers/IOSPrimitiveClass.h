@@ -22,7 +22,7 @@
 #ifndef _IOSPrimitiveClass_H_
 #define _IOSPrimitiveClass_H_
 
-#import <j2objc/IOSClass.h>
+#import "IOSClass.h"
 
 // An IOSClass instance for primitive Java types, which allow primitives to
 // be used with Java reflection routines.  This class is minimal because Java

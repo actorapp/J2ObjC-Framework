@@ -6,10 +6,10 @@
 #ifndef _JavaIoRandomAccessFile_H_
 #define _JavaIoRandomAccessFile_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
-#include <j2objc/java/io/DataInput.h>
-#include <j2objc/java/io/DataOutput.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Closeable.h"
+#include "../../java/io/DataInput.h"
+#include "../../java/io/DataOutput.h"
 
 @class IOSByteArray;
 @class JavaIoFile;

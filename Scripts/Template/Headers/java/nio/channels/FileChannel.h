@@ -6,12 +6,12 @@
 #ifndef _JavaNioChannelsFileChannel_H_
 #define _JavaNioChannelsFileChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/ByteChannel.h>
-#include <j2objc/java/nio/channels/GatheringByteChannel.h>
-#include <j2objc/java/nio/channels/ScatteringByteChannel.h>
-#include <j2objc/java/nio/channels/SeekableByteChannel.h>
-#include <j2objc/java/nio/channels/spi/AbstractInterruptibleChannel.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/channels/ByteChannel.h"
+#include "../../../java/nio/channels/GatheringByteChannel.h"
+#include "../../../java/nio/channels/ScatteringByteChannel.h"
+#include "../../../java/nio/channels/SeekableByteChannel.h"
+#include "../../../java/nio/channels/spi/AbstractInterruptibleChannel.h"
 
 @class IOSObjectArray;
 @class JavaNioByteBuffer;

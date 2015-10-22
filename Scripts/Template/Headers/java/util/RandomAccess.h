@@ -6,7 +6,7 @@
 #ifndef _JavaUtilRandomAccess_H_
 #define _JavaUtilRandomAccess_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief RandomAccess is implemented by <code>List</code> implementations that support fast

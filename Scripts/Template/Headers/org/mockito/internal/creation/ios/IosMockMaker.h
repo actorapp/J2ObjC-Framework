@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalCreationIosIosMockMaker_H_
 #define _OrgMockitoInternalCreationIosIosMockMaker_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/plugins/MockMaker.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/mockito/plugins/MockMaker.h"
 
 @class IOSClass;
 @class IOSObjectArray;

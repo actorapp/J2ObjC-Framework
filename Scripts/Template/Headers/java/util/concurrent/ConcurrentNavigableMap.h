@@ -6,9 +6,9 @@
 #ifndef _JavaUtilConcurrentConcurrentNavigableMap_H_
 #define _JavaUtilConcurrentConcurrentNavigableMap_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/NavigableMap.h>
-#include <j2objc/java/util/concurrent/ConcurrentMap.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/NavigableMap.h"
+#include "../../../java/util/concurrent/ConcurrentMap.h"
 
 @protocol JavaUtilNavigableSet;
 

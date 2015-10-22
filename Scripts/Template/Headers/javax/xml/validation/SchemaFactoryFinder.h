@@ -6,7 +6,7 @@
 #ifndef _JavaxXmlValidationSchemaFactoryFinder_H_
 #define _JavaxXmlValidationSchemaFactoryFinder_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaLangClassLoader;
 @class JavaxXmlValidationSchemaFactory;

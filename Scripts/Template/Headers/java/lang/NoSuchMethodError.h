@@ -6,8 +6,8 @@
 #ifndef _JavaLangNoSuchMethodError_H_
 #define _JavaLangNoSuchMethodError_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IncompatibleClassChangeError.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/IncompatibleClassChangeError.h"
 
 /*!
  @brief Thrown when the VM notices that a program tries to reference,

@@ -6,8 +6,8 @@
 #ifndef _LibcoreNetUrlFileURLConnection_H_
 #define _LibcoreNetUrlFileURLConnection_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/URLConnection.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/net/URLConnection.h"
 
 @class JavaIoInputStream;
 @class JavaNetURL;

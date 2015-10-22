@@ -6,8 +6,8 @@
 #ifndef _JavaSqlSQLSyntaxErrorException_H_
 #define _JavaSqlSQLSyntaxErrorException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/sql/SQLNonTransientException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/sql/SQLNonTransientException.h"
 
 @class JavaLangThrowable;
 

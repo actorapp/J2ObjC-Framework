@@ -6,8 +6,8 @@
 #ifndef _JavaNetSecureCacheResponse_H_
 #define _JavaNetSecureCacheResponse_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/CacheResponse.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/CacheResponse.h"
 
 @protocol JavaSecurityPrincipal;
 @protocol JavaUtilList;

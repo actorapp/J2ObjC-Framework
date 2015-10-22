@@ -3,7 +3,7 @@
 //  source: /Users/tball/tmp/j2objc/guava/sources/com/google/thirdparty/publicsuffix/PublicSuffixType.java
 //
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("ComGoogleThirdpartyPublicsuffixPublicSuffixType_INCLUDE_ALL")
 #if ComGoogleThirdpartyPublicsuffixPublicSuffixType_RESTRICT
@@ -18,7 +18,7 @@
 
 #define JavaLangEnum_RESTRICT 1
 #define JavaLangEnum_INCLUDE 1
-#include <j2objc/java/lang/Enum.h>
+#include "../../../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, ComGoogleThirdpartyPublicsuffixPublicSuffixType) {
   ComGoogleThirdpartyPublicsuffixPublicSuffixType_PRIVATE = 0,

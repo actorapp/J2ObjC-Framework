@@ -6,9 +6,9 @@
 #ifndef _JavaUtilScanner_H_
 #define _JavaUtilScanner_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
-#include <j2objc/java/util/Iterator.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Closeable.h"
+#include "../../java/util/Iterator.h"
 
 @class JavaIoFile;
 @class JavaIoIOException;

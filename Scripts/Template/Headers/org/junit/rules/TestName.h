@@ -6,8 +6,8 @@
 #ifndef _OrgJunitRulesTestName_H_
 #define _OrgJunitRulesTestName_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/rules/TestWatcher.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/rules/TestWatcher.h"
 
 @class OrgJunitRunnerDescription;
 

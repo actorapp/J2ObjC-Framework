@@ -20,7 +20,7 @@
 #ifndef _IOSMappedClass_H_
 #define _IOSMappedClass_H_
 
-#import <j2objc/IOSConcreteClass.h>
+#import "IOSConcreteClass.h"
 
 @interface IOSMappedClass : IOSConcreteClass {
  @private

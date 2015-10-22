@@ -6,8 +6,8 @@
 #ifndef _JavaxXmlTransformDomDOMResult_H_
 #define _JavaxXmlTransformDomDOMResult_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/xml/transform/Result.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../javax/xml/transform/Result.h"
 
 @protocol OrgW3cDomNode;
 

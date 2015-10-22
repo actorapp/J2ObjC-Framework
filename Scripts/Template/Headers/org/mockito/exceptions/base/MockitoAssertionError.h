@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoExceptionsBaseMockitoAssertionError_H_
 #define _OrgMockitoExceptionsBaseMockitoAssertionError_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/AssertionError.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/lang/AssertionError.h"
 
 @class IOSObjectArray;
 

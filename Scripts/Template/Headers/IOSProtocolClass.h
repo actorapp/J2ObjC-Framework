@@ -20,7 +20,7 @@
 #ifndef _IOSProtocolClass_H_
 #define _IOSProtocolClass_H_
 
-#import <j2objc/IOSClass.h>
+#import "IOSClass.h"
 
 @interface IOSProtocolClass : IOSClass
 

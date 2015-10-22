@@ -6,8 +6,8 @@
 #ifndef _OrgJunitExperimentalTheoriesDataPoint_H_
 #define _OrgJunitExperimentalTheoriesDataPoint_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/annotation/Annotation.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/lang/annotation/Annotation.h"
 
 @protocol OrgJunitExperimentalTheoriesDataPoint < JavaLangAnnotationAnnotation >
 

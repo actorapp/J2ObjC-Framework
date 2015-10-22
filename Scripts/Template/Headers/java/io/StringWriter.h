@@ -6,8 +6,8 @@
 #ifndef _JavaIoStringWriter_H_
 #define _JavaIoStringWriter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Writer.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Writer.h"
 
 @class IOSCharArray;
 @class JavaLangStringBuffer;

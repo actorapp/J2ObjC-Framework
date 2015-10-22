@@ -6,9 +6,9 @@
 #ifndef _JavaLangCharacter_H_
 #define _JavaLangCharacter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/lang/Comparable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/lang/Comparable.h"
 
 @class IOSCharArray;
 @class IOSClass;

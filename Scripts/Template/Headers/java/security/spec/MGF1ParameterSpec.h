@@ -6,8 +6,8 @@
 #ifndef _JavaSecuritySpecMGF1ParameterSpec_H_
 #define _JavaSecuritySpecMGF1ParameterSpec_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/spec/AlgorithmParameterSpec.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 /*!
  @brief The parameter specification for the Mask Generation Function (MGF1) in

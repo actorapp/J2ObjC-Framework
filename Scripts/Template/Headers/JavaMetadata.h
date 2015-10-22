@@ -18,8 +18,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <j2objc/IOSObjectArray.h>
-#import <j2objc/IOSReflection.h>
+#import "IOSObjectArray.h"
+#import "IOSReflection.h"
 
 // Internal-use-only value classes that contain the reflection metadata
 // for an IOSClass.

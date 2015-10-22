@@ -6,7 +6,7 @@
 #ifndef _AndroidUtilPrinter_H_
 #define _AndroidUtilPrinter_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Simple interface for printing text, allowing redirection to various

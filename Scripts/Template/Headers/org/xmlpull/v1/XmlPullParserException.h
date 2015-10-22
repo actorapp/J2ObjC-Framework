@@ -6,8 +6,8 @@
 #ifndef _OrgXmlpullV1XmlPullParserException_H_
 #define _OrgXmlpullV1XmlPullParserException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Exception.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
 @protocol OrgXmlpullV1XmlPullParser;

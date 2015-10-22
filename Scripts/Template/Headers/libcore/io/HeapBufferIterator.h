@@ -6,8 +6,8 @@
 #ifndef _LibcoreIoHeapBufferIterator_H_
 #define _LibcoreIoHeapBufferIterator_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/libcore/io/BufferIterator.h>
+#include "../../J2ObjC_header.h"
+#include "../../libcore/io/BufferIterator.h"
 
 @class IOSByteArray;
 @class IOSIntArray;

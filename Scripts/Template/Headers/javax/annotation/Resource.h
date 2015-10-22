@@ -15,9 +15,9 @@
 #ifndef _JavaxAnnotationResource_H_
 #define _JavaxAnnotationResource_H_
 
-#include <j2objc/J2ObjC_common.h>
-#include <j2objc/java/lang/Enum.h>
-#include <j2objc/java/lang/annotation/Annotation.h>
+#include "../../J2ObjC_common.h"
+#include "../../java/lang/Enum.h"
+#include "../../java/lang/annotation/Annotation.h"
 
 @class IOSClass;
 @class JavaxAnnotationResource_AuthenticationTypeEnum;

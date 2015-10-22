@@ -6,8 +6,8 @@
 #ifndef _AndroidTextSpanWatcher_H_
 #define _AndroidTextSpanWatcher_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/android/text/NoCopySpan.h>
+#include "../../J2ObjC_header.h"
+#include "../../android/text/NoCopySpan.h"
 
 @protocol AndroidTextSpannable;
 

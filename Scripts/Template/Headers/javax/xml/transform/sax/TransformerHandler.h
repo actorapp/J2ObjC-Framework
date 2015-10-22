@@ -6,10 +6,10 @@
 #ifndef _JavaxXmlTransformSaxTransformerHandler_H_
 #define _JavaxXmlTransformSaxTransformerHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/ContentHandler.h>
-#include <j2objc/org/xml/sax/DTDHandler.h>
-#include <j2objc/org/xml/sax/ext/LexicalHandler.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/ContentHandler.h"
+#include "../../../../org/xml/sax/DTDHandler.h"
+#include "../../../../org/xml/sax/ext/LexicalHandler.h"
 
 @class JavaxXmlTransformTransformer;
 @protocol JavaxXmlTransformResult;

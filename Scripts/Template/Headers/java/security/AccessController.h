@@ -6,7 +6,7 @@
 #ifndef _JavaSecurityAccessController_H_
 #define _JavaSecurityAccessController_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class JavaSecurityAccessControlContext;
 @class JavaSecurityPermission;

@@ -6,8 +6,8 @@
 #ifndef _OrgXmlSaxXMLFilter_H_
 #define _OrgXmlSaxXMLFilter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/XMLReader.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/xml/sax/XMLReader.h"
 
 /*!
  @brief Interface for an XML filter.

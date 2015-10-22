@@ -6,8 +6,8 @@
 #ifndef _JavaUtilConcurrentScheduledExecutorService_H_
 #define _JavaUtilConcurrentScheduledExecutorService_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/concurrent/ExecutorService.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/concurrent/ExecutorService.h"
 
 @class JavaUtilConcurrentTimeUnitEnum;
 @protocol JavaLangRunnable;

@@ -6,10 +6,10 @@
 #ifndef _JavaUtilConcurrentLocksReentrantLock_H_
 #define _JavaUtilConcurrentLocksReentrantLock_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/concurrent/locks/AbstractQueuedSynchronizer.h>
-#include <j2objc/java/util/concurrent/locks/Lock.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
+#include "../../../../java/util/concurrent/locks/Lock.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentTimeUnitEnum;

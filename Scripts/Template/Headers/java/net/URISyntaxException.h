@@ -6,8 +6,8 @@
 #ifndef _JavaNetURISyntaxException_H_
 #define _JavaNetURISyntaxException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Exception.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Exception.h"
 
 /*!
  @brief A <code>URISyntaxException</code> will be thrown if some information could not be parsed

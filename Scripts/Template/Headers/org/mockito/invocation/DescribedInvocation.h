@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInvocationDescribedInvocation_H_
 #define _OrgMockitoInvocationDescribedInvocation_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/exceptions/PrintableInvocation.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/mockito/exceptions/PrintableInvocation.h"
 
 @protocol OrgMockitoInvocationLocation;
 

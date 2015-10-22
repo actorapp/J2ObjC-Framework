@@ -6,8 +6,8 @@
 #ifndef _JavaLangNegativeArraySizeException_H_
 #define _JavaLangNegativeArraySizeException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/RuntimeException.h"
 
 /*!
  @brief Thrown when an attempt is made to create an array with a size of less than

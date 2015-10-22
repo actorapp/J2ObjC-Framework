@@ -6,8 +6,8 @@
 #ifndef _JavaUtilMiniEnumSet_H_
 #define _JavaUtilMiniEnumSet_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/EnumSet.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/EnumSet.h"
 
 @class IOSClass;
 @class IOSObjectArray;

@@ -6,8 +6,8 @@
 #ifndef _JavaLangRefSoftReference_H_
 #define _JavaLangRefSoftReference_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/ref/Reference.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/ref/Reference.h"
 
 @class JavaLangRefReferenceQueue;
 

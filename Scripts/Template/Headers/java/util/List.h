@@ -6,8 +6,8 @@
 #ifndef _JavaUtilList_H_
 #define _JavaUtilList_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Collection.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Collection.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilIterator;

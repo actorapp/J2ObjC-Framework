@@ -6,8 +6,8 @@
 #ifndef _JavaSqlPreparedStatement_H_
 #define _JavaSqlPreparedStatement_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/sql/Statement.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/sql/Statement.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;

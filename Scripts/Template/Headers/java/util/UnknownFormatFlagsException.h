@@ -6,8 +6,8 @@
 #ifndef _JavaUtilUnknownFormatFlagsException_H_
 #define _JavaUtilUnknownFormatFlagsException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/IllegalFormatException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief An <code>UnknownFormatFlagsException</code> will be thrown if there is

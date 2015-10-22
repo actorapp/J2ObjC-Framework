@@ -6,8 +6,8 @@
 #ifndef _JavaBeansPropertyChangeEvent_H_
 #define _JavaBeansPropertyChangeEvent_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/EventObject.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/EventObject.h"
 
 /*!
  @brief An event that indicates that a constraint or a boundary of a property has

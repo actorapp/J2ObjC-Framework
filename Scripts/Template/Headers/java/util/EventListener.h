@@ -6,7 +6,7 @@
 #ifndef _JavaUtilEventListener_H_
 #define _JavaUtilEventListener_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief EventListener is the superclass of all event listener interfaces.

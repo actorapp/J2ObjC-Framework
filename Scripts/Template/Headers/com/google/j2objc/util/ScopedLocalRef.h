@@ -6,7 +6,7 @@
 #ifndef _ComGoogleJ2objcUtilScopedLocalRef_H_
 #define _ComGoogleJ2objcUtilScopedLocalRef_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 /*!
  @brief Lightweight container that maintains a reference within a scope,

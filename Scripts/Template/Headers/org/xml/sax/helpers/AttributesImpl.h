@@ -6,8 +6,8 @@
 #ifndef _OrgXmlSaxHelpersAttributesImpl_H_
 #define _OrgXmlSaxHelpersAttributesImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/Attributes.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/Attributes.h"
 
 @class IOSObjectArray;
 

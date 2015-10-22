@@ -6,7 +6,7 @@
 #ifndef _OrgApacheHarmonySecurityX501AttributeValue_H_
 #define _OrgApacheHarmonySecurityX501AttributeValue_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../../J2ObjC_header.h"
 
 @class IOSByteArray;
 @class JavaLangStringBuilder;

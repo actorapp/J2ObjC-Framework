@@ -6,8 +6,8 @@
 #ifndef _JavaUtilDeque_H_
 #define _JavaUtilDeque_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Queue.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Queue.h"
 
 @protocol JavaUtilIterator;
 

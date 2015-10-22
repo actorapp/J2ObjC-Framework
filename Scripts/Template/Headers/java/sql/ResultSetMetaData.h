@@ -6,8 +6,8 @@
 #ifndef _JavaSqlResultSetMetaData_H_
 #define _JavaSqlResultSetMetaData_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/sql/Wrapper.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/sql/Wrapper.h"
 
 #define JavaSqlResultSetMetaData_columnNoNulls 0
 #define JavaSqlResultSetMetaData_columnNullable 1

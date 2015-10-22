@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalConfigurationInjectingAnnotationEngine_H_
 #define _OrgMockitoInternalConfigurationInjectingAnnotationEngine_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/configuration/AnnotationEngine.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/configuration/AnnotationEngine.h"
 
 @class IOSClass;
 @class JavaLangReflectField;

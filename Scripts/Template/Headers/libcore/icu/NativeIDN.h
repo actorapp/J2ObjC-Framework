@@ -6,7 +6,7 @@
 #ifndef _LibcoreIcuNativeIDN_H_
 #define _LibcoreIcuNativeIDN_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Java version of Android's NativeIDN class, rewritten for J2ObjC because the

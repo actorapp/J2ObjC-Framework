@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalInOrderImpl_H_
 #define _OrgMockitoInternalInOrderImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/InOrder.h>
-#include <j2objc/org/mockito/internal/verification/api/InOrderContext.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/mockito/InOrder.h"
+#include "../../../org/mockito/internal/verification/api/InOrderContext.h"
 
 @protocol JavaUtilList;
 @protocol OrgMockitoInvocationInvocation;

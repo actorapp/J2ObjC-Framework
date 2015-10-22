@@ -6,8 +6,8 @@
 #ifndef _ComGoogleJ2objcSecurityIosMD5MessageDigest_H_
 #define _ComGoogleJ2objcSecurityIosMD5MessageDigest_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/MessageDigest.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/security/MessageDigest.h"
 
 @class IOSByteArray;
 

@@ -6,7 +6,7 @@
 #ifndef _JavaSecurityCertCertPathValidator_H_
 #define _JavaSecurityCertCertPathValidator_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaSecurityCertCertPath;
 @class JavaSecurityCertCertPathValidatorSpi;

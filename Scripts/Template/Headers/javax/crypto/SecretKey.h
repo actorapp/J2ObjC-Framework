@@ -6,8 +6,8 @@
 #ifndef _JavaxCryptoSecretKey_H_
 #define _JavaxCryptoSecretKey_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/Key.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/security/Key.h"
 
 #define JavaxCryptoSecretKey_serialVersionUID -4795878709595146952LL
 

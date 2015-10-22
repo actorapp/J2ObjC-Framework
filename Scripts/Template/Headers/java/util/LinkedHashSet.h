@@ -6,10 +6,10 @@
 #ifndef _JavaUtilLinkedHashSet_H_
 #define _JavaUtilLinkedHashSet_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/HashSet.h>
-#include <j2objc/java/util/Set.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/util/HashSet.h"
+#include "../../java/util/Set.h"
 
 @class JavaUtilHashMap;
 @protocol JavaUtilCollection;

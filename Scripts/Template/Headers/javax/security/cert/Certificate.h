@@ -6,7 +6,7 @@
 #ifndef _JavaxSecurityCertCertificate_H_
 #define _JavaxSecurityCertCertificate_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class IOSByteArray;
 @protocol JavaSecurityPublicKey;

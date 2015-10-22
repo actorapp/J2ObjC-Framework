@@ -6,8 +6,8 @@
 #ifndef _OrgJunitInternalMatchersThrowableMessageMatcher_H_
 #define _OrgJunitInternalMatchersThrowableMessageMatcher_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/hamcrest/TypeSafeMatcher.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/hamcrest/TypeSafeMatcher.h"
 
 @class JavaLangThrowable;
 @protocol OrgHamcrestDescription;

@@ -6,8 +6,8 @@
 #ifndef _JavaLangException_H_
 #define _JavaLangException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Throwable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Throwable.h"
 
 /*!
  @brief <code>Exception</code> is the superclass of all classes that represent recoverable

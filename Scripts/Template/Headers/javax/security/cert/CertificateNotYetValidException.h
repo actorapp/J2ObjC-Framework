@@ -6,8 +6,8 @@
 #ifndef _JavaxSecurityCertCertificateNotYetValidException_H_
 #define _JavaxSecurityCertCertificateNotYetValidException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/security/cert/CertificateException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../javax/security/cert/CertificateException.h"
 
 /*!
  @brief The exception that is thrown when a <code>Certificate</code> is not yet valid.

@@ -6,7 +6,7 @@
 #ifndef _JavaxNetSslSSLEngine_H_
 #define _JavaxNetSslSSLEngine_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class IOSObjectArray;
 @class JavaNioByteBuffer;

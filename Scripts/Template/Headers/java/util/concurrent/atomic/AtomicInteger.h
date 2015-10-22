@@ -6,8 +6,8 @@
 #ifndef _JavaUtilConcurrentAtomicAtomicInteger_H_
 #define _JavaUtilConcurrentAtomicAtomicInteger_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
 
 /*!
  @brief An <code>int</code> value that may be updated atomically.

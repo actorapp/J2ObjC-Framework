@@ -6,7 +6,7 @@
 #ifndef _AndroidTextUtilRfc822Token_H_
 #define _AndroidTextUtilRfc822Token_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief This class stores an RFC 822-like name, address, and comment,

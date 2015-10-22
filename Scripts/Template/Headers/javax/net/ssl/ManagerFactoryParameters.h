@@ -6,7 +6,7 @@
 #ifndef _JavaxNetSslManagerFactoryParameters_H_
 #define _JavaxNetSslManagerFactoryParameters_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief The marker interface for key manager factory parameters.

@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsReadableByteChannel_H_
 #define _JavaNioChannelsReadableByteChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/Channel.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/channels/Channel.h"
 
 @class JavaNioByteBuffer;
 

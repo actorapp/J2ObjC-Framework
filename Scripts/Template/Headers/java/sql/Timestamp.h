@@ -6,8 +6,8 @@
 #ifndef _JavaSqlTimestamp_H_
 #define _JavaSqlTimestamp_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Date.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Date.h"
 
 /*!
  @brief A Java representation of the SQL <code>TIMESTAMP</code> type.

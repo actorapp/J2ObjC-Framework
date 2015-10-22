@@ -6,8 +6,8 @@
 #ifndef _JavaUtilJarJarException_H_
 #define _JavaUtilJarJarException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/zip/ZipException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/zip/ZipException.h"
 
 /*!
  @brief This runtime exception is thrown when a problem occurs while reading a JAR

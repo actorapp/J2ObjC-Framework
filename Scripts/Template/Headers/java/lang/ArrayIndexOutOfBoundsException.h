@@ -6,8 +6,8 @@
 #ifndef _JavaLangArrayIndexOutOfBoundsException_H_
 #define _JavaLangArrayIndexOutOfBoundsException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IndexOutOfBoundsException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/IndexOutOfBoundsException.h"
 
 /*!
  @brief Thrown when the an array is indexed with a value less than zero, or greater

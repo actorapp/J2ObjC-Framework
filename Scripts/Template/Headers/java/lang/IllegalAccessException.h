@@ -6,8 +6,8 @@
 #ifndef _JavaLangIllegalAccessException_H_
 #define _JavaLangIllegalAccessException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/ReflectiveOperationException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/ReflectiveOperationException.h"
 
 /*!
  @brief Thrown when a program attempts to access a field or method which is not

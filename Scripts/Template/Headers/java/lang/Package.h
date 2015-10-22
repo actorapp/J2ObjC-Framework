@@ -6,8 +6,8 @@
 #ifndef _JavaLangPackage_H_
 #define _JavaLangPackage_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/reflect/AnnotatedElement.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/reflect/AnnotatedElement.h"
 
 @class IOSClass;
 @class IOSObjectArray;

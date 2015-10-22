@@ -6,9 +6,9 @@
 #ifndef _OrgJunitInternalAssumptionViolatedException_H_
 #define _OrgJunitInternalAssumptionViolatedException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
-#include <j2objc/org/hamcrest/SelfDescribing.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/RuntimeException.h"
+#include "../../../org/hamcrest/SelfDescribing.h"
 
 @class JavaLangThrowable;
 @protocol OrgHamcrestDescription;

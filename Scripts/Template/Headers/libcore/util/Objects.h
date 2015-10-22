@@ -6,7 +6,7 @@
 #ifndef _LibcoreUtilObjects_H_
 #define _LibcoreUtilObjects_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @interface LibcoreUtilObjects : NSObject
 

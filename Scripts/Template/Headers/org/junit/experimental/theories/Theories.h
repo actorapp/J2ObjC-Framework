@@ -6,9 +6,9 @@
 #ifndef _OrgJunitExperimentalTheoriesTheories_H_
 #define _OrgJunitExperimentalTheoriesTheories_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runners/BlockJUnit4ClassRunner.h>
-#include <j2objc/org/junit/runners/model/Statement.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/junit/runners/BlockJUnit4ClassRunner.h"
+#include "../../../../org/junit/runners/model/Statement.h"
 
 @class IOSClass;
 @class IOSObjectArray;

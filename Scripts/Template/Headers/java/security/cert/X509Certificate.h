@@ -6,9 +6,9 @@
 #ifndef _JavaSecurityCertX509Certificate_H_
 #define _JavaSecurityCertX509Certificate_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/cert/Certificate.h>
-#include <j2objc/java/security/cert/X509Extension.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/cert/Certificate.h"
+#include "../../../java/security/cert/X509Extension.h"
 
 @class IOSBooleanArray;
 @class IOSByteArray;

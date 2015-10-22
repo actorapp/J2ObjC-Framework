@@ -6,8 +6,8 @@
 #ifndef _JavaNetSocketTimeoutException_H_
 #define _JavaNetSocketTimeoutException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/InterruptedIOException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/InterruptedIOException.h"
 
 @class JavaLangThrowable;
 

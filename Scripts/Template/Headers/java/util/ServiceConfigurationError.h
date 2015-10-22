@@ -6,8 +6,8 @@
 #ifndef _JavaUtilServiceConfigurationError_H_
 #define _JavaUtilServiceConfigurationError_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Error.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Error.h"
 
 @class JavaLangThrowable;
 

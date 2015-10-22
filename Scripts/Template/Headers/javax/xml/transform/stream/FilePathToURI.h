@@ -6,7 +6,7 @@
 #ifndef _JavaxXmlTransformStreamFilePathToURI_H_
 #define _JavaxXmlTransformStreamFilePathToURI_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @interface JavaxXmlTransformStreamFilePathToURI : NSObject
 

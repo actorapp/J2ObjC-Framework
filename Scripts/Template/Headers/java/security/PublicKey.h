@@ -6,8 +6,8 @@
 #ifndef _JavaSecurityPublicKey_H_
 #define _JavaSecurityPublicKey_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/Key.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/security/Key.h"
 
 #define JavaSecurityPublicKey_serialVersionUID 7187392471159151072LL
 

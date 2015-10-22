@@ -6,7 +6,7 @@
 #ifndef _JavaxSecurityAuthDestroyable_H_
 #define _JavaxSecurityAuthDestroyable_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief Allows for special treatment of sensitive information, when it comes to

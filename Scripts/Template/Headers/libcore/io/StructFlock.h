@@ -6,7 +6,7 @@
 #ifndef _LibcoreIoStructFlock_H_
 #define _LibcoreIoStructFlock_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Information returned/taken by fcntl(2) F_GETFL and F_SETFL.

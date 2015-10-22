@@ -6,10 +6,10 @@
 #ifndef _JavaIoPrintStream_H_
 #define _JavaIoPrintStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
-#include <j2objc/java/io/FilterOutputStream.h>
-#include <j2objc/java/lang/Appendable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Closeable.h"
+#include "../../java/io/FilterOutputStream.h"
+#include "../../java/lang/Appendable.h"
 
 @class IOSByteArray;
 @class IOSCharArray;

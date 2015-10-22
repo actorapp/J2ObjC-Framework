@@ -6,7 +6,7 @@
 #ifndef _JavaLangStrictMath_H_
 #define _JavaLangStrictMath_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define JavaLangStrictMath_E 2.718281828459045
 #define JavaLangStrictMath_PI 3.141592653589793

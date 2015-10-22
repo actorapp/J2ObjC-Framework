@@ -6,7 +6,7 @@
 #ifndef _JavaUtilConcurrentLocksLockSupport_H_
 #define _JavaUtilConcurrentLocksLockSupport_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class JavaLangThread;
 

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilEmptyStackException_H_
 #define _JavaUtilEmptyStackException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/RuntimeException.h"
 
 /*!
  @brief An <code>EmptyStackException</code> is thrown if the pop/peek method of a stack is

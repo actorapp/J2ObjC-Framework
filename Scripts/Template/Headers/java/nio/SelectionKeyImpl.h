@@ -6,8 +6,8 @@
 #ifndef _JavaNioSelectionKeyImpl_H_
 #define _JavaNioSelectionKeyImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/spi/AbstractSelectionKey.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/channels/spi/AbstractSelectionKey.h"
 
 @class JavaNioChannelsSelectableChannel;
 @class JavaNioChannelsSelectionKey;

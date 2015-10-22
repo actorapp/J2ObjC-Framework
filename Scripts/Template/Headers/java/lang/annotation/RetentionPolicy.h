@@ -6,8 +6,8 @@
 #ifndef _JavaLangAnnotationRetentionPolicy_H_
 #define _JavaLangAnnotationRetentionPolicy_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Enum.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaLangAnnotationRetentionPolicy) {
   JavaLangAnnotationRetentionPolicy_SOURCE = 0,

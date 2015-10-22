@@ -6,8 +6,8 @@
 #ifndef _JavaLangReflectMalformedParameterizedTypeException_H_
 #define _JavaLangReflectMalformedParameterizedTypeException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/RuntimeException.h"
 
 /*!
  @brief Indicates that a malformed parameterized type has been encountered by a

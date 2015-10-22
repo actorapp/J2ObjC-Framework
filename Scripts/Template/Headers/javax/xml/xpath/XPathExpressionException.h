@@ -6,8 +6,8 @@
 #ifndef _JavaxXmlXpathXPathExpressionException_H_
 #define _JavaxXmlXpathXPathExpressionException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/xml/xpath/XPathException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../javax/xml/xpath/XPathException.h"
 
 @class JavaLangThrowable;
 

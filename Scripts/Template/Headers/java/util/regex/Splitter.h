@@ -6,7 +6,7 @@
 #ifndef _JavaUtilRegexSplitter_H_
 #define _JavaUtilRegexSplitter_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class IOSObjectArray;
 @class JavaUtilRegexPattern;

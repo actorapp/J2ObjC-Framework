@@ -6,9 +6,9 @@
 #ifndef _JavaNioChannelsServerSocketChannel_H_
 #define _JavaNioChannelsServerSocketChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/NetworkChannel.h>
-#include <j2objc/java/nio/channels/spi/AbstractSelectableChannel.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/channels/NetworkChannel.h"
+#include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
 
 @class JavaNetServerSocket;
 @class JavaNetSocketAddress;

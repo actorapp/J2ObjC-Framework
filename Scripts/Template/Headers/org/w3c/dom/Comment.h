@@ -6,8 +6,8 @@
 #ifndef _OrgW3cDomComment_H_
 #define _OrgW3cDomComment_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/w3c/dom/CharacterData.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/w3c/dom/CharacterData.h"
 
 /*!
  @brief This interface inherits from <code>CharacterData</code> and represents the

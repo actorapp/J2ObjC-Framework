@@ -6,9 +6,9 @@
 #ifndef _OrgApacheHarmonyXmlDomDocumentImpl_H_
 #define _OrgApacheHarmonyXmlDomDocumentImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/xml/dom/InnerNodeImpl.h>
-#include <j2objc/org/w3c/dom/Document.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/xml/dom/InnerNodeImpl.h"
+#include "../../../../../org/w3c/dom/Document.h"
 
 @class OrgApacheHarmonyXmlDomAttrImpl;
 @class OrgApacheHarmonyXmlDomCDATASectionImpl;

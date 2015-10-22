@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoInternalUtilRemoveFirstLine_H_
 #define _OrgMockitoInternalUtilRemoveFirstLine_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @interface OrgMockitoInternalUtilRemoveFirstLine : NSObject
 

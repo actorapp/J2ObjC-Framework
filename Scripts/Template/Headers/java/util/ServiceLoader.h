@@ -6,8 +6,8 @@
 #ifndef _JavaUtilServiceLoader_H_
 #define _JavaUtilServiceLoader_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Iterable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Iterable.h"
 
 @class IOSClass;
 @class JavaLangClassLoader;

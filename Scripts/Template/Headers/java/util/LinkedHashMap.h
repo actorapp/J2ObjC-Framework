@@ -6,8 +6,8 @@
 #ifndef _JavaUtilLinkedHashMap_H_
 #define _JavaUtilLinkedHashMap_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/HashMap.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/HashMap.h"
 
 @class JavaUtilLinkedHashMap_LinkedEntry;
 @protocol JavaUtilIterator;

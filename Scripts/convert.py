@@ -4,6 +4,16 @@ import os
 added = set()
 with open('include_framework/j2objc.h', 'w') as umbrella:
     for root, directories, filenames in os.walk('include/'):
+
+        # print includedFile +" @" + str(count) 
+        count = len(root.split("/")) - 1
+        prefix = ""
+        if count > 1:
+            for i in range(0, count):
+                prefix = prefix + "../"
+
+        print root + " @ " + str(count) + " " + prefix
+
         for filename in filenames:
             
             if not filename.endswith(".h"):
@@ -24,7 +34,7 @@ with open('include_framework/j2objc.h', 'w') as umbrella:
 
                     if path not in added:
                         added.add(path)
-                        umbrella.write("#include <j2objc/" + path + ">\n")
+                        umbrella.write("#import \"" + path + "\"\n")
 
                     with open(destFile, 'w') as d:
                         for line in f:
@@ -42,6 +52,6 @@ with open('include_framework/j2objc.h', 'w') as umbrella:
                                             if dirName != '/':
                                                 includedFile = dirName + includedFile
 
-                                    line = line[0:start] + "<j2objc/" + includedFile + ">" + line[end+1:]
+                                    line = line[0:start] + "\""+ prefix + includedFile + "\"" + line[end+1:]
 
                             d.write(line)

@@ -6,8 +6,8 @@
 #ifndef _JavaTextParseException_H_
 #define _JavaTextParseException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Exception.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Exception.h"
 
 /*!
  @brief Thrown when the string being parsed is not in the correct form.

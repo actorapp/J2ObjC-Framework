@@ -6,8 +6,8 @@
 #ifndef _JavaUtilZipDataFormatException_H_
 #define _JavaUtilZipDataFormatException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Exception.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/Exception.h"
 
 /*!
  @brief <code>DataFormatException</code> is used to indicate an error in the format of a

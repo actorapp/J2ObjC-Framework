@@ -6,7 +6,7 @@
 #ifndef _JavaLangRefReferenceQueue_H_
 #define _JavaLangRefReferenceQueue_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaLangRefReference;
 

@@ -6,8 +6,8 @@
 #ifndef _LibcoreReflectTypeVariableImpl_H_
 #define _LibcoreReflectTypeVariableImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/reflect/TypeVariable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/reflect/TypeVariable.h"
 
 @class IOSObjectArray;
 @class LibcoreReflectListOfTypes;

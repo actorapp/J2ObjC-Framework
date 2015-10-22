@@ -22,10 +22,10 @@
 #ifndef _JAVA_LANG_REFLECT_CONSTRUCTOR_H
 #define _JAVA_LANG_REFLECT_CONSTRUCTOR_H
 
-#import <j2objc/java/lang/reflect/ExecutableMember.h>
-#import <j2objc/J2ObjC_common.h>
-#import <j2objc/java/lang/reflect/GenericDeclaration.h>
-#import <j2objc/java/lang/reflect/Member.h>
+#import "../../../java/lang/reflect/ExecutableMember.h"
+#import "../../../J2ObjC_common.h"
+#import "../../../java/lang/reflect/GenericDeclaration.h"
+#import "../../../java/lang/reflect/Member.h"
 
 @class JavaMethodMetadata;
 

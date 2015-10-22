@@ -6,8 +6,8 @@
 #ifndef _JavaNetURLClassLoader_H_
 #define _JavaNetURLClassLoader_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/SecureClassLoader.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/security/SecureClassLoader.h"
 
 @class IOSObjectArray;
 @class JavaLangClassLoader;

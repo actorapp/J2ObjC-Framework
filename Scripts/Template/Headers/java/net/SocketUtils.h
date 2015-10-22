@@ -6,7 +6,7 @@
 #ifndef _JavaNetSocketUtils_H_
 #define _JavaNetSocketUtils_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class JavaNetSocket;
 

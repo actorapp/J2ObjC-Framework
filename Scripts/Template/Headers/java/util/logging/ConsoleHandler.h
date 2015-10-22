@@ -6,8 +6,8 @@
 #ifndef _JavaUtilLoggingConsoleHandler_H_
 #define _JavaUtilLoggingConsoleHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/logging/StreamHandler.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/logging/StreamHandler.h"
 
 @class JavaUtilLoggingLogRecord;
 

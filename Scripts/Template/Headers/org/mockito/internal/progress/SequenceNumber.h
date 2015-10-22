@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoInternalProgressSequenceNumber_H_
 #define _OrgMockitoInternalProgressSequenceNumber_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @interface OrgMockitoInternalProgressSequenceNumber : NSObject
 

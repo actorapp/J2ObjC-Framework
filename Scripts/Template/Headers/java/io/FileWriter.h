@@ -6,8 +6,8 @@
 #ifndef _JavaIoFileWriter_H_
 #define _JavaIoFileWriter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/OutputStreamWriter.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/OutputStreamWriter.h"
 
 @class JavaIoFile;
 @class JavaIoFileDescriptor;

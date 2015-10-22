@@ -6,8 +6,8 @@
 #ifndef _OrgHamcrestCoreIsCollectionContaining_H_
 #define _OrgHamcrestCoreIsCollectionContaining_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/hamcrest/TypeSafeDiagnosingMatcher.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/hamcrest/TypeSafeDiagnosingMatcher.h"
 
 @class IOSObjectArray;
 @protocol JavaLangIterable;

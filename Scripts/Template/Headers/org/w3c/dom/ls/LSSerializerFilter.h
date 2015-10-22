@@ -6,8 +6,8 @@
 #ifndef _OrgW3cDomLsLSSerializerFilter_H_
 #define _OrgW3cDomLsLSSerializerFilter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/w3c/dom/traversal/NodeFilter.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/w3c/dom/traversal/NodeFilter.h"
 
 /*!
  @brief <code>LSSerializerFilter</code>s provide applications the ability to

@@ -6,7 +6,7 @@
 #ifndef _JavaxXmlDatatypeDatatypeFactory_H_
 #define _JavaxXmlDatatypeDatatypeFactory_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaLangClassLoader;
 @class JavaMathBigDecimal;

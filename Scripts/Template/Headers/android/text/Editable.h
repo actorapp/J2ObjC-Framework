@@ -6,11 +6,11 @@
 #ifndef _AndroidTextEditable_H_
 #define _AndroidTextEditable_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/android/text/GetChars.h>
-#include <j2objc/android/text/Spannable.h>
-#include <j2objc/java/lang/Appendable.h>
-#include <j2objc/java/lang/CharSequence.h>
+#include "../../J2ObjC_header.h"
+#include "../../android/text/GetChars.h"
+#include "../../android/text/Spannable.h"
+#include "../../java/lang/Appendable.h"
+#include "../../java/lang/CharSequence.h"
 
 @class IOSObjectArray;
 

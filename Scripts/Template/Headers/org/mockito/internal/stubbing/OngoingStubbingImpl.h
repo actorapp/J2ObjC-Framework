@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalStubbingOngoingStubbingImpl_H_
 #define _OrgMockitoInternalStubbingOngoingStubbingImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/stubbing/BaseStubbing.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/stubbing/BaseStubbing.h"
 
 @class OrgMockitoInternalStubbingInvocationContainerImpl;
 @protocol JavaUtilList;

@@ -6,9 +6,9 @@
 #ifndef _JunitFrameworkTestCase_H_
 #define _JunitFrameworkTestCase_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/junit/framework/Assert.h>
-#include <j2objc/junit/framework/Test.h>
+#include "../../J2ObjC_header.h"
+#include "../../junit/framework/Assert.h"
+#include "../../junit/framework/Test.h"
 
 @class JunitFrameworkTestResult;
 

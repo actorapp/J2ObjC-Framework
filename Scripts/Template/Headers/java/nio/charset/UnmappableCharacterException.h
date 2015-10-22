@@ -6,8 +6,8 @@
 #ifndef _JavaNioCharsetUnmappableCharacterException_H_
 #define _JavaNioCharsetUnmappableCharacterException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/charset/CharacterCodingException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/charset/CharacterCodingException.h"
 
 /*!
  @brief An <code>UnmappableCharacterException</code> is thrown when an unmappable

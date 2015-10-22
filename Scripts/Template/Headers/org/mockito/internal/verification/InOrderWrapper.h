@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalVerificationInOrderWrapper_H_
 #define _OrgMockitoInternalVerificationInOrderWrapper_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/verification/VerificationMode.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/verification/VerificationMode.h"
 
 @class OrgMockitoInternalInOrderImpl;
 @protocol OrgMockitoInternalVerificationApiVerificationData;

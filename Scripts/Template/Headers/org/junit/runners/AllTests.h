@@ -6,8 +6,8 @@
 #ifndef _OrgJunitRunnersAllTests_H_
 #define _OrgJunitRunnersAllTests_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/internal/runners/SuiteMethod.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/internal/runners/SuiteMethod.h"
 
 @class IOSClass;
 

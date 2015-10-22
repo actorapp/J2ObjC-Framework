@@ -6,8 +6,8 @@
 #ifndef _OrgW3cDomText_H_
 #define _OrgW3cDomText_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/w3c/dom/CharacterData.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/w3c/dom/CharacterData.h"
 
 /*!
  @brief The <code>Text</code> interface inherits from <code>CharacterData</code>

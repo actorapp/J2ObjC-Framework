@@ -6,8 +6,8 @@
 #ifndef _JavaNioFileChannelImpl_H_
 #define _JavaNioFileChannelImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/FileChannel.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/channels/FileChannel.h"
 
 @class IOSObjectArray;
 @class JavaIoFileDescriptor;

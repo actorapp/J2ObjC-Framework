@@ -6,8 +6,8 @@
 #ifndef _JavaUtilZipZipEntry_H_
 #define _JavaUtilZipZipEntry_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/zip/ZipConstants.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/zip/ZipConstants.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;

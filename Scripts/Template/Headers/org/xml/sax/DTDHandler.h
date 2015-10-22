@@ -6,7 +6,7 @@
 #ifndef _OrgXmlSaxDTDHandler_H_
 #define _OrgXmlSaxDTDHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief Receive notification of basic DTD-related events.

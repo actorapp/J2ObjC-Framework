@@ -6,8 +6,8 @@
 #ifndef _JavaSecurityCertCertificateExpiredException_H_
 #define _JavaSecurityCertCertificateExpiredException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/cert/CertificateException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/cert/CertificateException.h"
 
 /*!
  @brief The exception that is thrown when a <code>Certificate</code> has expired.

@@ -6,7 +6,7 @@
 #ifndef _OrgHamcrestCondition_H_
 #define _OrgHamcrestCondition_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class OrgHamcrestCondition_NotMatched;
 @protocol OrgHamcrestCondition_Step;

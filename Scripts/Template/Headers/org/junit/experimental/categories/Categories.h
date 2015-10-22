@@ -6,10 +6,10 @@
 #ifndef _OrgJunitExperimentalCategoriesCategories_H_
 #define _OrgJunitExperimentalCategoriesCategories_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/annotation/Annotation.h>
-#include <j2objc/org/junit/runner/manipulation/Filter.h>
-#include <j2objc/org/junit/runners/Suite.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/lang/annotation/Annotation.h"
+#include "../../../../org/junit/runner/manipulation/Filter.h"
+#include "../../../../org/junit/runners/Suite.h"
 
 @class IOSClass;
 @class OrgJunitRunnerDescription;

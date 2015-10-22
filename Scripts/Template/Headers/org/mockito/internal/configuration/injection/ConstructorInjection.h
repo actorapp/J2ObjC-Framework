@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalConfigurationInjectionConstructorInjection_H_
 #define _OrgMockitoInternalConfigurationInjectionConstructorInjection_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/configuration/injection/MockInjectionStrategy.h>
-#include <j2objc/org/mockito/internal/util/reflection/FieldInitializer.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/mockito/internal/configuration/injection/MockInjectionStrategy.h"
+#include "../../../../../org/mockito/internal/util/reflection/FieldInitializer.h"
 
 @class IOSObjectArray;
 @class JavaLangReflectField;

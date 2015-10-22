@@ -6,8 +6,8 @@
 #ifndef _JavaSecuritySecureClassLoader_H_
 #define _JavaSecuritySecureClassLoader_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/ClassLoader.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/ClassLoader.h"
 
 @class IOSByteArray;
 @class IOSClass;

@@ -6,9 +6,9 @@
 #ifndef _OrgApacheHarmonyXmlDomEntityReferenceImpl_H_
 #define _OrgApacheHarmonyXmlDomEntityReferenceImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/xml/dom/LeafNodeImpl.h>
-#include <j2objc/org/w3c/dom/EntityReference.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/xml/dom/LeafNodeImpl.h"
+#include "../../../../../org/w3c/dom/EntityReference.h"
 
 @class OrgApacheHarmonyXmlDomDocumentImpl;
 

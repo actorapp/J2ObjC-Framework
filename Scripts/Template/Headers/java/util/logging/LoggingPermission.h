@@ -6,10 +6,10 @@
 #ifndef _JavaUtilLoggingLoggingPermission_H_
 #define _JavaUtilLoggingLoggingPermission_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/security/BasicPermission.h>
-#include <j2objc/java/security/Guard.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
+#include "../../../java/security/BasicPermission.h"
+#include "../../../java/security/Guard.h"
 
 @class JavaSecurityPermission;
 

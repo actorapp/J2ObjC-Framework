@@ -6,8 +6,8 @@
 #ifndef _JunitExtensionsActiveTestSuite_H_
 #define _JunitExtensionsActiveTestSuite_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/junit/framework/TestSuite.h>
+#include "../../J2ObjC_header.h"
+#include "../../junit/framework/TestSuite.h"
 
 @class IOSClass;
 @class JunitFrameworkTestResult;

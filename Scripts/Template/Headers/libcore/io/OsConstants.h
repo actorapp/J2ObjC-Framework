@@ -6,7 +6,7 @@
 #ifndef _LibcoreIoOsConstants_H_
 #define _LibcoreIoOsConstants_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define LibcoreIoOsConstants_AF_INET 2
 #define LibcoreIoOsConstants_AF_INET6 30

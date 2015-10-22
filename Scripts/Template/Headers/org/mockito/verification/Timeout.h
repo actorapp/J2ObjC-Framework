@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoVerificationTimeout_H_
 #define _OrgMockitoVerificationTimeout_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/verification/VerificationWithTimeout.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/mockito/verification/VerificationWithTimeout.h"
 
 @class OrgMockitoInternalVerificationVerificationWithTimeoutImpl;
 @protocol OrgMockitoInternalVerificationApiVerificationData;

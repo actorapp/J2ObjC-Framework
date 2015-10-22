@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsScatteringByteChannel_H_
 #define _JavaNioChannelsScatteringByteChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/ReadableByteChannel.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/channels/ReadableByteChannel.h"
 
 @class IOSObjectArray;
 

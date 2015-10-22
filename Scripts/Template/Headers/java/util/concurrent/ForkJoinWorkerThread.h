@@ -6,8 +6,8 @@
 #ifndef _JavaUtilConcurrentForkJoinWorkerThread_H_
 #define _JavaUtilConcurrentForkJoinWorkerThread_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Thread.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/Thread.h"
 
 @class JavaLangThrowable;
 @class JavaUtilConcurrentForkJoinPool;

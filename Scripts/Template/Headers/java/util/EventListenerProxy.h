@@ -6,8 +6,8 @@
 #ifndef _JavaUtilEventListenerProxy_H_
 #define _JavaUtilEventListenerProxy_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/EventListener.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/EventListener.h"
 
 /*!
  @brief This abstract class provides a simple wrapper for objects of type <code>EventListener</code>.

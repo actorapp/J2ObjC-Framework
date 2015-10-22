@@ -6,8 +6,8 @@
 #ifndef _JavaSecurityUnrecoverableKeyException_H_
 #define _JavaSecurityUnrecoverableKeyException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/UnrecoverableEntryException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/security/UnrecoverableEntryException.h"
 
 /*!
  @brief <code>UnrecoverableKeyException</code> indicates, that a key cannot be recovered

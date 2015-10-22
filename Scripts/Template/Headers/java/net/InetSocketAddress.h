@@ -6,8 +6,8 @@
 #ifndef _JavaNetInetSocketAddress_H_
 #define _JavaNetInetSocketAddress_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/SocketAddress.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/SocketAddress.h"
 
 @class JavaNetInetAddress;
 

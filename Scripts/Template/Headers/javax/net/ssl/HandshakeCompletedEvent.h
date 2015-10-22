@@ -6,8 +6,8 @@
 #ifndef _JavaxNetSslHandshakeCompletedEvent_H_
 #define _JavaxNetSslHandshakeCompletedEvent_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/EventObject.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/EventObject.h"
 
 @class IOSObjectArray;
 @class JavaxNetSslSSLSocket;

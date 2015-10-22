@@ -6,10 +6,10 @@
 #ifndef _JavaIoWriter_H_
 #define _JavaIoWriter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
-#include <j2objc/java/io/Flushable.h>
-#include <j2objc/java/lang/Appendable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Closeable.h"
+#include "../../java/io/Flushable.h"
+#include "../../java/lang/Appendable.h"
 
 @class IOSCharArray;
 @protocol JavaLangCharSequence;

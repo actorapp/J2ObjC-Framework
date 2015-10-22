@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalVerificationVerificationDataImpl_H_
 #define _OrgMockitoInternalVerificationVerificationDataImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/verification/api/VerificationData.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/verification/api/VerificationData.h"
 
 @class OrgMockitoInternalInvocationInvocationMatcher;
 @protocol JavaUtilList;

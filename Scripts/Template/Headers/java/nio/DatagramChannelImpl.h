@@ -6,9 +6,9 @@
 #ifndef _JavaNioDatagramChannelImpl_H_
 #define _JavaNioDatagramChannelImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/FileDescriptorChannel.h>
-#include <j2objc/java/nio/channels/DatagramChannel.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/FileDescriptorChannel.h"
+#include "../../java/nio/channels/DatagramChannel.h"
 
 @class IOSObjectArray;
 @class JavaIoFileDescriptor;

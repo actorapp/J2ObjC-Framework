@@ -9,7 +9,7 @@
 #ifndef _NSDictionaryMap_H_
 #define _NSDictionaryMap_H_
 
-#import <j2objc/java/util/Map.h>
+#import "java/util/Map.h"
 
 // An implementation of java.util.Map backed by an NSDictionary.
 // The entrySet, keySet and valueSet methods return sets not backed

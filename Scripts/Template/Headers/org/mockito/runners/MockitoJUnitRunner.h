@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoRunnersMockitoJUnitRunner_H_
 #define _OrgMockitoRunnersMockitoJUnitRunner_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runner/Runner.h>
-#include <j2objc/org/junit/runner/manipulation/Filterable.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/runner/Runner.h"
+#include "../../../org/junit/runner/manipulation/Filterable.h"
 
 @class IOSClass;
 @class OrgJunitRunnerDescription;

@@ -6,9 +6,9 @@
 #ifndef _JavaUtilDate_H_
 #define _JavaUtilDate_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/lang/Comparable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/lang/Comparable.h"
 
 /*!
  @brief A specific moment in time, with millisecond precision.

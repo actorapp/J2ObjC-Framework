@@ -6,9 +6,9 @@
 #ifndef _JavaIoDataOutputStream_H_
 #define _JavaIoDataOutputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/DataOutput.h>
-#include <j2objc/java/io/FilterOutputStream.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/DataOutput.h"
+#include "../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;

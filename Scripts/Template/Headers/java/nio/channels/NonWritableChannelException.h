@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsNonWritableChannelException_H_
 #define _JavaNioChannelsNonWritableChannelException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IllegalStateException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/IllegalStateException.h"
 
 /*!
  @brief A <code>NonWritableChannelException</code> is thrown when attempting to write to a

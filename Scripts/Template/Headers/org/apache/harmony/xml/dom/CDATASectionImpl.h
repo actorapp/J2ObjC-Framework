@@ -6,9 +6,9 @@
 #ifndef _OrgApacheHarmonyXmlDomCDATASectionImpl_H_
 #define _OrgApacheHarmonyXmlDomCDATASectionImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/xml/dom/TextImpl.h>
-#include <j2objc/org/w3c/dom/CDATASection.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/xml/dom/TextImpl.h"
+#include "../../../../../org/w3c/dom/CDATASection.h"
 
 @class OrgApacheHarmonyXmlDomDocumentImpl;
 

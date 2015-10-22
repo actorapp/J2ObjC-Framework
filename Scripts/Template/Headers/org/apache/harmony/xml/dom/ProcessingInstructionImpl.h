@@ -6,9 +6,9 @@
 #ifndef _OrgApacheHarmonyXmlDomProcessingInstructionImpl_H_
 #define _OrgApacheHarmonyXmlDomProcessingInstructionImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/xml/dom/LeafNodeImpl.h>
-#include <j2objc/org/w3c/dom/ProcessingInstruction.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/xml/dom/LeafNodeImpl.h"
+#include "../../../../../org/w3c/dom/ProcessingInstruction.h"
 
 @class OrgApacheHarmonyXmlDomDocumentImpl;
 

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilZipZipError_H_
 #define _JavaUtilZipZipError_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/InternalError.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/InternalError.h"
 
 /*!
  @brief Thrown when an unrecoverable zip error has occurred.

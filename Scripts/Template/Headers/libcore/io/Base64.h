@@ -6,7 +6,7 @@
 #ifndef _LibcoreIoBase64_H_
 #define _LibcoreIoBase64_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class IOSByteArray;
 

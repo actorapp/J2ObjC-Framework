@@ -6,7 +6,7 @@
 #ifndef _ComGoogleAndroidCollectMaps_H_
 #define _ComGoogleAndroidCollectMaps_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class AndroidUtilArrayMap;
 @class JavaUtilHashMap;

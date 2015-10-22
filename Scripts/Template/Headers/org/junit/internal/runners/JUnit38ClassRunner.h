@@ -6,10 +6,10 @@
 #ifndef _OrgJunitInternalRunnersJUnit38ClassRunner_H_
 #define _OrgJunitInternalRunnersJUnit38ClassRunner_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runner/Runner.h>
-#include <j2objc/org/junit/runner/manipulation/Filterable.h>
-#include <j2objc/org/junit/runner/manipulation/Sortable.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/junit/runner/Runner.h"
+#include "../../../../org/junit/runner/manipulation/Filterable.h"
+#include "../../../../org/junit/runner/manipulation/Sortable.h"
 
 @class IOSClass;
 @class OrgJunitRunnerDescription;

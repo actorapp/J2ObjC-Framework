@@ -6,9 +6,9 @@
 #ifndef _JavaNioChannelsSelectableChannel_H_
 #define _JavaNioChannelsSelectableChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/Channel.h>
-#include <j2objc/java/nio/channels/spi/AbstractInterruptibleChannel.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/channels/Channel.h"
+#include "../../../java/nio/channels/spi/AbstractInterruptibleChannel.h"
 
 @class JavaNioChannelsSelectionKey;
 @class JavaNioChannelsSelector;

@@ -6,8 +6,8 @@
 #ifndef _JavaNioCharsetCharset_H_
 #define _JavaNioCharsetCharset_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Comparable.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/Comparable.h"
 
 @class IOSObjectArray;
 @class JavaNioByteBuffer;

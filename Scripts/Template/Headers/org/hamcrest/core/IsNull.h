@@ -6,8 +6,8 @@
 #ifndef _OrgHamcrestCoreIsNull_H_
 #define _OrgHamcrestCoreIsNull_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/hamcrest/BaseMatcher.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/hamcrest/BaseMatcher.h"
 
 @class IOSClass;
 @protocol OrgHamcrestDescription;

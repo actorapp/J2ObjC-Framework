@@ -6,8 +6,8 @@
 #ifndef _JavaxXmlTransformDomDOMLocator_H_
 #define _JavaxXmlTransformDomDOMLocator_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/xml/transform/SourceLocator.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../javax/xml/transform/SourceLocator.h"
 
 @protocol OrgW3cDomNode;
 

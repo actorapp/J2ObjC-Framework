@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoVerificationVerificationMode_H_
 #define _OrgMockitoVerificationVerificationMode_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @protocol OrgMockitoInternalVerificationApiVerificationData;
 

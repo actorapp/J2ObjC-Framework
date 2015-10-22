@@ -6,7 +6,7 @@
 #ifndef _OrgJsonJSONArray_H_
 #define _OrgJsonJSONArray_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class OrgJsonJSONObject;
 @class OrgJsonJSONStringer;

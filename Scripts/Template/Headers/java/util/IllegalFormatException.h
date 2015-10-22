@@ -6,9 +6,9 @@
 #ifndef _JavaUtilIllegalFormatException_H_
 #define _JavaUtilIllegalFormatException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/lang/IllegalArgumentException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/lang/IllegalArgumentException.h"
 
 /*!
  @brief An <code>IllegalFormatException</code> is thrown when a format string that

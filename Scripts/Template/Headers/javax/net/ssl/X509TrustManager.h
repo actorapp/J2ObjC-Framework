@@ -6,8 +6,8 @@
 #ifndef _JavaxNetSslX509TrustManager_H_
 #define _JavaxNetSslX509TrustManager_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/net/ssl/TrustManager.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../javax/net/ssl/TrustManager.h"
 
 @class IOSObjectArray;
 

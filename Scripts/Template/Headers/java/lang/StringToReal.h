@@ -6,7 +6,7 @@
 #ifndef _JavaLangStringToReal_H_
 #define _JavaLangStringToReal_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Used to parse a string and return either a single or double precision

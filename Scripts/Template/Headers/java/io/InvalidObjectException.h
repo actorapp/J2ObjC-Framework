@@ -6,8 +6,8 @@
 #ifndef _JavaIoInvalidObjectException_H_
 #define _JavaIoInvalidObjectException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/ObjectStreamException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/ObjectStreamException.h"
 
 /*!
  @brief Signals that, during deserialization, the validation of an object has failed.

@@ -6,7 +6,7 @@
 #ifndef _JavaUtilIterator_H_
 #define _JavaUtilIterator_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief An iterator over a sequence of objects, such as a collection.

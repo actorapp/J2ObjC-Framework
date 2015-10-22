@@ -6,8 +6,8 @@
 #ifndef _JavaLangReflectUndeclaredThrowableException_H_
 #define _JavaLangReflectUndeclaredThrowableException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/RuntimeException.h"
 
 @class JavaLangThrowable;
 

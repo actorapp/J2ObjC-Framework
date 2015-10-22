@@ -6,8 +6,8 @@
 #ifndef _LibcoreNetUrlFileHandler_H_
 #define _LibcoreNetUrlFileHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/URLStreamHandler.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/net/URLStreamHandler.h"
 
 @class JavaNetProxy;
 @class JavaNetURL;

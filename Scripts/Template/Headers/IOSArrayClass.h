@@ -22,7 +22,7 @@
 #ifndef _IOSArrayClass_H_
 #define _IOSArrayClass_H_
 
-#import <j2objc/IOSClass.h>
+#import "IOSClass.h"
 
 @interface IOSArrayClass : IOSClass {
   // An IOSClass is used instead of a Class so a IOSPrimitiveClass can be used.

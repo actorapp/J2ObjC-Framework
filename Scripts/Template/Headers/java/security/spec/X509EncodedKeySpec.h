@@ -6,8 +6,8 @@
 #ifndef _JavaSecuritySpecX509EncodedKeySpec_H_
 #define _JavaSecuritySpecX509EncodedKeySpec_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/spec/EncodedKeySpec.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/spec/EncodedKeySpec.h"
 
 @class IOSByteArray;
 

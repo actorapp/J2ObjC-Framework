@@ -6,7 +6,7 @@
 #ifndef _JavaSecuritySpecECField_H_
 #define _JavaSecuritySpecECField_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief The base interface for a Finite Field of an Elliptic Curve.

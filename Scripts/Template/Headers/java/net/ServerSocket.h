@@ -6,8 +6,8 @@
 #ifndef _JavaNetServerSocket_H_
 #define _JavaNetServerSocket_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Closeable.h"
 
 @class JavaNetInetAddress;
 @class JavaNetSocket;

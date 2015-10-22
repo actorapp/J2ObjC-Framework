@@ -6,11 +6,11 @@
 #ifndef _OrgXmlSaxHelpersDefaultHandler_H_
 #define _OrgXmlSaxHelpersDefaultHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/ContentHandler.h>
-#include <j2objc/org/xml/sax/DTDHandler.h>
-#include <j2objc/org/xml/sax/EntityResolver.h>
-#include <j2objc/org/xml/sax/ErrorHandler.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/ContentHandler.h"
+#include "../../../../org/xml/sax/DTDHandler.h"
+#include "../../../../org/xml/sax/EntityResolver.h"
+#include "../../../../org/xml/sax/ErrorHandler.h"
 
 @class IOSCharArray;
 @class OrgXmlSaxInputSource;

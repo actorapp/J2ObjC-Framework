@@ -6,8 +6,8 @@
 #ifndef _JavaNetSocketImpl_H_
 #define _JavaNetSocketImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/SocketOptions.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/SocketOptions.h"
 
 @class JavaIoFileDescriptor;
 @class JavaIoInputStream;

@@ -6,8 +6,8 @@
 #ifndef _JavaLangClassCastException_H_
 #define _JavaLangClassCastException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/RuntimeException.h"
 
 /*!
  @brief Thrown when a program attempts to cast a an object to a type with which it is

@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalInvocationInvocationImpl_H_
 #define _OrgMockitoInternalInvocationInvocationImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/exceptions/VerificationAwareInvocation.h>
-#include <j2objc/org/mockito/invocation/Invocation.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/exceptions/VerificationAwareInvocation.h"
+#include "../../../../org/mockito/invocation/Invocation.h"
 
 @class IOSObjectArray;
 @class JavaLangReflectMethod;

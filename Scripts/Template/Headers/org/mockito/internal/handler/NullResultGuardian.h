@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalHandlerNullResultGuardian_H_
 #define _OrgMockitoInternalHandlerNullResultGuardian_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/InternalMockHandler.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/InternalMockHandler.h"
 
 @protocol JavaUtilList;
 @protocol OrgMockitoInternalStubbingInvocationContainer;

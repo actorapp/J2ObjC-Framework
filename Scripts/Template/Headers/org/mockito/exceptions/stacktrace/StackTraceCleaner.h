@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoExceptionsStacktraceStackTraceCleaner_H_
 #define _OrgMockitoExceptionsStacktraceStackTraceCleaner_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class JavaLangStackTraceElement;
 

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilDuplicateFormatFlagsException_H_
 #define _JavaUtilDuplicateFormatFlagsException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/IllegalFormatException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief The unchecked exception will be thrown out if there are duplicate flags given

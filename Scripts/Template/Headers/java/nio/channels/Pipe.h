@@ -6,12 +6,12 @@
 #ifndef _JavaNioChannelsPipe_H_
 #define _JavaNioChannelsPipe_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/GatheringByteChannel.h>
-#include <j2objc/java/nio/channels/ReadableByteChannel.h>
-#include <j2objc/java/nio/channels/ScatteringByteChannel.h>
-#include <j2objc/java/nio/channels/WritableByteChannel.h>
-#include <j2objc/java/nio/channels/spi/AbstractSelectableChannel.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/channels/GatheringByteChannel.h"
+#include "../../../java/nio/channels/ReadableByteChannel.h"
+#include "../../../java/nio/channels/ScatteringByteChannel.h"
+#include "../../../java/nio/channels/WritableByteChannel.h"
+#include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
 
 @class JavaNioChannelsPipe_SinkChannel;
 @class JavaNioChannelsPipe_SourceChannel;

@@ -6,7 +6,7 @@
 #ifndef _JavaNetFileNameMap_H_
 #define _JavaNetFileNameMap_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Defines a scheme for mapping a filename type to a MIME content type.

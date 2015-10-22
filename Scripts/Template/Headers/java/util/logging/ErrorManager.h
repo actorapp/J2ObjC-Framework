@@ -6,7 +6,7 @@
 #ifndef _JavaUtilLoggingErrorManager_H_
 #define _JavaUtilLoggingErrorManager_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaLangException;
 

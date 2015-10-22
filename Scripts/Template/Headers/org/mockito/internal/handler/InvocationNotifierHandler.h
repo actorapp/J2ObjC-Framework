@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalHandlerInvocationNotifierHandler_H_
 #define _OrgMockitoInternalHandlerInvocationNotifierHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/InternalMockHandler.h>
-#include <j2objc/org/mockito/invocation/MockHandler.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/InternalMockHandler.h"
+#include "../../../../org/mockito/invocation/MockHandler.h"
 
 @protocol JavaUtilList;
 @protocol OrgMockitoInternalStubbingInvocationContainer;

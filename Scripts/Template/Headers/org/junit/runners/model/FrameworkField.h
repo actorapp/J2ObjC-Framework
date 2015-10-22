@@ -6,8 +6,8 @@
 #ifndef _OrgJunitRunnersModelFrameworkField_H_
 #define _OrgJunitRunnersModelFrameworkField_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runners/model/FrameworkMember.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/junit/runners/model/FrameworkMember.h"
 
 @class IOSClass;
 @class IOSObjectArray;

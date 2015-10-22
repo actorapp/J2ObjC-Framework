@@ -6,8 +6,8 @@
 #ifndef _JunitFrameworkJUnit4TestAdapterCache_H_
 #define _JunitFrameworkJUnit4TestAdapterCache_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/HashMap.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/HashMap.h"
 
 @class JunitFrameworkJUnit4TestAdapter;
 @class JunitFrameworkTestResult;

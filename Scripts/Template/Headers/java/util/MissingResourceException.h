@@ -6,8 +6,8 @@
 #ifndef _JavaUtilMissingResourceException_H_
 #define _JavaUtilMissingResourceException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/RuntimeException.h"
 
 /*!
  @brief A <code>MissingResourceException</code> is thrown by ResourceBundle when a

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilConcurrentAtomicAtomicReference_H_
 #define _JavaUtilConcurrentAtomicAtomicReference_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
 
 /*!
  @brief An object reference that may be updated atomically.

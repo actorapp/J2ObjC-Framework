@@ -6,8 +6,8 @@
 #ifndef _ComGoogleJ2objcNetIosHttpHandler_H_
 #define _ComGoogleJ2objcNetIosHttpHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/URLStreamHandler.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/net/URLStreamHandler.h"
 
 @class JavaNetURL;
 @class JavaNetURLConnection;

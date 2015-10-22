@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonySecurityAsn1ASN1Boolean_H_
 #define _OrgApacheHarmonySecurityAsn1ASN1Boolean_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/security/asn1/ASN1Primitive.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/security/asn1/ASN1Primitive.h"
 
 @class OrgApacheHarmonySecurityAsn1BerInputStream;
 @class OrgApacheHarmonySecurityAsn1BerOutputStream;

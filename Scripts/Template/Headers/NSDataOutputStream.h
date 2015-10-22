@@ -9,7 +9,7 @@
 #ifndef _NSDataOutputStream_H_
 #define _NSDataOutputStream_H_
 
-#import <j2objc/java/io/OutputStream.h>
+#import "java/io/OutputStream.h"
 
 // A concrete subclass of java.io.InputStream that writes into
 // a backing NSData instance, retrievable at any point.

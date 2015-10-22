@@ -6,8 +6,8 @@
 #ifndef _OrgJunitInternalRunnersSuiteMethod_H_
 #define _OrgJunitInternalRunnersSuiteMethod_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/internal/runners/JUnit38ClassRunner.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/junit/internal/runners/JUnit38ClassRunner.h"
 
 @class IOSClass;
 @protocol JunitFrameworkTest;

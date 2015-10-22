@@ -6,9 +6,9 @@
 #ifndef _OrgJunitRunnersSuite_H_
 #define _OrgJunitRunnersSuite_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/annotation/Annotation.h>
-#include <j2objc/org/junit/runners/ParentRunner.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/annotation/Annotation.h"
+#include "../../../org/junit/runners/ParentRunner.h"
 
 @class IOSClass;
 @class IOSObjectArray;

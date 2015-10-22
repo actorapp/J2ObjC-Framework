@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonyXmlDomInnerNodeImpl_H_
 #define _OrgApacheHarmonyXmlDomInnerNodeImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/xml/dom/LeafNodeImpl.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/xml/dom/LeafNodeImpl.h"
 
 @class JavaLangStringBuilder;
 @class OrgApacheHarmonyXmlDomDocumentImpl;

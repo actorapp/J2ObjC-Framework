@@ -6,11 +6,11 @@
 #ifndef _JavaUtilZipZipFile_H_
 #define _JavaUtilZipZipFile_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
-#include <j2objc/java/io/InputStream.h>
-#include <j2objc/java/util/zip/InflaterInputStream.h>
-#include <j2objc/java/util/zip/ZipConstants.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Closeable.h"
+#include "../../../java/io/InputStream.h"
+#include "../../../java/util/zip/InflaterInputStream.h"
+#include "../../../java/util/zip/ZipConstants.h"
 
 @class IOSByteArray;
 @class JavaIoFile;

@@ -6,7 +6,7 @@
 #ifndef _JavaLangReflectType_H_
 #define _JavaLangReflectType_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief Common interface implemented by all Java types.

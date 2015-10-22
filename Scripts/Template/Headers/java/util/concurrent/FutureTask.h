@@ -6,8 +6,8 @@
 #ifndef _JavaUtilConcurrentFutureTask_H_
 #define _JavaUtilConcurrentFutureTask_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/concurrent/RunnableFuture.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/concurrent/RunnableFuture.h"
 
 @class JavaLangThread;
 @class JavaLangThrowable;

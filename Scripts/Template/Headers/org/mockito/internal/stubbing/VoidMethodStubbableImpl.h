@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalStubbingVoidMethodStubbableImpl_H_
 #define _OrgMockitoInternalStubbingVoidMethodStubbableImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/stubbing/VoidMethodStubbable.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/stubbing/VoidMethodStubbable.h"
 
 @class JavaLangThrowable;
 @class OrgMockitoInternalStubbingInvocationContainerImpl;

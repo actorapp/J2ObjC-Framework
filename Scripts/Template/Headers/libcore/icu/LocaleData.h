@@ -6,7 +6,7 @@
 #ifndef _LibcoreIcuLocaleData_H_
 #define _LibcoreIcuLocaleData_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class IOSObjectArray;
 @class JavaLangInteger;

@@ -6,9 +6,9 @@
 #ifndef _JavaSqlSQLWarning_H_
 #define _JavaSqlSQLWarning_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/sql/SQLException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/sql/SQLException.h"
 
 @class JavaLangThrowable;
 

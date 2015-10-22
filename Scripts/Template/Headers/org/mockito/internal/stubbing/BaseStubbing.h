@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalStubbingBaseStubbing_H_
 #define _OrgMockitoInternalStubbingBaseStubbing_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/stubbing/DeprecatedOngoingStubbing.h>
-#include <j2objc/org/mockito/stubbing/OngoingStubbing.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/stubbing/DeprecatedOngoingStubbing.h"
+#include "../../../../org/mockito/stubbing/OngoingStubbing.h"
 
 @class IOSObjectArray;
 @class JavaLangThrowable;

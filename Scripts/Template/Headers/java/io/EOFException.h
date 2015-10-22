@@ -6,8 +6,8 @@
 #ifndef _JavaIoEOFException_H_
 #define _JavaIoEOFException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/IOException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/IOException.h"
 
 /*!
  @brief Thrown when a program encounters the end of a file or stream during an input

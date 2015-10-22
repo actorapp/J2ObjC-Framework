@@ -6,8 +6,8 @@
 #ifndef _JavaLangNullPointerException_H_
 #define _JavaLangNullPointerException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/RuntimeException.h"
 
 /*!
  @brief Thrown when a program tries to access a field or method of an object or an

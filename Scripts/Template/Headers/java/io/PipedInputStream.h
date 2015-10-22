@@ -6,8 +6,8 @@
 #ifndef _JavaIoPipedInputStream_H_
 #define _JavaIoPipedInputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/InputStream.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
 @class JavaIoPipedOutputStream;

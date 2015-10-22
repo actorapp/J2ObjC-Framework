@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoInternalMatchersMatchersPrinter_H_
 #define _OrgMockitoInternalMatchersMatchersPrinter_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class OrgMockitoInternalReportingPrintSettings;
 @protocol JavaUtilList;

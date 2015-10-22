@@ -22,12 +22,12 @@
 #ifndef _NSString_JavaString_H_
 #define _NSString_JavaString_H_
 
-#import <j2objc/IOSObjectArray.h>
-#import <j2objc/IOSPrimitiveArray.h>
-#import <j2objc/J2ObjC_common.h>
-#import <j2objc/java/io/Serializable.h>
-#import <j2objc/java/lang/CharSequence.h>
-#import <j2objc/java/lang/Comparable.h>
+#import "IOSObjectArray.h"
+#import "IOSPrimitiveArray.h"
+#import "J2ObjC_common.h"
+#import "java/io/Serializable.h"
+#import "java/lang/CharSequence.h"
+#import "java/lang/Comparable.h"
 
 @class JavaLangStringBuffer;
 @class JavaLangStringBuilder;

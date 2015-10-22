@@ -6,7 +6,7 @@
 #ifndef _JavaIoSerializationHandleMap_H_
 #define _JavaIoSerializationHandleMap_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief A specialization of IdentityHashMap<Object, int> for use when serializing objects.

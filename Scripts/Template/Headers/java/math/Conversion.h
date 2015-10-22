@@ -6,7 +6,7 @@
 #ifndef _JavaMathConversion_H_
 #define _JavaMathConversion_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class IOSIntArray;
 @class JavaMathBigInteger;

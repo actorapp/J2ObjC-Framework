@@ -6,9 +6,9 @@
 #ifndef _JavaLangThread_H_
 #define _JavaLangThread_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Enum.h>
-#include <j2objc/java/lang/Runnable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Enum.h"
+#include "../../java/lang/Runnable.h"
 
 @class IOSObjectArray;
 @class JavaLangClassLoader;

@@ -6,8 +6,8 @@
 #ifndef _JavaSqlSQLRecoverableException_H_
 #define _JavaSqlSQLRecoverableException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/sql/SQLException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/sql/SQLException.h"
 
 @class JavaLangThrowable;
 

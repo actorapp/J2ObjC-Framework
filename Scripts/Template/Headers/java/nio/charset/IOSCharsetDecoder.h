@@ -6,8 +6,8 @@
 #ifndef _JavaNioCharsetIOSCharsetDecoder_H_
 #define _JavaNioCharsetIOSCharsetDecoder_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/charset/CharsetDecoder.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/charset/CharsetDecoder.h"
 
 @class JavaNioByteBuffer;
 @class JavaNioCharBuffer;

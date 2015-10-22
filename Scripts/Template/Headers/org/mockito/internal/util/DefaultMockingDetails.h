@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalUtilDefaultMockingDetails_H_
 #define _OrgMockitoInternalUtilDefaultMockingDetails_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/MockingDetails.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/MockingDetails.h"
 
 @class OrgMockitoInternalUtilMockUtil;
 

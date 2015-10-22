@@ -6,7 +6,7 @@
 #ifndef _JavaTextParsePosition_H_
 #define _JavaTextParsePosition_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Tracks the current position in a parsed string.

@@ -3,7 +3,7 @@
 //  source: /Users/tball/tmp/j2objc/guava/sources/com/google/thirdparty/publicsuffix/PublicSuffixPatterns.java
 //
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 #pragma push_macro("ComGoogleThirdpartyPublicsuffixPublicSuffixPatterns_INCLUDE_ALL")
 #if ComGoogleThirdpartyPublicsuffixPublicSuffixPatterns_RESTRICT

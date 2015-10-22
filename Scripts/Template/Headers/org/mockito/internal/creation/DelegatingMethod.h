@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalCreationDelegatingMethod_H_
 #define _OrgMockitoInternalCreationDelegatingMethod_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/invocation/MockitoMethod.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/invocation/MockitoMethod.h"
 
 @class IOSClass;
 @class IOSObjectArray;

@@ -6,8 +6,8 @@
 #ifndef _JavaNioCharsetMalformedInputException_H_
 #define _JavaNioCharsetMalformedInputException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/charset/CharacterCodingException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/charset/CharacterCodingException.h"
 
 /*!
  @brief A <code>MalformedInputException</code> is thrown when a malformed input is

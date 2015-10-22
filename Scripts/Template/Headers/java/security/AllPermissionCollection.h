@@ -6,8 +6,8 @@
 #ifndef _JavaSecurityAllPermissionCollection_H_
 #define _JavaSecurityAllPermissionCollection_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/PermissionCollection.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/security/PermissionCollection.h"
 
 @class JavaSecurityPermission;
 @protocol JavaUtilEnumeration;

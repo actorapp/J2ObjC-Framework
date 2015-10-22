@@ -6,7 +6,7 @@
 #ifndef _OrgApacheHarmonySecurityAsn1ASN1Constants_H_
 #define _OrgApacheHarmonySecurityAsn1ASN1Constants_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../../J2ObjC_header.h"
 
 /*!
  @author Vladimir N. Molotkov

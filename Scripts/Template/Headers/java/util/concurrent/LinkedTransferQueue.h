@@ -6,11 +6,11 @@
 #ifndef _JavaUtilConcurrentLinkedTransferQueue_H_
 #define _JavaUtilConcurrentLinkedTransferQueue_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/AbstractQueue.h>
-#include <j2objc/java/util/Iterator.h>
-#include <j2objc/java/util/concurrent/TransferQueue.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
+#include "../../../java/util/AbstractQueue.h"
+#include "../../../java/util/Iterator.h"
+#include "../../../java/util/concurrent/TransferQueue.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentLinkedTransferQueue_Node;

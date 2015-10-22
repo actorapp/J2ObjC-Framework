@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalStubbingStubberImpl_H_
 #define _OrgMockitoInternalStubbingStubberImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/stubbing/Stubber.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/stubbing/Stubber.h"
 
 @class IOSClass;
 @class JavaLangThrowable;

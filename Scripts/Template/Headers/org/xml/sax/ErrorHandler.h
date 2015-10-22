@@ -6,7 +6,7 @@
 #ifndef _OrgXmlSaxErrorHandler_H_
 #define _OrgXmlSaxErrorHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class OrgXmlSaxSAXParseException;
 

@@ -6,8 +6,8 @@
 #ifndef _JavaNetHttpRetryException_H_
 #define _JavaNetHttpRetryException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/IOException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/IOException.h"
 
 /*!
  @brief If a HTTP request has to be retried, this exception will be thrown if the

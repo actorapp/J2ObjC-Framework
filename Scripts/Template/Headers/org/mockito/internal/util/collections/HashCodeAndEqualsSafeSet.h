@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalUtilCollectionsHashCodeAndEqualsSafeSet_H_
 #define _OrgMockitoInternalUtilCollectionsHashCodeAndEqualsSafeSet_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Set.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../java/util/Set.h"
 
 @class IOSObjectArray;
 @protocol JavaLangIterable;

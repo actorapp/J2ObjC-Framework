@@ -6,8 +6,8 @@
 #ifndef _AndroidUtilBase64OutputStream_H_
 #define _AndroidUtilBase64OutputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/FilterOutputStream.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;

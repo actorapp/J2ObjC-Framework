@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoMatchers_H_
 #define _OrgMockitoMatchers_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class IOSClass;
 @class IOSObjectArray;

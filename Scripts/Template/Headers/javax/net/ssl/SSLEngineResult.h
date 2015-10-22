@@ -6,8 +6,8 @@
 #ifndef _JavaxNetSslSSLEngineResult_H_
 #define _JavaxNetSslSSLEngineResult_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Enum.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/Enum.h"
 
 @class JavaxNetSslSSLEngineResult_HandshakeStatusEnum;
 @class JavaxNetSslSSLEngineResult_StatusEnum;

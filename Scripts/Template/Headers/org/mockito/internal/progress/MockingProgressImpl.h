@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalProgressMockingProgressImpl_H_
 #define _OrgMockitoInternalProgressMockingProgressImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/progress/MockingProgress.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/progress/MockingProgress.h"
 
 @class IOSClass;
 @protocol OrgMockitoInternalListenersMockingProgressListener;

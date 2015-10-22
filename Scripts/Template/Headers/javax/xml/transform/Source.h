@@ -6,7 +6,7 @@
 #ifndef _JavaxXmlTransformSource_H_
 #define _JavaxXmlTransformSource_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief An object that implements this interface contains the information

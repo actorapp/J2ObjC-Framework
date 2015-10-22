@@ -6,10 +6,10 @@
 #ifndef _JavaIoObjectInputStream_H_
 #define _JavaIoObjectInputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/InputStream.h>
-#include <j2objc/java/io/ObjectInput.h>
-#include <j2objc/java/io/ObjectStreamConstants.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/InputStream.h"
+#include "../../java/io/ObjectInput.h"
+#include "../../java/io/ObjectStreamConstants.h"
 
 @class IOSByteArray;
 @class IOSClass;

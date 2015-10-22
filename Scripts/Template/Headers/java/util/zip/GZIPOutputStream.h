@@ -6,8 +6,8 @@
 #ifndef _JavaUtilZipGZIPOutputStream_H_
 #define _JavaUtilZipGZIPOutputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/zip/DeflaterOutputStream.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/zip/DeflaterOutputStream.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;

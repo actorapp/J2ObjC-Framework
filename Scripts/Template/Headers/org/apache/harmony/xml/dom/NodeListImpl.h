@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonyXmlDomNodeListImpl_H_
 #define _OrgApacheHarmonyXmlDomNodeListImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/w3c/dom/NodeList.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/w3c/dom/NodeList.h"
 
 @class OrgApacheHarmonyXmlDomNodeImpl;
 @protocol JavaUtilList;

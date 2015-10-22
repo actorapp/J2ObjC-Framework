@@ -6,9 +6,9 @@
 #ifndef _JavaxSecurityAuthX500X500Principal_H_
 #define _JavaxSecurityAuthX500X500Principal_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/security/Principal.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../java/security/Principal.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;

@@ -6,8 +6,8 @@
 #ifndef _JunitFrameworkTestSuite_H_
 #define _JunitFrameworkTestSuite_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/junit/framework/Test.h>
+#include "../../J2ObjC_header.h"
+#include "../../junit/framework/Test.h"
 
 @class IOSClass;
 @class IOSObjectArray;

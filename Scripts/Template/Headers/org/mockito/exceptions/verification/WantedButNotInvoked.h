@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoExceptionsVerificationWantedButNotInvoked_H_
 #define _OrgMockitoExceptionsVerificationWantedButNotInvoked_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/exceptions/base/MockitoAssertionError.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/exceptions/base/MockitoAssertionError.h"
 
 @interface OrgMockitoExceptionsVerificationWantedButNotInvoked : OrgMockitoExceptionsBaseMockitoAssertionError
 

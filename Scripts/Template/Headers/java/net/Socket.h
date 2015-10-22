@@ -6,8 +6,8 @@
 #ifndef _JavaNetSocket_H_
 #define _JavaNetSocket_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Closeable.h"
 
 @class JavaIoFileDescriptor;
 @class JavaIoInputStream;

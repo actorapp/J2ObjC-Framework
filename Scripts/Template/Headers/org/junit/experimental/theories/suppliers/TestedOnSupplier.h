@@ -6,8 +6,8 @@
 #ifndef _OrgJunitExperimentalTheoriesSuppliersTestedOnSupplier_H_
 #define _OrgJunitExperimentalTheoriesSuppliersTestedOnSupplier_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/experimental/theories/ParameterSupplier.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/junit/experimental/theories/ParameterSupplier.h"
 
 @class OrgJunitExperimentalTheoriesParameterSignature;
 @protocol JavaUtilList;

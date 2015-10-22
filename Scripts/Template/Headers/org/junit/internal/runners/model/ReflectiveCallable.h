@@ -6,7 +6,7 @@
 #ifndef _OrgJunitInternalRunnersModelReflectiveCallable_H_
 #define _OrgJunitInternalRunnersModelReflectiveCallable_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../../J2ObjC_header.h"
 
 @interface OrgJunitInternalRunnersModelReflectiveCallable : NSObject
 

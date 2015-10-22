@@ -6,8 +6,8 @@
 #ifndef _OrgHamcrestCoreSubstringMatcher_H_
 #define _OrgHamcrestCoreSubstringMatcher_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/hamcrest/TypeSafeMatcher.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/hamcrest/TypeSafeMatcher.h"
 
 @protocol OrgHamcrestDescription;
 

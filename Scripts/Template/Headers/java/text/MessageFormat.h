@@ -6,8 +6,8 @@
 #ifndef _JavaTextMessageFormat_H_
 #define _JavaTextMessageFormat_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/text/Format.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/text/Format.h"
 
 @class IOSObjectArray;
 @class JavaLangStringBuffer;

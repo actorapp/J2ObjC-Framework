@@ -6,10 +6,10 @@
 #ifndef _OrgMockitoInternalInvocationInvocationMatcher_H_
 #define _OrgMockitoInternalInvocationInvocationMatcher_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/mockito/internal/invocation/CapturesArgumensFromInvocation.h>
-#include <j2objc/org/mockito/invocation/DescribedInvocation.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../org/mockito/internal/invocation/CapturesArgumensFromInvocation.h"
+#include "../../../../org/mockito/invocation/DescribedInvocation.h"
 
 @class JavaLangReflectMethod;
 @protocol JavaUtilList;

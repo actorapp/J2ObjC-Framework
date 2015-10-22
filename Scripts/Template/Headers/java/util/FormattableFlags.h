@@ -6,7 +6,7 @@
 #ifndef _JavaUtilFormattableFlags_H_
 #define _JavaUtilFormattableFlags_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define JavaUtilFormattableFlags_LEFT_JUSTIFY 1
 #define JavaUtilFormattableFlags_UPPERCASE 2

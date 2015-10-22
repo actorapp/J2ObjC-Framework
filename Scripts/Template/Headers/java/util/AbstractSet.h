@@ -6,9 +6,9 @@
 #ifndef _JavaUtilAbstractSet_H_
 #define _JavaUtilAbstractSet_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/AbstractCollection.h>
-#include <j2objc/java/util/Set.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/AbstractCollection.h"
+#include "../../java/util/Set.h"
 
 @protocol JavaUtilCollection;
 

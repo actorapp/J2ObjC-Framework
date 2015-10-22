@@ -6,9 +6,9 @@
 #ifndef _JavaNioIntBuffer_H_
 #define _JavaNioIntBuffer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Comparable.h>
-#include <j2objc/java/nio/Buffer.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Comparable.h"
+#include "../../java/nio/Buffer.h"
 
 @class IOSIntArray;
 @class JavaNioByteOrder;

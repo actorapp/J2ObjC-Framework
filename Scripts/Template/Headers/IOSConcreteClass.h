@@ -20,7 +20,7 @@
 #ifndef _IOSConcreteClass_H_
 #define _IOSConcreteClass_H_
 
-#import <j2objc/IOSClass.h>
+#import "IOSClass.h"
 
 @interface IOSConcreteClass : IOSClass {
   Class class_;

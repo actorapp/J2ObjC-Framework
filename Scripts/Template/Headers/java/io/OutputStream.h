@@ -6,9 +6,9 @@
 #ifndef _JavaIoOutputStream_H_
 #define _JavaIoOutputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
-#include <j2objc/java/io/Flushable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Closeable.h"
+#include "../../java/io/Flushable.h"
 
 @class IOSByteArray;
 

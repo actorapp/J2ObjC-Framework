@@ -6,7 +6,7 @@
 #ifndef _JavaNioCharsetCodingErrorAction_H_
 #define _JavaNioCharsetCodingErrorAction_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief Used to indicate what kind of actions to take in case of encoding/decoding

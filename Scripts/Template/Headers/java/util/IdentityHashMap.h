@@ -6,14 +6,14 @@
 #ifndef _JavaUtilIdentityHashMap_H_
 #define _JavaUtilIdentityHashMap_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/AbstractCollection.h>
-#include <j2objc/java/util/AbstractMap.h>
-#include <j2objc/java/util/AbstractSet.h>
-#include <j2objc/java/util/Iterator.h>
-#include <j2objc/java/util/Map.h>
-#include <j2objc/java/util/MapEntry.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/util/AbstractCollection.h"
+#include "../../java/util/AbstractMap.h"
+#include "../../java/util/AbstractSet.h"
+#include "../../java/util/Iterator.h"
+#include "../../java/util/Map.h"
+#include "../../java/util/MapEntry.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;

@@ -6,7 +6,7 @@
 #ifndef _JavaSqlSavepoint_H_
 #define _JavaSqlSavepoint_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief A savepoint is an instant during the current transaction that can be utilized

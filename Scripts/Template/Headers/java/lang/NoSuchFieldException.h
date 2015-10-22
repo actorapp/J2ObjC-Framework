@@ -6,8 +6,8 @@
 #ifndef _JavaLangNoSuchFieldException_H_
 #define _JavaLangNoSuchFieldException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/ReflectiveOperationException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/ReflectiveOperationException.h"
 
 /*!
  @brief Thrown when the VM notices that a program tries to reference,

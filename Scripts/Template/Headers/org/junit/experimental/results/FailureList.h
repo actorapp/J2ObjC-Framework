@@ -6,7 +6,7 @@
 #ifndef _OrgJunitExperimentalResultsFailureList_H_
 #define _OrgJunitExperimentalResultsFailureList_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class OrgJunitRunnerResult;
 @protocol JavaUtilList;

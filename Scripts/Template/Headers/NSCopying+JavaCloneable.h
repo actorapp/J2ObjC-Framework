@@ -20,7 +20,7 @@
 #ifndef _JavaLangCloneable_H_
 #define _JavaLangCloneable_H_
 
-#include <j2objc/J2ObjC_common.h>
+#include "J2ObjC_common.h"
 
 @interface NSCopying : NSObject
 @end

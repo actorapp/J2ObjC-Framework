@@ -6,7 +6,7 @@
 #ifndef _JavaLangMath_H_
 #define _JavaLangMath_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define JavaLangMath_E 2.718281828459045
 #define JavaLangMath_PI 3.141592653589793

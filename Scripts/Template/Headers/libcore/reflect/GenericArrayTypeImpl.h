@@ -6,8 +6,8 @@
 #ifndef _LibcoreReflectGenericArrayTypeImpl_H_
 #define _LibcoreReflectGenericArrayTypeImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/reflect/GenericArrayType.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/reflect/GenericArrayType.h"
 
 @protocol JavaLangReflectType;
 

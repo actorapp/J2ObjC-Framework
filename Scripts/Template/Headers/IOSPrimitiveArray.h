@@ -31,7 +31,7 @@
 #ifndef _IOSPrimitiveArray_H_
 #define _IOSPrimitiveArray_H_
 
-#import <j2objc/IOSArray.h>
+#import "IOSArray.h"
 
 /*!
  * Declares all of the common methods for the primitive array types. For example

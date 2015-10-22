@@ -6,8 +6,8 @@
 #ifndef _JavaUtilZipAdler32_H_
 #define _JavaUtilZipAdler32_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/zip/Checksum.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/zip/Checksum.h"
 
 @class IOSByteArray;
 

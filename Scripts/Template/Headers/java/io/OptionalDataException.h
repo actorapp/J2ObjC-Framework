@@ -6,8 +6,8 @@
 #ifndef _JavaIoOptionalDataException_H_
 #define _JavaIoOptionalDataException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/ObjectStreamException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/ObjectStreamException.h"
 
 /*!
  @brief Signals that the <code>ObjectInputStream</code> class encountered a primitive type

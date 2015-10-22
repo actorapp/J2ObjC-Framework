@@ -6,9 +6,9 @@
 #ifndef _JavaNioChannelsByteChannel_H_
 #define _JavaNioChannelsByteChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/ReadableByteChannel.h>
-#include <j2objc/java/nio/channels/WritableByteChannel.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/channels/ReadableByteChannel.h"
+#include "../../../java/nio/channels/WritableByteChannel.h"
 
 /*!
  @brief A ByteChannel is both readable and writable.

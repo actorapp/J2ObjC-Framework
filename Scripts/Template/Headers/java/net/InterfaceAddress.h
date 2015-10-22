@@ -6,7 +6,7 @@
 #ifndef _JavaNetInterfaceAddress_H_
 #define _JavaNetInterfaceAddress_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class JavaNetInet4Address;
 @class JavaNetInet6Address;

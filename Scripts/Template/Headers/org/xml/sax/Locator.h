@@ -6,7 +6,7 @@
 #ifndef _OrgXmlSaxLocator_H_
 #define _OrgXmlSaxLocator_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief Interface for associating a SAX event with a document location.

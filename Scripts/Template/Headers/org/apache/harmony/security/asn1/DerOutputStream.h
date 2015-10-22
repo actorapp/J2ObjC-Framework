@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonySecurityAsn1DerOutputStream_H_
 #define _OrgApacheHarmonySecurityAsn1DerOutputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/security/asn1/BerOutputStream.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/security/asn1/BerOutputStream.h"
 
 @class OrgApacheHarmonySecurityAsn1ASN1Choice;
 @class OrgApacheHarmonySecurityAsn1ASN1Explicit;

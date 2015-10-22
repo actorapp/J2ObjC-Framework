@@ -6,8 +6,8 @@
 #ifndef _JavaNetCookieStoreImpl_H_
 #define _JavaNetCookieStoreImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/CookieStore.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/CookieStore.h"
 
 @class JavaNetHttpCookie;
 @class JavaNetURI;

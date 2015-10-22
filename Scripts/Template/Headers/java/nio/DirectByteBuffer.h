@@ -6,8 +6,8 @@
 #ifndef _JavaNioDirectByteBuffer_H_
 #define _JavaNioDirectByteBuffer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/MappedByteBuffer.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/MappedByteBuffer.h"
 
 @class IOSByteArray;
 @class IOSCharArray;

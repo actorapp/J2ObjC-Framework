@@ -6,7 +6,7 @@
 #ifndef _JavaUtilConcurrentCallable_H_
 #define _JavaUtilConcurrentCallable_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief A task that returns a result and may throw an exception.

@@ -6,7 +6,7 @@
 #ifndef _JavaxXmlTransformOutputKeys_H_
 #define _JavaxXmlTransformOutputKeys_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief Provides string constants that can be used to set

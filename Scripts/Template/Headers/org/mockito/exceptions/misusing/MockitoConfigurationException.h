@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoExceptionsMisusingMockitoConfigurationException_H_
 #define _OrgMockitoExceptionsMisusingMockitoConfigurationException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/exceptions/base/MockitoException.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/exceptions/base/MockitoException.h"
 
 @class JavaLangException;
 

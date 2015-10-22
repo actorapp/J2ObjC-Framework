@@ -6,7 +6,7 @@
 #ifndef _JavaUtilConcurrentRejectedExecutionHandler_H_
 #define _JavaUtilConcurrentRejectedExecutionHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaUtilConcurrentThreadPoolExecutor;
 @protocol JavaLangRunnable;

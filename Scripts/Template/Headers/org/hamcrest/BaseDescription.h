@@ -6,8 +6,8 @@
 #ifndef _OrgHamcrestBaseDescription_H_
 #define _OrgHamcrestBaseDescription_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/hamcrest/Description.h>
+#include "../../J2ObjC_header.h"
+#include "../../org/hamcrest/Description.h"
 
 @class IOSObjectArray;
 @protocol JavaLangIterable;

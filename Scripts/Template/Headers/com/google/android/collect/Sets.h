@@ -6,7 +6,7 @@
 #ifndef _ComGoogleAndroidCollectSets_H_
 #define _ComGoogleAndroidCollectSets_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class AndroidUtilArraySet;
 @class IOSObjectArray;

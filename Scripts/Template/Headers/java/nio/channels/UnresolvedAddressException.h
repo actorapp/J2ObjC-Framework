@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsUnresolvedAddressException_H_
 #define _JavaNioChannelsUnresolvedAddressException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IllegalArgumentException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
  @brief An <code>UnresolvedAddressException</code> is thrown when trying to use an

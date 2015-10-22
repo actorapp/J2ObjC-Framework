@@ -6,9 +6,9 @@
 #ifndef _JavaUtilAbstractList_H_
 #define _JavaUtilAbstractList_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/AbstractCollection.h>
-#include <j2objc/java/util/List.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/AbstractCollection.h"
+#include "../../java/util/List.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilIterator;

@@ -6,9 +6,9 @@
 #ifndef _OrgXmlSaxExtLocator2Impl_H_
 #define _OrgXmlSaxExtLocator2Impl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/ext/Locator2.h>
-#include <j2objc/org/xml/sax/helpers/LocatorImpl.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/ext/Locator2.h"
+#include "../../../../org/xml/sax/helpers/LocatorImpl.h"
 
 @protocol OrgXmlSaxLocator;
 

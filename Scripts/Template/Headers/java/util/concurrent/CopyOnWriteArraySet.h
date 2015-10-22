@@ -6,9 +6,9 @@
 #ifndef _JavaUtilConcurrentCopyOnWriteArraySet_H_
 #define _JavaUtilConcurrentCopyOnWriteArraySet_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/AbstractSet.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
+#include "../../../java/util/AbstractSet.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;

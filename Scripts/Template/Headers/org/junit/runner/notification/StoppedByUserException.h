@@ -6,8 +6,8 @@
 #ifndef _OrgJunitRunnerNotificationStoppedByUserException_H_
 #define _OrgJunitRunnerNotificationStoppedByUserException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/lang/RuntimeException.h"
 
 @interface OrgJunitRunnerNotificationStoppedByUserException : JavaLangRuntimeException
 

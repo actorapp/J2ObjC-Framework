@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalMatchersContainsExtraTypeInformation_H_
 #define _OrgMockitoInternalMatchersContainsExtraTypeInformation_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
 
 @protocol OrgHamcrestSelfDescribing;
 

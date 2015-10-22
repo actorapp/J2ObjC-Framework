@@ -6,8 +6,8 @@
 #ifndef _JavaIoFileNotFoundException_H_
 #define _JavaIoFileNotFoundException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/IOException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/IOException.h"
 
 /*!
  @brief Thrown when a file specified by a program cannot be found.

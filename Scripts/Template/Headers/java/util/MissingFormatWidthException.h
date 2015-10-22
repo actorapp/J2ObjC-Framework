@@ -6,8 +6,8 @@
 #ifndef _JavaUtilMissingFormatWidthException_H_
 #define _JavaUtilMissingFormatWidthException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/IllegalFormatException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief A <code>MissingFormatWidthException</code> will be thrown if the format width is

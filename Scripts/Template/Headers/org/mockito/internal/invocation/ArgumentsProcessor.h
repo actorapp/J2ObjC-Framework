@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoInternalInvocationArgumentsProcessor_H_
 #define _OrgMockitoInternalInvocationArgumentsProcessor_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilList;

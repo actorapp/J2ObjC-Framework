@@ -6,10 +6,10 @@
 #ifndef _JavaSecurityCertCRLReason_H_
 #define _JavaSecurityCertCRLReason_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/lang/Comparable.h>
-#include <j2objc/java/lang/Enum.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
+#include "../../../java/lang/Comparable.h"
+#include "../../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaSecurityCertCRLReason) {
   JavaSecurityCertCRLReason_UNSPECIFIED = 0,

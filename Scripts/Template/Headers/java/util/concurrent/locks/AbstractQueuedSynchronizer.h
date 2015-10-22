@@ -6,10 +6,10 @@
 #ifndef _JavaUtilConcurrentLocksAbstractQueuedSynchronizer_H_
 #define _JavaUtilConcurrentLocksAbstractQueuedSynchronizer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/concurrent/locks/AbstractOwnableSynchronizer.h>
-#include <j2objc/java/util/concurrent/locks/Condition.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../java/util/concurrent/locks/AbstractOwnableSynchronizer.h"
+#include "../../../../java/util/concurrent/locks/Condition.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject;

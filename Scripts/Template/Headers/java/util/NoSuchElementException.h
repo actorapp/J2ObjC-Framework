@@ -6,8 +6,8 @@
 #ifndef _JavaUtilNoSuchElementException_H_
 #define _JavaUtilNoSuchElementException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/RuntimeException.h"
 
 /*!
  @brief Thrown when trying to retrieve an element

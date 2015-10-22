@@ -6,8 +6,8 @@
 #ifndef _ComGoogleJ2objcSecurityIosRSAKeyFactory_H_
 #define _ComGoogleJ2objcSecurityIosRSAKeyFactory_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/KeyFactorySpi.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/security/KeyFactorySpi.h"
 
 @class IOSClass;
 @protocol JavaSecurityKey;

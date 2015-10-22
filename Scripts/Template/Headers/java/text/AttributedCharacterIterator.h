@@ -6,9 +6,9 @@
 #ifndef _JavaTextAttributedCharacterIterator_H_
 #define _JavaTextAttributedCharacterIterator_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/text/CharacterIterator.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/text/CharacterIterator.h"
 
 @class JavaTextAttributedCharacterIterator_Attribute;
 @protocol JavaUtilMap;

@@ -6,8 +6,8 @@
 #ifndef _ComGoogleJ2objcSecurityCertIosCertificateFactory_H_
 #define _ComGoogleJ2objcSecurityCertIosCertificateFactory_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/cert/CertificateFactorySpi.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../java/security/cert/CertificateFactorySpi.h"
 
 @class JavaIoInputStream;
 @class JavaSecurityCertCRL;

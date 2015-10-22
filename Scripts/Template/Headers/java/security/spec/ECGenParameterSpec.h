@@ -6,8 +6,8 @@
 #ifndef _JavaSecuritySpecECGenParameterSpec_H_
 #define _JavaSecuritySpecECGenParameterSpec_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/spec/AlgorithmParameterSpec.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 /*!
  @brief The parameter specification used to generate elliptic curve domain parameters.

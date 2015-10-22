@@ -6,8 +6,8 @@
 #ifndef _OrgJunitInternalRealSystem_H_
 #define _OrgJunitInternalRealSystem_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/internal/JUnitSystem.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/internal/JUnitSystem.h"
 
 @class JavaIoPrintStream;
 

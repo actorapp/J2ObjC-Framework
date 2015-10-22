@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoInternalVerificationVerificationModeFactory_H_
 #define _OrgMockitoInternalVerificationVerificationModeFactory_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class OrgMockitoInternalVerificationCalls;
 @class OrgMockitoInternalVerificationNoMoreInteractions;

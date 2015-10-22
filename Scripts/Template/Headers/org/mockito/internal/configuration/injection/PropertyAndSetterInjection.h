@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalConfigurationInjectionPropertyAndSetterInjection_H_
 #define _OrgMockitoInternalConfigurationInjectionPropertyAndSetterInjection_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Comparator.h>
-#include <j2objc/org/mockito/internal/configuration/injection/MockInjectionStrategy.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../java/util/Comparator.h"
+#include "../../../../../org/mockito/internal/configuration/injection/MockInjectionStrategy.h"
 
 @class JavaLangReflectField;
 @protocol JavaUtilSet;

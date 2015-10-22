@@ -6,8 +6,8 @@
 #ifndef _JavaSecuritySignature_H_
 #define _JavaSecuritySignature_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/SignatureSpi.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/security/SignatureSpi.h"
 
 @class IOSByteArray;
 @class JavaNioByteBuffer;

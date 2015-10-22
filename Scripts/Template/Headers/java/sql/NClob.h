@@ -6,8 +6,8 @@
 #ifndef _JavaSqlNClob_H_
 #define _JavaSqlNClob_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/sql/Clob.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/sql/Clob.h"
 
 @protocol JavaSqlNClob < JavaSqlClob, NSObject, JavaObject >
 

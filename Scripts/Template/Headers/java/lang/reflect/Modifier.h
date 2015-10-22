@@ -6,7 +6,7 @@
 #ifndef _JavaLangReflectModifier_H_
 #define _JavaLangReflectModifier_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 #define JavaLangReflectModifier_PUBLIC 1
 #define JavaLangReflectModifier_PRIVATE 2

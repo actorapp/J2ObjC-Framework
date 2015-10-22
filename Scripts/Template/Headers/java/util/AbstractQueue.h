@@ -6,9 +6,9 @@
 #ifndef _JavaUtilAbstractQueue_H_
 #define _JavaUtilAbstractQueue_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/AbstractCollection.h>
-#include <j2objc/java/util/Queue.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/AbstractCollection.h"
+#include "../../java/util/Queue.h"
 
 @protocol JavaUtilCollection;
 

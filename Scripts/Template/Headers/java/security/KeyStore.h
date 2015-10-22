@@ -6,8 +6,8 @@
 #ifndef _JavaSecurityKeyStore_H_
 #define _JavaSecurityKeyStore_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/security/auth/Destroyable.h>
+#include "../../J2ObjC_header.h"
+#include "../../javax/security/auth/Destroyable.h"
 
 @class IOSByteArray;
 @class IOSCharArray;

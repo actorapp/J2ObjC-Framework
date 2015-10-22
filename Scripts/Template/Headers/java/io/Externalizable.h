@@ -6,8 +6,8 @@
 #ifndef _JavaIoExternalizable_H_
 #define _JavaIoExternalizable_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
 
 @protocol JavaIoObjectInput;
 @protocol JavaIoObjectOutput;

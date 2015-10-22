@@ -6,8 +6,8 @@
 #ifndef _JavaNioDoubleArrayBuffer_H_
 #define _JavaNioDoubleArrayBuffer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/DoubleBuffer.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/DoubleBuffer.h"
 
 @class IOSDoubleArray;
 @class JavaNioByteOrder;

@@ -6,8 +6,8 @@
 #ifndef _JavaIoFileReader_H_
 #define _JavaIoFileReader_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/InputStreamReader.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/InputStreamReader.h"
 
 @class JavaIoFile;
 @class JavaIoFileDescriptor;

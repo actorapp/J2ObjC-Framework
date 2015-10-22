@@ -6,10 +6,10 @@
 #ifndef _AndroidTextTextUtils_H_
 #define _AndroidTextTextUtils_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Enum.h>
-#include <j2objc/java/lang/Iterable.h>
-#include <j2objc/java/util/Iterator.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Enum.h"
+#include "../../java/lang/Iterable.h"
+#include "../../java/util/Iterator.h"
 
 @class IOSCharArray;
 @class IOSClass;

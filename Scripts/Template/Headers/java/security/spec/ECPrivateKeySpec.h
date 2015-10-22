@@ -6,8 +6,8 @@
 #ifndef _JavaSecuritySpecECPrivateKeySpec_H_
 #define _JavaSecuritySpecECPrivateKeySpec_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/spec/KeySpec.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/spec/KeySpec.h"
 
 @class JavaMathBigInteger;
 @class JavaSecuritySpecECParameterSpec;

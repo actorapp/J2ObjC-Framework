@@ -6,8 +6,8 @@
 #ifndef _JavaxSecurityCertX509Certificate_H_
 #define _JavaxSecurityCertX509Certificate_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/security/cert/Certificate.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../javax/security/cert/Certificate.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;

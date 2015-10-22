@@ -6,7 +6,7 @@
 #ifndef _OrgW3cDomNode_H_
 #define _OrgW3cDomNode_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @protocol OrgW3cDomDocument;
 @protocol OrgW3cDomNamedNodeMap;

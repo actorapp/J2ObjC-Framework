@@ -6,7 +6,7 @@
 #ifndef _AndroidTextInputType_H_
 #define _AndroidTextInputType_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define AndroidTextInputType_TYPE_MASK_CLASS 15
 #define AndroidTextInputType_TYPE_MASK_VARIATION 4080

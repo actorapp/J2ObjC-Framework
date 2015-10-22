@@ -6,7 +6,7 @@
 #ifndef _JavaLangHexStringParser_H_
 #define _JavaLangHexStringParser_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @interface JavaLangHexStringParser : NSObject
 

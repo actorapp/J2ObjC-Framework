@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalMatchersAny_H_
 #define _OrgMockitoInternalMatchersAny_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/mockito/ArgumentMatcher.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../org/mockito/ArgumentMatcher.h"
 
 @protocol OrgHamcrestDescription;
 

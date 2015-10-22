@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonySecurityX509X509PublicKey_H_
 #define _OrgApacheHarmonySecurityX509X509PublicKey_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/PublicKey.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../java/security/PublicKey.h"
 
 @class IOSByteArray;
 

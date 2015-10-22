@@ -6,7 +6,7 @@
 #ifndef _JavaUtilConcurrentCountDownLatch_H_
 #define _JavaUtilConcurrentCountDownLatch_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaUtilConcurrentTimeUnitEnum;
 

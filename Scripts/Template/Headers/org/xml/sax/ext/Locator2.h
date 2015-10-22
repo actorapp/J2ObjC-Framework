@@ -6,8 +6,8 @@
 #ifndef _OrgXmlSaxExtLocator2_H_
 #define _OrgXmlSaxExtLocator2_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/Locator.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/Locator.h"
 
 /*!
  @brief SAX2 extension to augment the entity information provided

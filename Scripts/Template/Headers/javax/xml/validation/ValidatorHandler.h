@@ -6,8 +6,8 @@
 #ifndef _JavaxXmlValidationValidatorHandler_H_
 #define _JavaxXmlValidationValidatorHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/ContentHandler.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/xml/sax/ContentHandler.h"
 
 @class JavaxXmlValidationTypeInfoProvider;
 @protocol OrgW3cDomLsLSResourceResolver;

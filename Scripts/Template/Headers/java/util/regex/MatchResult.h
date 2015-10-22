@@ -6,7 +6,7 @@
 #ifndef _JavaUtilRegexMatchResult_H_
 #define _JavaUtilRegexMatchResult_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief Holds the results of a successful match of a <code>Pattern</code> against a

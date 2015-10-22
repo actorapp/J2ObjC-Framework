@@ -6,7 +6,7 @@
 #ifndef _OrgJsonJSON_H_
 #define _OrgJsonJSON_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class JavaLangBoolean;
 @class JavaLangDouble;

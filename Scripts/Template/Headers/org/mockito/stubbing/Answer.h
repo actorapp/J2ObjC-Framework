@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoStubbingAnswer_H_
 #define _OrgMockitoStubbingAnswer_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @protocol OrgMockitoInvocationInvocationOnMock;
 

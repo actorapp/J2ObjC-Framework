@@ -6,8 +6,8 @@
 #ifndef _JavaUtilZipZipException_H_
 #define _JavaUtilZipZipException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/IOException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/IOException.h"
 
 /*!
  @brief This runtime exception is thrown by <code>ZipFile</code> and <code>ZipInputStream</code>

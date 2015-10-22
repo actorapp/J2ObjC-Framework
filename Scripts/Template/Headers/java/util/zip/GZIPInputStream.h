@@ -6,8 +6,8 @@
 #ifndef _JavaUtilZipGZIPInputStream_H_
 #define _JavaUtilZipGZIPInputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/zip/InflaterInputStream.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/zip/InflaterInputStream.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;

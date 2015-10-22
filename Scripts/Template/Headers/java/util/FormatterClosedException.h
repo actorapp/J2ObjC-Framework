@@ -6,9 +6,9 @@
 #ifndef _JavaUtilFormatterClosedException_H_
 #define _JavaUtilFormatterClosedException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/lang/IllegalStateException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/lang/IllegalStateException.h"
 
 /*!
  @brief A <code>FormatterClosedException</code> will be thrown if the formatter has been

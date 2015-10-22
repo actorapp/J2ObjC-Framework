@@ -6,8 +6,8 @@
 #ifndef _JavaUtilStringTokenizer_H_
 #define _JavaUtilStringTokenizer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Enumeration.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Enumeration.h"
 
 /*!
  @brief Breaks a string into tokens; new code should probably use <code>String.split</code>.

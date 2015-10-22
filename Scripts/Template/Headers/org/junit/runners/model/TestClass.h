@@ -6,7 +6,7 @@
 #ifndef _OrgJunitRunnersModelTestClass_H_
 #define _OrgJunitRunnersModelTestClass_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class IOSClass;
 @class IOSObjectArray;

@@ -6,8 +6,8 @@
 #ifndef _JavaxNetSslDefaultSSLServerSocketFactory_H_
 #define _JavaxNetSslDefaultSSLServerSocketFactory_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/net/ssl/SSLServerSocketFactory.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../javax/net/ssl/SSLServerSocketFactory.h"
 
 @class IOSObjectArray;
 @class JavaNetInetAddress;

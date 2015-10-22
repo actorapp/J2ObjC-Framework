@@ -6,8 +6,8 @@
 #ifndef _JavaTextCollator_H_
 #define _JavaTextCollator_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Comparator.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Comparator.h"
 
 @class IOSObjectArray;
 @class JavaTextCollationKey;

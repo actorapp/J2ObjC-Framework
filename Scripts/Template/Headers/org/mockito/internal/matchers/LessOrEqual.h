@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalMatchersLessOrEqual_H_
 #define _OrgMockitoInternalMatchersLessOrEqual_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/mockito/internal/matchers/CompareTo.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../org/mockito/internal/matchers/CompareTo.h"
 
 @protocol JavaLangComparable;
 

@@ -6,8 +6,8 @@
 #ifndef _JavaLangNumberFormatException_H_
 #define _JavaLangNumberFormatException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IllegalArgumentException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/IllegalArgumentException.h"
 
 /*!
  @brief Thrown when an invalid value is passed to a string-to-number conversion

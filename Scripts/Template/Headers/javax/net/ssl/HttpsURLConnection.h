@@ -6,8 +6,8 @@
 #ifndef _JavaxNetSslHttpsURLConnection_H_
 #define _JavaxNetSslHttpsURLConnection_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/HttpURLConnection.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/net/HttpURLConnection.h"
 
 @class IOSObjectArray;
 @class JavaNetURL;

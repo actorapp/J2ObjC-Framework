@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInvocationInvocation_H_
 #define _OrgMockitoInvocationInvocation_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/invocation/DescribedInvocation.h>
-#include <j2objc/org/mockito/invocation/InvocationOnMock.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/mockito/invocation/DescribedInvocation.h"
+#include "../../../org/mockito/invocation/InvocationOnMock.h"
 
 @class IOSObjectArray;
 @protocol OrgMockitoInvocationLocation;

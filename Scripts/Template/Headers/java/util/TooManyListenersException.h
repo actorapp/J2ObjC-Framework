@@ -6,8 +6,8 @@
 #ifndef _JavaUtilTooManyListenersException_H_
 #define _JavaUtilTooManyListenersException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/Exception.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/Exception.h"
 
 /*!
  @brief A <code>TooManyListenersException</code> is thrown when an attempt is made to add

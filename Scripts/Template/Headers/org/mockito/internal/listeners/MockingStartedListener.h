@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalListenersMockingStartedListener_H_
 #define _OrgMockitoInternalListenersMockingStartedListener_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/listeners/MockingProgressListener.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/listeners/MockingProgressListener.h"
 
 @class IOSClass;
 

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilListIterator_H_
 #define _JavaUtilListIterator_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Iterator.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Iterator.h"
 
 /*!
  @brief An ListIterator is used to sequence over a List of objects.

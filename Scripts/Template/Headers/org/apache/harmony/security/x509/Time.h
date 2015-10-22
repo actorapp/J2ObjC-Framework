@@ -6,7 +6,7 @@
 #ifndef _OrgApacheHarmonySecurityX509Time_H_
 #define _OrgApacheHarmonySecurityX509Time_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../../J2ObjC_header.h"
 
 @class OrgApacheHarmonySecurityAsn1ASN1Choice;
 

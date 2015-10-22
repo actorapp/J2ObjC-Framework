@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsAlreadyBoundException_H_
 #define _JavaNioChannelsAlreadyBoundException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IllegalStateException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/IllegalStateException.h"
 
 /*!
  @brief An <code>AlreadyBoundException</code> is thrown when an attempt is made to bind a NetworkChannel that

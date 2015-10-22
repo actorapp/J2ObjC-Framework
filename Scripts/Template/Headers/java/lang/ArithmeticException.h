@@ -6,8 +6,8 @@
 #ifndef _JavaLangArithmeticException_H_
 #define _JavaLangArithmeticException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/RuntimeException.h"
 
 /*!
  @brief Thrown when the an invalid arithmetic operation is attempted.

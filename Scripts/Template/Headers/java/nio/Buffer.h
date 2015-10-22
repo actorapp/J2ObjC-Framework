@@ -6,7 +6,7 @@
 #ifndef _JavaNioBuffer_H_
 #define _JavaNioBuffer_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define JavaNioBuffer_UNSET_MARK -1
 

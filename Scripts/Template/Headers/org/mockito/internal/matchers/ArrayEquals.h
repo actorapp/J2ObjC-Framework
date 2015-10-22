@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalMatchersArrayEquals_H_
 #define _OrgMockitoInternalMatchersArrayEquals_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/matchers/Equals.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/matchers/Equals.h"
 
 @class IOSObjectArray;
 @protocol OrgHamcrestDescription;

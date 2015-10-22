@@ -6,8 +6,8 @@
 #ifndef _JavaSecuritySignatureException_H_
 #define _JavaSecuritySignatureException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/GeneralSecurityException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
 

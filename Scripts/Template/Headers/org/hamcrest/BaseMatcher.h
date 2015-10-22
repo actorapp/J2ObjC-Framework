@@ -6,8 +6,8 @@
 #ifndef _OrgHamcrestBaseMatcher_H_
 #define _OrgHamcrestBaseMatcher_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/hamcrest/Matcher.h>
+#include "../../J2ObjC_header.h"
+#include "../../org/hamcrest/Matcher.h"
 
 @protocol OrgHamcrestDescription;
 

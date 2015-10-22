@@ -6,7 +6,7 @@
 #ifndef _JavaUtilConcurrentAtomicFences_H_
 #define _JavaUtilConcurrentAtomicFences_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 /*!
  @brief A set of methods providing fine-grained control over happens-before

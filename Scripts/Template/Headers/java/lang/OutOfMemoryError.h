@@ -6,8 +6,8 @@
 #ifndef _JavaLangOutOfMemoryError_H_
 #define _JavaLangOutOfMemoryError_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/VirtualMachineError.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/VirtualMachineError.h"
 
 /*!
  @brief Thrown when a request for memory is made that can not be satisfied using the

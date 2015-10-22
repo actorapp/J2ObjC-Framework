@@ -6,8 +6,8 @@
 #ifndef _JavaLangIncompatibleClassChangeError_H_
 #define _JavaLangIncompatibleClassChangeError_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/LinkageError.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/LinkageError.h"
 
 /*!
  @brief <code>IncompatibleClassChangeError</code> is the superclass of all classes which

@@ -6,9 +6,9 @@
 #ifndef _JavaUtilPriorityQueue_H_
 #define _JavaUtilPriorityQueue_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/AbstractQueue.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/util/AbstractQueue.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;

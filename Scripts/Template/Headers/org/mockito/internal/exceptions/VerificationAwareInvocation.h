@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalExceptionsVerificationAwareInvocation_H_
 #define _OrgMockitoInternalExceptionsVerificationAwareInvocation_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/invocation/DescribedInvocation.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/invocation/DescribedInvocation.h"
 
 @protocol OrgMockitoInternalExceptionsVerificationAwareInvocation < OrgMockitoInvocationDescribedInvocation, NSObject, JavaObject >
 

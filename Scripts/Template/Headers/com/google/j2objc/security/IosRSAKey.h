@@ -6,11 +6,11 @@
 #ifndef _ComGoogleJ2objcSecurityIosRSAKey_H_
 #define _ComGoogleJ2objcSecurityIosRSAKey_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/Key.h>
-#include <j2objc/java/security/interfaces/RSAKey.h>
-#include <j2objc/java/security/interfaces/RSAPrivateKey.h>
-#include <j2objc/java/security/interfaces/RSAPublicKey.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/security/Key.h"
+#include "../../../../java/security/interfaces/RSAKey.h"
+#include "../../../../java/security/interfaces/RSAPrivateKey.h"
+#include "../../../../java/security/interfaces/RSAPublicKey.h"
 
 @class IOSByteArray;
 @class JavaMathBigInteger;

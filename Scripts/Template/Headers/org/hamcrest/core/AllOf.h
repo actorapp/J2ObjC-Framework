@@ -6,8 +6,8 @@
 #ifndef _OrgHamcrestCoreAllOf_H_
 #define _OrgHamcrestCoreAllOf_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/hamcrest/DiagnosingMatcher.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/hamcrest/DiagnosingMatcher.h"
 
 @class IOSObjectArray;
 @protocol JavaLangIterable;

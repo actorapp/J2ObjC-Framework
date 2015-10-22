@@ -6,9 +6,9 @@
 #ifndef _JavaTextIOSCollator_H_
 #define _JavaTextIOSCollator_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/text/CollationKey.h>
-#include <j2objc/java/text/Collator.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/text/CollationKey.h"
+#include "../../java/text/Collator.h"
 
 @class IOSByteArray;
 @class JavaTextCollationKey;

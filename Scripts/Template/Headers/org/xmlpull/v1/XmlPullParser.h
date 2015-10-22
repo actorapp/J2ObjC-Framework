@@ -6,7 +6,7 @@
 #ifndef _OrgXmlpullV1XmlPullParser_H_
 #define _OrgXmlpullV1XmlPullParser_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class IOSCharArray;
 @class IOSIntArray;

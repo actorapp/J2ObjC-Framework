@@ -6,9 +6,9 @@
 #ifndef _JavaSecurityInterfacesRSAPrivateKey_H_
 #define _JavaSecurityInterfacesRSAPrivateKey_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/PrivateKey.h>
-#include <j2objc/java/security/interfaces/RSAKey.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/PrivateKey.h"
+#include "../../../java/security/interfaces/RSAKey.h"
 
 @class JavaMathBigInteger;
 

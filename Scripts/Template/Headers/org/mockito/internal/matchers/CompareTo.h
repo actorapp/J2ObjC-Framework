@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalMatchersCompareTo_H_
 #define _OrgMockitoInternalMatchersCompareTo_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/ArgumentMatcher.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/ArgumentMatcher.h"
 
 @protocol JavaLangComparable;
 @protocol OrgHamcrestDescription;

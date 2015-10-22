@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonyXmlParsersDocumentBuilderImpl_H_
 #define _OrgApacheHarmonyXmlParsersDocumentBuilderImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/xml/parsers/DocumentBuilder.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../javax/xml/parsers/DocumentBuilder.h"
 
 @class OrgXmlSaxInputSource;
 @protocol OrgW3cDomDOMImplementation;

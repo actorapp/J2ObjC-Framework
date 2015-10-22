@@ -6,8 +6,8 @@
 #ifndef _JavaTextDecimalFormatSymbols_H_
 #define _JavaTextDecimalFormatSymbols_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilCurrency;

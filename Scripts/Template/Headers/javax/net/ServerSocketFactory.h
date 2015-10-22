@@ -6,7 +6,7 @@
 #ifndef _JavaxNetServerSocketFactory_H_
 #define _JavaxNetServerSocketFactory_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class JavaNetInetAddress;
 @class JavaNetServerSocket;

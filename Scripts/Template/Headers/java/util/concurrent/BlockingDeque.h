@@ -6,9 +6,9 @@
 #ifndef _JavaUtilConcurrentBlockingDeque_H_
 #define _JavaUtilConcurrentBlockingDeque_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Deque.h>
-#include <j2objc/java/util/concurrent/BlockingQueue.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/Deque.h"
+#include "../../../java/util/concurrent/BlockingQueue.h"
 
 @class JavaUtilConcurrentTimeUnitEnum;
 @protocol JavaUtilIterator;

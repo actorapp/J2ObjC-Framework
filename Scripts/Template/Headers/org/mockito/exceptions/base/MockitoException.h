@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoExceptionsBaseMockitoException_H_
 #define _OrgMockitoExceptionsBaseMockitoException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/lang/RuntimeException.h"
 
 @class IOSObjectArray;
 @class JavaLangThrowable;

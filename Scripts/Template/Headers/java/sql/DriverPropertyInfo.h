@@ -6,7 +6,7 @@
 #ifndef _JavaSqlDriverPropertyInfo_H_
 #define _JavaSqlDriverPropertyInfo_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class IOSObjectArray;
 

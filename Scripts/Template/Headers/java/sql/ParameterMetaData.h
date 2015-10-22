@@ -6,8 +6,8 @@
 #ifndef _JavaSqlParameterMetaData_H_
 #define _JavaSqlParameterMetaData_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/sql/Wrapper.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/sql/Wrapper.h"
 
 #define JavaSqlParameterMetaData_parameterModeIn 1
 #define JavaSqlParameterMetaData_parameterModeInOut 2

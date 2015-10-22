@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalCreationSettingsCreationSettings_H_
 #define _OrgMockitoInternalCreationSettingsCreationSettings_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/mockito/mock/MockCreationSettings.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../java/io/Serializable.h"
+#include "../../../../../org/mockito/mock/MockCreationSettings.h"
 
 @class IOSClass;
 @protocol JavaUtilList;

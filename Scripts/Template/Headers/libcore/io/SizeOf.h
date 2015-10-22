@@ -6,7 +6,7 @@
 #ifndef _LibcoreIoSizeOf_H_
 #define _LibcoreIoSizeOf_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define LibcoreIoSizeOf_CHAR 2
 #define LibcoreIoSizeOf_DOUBLE 8

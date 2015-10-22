@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsClosedByInterruptException_H_
 #define _JavaNioChannelsClosedByInterruptException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/AsynchronousCloseException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/channels/AsynchronousCloseException.h"
 
 /*!
  @brief A <code>ClosedByInterruptException</code> is thrown when a thread is interrupted

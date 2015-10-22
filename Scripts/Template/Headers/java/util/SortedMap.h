@@ -6,8 +6,8 @@
 #ifndef _JavaUtilSortedMap_H_
 #define _JavaUtilSortedMap_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Map.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Map.h"
 
 @protocol JavaUtilComparator;
 

@@ -6,11 +6,11 @@
 #ifndef _AndroidTextSpannedString_H_
 #define _AndroidTextSpannedString_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/android/text/GetChars.h>
-#include <j2objc/android/text/SpannableStringInternal.h>
-#include <j2objc/android/text/Spanned.h>
-#include <j2objc/java/lang/CharSequence.h>
+#include "../../J2ObjC_header.h"
+#include "../../android/text/GetChars.h"
+#include "../../android/text/SpannableStringInternal.h"
+#include "../../android/text/Spanned.h"
+#include "../../java/lang/CharSequence.h"
 
 /*!
  @brief This is the class for text whose content and markup are immutable.

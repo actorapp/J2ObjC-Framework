@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsFileLock_H_
 #define _JavaNioChannelsFileLock_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/AutoCloseable.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/AutoCloseable.h"
 
 @class JavaNioChannelsFileChannel;
 

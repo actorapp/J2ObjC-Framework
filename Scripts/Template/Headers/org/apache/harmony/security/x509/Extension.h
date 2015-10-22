@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonySecurityX509Extension_H_
 #define _OrgApacheHarmonySecurityX509Extension_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/cert/Extension.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../java/security/cert/Extension.h"
 
 @class IOSByteArray;
 @class IOSIntArray;

@@ -6,8 +6,8 @@
 #ifndef _JavaIoInvalidClassException_H_
 #define _JavaIoInvalidClassException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/ObjectStreamException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/ObjectStreamException.h"
 
 /*!
  @brief Signals a problem during the serialization or or deserialization of an

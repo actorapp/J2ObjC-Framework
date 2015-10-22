@@ -6,8 +6,8 @@
 #ifndef _OrgHamcrestCoreAnyOf_H_
 #define _OrgHamcrestCoreAnyOf_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/hamcrest/core/ShortcutCombination.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/hamcrest/core/ShortcutCombination.h"
 
 @class IOSObjectArray;
 @protocol JavaLangIterable;

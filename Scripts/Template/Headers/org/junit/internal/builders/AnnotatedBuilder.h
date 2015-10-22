@@ -6,8 +6,8 @@
 #ifndef _OrgJunitInternalBuildersAnnotatedBuilder_H_
 #define _OrgJunitInternalBuildersAnnotatedBuilder_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runners/model/RunnerBuilder.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/junit/runners/model/RunnerBuilder.h"
 
 @class IOSClass;
 @class OrgJunitRunnerRunner;

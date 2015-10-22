@@ -6,8 +6,8 @@
 #ifndef _ComGoogleJ2objcSecurityIosRSAKeyPairGenerator_H_
 #define _ComGoogleJ2objcSecurityIosRSAKeyPairGenerator_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/KeyPairGeneratorSpi.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/security/KeyPairGeneratorSpi.h"
 
 @class JavaSecurityKeyPair;
 @class JavaSecuritySecureRandom;

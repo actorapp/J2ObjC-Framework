@@ -6,8 +6,8 @@
 #ifndef _JavaBeansPropertyDescriptor_H_
 #define _JavaBeansPropertyDescriptor_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/beans/FeatureDescriptor.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/beans/FeatureDescriptor.h"
 
 @class IOSClass;
 @class JavaLangReflectMethod;

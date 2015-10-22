@@ -6,7 +6,7 @@
 #ifndef _JavaTextAnnotation_H_
 #define _JavaTextAnnotation_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Wrapper for a text attribute value which represents an annotation.

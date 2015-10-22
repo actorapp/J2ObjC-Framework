@@ -6,10 +6,10 @@
 #ifndef _OrgMockitoInternalMatchersCapturingMatcher_H_
 #define _OrgMockitoInternalMatchersCapturingMatcher_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/mockito/ArgumentMatcher.h>
-#include <j2objc/org/mockito/internal/matchers/CapturesArguments.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../org/mockito/ArgumentMatcher.h"
+#include "../../../../org/mockito/internal/matchers/CapturesArguments.h"
 
 @protocol JavaUtilList;
 @protocol OrgHamcrestDescription;

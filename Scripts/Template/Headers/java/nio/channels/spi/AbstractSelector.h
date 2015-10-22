@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsSpiAbstractSelector_H_
 #define _JavaNioChannelsSpiAbstractSelector_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/Selector.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/nio/channels/Selector.h"
 
 @class JavaNioChannelsSelectionKey;
 @class JavaNioChannelsSpiAbstractSelectableChannel;

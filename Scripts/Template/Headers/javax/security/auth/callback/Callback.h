@@ -6,7 +6,7 @@
 #ifndef _JavaxSecurityAuthCallbackCallback_H_
 #define _JavaxSecurityAuthCallbackCallback_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 /*!
  @brief Defines an empty base interface for all <code>Callback</code>s used during

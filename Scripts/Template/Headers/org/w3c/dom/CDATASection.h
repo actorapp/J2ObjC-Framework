@@ -6,8 +6,8 @@
 #ifndef _OrgW3cDomCDATASection_H_
 #define _OrgW3cDomCDATASection_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/w3c/dom/Text.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/w3c/dom/Text.h"
 
 /*!
  @brief CDATA sections are used to escape blocks of text containing characters that

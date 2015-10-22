@@ -6,8 +6,8 @@
 #ifndef _JavaBeansIndexedPropertyChangeEvent_H_
 #define _JavaBeansIndexedPropertyChangeEvent_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/beans/PropertyChangeEvent.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/beans/PropertyChangeEvent.h"
 
 /*!
  @brief A type of <code>PropertyChangeEvent</code> that indicates that an indexed property

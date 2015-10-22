@@ -6,7 +6,7 @@
 #ifndef _JavaIoFlushable_H_
 #define _JavaIoFlushable_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Defines an interface for classes that can (or need to) be flushed, typically

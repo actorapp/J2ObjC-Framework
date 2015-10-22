@@ -6,8 +6,8 @@
 #ifndef _OrgJunitInternalRequestsClassRequest_H_
 #define _OrgJunitInternalRequestsClassRequest_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runner/Request.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/junit/runner/Request.h"
 
 @class IOSClass;
 @class OrgJunitRunnerRunner;

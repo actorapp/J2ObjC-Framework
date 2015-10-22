@@ -6,8 +6,8 @@
 #ifndef _AndroidUtilBase64DataException_H_
 #define _AndroidUtilBase64DataException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/IOException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/IOException.h"
 
 /*!
  @brief This exception is thrown by <code>Base64InputStream</code> or <code>Base64OutputStream</code>

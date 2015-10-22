@@ -6,8 +6,8 @@
 #ifndef _OrgHamcrestInternalSelfDescribingValue_H_
 #define _OrgHamcrestInternalSelfDescribingValue_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/hamcrest/SelfDescribing.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/hamcrest/SelfDescribing.h"
 
 @protocol OrgHamcrestDescription;
 

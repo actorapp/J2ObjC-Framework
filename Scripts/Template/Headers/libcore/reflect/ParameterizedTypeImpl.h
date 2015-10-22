@@ -6,8 +6,8 @@
 #ifndef _LibcoreReflectParameterizedTypeImpl_H_
 #define _LibcoreReflectParameterizedTypeImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/reflect/ParameterizedType.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/reflect/ParameterizedType.h"
 
 @class IOSClass;
 @class IOSObjectArray;

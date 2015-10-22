@@ -6,8 +6,8 @@
 #ifndef _JavaNioCharsetIOSCharset_H_
 #define _JavaNioCharsetIOSCharset_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/charset/Charset.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/charset/Charset.h"
 
 @class JavaNioCharsetCharsetDecoder;
 @class JavaNioCharsetCharsetEncoder;

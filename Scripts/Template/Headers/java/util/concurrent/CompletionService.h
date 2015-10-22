@@ -6,7 +6,7 @@
 #ifndef _JavaUtilConcurrentCompletionService_H_
 #define _JavaUtilConcurrentCompletionService_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class JavaUtilConcurrentTimeUnitEnum;
 @protocol JavaLangRunnable;

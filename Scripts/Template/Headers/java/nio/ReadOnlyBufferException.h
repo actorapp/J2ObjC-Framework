@@ -6,8 +6,8 @@
 #ifndef _JavaNioReadOnlyBufferException_H_
 #define _JavaNioReadOnlyBufferException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/UnsupportedOperationException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/UnsupportedOperationException.h"
 
 /*!
  @brief A <code>ReadOnlyBufferException</code> is thrown when some write operation is

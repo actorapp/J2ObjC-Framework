@@ -6,8 +6,8 @@
 #ifndef _JavaUtilNavigableMap_H_
 #define _JavaUtilNavigableMap_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/SortedMap.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/SortedMap.h"
 
 @protocol JavaUtilMap_Entry;
 @protocol JavaUtilNavigableSet;

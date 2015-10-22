@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsOverlappingFileLockException_H_
 #define _JavaNioChannelsOverlappingFileLockException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IllegalStateException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/IllegalStateException.h"
 
 /*!
  @brief An <code>OverlappingFileLockException</code> is thrown when attempting to acquire

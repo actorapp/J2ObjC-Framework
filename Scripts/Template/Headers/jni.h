@@ -25,7 +25,7 @@
 #define JNI_H_
 
 #include <stdarg.h>
-#include <j2objc/J2ObjC_types.h>
+#include "J2ObjC_types.h"
 
 /* "cardinal indices and sizes" */
 typedef jint            jsize;

@@ -6,8 +6,8 @@
 #ifndef _JavaNetURLConnection_H_
 #define _JavaNetURLConnection_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/ContentHandler.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/ContentHandler.h"
 
 @class IOSObjectArray;
 @class JavaIoInputStream;

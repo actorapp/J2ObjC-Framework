@@ -6,7 +6,7 @@
 #ifndef _JavaTextCharacterIterator_H_
 #define _JavaTextCharacterIterator_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define JavaTextCharacterIterator_DONE 0xffff
 

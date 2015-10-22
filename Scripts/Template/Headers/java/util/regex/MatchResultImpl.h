@@ -6,8 +6,8 @@
 #ifndef _JavaUtilRegexMatchResultImpl_H_
 #define _JavaUtilRegexMatchResultImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/regex/MatchResult.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/regex/MatchResult.h"
 
 @class IOSIntArray;
 

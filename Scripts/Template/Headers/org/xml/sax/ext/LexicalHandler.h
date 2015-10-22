@@ -6,7 +6,7 @@
 #ifndef _OrgXmlSaxExtLexicalHandler_H_
 #define _OrgXmlSaxExtLexicalHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class IOSCharArray;
 

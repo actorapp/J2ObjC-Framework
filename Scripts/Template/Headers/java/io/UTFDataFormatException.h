@@ -6,8 +6,8 @@
 #ifndef _JavaIoUTFDataFormatException_H_
 #define _JavaIoUTFDataFormatException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/IOException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/IOException.h"
 
 /*!
  @brief Signals that an incorrectly encoded UTF-8 string has been encountered, most

@@ -6,15 +6,15 @@
 #ifndef _JavaUtilConcurrentConcurrentSkipListMap_H_
 #define _JavaUtilConcurrentConcurrentSkipListMap_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/lang/Comparable.h>
-#include <j2objc/java/util/AbstractCollection.h>
-#include <j2objc/java/util/AbstractMap.h>
-#include <j2objc/java/util/AbstractSet.h>
-#include <j2objc/java/util/Iterator.h>
-#include <j2objc/java/util/NavigableSet.h>
-#include <j2objc/java/util/concurrent/ConcurrentNavigableMap.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
+#include "../../../java/lang/Comparable.h"
+#include "../../../java/util/AbstractCollection.h"
+#include "../../../java/util/AbstractMap.h"
+#include "../../../java/util/AbstractSet.h"
+#include "../../../java/util/Iterator.h"
+#include "../../../java/util/NavigableSet.h"
+#include "../../../java/util/concurrent/ConcurrentNavigableMap.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentConcurrentSkipListMap_Node;

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilRegexMatcher_H_
 #define _JavaUtilRegexMatcher_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/regex/MatchResult.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/regex/MatchResult.h"
 
 @class JavaLangStringBuffer;
 @class JavaUtilRegexPattern;

@@ -6,8 +6,8 @@
 #ifndef _JavaxNetSslSSLHandshakeException_H_
 #define _JavaxNetSslSSLHandshakeException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/net/ssl/SSLException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../javax/net/ssl/SSLException.h"
 
 @class JavaLangThrowable;
 

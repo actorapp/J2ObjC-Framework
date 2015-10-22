@@ -6,8 +6,8 @@
 #ifndef _JavaLangOverride_H_
 #define _JavaLangOverride_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/annotation/Annotation.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/annotation/Annotation.h"
 
 /*!
  @brief Annotation type used to mark methods that override a method declaration in a

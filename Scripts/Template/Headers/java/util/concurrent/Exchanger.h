@@ -6,8 +6,8 @@
 #ifndef _JavaUtilConcurrentExchanger_H_
 #define _JavaUtilConcurrentExchanger_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/ThreadLocal.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/ThreadLocal.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentTimeUnitEnum;

@@ -6,8 +6,8 @@
 #ifndef _ComGoogleJ2objcNetIosHttpURLConnection_H_
 #define _ComGoogleJ2objcNetIosHttpURLConnection_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/HttpURLConnection.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/net/HttpURLConnection.h"
 
 @class JavaIoInputStream;
 @class JavaIoOutputStream;

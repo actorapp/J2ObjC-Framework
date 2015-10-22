@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsInterruptibleChannel_H_
 #define _JavaNioChannelsInterruptibleChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/Channel.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/nio/channels/Channel.h"
 
 /*!
  @brief Channels that implement this interface can be asynchronously closed and

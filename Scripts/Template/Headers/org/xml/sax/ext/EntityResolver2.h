@@ -6,8 +6,8 @@
 #ifndef _OrgXmlSaxExtEntityResolver2_H_
 #define _OrgXmlSaxExtEntityResolver2_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/EntityResolver.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/EntityResolver.h"
 
 @class OrgXmlSaxInputSource;
 

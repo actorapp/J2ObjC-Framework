@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalDebuggingVerboseMockInvocationLogger_H_
 #define _OrgMockitoInternalDebuggingVerboseMockInvocationLogger_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/listeners/InvocationListener.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/listeners/InvocationListener.h"
 
 @class JavaIoPrintStream;
 @protocol OrgMockitoListenersMethodInvocationReport;

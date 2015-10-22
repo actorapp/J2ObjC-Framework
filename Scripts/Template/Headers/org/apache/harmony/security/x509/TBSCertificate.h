@@ -6,7 +6,7 @@
 #ifndef _OrgApacheHarmonySecurityX509TBSCertificate_H_
 #define _OrgApacheHarmonySecurityX509TBSCertificate_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../../J2ObjC_header.h"
 
 @class IOSBooleanArray;
 @class IOSByteArray;

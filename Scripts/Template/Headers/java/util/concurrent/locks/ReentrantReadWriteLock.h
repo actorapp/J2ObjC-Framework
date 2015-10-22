@@ -6,12 +6,12 @@
 #ifndef _JavaUtilConcurrentLocksReentrantReadWriteLock_H_
 #define _JavaUtilConcurrentLocksReentrantReadWriteLock_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/lang/ThreadLocal.h>
-#include <j2objc/java/util/concurrent/locks/AbstractQueuedSynchronizer.h>
-#include <j2objc/java/util/concurrent/locks/Lock.h>
-#include <j2objc/java/util/concurrent/locks/ReadWriteLock.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../java/lang/ThreadLocal.h"
+#include "../../../../java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
+#include "../../../../java/util/concurrent/locks/Lock.h"
+#include "../../../../java/util/concurrent/locks/ReadWriteLock.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock;

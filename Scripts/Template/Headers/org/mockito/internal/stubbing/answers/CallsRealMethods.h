@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalStubbingAnswersCallsRealMethods_H_
 #define _OrgMockitoInternalStubbingAnswersCallsRealMethods_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/mockito/stubbing/Answer.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../java/io/Serializable.h"
+#include "../../../../../org/mockito/stubbing/Answer.h"
 
 @protocol OrgMockitoInvocationInvocationOnMock;
 

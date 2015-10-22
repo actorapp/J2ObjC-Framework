@@ -6,7 +6,7 @@
 #ifndef _JavaUtilZipDeflater_H_
 #define _JavaUtilZipDeflater_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class IOSByteArray;
 

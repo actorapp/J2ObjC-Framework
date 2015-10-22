@@ -20,8 +20,8 @@
 #ifndef _JavaLangNumber_H_
 #define _JavaLangNumber_H_
 
-#include <j2objc/J2ObjC_common.h>
-#include <j2objc/java/io/Serializable.h>
+#include "J2ObjC_common.h"
+#include "java/io/Serializable.h"
 
 //
 // Adds the java.io.Serializable marker interface to NSNumber.

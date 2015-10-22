@@ -6,8 +6,8 @@
 #ifndef _JavaUtilMapEntry_H_
 #define _JavaUtilMapEntry_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/Map.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/util/Map.h"
 
 /*!
  @brief MapEntry is an internal class which provides an implementation of Map.Entry.

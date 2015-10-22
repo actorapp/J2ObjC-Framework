@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalInvocationFinderVerifiableInvocationsFinder_H_
 #define _OrgMockitoInternalInvocationFinderVerifiableInvocationsFinder_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/util/collections/ListUtil.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/mockito/internal/util/collections/ListUtil.h"
 
 @protocol JavaUtilList;
 @protocol OrgMockitoInvocationInvocation;

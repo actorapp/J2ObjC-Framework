@@ -6,7 +6,7 @@
 #ifndef _JavaNetCacheResponse_H_
 #define _JavaNetCacheResponse_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class JavaIoInputStream;
 @protocol JavaUtilMap;

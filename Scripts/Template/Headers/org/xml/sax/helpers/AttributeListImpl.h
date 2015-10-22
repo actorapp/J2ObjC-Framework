@@ -6,8 +6,8 @@
 #ifndef _OrgXmlSaxHelpersAttributeListImpl_H_
 #define _OrgXmlSaxHelpersAttributeListImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/AttributeList.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/AttributeList.h"
 
 /*!
  @brief Default implementation for AttributeList.

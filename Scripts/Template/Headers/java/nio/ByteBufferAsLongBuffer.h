@@ -6,8 +6,8 @@
 #ifndef _JavaNioByteBufferAsLongBuffer_H_
 #define _JavaNioByteBufferAsLongBuffer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/LongBuffer.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/LongBuffer.h"
 
 @class IOSLongArray;
 @class JavaNioByteBuffer;

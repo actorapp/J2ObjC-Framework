@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonySecurityAsn1DerInputStream_H_
 #define _OrgApacheHarmonySecurityAsn1DerInputStream_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/security/asn1/BerInputStream.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/security/asn1/BerInputStream.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;

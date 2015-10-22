@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalVerificationInOrderContextImpl_H_
 #define _OrgMockitoInternalVerificationInOrderContextImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/verification/api/InOrderContext.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/verification/api/InOrderContext.h"
 
 @class OrgMockitoInternalUtilCollectionsIdentitySet;
 @protocol OrgMockitoInvocationInvocation;

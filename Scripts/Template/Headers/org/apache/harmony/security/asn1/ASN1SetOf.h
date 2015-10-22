@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonySecurityAsn1ASN1SetOf_H_
 #define _OrgApacheHarmonySecurityAsn1ASN1SetOf_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/security/asn1/ASN1ValueCollection.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/security/asn1/ASN1ValueCollection.h"
 
 @class OrgApacheHarmonySecurityAsn1ASN1Type;
 @class OrgApacheHarmonySecurityAsn1BerInputStream;

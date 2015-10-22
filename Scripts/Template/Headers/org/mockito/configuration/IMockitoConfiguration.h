@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoConfigurationIMockitoConfiguration_H_
 #define _OrgMockitoConfigurationIMockitoConfiguration_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @protocol OrgMockitoConfigurationAnnotationEngine;
 @protocol OrgMockitoReturnValues;

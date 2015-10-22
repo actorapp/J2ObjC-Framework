@@ -6,9 +6,9 @@
 #ifndef _JavaIoReader_H_
 #define _JavaIoReader_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
-#include <j2objc/java/lang/Readable.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Closeable.h"
+#include "../../java/lang/Readable.h"
 
 @class IOSCharArray;
 @class JavaNioCharBuffer;

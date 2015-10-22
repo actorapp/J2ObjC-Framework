@@ -6,8 +6,8 @@
 #ifndef _JunitTextuiResultPrinter_H_
 #define _JunitTextuiResultPrinter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/junit/framework/TestListener.h>
+#include "../../J2ObjC_header.h"
+#include "../../junit/framework/TestListener.h"
 
 @class JavaIoPrintStream;
 @class JavaLangThrowable;

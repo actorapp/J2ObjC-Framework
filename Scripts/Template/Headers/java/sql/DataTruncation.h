@@ -6,9 +6,9 @@
 #ifndef _JavaSqlDataTruncation_H_
 #define _JavaSqlDataTruncation_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/sql/SQLWarning.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/sql/SQLWarning.h"
 
 @class JavaLangThrowable;
 

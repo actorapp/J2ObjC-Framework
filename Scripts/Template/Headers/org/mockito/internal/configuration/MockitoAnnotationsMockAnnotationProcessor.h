@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalConfigurationMockitoAnnotationsMockAnnotationProcessor_H_
 #define _OrgMockitoInternalConfigurationMockitoAnnotationsMockAnnotationProcessor_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/configuration/FieldAnnotationProcessor.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/internal/configuration/FieldAnnotationProcessor.h"
 
 @class JavaLangReflectField;
 @protocol OrgMockitoMockitoAnnotations_Mock;

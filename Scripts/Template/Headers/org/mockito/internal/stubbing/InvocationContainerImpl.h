@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalStubbingInvocationContainerImpl_H_
 #define _OrgMockitoInternalStubbingInvocationContainerImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/mockito/internal/stubbing/InvocationContainer.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../org/mockito/internal/stubbing/InvocationContainer.h"
 
 @class OrgMockitoInternalInvocationInvocationMatcher;
 @class OrgMockitoInternalStubbingStubbedInvocationMatcher;

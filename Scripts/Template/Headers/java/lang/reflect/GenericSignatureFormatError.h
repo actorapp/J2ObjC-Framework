@@ -6,8 +6,8 @@
 #ifndef _JavaLangReflectGenericSignatureFormatError_H_
 #define _JavaLangReflectGenericSignatureFormatError_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/ClassFormatError.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/ClassFormatError.h"
 
 /*!
  @brief Indicates that a malformed signature has been encountered via a reflective

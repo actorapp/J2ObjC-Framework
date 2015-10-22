@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoInternalUtilReflectionWhitebox_H_
 #define _OrgMockitoInternalUtilReflectionWhitebox_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../../J2ObjC_header.h"
 
 @interface OrgMockitoInternalUtilReflectionWhitebox : NSObject
 

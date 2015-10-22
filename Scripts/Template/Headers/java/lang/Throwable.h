@@ -22,8 +22,8 @@
 #ifndef _JavaLangThrowable_H_
 #define _JavaLangThrowable_H_
 
-#import <j2objc/java/io/Serializable.h>
-#import <j2objc/JavaObject.h>
+#import "../../java/io/Serializable.h"
+#import "../../JavaObject.h"
 
 @class JavaIoPrintStream;
 @class JavaIoPrintWriter;

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilJarJarEntry_H_
 #define _JavaUtilJarJarEntry_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/zip/ZipEntry.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/zip/ZipEntry.h"
 
 @class IOSObjectArray;
 @class JavaUtilJarAttributes;

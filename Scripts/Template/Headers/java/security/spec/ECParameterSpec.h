@@ -6,8 +6,8 @@
 #ifndef _JavaSecuritySpecECParameterSpec_H_
 #define _JavaSecuritySpecECParameterSpec_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/spec/AlgorithmParameterSpec.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 @class JavaMathBigInteger;
 @class JavaSecuritySpecECPoint;

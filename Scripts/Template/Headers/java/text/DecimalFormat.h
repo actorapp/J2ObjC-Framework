@@ -6,8 +6,8 @@
 #ifndef _JavaTextDecimalFormat_H_
 #define _JavaTextDecimalFormat_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/text/NumberFormat.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/text/NumberFormat.h"
 
 @class JavaLangStringBuffer;
 @class JavaMathRoundingModeEnum;

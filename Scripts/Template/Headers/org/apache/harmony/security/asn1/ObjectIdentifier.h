@@ -6,7 +6,7 @@
 #ifndef _OrgApacheHarmonySecurityAsn1ObjectIdentifier_H_
 #define _OrgApacheHarmonySecurityAsn1ObjectIdentifier_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../../J2ObjC_header.h"
 
 @class IOSIntArray;
 

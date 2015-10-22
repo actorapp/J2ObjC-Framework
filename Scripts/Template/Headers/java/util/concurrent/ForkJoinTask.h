@@ -6,11 +6,11 @@
 #ifndef _JavaUtilConcurrentForkJoinTask_H_
 #define _JavaUtilConcurrentForkJoinTask_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/lang/ref/WeakReference.h>
-#include <j2objc/java/util/concurrent/Future.h>
-#include <j2objc/java/util/concurrent/RunnableFuture.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
+#include "../../../java/lang/ref/WeakReference.h"
+#include "../../../java/util/concurrent/Future.h"
+#include "../../../java/util/concurrent/RunnableFuture.h"
 
 @class IOSObjectArray;
 @class JavaLangThrowable;

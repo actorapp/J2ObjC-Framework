@@ -6,16 +6,16 @@
 #ifndef _JavaUtilConcurrentConcurrentHashMap_H_
 #define _JavaUtilConcurrentConcurrentHashMap_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/AbstractMap.h>
-#include <j2objc/java/util/Collection.h>
-#include <j2objc/java/util/Enumeration.h>
-#include <j2objc/java/util/Iterator.h>
-#include <j2objc/java/util/Map.h>
-#include <j2objc/java/util/Set.h>
-#include <j2objc/java/util/concurrent/ConcurrentMap.h>
-#include <j2objc/java/util/concurrent/locks/ReentrantLock.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
+#include "../../../java/util/AbstractMap.h"
+#include "../../../java/util/Collection.h"
+#include "../../../java/util/Enumeration.h"
+#include "../../../java/util/Iterator.h"
+#include "../../../java/util/Map.h"
+#include "../../../java/util/Set.h"
+#include "../../../java/util/concurrent/ConcurrentMap.h"
+#include "../../../java/util/concurrent/locks/ReentrantLock.h"
 
 @class IOSClass;
 @class IOSObjectArray;

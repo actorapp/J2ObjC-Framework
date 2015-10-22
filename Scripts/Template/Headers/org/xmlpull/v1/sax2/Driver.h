@@ -6,10 +6,10 @@
 #ifndef _OrgXmlpullV1Sax2Driver_H_
 #define _OrgXmlpullV1Sax2Driver_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/Attributes.h>
-#include <j2objc/org/xml/sax/Locator.h>
-#include <j2objc/org/xml/sax/XMLReader.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/Attributes.h"
+#include "../../../../org/xml/sax/Locator.h"
+#include "../../../../org/xml/sax/XMLReader.h"
 
 @class OrgXmlSaxInputSource;
 @protocol OrgXmlSaxContentHandler;

@@ -6,7 +6,7 @@
 #ifndef _JavaNioCharsetModifiedUtf8_H_
 #define _JavaNioCharsetModifiedUtf8_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class IOSByteArray;
 @class IOSCharArray;

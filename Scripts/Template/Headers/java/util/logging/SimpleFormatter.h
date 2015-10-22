@@ -6,8 +6,8 @@
 #ifndef _JavaUtilLoggingSimpleFormatter_H_
 #define _JavaUtilLoggingSimpleFormatter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/logging/Formatter.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/logging/Formatter.h"
 
 @class JavaUtilLoggingLogRecord;
 

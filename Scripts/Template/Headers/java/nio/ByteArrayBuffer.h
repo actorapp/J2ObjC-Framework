@@ -6,8 +6,8 @@
 #ifndef _JavaNioByteArrayBuffer_H_
 #define _JavaNioByteArrayBuffer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/ByteBuffer.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/ByteBuffer.h"
 
 @class IOSByteArray;
 @class IOSCharArray;

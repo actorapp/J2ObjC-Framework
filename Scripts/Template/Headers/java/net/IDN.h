@@ -6,7 +6,7 @@
 #ifndef _JavaNetIDN_H_
 #define _JavaNetIDN_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 #define JavaNetIDN_ALLOW_UNASSIGNED 1
 #define JavaNetIDN_USE_STD3_ASCII_RULES 2

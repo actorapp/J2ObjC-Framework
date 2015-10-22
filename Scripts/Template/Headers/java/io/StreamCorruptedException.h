@@ -6,8 +6,8 @@
 #ifndef _JavaIoStreamCorruptedException_H_
 #define _JavaIoStreamCorruptedException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/ObjectStreamException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/ObjectStreamException.h"
 
 /*!
  @brief Signals that the <code>ObjectInputStream.readObject()</code> method could not

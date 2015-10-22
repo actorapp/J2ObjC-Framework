@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonyXmlDomNodeImpl_H_
 #define _OrgApacheHarmonyXmlDomNodeImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/w3c/dom/Node.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/w3c/dom/Node.h"
 
 @class JavaLangStringBuilder;
 @class OrgApacheHarmonyXmlDomDocumentImpl;

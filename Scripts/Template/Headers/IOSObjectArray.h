@@ -22,7 +22,7 @@
 #ifndef _IOSObjectArray_H_
 #define _IOSObjectArray_H_
 
-#import <j2objc/IOSArray.h>
+#import "IOSArray.h"
 
 @class IOSClass;
 @class IOSObjectArray;

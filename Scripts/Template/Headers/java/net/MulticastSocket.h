@@ -6,8 +6,8 @@
 #ifndef _JavaNetMulticastSocket_H_
 #define _JavaNetMulticastSocket_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/DatagramSocket.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/DatagramSocket.h"
 
 @class JavaNetDatagramPacket;
 @class JavaNetInetAddress;

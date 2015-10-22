@@ -6,7 +6,7 @@
 #ifndef _JavaNetResponseCache_H_
 #define _JavaNetResponseCache_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class JavaNetCacheRequest;
 @class JavaNetCacheResponse;

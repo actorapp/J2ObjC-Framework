@@ -6,8 +6,8 @@
 #ifndef _JavaxXmlTransformSaxTemplatesHandler_H_
 #define _JavaxXmlTransformSaxTemplatesHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/ContentHandler.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/ContentHandler.h"
 
 @protocol JavaxXmlTransformTemplates;
 

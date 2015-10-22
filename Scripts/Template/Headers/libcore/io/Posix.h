@@ -6,8 +6,8 @@
 #ifndef _LibcoreIoPosix_H_
 #define _LibcoreIoPosix_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/libcore/io/Os.h>
+#include "../../J2ObjC_header.h"
+#include "../../libcore/io/Os.h"
 
 @class IOSByteArray;
 @class IOSIntArray;

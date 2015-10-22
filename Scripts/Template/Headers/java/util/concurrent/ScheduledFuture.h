@@ -6,9 +6,9 @@
 #ifndef _JavaUtilConcurrentScheduledFuture_H_
 #define _JavaUtilConcurrentScheduledFuture_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/concurrent/Delayed.h>
-#include <j2objc/java/util/concurrent/Future.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/concurrent/Delayed.h"
+#include "../../../java/util/concurrent/Future.h"
 
 /*!
  @brief A delayed result-bearing action that can be cancelled.

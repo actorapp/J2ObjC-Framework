@@ -6,7 +6,7 @@
 #ifndef _JavaIoSerializable_H_
 #define _JavaIoSerializable_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Marks classes that can be serialized by <code>ObjectOutputStream</code> and

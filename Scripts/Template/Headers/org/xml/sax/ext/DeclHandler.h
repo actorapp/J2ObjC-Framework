@@ -6,7 +6,7 @@
 #ifndef _OrgXmlSaxExtDeclHandler_H_
 #define _OrgXmlSaxExtDeclHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 /*!
  @brief SAX2 extension handler for DTD declaration events.

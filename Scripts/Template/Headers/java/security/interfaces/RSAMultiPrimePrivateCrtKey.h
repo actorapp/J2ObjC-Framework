@@ -6,8 +6,8 @@
 #ifndef _JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_H_
 #define _JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/interfaces/RSAPrivateKey.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/interfaces/RSAPrivateKey.h"
 
 @class IOSObjectArray;
 @class JavaMathBigInteger;

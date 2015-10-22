@@ -6,8 +6,8 @@
 #ifndef _JavaNetProxySelectorImpl_H_
 #define _JavaNetProxySelectorImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/ProxySelector.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/ProxySelector.h"
 
 @class JavaIoIOException;
 @class JavaNetSocketAddress;

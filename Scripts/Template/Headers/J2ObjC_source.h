@@ -15,17 +15,17 @@
 #ifndef _J2OBJC_SOURCE_H_
 #define _J2OBJC_SOURCE_H_
 
-#import <j2objc/IOSClass.h>  // Type literal accessors.
-#import <j2objc/IOSObjectArray.h>
-#import <j2objc/IOSPrimitiveArray.h>
-#import <j2objc/IOSReflection.h>  // Metadata methods.
-#import <j2objc/J2ObjC_common.h>
-#import <j2objc/JavaObject.h>
-#import <j2objc/NSCopying+JavaCloneable.h>
-#import <j2objc/NSNumber+JavaNumber.h>
-#import <j2objc/NSObject+JavaObject.h>
-#import <j2objc/NSString+JavaString.h>
-#import <j2objc/jni.h>
+#import "IOSClass.h"  // Type literal accessors.
+#import "IOSObjectArray.h"
+#import "IOSPrimitiveArray.h"
+#import "IOSReflection.h"  // Metadata methods.
+#import "J2ObjC_common.h"
+#import "JavaObject.h"
+#import "NSCopying+JavaCloneable.h"
+#import "NSNumber+JavaNumber.h"
+#import "NSObject+JavaObject.h"
+#import "NSString+JavaString.h"
+#import "jni.h"
 
 // "I" is defined in complex.h, which results in errors if that file is also
 // included.

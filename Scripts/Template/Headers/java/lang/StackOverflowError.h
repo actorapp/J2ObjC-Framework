@@ -6,8 +6,8 @@
 #ifndef _JavaLangStackOverflowError_H_
 #define _JavaLangStackOverflowError_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/VirtualMachineError.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/VirtualMachineError.h"
 
 /*!
  @brief Thrown when the depth of the stack of the running program exceeds some

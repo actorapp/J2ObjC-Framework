@@ -6,8 +6,8 @@
 #ifndef _OrgHamcrestCoreStringStartsWith_H_
 #define _OrgHamcrestCoreStringStartsWith_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/hamcrest/core/SubstringMatcher.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/hamcrest/core/SubstringMatcher.h"
 
 @protocol OrgHamcrestMatcher;
 

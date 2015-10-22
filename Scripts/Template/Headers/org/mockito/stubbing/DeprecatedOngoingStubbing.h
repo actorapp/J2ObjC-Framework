@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoStubbingDeprecatedOngoingStubbing_H_
 #define _OrgMockitoStubbingDeprecatedOngoingStubbing_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/internal/progress/IOngoingStubbing.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/mockito/internal/progress/IOngoingStubbing.h"
 
 @class JavaLangThrowable;
 @protocol OrgMockitoStubbingAnswer;

@@ -6,9 +6,9 @@
 #ifndef _OrgXmlSaxExtAttributes2Impl_H_
 #define _OrgXmlSaxExtAttributes2Impl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/ext/Attributes2.h>
-#include <j2objc/org/xml/sax/helpers/AttributesImpl.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/ext/Attributes2.h"
+#include "../../../../org/xml/sax/helpers/AttributesImpl.h"
 
 @protocol OrgXmlSaxAttributes;
 

@@ -6,8 +6,8 @@
 #ifndef _ComGoogleJ2objcNetIosHttpsHandler_H_
 #define _ComGoogleJ2objcNetIosHttpsHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/com/google/j2objc/net/IosHttpHandler.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../com/google/j2objc/net/IosHttpHandler.h"
 
 /*!
  @brief HTTPS handler that uses IosHttpURLConnection.

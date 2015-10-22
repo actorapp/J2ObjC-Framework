@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoMockMockCreationSettings_H_
 #define _OrgMockitoMockMockCreationSettings_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 @class IOSClass;
 @protocol JavaUtilList;

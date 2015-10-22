@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsChannel_H_
 #define _JavaNioChannelsChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Closeable.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Closeable.h"
 
 /*!
  @brief A channel is a conduit to I/O services covering such items as files, sockets,

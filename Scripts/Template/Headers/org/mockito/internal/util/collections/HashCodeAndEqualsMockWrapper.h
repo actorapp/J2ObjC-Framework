@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoInternalUtilCollectionsHashCodeAndEqualsMockWrapper_H_
 #define _OrgMockitoInternalUtilCollectionsHashCodeAndEqualsMockWrapper_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../../J2ObjC_header.h"
 
 @interface OrgMockitoInternalUtilCollectionsHashCodeAndEqualsMockWrapper : NSObject
 

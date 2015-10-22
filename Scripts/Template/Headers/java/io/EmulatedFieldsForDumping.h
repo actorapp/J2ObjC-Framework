@@ -6,8 +6,8 @@
 #ifndef _JavaIoEmulatedFieldsForDumping_H_
 #define _JavaIoEmulatedFieldsForDumping_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/ObjectOutputStream.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/ObjectOutputStream.h"
 
 @class JavaIoEmulatedFields;
 @class JavaIoObjectStreamClass;

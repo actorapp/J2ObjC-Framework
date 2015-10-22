@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoExceptionsMisusingMissingMethodInvocationException_H_
 #define _OrgMockitoExceptionsMisusingMissingMethodInvocationException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/exceptions/base/MockitoException.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/exceptions/base/MockitoException.h"
 
 @interface OrgMockitoExceptionsMisusingMissingMethodInvocationException : OrgMockitoExceptionsBaseMockitoException
 

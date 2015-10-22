@@ -20,8 +20,8 @@
 #ifndef JreEmulation_BufferUtils_h
 #define JreEmulation_BufferUtils_h
 
-#import <j2objc/IOSPrimitiveArray.h>
-#import <j2objc/java/nio/ByteArrayBuffer.h>
+#import "IOSPrimitiveArray.h"
+#import "java/nio/ByteArrayBuffer.h"
 
 static inline char *BytesRW(id object) {
   nil_chk(object);

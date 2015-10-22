@@ -22,10 +22,10 @@
 #ifndef _JavaLangReflectMethod_H_
 #define _JavaLangReflectMethod_H_
 
-#import <j2objc/J2ObjC_common.h>
-#import <j2objc/java/lang/reflect/ExecutableMember.h>
-#import <j2objc/java/lang/reflect/GenericDeclaration.h>
-#import <j2objc/java/lang/reflect/Member.h>
+#import "../../../J2ObjC_common.h"
+#import "../../../java/lang/reflect/ExecutableMember.h"
+#import "../../../java/lang/reflect/GenericDeclaration.h"
+#import "../../../java/lang/reflect/Member.h"
 
 @class IOSClass;
 @class IOSObjectArray;

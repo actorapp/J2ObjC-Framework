@@ -20,7 +20,7 @@
 #ifndef _JavaToIOSInputStreamAdapter_H_
 #define _JavaToIOSInputStreamAdapter_H_
 
-#import <j2objc/J2ObjC_common.h>
+#import "J2ObjC_common.h"
 
 @class JavaIoInputStream;
 

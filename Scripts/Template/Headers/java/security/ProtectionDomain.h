@@ -6,7 +6,7 @@
 #ifndef _JavaSecurityProtectionDomain_H_
 #define _JavaSecurityProtectionDomain_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class IOSObjectArray;
 @class JavaLangClassLoader;

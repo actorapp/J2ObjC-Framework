@@ -6,9 +6,9 @@
 #ifndef _JavaUtilLoggingIOSLogHandler_H_
 #define _JavaUtilLoggingIOSLogHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/logging/Formatter.h>
-#include <j2objc/java/util/logging/Handler.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/logging/Formatter.h"
+#include "../../../java/util/logging/Handler.h"
 
 @class JavaUtilLoggingLogRecord;
 

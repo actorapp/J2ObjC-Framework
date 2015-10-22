@@ -6,7 +6,7 @@
 #ifndef _OrgJunitExperimentalResultsResultMatchers_H_
 #define _OrgJunitExperimentalResultsResultMatchers_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @protocol OrgHamcrestMatcher;
 

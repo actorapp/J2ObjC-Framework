@@ -6,9 +6,9 @@
 #ifndef _OrgJunitExperimentalTheoriesInternalAllMembersSupplier_H_
 #define _OrgJunitExperimentalTheoriesInternalAllMembersSupplier_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/experimental/theories/ParameterSupplier.h>
-#include <j2objc/org/junit/experimental/theories/PotentialAssignment.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/junit/experimental/theories/ParameterSupplier.h"
+#include "../../../../../org/junit/experimental/theories/PotentialAssignment.h"
 
 @class OrgJunitExperimentalTheoriesParameterSignature;
 @class OrgJunitRunnersModelTestClass;

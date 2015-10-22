@@ -6,8 +6,8 @@
 #ifndef _OrgXmlSaxHelpersLocatorImpl_H_
 #define _OrgXmlSaxHelpersLocatorImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/Locator.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/Locator.h"
 
 /*!
  @brief Provide an optional convenience implementation of Locator.

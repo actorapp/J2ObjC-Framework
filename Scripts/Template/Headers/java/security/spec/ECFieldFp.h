@@ -6,8 +6,8 @@
 #ifndef _JavaSecuritySpecECFieldFp_H_
 #define _JavaSecuritySpecECFieldFp_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/spec/ECField.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/spec/ECField.h"
 
 @class JavaMathBigInteger;
 

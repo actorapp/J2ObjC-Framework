@@ -6,8 +6,8 @@
 #ifndef _OrgW3cDomDOMException_H_
 #define _OrgW3cDomDOMException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/RuntimeException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/RuntimeException.h"
 
 #define OrgW3cDomDOMException_INDEX_SIZE_ERR 1
 #define OrgW3cDomDOMException_DOMSTRING_SIZE_ERR 2

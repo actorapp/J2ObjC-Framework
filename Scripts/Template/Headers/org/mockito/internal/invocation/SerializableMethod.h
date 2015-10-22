@@ -6,9 +6,9 @@
 #ifndef _OrgMockitoInternalInvocationSerializableMethod_H_
 #define _OrgMockitoInternalInvocationSerializableMethod_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/mockito/internal/invocation/MockitoMethod.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../org/mockito/internal/invocation/MockitoMethod.h"
 
 @class IOSClass;
 @class IOSObjectArray;

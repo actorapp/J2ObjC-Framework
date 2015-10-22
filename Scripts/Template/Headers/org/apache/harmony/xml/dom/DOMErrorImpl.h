@@ -6,8 +6,8 @@
 #ifndef _OrgApacheHarmonyXmlDomDOMErrorImpl_H_
 #define _OrgApacheHarmonyXmlDomDOMErrorImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/w3c/dom/DOMError.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/w3c/dom/DOMError.h"
 
 @protocol OrgW3cDomDOMLocator;
 

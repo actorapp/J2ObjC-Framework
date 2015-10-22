@@ -6,8 +6,8 @@
 #ifndef _ComGoogleJ2objcSecurityIosSecurityProvider_H_
 #define _ComGoogleJ2objcSecurityIosSecurityProvider_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/Provider.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/security/Provider.h"
 
 /*!
  @brief Security provider that maps to iOS security algorithms.

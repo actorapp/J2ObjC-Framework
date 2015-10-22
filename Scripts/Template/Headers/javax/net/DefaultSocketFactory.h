@@ -6,8 +6,8 @@
 #ifndef _JavaxNetDefaultSocketFactory_H_
 #define _JavaxNetDefaultSocketFactory_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/javax/net/SocketFactory.h>
+#include "../../J2ObjC_header.h"
+#include "../../javax/net/SocketFactory.h"
 
 @class JavaNetInetAddress;
 @class JavaNetSocket;

@@ -6,8 +6,8 @@
 #ifndef _OrgXmlSaxExtAttributes2_H_
 #define _OrgXmlSaxExtAttributes2_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/Attributes.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/xml/sax/Attributes.h"
 
 /*!
  @brief SAX2 extension to augment the per-attribute information

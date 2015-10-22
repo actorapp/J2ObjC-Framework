@@ -6,8 +6,8 @@
 #ifndef _JavaUtilLoggingMemoryHandler_H_
 #define _JavaUtilLoggingMemoryHandler_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/util/logging/Handler.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/util/logging/Handler.h"
 
 @class JavaUtilLoggingLevel;
 @class JavaUtilLoggingLogRecord;

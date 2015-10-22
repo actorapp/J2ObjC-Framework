@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsFileLockInterruptionException_H_
 #define _JavaNioChannelsFileLockInterruptionException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/IOException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/IOException.h"
 
 /*!
  @brief A <code>FileLockInterruptionException</code> is thrown when a thread is

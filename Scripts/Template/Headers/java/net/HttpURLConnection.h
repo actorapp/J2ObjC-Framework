@@ -6,8 +6,8 @@
 #ifndef _JavaNetHttpURLConnection_H_
 #define _JavaNetHttpURLConnection_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/URLConnection.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/net/URLConnection.h"
 
 @class JavaIoInputStream;
 @class JavaNetURL;

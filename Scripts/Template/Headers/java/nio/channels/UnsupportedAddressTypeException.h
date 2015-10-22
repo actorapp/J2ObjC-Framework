@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsUnsupportedAddressTypeException_H_
 #define _JavaNioChannelsUnsupportedAddressTypeException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IllegalArgumentException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
  @brief An <code>UnsupportedAddressTypeException</code> is thrown when connecting or

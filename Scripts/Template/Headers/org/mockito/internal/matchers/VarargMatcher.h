@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalMatchersVarargMatcher_H_
 #define _OrgMockitoInternalMatchersVarargMatcher_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
 
 @protocol OrgMockitoInternalMatchersVarargMatcher < JavaIoSerializable, NSObject, JavaObject >
 

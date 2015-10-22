@@ -6,7 +6,7 @@
 #ifndef _JavaLangAppendable_H_
 #define _JavaLangAppendable_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @protocol JavaLangCharSequence;
 

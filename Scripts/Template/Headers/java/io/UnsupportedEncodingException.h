@@ -6,8 +6,8 @@
 #ifndef _JavaIoUnsupportedEncodingException_H_
 #define _JavaIoUnsupportedEncodingException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/IOException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/IOException.h"
 
 /*!
  @brief Thrown when a program asks for a particular character converter that is

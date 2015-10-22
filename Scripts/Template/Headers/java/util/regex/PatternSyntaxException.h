@@ -6,8 +6,8 @@
 #ifndef _JavaUtilRegexPatternSyntaxException_H_
 #define _JavaUtilRegexPatternSyntaxException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IllegalArgumentException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
  @brief Encapsulates a syntax error that occurred during the compilation of a

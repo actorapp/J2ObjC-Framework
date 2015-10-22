@@ -6,8 +6,8 @@
 #ifndef _JavaxXmlNamespaceQName_H_
 #define _JavaxXmlNamespaceQName_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/io/Serializable.h"
 
 /*!
  @brief <p><code>QName</code> represents a <strong>qualified name</strong>

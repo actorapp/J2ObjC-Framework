@@ -6,8 +6,8 @@
 #ifndef _JavaUtilConcurrentCancellationException_H_
 #define _JavaUtilConcurrentCancellationException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/IllegalStateException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/IllegalStateException.h"
 
 /*!
  @brief Exception indicating that the result of a value-producing task,

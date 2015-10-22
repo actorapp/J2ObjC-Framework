@@ -6,8 +6,8 @@
 #ifndef _JavaNioChannelsSpiAbstractSelectionKey_H_
 #define _JavaNioChannelsSpiAbstractSelectionKey_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/SelectionKey.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/nio/channels/SelectionKey.h"
 
 /*!
  @brief <code>AbstractSelectionKey</code> is the base implementation class for selection keys.

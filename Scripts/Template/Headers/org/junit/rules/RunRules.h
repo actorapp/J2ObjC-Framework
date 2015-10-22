@@ -6,8 +6,8 @@
 #ifndef _OrgJunitRulesRunRules_H_
 #define _OrgJunitRulesRunRules_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runners/model/Statement.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/runners/model/Statement.h"
 
 @class OrgJunitRunnerDescription;
 @protocol JavaLangIterable;

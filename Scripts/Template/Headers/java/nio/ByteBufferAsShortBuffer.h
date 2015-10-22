@@ -6,8 +6,8 @@
 #ifndef _JavaNioByteBufferAsShortBuffer_H_
 #define _JavaNioByteBufferAsShortBuffer_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/ShortBuffer.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/ShortBuffer.h"
 
 @class IOSShortArray;
 @class JavaNioByteBuffer;

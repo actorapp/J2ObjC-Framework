@@ -6,8 +6,8 @@
 #ifndef _JunitFrameworkComparisonFailure_H_
 #define _JunitFrameworkComparisonFailure_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/junit/framework/AssertionFailedError.h>
+#include "../../J2ObjC_header.h"
+#include "../../junit/framework/AssertionFailedError.h"
 
 @interface JunitFrameworkComparisonFailure : JunitFrameworkAssertionFailedError
 

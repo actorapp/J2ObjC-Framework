@@ -6,9 +6,9 @@
 #ifndef _JavaBeansPropertyChangeListenerProxy_H_
 #define _JavaBeansPropertyChangeListenerProxy_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/beans/PropertyChangeListener.h>
-#include <j2objc/java/util/EventListenerProxy.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/beans/PropertyChangeListener.h"
+#include "../../java/util/EventListenerProxy.h"
 
 @class JavaBeansPropertyChangeEvent;
 

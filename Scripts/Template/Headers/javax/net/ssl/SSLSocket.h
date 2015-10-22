@@ -6,8 +6,8 @@
 #ifndef _JavaxNetSslSSLSocket_H_
 #define _JavaxNetSslSSLSocket_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/net/Socket.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/net/Socket.h"
 
 @class IOSObjectArray;
 @class JavaNetInetAddress;

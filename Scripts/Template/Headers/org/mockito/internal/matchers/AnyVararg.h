@@ -6,10 +6,10 @@
 #ifndef _OrgMockitoInternalMatchersAnyVararg_H_
 #define _OrgMockitoInternalMatchersAnyVararg_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/org/mockito/ArgumentMatcher.h>
-#include <j2objc/org/mockito/internal/matchers/VarargMatcher.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../org/mockito/ArgumentMatcher.h"
+#include "../../../../org/mockito/internal/matchers/VarargMatcher.h"
 
 @protocol OrgHamcrestMatcher;
 

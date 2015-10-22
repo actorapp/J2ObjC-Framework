@@ -6,7 +6,7 @@
 #ifndef _OrgXmlSaxHelpersNewInstance_H_
 #define _OrgXmlSaxHelpersNewInstance_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../J2ObjC_header.h"
 
 @class JavaLangClassLoader;
 

@@ -6,9 +6,9 @@
 #ifndef _JavaNioChannelsSpiAbstractInterruptibleChannel_H_
 #define _JavaNioChannelsSpiAbstractInterruptibleChannel_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/Channel.h>
-#include <j2objc/java/nio/channels/InterruptibleChannel.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/nio/channels/Channel.h"
+#include "../../../../java/nio/channels/InterruptibleChannel.h"
 
 /*!
  @brief <code>AbstractInterruptibleChannel</code> is the root class for interruptible

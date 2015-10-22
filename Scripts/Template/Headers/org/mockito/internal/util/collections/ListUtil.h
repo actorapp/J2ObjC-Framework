@@ -6,7 +6,7 @@
 #ifndef _OrgMockitoInternalUtilCollectionsListUtil_H_
 #define _OrgMockitoInternalUtilCollectionsListUtil_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../../../J2ObjC_header.h"
 
 @class JavaUtilLinkedList;
 @protocol JavaUtilCollection;

@@ -6,9 +6,9 @@
 #ifndef _JavaTextFormat_H_
 #define _JavaTextFormat_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/text/AttributedCharacterIterator.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/text/AttributedCharacterIterator.h"
 
 @class JavaLangStringBuffer;
 @class JavaTextFieldPosition;

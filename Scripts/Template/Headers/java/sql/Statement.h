@@ -6,9 +6,9 @@
 #ifndef _JavaSqlStatement_H_
 #define _JavaSqlStatement_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/AutoCloseable.h>
-#include <j2objc/java/sql/Wrapper.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/AutoCloseable.h"
+#include "../../java/sql/Wrapper.h"
 
 @class IOSIntArray;
 @class IOSObjectArray;

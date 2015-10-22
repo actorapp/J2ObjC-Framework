@@ -6,8 +6,8 @@
 #ifndef _JavaSqlSQLTimeoutException_H_
 #define _JavaSqlSQLTimeoutException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/sql/SQLTransientException.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/sql/SQLTransientException.h"
 
 @class JavaLangThrowable;
 

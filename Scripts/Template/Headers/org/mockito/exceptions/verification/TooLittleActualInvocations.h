@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoExceptionsVerificationTooLittleActualInvocations_H_
 #define _OrgMockitoExceptionsVerificationTooLittleActualInvocations_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/mockito/exceptions/base/MockitoAssertionError.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../org/mockito/exceptions/base/MockitoAssertionError.h"
 
 @interface OrgMockitoExceptionsVerificationTooLittleActualInvocations : OrgMockitoExceptionsBaseMockitoAssertionError
 

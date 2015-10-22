@@ -6,7 +6,7 @@
 #ifndef _AndroidUtilPair_H_
 #define _AndroidUtilPair_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 /*!
  @brief Container to ease passing around a tuple of two objects.

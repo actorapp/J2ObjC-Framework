@@ -6,9 +6,9 @@
 #ifndef _JavaxSecurityAuthCallbackPasswordCallback_H_
 #define _JavaxSecurityAuthCallbackPasswordCallback_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/javax/security/auth/callback/Callback.h>
+#include "../../../../J2ObjC_header.h"
+#include "../../../../java/io/Serializable.h"
+#include "../../../../javax/security/auth/callback/Callback.h"
 
 @class IOSCharArray;
 

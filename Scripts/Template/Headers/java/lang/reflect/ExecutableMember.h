@@ -22,8 +22,8 @@
 #ifndef _ExecutableMember_H_
 #define _ExecutableMember_H_
 
-#import <j2objc/java/lang/reflect/AccessibleObject.h>
-#import <j2objc/java/lang/reflect/Member.h>
+#import "../../../java/lang/reflect/AccessibleObject.h"
+#import "../../../java/lang/reflect/Member.h"
 
 // The first arguments all messages have are self and _cmd.
 // These are unmodified when specifying method-specific arguments.

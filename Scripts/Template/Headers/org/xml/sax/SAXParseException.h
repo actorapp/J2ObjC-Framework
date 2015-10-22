@@ -6,8 +6,8 @@
 #ifndef _OrgXmlSaxSAXParseException_H_
 #define _OrgXmlSaxSAXParseException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/xml/sax/SAXException.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/xml/sax/SAXException.h"
 
 @class JavaLangException;
 @protocol OrgXmlSaxLocator;

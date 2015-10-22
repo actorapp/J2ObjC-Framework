@@ -6,7 +6,7 @@
 #ifndef _JavaxXmlTransformSourceLocator_H_
 #define _JavaxXmlTransformSourceLocator_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../../J2ObjC_header.h"
 
 /*!
  @brief This interface is primarily for the purposes of reporting where

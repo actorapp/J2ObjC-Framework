@@ -6,8 +6,8 @@
 #ifndef _JavaLangReflectGenericArrayType_H_
 #define _JavaLangReflectGenericArrayType_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/reflect/Type.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/lang/reflect/Type.h"
 
 /*!
  @brief This interface represents an array type with a component type that is either

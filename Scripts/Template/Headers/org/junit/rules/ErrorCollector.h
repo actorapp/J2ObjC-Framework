@@ -6,8 +6,8 @@
 #ifndef _OrgJunitRulesErrorCollector_H_
 #define _OrgJunitRulesErrorCollector_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/rules/Verifier.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../org/junit/rules/Verifier.h"
 
 @class JavaLangThrowable;
 @protocol JavaUtilConcurrentCallable;

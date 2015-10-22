@@ -6,10 +6,10 @@
 #ifndef _JavaUtilArrayList_H_
 #define _JavaUtilArrayList_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
-#include <j2objc/java/util/AbstractList.h>
-#include <j2objc/java/util/RandomAccess.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/Serializable.h"
+#include "../../java/util/AbstractList.h"
+#include "../../java/util/RandomAccess.h"
 
 @class IOSObjectArray;
 @class JavaLangIndexOutOfBoundsException;

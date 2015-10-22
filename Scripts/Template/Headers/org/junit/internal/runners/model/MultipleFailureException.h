@@ -6,8 +6,8 @@
 #ifndef _OrgJunitInternalRunnersModelMultipleFailureException_H_
 #define _OrgJunitInternalRunnersModelMultipleFailureException_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/junit/runners/model/MultipleFailureException.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/junit/runners/model/MultipleFailureException.h"
 
 @protocol JavaUtilList;
 

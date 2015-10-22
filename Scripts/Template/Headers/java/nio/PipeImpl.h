@@ -6,8 +6,8 @@
 #ifndef _JavaNioPipeImpl_H_
 #define _JavaNioPipeImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/nio/channels/Pipe.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/nio/channels/Pipe.h"
 
 @class JavaNioChannelsSpiSelectorProvider;
 

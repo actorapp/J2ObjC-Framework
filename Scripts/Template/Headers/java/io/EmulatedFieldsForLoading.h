@@ -6,8 +6,8 @@
 #ifndef _JavaIoEmulatedFieldsForLoading_H_
 #define _JavaIoEmulatedFieldsForLoading_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/ObjectInputStream.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/io/ObjectInputStream.h"
 
 @class JavaIoEmulatedFields;
 @class JavaIoObjectStreamClass;

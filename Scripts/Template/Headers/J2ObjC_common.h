@@ -17,7 +17,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import <j2objc/J2ObjC_types.h>
+#import "J2ObjC_types.h"
 
 @class IOSClass;
 

@@ -6,7 +6,7 @@
 #ifndef _JavaxCryptoMac_H_
 #define _JavaxCryptoMac_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class IOSByteArray;
 @class JavaNioByteBuffer;

@@ -6,8 +6,8 @@
 #ifndef _JavaUtilPropertyPermission_H_
 #define _JavaUtilPropertyPermission_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/BasicPermission.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/security/BasicPermission.h"
 
 @class JavaSecurityPermission;
 

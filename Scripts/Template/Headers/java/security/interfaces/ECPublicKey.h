@@ -6,9 +6,9 @@
 #ifndef _JavaSecurityInterfacesECPublicKey_H_
 #define _JavaSecurityInterfacesECPublicKey_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/security/PublicKey.h>
-#include <j2objc/java/security/interfaces/ECKey.h>
+#include "../../../J2ObjC_header.h"
+#include "../../../java/security/PublicKey.h"
+#include "../../../java/security/interfaces/ECKey.h"
 
 @class JavaSecuritySpecECPoint;
 

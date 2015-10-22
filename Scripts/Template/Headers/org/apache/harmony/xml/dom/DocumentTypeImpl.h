@@ -6,9 +6,9 @@
 #ifndef _OrgApacheHarmonyXmlDomDocumentTypeImpl_H_
 #define _OrgApacheHarmonyXmlDomDocumentTypeImpl_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/org/apache/harmony/xml/dom/LeafNodeImpl.h>
-#include <j2objc/org/w3c/dom/DocumentType.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../org/apache/harmony/xml/dom/LeafNodeImpl.h"
+#include "../../../../../org/w3c/dom/DocumentType.h"
 
 @class OrgApacheHarmonyXmlDomDocumentImpl;
 @protocol OrgW3cDomNamedNodeMap;

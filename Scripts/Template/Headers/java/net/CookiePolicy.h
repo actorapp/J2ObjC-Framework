@@ -6,7 +6,7 @@
 #ifndef _JavaNetCookiePolicy_H_
 #define _JavaNetCookiePolicy_H_
 
-#include <j2objc/J2ObjC_header.h>
+#include "../../J2ObjC_header.h"
 
 @class JavaNetHttpCookie;
 @class JavaNetURI;

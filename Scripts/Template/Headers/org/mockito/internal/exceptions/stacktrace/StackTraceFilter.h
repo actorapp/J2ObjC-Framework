@@ -6,8 +6,8 @@
 #ifndef _OrgMockitoInternalExceptionsStacktraceStackTraceFilter_H_
 #define _OrgMockitoInternalExceptionsStacktraceStackTraceFilter_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/io/Serializable.h>
+#include "../../../../../J2ObjC_header.h"
+#include "../../../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 

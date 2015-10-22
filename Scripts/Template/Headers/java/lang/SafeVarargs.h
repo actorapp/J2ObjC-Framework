@@ -6,8 +6,8 @@
 #ifndef _JavaLangSafeVarargs_H_
 #define _JavaLangSafeVarargs_H_
 
-#include <j2objc/J2ObjC_header.h>
-#include <j2objc/java/lang/annotation/Annotation.h>
+#include "../../J2ObjC_header.h"
+#include "../../java/lang/annotation/Annotation.h"
 
 /*!
  @brief Claims to the compiler that the annotation target does nothing potentially unsafe
