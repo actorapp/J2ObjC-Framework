@@ -1,4 +1,4 @@
-@version = "0.9.8.2.5"
+@version = "0.9.8.2.6"
 
 Pod::Spec.new do |s|
   s.name         		= "J2ObjC-Framework"
@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
   CMD
 
   s.preserve_paths = ['Frameworks/j2objc.framework', 'Distributive']
-  s.frameworks = 'j2objc'
-  s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/J2ObjC-Framework/Frameworks"' }
+  s.vendored_framework = 'Frameworks/j2objc.framework'
+  
 end
