@@ -1,4 +1,4 @@
-@version = "0.9.8.2.9"
+@version = "0.9.8.2.10"
 
 Pod::Spec.new do |s|
   s.name         		= "J2ObjC-Framework"
@@ -17,10 +17,9 @@ Pod::Spec.new do |s|
 
   s.prepare_command = <<-CMD
       Scripts/download.sh
-      cp Scripts/install.sh Frameworks/install.sh
   CMD
 
-  s.preserve_paths = ['Frameworks/j2objc.framework', 'Distributive']
+  s.preserve_paths = ['Frameworks/j2objc.framework', 'Distributive', 'install.sh']
   s.xcconfig = { 'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/J2ObjC-Framework/Frameworks"' }  
   
 end
