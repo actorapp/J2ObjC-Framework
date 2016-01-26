@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/FileOutputStream.java
 //
 
-#ifndef _JavaIoFileOutputStream_H_
-#define _JavaIoFileOutputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFileOutputStream_INCLUDE_ALL")
+#ifdef JavaIoFileOutputStream_RESTRICT
+#define JavaIoFileOutputStream_INCLUDE_ALL 0
+#else
+#define JavaIoFileOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoFileOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFileOutputStream_) && (JavaIoFileOutputStream_INCLUDE_ALL || defined(JavaIoFileOutputStream_INCLUDE))
+#define JavaIoFileOutputStream_
+
+#define JavaIoOutputStream_RESTRICT 1
+#define JavaIoOutputStream_INCLUDE 1
 #include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
@@ -35,6 +49,8 @@
  <p>This stream is <strong>not buffered</strong>. Most callers should wrap
  this stream with a <code>BufferedOutputStream</code>.
  <p>Use <code>FileWriter</code> to write characters, as opposed to bytes, to a file.
+ - seealso: BufferedOutputStream
+ - seealso: FileInputStream
  */
 @interface JavaIoFileOutputStream : JavaIoOutputStream
 
@@ -129,4 +145,8 @@ FOUNDATION_EXPORT JavaIoFileOutputStream *new_JavaIoFileOutputStream_initWithNSS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileOutputStream)
 
-#endif // _JavaIoFileOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFileOutputStream_INCLUDE_ALL")

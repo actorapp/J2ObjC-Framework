@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/ext/Locator2.java
 //
 
-#ifndef _OrgXmlSaxExtLocator2_H_
-#define _OrgXmlSaxExtLocator2_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxExtLocator2_INCLUDE_ALL")
+#ifdef OrgXmlSaxExtLocator2_RESTRICT
+#define OrgXmlSaxExtLocator2_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxExtLocator2_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxExtLocator2_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxExtLocator2_) && (OrgXmlSaxExtLocator2_INCLUDE_ALL || defined(OrgXmlSaxExtLocator2_INCLUDE))
+#define OrgXmlSaxExtLocator2_
+
+#define OrgXmlSaxLocator_RESTRICT 1
+#define OrgXmlSaxLocator_INCLUDE 1
 #include "../../../../org/xml/sax/Locator.h"
 
 /*!
@@ -73,4 +87,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxExtLocator2)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtLocator2)
 
-#endif // _OrgXmlSaxExtLocator2_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxExtLocator2_INCLUDE_ALL")

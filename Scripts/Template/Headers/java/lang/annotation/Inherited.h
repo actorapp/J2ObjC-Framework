@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/annotation/Inherited.java
 //
 
-#ifndef _JavaLangAnnotationInherited_H_
-#define _JavaLangAnnotationInherited_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangAnnotationInherited_INCLUDE_ALL")
+#ifdef JavaLangAnnotationInherited_RESTRICT
+#define JavaLangAnnotationInherited_INCLUDE_ALL 0
+#else
+#define JavaLangAnnotationInherited_INCLUDE_ALL 1
+#endif
+#undef JavaLangAnnotationInherited_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangAnnotationInherited_) && (JavaLangAnnotationInherited_INCLUDE_ALL || defined(JavaLangAnnotationInherited_INCLUDE))
+#define JavaLangAnnotationInherited_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../../java/lang/annotation/Annotation.h"
 
 /*!
@@ -26,4 +40,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangAnnotationInherited)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationInherited)
 
-#endif // _JavaLangAnnotationInherited_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangAnnotationInherited_INCLUDE_ALL")

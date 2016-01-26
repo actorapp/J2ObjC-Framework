@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLPermission.java
 //
 
-#ifndef _JavaSqlSQLPermission_H_
-#define _JavaSqlSQLPermission_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaSqlSQLPermission_INCLUDE_ALL")
+#ifdef JavaSqlSQLPermission_RESTRICT
+#define JavaSqlSQLPermission_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLPermission_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLPermission_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLPermission_) && (JavaSqlSQLPermission_INCLUDE_ALL || defined(JavaSqlSQLPermission_INCLUDE))
+#define JavaSqlSQLPermission_
+
+#define JavaSecurityBasicPermission_RESTRICT 1
+#define JavaSecurityBasicPermission_INCLUDE 1
 #include "../../java/security/BasicPermission.h"
+
+#define JavaSecurityGuard_RESTRICT 1
+#define JavaSecurityGuard_INCLUDE 1
 #include "../../java/security/Guard.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class JavaSecurityPermission;
 
@@ -43,4 +63,8 @@ FOUNDATION_EXPORT JavaSqlSQLPermission *new_JavaSqlSQLPermission_initWithNSStrin
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLPermission)
 
-#endif // _JavaSqlSQLPermission_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLPermission_INCLUDE_ALL")

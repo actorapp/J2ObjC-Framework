@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/ext/Attributes2.java
 //
 
-#ifndef _OrgXmlSaxExtAttributes2_H_
-#define _OrgXmlSaxExtAttributes2_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxExtAttributes2_INCLUDE_ALL")
+#ifdef OrgXmlSaxExtAttributes2_RESTRICT
+#define OrgXmlSaxExtAttributes2_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxExtAttributes2_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxExtAttributes2_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxExtAttributes2_) && (OrgXmlSaxExtAttributes2_INCLUDE_ALL || defined(OrgXmlSaxExtAttributes2_INCLUDE))
+#define OrgXmlSaxExtAttributes2_
+
+#define OrgXmlSaxAttributes_RESTRICT 1
+#define OrgXmlSaxAttributes_INCLUDE 1
 #include "../../../../org/xml/sax/Attributes.h"
 
 /*!
@@ -127,4 +141,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxExtAttributes2)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtAttributes2)
 
-#endif // _OrgXmlSaxExtAttributes2_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxExtAttributes2_INCLUDE_ALL")

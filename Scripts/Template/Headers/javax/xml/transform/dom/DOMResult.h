@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/dom/DOMResult.java
 //
 
-#ifndef _JavaxXmlTransformDomDOMResult_H_
-#define _JavaxXmlTransformDomDOMResult_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformDomDOMResult_INCLUDE_ALL")
+#ifdef JavaxXmlTransformDomDOMResult_RESTRICT
+#define JavaxXmlTransformDomDOMResult_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformDomDOMResult_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformDomDOMResult_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformDomDOMResult_) && (JavaxXmlTransformDomDOMResult_INCLUDE_ALL || defined(JavaxXmlTransformDomDOMResult_INCLUDE))
+#define JavaxXmlTransformDomDOMResult_
+
+#define JavaxXmlTransformResult_RESTRICT 1
+#define JavaxXmlTransformResult_INCLUDE 1
 #include "../../../../javax/xml/transform/Result.h"
 
 @protocol OrgW3cDomNode;
@@ -20,6 +34,8 @@
  @version $Revision: 569995 $, $Date: 2007-08-26 21:31:06 -0700 (Sun, 26 Aug 2007) $
  */
 @interface JavaxXmlTransformDomDOMResult : NSObject < JavaxXmlTransformResult >
+
++ (NSString *)FEATURE;
 
 #pragma mark Public
 
@@ -209,8 +225,16 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformDomDOMResult)
 
-FOUNDATION_EXPORT NSString *JavaxXmlTransformDomDOMResult_FEATURE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlTransformDomDOMResult, FEATURE_, NSString *)
+/*!
+ @brief <p>If <code>javax.xml.transform.TransformerFactory.getFeature</code>
+ returns <code>true</code> when passed this value as an argument,
+ the <code>Transformer</code> supports <code>Result</code> output of this type.
+ </p>
+ */
+inline NSString *JavaxXmlTransformDomDOMResult_get_FEATURE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlTransformDomDOMResult_FEATURE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlTransformDomDOMResult, FEATURE, NSString *)
 
 FOUNDATION_EXPORT void JavaxXmlTransformDomDOMResult_init(JavaxXmlTransformDomDOMResult *self);
 
@@ -234,4 +258,8 @@ FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *new_JavaxXmlTransformDomDOMResu
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMResult)
 
-#endif // _JavaxXmlTransformDomDOMResult_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformDomDOMResult_INCLUDE_ALL")

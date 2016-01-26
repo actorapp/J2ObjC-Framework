@@ -3,10 +3,24 @@
 //  source: android/frameworks/base/core/java/android/util/Base64DataException.java
 //
 
-#ifndef _AndroidUtilBase64DataException_H_
-#define _AndroidUtilBase64DataException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidUtilBase64DataException_INCLUDE_ALL")
+#ifdef AndroidUtilBase64DataException_RESTRICT
+#define AndroidUtilBase64DataException_INCLUDE_ALL 0
+#else
+#define AndroidUtilBase64DataException_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilBase64DataException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilBase64DataException_) && (AndroidUtilBase64DataException_INCLUDE_ALL || defined(AndroidUtilBase64DataException_INCLUDE))
+#define AndroidUtilBase64DataException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -31,4 +45,8 @@ FOUNDATION_EXPORT AndroidUtilBase64DataException *new_AndroidUtilBase64DataExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64DataException)
 
-#endif // _AndroidUtilBase64DataException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilBase64DataException_INCLUDE_ALL")

@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/Date.java
 //
 
-#ifndef _JavaUtilDate_H_
-#define _JavaUtilDate_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilDate_INCLUDE_ALL")
+#ifdef JavaUtilDate_RESTRICT
+#define JavaUtilDate_INCLUDE_ALL 0
+#else
+#define JavaUtilDate_INCLUDE_ALL 1
+#endif
+#undef JavaUtilDate_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilDate_) && (JavaUtilDate_INCLUDE_ALL || defined(JavaUtilDate_INCLUDE))
+#define JavaUtilDate_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 /*!
@@ -46,7 +63,7 @@
  */
 - (instancetype)initWithInt:(jint)year
                     withInt:(jint)month
-                    withInt:(jint)day;
+                    withInt:(jint)day __attribute__((deprecated));
 
 /*!
  @brief Constructs a new <code>Date</code> initialized to the specified date and time in the
@@ -66,7 +83,7 @@
                     withInt:(jint)month
                     withInt:(jint)day
                     withInt:(jint)hour
-                    withInt:(jint)minute;
+                    withInt:(jint)minute __attribute__((deprecated));
 
 /*!
  @brief Constructs a new <code>Date</code> initialized to the specified date and time in the
@@ -89,7 +106,7 @@
                     withInt:(jint)day
                     withInt:(jint)hour
                     withInt:(jint)minute
-                    withInt:(jint)second;
+                    withInt:(jint)second __attribute__((deprecated));
 
 /*!
  @brief Initializes this <code>Date</code> instance using the specified millisecond value.
@@ -106,7 +123,7 @@
  @param string
  the String to parse.
  */
-- (instancetype)initWithNSString:(NSString *)string;
+- (instancetype)initWithNSString:(NSString *)string __attribute__((deprecated));
 
 /*!
  @brief Returns if this <code>Date</code> is after the specified Date.
@@ -129,6 +146,7 @@
 /*!
  @brief Returns a new <code>Date</code> with the same millisecond value as this <code>Date</code>.
  @return a shallow copy of this <code>Date</code>.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -150,6 +168,7 @@
  the object to compare with this object.
  @return <code>true</code> if the specified object is equal to this <code>Date</code>, <code>false</code>
  otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -157,37 +176,37 @@
  @brief Returns the gregorian calendar day of the month for this <code>Date</code> object.
  @return the day of the month.
  */
-- (jint)getDate;
+- (jint)getDate __attribute__((deprecated));
 
 /*!
  @brief Returns the gregorian calendar day of the week for this <code>Date</code> object.
  @return the day of the week.
  */
-- (jint)getDay;
+- (jint)getDay __attribute__((deprecated));
 
 /*!
  @brief Returns the gregorian calendar hour of the day for this <code>Date</code> object.
  @return the hour of the day.
  */
-- (jint)getHours;
+- (jint)getHours __attribute__((deprecated));
 
 /*!
  @brief Returns the gregorian calendar minute of the hour for this <code>Date</code> object.
  @return the minutes.
  */
-- (jint)getMinutes;
+- (jint)getMinutes __attribute__((deprecated));
 
 /*!
  @brief Returns the gregorian calendar month for this <code>Date</code> object.
  @return the month.
  */
-- (jint)getMonth;
+- (jint)getMonth __attribute__((deprecated));
 
 /*!
  @brief Returns the gregorian calendar second of the minute for this <code>Date</code> object.
  @return the seconds.
  */
-- (jint)getSeconds;
+- (jint)getSeconds __attribute__((deprecated));
 
 /*!
  @brief Returns this <code>Date</code> as a millisecond value.
@@ -201,19 +220,20 @@
  @brief Returns the timezone offset in minutes of the default <code>TimeZone</code>.
  @return the timezone offset in minutes of the default <code>TimeZone</code>.
  */
-- (jint)getTimezoneOffset;
+- (jint)getTimezoneOffset __attribute__((deprecated));
 
 /*!
  @brief Returns the gregorian calendar year since 1900 for this <code>Date</code> object.
  @return the year - 1900.
  */
-- (jint)getYear;
+- (jint)getYear __attribute__((deprecated));
 
 /*!
  @brief Returns an integer hash code for the receiver.
  Objects which are equal
  return the same value for this method.
  @return this <code>Date</code>'s hash.
+ - seealso: #equals
  */
 - (NSUInteger)hash;
 
@@ -226,42 +246,42 @@
  the String to parse.
  @return the millisecond value parsed from the String.
  */
-+ (jlong)parseWithNSString:(NSString *)string;
++ (jlong)parseWithNSString:(NSString *)string __attribute__((deprecated));
 
 /*!
  @brief Sets the gregorian calendar day of the month for this <code>Date</code> object.
  @param day
  the day of the month.
  */
-- (void)setDateWithInt:(jint)day;
+- (void)setDateWithInt:(jint)day __attribute__((deprecated));
 
 /*!
  @brief Sets the gregorian calendar hour of the day for this <code>Date</code> object.
  @param hour
  the hour of the day.
  */
-- (void)setHoursWithInt:(jint)hour;
+- (void)setHoursWithInt:(jint)hour __attribute__((deprecated));
 
 /*!
  @brief Sets the gregorian calendar minute of the hour for this <code>Date</code> object.
  @param minute
  the minutes.
  */
-- (void)setMinutesWithInt:(jint)minute;
+- (void)setMinutesWithInt:(jint)minute __attribute__((deprecated));
 
 /*!
  @brief Sets the gregorian calendar month for this <code>Date</code> object.
  @param month
  the month.
  */
-- (void)setMonthWithInt:(jint)month;
+- (void)setMonthWithInt:(jint)month __attribute__((deprecated));
 
 /*!
  @brief Sets the gregorian calendar second of the minute for this <code>Date</code> object.
  @param second
  the seconds.
  */
-- (void)setSecondsWithInt:(jint)second;
+- (void)setSecondsWithInt:(jint)second __attribute__((deprecated));
 
 /*!
  @brief Sets this <code>Date</code> to the specified millisecond value.
@@ -277,18 +297,18 @@
  @param year
  the year since 1900.
  */
-- (void)setYearWithInt:(jint)year;
+- (void)setYearWithInt:(jint)year __attribute__((deprecated));
 
 /*!
  @brief Returns the string representation of this <code>Date</code> in GMT in the format
  <code>"22 Jun 1999 13:02:00 GMT"</code>.
  */
-- (NSString *)toGMTString;
+- (NSString *)toGMTString __attribute__((deprecated));
 
 /*!
  @brief Returns the string representation of this <code>Date</code> for the default <code>Locale</code>.
  */
-- (NSString *)toLocaleString;
+- (NSString *)toLocaleString __attribute__((deprecated));
 
 /*!
  @brief Returns a string representation of this <code>Date</code>.
@@ -321,7 +341,7 @@
             withInt:(jint)day
             withInt:(jint)hour
             withInt:(jint)minute
-            withInt:(jint)second;
+            withInt:(jint)second __attribute__((deprecated));
 
 @end
 
@@ -357,4 +377,8 @@ FOUNDATION_EXPORT jlong JavaUtilDate_UTCWithInt_withInt_withInt_withInt_withInt_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDate)
 
-#endif // _JavaUtilDate_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilDate_INCLUDE_ALL")

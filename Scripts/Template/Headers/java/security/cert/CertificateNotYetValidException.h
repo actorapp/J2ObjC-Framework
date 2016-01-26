@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CertificateNotYetValidException.java
 //
 
-#ifndef _JavaSecurityCertCertificateNotYetValidException_H_
-#define _JavaSecurityCertCertificateNotYetValidException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCertificateNotYetValidException_INCLUDE_ALL")
+#ifdef JavaSecurityCertCertificateNotYetValidException_RESTRICT
+#define JavaSecurityCertCertificateNotYetValidException_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCertificateNotYetValidException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCertificateNotYetValidException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCertificateNotYetValidException_) && (JavaSecurityCertCertificateNotYetValidException_INCLUDE_ALL || defined(JavaSecurityCertCertificateNotYetValidException_INCLUDE))
+#define JavaSecurityCertCertificateNotYetValidException_
+
+#define JavaSecurityCertCertificateException_RESTRICT 1
+#define JavaSecurityCertCertificateException_INCLUDE 1
 #include "../../../java/security/cert/CertificateException.h"
 
 /*!
@@ -44,4 +58,8 @@ FOUNDATION_EXPORT JavaSecurityCertCertificateNotYetValidException *new_JavaSecur
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificateNotYetValidException)
 
-#endif // _JavaSecurityCertCertificateNotYetValidException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCertificateNotYetValidException_INCLUDE_ALL")

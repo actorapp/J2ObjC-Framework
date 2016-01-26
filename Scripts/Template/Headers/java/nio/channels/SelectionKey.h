@@ -3,18 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/SelectionKey.java
 //
 
-#ifndef _JavaNioChannelsSelectionKey_H_
-#define _JavaNioChannelsSelectionKey_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsSelectionKey_INCLUDE_ALL")
+#ifdef JavaNioChannelsSelectionKey_RESTRICT
+#define JavaNioChannelsSelectionKey_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsSelectionKey_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsSelectionKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsSelectionKey_) && (JavaNioChannelsSelectionKey_INCLUDE_ALL || defined(JavaNioChannelsSelectionKey_INCLUDE))
+#define JavaNioChannelsSelectionKey_
 
 @class JavaNioChannelsSelectableChannel;
 @class JavaNioChannelsSelector;
-
-#define JavaNioChannelsSelectionKey_OP_ACCEPT 16
-#define JavaNioChannelsSelectionKey_OP_CONNECT 8
-#define JavaNioChannelsSelectionKey_OP_READ 1
-#define JavaNioChannelsSelectionKey_OP_WRITE 4
 
 /*!
  @brief A <code>SelectionKey</code> represents the relationship between a channel and a
@@ -32,6 +38,14 @@
  <code>channel</code> is ready to execute.
  */
 @interface JavaNioChannelsSelectionKey : NSObject
+
++ (jint)OP_ACCEPT;
+
++ (jint)OP_CONNECT;
+
++ (jint)OP_READ;
+
++ (jint)OP_WRITE;
 
 #pragma mark Public
 
@@ -183,16 +197,40 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaNioChannelsSelectionKey)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNioChannelsSelectionKey, OP_ACCEPT, jint)
+/*!
+ @brief Interest set mask bit for socket-accept operations.
+ */
+inline jint JavaNioChannelsSelectionKey_get_OP_ACCEPT();
+#define JavaNioChannelsSelectionKey_OP_ACCEPT 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNioChannelsSelectionKey, OP_ACCEPT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNioChannelsSelectionKey, OP_CONNECT, jint)
+/*!
+ @brief Interest set mask bit for socket-connect operations.
+ */
+inline jint JavaNioChannelsSelectionKey_get_OP_CONNECT();
+#define JavaNioChannelsSelectionKey_OP_CONNECT 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNioChannelsSelectionKey, OP_CONNECT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNioChannelsSelectionKey, OP_READ, jint)
+/*!
+ @brief Interesting operation mask bit for read operations.
+ */
+inline jint JavaNioChannelsSelectionKey_get_OP_READ();
+#define JavaNioChannelsSelectionKey_OP_READ 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNioChannelsSelectionKey, OP_READ, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNioChannelsSelectionKey, OP_WRITE, jint)
+/*!
+ @brief Interest set mask bit for write operations.
+ */
+inline jint JavaNioChannelsSelectionKey_get_OP_WRITE();
+#define JavaNioChannelsSelectionKey_OP_WRITE 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNioChannelsSelectionKey, OP_WRITE, jint)
 
 FOUNDATION_EXPORT void JavaNioChannelsSelectionKey_init(JavaNioChannelsSelectionKey *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSelectionKey)
 
-#endif // _JavaNioChannelsSelectionKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsSelectionKey_INCLUDE_ALL")

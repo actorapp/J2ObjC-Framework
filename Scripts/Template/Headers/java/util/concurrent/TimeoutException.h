@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/TimeoutException.java
 //
 
-#ifndef _JavaUtilConcurrentTimeoutException_H_
-#define _JavaUtilConcurrentTimeoutException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentTimeoutException_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentTimeoutException_RESTRICT
+#define JavaUtilConcurrentTimeoutException_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentTimeoutException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentTimeoutException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentTimeoutException_) && (JavaUtilConcurrentTimeoutException_INCLUDE_ALL || defined(JavaUtilConcurrentTimeoutException_INCLUDE))
+#define JavaUtilConcurrentTimeoutException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -51,4 +65,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentTimeoutException *new_JavaUtilConcurrentTime
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentTimeoutException)
 
-#endif // _JavaUtilConcurrentTimeoutException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentTimeoutException_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/frameworks/base/core/java/android/test/suitebuilder/annotation/Suppress.java
 //
 
-#ifndef _AndroidTestSuitebuilderAnnotationSuppress_H_
-#define _AndroidTestSuitebuilderAnnotationSuppress_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTestSuitebuilderAnnotationSuppress_INCLUDE_ALL")
+#ifdef AndroidTestSuitebuilderAnnotationSuppress_RESTRICT
+#define AndroidTestSuitebuilderAnnotationSuppress_INCLUDE_ALL 0
+#else
+#define AndroidTestSuitebuilderAnnotationSuppress_INCLUDE_ALL 1
+#endif
+#undef AndroidTestSuitebuilderAnnotationSuppress_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTestSuitebuilderAnnotationSuppress_) && (AndroidTestSuitebuilderAnnotationSuppress_INCLUDE_ALL || defined(AndroidTestSuitebuilderAnnotationSuppress_INCLUDE))
+#define AndroidTestSuitebuilderAnnotationSuppress_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../../../java/lang/annotation/Annotation.h"
 
 /*!
@@ -27,4 +41,8 @@ J2OBJC_EMPTY_STATIC_INIT(AndroidTestSuitebuilderAnnotationSuppress)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTestSuitebuilderAnnotationSuppress)
 
-#endif // _AndroidTestSuitebuilderAnnotationSuppress_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTestSuitebuilderAnnotationSuppress_INCLUDE_ALL")

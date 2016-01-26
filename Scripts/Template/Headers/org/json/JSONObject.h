@@ -3,10 +3,21 @@
 //  source: android/libcore/json/src/main/java/org/json/JSONObject.java
 //
 
-#ifndef _OrgJsonJSONObject_H_
-#define _OrgJsonJSONObject_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("OrgJsonJSONObject_INCLUDE_ALL")
+#ifdef OrgJsonJSONObject_RESTRICT
+#define OrgJsonJSONObject_INCLUDE_ALL 0
+#else
+#define OrgJsonJSONObject_INCLUDE_ALL 1
+#endif
+#undef OrgJsonJSONObject_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgJsonJSONObject_) && (OrgJsonJSONObject_INCLUDE_ALL || defined(OrgJsonJSONObject_INCLUDE))
+#define OrgJsonJSONObject_
 
 @class IOSObjectArray;
 @class OrgJsonJSONArray;
@@ -66,6 +77,8 @@
  prohibit it" for further information.
  */
 @interface OrgJsonJSONObject : NSObject
+
++ (id)NULL_;
 
 #pragma mark Public
 
@@ -474,8 +487,25 @@
 
 J2OBJC_STATIC_INIT(OrgJsonJSONObject)
 
-FOUNDATION_EXPORT id OrgJsonJSONObject_NULL__;
-J2OBJC_STATIC_FIELD_GETTER(OrgJsonJSONObject, NULL__, id)
+/*!
+ @brief A sentinel value used to explicitly define a name with no value.
+ Unlike
+ <code>null</code>, names with this value:
+ <ul>
+ <li>show up in the <code>names</code> array
+ <li>show up in the <code>keys</code> iterator
+ <li>return <code>true</code> for <code>has(String)</code>
+ <li>do not throw on <code>get(String)</code>
+ <li>are included in the encoded JSON string.
+ </ul>
+ <p>This value violates the general contract of <code>Object.equals</code> by
+ returning true when compared to <code>null</code>. Its <code>toString</code>
+ method returns "null".
+ */
+inline id OrgJsonJSONObject_get_NULL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id OrgJsonJSONObject_NULL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(OrgJsonJSONObject, NULL, id)
 
 FOUNDATION_EXPORT void OrgJsonJSONObject_init(OrgJsonJSONObject *self);
 
@@ -505,4 +535,8 @@ FOUNDATION_EXPORT id OrgJsonJSONObject_wrapWithId_(id o);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONObject)
 
-#endif // _OrgJsonJSONObject_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgJsonJSONObject_INCLUDE_ALL")

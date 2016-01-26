@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/ContentHandler.java
 //
 
-#ifndef _JavaNetContentHandler_H_
-#define _JavaNetContentHandler_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetContentHandler_INCLUDE_ALL")
+#ifdef JavaNetContentHandler_RESTRICT
+#define JavaNetContentHandler_INCLUDE_ALL 0
+#else
+#define JavaNetContentHandler_INCLUDE_ALL 1
+#endif
+#undef JavaNetContentHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetContentHandler_) && (JavaNetContentHandler_INCLUDE_ALL || defined(JavaNetContentHandler_INCLUDE))
+#define JavaNetContentHandler_
 
 @class IOSObjectArray;
 @class JavaNetURLConnection;
@@ -16,6 +27,9 @@
  Java type object.
  It is created by <code>ContentHandlerFactory</code>. The data
  values should be accessed via <code>URL</code> or <code>URLConnection</code>.
+ - seealso: ContentHandlerFactory
+ - seealso: URL#getContent()
+ - seealso: URLConnection#getContent()
  */
 @interface JavaNetContentHandler : NSObject
 
@@ -55,4 +69,8 @@ FOUNDATION_EXPORT void JavaNetContentHandler_init(JavaNetContentHandler *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetContentHandler)
 
-#endif // _JavaNetContentHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetContentHandler_INCLUDE_ALL")

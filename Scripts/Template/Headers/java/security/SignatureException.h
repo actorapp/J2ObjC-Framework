@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/security/SignatureException.java
 //
 
-#ifndef _JavaSecuritySignatureException_H_
-#define _JavaSecuritySignatureException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySignatureException_INCLUDE_ALL")
+#ifdef JavaSecuritySignatureException_RESTRICT
+#define JavaSecuritySignatureException_INCLUDE_ALL 0
+#else
+#define JavaSecuritySignatureException_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySignatureException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySignatureException_) && (JavaSecuritySignatureException_INCLUDE_ALL || defined(JavaSecuritySignatureException_INCLUDE))
+#define JavaSecuritySignatureException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
 #include "../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
 
 /*!
  @brief <code>SignatureException</code> is a general <code>Signature</code> exception.
+ - seealso: Signature
  */
 @interface JavaSecuritySignatureException : JavaSecurityGeneralSecurityException
 
@@ -72,4 +87,8 @@ FOUNDATION_EXPORT JavaSecuritySignatureException *new_JavaSecuritySignatureExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySignatureException)
 
-#endif // _JavaSecuritySignatureException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySignatureException_INCLUDE_ALL")

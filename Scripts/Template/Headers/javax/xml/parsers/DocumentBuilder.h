@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/parsers/DocumentBuilder.java
 //
 
-#ifndef _JavaxXmlParsersDocumentBuilder_H_
-#define _JavaxXmlParsersDocumentBuilder_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlParsersDocumentBuilder_INCLUDE_ALL")
+#ifdef JavaxXmlParsersDocumentBuilder_RESTRICT
+#define JavaxXmlParsersDocumentBuilder_INCLUDE_ALL 0
+#else
+#define JavaxXmlParsersDocumentBuilder_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlParsersDocumentBuilder_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlParsersDocumentBuilder_) && (JavaxXmlParsersDocumentBuilder_INCLUDE_ALL || defined(JavaxXmlParsersDocumentBuilder_INCLUDE))
+#define JavaxXmlParsersDocumentBuilder_
 
 @class JavaIoFile;
 @class JavaIoInputStream;
@@ -87,6 +98,7 @@
  earlier versions of JAXP is used, this exception will be
  thrown.
  @since 1.5
+ - seealso: DocumentBuilderFactory#setXIncludeAware(boolean)
  */
 - (jboolean)isXIncludeAware;
 
@@ -105,6 +117,7 @@
  @param f The file containing the XML to parse.
  @exception IOException If any IO errors occur.
  @exception SAXException If any parse errors occur.
+ - seealso: org.xml.sax.DocumentHandler
  @return A new DOM Document object.
  */
 - (id<OrgW3cDomDocument>)parseWithJavaIoFile:(JavaIoFile *)f;
@@ -117,6 +130,7 @@
  @param is InputSource containing the content to be parsed.
  @exception IOException If any IO errors occur.
  @exception SAXException If any parse errors occur.
+ - seealso: org.xml.sax.DocumentHandler
  @return A new DOM Document object.
  */
 - (id<OrgW3cDomDocument>)parseWithOrgXmlSaxInputSource:(OrgXmlSaxInputSource *)is;
@@ -131,6 +145,7 @@
  <code>InputStream</code>
  @exception IOException If any IO errors occur.
  @exception SAXException If any parse errors occur.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (id<OrgW3cDomDocument>)parseWithJavaIoInputStream:(JavaIoInputStream *)is;
 
@@ -144,6 +159,7 @@
  @return A new DOM Document object.
  @exception IOException If any IO errors occur.
  @exception SAXException If any parse errors occur.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (id<OrgW3cDomDocument>)parseWithJavaIoInputStream:(JavaIoInputStream *)is
                                        withNSString:(NSString *)systemId;
@@ -157,6 +173,7 @@
  @return A new DOM Document object.
  @exception IOException If any IO errors occur.
  @exception SAXException If any parse errors occur.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (id<OrgW3cDomDocument>)parseWithNSString:(NSString *)uri;
 
@@ -210,4 +227,8 @@ FOUNDATION_EXPORT void JavaxXmlParsersDocumentBuilder_init(JavaxXmlParsersDocume
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersDocumentBuilder)
 
-#endif // _JavaxXmlParsersDocumentBuilder_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlParsersDocumentBuilder_INCLUDE_ALL")

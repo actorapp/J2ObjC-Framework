@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/PropertyPermission.java
 //
 
-#ifndef _JavaUtilPropertyPermission_H_
-#define _JavaUtilPropertyPermission_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilPropertyPermission_INCLUDE_ALL")
+#ifdef JavaUtilPropertyPermission_RESTRICT
+#define JavaUtilPropertyPermission_INCLUDE_ALL 0
+#else
+#define JavaUtilPropertyPermission_INCLUDE_ALL 1
+#endif
+#undef JavaUtilPropertyPermission_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilPropertyPermission_) && (JavaUtilPropertyPermission_INCLUDE_ALL || defined(JavaUtilPropertyPermission_INCLUDE))
+#define JavaUtilPropertyPermission_
+
+#define JavaSecurityBasicPermission_RESTRICT 1
+#define JavaSecurityBasicPermission_INCLUDE 1
 #include "../../java/security/BasicPermission.h"
 
 @class JavaSecurityPermission;
@@ -35,4 +49,8 @@ FOUNDATION_EXPORT JavaUtilPropertyPermission *new_JavaUtilPropertyPermission_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPropertyPermission)
 
-#endif // _JavaUtilPropertyPermission_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilPropertyPermission_INCLUDE_ALL")

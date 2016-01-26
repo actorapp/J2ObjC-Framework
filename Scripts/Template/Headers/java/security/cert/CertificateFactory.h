@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CertificateFactory.java
 //
 
-#ifndef _JavaSecurityCertCertificateFactory_H_
-#define _JavaSecurityCertCertificateFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCertificateFactory_INCLUDE_ALL")
+#ifdef JavaSecurityCertCertificateFactory_RESTRICT
+#define JavaSecurityCertCertificateFactory_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCertificateFactory_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCertificateFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCertificateFactory_) && (JavaSecurityCertCertificateFactory_INCLUDE_ALL || defined(JavaSecurityCertCertificateFactory_INCLUDE))
+#define JavaSecurityCertCertificateFactory_
 
 @class JavaIoInputStream;
 @class JavaSecurityCertCRL;
@@ -221,4 +232,8 @@ FOUNDATION_EXPORT JavaSecurityCertCertificateFactory *JavaSecurityCertCertificat
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificateFactory)
 
-#endif // _JavaSecurityCertCertificateFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCertificateFactory_INCLUDE_ALL")

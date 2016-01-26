@@ -3,14 +3,37 @@
 //  source: android/frameworks/base/core/java/android/text/SpannableString.java
 //
 
-#ifndef _AndroidTextSpannableString_H_
-#define _AndroidTextSpannableString_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../android/text/GetChars.h"
-#include "../../android/text/Spannable.h"
+
+#pragma push_macro("AndroidTextSpannableString_INCLUDE_ALL")
+#ifdef AndroidTextSpannableString_RESTRICT
+#define AndroidTextSpannableString_INCLUDE_ALL 0
+#else
+#define AndroidTextSpannableString_INCLUDE_ALL 1
+#endif
+#undef AndroidTextSpannableString_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextSpannableString_) && (AndroidTextSpannableString_INCLUDE_ALL || defined(AndroidTextSpannableString_INCLUDE))
+#define AndroidTextSpannableString_
+
+#define AndroidTextSpannableStringInternal_RESTRICT 1
+#define AndroidTextSpannableStringInternal_INCLUDE 1
 #include "../../android/text/SpannableStringInternal.h"
+
+#define JavaLangCharSequence_RESTRICT 1
+#define JavaLangCharSequence_INCLUDE 1
 #include "../../java/lang/CharSequence.h"
+
+#define AndroidTextGetChars_RESTRICT 1
+#define AndroidTextGetChars_INCLUDE 1
+#include "../../android/text/GetChars.h"
+
+#define AndroidTextSpannable_RESTRICT 1
+#define AndroidTextSpannable_INCLUDE 1
+#include "../../android/text/Spannable.h"
 
 /*!
  @brief This is the class for text whose content is immutable but to which
@@ -47,4 +70,8 @@ FOUNDATION_EXPORT AndroidTextSpannableString *AndroidTextSpannableString_valueOf
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableString)
 
-#endif // _AndroidTextSpannableString_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextSpannableString_INCLUDE_ALL")

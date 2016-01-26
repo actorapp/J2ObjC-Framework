@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/NoRouteToHostException.java
 //
 
-#ifndef _JavaNetNoRouteToHostException_H_
-#define _JavaNetNoRouteToHostException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetNoRouteToHostException_INCLUDE_ALL")
+#ifdef JavaNetNoRouteToHostException_RESTRICT
+#define JavaNetNoRouteToHostException_INCLUDE_ALL 0
+#else
+#define JavaNetNoRouteToHostException_INCLUDE_ALL 1
+#endif
+#undef JavaNetNoRouteToHostException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetNoRouteToHostException_) && (JavaNetNoRouteToHostException_INCLUDE_ALL || defined(JavaNetNoRouteToHostException_INCLUDE))
+#define JavaNetNoRouteToHostException_
+
+#define JavaNetSocketException_RESTRICT 1
+#define JavaNetSocketException_INCLUDE 1
 #include "../../java/net/SocketException.h"
 
 @class JavaLangThrowable;
@@ -57,4 +71,8 @@ FOUNDATION_EXPORT JavaNetNoRouteToHostException *new_JavaNetNoRouteToHostExcepti
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetNoRouteToHostException)
 
-#endif // _JavaNetNoRouteToHostException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetNoRouteToHostException_INCLUDE_ALL")

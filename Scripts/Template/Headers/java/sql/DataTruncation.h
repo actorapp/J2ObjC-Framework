@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/sql/DataTruncation.java
 //
 
-#ifndef _JavaSqlDataTruncation_H_
-#define _JavaSqlDataTruncation_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaSqlDataTruncation_INCLUDE_ALL")
+#ifdef JavaSqlDataTruncation_RESTRICT
+#define JavaSqlDataTruncation_INCLUDE_ALL 0
+#else
+#define JavaSqlDataTruncation_INCLUDE_ALL 1
+#endif
+#undef JavaSqlDataTruncation_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlDataTruncation_) && (JavaSqlDataTruncation_INCLUDE_ALL || defined(JavaSqlDataTruncation_INCLUDE))
+#define JavaSqlDataTruncation_
+
+#define JavaSqlSQLWarning_RESTRICT 1
+#define JavaSqlSQLWarning_INCLUDE 1
 #include "../../java/sql/SQLWarning.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class JavaLangThrowable;
 
@@ -115,7 +132,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlDataTruncation)
@@ -130,4 +146,8 @@ FOUNDATION_EXPORT JavaSqlDataTruncation *new_JavaSqlDataTruncation_initWithInt_w
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDataTruncation)
 
-#endif // _JavaSqlDataTruncation_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlDataTruncation_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/KeyPairGenerator.java
 //
 
-#ifndef _JavaSecurityKeyPairGenerator_H_
-#define _JavaSecurityKeyPairGenerator_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityKeyPairGenerator_INCLUDE_ALL")
+#ifdef JavaSecurityKeyPairGenerator_RESTRICT
+#define JavaSecurityKeyPairGenerator_INCLUDE_ALL 0
+#else
+#define JavaSecurityKeyPairGenerator_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityKeyPairGenerator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityKeyPairGenerator_) && (JavaSecurityKeyPairGenerator_INCLUDE_ALL || defined(JavaSecurityKeyPairGenerator_INCLUDE))
+#define JavaSecurityKeyPairGenerator_
+
+#define JavaSecurityKeyPairGeneratorSpi_RESTRICT 1
+#define JavaSecurityKeyPairGeneratorSpi_INCLUDE 1
 #include "../../java/security/KeyPairGeneratorSpi.h"
 
 @class JavaSecurityKeyPair;
@@ -18,6 +32,7 @@
  @brief <code>KeyPairGenerator</code> is an engine class which is capable of generating a
  private key and its related public key utilizing the algorithm it was
  initialized with.
+ - seealso: KeyPairGeneratorSpi
  */
 @interface JavaSecurityKeyPairGenerator : JavaSecurityKeyPairGeneratorSpi
 
@@ -174,4 +189,8 @@ FOUNDATION_EXPORT JavaSecurityKeyPairGenerator *JavaSecurityKeyPairGenerator_get
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyPairGenerator)
 
-#endif // _JavaSecurityKeyPairGenerator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityKeyPairGenerator_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/ProtocolException.java
 //
 
-#ifndef _JavaNetProtocolException_H_
-#define _JavaNetProtocolException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetProtocolException_INCLUDE_ALL")
+#ifdef JavaNetProtocolException_RESTRICT
+#define JavaNetProtocolException_INCLUDE_ALL 0
+#else
+#define JavaNetProtocolException_INCLUDE_ALL 1
+#endif
+#undef JavaNetProtocolException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetProtocolException_) && (JavaNetProtocolException_INCLUDE_ALL || defined(JavaNetProtocolException_INCLUDE))
+#define JavaNetProtocolException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 @class JavaLangThrowable;
@@ -55,4 +69,8 @@ FOUNDATION_EXPORT JavaNetProtocolException *new_JavaNetProtocolException_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetProtocolException)
 
-#endif // _JavaNetProtocolException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetProtocolException_INCLUDE_ALL")

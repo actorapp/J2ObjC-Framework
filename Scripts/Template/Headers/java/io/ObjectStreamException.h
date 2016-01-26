@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectStreamException.java
 //
 
-#ifndef _JavaIoObjectStreamException_H_
-#define _JavaIoObjectStreamException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoObjectStreamException_INCLUDE_ALL")
+#ifdef JavaIoObjectStreamException_RESTRICT
+#define JavaIoObjectStreamException_INCLUDE_ALL 0
+#else
+#define JavaIoObjectStreamException_INCLUDE_ALL 1
+#endif
+#undef JavaIoObjectStreamException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoObjectStreamException_) && (JavaIoObjectStreamException_INCLUDE_ALL || defined(JavaIoObjectStreamException_INCLUDE))
+#define JavaIoObjectStreamException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -14,6 +28,12 @@
  of objects.
  This is actually the superclass of several other, more specific
  exception classes.
+ - seealso: InvalidObjectException
+ - seealso: NotActiveException
+ - seealso: NotSerializableException
+ - seealso: OptionalDataException
+ - seealso: StreamCorruptedException
+ - seealso: WriteAbortedException
  */
 @interface JavaIoObjectStreamException : JavaIoIOException
 
@@ -43,4 +63,8 @@ FOUNDATION_EXPORT void JavaIoObjectStreamException_initWithNSString_(JavaIoObjec
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamException)
 
-#endif // _JavaIoObjectStreamException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoObjectStreamException_INCLUDE_ALL")

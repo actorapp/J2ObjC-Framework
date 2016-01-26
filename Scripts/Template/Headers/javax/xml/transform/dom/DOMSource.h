@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/dom/DOMSource.java
 //
 
-#ifndef _JavaxXmlTransformDomDOMSource_H_
-#define _JavaxXmlTransformDomDOMSource_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformDomDOMSource_INCLUDE_ALL")
+#ifdef JavaxXmlTransformDomDOMSource_RESTRICT
+#define JavaxXmlTransformDomDOMSource_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformDomDOMSource_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformDomDOMSource_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformDomDOMSource_) && (JavaxXmlTransformDomDOMSource_INCLUDE_ALL || defined(JavaxXmlTransformDomDOMSource_INCLUDE))
+#define JavaxXmlTransformDomDOMSource_
+
+#define JavaxXmlTransformSource_RESTRICT 1
+#define JavaxXmlTransformSource_INCLUDE 1
 #include "../../../../javax/xml/transform/Source.h"
 
 @protocol OrgW3cDomNode;
@@ -21,8 +35,11 @@
  <code>awareness)</code>.</p>
  @author <a href="Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  @version $Revision: 446598 $, $Date: 2006-09-15 05:55:40 -0700 (Fri, 15 Sep 2006) $
+ - seealso: <a href="http://www.w3.org/TR/DOM-Level-2">Document Object Model (DOM) Level 2 Specification</a>
  */
 @interface JavaxXmlTransformDomDOMSource : NSObject < JavaxXmlTransformSource >
+
++ (NSString *)FEATURE;
 
 #pragma mark Public
 
@@ -33,6 +50,7 @@
  <code>Transformer</code> will
  create an empty source <code>org.w3c.dom.Document</code> using
  <code>javax.xml.parsers.DocumentBuilder.newDocument()</code>.</p>
+ - seealso: javax.xml.transform.Transformer#transform(Source xmlSource,Result outputTarget)
  */
 - (instancetype)init;
 
@@ -86,8 +104,15 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformDomDOMSource)
 
-FOUNDATION_EXPORT NSString *JavaxXmlTransformDomDOMSource_FEATURE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlTransformDomDOMSource, FEATURE_, NSString *)
+/*!
+ @brief If <code>javax.xml.transform.TransformerFactory.getFeature</code>
+ returns true when passed this value as an argument,
+ the Transformer supports Source input of this type.
+ */
+inline NSString *JavaxXmlTransformDomDOMSource_get_FEATURE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlTransformDomDOMSource_FEATURE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlTransformDomDOMSource, FEATURE, NSString *)
 
 FOUNDATION_EXPORT void JavaxXmlTransformDomDOMSource_init(JavaxXmlTransformDomDOMSource *self);
 
@@ -103,4 +128,8 @@ FOUNDATION_EXPORT JavaxXmlTransformDomDOMSource *new_JavaxXmlTransformDomDOMSour
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMSource)
 
-#endif // _JavaxXmlTransformDomDOMSource_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformDomDOMSource_INCLUDE_ALL")

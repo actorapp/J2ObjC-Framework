@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/io/PrintStream.java
 //
 
-#ifndef _JavaIoPrintStream_H_
-#define _JavaIoPrintStream_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Closeable.h"
+
+#pragma push_macro("JavaIoPrintStream_INCLUDE_ALL")
+#ifdef JavaIoPrintStream_RESTRICT
+#define JavaIoPrintStream_INCLUDE_ALL 0
+#else
+#define JavaIoPrintStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoPrintStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoPrintStream_) && (JavaIoPrintStream_INCLUDE_ALL || defined(JavaIoPrintStream_INCLUDE))
+#define JavaIoPrintStream_
+
+#define JavaIoFilterOutputStream_RESTRICT 1
+#define JavaIoFilterOutputStream_INCLUDE 1
 #include "../../java/io/FilterOutputStream.h"
+
+#define JavaLangAppendable_RESTRICT 1
+#define JavaLangAppendable_INCLUDE 1
 #include "../../java/lang/Appendable.h"
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
+#include "../../java/io/Closeable.h"
 
 @class IOSByteArray;
 @class IOSCharArray;
@@ -184,6 +204,7 @@
  @return <code>true</code> if either an <code>IOException</code> has been thrown
  previously or if <code>setError()</code> has been called;
  <code>false</code> otherwise.
+ - seealso: #setError()
  */
 - (jboolean)checkError;
 
@@ -294,6 +315,7 @@
  <p>If an I/O error occurs, this stream's error state is set to <code>true</code>.
  @param str
  the string to print to the target stream.
+ - seealso: #write(int)
  */
 - (void)printWithNSString:(NSString *)str;
 
@@ -395,6 +417,7 @@
  <p>If an I/O error occurs, this stream's error state is set to <code>true</code>.
  @param str
  the string to print to the target stream.
+ - seealso: #write(int)
  */
 - (void)printlnWithNSString:(NSString *)str;
 
@@ -414,6 +437,7 @@
  @throws IndexOutOfBoundsException
  if <code>offset < 0</code> or <code>count < 0</code>, or if <code>offset + count</code>
   is bigger than the length of <code>buffer</code>.
+ - seealso: #flush()
  */
 - (void)writeWithByteArray:(IOSByteArray *)buffer
                    withInt:(jint)offset
@@ -480,4 +504,8 @@ FOUNDATION_EXPORT JavaIoPrintStream *new_JavaIoPrintStream_initWithNSString_with
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPrintStream)
 
-#endif // _JavaIoPrintStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoPrintStream_INCLUDE_ALL")

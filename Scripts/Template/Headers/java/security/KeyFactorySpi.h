@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/KeyFactorySpi.java
 //
 
-#ifndef _JavaSecurityKeyFactorySpi_H_
-#define _JavaSecurityKeyFactorySpi_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityKeyFactorySpi_INCLUDE_ALL")
+#ifdef JavaSecurityKeyFactorySpi_RESTRICT
+#define JavaSecurityKeyFactorySpi_INCLUDE_ALL 0
+#else
+#define JavaSecurityKeyFactorySpi_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityKeyFactorySpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityKeyFactorySpi_) && (JavaSecurityKeyFactorySpi_INCLUDE_ALL || defined(JavaSecurityKeyFactorySpi_INCLUDE))
+#define JavaSecurityKeyFactorySpi_
 
 @class IOSClass;
 @protocol JavaSecurityKey;
@@ -17,6 +28,7 @@
 /*!
  @brief <code>KeyFactorySpi</code> is the Service Provider Interface (SPI) definition for
  <code>KeyFactory</code>.
+ - seealso: KeyFactory
  */
 @interface JavaSecurityKeyFactorySpi : NSObject
 
@@ -81,4 +93,8 @@ FOUNDATION_EXPORT void JavaSecurityKeyFactorySpi_init(JavaSecurityKeyFactorySpi 
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyFactorySpi)
 
-#endif // _JavaSecurityKeyFactorySpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityKeyFactorySpi_INCLUDE_ALL")

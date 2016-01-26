@@ -3,15 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/util/EmptyStackException.java
 //
 
-#ifndef _JavaUtilEmptyStackException_H_
-#define _JavaUtilEmptyStackException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilEmptyStackException_INCLUDE_ALL")
+#ifdef JavaUtilEmptyStackException_RESTRICT
+#define JavaUtilEmptyStackException_INCLUDE_ALL 0
+#else
+#define JavaUtilEmptyStackException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilEmptyStackException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilEmptyStackException_) && (JavaUtilEmptyStackException_INCLUDE_ALL || defined(JavaUtilEmptyStackException_INCLUDE))
+#define JavaUtilEmptyStackException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
  @brief An <code>EmptyStackException</code> is thrown if the pop/peek method of a stack is
  executed on an empty stack.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilEmptyStackException : JavaLangRuntimeException
 
@@ -33,4 +48,8 @@ FOUNDATION_EXPORT JavaUtilEmptyStackException *new_JavaUtilEmptyStackException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEmptyStackException)
 
-#endif // _JavaUtilEmptyStackException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilEmptyStackException_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/X509TrustManager.java
 //
 
-#ifndef _JavaxNetSslX509TrustManager_H_
-#define _JavaxNetSslX509TrustManager_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslX509TrustManager_INCLUDE_ALL")
+#ifdef JavaxNetSslX509TrustManager_RESTRICT
+#define JavaxNetSslX509TrustManager_INCLUDE_ALL 0
+#else
+#define JavaxNetSslX509TrustManager_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslX509TrustManager_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslX509TrustManager_) && (JavaxNetSslX509TrustManager_INCLUDE_ALL || defined(JavaxNetSslX509TrustManager_INCLUDE))
+#define JavaxNetSslX509TrustManager_
+
+#define JavaxNetSslTrustManager_RESTRICT 1
+#define JavaxNetSslTrustManager_INCLUDE 1
 #include "../../../javax/net/ssl/TrustManager.h"
 
 @class IOSObjectArray;
@@ -67,4 +81,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxNetSslX509TrustManager)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslX509TrustManager)
 
-#endif // _JavaxNetSslX509TrustManager_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslX509TrustManager_INCLUDE_ALL")

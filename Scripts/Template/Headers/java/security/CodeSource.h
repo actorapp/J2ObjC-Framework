@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/CodeSource.java
 //
 
-#ifndef _JavaSecurityCodeSource_H_
-#define _JavaSecurityCodeSource_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCodeSource_INCLUDE_ALL")
+#ifdef JavaSecurityCodeSource_RESTRICT
+#define JavaSecurityCodeSource_INCLUDE_ALL 0
+#else
+#define JavaSecurityCodeSource_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCodeSource_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCodeSource_) && (JavaSecurityCodeSource_INCLUDE_ALL || defined(JavaSecurityCodeSource_INCLUDE))
+#define JavaSecurityCodeSource_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -39,4 +53,8 @@ FOUNDATION_EXPORT JavaSecurityCodeSource *new_JavaSecurityCodeSource_init() NS_R
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCodeSource)
 
-#endif // _JavaSecurityCodeSource_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCodeSource_INCLUDE_ALL")

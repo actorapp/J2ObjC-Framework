@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLTimeoutException.java
 //
 
-#ifndef _JavaSqlSQLTimeoutException_H_
-#define _JavaSqlSQLTimeoutException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLTimeoutException_INCLUDE_ALL")
+#ifdef JavaSqlSQLTimeoutException_RESTRICT
+#define JavaSqlSQLTimeoutException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLTimeoutException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLTimeoutException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLTimeoutException_) && (JavaSqlSQLTimeoutException_INCLUDE_ALL || defined(JavaSqlSQLTimeoutException_INCLUDE))
+#define JavaSqlSQLTimeoutException_
+
+#define JavaSqlSQLTransientException_RESTRICT 1
+#define JavaSqlSQLTransientException_INCLUDE 1
 #include "../../java/sql/SQLTransientException.h"
 
 @class JavaLangThrowable;
@@ -127,7 +141,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLTimeoutException)
@@ -166,4 +179,8 @@ FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLTimeoutException)
 
-#endif // _JavaSqlSQLTimeoutException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLTimeoutException_INCLUDE_ALL")

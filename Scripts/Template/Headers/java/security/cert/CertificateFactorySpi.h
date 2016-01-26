@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CertificateFactorySpi.java
 //
 
-#ifndef _JavaSecurityCertCertificateFactorySpi_H_
-#define _JavaSecurityCertCertificateFactorySpi_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCertificateFactorySpi_INCLUDE_ALL")
+#ifdef JavaSecurityCertCertificateFactorySpi_RESTRICT
+#define JavaSecurityCertCertificateFactorySpi_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCertificateFactorySpi_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCertificateFactorySpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCertificateFactorySpi_) && (JavaSecurityCertCertificateFactorySpi_INCLUDE_ALL || defined(JavaSecurityCertCertificateFactorySpi_INCLUDE))
+#define JavaSecurityCertCertificateFactorySpi_
 
 @class JavaIoInputStream;
 @class JavaSecurityCertCRL;
@@ -132,4 +143,8 @@ FOUNDATION_EXPORT void JavaSecurityCertCertificateFactorySpi_init(JavaSecurityCe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificateFactorySpi)
 
-#endif // _JavaSecurityCertCertificateFactorySpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCertificateFactorySpi_INCLUDE_ALL")

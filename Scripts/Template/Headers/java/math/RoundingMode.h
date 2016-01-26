@@ -3,28 +3,58 @@
 //  source: apache_harmony/classlib/modules/math/src/main/java/java/math/RoundingMode.java
 //
 
-#ifndef _JavaMathRoundingMode_H_
-#define _JavaMathRoundingMode_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaMathRoundingMode_INCLUDE_ALL")
+#ifdef JavaMathRoundingMode_RESTRICT
+#define JavaMathRoundingMode_INCLUDE_ALL 0
+#else
+#define JavaMathRoundingMode_INCLUDE_ALL 1
+#endif
+#undef JavaMathRoundingMode_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaMathRoundingMode_) && (JavaMathRoundingMode_INCLUDE_ALL || defined(JavaMathRoundingMode_INCLUDE))
+#define JavaMathRoundingMode_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
 #include "../../java/lang/Enum.h"
 
-typedef NS_ENUM(NSUInteger, JavaMathRoundingMode) {
-  JavaMathRoundingMode_UP = 0,
-  JavaMathRoundingMode_DOWN = 1,
-  JavaMathRoundingMode_CEILING = 2,
-  JavaMathRoundingMode_FLOOR = 3,
-  JavaMathRoundingMode_HALF_UP = 4,
-  JavaMathRoundingMode_HALF_DOWN = 5,
-  JavaMathRoundingMode_HALF_EVEN = 6,
-  JavaMathRoundingMode_UNNECESSARY = 7,
+typedef NS_ENUM(NSUInteger, JavaMathRoundingMode_Enum) {
+  JavaMathRoundingMode_Enum_UP = 0,
+  JavaMathRoundingMode_Enum_DOWN = 1,
+  JavaMathRoundingMode_Enum_CEILING = 2,
+  JavaMathRoundingMode_Enum_FLOOR = 3,
+  JavaMathRoundingMode_Enum_HALF_UP = 4,
+  JavaMathRoundingMode_Enum_HALF_DOWN = 5,
+  JavaMathRoundingMode_Enum_HALF_EVEN = 6,
+  JavaMathRoundingMode_Enum_UNNECESSARY = 7,
 };
 
 /*!
  @brief Specifies the rounding behavior for operations whose results cannot be
  represented exactly.
  */
-@interface JavaMathRoundingModeEnum : JavaLangEnum < NSCopying >
+@interface JavaMathRoundingMode : JavaLangEnum < NSCopying >
+
++ (JavaMathRoundingMode *)UP;
+
++ (JavaMathRoundingMode *)DOWN;
+
++ (JavaMathRoundingMode *)CEILING;
+
++ (JavaMathRoundingMode *)FLOOR;
+
++ (JavaMathRoundingMode *)HALF_UP;
+
++ (JavaMathRoundingMode *)HALF_DOWN;
+
++ (JavaMathRoundingMode *)HALF_EVEN;
+
++ (JavaMathRoundingMode *)UNNECESSARY;
 
 #pragma mark Public
 
@@ -35,50 +65,107 @@ typedef NS_ENUM(NSUInteger, JavaMathRoundingMode) {
  rounding mode constant as defined in class <code>BigDecimal</code>
  @return corresponding rounding mode object
  */
-+ (JavaMathRoundingModeEnum *)valueOfWithInt:(jint)mode;
++ (JavaMathRoundingMode *)valueOfWithInt:(jint)mode;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaMathRoundingModeEnum_values();
 
-+ (JavaMathRoundingModeEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaMathRoundingModeEnum *JavaMathRoundingModeEnum_valueOfWithNSString_(NSString *name);
++ (JavaMathRoundingMode *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaMathRoundingMode_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaMathRoundingModeEnum)
+J2OBJC_STATIC_INIT(JavaMathRoundingMode)
 
-FOUNDATION_EXPORT JavaMathRoundingModeEnum *JavaMathRoundingModeEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaMathRoundingMode *JavaMathRoundingMode_values_[];
 
-#define JavaMathRoundingModeEnum_UP JavaMathRoundingModeEnum_values_[JavaMathRoundingMode_UP]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaMathRoundingModeEnum, UP)
+/*!
+ @brief Rounding mode where positive values are rounded towards positive infinity
+ and negative values towards negative infinity.
+ <br>
+ Rule: <code>x.round().abs() >= x.abs()</code>
+ */
+inline JavaMathRoundingMode *JavaMathRoundingMode_get_UP();
+J2OBJC_ENUM_CONSTANT(JavaMathRoundingMode, UP)
 
-#define JavaMathRoundingModeEnum_DOWN JavaMathRoundingModeEnum_values_[JavaMathRoundingMode_DOWN]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaMathRoundingModeEnum, DOWN)
+/*!
+ @brief Rounding mode where the values are rounded towards zero.
+ <br>
+ Rule: <code>x.round().abs() <= x.abs()</code>
+ */
+inline JavaMathRoundingMode *JavaMathRoundingMode_get_DOWN();
+J2OBJC_ENUM_CONSTANT(JavaMathRoundingMode, DOWN)
 
-#define JavaMathRoundingModeEnum_CEILING JavaMathRoundingModeEnum_values_[JavaMathRoundingMode_CEILING]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaMathRoundingModeEnum, CEILING)
+/*!
+ @brief Rounding mode to round towards positive infinity.
+ For positive values
+ this rounding mode behaves as <code>UP</code>, for negative values as
+ <code>DOWN</code>.
+ <br>
+ Rule: <code>x.round() >= x</code>
+ */
+inline JavaMathRoundingMode *JavaMathRoundingMode_get_CEILING();
+J2OBJC_ENUM_CONSTANT(JavaMathRoundingMode, CEILING)
 
-#define JavaMathRoundingModeEnum_FLOOR JavaMathRoundingModeEnum_values_[JavaMathRoundingMode_FLOOR]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaMathRoundingModeEnum, FLOOR)
+/*!
+ @brief Rounding mode to round towards negative infinity.
+ For positive values
+ this rounding mode behaves as <code>DOWN</code>, for negative values as
+ <code>UP</code>.
+ <br>
+ Rule: <code>x.round() <= x</code>
+ */
+inline JavaMathRoundingMode *JavaMathRoundingMode_get_FLOOR();
+J2OBJC_ENUM_CONSTANT(JavaMathRoundingMode, FLOOR)
 
-#define JavaMathRoundingModeEnum_HALF_UP JavaMathRoundingModeEnum_values_[JavaMathRoundingMode_HALF_UP]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaMathRoundingModeEnum, HALF_UP)
+/*!
+ @brief Rounding mode where values are rounded towards the nearest neighbor.
+ Ties
+ are broken by rounding up.
+ */
+inline JavaMathRoundingMode *JavaMathRoundingMode_get_HALF_UP();
+J2OBJC_ENUM_CONSTANT(JavaMathRoundingMode, HALF_UP)
 
-#define JavaMathRoundingModeEnum_HALF_DOWN JavaMathRoundingModeEnum_values_[JavaMathRoundingMode_HALF_DOWN]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaMathRoundingModeEnum, HALF_DOWN)
+/*!
+ @brief Rounding mode where values are rounded towards the nearest neighbor.
+ Ties
+ are broken by rounding down.
+ */
+inline JavaMathRoundingMode *JavaMathRoundingMode_get_HALF_DOWN();
+J2OBJC_ENUM_CONSTANT(JavaMathRoundingMode, HALF_DOWN)
 
-#define JavaMathRoundingModeEnum_HALF_EVEN JavaMathRoundingModeEnum_values_[JavaMathRoundingMode_HALF_EVEN]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaMathRoundingModeEnum, HALF_EVEN)
+/*!
+ @brief Rounding mode where values are rounded towards the nearest neighbor.
+ Ties
+ are broken by rounding to the even neighbor.
+ */
+inline JavaMathRoundingMode *JavaMathRoundingMode_get_HALF_EVEN();
+J2OBJC_ENUM_CONSTANT(JavaMathRoundingMode, HALF_EVEN)
 
-#define JavaMathRoundingModeEnum_UNNECESSARY JavaMathRoundingModeEnum_values_[JavaMathRoundingMode_UNNECESSARY]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaMathRoundingModeEnum, UNNECESSARY)
+/*!
+ @brief Rounding mode where the rounding operations throws an ArithmeticException
+ for the case that rounding is necessary, i.e. for the case that the value
+ cannot be represented exactly.
+ */
+inline JavaMathRoundingMode *JavaMathRoundingMode_get_UNNECESSARY();
+J2OBJC_ENUM_CONSTANT(JavaMathRoundingMode, UNNECESSARY)
 
-FOUNDATION_EXPORT JavaMathRoundingModeEnum *JavaMathRoundingModeEnum_valueOfWithInt_(jint mode);
+FOUNDATION_EXPORT JavaMathRoundingMode *JavaMathRoundingMode_valueOfWithInt_(jint mode);
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaMathRoundingModeEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaMathRoundingMode_values();
 
-#endif // _JavaMathRoundingMode_H_
+FOUNDATION_EXPORT JavaMathRoundingMode *JavaMathRoundingMode_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaMathRoundingMode *JavaMathRoundingMode_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaMathRoundingMode)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaMathRoundingMode_INCLUDE_ALL")

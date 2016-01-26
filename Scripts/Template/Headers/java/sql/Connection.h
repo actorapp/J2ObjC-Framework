@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Connection.java
 //
 
-#ifndef _JavaSqlConnection_H_
-#define _JavaSqlConnection_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/AutoCloseable.h"
+
+#pragma push_macro("JavaSqlConnection_INCLUDE_ALL")
+#ifdef JavaSqlConnection_RESTRICT
+#define JavaSqlConnection_INCLUDE_ALL 0
+#else
+#define JavaSqlConnection_INCLUDE_ALL 1
+#endif
+#undef JavaSqlConnection_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlConnection_) && (JavaSqlConnection_INCLUDE_ALL || defined(JavaSqlConnection_INCLUDE))
+#define JavaSqlConnection_
+
+#define JavaSqlWrapper_RESTRICT 1
+#define JavaSqlWrapper_INCLUDE 1
 #include "../../java/sql/Wrapper.h"
+
+#define JavaLangAutoCloseable_RESTRICT 1
+#define JavaLangAutoCloseable_INCLUDE 1
+#include "../../java/lang/AutoCloseable.h"
 
 @class IOSIntArray;
 @class IOSObjectArray;
@@ -26,12 +43,6 @@
 @protocol JavaSqlStatement;
 @protocol JavaSqlStruct;
 @protocol JavaUtilMap;
-
-#define JavaSqlConnection_TRANSACTION_NONE 0
-#define JavaSqlConnection_TRANSACTION_READ_COMMITTED 2
-#define JavaSqlConnection_TRANSACTION_READ_UNCOMMITTED 1
-#define JavaSqlConnection_TRANSACTION_REPEATABLE_READ 4
-#define JavaSqlConnection_TRANSACTION_SERIALIZABLE 8
 
 /*!
  @brief A connection represents a link from a Java application to a database.
@@ -104,6 +115,7 @@
  @return a <code>Statement</code> object with default settings.
  @throws SQLException
  if there is a problem accessing the database.
+ - seealso: ResultSet
  */
 - (id<JavaSqlStatement>)createStatement;
 
@@ -217,6 +229,11 @@
  @return the transaction isolation value.
  @throws SQLException
  if there is a problem accessing the database.
+ - seealso: #TRANSACTION_NONE
+ - seealso: #TRANSACTION_READ_COMMITTED
+ - seealso: #TRANSACTION_READ_UNCOMMITTED
+ - seealso: #TRANSACTION_REPEATABLE_READ
+ - seealso: #TRANSACTION_SERIALIZABLE
  */
 - (jint)getTransactionIsolation;
 
@@ -796,18 +813,76 @@
 
 @end
 
+@interface JavaSqlConnection : NSObject
+
++ (jint)TRANSACTION_NONE;
+
++ (jint)TRANSACTION_READ_COMMITTED;
+
++ (jint)TRANSACTION_READ_UNCOMMITTED;
+
++ (jint)TRANSACTION_REPEATABLE_READ;
+
++ (jint)TRANSACTION_SERIALIZABLE;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlConnection)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlConnection, TRANSACTION_NONE, jint)
+/*!
+ @brief A constant indicating that transactions are not supported.
+ */
+inline jint JavaSqlConnection_get_TRANSACTION_NONE();
+#define JavaSqlConnection_TRANSACTION_NONE 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlConnection, TRANSACTION_NONE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlConnection, TRANSACTION_READ_COMMITTED, jint)
+/*!
+ @brief No <i>dirty reads</i> are permitted, therefore transactions may not read
+ a row containing uncommitted values - but does not prevent an application
+ from <i>non-repeatable reads</i> and <i>phantom reads</i>.
+ */
+inline jint JavaSqlConnection_get_TRANSACTION_READ_COMMITTED();
+#define JavaSqlConnection_TRANSACTION_READ_COMMITTED 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlConnection, TRANSACTION_READ_COMMITTED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlConnection, TRANSACTION_READ_UNCOMMITTED, jint)
+/*!
+ @brief In the case that reading uncommitted values is allowed, the following
+ incidents may happen which may lead to an invalid results:
+ <ul>
+ <li><i>dirty reads</i></li>
+ <li><i>non-repeatable reads</i></li>
+ <li><i>phantom reads</i></li>
+ </ul>
+ */
+inline jint JavaSqlConnection_get_TRANSACTION_READ_UNCOMMITTED();
+#define JavaSqlConnection_TRANSACTION_READ_UNCOMMITTED 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlConnection, TRANSACTION_READ_UNCOMMITTED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlConnection, TRANSACTION_REPEATABLE_READ, jint)
+/*!
+ @brief A constant indicating that <i>dirty reads</i> and <i>non-repeatable
+ reads</i> are <b>prevented</b> but <i>phantom reads</i> can occur.
+ */
+inline jint JavaSqlConnection_get_TRANSACTION_REPEATABLE_READ();
+#define JavaSqlConnection_TRANSACTION_REPEATABLE_READ 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlConnection, TRANSACTION_REPEATABLE_READ, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlConnection, TRANSACTION_SERIALIZABLE, jint)
+/*!
+ @brief The constant that indicates that the following incidents are <b>all
+ prevented</b> (the opposite of <code>TRANSACTION_READ_UNCOMMITTED</code>):
+ <ul>
+ <li><i>dirty reads</i></li>
+ <li><i>non-repeatable reads</i></li>
+ <li><i>phantom reads</i></li>
+ </ul>
+ */
+inline jint JavaSqlConnection_get_TRANSACTION_SERIALIZABLE();
+#define JavaSqlConnection_TRANSACTION_SERIALIZABLE 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlConnection, TRANSACTION_SERIALIZABLE, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlConnection)
 
-#endif // _JavaSqlConnection_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlConnection_INCLUDE_ALL")

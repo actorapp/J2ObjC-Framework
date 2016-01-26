@@ -3,15 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/net/ContentHandlerFactory.java
 //
 
-#ifndef _JavaNetContentHandlerFactory_H_
-#define _JavaNetContentHandlerFactory_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetContentHandlerFactory_INCLUDE_ALL")
+#ifdef JavaNetContentHandlerFactory_RESTRICT
+#define JavaNetContentHandlerFactory_INCLUDE_ALL 0
+#else
+#define JavaNetContentHandlerFactory_INCLUDE_ALL 1
+#endif
+#undef JavaNetContentHandlerFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetContentHandlerFactory_) && (JavaNetContentHandlerFactory_INCLUDE_ALL || defined(JavaNetContentHandlerFactory_INCLUDE))
+#define JavaNetContentHandlerFactory_
 
 @class JavaNetContentHandler;
 
 /*!
  @brief Defines a factory which is responsible for creating a <code>ContentHandler</code>.
+ - seealso: ContentHandler
  */
 @protocol JavaNetContentHandlerFactory < NSObject, JavaObject >
 
@@ -30,4 +42,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNetContentHandlerFactory)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetContentHandlerFactory)
 
-#endif // _JavaNetContentHandlerFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetContentHandlerFactory_INCLUDE_ALL")

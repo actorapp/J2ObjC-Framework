@@ -3,15 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/security/UnrecoverableEntryException.java
 //
 
-#ifndef _JavaSecurityUnrecoverableEntryException_H_
-#define _JavaSecurityUnrecoverableEntryException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityUnrecoverableEntryException_INCLUDE_ALL")
+#ifdef JavaSecurityUnrecoverableEntryException_RESTRICT
+#define JavaSecurityUnrecoverableEntryException_INCLUDE_ALL 0
+#else
+#define JavaSecurityUnrecoverableEntryException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityUnrecoverableEntryException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityUnrecoverableEntryException_) && (JavaSecurityUnrecoverableEntryException_INCLUDE_ALL || defined(JavaSecurityUnrecoverableEntryException_INCLUDE))
+#define JavaSecurityUnrecoverableEntryException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
 #include "../../java/security/GeneralSecurityException.h"
 
 /*!
  @brief <code>UnrecoverableEntryException</code> indicates, that a <code>KeyStore.Entry</code>
  cannot be recovered from a <code>KeyStore</code>.
+ - seealso: KeyStore
+ - seealso: KeyStore.Entry
  */
 @interface JavaSecurityUnrecoverableEntryException : JavaSecurityGeneralSecurityException
 
@@ -44,4 +60,8 @@ FOUNDATION_EXPORT JavaSecurityUnrecoverableEntryException *new_JavaSecurityUnrec
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityUnrecoverableEntryException)
 
-#endif // _JavaSecurityUnrecoverableEntryException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityUnrecoverableEntryException_INCLUDE_ALL")

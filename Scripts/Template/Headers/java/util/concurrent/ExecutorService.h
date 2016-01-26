@@ -3,13 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ExecutorService.java
 //
 
-#ifndef _JavaUtilConcurrentExecutorService_H_
-#define _JavaUtilConcurrentExecutorService_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentExecutorService_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentExecutorService_RESTRICT
+#define JavaUtilConcurrentExecutorService_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentExecutorService_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentExecutorService_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentExecutorService_) && (JavaUtilConcurrentExecutorService_INCLUDE_ALL || defined(JavaUtilConcurrentExecutorService_INCLUDE))
+#define JavaUtilConcurrentExecutorService_
+
+#define JavaUtilConcurrentExecutor_RESTRICT 1
+#define JavaUtilConcurrentExecutor_INCLUDE 1
 #include "../../../java/util/concurrent/Executor.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaUtilCollection;
 @protocol JavaUtilConcurrentCallable;
@@ -156,7 +170,7 @@
  @throws InterruptedException if interrupted while waiting
  */
 - (jboolean)awaitTerminationWithLong:(jlong)timeout
-  withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+      withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Submits a value-returning task for execution and returns a
@@ -257,7 +271,7 @@
  */
 - (id<JavaUtilList>)invokeAllWithJavaUtilCollection:(id<JavaUtilCollection>)tasks
                                            withLong:(jlong)timeout
-                 withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                     withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Executes the given tasks, returning the result
@@ -302,7 +316,7 @@
  */
 - (id)invokeAnyWithJavaUtilCollection:(id<JavaUtilCollection>)tasks
                              withLong:(jlong)timeout
-   withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 @end
 
@@ -310,4 +324,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentExecutorService)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutorService)
 
-#endif // _JavaUtilConcurrentExecutorService_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentExecutorService_INCLUDE_ALL")

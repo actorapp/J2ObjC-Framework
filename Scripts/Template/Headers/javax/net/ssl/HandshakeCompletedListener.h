@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/HandshakeCompletedListener.java
 //
 
-#ifndef _JavaxNetSslHandshakeCompletedListener_H_
-#define _JavaxNetSslHandshakeCompletedListener_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslHandshakeCompletedListener_INCLUDE_ALL")
+#ifdef JavaxNetSslHandshakeCompletedListener_RESTRICT
+#define JavaxNetSslHandshakeCompletedListener_INCLUDE_ALL 0
+#else
+#define JavaxNetSslHandshakeCompletedListener_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslHandshakeCompletedListener_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslHandshakeCompletedListener_) && (JavaxNetSslHandshakeCompletedListener_INCLUDE_ALL || defined(JavaxNetSslHandshakeCompletedListener_INCLUDE))
+#define JavaxNetSslHandshakeCompletedListener_
+
+#define JavaUtilEventListener_RESTRICT 1
+#define JavaUtilEventListener_INCLUDE 1
 #include "../../../java/util/EventListener.h"
 
 @class JavaxNetSslHandshakeCompletedEvent;
@@ -30,4 +44,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxNetSslHandshakeCompletedListener)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHandshakeCompletedListener)
 
-#endif // _JavaxNetSslHandshakeCompletedListener_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslHandshakeCompletedListener_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/AllPermissionCollection.java
 //
 
-#ifndef _JavaSecurityAllPermissionCollection_H_
-#define _JavaSecurityAllPermissionCollection_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityAllPermissionCollection_INCLUDE_ALL")
+#ifdef JavaSecurityAllPermissionCollection_RESTRICT
+#define JavaSecurityAllPermissionCollection_INCLUDE_ALL 0
+#else
+#define JavaSecurityAllPermissionCollection_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityAllPermissionCollection_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityAllPermissionCollection_) && (JavaSecurityAllPermissionCollection_INCLUDE_ALL || defined(JavaSecurityAllPermissionCollection_INCLUDE))
+#define JavaSecurityAllPermissionCollection_
+
+#define JavaSecurityPermissionCollection_RESTRICT 1
+#define JavaSecurityPermissionCollection_INCLUDE 1
 #include "../../java/security/PermissionCollection.h"
 
 @class JavaSecurityPermission;
@@ -39,4 +53,8 @@ FOUNDATION_EXPORT JavaSecurityAllPermissionCollection *new_JavaSecurityAllPermis
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAllPermissionCollection)
 
-#endif // _JavaSecurityAllPermissionCollection_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityAllPermissionCollection_INCLUDE_ALL")

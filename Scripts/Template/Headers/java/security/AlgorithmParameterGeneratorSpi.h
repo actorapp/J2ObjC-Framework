@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/AlgorithmParameterGeneratorSpi.java
 //
 
-#ifndef _JavaSecurityAlgorithmParameterGeneratorSpi_H_
-#define _JavaSecurityAlgorithmParameterGeneratorSpi_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE_ALL")
+#ifdef JavaSecurityAlgorithmParameterGeneratorSpi_RESTRICT
+#define JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE_ALL 0
+#else
+#define JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityAlgorithmParameterGeneratorSpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityAlgorithmParameterGeneratorSpi_) && (JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE_ALL || defined(JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE))
+#define JavaSecurityAlgorithmParameterGeneratorSpi_
 
 @class JavaSecurityAlgorithmParameters;
 @class JavaSecuritySecureRandom;
@@ -15,6 +26,7 @@
 /*!
  @brief <code>AlgorithmParameterGeneratorSpi</code> is the Service Provider Interface
  (SPI) definition for <code>AlgorithmParameterGenerator</code>.
+ - seealso: AlgorithmParameterGenerator
  */
 @interface JavaSecurityAlgorithmParameterGeneratorSpi : NSObject
 
@@ -68,4 +80,8 @@ FOUNDATION_EXPORT void JavaSecurityAlgorithmParameterGeneratorSpi_init(JavaSecur
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAlgorithmParameterGeneratorSpi)
 
-#endif // _JavaSecurityAlgorithmParameterGeneratorSpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/jar/JarException.java
 //
 
-#ifndef _JavaUtilJarJarException_H_
-#define _JavaUtilJarJarException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilJarJarException_INCLUDE_ALL")
+#ifdef JavaUtilJarJarException_RESTRICT
+#define JavaUtilJarJarException_INCLUDE_ALL 0
+#else
+#define JavaUtilJarJarException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilJarJarException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilJarJarException_) && (JavaUtilJarJarException_INCLUDE_ALL || defined(JavaUtilJarJarException_INCLUDE))
+#define JavaUtilJarJarException_
+
+#define JavaUtilZipZipException_RESTRICT 1
+#define JavaUtilZipZipException_INCLUDE 1
 #include "../../../java/util/zip/ZipException.h"
 
 /*!
@@ -44,4 +58,8 @@ FOUNDATION_EXPORT JavaUtilJarJarException *new_JavaUtilJarJarException_initWithN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarException)
 
-#endif // _JavaUtilJarJarException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilJarJarException_INCLUDE_ALL")

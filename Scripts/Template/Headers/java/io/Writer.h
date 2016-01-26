@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/io/Writer.java
 //
 
-#ifndef _JavaIoWriter_H_
-#define _JavaIoWriter_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Closeable.h"
-#include "../../java/io/Flushable.h"
+
+#pragma push_macro("JavaIoWriter_INCLUDE_ALL")
+#ifdef JavaIoWriter_RESTRICT
+#define JavaIoWriter_INCLUDE_ALL 0
+#else
+#define JavaIoWriter_INCLUDE_ALL 1
+#endif
+#undef JavaIoWriter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoWriter_) && (JavaIoWriter_INCLUDE_ALL || defined(JavaIoWriter_INCLUDE))
+#define JavaIoWriter_
+
+#define JavaLangAppendable_RESTRICT 1
+#define JavaLangAppendable_INCLUDE 1
 #include "../../java/lang/Appendable.h"
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
+#include "../../java/io/Closeable.h"
+
+#define JavaIoFlushable_RESTRICT 1
+#define JavaIoFlushable_INCLUDE 1
+#include "../../java/io/Flushable.h"
 
 @class IOSCharArray;
 @protocol JavaLangCharSequence;
@@ -29,6 +49,7 @@
  <p>
  Many specialized readers for purposes like reading from a file already exist
  in this package.
+ - seealso: Reader
  */
 @interface JavaIoWriter : NSObject < JavaLangAppendable, JavaIoCloseable, JavaIoFlushable > {
  @public
@@ -217,4 +238,8 @@ FOUNDATION_EXPORT void JavaIoWriter_initWithId_(JavaIoWriter *self, id lock);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoWriter)
 
-#endif // _JavaIoWriter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoWriter_INCLUDE_ALL")

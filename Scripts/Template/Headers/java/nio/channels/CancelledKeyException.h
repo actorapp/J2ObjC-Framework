@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/CancelledKeyException.java
 //
 
-#ifndef _JavaNioChannelsCancelledKeyException_H_
-#define _JavaNioChannelsCancelledKeyException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsCancelledKeyException_INCLUDE_ALL")
+#ifdef JavaNioChannelsCancelledKeyException_RESTRICT
+#define JavaNioChannelsCancelledKeyException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsCancelledKeyException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsCancelledKeyException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsCancelledKeyException_) && (JavaNioChannelsCancelledKeyException_INCLUDE_ALL || defined(JavaNioChannelsCancelledKeyException_INCLUDE))
+#define JavaNioChannelsCancelledKeyException_
+
+#define JavaLangIllegalStateException_RESTRICT 1
+#define JavaLangIllegalStateException_INCLUDE 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioChannelsCancelledKeyException *new_JavaNioChannelsCance
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsCancelledKeyException)
 
-#endif // _JavaNioChannelsCancelledKeyException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsCancelledKeyException_INCLUDE_ALL")

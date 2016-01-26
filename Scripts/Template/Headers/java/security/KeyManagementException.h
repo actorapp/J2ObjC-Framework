@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/KeyManagementException.java
 //
 
-#ifndef _JavaSecurityKeyManagementException_H_
-#define _JavaSecurityKeyManagementException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityKeyManagementException_INCLUDE_ALL")
+#ifdef JavaSecurityKeyManagementException_RESTRICT
+#define JavaSecurityKeyManagementException_INCLUDE_ALL 0
+#else
+#define JavaSecurityKeyManagementException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityKeyManagementException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityKeyManagementException_) && (JavaSecurityKeyManagementException_INCLUDE_ALL || defined(JavaSecurityKeyManagementException_INCLUDE))
+#define JavaSecurityKeyManagementException_
+
+#define JavaSecurityKeyException_RESTRICT 1
+#define JavaSecurityKeyException_INCLUDE 1
 #include "../../java/security/KeyException.h"
 
 @class JavaLangThrowable;
@@ -73,4 +87,8 @@ FOUNDATION_EXPORT JavaSecurityKeyManagementException *new_JavaSecurityKeyManagem
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyManagementException)
 
-#endif // _JavaSecurityKeyManagementException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityKeyManagementException_INCLUDE_ALL")

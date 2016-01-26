@@ -3,16 +3,23 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/DOMError.java
 //
 
-#ifndef _OrgW3cDomDOMError_H_
-#define _OrgW3cDomDOMError_H_
-
 #include "../../../J2ObjC_header.h"
 
-@protocol OrgW3cDomDOMLocator;
+#pragma push_macro("OrgW3cDomDOMError_INCLUDE_ALL")
+#ifdef OrgW3cDomDOMError_RESTRICT
+#define OrgW3cDomDOMError_INCLUDE_ALL 0
+#else
+#define OrgW3cDomDOMError_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomDOMError_RESTRICT
 
-#define OrgW3cDomDOMError_SEVERITY_WARNING 1
-#define OrgW3cDomDOMError_SEVERITY_ERROR 2
-#define OrgW3cDomDOMError_SEVERITY_FATAL_ERROR 3
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomDOMError_) && (OrgW3cDomDOMError_INCLUDE_ALL || defined(OrgW3cDomDOMError_INCLUDE))
+#define OrgW3cDomDOMError_
+
+@protocol OrgW3cDomDOMLocator;
 
 /*!
  @brief <code>DOMError</code> is an interface that describes an error.
@@ -65,14 +72,57 @@
 
 @end
 
+@interface OrgW3cDomDOMError : NSObject
+
++ (jshort)SEVERITY_WARNING;
+
++ (jshort)SEVERITY_ERROR;
+
++ (jshort)SEVERITY_FATAL_ERROR;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomDOMError)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMError, SEVERITY_WARNING, jshort)
+/*!
+ @brief The severity of the error described by the <code>DOMError</code> is
+ warning.
+ A <code>SEVERITY_WARNING</code> will not cause the
+ processing to stop, unless <code>DOMErrorHandler.handleError()</code>
+ returns <code>false</code>.
+ */
+inline jshort OrgW3cDomDOMError_get_SEVERITY_WARNING();
+#define OrgW3cDomDOMError_SEVERITY_WARNING 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMError, SEVERITY_WARNING, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMError, SEVERITY_ERROR, jshort)
+/*!
+ @brief The severity of the error described by the <code>DOMError</code> is
+ error.
+ A <code>SEVERITY_ERROR</code> may not cause the processing to
+ stop if the error can be recovered, unless
+ <code>DOMErrorHandler.handleError()</code> returns <code>false</code>.
+ */
+inline jshort OrgW3cDomDOMError_get_SEVERITY_ERROR();
+#define OrgW3cDomDOMError_SEVERITY_ERROR 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMError, SEVERITY_ERROR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMError, SEVERITY_FATAL_ERROR, jshort)
+/*!
+ @brief The severity of the error described by the <code>DOMError</code> is
+ fatal error.
+ A <code>SEVERITY_FATAL_ERROR</code> will cause the
+ normal processing to stop. The return value of
+ <code>DOMErrorHandler.handleError()</code> is ignored unless the
+ implementation chooses to continue, in which case the behavior
+ becomes undefined.
+ */
+inline jshort OrgW3cDomDOMError_get_SEVERITY_FATAL_ERROR();
+#define OrgW3cDomDOMError_SEVERITY_FATAL_ERROR 3
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMError, SEVERITY_FATAL_ERROR, jshort)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMError)
 
-#endif // _OrgW3cDomDOMError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomDOMError_INCLUDE_ALL")

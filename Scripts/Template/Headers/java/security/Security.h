@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/Security.java
 //
 
-#ifndef _JavaSecuritySecurity_H_
-#define _JavaSecuritySecurity_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySecurity_INCLUDE_ALL")
+#ifdef JavaSecuritySecurity_RESTRICT
+#define JavaSecuritySecurity_INCLUDE_ALL 0
+#else
+#define JavaSecuritySecurity_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySecurity_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySecurity_) && (JavaSecuritySecurity_INCLUDE_ALL || defined(JavaSecuritySecurity_INCLUDE))
+#define JavaSecuritySecurity_
 
 @class IOSObjectArray;
 @class JavaSecurityProvider;
@@ -42,7 +53,7 @@
  @return value of the property.
  */
 + (NSString *)getAlgorithmPropertyWithNSString:(NSString *)algName
-                                  withNSString:(NSString *)propName;
+                                  withNSString:(NSString *)propName __attribute__((deprecated));
 
 /*!
  @brief Returns a <code>Set</code> of all registered algorithms for the specified
@@ -199,4 +210,8 @@ FOUNDATION_EXPORT id<JavaUtilSet> JavaSecuritySecurity_getAlgorithmsWithNSString
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecurity)
 
-#endif // _JavaSecuritySecurity_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySecurity_INCLUDE_ALL")

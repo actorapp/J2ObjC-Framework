@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/ZipInputStream.java
 //
 
-#ifndef _JavaUtilZipZipInputStream_H_
-#define _JavaUtilZipZipInputStream_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipZipInputStream_INCLUDE_ALL")
+#ifdef JavaUtilZipZipInputStream_RESTRICT
+#define JavaUtilZipZipInputStream_INCLUDE_ALL 0
+#else
+#define JavaUtilZipZipInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipZipInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipZipInputStream_) && (JavaUtilZipZipInputStream_INCLUDE_ALL || defined(JavaUtilZipZipInputStream_INCLUDE))
+#define JavaUtilZipZipInputStream_
+
+#define JavaUtilZipInflaterInputStream_RESTRICT 1
+#define JavaUtilZipInflaterInputStream_INCLUDE 1
 #include "../../../java/util/zip/InflaterInputStream.h"
+
+#define JavaUtilZipZipConstants_RESTRICT 1
+#define JavaUtilZipZipConstants_INCLUDE 1
 #include "../../../java/util/zip/ZipConstants.h"
 
 @class IOSByteArray;
@@ -98,7 +115,7 @@
 #pragma mark Protected
 
 /*!
- @brief creates a <code></code> with the given name.
+ @brief creates a <code>ZipEntry</code> with the given name.
  @param name
  the name of the entry.
  @return the created <code>ZipEntry</code>.
@@ -115,4 +132,8 @@ FOUNDATION_EXPORT JavaUtilZipZipInputStream *new_JavaUtilZipZipInputStream_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipInputStream)
 
-#endif // _JavaUtilZipZipInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipZipInputStream_INCLUDE_ALL")

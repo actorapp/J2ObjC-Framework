@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/SocketImplFactory.java
 //
 
-#ifndef _JavaNetSocketImplFactory_H_
-#define _JavaNetSocketImplFactory_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetSocketImplFactory_INCLUDE_ALL")
+#ifdef JavaNetSocketImplFactory_RESTRICT
+#define JavaNetSocketImplFactory_INCLUDE_ALL 0
+#else
+#define JavaNetSocketImplFactory_INCLUDE_ALL 1
+#endif
+#undef JavaNetSocketImplFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetSocketImplFactory_) && (JavaNetSocketImplFactory_INCLUDE_ALL || defined(JavaNetSocketImplFactory_INCLUDE))
+#define JavaNetSocketImplFactory_
 
 @class JavaNetSocketImpl;
 
@@ -27,4 +38,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNetSocketImplFactory)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketImplFactory)
 
-#endif // _JavaNetSocketImplFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetSocketImplFactory_INCLUDE_ALL")

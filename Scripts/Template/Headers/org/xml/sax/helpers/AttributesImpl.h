@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/helpers/AttributesImpl.java
 //
 
-#ifndef _OrgXmlSaxHelpersAttributesImpl_H_
-#define _OrgXmlSaxHelpersAttributesImpl_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxHelpersAttributesImpl_INCLUDE_ALL")
+#ifdef OrgXmlSaxHelpersAttributesImpl_RESTRICT
+#define OrgXmlSaxHelpersAttributesImpl_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHelpersAttributesImpl_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHelpersAttributesImpl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHelpersAttributesImpl_) && (OrgXmlSaxHelpersAttributesImpl_INCLUDE_ALL || defined(OrgXmlSaxHelpersAttributesImpl_INCLUDE))
+#define OrgXmlSaxHelpersAttributesImpl_
+
+#define OrgXmlSaxAttributes_RESTRICT 1
+#define OrgXmlSaxAttributes_INCLUDE 1
 #include "../../../../org/xml/sax/Attributes.h"
 
 @class IOSObjectArray;
@@ -92,6 +106,7 @@
  @brief Look up an attribute's index by qualified (prefixed) name.
  @param qName The qualified name.
  @return The attribute's index, or -1 if none matches.
+ - seealso: org.xml.sax.Attributes#getIndex(java.lang.String)
  */
 - (jint)getIndexWithNSString:(NSString *)qName;
 
@@ -104,6 +119,7 @@
  string if none is available.
  @param localName The attribute's local name.
  @return The attribute's index, or -1 if none matches.
+ - seealso: org.xml.sax.Attributes#getIndex(java.lang.String,java.lang.String)
  */
 - (jint)getIndexWithNSString:(NSString *)uri
                 withNSString:(NSString *)localName;
@@ -111,6 +127,7 @@
 /*!
  @brief Return the number of attributes in the list.
  @return The number of attributes in the list.
+ - seealso: org.xml.sax.Attributes#getLength
  */
 - (jint)getLength;
 
@@ -119,6 +136,7 @@
  @param index The attribute's index (zero-based).
  @return The attribute's local name, the empty string if
  none is available, or null if the index if out of range.
+ - seealso: org.xml.sax.Attributes#getLocalName
  */
 - (NSString *)getLocalNameWithInt:(jint)index;
 
@@ -127,6 +145,7 @@
  @param index The attribute's index (zero-based).
  @return The attribute's qualified name, the empty string if
  none is available, or null if the index is out of bounds.
+ - seealso: org.xml.sax.Attributes#getQName
  */
 - (NSString *)getQNameWithInt:(jint)index;
 
@@ -135,6 +154,7 @@
  @param index The attribute's index (zero-based).
  @return The attribute's type, "CDATA" if the type is unknown, or null
  if the index is out of bounds.
+ - seealso: org.xml.sax.Attributes#getType(int)
  */
 - (NSString *)getTypeWithInt:(jint)index;
 
@@ -143,6 +163,7 @@
  @param qName The qualified name.
  @return The attribute's type, or null if there is no
  matching attribute.
+ - seealso: org.xml.sax.Attributes#getType(java.lang.String)
  */
 - (NSString *)getTypeWithNSString:(NSString *)qName;
 
@@ -153,6 +174,7 @@
  @param localName The local name.
  @return The attribute's type, or null if there is no
  matching attribute.
+ - seealso: org.xml.sax.Attributes#getType(java.lang.String,java.lang.String)
  */
 - (NSString *)getTypeWithNSString:(NSString *)uri
                      withNSString:(NSString *)localName;
@@ -162,6 +184,7 @@
  @param index The attribute's index (zero-based).
  @return The Namespace URI, the empty string if none is
  available, or null if the index is out of range.
+ - seealso: org.xml.sax.Attributes#getURI
  */
 - (NSString *)getURIWithInt:(jint)index;
 
@@ -169,6 +192,7 @@
  @brief Return an attribute's value by index.
  @param index The attribute's index (zero-based).
  @return The attribute's value or null if the index is out of bounds.
+ - seealso: org.xml.sax.Attributes#getValue(int)
  */
 - (NSString *)getValueWithInt:(jint)index;
 
@@ -177,6 +201,7 @@
  @param qName The qualified name.
  @return The attribute's value, or null if there is no
  matching attribute.
+ - seealso: org.xml.sax.Attributes#getValue(java.lang.String)
  */
 - (NSString *)getValueWithNSString:(NSString *)qName;
 
@@ -187,6 +212,7 @@
  @param localName The local name.
  @return The attribute's value, or null if there is no
  matching attribute.
+ - seealso: org.xml.sax.Attributes#getValue(java.lang.String,java.lang.String)
  */
 - (NSString *)getValueWithNSString:(NSString *)uri
                       withNSString:(NSString *)localName;
@@ -308,4 +334,8 @@ FOUNDATION_EXPORT OrgXmlSaxHelpersAttributesImpl *new_OrgXmlSaxHelpersAttributes
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersAttributesImpl)
 
-#endif // _OrgXmlSaxHelpersAttributesImpl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHelpersAttributesImpl_INCLUDE_ALL")

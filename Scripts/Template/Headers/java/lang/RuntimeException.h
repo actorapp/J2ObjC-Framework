@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/RuntimeException.java
 //
 
-#ifndef _JavaLangRuntimeException_H_
-#define _JavaLangRuntimeException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangRuntimeException_INCLUDE_ALL")
+#ifdef JavaLangRuntimeException_RESTRICT
+#define JavaLangRuntimeException_INCLUDE_ALL 0
+#else
+#define JavaLangRuntimeException_INCLUDE_ALL 1
+#endif
+#undef JavaLangRuntimeException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangRuntimeException_) && (JavaLangRuntimeException_INCLUDE_ALL || defined(JavaLangRuntimeException_INCLUDE))
+#define JavaLangRuntimeException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
@@ -95,4 +109,8 @@ FOUNDATION_EXPORT JavaLangRuntimeException *new_JavaLangRuntimeException_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRuntimeException)
 
-#endif // _JavaLangRuntimeException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangRuntimeException_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/KeySpec.java
 //
 
-#ifndef _JavaSecuritySpecKeySpec_H_
-#define _JavaSecuritySpecKeySpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecKeySpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecKeySpec_RESTRICT
+#define JavaSecuritySpecKeySpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecKeySpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecKeySpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecKeySpec_) && (JavaSecuritySpecKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecKeySpec_INCLUDE))
+#define JavaSecuritySpecKeySpec_
 
 /*!
  @brief The marker interface for key specifications.
@@ -21,4 +32,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecuritySpecKeySpec)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecKeySpec)
 
-#endif // _JavaSecuritySpecKeySpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecKeySpec_INCLUDE_ALL")

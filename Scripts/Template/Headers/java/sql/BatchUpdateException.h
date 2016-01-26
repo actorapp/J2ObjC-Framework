@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/sql/BatchUpdateException.java
 //
 
-#ifndef _JavaSqlBatchUpdateException_H_
-#define _JavaSqlBatchUpdateException_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaSqlBatchUpdateException_INCLUDE_ALL")
+#ifdef JavaSqlBatchUpdateException_RESTRICT
+#define JavaSqlBatchUpdateException_INCLUDE_ALL 0
+#else
+#define JavaSqlBatchUpdateException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlBatchUpdateException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlBatchUpdateException_) && (JavaSqlBatchUpdateException_INCLUDE_ALL || defined(JavaSqlBatchUpdateException_INCLUDE))
+#define JavaSqlBatchUpdateException_
+
+#define JavaSqlSQLException_RESTRICT 1
+#define JavaSqlSQLException_INCLUDE 1
 #include "../../java/sql/SQLException.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSIntArray;
 @class JavaLangThrowable;
@@ -201,7 +218,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlBatchUpdateException)
@@ -248,4 +264,8 @@ FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlBatchUpdateException)
 
-#endif // _JavaSqlBatchUpdateException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlBatchUpdateException_INCLUDE_ALL")

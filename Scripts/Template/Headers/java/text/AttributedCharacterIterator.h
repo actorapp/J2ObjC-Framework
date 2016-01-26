@@ -3,11 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/text/AttributedCharacterIterator.java
 //
 
-#ifndef _JavaTextAttributedCharacterIterator_H_
-#define _JavaTextAttributedCharacterIterator_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaTextAttributedCharacterIterator_INCLUDE_ALL")
+#ifdef JavaTextAttributedCharacterIterator_RESTRICT
+#define JavaTextAttributedCharacterIterator_INCLUDE_ALL 0
+#else
+#define JavaTextAttributedCharacterIterator_INCLUDE_ALL 1
+#endif
+#undef JavaTextAttributedCharacterIterator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextAttributedCharacterIterator_) && (JavaTextAttributedCharacterIterator_INCLUDE_ALL || defined(JavaTextAttributedCharacterIterator_INCLUDE))
+#define JavaTextAttributedCharacterIterator_
+
+#define JavaTextCharacterIterator_RESTRICT 1
+#define JavaTextCharacterIterator_INCLUDE 1
 #include "../../java/text/CharacterIterator.h"
 
 @class JavaTextAttributedCharacterIterator_Attribute;
@@ -110,10 +123,25 @@ J2OBJC_EMPTY_STATIC_INIT(JavaTextAttributedCharacterIterator)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator)
 
+#endif
+
+#if !defined (JavaTextAttributedCharacterIterator_Attribute_) && (JavaTextAttributedCharacterIterator_INCLUDE_ALL || defined(JavaTextAttributedCharacterIterator_Attribute_INCLUDE))
+#define JavaTextAttributedCharacterIterator_Attribute_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
+
 /*!
  @brief Defines keys for text attributes.
  */
 @interface JavaTextAttributedCharacterIterator_Attribute : NSObject < JavaIoSerializable >
+
++ (JavaTextAttributedCharacterIterator_Attribute *)INPUT_METHOD_SEGMENT;
+
++ (JavaTextAttributedCharacterIterator_Attribute *)LANGUAGE;
+
++ (JavaTextAttributedCharacterIterator_Attribute *)READING;
 
 #pragma mark Public
 
@@ -173,14 +201,39 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator)
 
 J2OBJC_STATIC_INIT(JavaTextAttributedCharacterIterator_Attribute)
 
-FOUNDATION_EXPORT JavaTextAttributedCharacterIterator_Attribute *JavaTextAttributedCharacterIterator_Attribute_INPUT_METHOD_SEGMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextAttributedCharacterIterator_Attribute, INPUT_METHOD_SEGMENT_, JavaTextAttributedCharacterIterator_Attribute *)
+/*!
+ @brief This attribute marks segments from an input method.
+ Most input
+ methods create these segments for words.
+ The value objects are of the type <code>Annotation</code> which contain
+ <code>null</code>.
+ */
+inline JavaTextAttributedCharacterIterator_Attribute *JavaTextAttributedCharacterIterator_Attribute_get_INPUT_METHOD_SEGMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextAttributedCharacterIterator_Attribute *JavaTextAttributedCharacterIterator_Attribute_INPUT_METHOD_SEGMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextAttributedCharacterIterator_Attribute, INPUT_METHOD_SEGMENT, JavaTextAttributedCharacterIterator_Attribute *)
 
-FOUNDATION_EXPORT JavaTextAttributedCharacterIterator_Attribute *JavaTextAttributedCharacterIterator_Attribute_LANGUAGE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextAttributedCharacterIterator_Attribute, LANGUAGE_, JavaTextAttributedCharacterIterator_Attribute *)
+/*!
+ @brief The attribute describing the language of a character.
+ The value
+ objects are of type <code>Locale</code> or a subtype of it.
+ */
+inline JavaTextAttributedCharacterIterator_Attribute *JavaTextAttributedCharacterIterator_Attribute_get_LANGUAGE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextAttributedCharacterIterator_Attribute *JavaTextAttributedCharacterIterator_Attribute_LANGUAGE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextAttributedCharacterIterator_Attribute, LANGUAGE, JavaTextAttributedCharacterIterator_Attribute *)
 
-FOUNDATION_EXPORT JavaTextAttributedCharacterIterator_Attribute *JavaTextAttributedCharacterIterator_Attribute_READING_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextAttributedCharacterIterator_Attribute, READING_, JavaTextAttributedCharacterIterator_Attribute *)
+/*!
+ @brief For languages that have different reading directions of text (like
+ Japanese), this attribute allows to define which reading should be
+ used.
+ The value objects are of type <code>Annotation</code> which
+ contain a <code>String</code>.
+ */
+inline JavaTextAttributedCharacterIterator_Attribute *JavaTextAttributedCharacterIterator_Attribute_get_READING();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextAttributedCharacterIterator_Attribute *JavaTextAttributedCharacterIterator_Attribute_READING;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextAttributedCharacterIterator_Attribute, READING, JavaTextAttributedCharacterIterator_Attribute *)
 
 FOUNDATION_EXPORT void JavaTextAttributedCharacterIterator_Attribute_initWithNSString_(JavaTextAttributedCharacterIterator_Attribute *self, NSString *name);
 
@@ -188,4 +241,8 @@ FOUNDATION_EXPORT JavaTextAttributedCharacterIterator_Attribute *new_JavaTextAtt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator_Attribute)
 
-#endif // _JavaTextAttributedCharacterIterator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextAttributedCharacterIterator_INCLUDE_ALL")

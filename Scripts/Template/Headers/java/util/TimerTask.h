@@ -3,16 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/util/TimerTask.java
 //
 
-#ifndef _JavaUtilTimerTask_H_
-#define _JavaUtilTimerTask_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilTimerTask_INCLUDE_ALL")
+#ifdef JavaUtilTimerTask_RESTRICT
+#define JavaUtilTimerTask_INCLUDE_ALL 0
+#else
+#define JavaUtilTimerTask_INCLUDE_ALL 1
+#endif
+#undef JavaUtilTimerTask_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilTimerTask_) && (JavaUtilTimerTask_INCLUDE_ALL || defined(JavaUtilTimerTask_INCLUDE))
+#define JavaUtilTimerTask_
+
+#define JavaLangRunnable_RESTRICT 1
+#define JavaLangRunnable_INCLUDE 1
 #include "../../java/lang/Runnable.h"
 
 /*!
  @brief The <code>TimerTask</code> class represents a task to run at a specified time.
  The task
  may be run once or repeatedly.
+ - seealso: Timer
+ - seealso: java.lang.Object#wait(long)
  */
 @interface JavaUtilTimerTask : NSObject < JavaLangRunnable > {
  @public
@@ -75,4 +91,8 @@ FOUNDATION_EXPORT void JavaUtilTimerTask_init(JavaUtilTimerTask *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimerTask)
 
-#endif // _JavaUtilTimerTask_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilTimerTask_INCLUDE_ALL")

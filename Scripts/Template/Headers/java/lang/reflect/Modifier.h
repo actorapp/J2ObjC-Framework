@@ -3,33 +3,62 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/Modifier.java
 //
 
-#ifndef _JavaLangReflectModifier_H_
-#define _JavaLangReflectModifier_H_
-
 #include "../../../J2ObjC_header.h"
 
-#define JavaLangReflectModifier_PUBLIC 1
-#define JavaLangReflectModifier_PRIVATE 2
-#define JavaLangReflectModifier_PROTECTED 4
-#define JavaLangReflectModifier_STATIC 8
-#define JavaLangReflectModifier_FINAL 16
-#define JavaLangReflectModifier_SYNCHRONIZED 32
-#define JavaLangReflectModifier_VOLATILE 64
-#define JavaLangReflectModifier_TRANSIENT 128
-#define JavaLangReflectModifier_NATIVE 256
-#define JavaLangReflectModifier_INTERFACE 512
-#define JavaLangReflectModifier_ABSTRACT 1024
-#define JavaLangReflectModifier_STRICT 2048
-#define JavaLangReflectModifier_BRIDGE 64
-#define JavaLangReflectModifier_VARARGS 128
-#define JavaLangReflectModifier_SYNTHETIC 4096
-#define JavaLangReflectModifier_ANNOTATION 8192
-#define JavaLangReflectModifier_ENUM 16384
+#pragma push_macro("JavaLangReflectModifier_INCLUDE_ALL")
+#ifdef JavaLangReflectModifier_RESTRICT
+#define JavaLangReflectModifier_INCLUDE_ALL 0
+#else
+#define JavaLangReflectModifier_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectModifier_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectModifier_) && (JavaLangReflectModifier_INCLUDE_ALL || defined(JavaLangReflectModifier_INCLUDE))
+#define JavaLangReflectModifier_
 
 /*!
  @brief This class provides static methods to decode class and member modifiers.
+ - seealso: Class#getModifiers()
+ - seealso: Member#getModifiers()
  */
 @interface JavaLangReflectModifier : NSObject
+
++ (jint)PUBLIC;
+
++ (jint)PRIVATE;
+
++ (jint)PROTECTED;
+
++ (jint)STATIC;
+
++ (jint)FINAL;
+
++ (jint)SYNCHRONIZED;
+
++ (jint)VOLATILE;
+
++ (jint)TRANSIENT;
+
++ (jint)NATIVE;
+
++ (jint)INTERFACE;
+
++ (jint)ABSTRACT;
+
++ (jint)STRICT;
+
++ (jint)BRIDGE;
+
++ (jint)VARARGS;
+
++ (jint)SYNTHETIC;
+
++ (jint)ANNOTATION;
+
++ (jint)ENUM;
 
 #pragma mark Public
 
@@ -209,39 +238,117 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaLangReflectModifier)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, PUBLIC, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>public</code>
+ modifier.
+ */
+inline jint JavaLangReflectModifier_get_PUBLIC();
+#define JavaLangReflectModifier_PUBLIC 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, PUBLIC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, PRIVATE, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>private</code>
+ modifier.
+ */
+inline jint JavaLangReflectModifier_get_PRIVATE();
+#define JavaLangReflectModifier_PRIVATE 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, PRIVATE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, PROTECTED, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>protected</code>
+ modifier.
+ */
+inline jint JavaLangReflectModifier_get_PROTECTED();
+#define JavaLangReflectModifier_PROTECTED 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, PROTECTED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, STATIC, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>static</code> modifier.
+ */
+inline jint JavaLangReflectModifier_get_STATIC();
+#define JavaLangReflectModifier_STATIC 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, STATIC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, FINAL, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>final</code> modifier.
+ */
+inline jint JavaLangReflectModifier_get_FINAL();
+#define JavaLangReflectModifier_FINAL 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, FINAL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, SYNCHRONIZED, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>synchronized</code>
+ modifier.
+ */
+inline jint JavaLangReflectModifier_get_SYNCHRONIZED();
+#define JavaLangReflectModifier_SYNCHRONIZED 32
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, SYNCHRONIZED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, VOLATILE, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>volatile</code>
+ modifier.
+ */
+inline jint JavaLangReflectModifier_get_VOLATILE();
+#define JavaLangReflectModifier_VOLATILE 64
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, VOLATILE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, TRANSIENT, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>transient</code>
+ modifier.
+ */
+inline jint JavaLangReflectModifier_get_TRANSIENT();
+#define JavaLangReflectModifier_TRANSIENT 128
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, TRANSIENT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, NATIVE, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>native</code> modifier.
+ */
+inline jint JavaLangReflectModifier_get_NATIVE();
+#define JavaLangReflectModifier_NATIVE 256
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, NATIVE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, INTERFACE, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>interface</code>
+ modifier.
+ */
+inline jint JavaLangReflectModifier_get_INTERFACE();
+#define JavaLangReflectModifier_INTERFACE 512
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, INTERFACE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, ABSTRACT, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>abstract</code>
+ modifier.
+ */
+inline jint JavaLangReflectModifier_get_ABSTRACT();
+#define JavaLangReflectModifier_ABSTRACT 1024
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, ABSTRACT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, STRICT, jint)
+/*!
+ @brief The <code>int</code> value representing the <code>strict</code> modifier.
+ */
+inline jint JavaLangReflectModifier_get_STRICT();
+#define JavaLangReflectModifier_STRICT 2048
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, STRICT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, BRIDGE, jint)
+inline jint JavaLangReflectModifier_get_BRIDGE();
+#define JavaLangReflectModifier_BRIDGE 64
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, BRIDGE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, VARARGS, jint)
+inline jint JavaLangReflectModifier_get_VARARGS();
+#define JavaLangReflectModifier_VARARGS 128
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, VARARGS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, SYNTHETIC, jint)
+inline jint JavaLangReflectModifier_get_SYNTHETIC();
+#define JavaLangReflectModifier_SYNTHETIC 4096
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, SYNTHETIC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, ANNOTATION, jint)
+inline jint JavaLangReflectModifier_get_ANNOTATION();
+#define JavaLangReflectModifier_ANNOTATION 8192
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, ANNOTATION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangReflectModifier, ENUM, jint)
+inline jint JavaLangReflectModifier_get_ENUM();
+#define JavaLangReflectModifier_ENUM 16384
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangReflectModifier, ENUM, jint)
 
 FOUNDATION_EXPORT void JavaLangReflectModifier_init(JavaLangReflectModifier *self);
 
@@ -285,4 +392,8 @@ FOUNDATION_EXPORT NSString *JavaLangReflectModifier_toStringWithInt_(jint modifi
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectModifier)
 
-#endif // _JavaLangReflectModifier_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectModifier_INCLUDE_ALL")

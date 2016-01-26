@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/DTDHandler.java
 //
 
-#ifndef _OrgXmlSaxDTDHandler_H_
-#define _OrgXmlSaxDTDHandler_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxDTDHandler_INCLUDE_ALL")
+#ifdef OrgXmlSaxDTDHandler_RESTRICT
+#define OrgXmlSaxDTDHandler_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxDTDHandler_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxDTDHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxDTDHandler_) && (OrgXmlSaxDTDHandler_INCLUDE_ALL || defined(OrgXmlSaxDTDHandler_INCLUDE))
+#define OrgXmlSaxDTDHandler_
 
 /*!
  @brief Receive notification of basic DTD-related events.
@@ -42,6 +53,7 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.XMLReader#setDTDHandler
  */
 @protocol OrgXmlSaxDTDHandler < NSObject, JavaObject >
 
@@ -65,6 +77,8 @@
  none was given.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: #unparsedEntityDecl
+ - seealso: org.xml.sax.Attributes
  */
 - (void)notationDeclWithNSString:(NSString *)name
                     withNSString:(NSString *)publicId
@@ -87,6 +101,8 @@
  was given.
  @param systemId The entity's system identifier.
  @param notationName The name of the associated notation.
+ - seealso: #notationDecl
+ - seealso: org.xml.sax.Attributes
  */
 - (void)unparsedEntityDeclWithNSString:(NSString *)name
                           withNSString:(NSString *)publicId
@@ -99,4 +115,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxDTDHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxDTDHandler)
 
-#endif // _OrgXmlSaxDTDHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxDTDHandler_INCLUDE_ALL")

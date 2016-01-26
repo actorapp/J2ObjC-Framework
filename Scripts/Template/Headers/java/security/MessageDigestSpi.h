@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/MessageDigestSpi.java
 //
 
-#ifndef _JavaSecurityMessageDigestSpi_H_
-#define _JavaSecurityMessageDigestSpi_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityMessageDigestSpi_INCLUDE_ALL")
+#ifdef JavaSecurityMessageDigestSpi_RESTRICT
+#define JavaSecurityMessageDigestSpi_INCLUDE_ALL 0
+#else
+#define JavaSecurityMessageDigestSpi_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityMessageDigestSpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityMessageDigestSpi_) && (JavaSecurityMessageDigestSpi_INCLUDE_ALL || defined(JavaSecurityMessageDigestSpi_INCLUDE))
+#define JavaSecurityMessageDigestSpi_
 
 @class IOSByteArray;
 @class JavaNioByteBuffer;
@@ -17,6 +28,7 @@
  Examples of digest algorithms are MD5 and SHA. A
  digest is a secure one way hash function for a stream of bytes. It acts like
  a fingerprint for a stream of bytes.
+ - seealso: MessageDigest
  */
 @interface JavaSecurityMessageDigestSpi : NSObject
 
@@ -34,6 +46,7 @@
  After the digest is computed the receiver is
  reset.
  @return the computed one way hash value.
+ - seealso: #engineReset()
  */
 - (IOSByteArray *)engineDigest;
 
@@ -54,6 +67,7 @@
  @throws IllegalArgumentException
  if <code>offset</code> or <code>len</code> are not valid in respect to
  <code>buf</code>.
+ - seealso: #engineReset()
  */
 - (jint)engineDigestWithByteArray:(IOSByteArray *)buf
                           withInt:(jint)offset
@@ -77,6 +91,7 @@
  @brief Updates this <code>MessageDigestSpi</code> using the given <code>byte</code>.
  @param input
  the <code>byte</code> to update this <code>MessageDigestSpi</code> with.
+ - seealso: #engineReset()
  */
 - (void)engineUpdateWithByte:(jbyte)input;
 
@@ -111,4 +126,8 @@ FOUNDATION_EXPORT void JavaSecurityMessageDigestSpi_init(JavaSecurityMessageDige
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityMessageDigestSpi)
 
-#endif // _JavaSecurityMessageDigestSpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityMessageDigestSpi_INCLUDE_ALL")

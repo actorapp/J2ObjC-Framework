@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/ReadableByteChannel.java
 //
 
-#ifndef _JavaNioChannelsReadableByteChannel_H_
-#define _JavaNioChannelsReadableByteChannel_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsReadableByteChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsReadableByteChannel_RESTRICT
+#define JavaNioChannelsReadableByteChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsReadableByteChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsReadableByteChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsReadableByteChannel_) && (JavaNioChannelsReadableByteChannel_INCLUDE_ALL || defined(JavaNioChannelsReadableByteChannel_INCLUDE))
+#define JavaNioChannelsReadableByteChannel_
+
+#define JavaNioChannelsChannel_RESTRICT 1
+#define JavaNioChannelsChannel_INCLUDE 1
 #include "../../../java/nio/channels/Channel.h"
 
 @class JavaNioByteBuffer;
@@ -61,4 +75,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNioChannelsReadableByteChannel)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsReadableByteChannel)
 
-#endif // _JavaNioChannelsReadableByteChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsReadableByteChannel_INCLUDE_ALL")

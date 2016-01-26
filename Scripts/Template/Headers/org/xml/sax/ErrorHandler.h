@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/ErrorHandler.java
 //
 
-#ifndef _OrgXmlSaxErrorHandler_H_
-#define _OrgXmlSaxErrorHandler_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxErrorHandler_INCLUDE_ALL")
+#ifdef OrgXmlSaxErrorHandler_RESTRICT
+#define OrgXmlSaxErrorHandler_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxErrorHandler_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxErrorHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxErrorHandler_) && (OrgXmlSaxErrorHandler_INCLUDE_ALL || defined(OrgXmlSaxErrorHandler_INCLUDE))
+#define OrgXmlSaxErrorHandler_
 
 @class OrgXmlSaxSAXParseException;
 
@@ -42,6 +53,8 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1+ (sax2r3pre1)
+ - seealso: org.xml.sax.XMLReader#setErrorHandler
+ - seealso: org.xml.sax.SAXParseException
  */
 @protocol OrgXmlSaxErrorHandler < NSObject, JavaObject >
 
@@ -60,6 +73,7 @@
  SAX parse exception.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.SAXParseException
  */
 - (void)warningWithOrgXmlSaxSAXParseException:(OrgXmlSaxSAXParseException *)exception;
 
@@ -82,6 +96,7 @@
  SAX parse exception.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.SAXParseException
  */
 - (void)errorWithOrgXmlSaxSAXParseException:(OrgXmlSaxSAXParseException *)exception;
 
@@ -107,6 +122,7 @@
  SAX parse exception.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.SAXParseException
  */
 - (void)fatalErrorWithOrgXmlSaxSAXParseException:(OrgXmlSaxSAXParseException *)exception;
 
@@ -116,4 +132,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxErrorHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxErrorHandler)
 
-#endif // _OrgXmlSaxErrorHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxErrorHandler_INCLUDE_ALL")

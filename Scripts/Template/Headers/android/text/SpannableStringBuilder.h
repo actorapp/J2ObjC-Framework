@@ -3,15 +3,41 @@
 //  source: android/frameworks/base/core/java/android/text/SpannableStringBuilder.java
 //
 
-#ifndef _AndroidTextSpannableStringBuilder_H_
-#define _AndroidTextSpannableStringBuilder_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../android/text/Editable.h"
-#include "../../android/text/GetChars.h"
-#include "../../android/text/Spannable.h"
-#include "../../java/lang/Appendable.h"
+
+#pragma push_macro("AndroidTextSpannableStringBuilder_INCLUDE_ALL")
+#ifdef AndroidTextSpannableStringBuilder_RESTRICT
+#define AndroidTextSpannableStringBuilder_INCLUDE_ALL 0
+#else
+#define AndroidTextSpannableStringBuilder_INCLUDE_ALL 1
+#endif
+#undef AndroidTextSpannableStringBuilder_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextSpannableStringBuilder_) && (AndroidTextSpannableStringBuilder_INCLUDE_ALL || defined(AndroidTextSpannableStringBuilder_INCLUDE))
+#define AndroidTextSpannableStringBuilder_
+
+#define JavaLangCharSequence_RESTRICT 1
+#define JavaLangCharSequence_INCLUDE 1
 #include "../../java/lang/CharSequence.h"
+
+#define AndroidTextGetChars_RESTRICT 1
+#define AndroidTextGetChars_INCLUDE 1
+#include "../../android/text/GetChars.h"
+
+#define AndroidTextSpannable_RESTRICT 1
+#define AndroidTextSpannable_INCLUDE 1
+#include "../../android/text/Spannable.h"
+
+#define AndroidTextEditable_RESTRICT 1
+#define AndroidTextEditable_INCLUDE 1
+#include "../../android/text/Editable.h"
+
+#define JavaLangAppendable_RESTRICT 1
+#define JavaLangAppendable_INCLUDE 1
+#include "../../java/lang/Appendable.h"
 
 @class IOSCharArray;
 @class IOSClass;
@@ -196,4 +222,8 @@ FOUNDATION_EXPORT AndroidTextSpannableStringBuilder *AndroidTextSpannableStringB
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableStringBuilder)
 
-#endif // _AndroidTextSpannableStringBuilder_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextSpannableStringBuilder_INCLUDE_ALL")

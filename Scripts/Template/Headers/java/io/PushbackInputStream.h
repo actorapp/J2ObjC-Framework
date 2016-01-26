@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/PushbackInputStream.java
 //
 
-#ifndef _JavaIoPushbackInputStream_H_
-#define _JavaIoPushbackInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoPushbackInputStream_INCLUDE_ALL")
+#ifdef JavaIoPushbackInputStream_RESTRICT
+#define JavaIoPushbackInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoPushbackInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoPushbackInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoPushbackInputStream_) && (JavaIoPushbackInputStream_INCLUDE_ALL || defined(JavaIoPushbackInputStream_INCLUDE))
+#define JavaIoPushbackInputStream_
+
+#define JavaIoFilterInputStream_RESTRICT 1
+#define JavaIoFilterInputStream_INCLUDE 1
 #include "../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
@@ -94,6 +108,8 @@
  <code>PushbackInputStream</code> does not support
  them, so it returns <code>false</code>.
  @return always <code>false</code>.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (jboolean)markSupported;
 
@@ -233,4 +249,8 @@ FOUNDATION_EXPORT JavaIoPushbackInputStream *new_JavaIoPushbackInputStream_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPushbackInputStream)
 
-#endif // _JavaIoPushbackInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoPushbackInputStream_INCLUDE_ALL")

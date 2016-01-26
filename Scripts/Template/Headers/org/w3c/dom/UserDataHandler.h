@@ -3,18 +3,23 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/UserDataHandler.java
 //
 
-#ifndef _OrgW3cDomUserDataHandler_H_
-#define _OrgW3cDomUserDataHandler_H_
-
 #include "../../../J2ObjC_header.h"
 
-@protocol OrgW3cDomNode;
+#pragma push_macro("OrgW3cDomUserDataHandler_INCLUDE_ALL")
+#ifdef OrgW3cDomUserDataHandler_RESTRICT
+#define OrgW3cDomUserDataHandler_INCLUDE_ALL 0
+#else
+#define OrgW3cDomUserDataHandler_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomUserDataHandler_RESTRICT
 
-#define OrgW3cDomUserDataHandler_NODE_CLONED 1
-#define OrgW3cDomUserDataHandler_NODE_IMPORTED 2
-#define OrgW3cDomUserDataHandler_NODE_DELETED 3
-#define OrgW3cDomUserDataHandler_NODE_RENAMED 4
-#define OrgW3cDomUserDataHandler_NODE_ADOPTED 5
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomUserDataHandler_) && (OrgW3cDomUserDataHandler_INCLUDE_ALL || defined(OrgW3cDomUserDataHandler_INCLUDE))
+#define OrgW3cDomUserDataHandler_
+
+@protocol OrgW3cDomNode;
 
 /*!
  @brief When associating an object to a key on a node using
@@ -52,18 +57,64 @@
 
 @end
 
+@interface OrgW3cDomUserDataHandler : NSObject
+
++ (jshort)NODE_CLONED;
+
++ (jshort)NODE_IMPORTED;
+
++ (jshort)NODE_DELETED;
+
++ (jshort)NODE_RENAMED;
+
++ (jshort)NODE_ADOPTED;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomUserDataHandler)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomUserDataHandler, NODE_CLONED, jshort)
+/*!
+ @brief The node is cloned, using <code>Node.cloneNode()</code>.
+ */
+inline jshort OrgW3cDomUserDataHandler_get_NODE_CLONED();
+#define OrgW3cDomUserDataHandler_NODE_CLONED 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomUserDataHandler, NODE_CLONED, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomUserDataHandler, NODE_IMPORTED, jshort)
+/*!
+ @brief The node is imported, using <code>Document.importNode()</code>.
+ */
+inline jshort OrgW3cDomUserDataHandler_get_NODE_IMPORTED();
+#define OrgW3cDomUserDataHandler_NODE_IMPORTED 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomUserDataHandler, NODE_IMPORTED, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomUserDataHandler, NODE_DELETED, jshort)
+/*!
+ @brief The node is deleted.
+ <p ><b>Note:</b> This may not be supported or may not be reliable in
+ certain environments, such as Java, where the implementation has no
+ real control over when objects are actually deleted.
+ */
+inline jshort OrgW3cDomUserDataHandler_get_NODE_DELETED();
+#define OrgW3cDomUserDataHandler_NODE_DELETED 3
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomUserDataHandler, NODE_DELETED, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomUserDataHandler, NODE_RENAMED, jshort)
+/*!
+ @brief The node is renamed, using <code>Document.renameNode()</code>.
+ */
+inline jshort OrgW3cDomUserDataHandler_get_NODE_RENAMED();
+#define OrgW3cDomUserDataHandler_NODE_RENAMED 4
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomUserDataHandler, NODE_RENAMED, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomUserDataHandler, NODE_ADOPTED, jshort)
+/*!
+ @brief The node is adopted, using <code>Document.adoptNode()</code>.
+ */
+inline jshort OrgW3cDomUserDataHandler_get_NODE_ADOPTED();
+#define OrgW3cDomUserDataHandler_NODE_ADOPTED 5
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomUserDataHandler, NODE_ADOPTED, jshort)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomUserDataHandler)
 
-#endif // _OrgW3cDomUserDataHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomUserDataHandler_INCLUDE_ALL")

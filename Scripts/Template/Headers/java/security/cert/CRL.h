@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CRL.java
 //
 
-#ifndef _JavaSecurityCertCRL_H_
-#define _JavaSecurityCertCRL_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCRL_INCLUDE_ALL")
+#ifdef JavaSecurityCertCRL_RESTRICT
+#define JavaSecurityCertCRL_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCRL_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCRL_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCRL_) && (JavaSecurityCertCRL_INCLUDE_ALL || defined(JavaSecurityCertCRL_INCLUDE))
+#define JavaSecurityCertCRL_
 
 @class JavaSecurityCertCertificate;
 
@@ -15,6 +26,7 @@
  certificate authority.
  They are used to indicate that a given Certificate has
  expired and consequently has become invalid.
+ - seealso: CertificateFactory
  */
 @interface JavaSecurityCertCRL : NSObject
 
@@ -58,4 +70,8 @@ FOUNDATION_EXPORT void JavaSecurityCertCRL_initWithNSString_(JavaSecurityCertCRL
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCRL)
 
-#endif // _JavaSecurityCertCRL_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCRL_INCLUDE_ALL")

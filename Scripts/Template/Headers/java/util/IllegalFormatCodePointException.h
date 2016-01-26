@@ -3,17 +3,35 @@
 //  source: android/libcore/luni/src/main/java/java/util/IllegalFormatCodePointException.java
 //
 
-#ifndef _JavaUtilIllegalFormatCodePointException_H_
-#define _JavaUtilIllegalFormatCodePointException_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilIllegalFormatCodePointException_INCLUDE_ALL")
+#ifdef JavaUtilIllegalFormatCodePointException_RESTRICT
+#define JavaUtilIllegalFormatCodePointException_INCLUDE_ALL 0
+#else
+#define JavaUtilIllegalFormatCodePointException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilIllegalFormatCodePointException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilIllegalFormatCodePointException_) && (JavaUtilIllegalFormatCodePointException_INCLUDE_ALL || defined(JavaUtilIllegalFormatCodePointException_INCLUDE))
+#define JavaUtilIllegalFormatCodePointException_
+
+#define JavaUtilIllegalFormatException_RESTRICT 1
+#define JavaUtilIllegalFormatException_INCLUDE 1
 #include "../../java/util/IllegalFormatException.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief An <code>IllegalFormatCodePointException</code> will be thrown if an invalid
  Unicode code point (defined by <code>Character.isValidCodePoint(int)</code>) is
  passed as a parameter to a Formatter.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilIllegalFormatCodePointException : JavaUtilIllegalFormatException < JavaIoSerializable >
 
@@ -45,4 +63,8 @@ FOUNDATION_EXPORT JavaUtilIllegalFormatCodePointException *new_JavaUtilIllegalFo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatCodePointException)
 
-#endif // _JavaUtilIllegalFormatCodePointException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilIllegalFormatCodePointException_INCLUDE_ALL")

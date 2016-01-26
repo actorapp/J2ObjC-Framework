@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/DatagramPacket.java
 //
 
-#ifndef _JavaNetDatagramPacket_H_
-#define _JavaNetDatagramPacket_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetDatagramPacket_INCLUDE_ALL")
+#ifdef JavaNetDatagramPacket_RESTRICT
+#define JavaNetDatagramPacket_INCLUDE_ALL 0
+#else
+#define JavaNetDatagramPacket_INCLUDE_ALL 1
+#endif
+#undef JavaNetDatagramPacket_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetDatagramPacket_) && (JavaNetDatagramPacket_INCLUDE_ALL || defined(JavaNetDatagramPacket_INCLUDE))
+#define JavaNetDatagramPacket_
 
 @class IOSByteArray;
 @class JavaNetInetAddress;
@@ -17,6 +28,7 @@
  or received through a <code>DatagramSocket</code>.
  It holds additional information
  such as its source or destination host.
+ - seealso: DatagramSocket
  */
 @interface JavaNetDatagramPacket : NSObject
 
@@ -258,4 +270,8 @@ FOUNDATION_EXPORT JavaNetDatagramPacket *new_JavaNetDatagramPacket_initWithByteA
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramPacket)
 
-#endif // _JavaNetDatagramPacket_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetDatagramPacket_INCLUDE_ALL")

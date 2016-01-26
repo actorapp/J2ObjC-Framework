@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/text/Selection.java
 //
 
-#ifndef _AndroidTextSelection_H_
-#define _AndroidTextSelection_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextSelection_INCLUDE_ALL")
+#ifdef AndroidTextSelection_RESTRICT
+#define AndroidTextSelection_INCLUDE_ALL 0
+#else
+#define AndroidTextSelection_INCLUDE_ALL 1
+#endif
+#undef AndroidTextSelection_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextSelection_) && (AndroidTextSelection_INCLUDE_ALL || defined(AndroidTextSelection_INCLUDE))
+#define AndroidTextSelection_
 
 @protocol AndroidTextSpannable;
 @protocol JavaLangCharSequence;
@@ -16,6 +27,10 @@
  A cursor is a selection where the start and end are at the same offset.
  */
 @interface AndroidTextSelection : NSObject
+
++ (id)SELECTION_START;
+
++ (id)SELECTION_END;
 
 #pragma mark Public
 
@@ -65,11 +80,15 @@
 
 J2OBJC_STATIC_INIT(AndroidTextSelection)
 
-FOUNDATION_EXPORT id AndroidTextSelection_SELECTION_START_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSelection, SELECTION_START_, id)
+inline id AndroidTextSelection_get_SELECTION_START();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id AndroidTextSelection_SELECTION_START;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(AndroidTextSelection, SELECTION_START, id)
 
-FOUNDATION_EXPORT id AndroidTextSelection_SELECTION_END_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSelection, SELECTION_END_, id)
+inline id AndroidTextSelection_get_SELECTION_END();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id AndroidTextSelection_SELECTION_END;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(AndroidTextSelection, SELECTION_END, id)
 
 FOUNDATION_EXPORT jint AndroidTextSelection_getSelectionStartWithJavaLangCharSequence_(id<JavaLangCharSequence> text);
 
@@ -87,4 +106,8 @@ FOUNDATION_EXPORT void AndroidTextSelection_removeSelectionWithAndroidTextSpanna
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSelection)
 
-#endif // _AndroidTextSelection_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextSelection_INCLUDE_ALL")

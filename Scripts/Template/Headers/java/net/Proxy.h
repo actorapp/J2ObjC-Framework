@@ -3,13 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/net/Proxy.java
 //
 
-#ifndef _JavaNetProxy_H_
-#define _JavaNetProxy_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Enum.h"
 
-@class JavaNetProxy_TypeEnum;
+#pragma push_macro("JavaNetProxy_INCLUDE_ALL")
+#ifdef JavaNetProxy_RESTRICT
+#define JavaNetProxy_INCLUDE_ALL 0
+#else
+#define JavaNetProxy_INCLUDE_ALL 1
+#endif
+#undef JavaNetProxy_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetProxy_) && (JavaNetProxy_INCLUDE_ALL || defined(JavaNetProxy_INCLUDE))
+#define JavaNetProxy_
+
+@class JavaNetProxy_Type;
 @class JavaNetSocketAddress;
 
 /*!
@@ -23,6 +33,8 @@
  <li>SOCKS</li></ul
  */
 @interface JavaNetProxy : NSObject
+
++ (JavaNetProxy *)NO_PROXY;
 
 #pragma mark Public
 
@@ -42,8 +54,8 @@
   or the value for <code>SocketAddress</code> is
  <code>null</code>.
  */
-- (instancetype)initWithJavaNetProxy_TypeEnum:(JavaNetProxy_TypeEnum *)type
-                     withJavaNetSocketAddress:(JavaNetSocketAddress *)sa;
+- (instancetype)initWithJavaNetProxy_Type:(JavaNetProxy_Type *)type
+                 withJavaNetSocketAddress:(JavaNetSocketAddress *)sa;
 
 /*!
  @brief Gets the address of this <code>Proxy</code> instance.
@@ -62,6 +74,7 @@
  the object to compare with this instance.
  @return <code>true</code> if the given object represents the same <code>Proxy</code>
   as this instance, <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)obj;
 
@@ -84,25 +97,42 @@
  @brief Gets the type of this <code>Proxy</code> instance.
  @return the stored proxy type.
  */
-- (JavaNetProxy_TypeEnum *)type;
+- (JavaNetProxy_Type *)type;
 
 @end
 
 J2OBJC_STATIC_INIT(JavaNetProxy)
 
-FOUNDATION_EXPORT JavaNetProxy *JavaNetProxy_NO_PROXY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetProxy, NO_PROXY_, JavaNetProxy *)
+/*!
+ @brief Represents the proxy type setting <code>Proxy.Type.DIRECT</code>.
+ It tells
+ protocol handlers that there is no proxy to be used. The address is set
+ to <code>null</code>.
+ */
+inline JavaNetProxy *JavaNetProxy_get_NO_PROXY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNetProxy *JavaNetProxy_NO_PROXY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetProxy, NO_PROXY, JavaNetProxy *)
 
-FOUNDATION_EXPORT void JavaNetProxy_initWithJavaNetProxy_TypeEnum_withJavaNetSocketAddress_(JavaNetProxy *self, JavaNetProxy_TypeEnum *type, JavaNetSocketAddress *sa);
+FOUNDATION_EXPORT void JavaNetProxy_initWithJavaNetProxy_Type_withJavaNetSocketAddress_(JavaNetProxy *self, JavaNetProxy_Type *type, JavaNetSocketAddress *sa);
 
-FOUNDATION_EXPORT JavaNetProxy *new_JavaNetProxy_initWithJavaNetProxy_TypeEnum_withJavaNetSocketAddress_(JavaNetProxy_TypeEnum *type, JavaNetSocketAddress *sa) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaNetProxy *new_JavaNetProxy_initWithJavaNetProxy_Type_withJavaNetSocketAddress_(JavaNetProxy_Type *type, JavaNetSocketAddress *sa) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetProxy)
 
-typedef NS_ENUM(NSUInteger, JavaNetProxy_Type) {
-  JavaNetProxy_Type_DIRECT = 0,
-  JavaNetProxy_Type_HTTP = 1,
-  JavaNetProxy_Type_SOCKS = 2,
+#endif
+
+#if !defined (JavaNetProxy_Type_) && (JavaNetProxy_INCLUDE_ALL || defined(JavaNetProxy_Type_INCLUDE))
+#define JavaNetProxy_Type_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
+#include "../../java/lang/Enum.h"
+
+typedef NS_ENUM(NSUInteger, JavaNetProxy_Type_Enum) {
+  JavaNetProxy_Type_Enum_DIRECT = 0,
+  JavaNetProxy_Type_Enum_HTTP = 1,
+  JavaNetProxy_Type_Enum_SOCKS = 2,
 };
 
 /*!
@@ -110,33 +140,61 @@ typedef NS_ENUM(NSUInteger, JavaNetProxy_Type) {
  Possible options are <code>DIRECT</code>
  , <code>HTTP</code> and <code>SOCKS</code>.
  */
-@interface JavaNetProxy_TypeEnum : JavaLangEnum < NSCopying >
+@interface JavaNetProxy_Type : JavaLangEnum < NSCopying >
+
++ (JavaNetProxy_Type *)DIRECT;
+
++ (JavaNetProxy_Type *)HTTP;
+
++ (JavaNetProxy_Type *)SOCKS;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaNetProxy_TypeEnum_values();
 
-+ (JavaNetProxy_TypeEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaNetProxy_TypeEnum *JavaNetProxy_TypeEnum_valueOfWithNSString_(NSString *name);
++ (JavaNetProxy_Type *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaNetProxy_Type_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaNetProxy_TypeEnum)
+J2OBJC_STATIC_INIT(JavaNetProxy_Type)
 
-FOUNDATION_EXPORT JavaNetProxy_TypeEnum *JavaNetProxy_TypeEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaNetProxy_Type *JavaNetProxy_Type_values_[];
 
-#define JavaNetProxy_TypeEnum_DIRECT JavaNetProxy_TypeEnum_values_[JavaNetProxy_Type_DIRECT]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaNetProxy_TypeEnum, DIRECT)
+/*!
+ @brief Direct connection.
+ Connect without any proxy.
+ */
+inline JavaNetProxy_Type *JavaNetProxy_Type_get_DIRECT();
+J2OBJC_ENUM_CONSTANT(JavaNetProxy_Type, DIRECT)
 
-#define JavaNetProxy_TypeEnum_HTTP JavaNetProxy_TypeEnum_values_[JavaNetProxy_Type_HTTP]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaNetProxy_TypeEnum, HTTP)
+/*!
+ @brief HTTP type proxy.
+ It's often used by protocol handlers such as HTTP,
+ HTTPS and FTP.
+ */
+inline JavaNetProxy_Type *JavaNetProxy_Type_get_HTTP();
+J2OBJC_ENUM_CONSTANT(JavaNetProxy_Type, HTTP)
 
-#define JavaNetProxy_TypeEnum_SOCKS JavaNetProxy_TypeEnum_values_[JavaNetProxy_Type_SOCKS]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaNetProxy_TypeEnum, SOCKS)
+/*!
+ @brief SOCKS type proxy.
+ */
+inline JavaNetProxy_Type *JavaNetProxy_Type_get_SOCKS();
+J2OBJC_ENUM_CONSTANT(JavaNetProxy_Type, SOCKS)
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaNetProxy_TypeEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaNetProxy_Type_values();
 
-#endif // _JavaNetProxy_H_
+FOUNDATION_EXPORT JavaNetProxy_Type *JavaNetProxy_Type_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaNetProxy_Type *JavaNetProxy_Type_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaNetProxy_Type)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetProxy_INCLUDE_ALL")

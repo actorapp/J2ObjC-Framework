@@ -3,15 +3,41 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/SocketChannel.java
 //
 
-#ifndef _JavaNioChannelsSocketChannel_H_
-#define _JavaNioChannelsSocketChannel_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/nio/channels/ByteChannel.h"
-#include "../../../java/nio/channels/GatheringByteChannel.h"
-#include "../../../java/nio/channels/NetworkChannel.h"
-#include "../../../java/nio/channels/ScatteringByteChannel.h"
+
+#pragma push_macro("JavaNioChannelsSocketChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsSocketChannel_RESTRICT
+#define JavaNioChannelsSocketChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsSocketChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsSocketChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsSocketChannel_) && (JavaNioChannelsSocketChannel_INCLUDE_ALL || defined(JavaNioChannelsSocketChannel_INCLUDE))
+#define JavaNioChannelsSocketChannel_
+
+#define JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT 1
+#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE 1
 #include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
+
+#define JavaNioChannelsByteChannel_RESTRICT 1
+#define JavaNioChannelsByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/ByteChannel.h"
+
+#define JavaNioChannelsScatteringByteChannel_RESTRICT 1
+#define JavaNioChannelsScatteringByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/ScatteringByteChannel.h"
+
+#define JavaNioChannelsGatheringByteChannel_RESTRICT 1
+#define JavaNioChannelsGatheringByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/GatheringByteChannel.h"
+
+#define JavaNioChannelsNetworkChannel_RESTRICT 1
+#define JavaNioChannelsNetworkChannel_INCLUDE 1
+#include "../../../java/nio/channels/NetworkChannel.h"
 
 @class IOSObjectArray;
 @class JavaNetSocket;
@@ -220,6 +246,7 @@
  if this channel is closed.
  @throws IOException
  if another I/O error occurs.
+ - seealso: java.nio.channels.ReadableByteChannel#read(java.nio.ByteBuffer)
  */
 - (jint)readWithJavaNioByteBuffer:(JavaNioByteBuffer *)target;
 
@@ -285,6 +312,7 @@
  if another I/O error occurs.
  @throws NotYetConnectedException
  if this channel is not yet connected.
+ - seealso: java.nio.channels.ScatteringByteChannel#read(java.nio.ByteBuffer[],int,int)
  */
 - (jlong)readWithJavaNioByteBufferArray:(IOSObjectArray *)targets
                                 withInt:(jint)offset
@@ -314,6 +342,7 @@
  connect, read and write operation, so this method returns
  <code>SelectionKey.OP_CONNECT | SelectionKey.OP_READ | SelectionKey.OP_WRITE</code>.
  @return the operations supported by this channel.
+ - seealso: java.nio.channels.SelectableChannel#validOps()
  */
 - (jint)validOps;
 
@@ -344,6 +373,7 @@
  if another I/O error occurs.
  @throws NotYetConnectedException
  if this channel is not connected yet.
+ - seealso: java.nio.channels.WritableByteChannel#write(java.nio.ByteBuffer)
  */
 - (jint)writeWithJavaNioByteBuffer:(JavaNioByteBuffer *)source;
 
@@ -368,6 +398,7 @@
  if another I/O error occurs.
  @throws NotYetConnectedException
  if this channel is not yet connected.
+ - seealso: java.nio.channels.GatheringByteChannel#write(java.nio.ByteBuffer[])
  */
 - (jlong)writeWithJavaNioByteBufferArray:(IOSObjectArray *)sources;
 
@@ -405,6 +436,7 @@
  if another I/O error occurs.
  @throws NotYetConnectedException
  if this channel is not yet connected.
+ - seealso: java.nio.channels.GatheringByteChannel#write(java.nio.ByteBuffer[],int,int)
  */
 - (jlong)writeWithJavaNioByteBufferArray:(IOSObjectArray *)sources
                                  withInt:(jint)offset
@@ -431,4 +463,8 @@ FOUNDATION_EXPORT JavaNioChannelsSocketChannel *JavaNioChannelsSocketChannel_ope
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSocketChannel)
 
-#endif // _JavaNioChannelsSocketChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsSocketChannel_INCLUDE_ALL")

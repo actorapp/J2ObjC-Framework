@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/MalformedInputException.java
 //
 
-#ifndef _JavaNioCharsetMalformedInputException_H_
-#define _JavaNioCharsetMalformedInputException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioCharsetMalformedInputException_INCLUDE_ALL")
+#ifdef JavaNioCharsetMalformedInputException_RESTRICT
+#define JavaNioCharsetMalformedInputException_INCLUDE_ALL 0
+#else
+#define JavaNioCharsetMalformedInputException_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharsetMalformedInputException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharsetMalformedInputException_) && (JavaNioCharsetMalformedInputException_INCLUDE_ALL || defined(JavaNioCharsetMalformedInputException_INCLUDE))
+#define JavaNioCharsetMalformedInputException_
+
+#define JavaNioCharsetCharacterCodingException_RESTRICT 1
+#define JavaNioCharsetCharacterCodingException_INCLUDE 1
 #include "../../../java/nio/charset/CharacterCodingException.h"
 
 /*!
@@ -42,4 +56,8 @@ FOUNDATION_EXPORT JavaNioCharsetMalformedInputException *new_JavaNioCharsetMalfo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetMalformedInputException)
 
-#endif // _JavaNioCharsetMalformedInputException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharsetMalformedInputException_INCLUDE_ALL")

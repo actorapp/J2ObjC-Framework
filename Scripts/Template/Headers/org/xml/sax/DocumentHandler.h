@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/DocumentHandler.java
 //
 
-#ifndef _OrgXmlSaxDocumentHandler_H_
-#define _OrgXmlSaxDocumentHandler_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxDocumentHandler_INCLUDE_ALL")
+#ifdef OrgXmlSaxDocumentHandler_RESTRICT
+#define OrgXmlSaxDocumentHandler_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxDocumentHandler_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxDocumentHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxDocumentHandler_) && (OrgXmlSaxDocumentHandler_INCLUDE_ALL || defined(OrgXmlSaxDocumentHandler_INCLUDE))
+#define OrgXmlSaxDocumentHandler_
 
 @class IOSCharArray;
 @protocol OrgXmlSaxAttributeList;
@@ -39,7 +50,11 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.Parser#setDocumentHandler
+ - seealso: org.xml.sax.Locator
+ - seealso: org.xml.sax.HandlerBase
  */
+__attribute__((deprecated))
 @protocol OrgXmlSaxDocumentHandler < NSObject, JavaObject >
 
 /*!
@@ -61,6 +76,7 @@
  application should not attempt to use it at any other time.</p>
  @param locator An object that can return the location of
  any SAX document event.
+ - seealso: org.xml.sax.Locator
  */
 - (void)setDocumentLocatorWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
 
@@ -102,6 +118,8 @@
  @param atts The attributes attached to the element, if any.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: #endElement
+ - seealso: org.xml.sax.AttributeList
  */
 - (void)startElementWithNSString:(NSString *)name
       withOrgXmlSaxAttributeList:(id<OrgXmlSaxAttributeList>)atts;
@@ -138,6 +156,8 @@
  @param length The number of characters to read from the array.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: #ignorableWhitespace
+ - seealso: org.xml.sax.Locator
  */
 - (void)charactersWithCharArray:(IOSCharArray *)ch
                         withInt:(jint)start
@@ -161,6 +181,7 @@
  @param length The number of characters to read from the array.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: #characters
  */
 - (void)ignorableWhitespaceWithCharArray:(IOSCharArray *)ch
                                  withInt:(jint)start
@@ -189,4 +210,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxDocumentHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxDocumentHandler)
 
-#endif // _OrgXmlSaxDocumentHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxDocumentHandler_INCLUDE_ALL")

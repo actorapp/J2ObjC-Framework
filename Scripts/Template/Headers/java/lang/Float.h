@@ -3,36 +3,68 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Float.java
 //
 
-#ifndef _JavaLangFloat_H_
-#define _JavaLangFloat_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangFloat_INCLUDE_ALL")
+#ifdef JavaLangFloat_RESTRICT
+#define JavaLangFloat_INCLUDE_ALL 0
+#else
+#define JavaLangFloat_INCLUDE_ALL 1
+#endif
+#undef JavaLangFloat_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangFloat_) && (JavaLangFloat_INCLUDE_ALL || defined(JavaLangFloat_INCLUDE))
+#define JavaLangFloat_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
 
-#define JavaLangFloat_EXPONENT_BIAS 127
-#define JavaLangFloat_EXPONENT_BITS 9
-#define JavaLangFloat_MANTISSA_BITS 23
-#define JavaLangFloat_NON_MANTISSA_BITS 9
-#define JavaLangFloat_SIGN_MASK ((jint) 0x80000000)
-#define JavaLangFloat_EXPONENT_MASK 2139095040
-#define JavaLangFloat_MANTISSA_MASK 8388607
-#define JavaLangFloat_MAX_VALUE __FLT_MAX__
-#define JavaLangFloat_MIN_VALUE 1.4E-45f
-#define JavaLangFloat_NaN NAN
-#define JavaLangFloat_POSITIVE_INFINITY INFINITY
-#define JavaLangFloat_NEGATIVE_INFINITY -INFINITY
-#define JavaLangFloat_MIN_NORMAL __FLT_MIN__
-#define JavaLangFloat_MAX_EXPONENT 127
-#define JavaLangFloat_MIN_EXPONENT -126
-#define JavaLangFloat_SIZE 32
-
 /*!
  @brief The wrapper for the primitive type <code>float</code>.
+ - seealso: java.lang.Number
  @since 1.0
  */
 @interface JavaLangFloat : NSNumber < JavaLangComparable >
+
++ (jint)EXPONENT_BIAS;
+
++ (jint)EXPONENT_BITS;
+
++ (jint)MANTISSA_BITS;
+
++ (jint)NON_MANTISSA_BITS;
+
++ (jint)SIGN_MASK;
+
++ (jint)EXPONENT_MASK;
+
++ (jint)MANTISSA_MASK;
+
++ (jfloat)MAX_VALUE;
+
++ (jfloat)MIN_VALUE;
+
++ (jfloat)NaN;
+
++ (jfloat)POSITIVE_INFINITY;
+
++ (jfloat)NEGATIVE_INFINITY;
+
++ (jfloat)MIN_NORMAL;
+
++ (jint)MAX_EXPONENT;
+
++ (jint)MIN_EXPONENT;
+
++ (IOSClass *)TYPE;
+
++ (jint)SIZE;
 
 #pragma mark Public
 
@@ -56,6 +88,7 @@
  the string representation of a float value.
  @throws NumberFormatException
  if <code>string</code> can not be parsed as a float value.
+ - seealso: #parseFloat(String)
  */
 - (instancetype)initWithNSString:(NSString *)string;
 
@@ -96,6 +129,7 @@
  value of <code>object</code>; 0 if the value of this float and the
  value of <code>object</code> are equal; a positive value if the value
  of this float is greater than the value of <code>object</code>.
+ - seealso: java.lang.Comparable
  @since 1.2
  */
 - (jint)compareToWithId:(JavaLangFloat *)object;
@@ -191,6 +225,7 @@
  @return the primitive float value represented by <code>string</code>.
  @throws NumberFormatException
  if <code>string</code> can not be parsed as a float value.
+ - seealso: #valueOf(String)
  @since 1.2
  */
 + (jfloat)parseFloatWithNSString:(NSString *)string;
@@ -234,50 +269,123 @@
  by <code>string</code>.
  @throws NumberFormatException
  if <code>string</code> can not be parsed as a float value.
+ - seealso: #parseFloat(String)
  */
 + (JavaLangFloat *)valueOfWithNSString:(NSString *)string;
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaLangFloat)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, EXPONENT_BIAS, jint)
+inline jint JavaLangFloat_get_EXPONENT_BIAS();
+#define JavaLangFloat_EXPONENT_BIAS 127
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, EXPONENT_BIAS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, EXPONENT_BITS, jint)
+inline jint JavaLangFloat_get_EXPONENT_BITS();
+#define JavaLangFloat_EXPONENT_BITS 9
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, EXPONENT_BITS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, MANTISSA_BITS, jint)
+inline jint JavaLangFloat_get_MANTISSA_BITS();
+#define JavaLangFloat_MANTISSA_BITS 23
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, MANTISSA_BITS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, NON_MANTISSA_BITS, jint)
+inline jint JavaLangFloat_get_NON_MANTISSA_BITS();
+#define JavaLangFloat_NON_MANTISSA_BITS 9
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, NON_MANTISSA_BITS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, SIGN_MASK, jint)
+inline jint JavaLangFloat_get_SIGN_MASK();
+#define JavaLangFloat_SIGN_MASK ((jint) 0x80000000)
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, SIGN_MASK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, EXPONENT_MASK, jint)
+inline jint JavaLangFloat_get_EXPONENT_MASK();
+#define JavaLangFloat_EXPONENT_MASK 2139095040
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, EXPONENT_MASK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, MANTISSA_MASK, jint)
+inline jint JavaLangFloat_get_MANTISSA_MASK();
+#define JavaLangFloat_MANTISSA_MASK 8388607
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, MANTISSA_MASK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, MAX_VALUE, jfloat)
+/*!
+ @brief Constant for the maximum <code>float</code> value, (2 - 2<sup>-23</sup>) * 2<sup>127</sup>.
+ */
+inline jfloat JavaLangFloat_get_MAX_VALUE();
+#define JavaLangFloat_MAX_VALUE __FLT_MAX__
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, MAX_VALUE, jfloat)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, MIN_VALUE, jfloat)
+/*!
+ @brief Constant for the minimum <code>float</code> value, 2<sup>-149</sup>.
+ */
+inline jfloat JavaLangFloat_get_MIN_VALUE();
+#define JavaLangFloat_MIN_VALUE 1.4E-45f
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, MIN_VALUE, jfloat)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, NaN, jfloat)
+/*!
+ @brief Constant for the Not-a-Number (NaN) value of the <code>float</code> type.
+ */
+inline jfloat JavaLangFloat_get_NaN();
+#define JavaLangFloat_NaN NAN
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, NaN, jfloat)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, POSITIVE_INFINITY, jfloat)
+/*!
+ @brief Constant for the positive infinity value of the <code>float</code> type.
+ */
+inline jfloat JavaLangFloat_get_POSITIVE_INFINITY();
+#define JavaLangFloat_POSITIVE_INFINITY INFINITY
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, POSITIVE_INFINITY, jfloat)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, NEGATIVE_INFINITY, jfloat)
+/*!
+ @brief Constant for the negative infinity value of the <code>float</code> type.
+ */
+inline jfloat JavaLangFloat_get_NEGATIVE_INFINITY();
+#define JavaLangFloat_NEGATIVE_INFINITY -INFINITY
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, NEGATIVE_INFINITY, jfloat)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, MIN_NORMAL, jfloat)
+/*!
+ @brief Constant for the smallest positive normal value of the <code>float</code> type.
+ @since 1.6
+ */
+inline jfloat JavaLangFloat_get_MIN_NORMAL();
+#define JavaLangFloat_MIN_NORMAL __FLT_MIN__
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, MIN_NORMAL, jfloat)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, MAX_EXPONENT, jint)
+/*!
+ @brief Maximum base-2 exponent that a finite value of the <code>float</code> type may have.
+ Equal to <code>Math.getExponent(Float.MAX_VALUE)</code>.
+ @since 1.6
+ */
+inline jint JavaLangFloat_get_MAX_EXPONENT();
+#define JavaLangFloat_MAX_EXPONENT 127
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, MAX_EXPONENT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, MIN_EXPONENT, jint)
+/*!
+ @brief Minimum base-2 exponent that a normal value of the <code>float</code> type may have.
+ Equal to <code>Math.getExponent(Float.MIN_NORMAL)</code>.
+ @since 1.6
+ */
+inline jint JavaLangFloat_get_MIN_EXPONENT();
+#define JavaLangFloat_MIN_EXPONENT -126
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, MIN_EXPONENT, jint)
 
-FOUNDATION_EXPORT IOSClass *JavaLangFloat_TYPE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, TYPE_, IOSClass *)
+/*!
+ @brief The <code>Class</code> object that represents the primitive type <code>float</code>
+ .
+ @since 1.1
+ */
+inline IOSClass *JavaLangFloat_get_TYPE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaLangFloat_TYPE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangFloat, TYPE, IOSClass *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangFloat, SIZE, jint)
+/*!
+ @brief Constant for the number of bits needed to represent a <code>float</code> in
+ two's complement form.
+ @since 1.5
+ */
+inline jint JavaLangFloat_get_SIZE();
+#define JavaLangFloat_SIZE 32
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangFloat, SIZE, jint)
 
 FOUNDATION_EXPORT void JavaLangFloat_initWithFloat_(JavaLangFloat *self, jfloat value);
 
@@ -319,4 +427,8 @@ BOXED_INC_AND_DEC(Float, floatValue, JavaLangFloat)
 BOXED_COMPOUND_ASSIGN_ARITHMETIC(Float, floatValue, jfloat, JavaLangFloat)
 BOXED_COMPOUND_ASSIGN_FPMOD(Float, floatValue, jfloat, JavaLangFloat)
 
-#endif // _JavaLangFloat_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangFloat_INCLUDE_ALL")

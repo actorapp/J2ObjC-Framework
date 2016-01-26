@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Savepoint.java
 //
 
-#ifndef _JavaSqlSavepoint_H_
-#define _JavaSqlSavepoint_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSavepoint_INCLUDE_ALL")
+#ifdef JavaSqlSavepoint_RESTRICT
+#define JavaSqlSavepoint_INCLUDE_ALL 0
+#else
+#define JavaSqlSavepoint_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSavepoint_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSavepoint_) && (JavaSqlSavepoint_INCLUDE_ALL || defined(JavaSqlSavepoint_INCLUDE))
+#define JavaSqlSavepoint_
 
 /*!
  @brief A savepoint is an instant during the current transaction that can be utilized
@@ -39,4 +50,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlSavepoint)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSavepoint)
 
-#endif // _JavaSqlSavepoint_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSavepoint_INCLUDE_ALL")

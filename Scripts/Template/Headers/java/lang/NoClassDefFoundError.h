@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/NoClassDefFoundError.java
 //
 
-#ifndef _JavaLangNoClassDefFoundError_H_
-#define _JavaLangNoClassDefFoundError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangNoClassDefFoundError_INCLUDE_ALL")
+#ifdef JavaLangNoClassDefFoundError_RESTRICT
+#define JavaLangNoClassDefFoundError_INCLUDE_ALL 0
+#else
+#define JavaLangNoClassDefFoundError_INCLUDE_ALL 1
+#endif
+#undef JavaLangNoClassDefFoundError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangNoClassDefFoundError_) && (JavaLangNoClassDefFoundError_INCLUDE_ALL || defined(JavaLangNoClassDefFoundError_INCLUDE))
+#define JavaLangNoClassDefFoundError_
+
+#define JavaLangLinkageError_RESTRICT 1
+#define JavaLangLinkageError_INCLUDE 1
 #include "../../java/lang/LinkageError.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaLangNoClassDefFoundError *new_JavaLangNoClassDefFoundError
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoClassDefFoundError)
 
-#endif // _JavaLangNoClassDefFoundError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangNoClassDefFoundError_INCLUDE_ALL")

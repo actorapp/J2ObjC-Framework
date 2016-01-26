@@ -3,14 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/io/InvalidObjectException.java
 //
 
-#ifndef _JavaIoInvalidObjectException_H_
-#define _JavaIoInvalidObjectException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoInvalidObjectException_INCLUDE_ALL")
+#ifdef JavaIoInvalidObjectException_RESTRICT
+#define JavaIoInvalidObjectException_INCLUDE_ALL 0
+#else
+#define JavaIoInvalidObjectException_INCLUDE_ALL 1
+#endif
+#undef JavaIoInvalidObjectException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoInvalidObjectException_) && (JavaIoInvalidObjectException_INCLUDE_ALL || defined(JavaIoInvalidObjectException_INCLUDE))
+#define JavaIoInvalidObjectException_
+
+#define JavaIoObjectStreamException_RESTRICT 1
+#define JavaIoObjectStreamException_INCLUDE 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
  @brief Signals that, during deserialization, the validation of an object has failed.
+ - seealso: ObjectInputStream#registerValidation(ObjectInputValidation,int)
+ - seealso: ObjectInputValidation#validateObject()
  */
 @interface JavaIoInvalidObjectException : JavaIoObjectStreamException
 
@@ -34,4 +50,8 @@ FOUNDATION_EXPORT JavaIoInvalidObjectException *new_JavaIoInvalidObjectException
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoInvalidObjectException)
 
-#endif // _JavaIoInvalidObjectException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoInvalidObjectException_INCLUDE_ALL")

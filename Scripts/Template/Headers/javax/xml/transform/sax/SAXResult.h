@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/sax/SAXResult.java
 //
 
-#ifndef _JavaxXmlTransformSaxSAXResult_H_
-#define _JavaxXmlTransformSaxSAXResult_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformSaxSAXResult_INCLUDE_ALL")
+#ifdef JavaxXmlTransformSaxSAXResult_RESTRICT
+#define JavaxXmlTransformSaxSAXResult_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformSaxSAXResult_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformSaxSAXResult_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformSaxSAXResult_) && (JavaxXmlTransformSaxSAXResult_INCLUDE_ALL || defined(JavaxXmlTransformSaxSAXResult_INCLUDE))
+#define JavaxXmlTransformSaxSAXResult_
+
+#define JavaxXmlTransformResult_RESTRICT 1
+#define JavaxXmlTransformResult_INCLUDE 1
 #include "../../../../javax/xml/transform/Result.h"
 
 @protocol OrgXmlSaxContentHandler;
@@ -18,6 +32,8 @@
  @author <a href="Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  */
 @interface JavaxXmlTransformSaxSAXResult : NSObject < JavaxXmlTransformResult >
+
++ (NSString *)FEATURE;
 
 #pragma mark Public
 
@@ -79,8 +95,15 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformSaxSAXResult)
 
-FOUNDATION_EXPORT NSString *JavaxXmlTransformSaxSAXResult_FEATURE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlTransformSaxSAXResult, FEATURE_, NSString *)
+/*!
+ @brief If <code>javax.xml.transform.TransformerFactory.getFeature</code>
+ returns true when passed this value as an argument,
+ the Transformer supports Result output of this type.
+ */
+inline NSString *JavaxXmlTransformSaxSAXResult_get_FEATURE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlTransformSaxSAXResult_FEATURE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlTransformSaxSAXResult, FEATURE, NSString *)
 
 FOUNDATION_EXPORT void JavaxXmlTransformSaxSAXResult_init(JavaxXmlTransformSaxSAXResult *self);
 
@@ -92,4 +115,8 @@ FOUNDATION_EXPORT JavaxXmlTransformSaxSAXResult *new_JavaxXmlTransformSaxSAXResu
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxSAXResult)
 
-#endif // _JavaxXmlTransformSaxSAXResult_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformSaxSAXResult_INCLUDE_ALL")

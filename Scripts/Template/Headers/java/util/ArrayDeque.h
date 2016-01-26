@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/ArrayDeque.java
 //
 
-#ifndef _JavaUtilArrayDeque_H_
-#define _JavaUtilArrayDeque_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilArrayDeque_INCLUDE_ALL")
+#ifdef JavaUtilArrayDeque_RESTRICT
+#define JavaUtilArrayDeque_INCLUDE_ALL 0
+#else
+#define JavaUtilArrayDeque_INCLUDE_ALL 1
+#endif
+#undef JavaUtilArrayDeque_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilArrayDeque_) && (JavaUtilArrayDeque_INCLUDE_ALL || defined(JavaUtilArrayDeque_INCLUDE))
+#define JavaUtilArrayDeque_
+
+#define JavaUtilAbstractCollection_RESTRICT 1
+#define JavaUtilAbstractCollection_INCLUDE 1
 #include "../../java/util/AbstractCollection.h"
+
+#define JavaUtilDeque_RESTRICT 1
+#define JavaUtilDeque_INCLUDE 1
 #include "../../java/util/Deque.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;
@@ -352,7 +372,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilArrayDeque)
@@ -371,4 +390,8 @@ FOUNDATION_EXPORT JavaUtilArrayDeque *new_JavaUtilArrayDeque_initWithJavaUtilCol
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayDeque)
 
-#endif // _JavaUtilArrayDeque_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilArrayDeque_INCLUDE_ALL")

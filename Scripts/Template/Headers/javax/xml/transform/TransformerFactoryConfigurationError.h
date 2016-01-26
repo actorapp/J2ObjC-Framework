@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/TransformerFactoryConfigurationError.java
 //
 
-#ifndef _JavaxXmlTransformTransformerFactoryConfigurationError_H_
-#define _JavaxXmlTransformTransformerFactoryConfigurationError_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformTransformerFactoryConfigurationError_INCLUDE_ALL")
+#ifdef JavaxXmlTransformTransformerFactoryConfigurationError_RESTRICT
+#define JavaxXmlTransformTransformerFactoryConfigurationError_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformTransformerFactoryConfigurationError_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformTransformerFactoryConfigurationError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformTransformerFactoryConfigurationError_) && (JavaxXmlTransformTransformerFactoryConfigurationError_INCLUDE_ALL || defined(JavaxXmlTransformTransformerFactoryConfigurationError_INCLUDE))
+#define JavaxXmlTransformTransformerFactoryConfigurationError_
+
+#define JavaLangError_RESTRICT 1
+#define JavaLangError_INCLUDE 1
 #include "../../../java/lang/Error.h"
 
 @class JavaLangException;
@@ -91,4 +105,8 @@ FOUNDATION_EXPORT JavaxXmlTransformTransformerFactoryConfigurationError *new_Jav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformerFactoryConfigurationError)
 
-#endif // _JavaxXmlTransformTransformerFactoryConfigurationError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformTransformerFactoryConfigurationError_INCLUDE_ALL")

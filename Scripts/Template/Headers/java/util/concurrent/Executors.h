@@ -3,28 +3,38 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/Executors.java
 //
 
-#ifndef _JavaUtilConcurrentExecutors_H_
-#define _JavaUtilConcurrentExecutors_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/util/concurrent/AbstractExecutorService.h"
-#include "../../../java/util/concurrent/Callable.h"
-#include "../../../java/util/concurrent/ScheduledExecutorService.h"
-#include "../../../java/util/concurrent/ThreadFactory.h"
 
-@class JavaLangThread;
-@class JavaUtilConcurrentTimeUnitEnum;
+#pragma push_macro("JavaUtilConcurrentExecutors_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentExecutors_RESTRICT
+#define JavaUtilConcurrentExecutors_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentExecutors_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentExecutors_RESTRICT
+#ifdef JavaUtilConcurrentExecutors_DelegatedScheduledExecutorService_INCLUDE
+#define JavaUtilConcurrentExecutors_DelegatedExecutorService_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentExecutors_FinalizableDelegatedExecutorService_INCLUDE
+#define JavaUtilConcurrentExecutors_DelegatedExecutorService_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentExecutors_PrivilegedThreadFactory_INCLUDE
+#define JavaUtilConcurrentExecutors_DefaultThreadFactory_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentExecutors_) && (JavaUtilConcurrentExecutors_INCLUDE_ALL || defined(JavaUtilConcurrentExecutors_INCLUDE))
+#define JavaUtilConcurrentExecutors_
+
 @protocol JavaLangRunnable;
 @protocol JavaSecurityPrivilegedAction;
 @protocol JavaSecurityPrivilegedExceptionAction;
-@protocol JavaUtilCollection;
 @protocol JavaUtilConcurrentCallable;
 @protocol JavaUtilConcurrentExecutorService;
-@protocol JavaUtilConcurrentFuture;
 @protocol JavaUtilConcurrentScheduledExecutorService;
-@protocol JavaUtilConcurrentScheduledFuture;
 @protocol JavaUtilConcurrentThreadFactory;
-@protocol JavaUtilList;
 
 /*!
  @brief Factory and utility methods for <code>Executor</code>, <code>ExecutorService</code>
@@ -383,6 +393,17 @@ FOUNDATION_EXPORT id<JavaUtilConcurrentCallable> JavaUtilConcurrentExecutors_pri
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors)
 
+#endif
+
+#if !defined (JavaUtilConcurrentExecutors_RunnableAdapter_) && (JavaUtilConcurrentExecutors_INCLUDE_ALL || defined(JavaUtilConcurrentExecutors_RunnableAdapter_INCLUDE))
+#define JavaUtilConcurrentExecutors_RunnableAdapter_
+
+#define JavaUtilConcurrentCallable_RESTRICT 1
+#define JavaUtilConcurrentCallable_INCLUDE 1
+#include "../../../java/util/concurrent/Callable.h"
+
+@protocol JavaLangRunnable;
+
 /*!
  @brief A callable that runs given task and returns given result
  */
@@ -414,28 +435,14 @@ FOUNDATION_EXPORT JavaUtilConcurrentExecutors_RunnableAdapter *new_JavaUtilConcu
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_RunnableAdapter)
 
-/*!
- @brief A callable that runs under established access control settings
- */
-@interface JavaUtilConcurrentExecutors_PrivilegedCallable : NSObject < JavaUtilConcurrentCallable >
+#endif
 
-#pragma mark Public
+#if !defined (JavaUtilConcurrentExecutors_PrivilegedCallableUsingCurrentClassLoader_) && (JavaUtilConcurrentExecutors_INCLUDE_ALL || defined(JavaUtilConcurrentExecutors_PrivilegedCallableUsingCurrentClassLoader_INCLUDE))
+#define JavaUtilConcurrentExecutors_PrivilegedCallableUsingCurrentClassLoader_
 
-- (id)call;
-
-#pragma mark Package-Private
-
-- (instancetype)initWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)task;
-
-@end
-
-J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentExecutors_PrivilegedCallable)
-
-FOUNDATION_EXPORT void JavaUtilConcurrentExecutors_PrivilegedCallable_initWithJavaUtilConcurrentCallable_(JavaUtilConcurrentExecutors_PrivilegedCallable *self, id<JavaUtilConcurrentCallable> task);
-
-FOUNDATION_EXPORT JavaUtilConcurrentExecutors_PrivilegedCallable *new_JavaUtilConcurrentExecutors_PrivilegedCallable_initWithJavaUtilConcurrentCallable_(id<JavaUtilConcurrentCallable> task) NS_RETURNS_RETAINED;
-
-J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_PrivilegedCallable)
+#define JavaUtilConcurrentCallable_RESTRICT 1
+#define JavaUtilConcurrentCallable_INCLUDE 1
+#include "../../../java/util/concurrent/Callable.h"
 
 /*!
  @brief A callable that runs under established access control settings and
@@ -461,6 +468,18 @@ FOUNDATION_EXPORT JavaUtilConcurrentExecutors_PrivilegedCallableUsingCurrentClas
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_PrivilegedCallableUsingCurrentClassLoader)
 
+#endif
+
+#if !defined (JavaUtilConcurrentExecutors_DefaultThreadFactory_) && (JavaUtilConcurrentExecutors_INCLUDE_ALL || defined(JavaUtilConcurrentExecutors_DefaultThreadFactory_INCLUDE))
+#define JavaUtilConcurrentExecutors_DefaultThreadFactory_
+
+#define JavaUtilConcurrentThreadFactory_RESTRICT 1
+#define JavaUtilConcurrentThreadFactory_INCLUDE 1
+#include "../../../java/util/concurrent/ThreadFactory.h"
+
+@class JavaLangThread;
+@protocol JavaLangRunnable;
+
 /*!
  @brief The default thread factory
  */
@@ -483,6 +502,14 @@ FOUNDATION_EXPORT void JavaUtilConcurrentExecutors_DefaultThreadFactory_init(Jav
 FOUNDATION_EXPORT JavaUtilConcurrentExecutors_DefaultThreadFactory *new_JavaUtilConcurrentExecutors_DefaultThreadFactory_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_DefaultThreadFactory)
+
+#endif
+
+#if !defined (JavaUtilConcurrentExecutors_PrivilegedThreadFactory_) && (JavaUtilConcurrentExecutors_INCLUDE_ALL || defined(JavaUtilConcurrentExecutors_PrivilegedThreadFactory_INCLUDE))
+#define JavaUtilConcurrentExecutors_PrivilegedThreadFactory_
+
+@class JavaLangThread;
+@protocol JavaLangRunnable;
 
 /*!
  @brief Thread factory capturing access control context and class loader
@@ -507,6 +534,23 @@ FOUNDATION_EXPORT JavaUtilConcurrentExecutors_PrivilegedThreadFactory *new_JavaU
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_PrivilegedThreadFactory)
 
+#endif
+
+#if !defined (JavaUtilConcurrentExecutors_DelegatedExecutorService_) && (JavaUtilConcurrentExecutors_INCLUDE_ALL || defined(JavaUtilConcurrentExecutors_DelegatedExecutorService_INCLUDE))
+#define JavaUtilConcurrentExecutors_DelegatedExecutorService_
+
+#define JavaUtilConcurrentAbstractExecutorService_RESTRICT 1
+#define JavaUtilConcurrentAbstractExecutorService_INCLUDE 1
+#include "../../../java/util/concurrent/AbstractExecutorService.h"
+
+@class JavaUtilConcurrentTimeUnit;
+@protocol JavaLangRunnable;
+@protocol JavaUtilCollection;
+@protocol JavaUtilConcurrentCallable;
+@protocol JavaUtilConcurrentExecutorService;
+@protocol JavaUtilConcurrentFuture;
+@protocol JavaUtilList;
+
 /*!
  @brief A wrapper class that exposes only the ExecutorService methods
  of an ExecutorService implementation.
@@ -516,7 +560,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_PrivilegedThreadFactory)
 #pragma mark Public
 
 - (jboolean)awaitTerminationWithLong:(jlong)timeout
-  withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+      withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (void)executeWithJavaLangRunnable:(id<JavaLangRunnable>)command;
 
@@ -524,13 +568,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_PrivilegedThreadFactory)
 
 - (id<JavaUtilList>)invokeAllWithJavaUtilCollection:(id<JavaUtilCollection>)tasks
                                            withLong:(jlong)timeout
-                 withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                     withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id)invokeAnyWithJavaUtilCollection:(id<JavaUtilCollection>)tasks;
 
 - (id)invokeAnyWithJavaUtilCollection:(id<JavaUtilCollection>)tasks
                              withLong:(jlong)timeout
-   withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (jboolean)isShutdown;
 
@@ -561,6 +605,13 @@ FOUNDATION_EXPORT JavaUtilConcurrentExecutors_DelegatedExecutorService *new_Java
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_DelegatedExecutorService)
 
+#endif
+
+#if !defined (JavaUtilConcurrentExecutors_FinalizableDelegatedExecutorService_) && (JavaUtilConcurrentExecutors_INCLUDE_ALL || defined(JavaUtilConcurrentExecutors_FinalizableDelegatedExecutorService_INCLUDE))
+#define JavaUtilConcurrentExecutors_FinalizableDelegatedExecutorService_
+
+@protocol JavaUtilConcurrentExecutorService;
+
 @interface JavaUtilConcurrentExecutors_FinalizableDelegatedExecutorService : JavaUtilConcurrentExecutors_DelegatedExecutorService
 
 #pragma mark Protected
@@ -581,6 +632,20 @@ FOUNDATION_EXPORT JavaUtilConcurrentExecutors_FinalizableDelegatedExecutorServic
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_FinalizableDelegatedExecutorService)
 
+#endif
+
+#if !defined (JavaUtilConcurrentExecutors_DelegatedScheduledExecutorService_) && (JavaUtilConcurrentExecutors_INCLUDE_ALL || defined(JavaUtilConcurrentExecutors_DelegatedScheduledExecutorService_INCLUDE))
+#define JavaUtilConcurrentExecutors_DelegatedScheduledExecutorService_
+
+#define JavaUtilConcurrentScheduledExecutorService_RESTRICT 1
+#define JavaUtilConcurrentScheduledExecutorService_INCLUDE 1
+#include "../../../java/util/concurrent/ScheduledExecutorService.h"
+
+@class JavaUtilConcurrentTimeUnit;
+@protocol JavaLangRunnable;
+@protocol JavaUtilConcurrentCallable;
+@protocol JavaUtilConcurrentScheduledFuture;
+
 /*!
  @brief A wrapper class that exposes only the ScheduledExecutorService
  methods of a ScheduledExecutorService implementation.
@@ -591,21 +656,21 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_FinalizableDelegatedExecu
 
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)callable
                                                                        withLong:(jlong)delay
-                                             withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                                 withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleWithJavaLangRunnable:(id<JavaLangRunnable>)command
                                                              withLong:(jlong)delay
-                                   withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleAtFixedRateWithJavaLangRunnable:(id<JavaLangRunnable>)command
                                                                         withLong:(jlong)initialDelay
                                                                         withLong:(jlong)period
-                                              withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                                  withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleWithFixedDelayWithJavaLangRunnable:(id<JavaLangRunnable>)command
                                                                            withLong:(jlong)initialDelay
                                                                            withLong:(jlong)delay
-                                                 withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                                     withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 #pragma mark Package-Private
 
@@ -621,4 +686,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentExecutors_DelegatedScheduledExecutorService 
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutors_DelegatedScheduledExecutorService)
 
-#endif // _JavaUtilConcurrentExecutors_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentExecutors_INCLUDE_ALL")

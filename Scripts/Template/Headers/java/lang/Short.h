@@ -3,23 +3,42 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Short.java
 //
 
-#ifndef _JavaLangShort_H_
-#define _JavaLangShort_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangShort_INCLUDE_ALL")
+#ifdef JavaLangShort_RESTRICT
+#define JavaLangShort_INCLUDE_ALL 0
+#else
+#define JavaLangShort_INCLUDE_ALL 1
+#endif
+#undef JavaLangShort_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangShort_) && (JavaLangShort_INCLUDE_ALL || defined(JavaLangShort_INCLUDE))
+#define JavaLangShort_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
 
-#define JavaLangShort_MAX_VALUE 32767
-#define JavaLangShort_MIN_VALUE -32768
-#define JavaLangShort_SIZE 16
-
 /*!
  @brief The wrapper for the primitive type <code>short</code>.
+ - seealso: java.lang.Number
  @since 1.1
  */
 @interface JavaLangShort : NSNumber < JavaLangComparable >
+
++ (jshort)MAX_VALUE;
+
++ (jshort)MIN_VALUE;
+
++ (jint)SIZE;
+
++ (IOSClass *)TYPE;
 
 #pragma mark Public
 
@@ -36,6 +55,7 @@
  the string representation of a short value.
  @throws NumberFormatException
  if <code>string</code> cannot be parsed as a short value.
+ - seealso: #parseShort(String)
  */
 - (instancetype)initWithNSString:(NSString *)string;
 
@@ -60,6 +80,7 @@
  of this short is greater than the value of <code>object</code>.
  @throws NullPointerException
  if <code>object</code> is null.
+ - seealso: java.lang.Comparable
  @since 1.2
  */
 - (jint)compareToWithId:(JavaLangShort *)object;
@@ -179,6 +200,7 @@
  by <code>string</code>.
  @throws NumberFormatException
  if <code>string</code> cannot be parsed as a short value.
+ - seealso: #parseShort(String)
  */
 + (JavaLangShort *)valueOfWithNSString:(NSString *)string;
 
@@ -196,25 +218,48 @@
  <code>radix < Character.MIN_RADIX ||
  radix > Character.MAX_RADIX</code>
  .
+ - seealso: #parseShort(String,int)
  */
 + (JavaLangShort *)valueOfWithNSString:(NSString *)string
                                withInt:(jint)radix;
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaLangShort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangShort, MAX_VALUE, jshort)
+/*!
+ @brief Constant for the maximum <code>short</code> value, 2<sup>15</sup>-1.
+ */
+inline jshort JavaLangShort_get_MAX_VALUE();
+#define JavaLangShort_MAX_VALUE 32767
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangShort, MAX_VALUE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangShort, MIN_VALUE, jshort)
+/*!
+ @brief Constant for the minimum <code>short</code> value, -2<sup>15</sup>.
+ */
+inline jshort JavaLangShort_get_MIN_VALUE();
+#define JavaLangShort_MIN_VALUE -32768
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangShort, MIN_VALUE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangShort, SIZE, jint)
+/*!
+ @brief Constant for the number of bits needed to represent a <code>short</code> in
+ two's complement form.
+ @since 1.5
+ */
+inline jint JavaLangShort_get_SIZE();
+#define JavaLangShort_SIZE 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangShort, SIZE, jint)
 
-FOUNDATION_EXPORT IOSClass *JavaLangShort_TYPE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangShort, TYPE_, IOSClass *)
+/*!
+ @brief The <code>Class</code> object that represents the primitive type <code>short</code>
+ .
+ */
+inline IOSClass *JavaLangShort_get_TYPE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaLangShort_TYPE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangShort, TYPE, IOSClass *)
 
 FOUNDATION_EXPORT void JavaLangShort_initWithNSString_(JavaLangShort *self, NSString *string);
 
@@ -246,4 +291,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangShort)
 
 BOXED_INC_AND_DEC(Short, shortValue, JavaLangShort)
 
-#endif // _JavaLangShort_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangShort_INCLUDE_ALL")

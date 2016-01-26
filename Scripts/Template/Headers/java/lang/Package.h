@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Package.java
 //
 
-#ifndef _JavaLangPackage_H_
-#define _JavaLangPackage_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangPackage_INCLUDE_ALL")
+#ifdef JavaLangPackage_RESTRICT
+#define JavaLangPackage_INCLUDE_ALL 0
+#else
+#define JavaLangPackage_INCLUDE_ALL 1
+#endif
+#undef JavaLangPackage_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangPackage_) && (JavaLangPackage_INCLUDE_ALL || defined(JavaLangPackage_INCLUDE))
+#define JavaLangPackage_
+
+#define JavaLangReflectAnnotatedElement_RESTRICT 1
+#define JavaLangReflectAnnotatedElement_INCLUDE 1
 #include "../../java/lang/reflect/AnnotatedElement.h"
 
 @class IOSClass;
@@ -23,6 +37,7 @@
  Packages are managed by class loaders. All classes loaded by the same loader
  from the same package share a <code>Package</code> instance.
  </p>
+ - seealso: java.lang.ClassLoader
  */
 @interface JavaLangPackage : NSObject < JavaLangReflectAnnotatedElement >
 
@@ -34,6 +49,7 @@
  @param annotationType
  the annotation type to look for.
  @return an instance of <code>Annotation</code> or <code>null</code>.
+ - seealso: java.lang.reflect.AnnotatedElement#getAnnotation(java.lang.Class)
  */
 - (id)getAnnotationWithIOSClass:(IOSClass *)annotationType;
 
@@ -88,12 +104,14 @@
  @param packageName
  the name of the package to find.
  @return the requested package, or <code>null</code>.
+ - seealso: ClassLoader#getPackage(java.lang.String)
  */
 + (JavaLangPackage *)getPackageWithNSString:(NSString *)packageName;
 
 /*!
  @brief Returns all the packages known to the caller's class loader.
  @return all the packages known to the caller's class loader.
+ - seealso: ClassLoader#getPackages
  */
 + (IOSObjectArray *)getPackages;
 
@@ -129,6 +147,7 @@
  the annotation type to look for.
  @return <code>true</code> if the annotation is present; <code>false</code>
  otherwise.
+ - seealso: java.lang.reflect.AnnotatedElement#isAnnotationPresent(java.lang.Class)
  */
 - (jboolean)isAnnotationPresentWithIOSClass:(IOSClass *)annotationType;
 
@@ -190,4 +209,8 @@ FOUNDATION_EXPORT IOSObjectArray *JavaLangPackage_getPackages();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangPackage)
 
-#endif // _JavaLangPackage_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangPackage_INCLUDE_ALL")

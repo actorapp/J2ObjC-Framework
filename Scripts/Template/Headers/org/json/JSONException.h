@@ -3,10 +3,24 @@
 //  source: android/libcore/json/src/main/java/org/json/JSONException.java
 //
 
-#ifndef _OrgJsonJSONException_H_
-#define _OrgJsonJSONException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("OrgJsonJSONException_INCLUDE_ALL")
+#ifdef OrgJsonJSONException_RESTRICT
+#define OrgJsonJSONException_INCLUDE_ALL 0
+#else
+#define OrgJsonJSONException_INCLUDE_ALL 1
+#endif
+#undef OrgJsonJSONException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgJsonJSONException_) && (OrgJsonJSONException_INCLUDE_ALL || defined(OrgJsonJSONException_INCLUDE))
+#define OrgJsonJSONException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -50,4 +64,8 @@ FOUNDATION_EXPORT OrgJsonJSONException *new_OrgJsonJSONException_initWithNSStrin
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONException)
 
-#endif // _OrgJsonJSONException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgJsonJSONException_INCLUDE_ALL")

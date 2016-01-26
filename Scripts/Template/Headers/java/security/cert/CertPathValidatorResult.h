@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CertPathValidatorResult.java
 //
 
-#ifndef _JavaSecurityCertCertPathValidatorResult_H_
-#define _JavaSecurityCertCertPathValidatorResult_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCertPathValidatorResult_INCLUDE_ALL")
+#ifdef JavaSecurityCertCertPathValidatorResult_RESTRICT
+#define JavaSecurityCertCertPathValidatorResult_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCertPathValidatorResult_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCertPathValidatorResult_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCertPathValidatorResult_) && (JavaSecurityCertCertPathValidatorResult_INCLUDE_ALL || defined(JavaSecurityCertCertPathValidatorResult_INCLUDE))
+#define JavaSecurityCertCertPathValidatorResult_
 
 /*!
  @brief The interface specification for certification path validation results.
@@ -27,4 +38,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecurityCertCertPathValidatorResult)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidatorResult)
 
-#endif // _JavaSecurityCertCertPathValidatorResult_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCertPathValidatorResult_INCLUDE_ALL")

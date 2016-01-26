@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/xpath/XPathFactory.java
 //
 
-#ifndef _JavaxXmlXpathXPathFactory_H_
-#define _JavaxXmlXpathXPathFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlXpathXPathFactory_INCLUDE_ALL")
+#ifdef JavaxXmlXpathXPathFactory_RESTRICT
+#define JavaxXmlXpathXPathFactory_INCLUDE_ALL 0
+#else
+#define JavaxXmlXpathXPathFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlXpathXPathFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlXpathXPathFactory_) && (JavaxXmlXpathXPathFactory_INCLUDE_ALL || defined(JavaxXmlXpathXPathFactory_INCLUDE))
+#define JavaxXmlXpathXPathFactory_
 
 @class JavaLangClassLoader;
 @protocol JavaxXmlXpathXPath;
@@ -24,6 +35,10 @@
  @since 1.5
  */
 @interface JavaxXmlXpathXPathFactory : NSObject
+
++ (NSString *)DEFAULT_PROPERTY_NAME;
+
++ (NSString *)DEFAULT_OBJECT_MODEL_URI;
 
 #pragma mark Public
 
@@ -204,11 +219,23 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxXmlXpathXPathFactory)
 
-FOUNDATION_EXPORT NSString *JavaxXmlXpathXPathFactory_DEFAULT_PROPERTY_NAME_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlXpathXPathFactory, DEFAULT_PROPERTY_NAME_, NSString *)
+/*!
+ @brief <p>The default property name according to the JAXP spec.
+ </p>
+ */
+inline NSString *JavaxXmlXpathXPathFactory_get_DEFAULT_PROPERTY_NAME();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlXpathXPathFactory_DEFAULT_PROPERTY_NAME;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlXpathXPathFactory, DEFAULT_PROPERTY_NAME, NSString *)
 
-FOUNDATION_EXPORT NSString *JavaxXmlXpathXPathFactory_DEFAULT_OBJECT_MODEL_URI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlXpathXPathFactory, DEFAULT_OBJECT_MODEL_URI_, NSString *)
+/*!
+ @brief <p>Default Object Model URI.
+ </p>
+ */
+inline NSString *JavaxXmlXpathXPathFactory_get_DEFAULT_OBJECT_MODEL_URI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlXpathXPathFactory_DEFAULT_OBJECT_MODEL_URI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlXpathXPathFactory, DEFAULT_OBJECT_MODEL_URI, NSString *)
 
 FOUNDATION_EXPORT void JavaxXmlXpathXPathFactory_init(JavaxXmlXpathXPathFactory *self);
 
@@ -220,4 +247,8 @@ FOUNDATION_EXPORT JavaxXmlXpathXPathFactory *JavaxXmlXpathXPathFactory_newInstan
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFactory)
 
-#endif // _JavaxXmlXpathXPathFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlXpathXPathFactory_INCLUDE_ALL")

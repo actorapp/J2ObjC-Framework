@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/SeekableByteChannel.java
 //
 
-#ifndef _JavaNioChannelsSeekableByteChannel_H_
-#define _JavaNioChannelsSeekableByteChannel_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsSeekableByteChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsSeekableByteChannel_RESTRICT
+#define JavaNioChannelsSeekableByteChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsSeekableByteChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsSeekableByteChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsSeekableByteChannel_) && (JavaNioChannelsSeekableByteChannel_INCLUDE_ALL || defined(JavaNioChannelsSeekableByteChannel_INCLUDE))
+#define JavaNioChannelsSeekableByteChannel_
+
+#define JavaNioChannelsByteChannel_RESTRICT 1
+#define JavaNioChannelsByteChannel_INCLUDE 1
 #include "../../../java/nio/channels/ByteChannel.h"
 
 @class JavaNioByteBuffer;
@@ -141,4 +155,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNioChannelsSeekableByteChannel)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSeekableByteChannel)
 
-#endif // _JavaNioChannelsSeekableByteChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsSeekableByteChannel_INCLUDE_ALL")

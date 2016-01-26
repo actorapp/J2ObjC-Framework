@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/validation/Schema.java
 //
 
-#ifndef _JavaxXmlValidationSchema_H_
-#define _JavaxXmlValidationSchema_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlValidationSchema_INCLUDE_ALL")
+#ifdef JavaxXmlValidationSchema_RESTRICT
+#define JavaxXmlValidationSchema_INCLUDE_ALL 0
+#else
+#define JavaxXmlValidationSchema_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlValidationSchema_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlValidationSchema_) && (JavaxXmlValidationSchema_INCLUDE_ALL || defined(JavaxXmlValidationSchema_INCLUDE))
+#define JavaxXmlValidationSchema_
 
 @class JavaxXmlValidationValidator;
 @class JavaxXmlValidationValidatorHandler;
@@ -39,6 +50,9 @@
  still get <code>!schemaA.equals(schemaB)</code>.
  @author <a href="mailto:Kohsuke.Kawaguchi@@Sun.com">Kohsuke Kawaguchi</a>
  @version $Revision: 446598 $, $Date: 2006-09-15 05:55:40 -0700 (Fri, 15 Sep 2006) $
+ - seealso: <a href="http://www.w3.org/TR/xmlschema-1/">XML Schema Part 1: Structures</a>
+ - seealso: <a href="http://www.w3.org/TR/xml11/">Extensible Markup Language (XML) 1.1</a>
+ - seealso: <a href="http://www.w3.org/TR/REC-xml">Extensible Markup Language (XML) 1.0 (Second Edition)</a>
  @since 1.5
  */
 @interface JavaxXmlValidationSchema : NSObject
@@ -77,4 +91,8 @@ FOUNDATION_EXPORT void JavaxXmlValidationSchema_init(JavaxXmlValidationSchema *s
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationSchema)
 
-#endif // _JavaxXmlValidationSchema_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlValidationSchema_INCLUDE_ALL")

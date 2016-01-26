@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/ClosedByInterruptException.java
 //
 
-#ifndef _JavaNioChannelsClosedByInterruptException_H_
-#define _JavaNioChannelsClosedByInterruptException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsClosedByInterruptException_INCLUDE_ALL")
+#ifdef JavaNioChannelsClosedByInterruptException_RESTRICT
+#define JavaNioChannelsClosedByInterruptException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsClosedByInterruptException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsClosedByInterruptException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsClosedByInterruptException_) && (JavaNioChannelsClosedByInterruptException_INCLUDE_ALL || defined(JavaNioChannelsClosedByInterruptException_INCLUDE))
+#define JavaNioChannelsClosedByInterruptException_
+
+#define JavaNioChannelsAsynchronousCloseException_RESTRICT 1
+#define JavaNioChannelsAsynchronousCloseException_INCLUDE 1
 #include "../../../java/nio/channels/AsynchronousCloseException.h"
 
 /*!
@@ -36,4 +50,8 @@ FOUNDATION_EXPORT JavaNioChannelsClosedByInterruptException *new_JavaNioChannels
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsClosedByInterruptException)
 
-#endif // _JavaNioChannelsClosedByInterruptException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsClosedByInterruptException_INCLUDE_ALL")

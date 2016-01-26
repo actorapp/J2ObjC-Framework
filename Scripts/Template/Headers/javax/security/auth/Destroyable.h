@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/security/auth/Destroyable.java
 //
 
-#ifndef _JavaxSecurityAuthDestroyable_H_
-#define _JavaxSecurityAuthDestroyable_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxSecurityAuthDestroyable_INCLUDE_ALL")
+#ifdef JavaxSecurityAuthDestroyable_RESTRICT
+#define JavaxSecurityAuthDestroyable_INCLUDE_ALL 0
+#else
+#define JavaxSecurityAuthDestroyable_INCLUDE_ALL 1
+#endif
+#undef JavaxSecurityAuthDestroyable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxSecurityAuthDestroyable_) && (JavaxSecurityAuthDestroyable_INCLUDE_ALL || defined(JavaxSecurityAuthDestroyable_INCLUDE))
+#define JavaxSecurityAuthDestroyable_
 
 /*!
  @brief Allows for special treatment of sensitive information, when it comes to
@@ -36,4 +47,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxSecurityAuthDestroyable)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthDestroyable)
 
-#endif // _JavaxSecurityAuthDestroyable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxSecurityAuthDestroyable_INCLUDE_ALL")

@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/PriorityQueue.java
 //
 
-#ifndef _JavaUtilPriorityQueue_H_
-#define _JavaUtilPriorityQueue_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilPriorityQueue_INCLUDE_ALL")
+#ifdef JavaUtilPriorityQueue_RESTRICT
+#define JavaUtilPriorityQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilPriorityQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilPriorityQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilPriorityQueue_) && (JavaUtilPriorityQueue_INCLUDE_ALL || defined(JavaUtilPriorityQueue_INCLUDE))
+#define JavaUtilPriorityQueue_
+
+#define JavaUtilAbstractQueue_RESTRICT 1
+#define JavaUtilAbstractQueue_INCLUDE 1
 #include "../../java/util/AbstractQueue.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;
@@ -175,7 +192,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilPriorityQueue)
@@ -206,4 +222,8 @@ FOUNDATION_EXPORT JavaUtilPriorityQueue *new_JavaUtilPriorityQueue_initWithJavaU
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPriorityQueue)
 
-#endif // _JavaUtilPriorityQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilPriorityQueue_INCLUDE_ALL")

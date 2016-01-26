@@ -3,13 +3,29 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/helpers/ParserAdapter.java
 //
 
-#ifndef _OrgXmlSaxHelpersParserAdapter_H_
-#define _OrgXmlSaxHelpersParserAdapter_H_
-
 #include "../../../../J2ObjC_header.h"
-#include "../../../../org/xml/sax/Attributes.h"
-#include "../../../../org/xml/sax/DocumentHandler.h"
+
+#pragma push_macro("OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL")
+#ifdef OrgXmlSaxHelpersParserAdapter_RESTRICT
+#define OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHelpersParserAdapter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHelpersParserAdapter_) && (OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL || defined(OrgXmlSaxHelpersParserAdapter_INCLUDE))
+#define OrgXmlSaxHelpersParserAdapter_
+
+#define OrgXmlSaxXMLReader_RESTRICT 1
+#define OrgXmlSaxXMLReader_INCLUDE 1
 #include "../../../../org/xml/sax/XMLReader.h"
+
+#define OrgXmlSaxDocumentHandler_RESTRICT 1
+#define OrgXmlSaxDocumentHandler_INCLUDE 1
+#include "../../../../org/xml/sax/DocumentHandler.h"
 
 @class IOSCharArray;
 @class OrgXmlSaxInputSource;
@@ -39,6 +55,9 @@
  @since SAX 2.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.helpers.XMLReaderAdapter
+ - seealso: org.xml.sax.XMLReader
+ - seealso: org.xml.sax.Parser
  */
 @interface OrgXmlSaxHelpersParserAdapter : NSObject < OrgXmlSaxXMLReader, OrgXmlSaxDocumentHandler > {
  @public
@@ -80,6 +99,7 @@
  @param length The number of characters to use.
  @exception SAXException The client may raise a
  processing exception.
+ - seealso: org.xml.sax.DocumentHandler#characters
  */
 - (void)charactersWithCharArray:(IOSCharArray *)ch
                         withInt:(jint)start
@@ -90,6 +110,7 @@
  Adapt a SAX1 end document event.
  @exception SAXException The client may raise a
  processing exception.
+ - seealso: org.xml.sax.DocumentHandler#endDocument
  */
 - (void)endDocument;
 
@@ -99,30 +120,35 @@
  @param qName The qualified (prefixed) name.
  @exception SAXException The client may raise a
  processing exception.
+ - seealso: org.xml.sax.DocumentHandler#endElement
  */
 - (void)endElementWithNSString:(NSString *)qName;
 
 /*!
  @brief Return the current content handler.
  @return The current content handler, or null if none was supplied.
+ - seealso: org.xml.sax.XMLReader#getEntityResolver
  */
 - (id<OrgXmlSaxContentHandler>)getContentHandler;
 
 /*!
  @brief Return the current DTD handler.
  @return the current DTD handler, or null if none was supplied
+ - seealso: org.xml.sax.XMLReader#getEntityResolver
  */
 - (id<OrgXmlSaxDTDHandler>)getDTDHandler;
 
 /*!
  @brief Return the current entity resolver.
  @return The current entity resolver, or null if none was supplied.
+ - seealso: org.xml.sax.XMLReader#getEntityResolver
  */
 - (id<OrgXmlSaxEntityResolver>)getEntityResolver;
 
 /*!
  @brief Return the current error handler.
  @return The current error handler, or null if none was supplied.
+ - seealso: org.xml.sax.XMLReader#getEntityResolver
  */
 - (id<OrgXmlSaxErrorHandler>)getErrorHandler;
 
@@ -136,6 +162,7 @@
  value can't be assigned or retrieved.
  @exception SAXNotSupportedException If the
  feature is not currently readable.
+ - seealso: org.xml.sax.XMLReader#setFeature
  */
 - (jboolean)getFeatureWithNSString:(NSString *)name;
 
@@ -148,6 +175,7 @@
  value can't be assigned or retrieved.
  @exception SAXNotSupportedException If the property
  value is not currently readable.
+ - seealso: org.xml.sax.XMLReader#getProperty
  */
 - (id)getPropertyWithNSString:(NSString *)name;
 
@@ -159,6 +187,7 @@
  @param length The number of characters to use.
  @exception SAXException The client may raise a
  processing exception.
+ - seealso: org.xml.sax.DocumentHandler#ignorableWhitespace
  */
 - (void)ignorableWhitespaceWithCharArray:(IOSCharArray *)ch
                                  withInt:(jint)start
@@ -171,6 +200,8 @@
  the raw content of the document.
  @exception SAXException If there is a problem
  processing the document.
+ - seealso: #parse(java.lang.String)
+ - seealso: org.xml.sax.Parser#parse(org.xml.sax.InputSource)
  */
 - (void)parseWithOrgXmlSaxInputSource:(OrgXmlSaxInputSource *)input;
 
@@ -181,6 +212,8 @@
  the raw content of the document.
  @exception SAXException If there is a problem
  processing the document.
+ - seealso: #parse(org.xml.sax.InputSource)
+ - seealso: org.xml.sax.Parser#parse(java.lang.String)
  */
 - (void)parseWithNSString:(NSString *)systemId;
 
@@ -191,6 +224,7 @@
  @param data The remainder of the processing instruction
  @exception SAXException The client may raise a
  processing exception.
+ - seealso: org.xml.sax.DocumentHandler#processingInstruction
  */
 - (void)processingInstructionWithNSString:(NSString *)target
                              withNSString:(NSString *)data;
@@ -198,6 +232,7 @@
 /*!
  @brief Set the content handler.
  @param handler the new content handler
+ - seealso: org.xml.sax.XMLReader#setEntityResolver
  */
 - (void)setContentHandlerWithOrgXmlSaxContentHandler:(id<OrgXmlSaxContentHandler>)handler;
 
@@ -205,24 +240,28 @@
  @brief Adapter implementation method; do not call.
  Adapt a SAX1 document locator event.
  @param locator A document locator.
+ - seealso: org.xml.sax.ContentHandler#setDocumentLocator
  */
 - (void)setDocumentLocatorWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
 
 /*!
  @brief Set the DTD handler.
  @param handler the new DTD handler
+ - seealso: org.xml.sax.XMLReader#setEntityResolver
  */
 - (void)setDTDHandlerWithOrgXmlSaxDTDHandler:(id<OrgXmlSaxDTDHandler>)handler;
 
 /*!
  @brief Set the entity resolver.
  @param resolver The new entity resolver.
+ - seealso: org.xml.sax.XMLReader#setEntityResolver
  */
 - (void)setEntityResolverWithOrgXmlSaxEntityResolver:(id<OrgXmlSaxEntityResolver>)resolver;
 
 /*!
  @brief Set the error handler.
  @param handler The new error handler.
+ - seealso: org.xml.sax.XMLReader#setEntityResolver
  */
 - (void)setErrorHandlerWithOrgXmlSaxErrorHandler:(id<OrgXmlSaxErrorHandler>)handler;
 
@@ -236,6 +275,7 @@
  can't be assigned or retrieved.
  @exception SAXNotSupportedException If the feature
  can't be assigned that value.
+ - seealso: org.xml.sax.XMLReader#setFeature
  */
 - (void)setFeatureWithNSString:(NSString *)name
                    withBoolean:(jboolean)value;
@@ -249,6 +289,7 @@
  value can't be assigned or retrieved.
  @exception SAXNotSupportedException If the property
  can't be assigned that value.
+ - seealso: org.xml.sax.XMLReader#setProperty
  */
 - (void)setPropertyWithNSString:(NSString *)name
                          withId:(id)value;
@@ -258,6 +299,7 @@
  Adapt a SAX1 start document event.
  @exception SAXException The client may raise a
  processing exception.
+ - seealso: org.xml.sax.DocumentHandler#startDocument
  */
 - (void)startDocument;
 
@@ -303,6 +345,18 @@ FOUNDATION_EXPORT OrgXmlSaxHelpersParserAdapter *new_OrgXmlSaxHelpersParserAdapt
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
 
+#endif
+
+#if !defined (OrgXmlSaxHelpersParserAdapter_AttributeListAdapter_) && (OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL || defined(OrgXmlSaxHelpersParserAdapter_AttributeListAdapter_INCLUDE))
+#define OrgXmlSaxHelpersParserAdapter_AttributeListAdapter_
+
+#define OrgXmlSaxAttributes_RESTRICT 1
+#define OrgXmlSaxAttributes_INCLUDE 1
+#include "../../../../org/xml/sax/Attributes.h"
+
+@class OrgXmlSaxHelpersParserAdapter;
+@protocol OrgXmlSaxAttributeList;
+
 /*!
  @brief Adapt a SAX1 AttributeList as a SAX2 Attributes object.
  <p>This class is in the Public Domain, and comes with NO
@@ -320,6 +374,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
  @brief Look up an attribute index by qualified (prefixed) name.
  @param qName The qualified name.
  @return The attributes index, or -1 if none was found.
+ - seealso: org.xml.sax.Attributes#getIndex(java.lang.String)
  */
 - (jint)getIndexWithNSString:(NSString *)qName;
 
@@ -328,6 +383,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
  @param uri The Namespace URI or the empty string.
  @param localName The local name.
  @return The attributes index, or -1 if none was found.
+ - seealso: org.xml.sax.Attributes#getIndex(java.lang.String,java.lang.String)
  */
 - (jint)getIndexWithNSString:(NSString *)uri
                 withNSString:(NSString *)localName;
@@ -335,6 +391,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
 /*!
  @brief Return the length of the attribute list.
  @return The number of attributes in the list.
+ - seealso: org.xml.sax.Attributes#getLength
  */
 - (jint)getLength;
 
@@ -342,6 +399,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
  @brief Return the local name of the specified attribute.
  @param The attribute's index.
  @return Always the empty string.
+ - seealso: org.xml.sax.Attributes#getLocalName
  */
 - (NSString *)getLocalNameWithInt:(jint)i;
 
@@ -379,6 +437,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
  @brief Return the Namespace URI of the specified attribute.
  @param The attribute's index.
  @return Always the empty string.
+ - seealso: org.xml.sax.Attributes#getURI
  */
 - (NSString *)getURIWithInt:(jint)i;
 
@@ -430,4 +489,8 @@ FOUNDATION_EXPORT OrgXmlSaxHelpersParserAdapter_AttributeListAdapter *new_OrgXml
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter_AttributeListAdapter)
 
-#endif // _OrgXmlSaxHelpersParserAdapter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL")

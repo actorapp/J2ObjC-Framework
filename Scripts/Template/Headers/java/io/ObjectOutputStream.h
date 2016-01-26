@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectOutputStream.java
 //
 
-#ifndef _JavaIoObjectOutputStream_H_
-#define _JavaIoObjectOutputStream_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/ObjectOutput.h"
-#include "../../java/io/ObjectStreamConstants.h"
+
+#pragma push_macro("JavaIoObjectOutputStream_INCLUDE_ALL")
+#ifdef JavaIoObjectOutputStream_RESTRICT
+#define JavaIoObjectOutputStream_INCLUDE_ALL 0
+#else
+#define JavaIoObjectOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoObjectOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoObjectOutputStream_) && (JavaIoObjectOutputStream_INCLUDE_ALL || defined(JavaIoObjectOutputStream_INCLUDE))
+#define JavaIoObjectOutputStream_
+
+#define JavaIoOutputStream_RESTRICT 1
+#define JavaIoOutputStream_INCLUDE 1
 #include "../../java/io/OutputStream.h"
+
+#define JavaIoObjectOutput_RESTRICT 1
+#define JavaIoObjectOutput_INCLUDE 1
+#include "../../java/io/ObjectOutput.h"
+
+#define JavaIoObjectStreamConstants_RESTRICT 1
+#define JavaIoObjectStreamConstants_INCLUDE 1
+#include "../../java/io/ObjectStreamConstants.h"
 
 @class IOSByteArray;
 @class IOSClass;
@@ -21,6 +41,10 @@
  objects as well as primitive data types (int, byte, char etc.).
  The data can
  later be loaded using an ObjectInputStream.
+ - seealso: ObjectInputStream
+ - seealso: ObjectOutput
+ - seealso: Serializable
+ - seealso: Externalizable
  */
 @interface JavaIoObjectOutputStream : JavaIoOutputStream < JavaIoObjectOutput, JavaIoObjectStreamConstants >
 
@@ -55,6 +79,7 @@
  if an error occurs while writing to the target stream.
  @throws NotActiveException
  if this method is not called from <code>writeObject()</code>.
+ - seealso: ObjectInputStream#defaultReadObject
  */
 - (void)defaultWriteObject;
 
@@ -79,6 +104,7 @@
  if an I/O error occurs.
  @throws NotActiveException
  if this method is not called from <code>writeObject()</code>.
+ - seealso: ObjectInputStream#defaultReadObject
  */
 - (JavaIoObjectOutputStream_PutField *)putFields;
 
@@ -105,6 +131,8 @@
  if an invalid <code>version</code> is specified.
  @throws IOException
  if an I/O error occurs.
+ - seealso: ObjectStreamConstants#PROTOCOL_VERSION_1
+ - seealso: ObjectStreamConstants#PROTOCOL_VERSION_2
  */
 - (void)useProtocolVersionWithInt:(jint)version_;
 
@@ -206,6 +234,7 @@
  if an error occurs while writing to the target stream.
  @throws NotActiveException
  if there are no fields to write to the target stream.
+ - seealso: #putFields
  */
 - (void)writeFields;
 
@@ -242,6 +271,7 @@
  the object to write to the target stream.
  @throws IOException
  if an error occurs while writing to the target stream.
+ - seealso: ObjectInputStream#readObject()
  */
 - (void)writeObjectWithId:(id)object;
 
@@ -264,6 +294,7 @@
  the object to write to the target stream.
  @throws IOException
  if an error occurs while writing to the target stream.
+ - seealso: ObjectInputStream#readUnshared()
  */
 - (void)writeUnsharedWithId:(id)object;
 
@@ -299,6 +330,7 @@
  the class to annotate.
  @throws IOException
  if an error occurs while writing to the target stream.
+ - seealso: ObjectInputStream#resolveClass(ObjectStreamClass)
  */
 - (void)annotateClassWithIOSClass:(IOSClass *)aClass;
 
@@ -311,6 +343,7 @@
  the proxy class to annotate.
  @throws IOException
  if an error occurs while writing to the target stream.
+ - seealso: ObjectInputStream#resolveProxyClass(String[])
  */
 - (void)annotateProxyClassWithIOSClass:(IOSClass *)aClass;
 
@@ -332,6 +365,8 @@
  <code>true</code> to enable object replacement; <code>false</code> to
  disable it.
  @return the previous setting.
+ - seealso: #replaceObject
+ - seealso: ObjectInputStream#enableResolveObject
  */
 - (jboolean)enableReplaceObjectWithBoolean:(jboolean)enable;
 
@@ -347,6 +382,9 @@
  @throws IOException
  if any I/O error occurs while creating the replacement
  object.
+ - seealso: #enableReplaceObject
+ - seealso: ObjectInputStream#enableResolveObject
+ - seealso: ObjectInputStream#resolveObject
  */
 - (id)replaceObjectWithId:(id)object;
 
@@ -389,6 +427,13 @@ FOUNDATION_EXPORT void JavaIoObjectOutputStream_initWithJavaIoOutputStream_(Java
 FOUNDATION_EXPORT JavaIoObjectOutputStream *new_JavaIoObjectOutputStream_initWithJavaIoOutputStream_(JavaIoOutputStream *output) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectOutputStream)
+
+#endif
+
+#if !defined (JavaIoObjectOutputStream_PutField_) && (JavaIoObjectOutputStream_INCLUDE_ALL || defined(JavaIoObjectOutputStream_PutField_INCLUDE))
+#define JavaIoObjectOutputStream_PutField_
+
+@protocol JavaIoObjectOutput;
 
 /*!
  @brief PutField is an inner class to provide access to the persistent fields
@@ -506,7 +551,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectOutputStream)
  @throws IOException
  if an error occurs while writing to the target stream.
  */
-- (void)writeWithJavaIoObjectOutput:(id<JavaIoObjectOutput>)outArg;
+- (void)writeWithJavaIoObjectOutput:(id<JavaIoObjectOutput>)outArg __attribute__((deprecated));
 
 @end
 
@@ -516,4 +561,8 @@ FOUNDATION_EXPORT void JavaIoObjectOutputStream_PutField_init(JavaIoObjectOutput
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectOutputStream_PutField)
 
-#endif // _JavaIoObjectOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoObjectOutputStream_INCLUDE_ALL")

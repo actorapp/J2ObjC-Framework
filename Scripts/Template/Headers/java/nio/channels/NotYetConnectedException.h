@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/NotYetConnectedException.java
 //
 
-#ifndef _JavaNioChannelsNotYetConnectedException_H_
-#define _JavaNioChannelsNotYetConnectedException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsNotYetConnectedException_INCLUDE_ALL")
+#ifdef JavaNioChannelsNotYetConnectedException_RESTRICT
+#define JavaNioChannelsNotYetConnectedException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsNotYetConnectedException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsNotYetConnectedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsNotYetConnectedException_) && (JavaNioChannelsNotYetConnectedException_INCLUDE_ALL || defined(JavaNioChannelsNotYetConnectedException_INCLUDE))
+#define JavaNioChannelsNotYetConnectedException_
+
+#define JavaLangIllegalStateException_RESTRICT 1
+#define JavaLangIllegalStateException_INCLUDE 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioChannelsNotYetConnectedException *new_JavaNioChannelsNo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsNotYetConnectedException)
 
-#endif // _JavaNioChannelsNotYetConnectedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsNotYetConnectedException_INCLUDE_ALL")

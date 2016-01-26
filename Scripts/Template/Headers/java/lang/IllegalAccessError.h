@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/IllegalAccessError.java
 //
 
-#ifndef _JavaLangIllegalAccessError_H_
-#define _JavaLangIllegalAccessError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangIllegalAccessError_INCLUDE_ALL")
+#ifdef JavaLangIllegalAccessError_RESTRICT
+#define JavaLangIllegalAccessError_INCLUDE_ALL 0
+#else
+#define JavaLangIllegalAccessError_INCLUDE_ALL 1
+#endif
+#undef JavaLangIllegalAccessError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangIllegalAccessError_) && (JavaLangIllegalAccessError_INCLUDE_ALL || defined(JavaLangIllegalAccessError_INCLUDE))
+#define JavaLangIllegalAccessError_
+
+#define JavaLangIncompatibleClassChangeError_RESTRICT 1
+#define JavaLangIncompatibleClassChangeError_INCLUDE 1
 #include "../../java/lang/IncompatibleClassChangeError.h"
 
 /*!
@@ -47,4 +61,8 @@ FOUNDATION_EXPORT JavaLangIllegalAccessError *new_JavaLangIllegalAccessError_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalAccessError)
 
-#endif // _JavaLangIllegalAccessError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangIllegalAccessError_INCLUDE_ALL")

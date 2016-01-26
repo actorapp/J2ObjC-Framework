@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/InetSocketAddress.java
 //
 
-#ifndef _JavaNetInetSocketAddress_H_
-#define _JavaNetInetSocketAddress_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetInetSocketAddress_INCLUDE_ALL")
+#ifdef JavaNetInetSocketAddress_RESTRICT
+#define JavaNetInetSocketAddress_INCLUDE_ALL 0
+#else
+#define JavaNetInetSocketAddress_INCLUDE_ALL 1
+#endif
+#undef JavaNetInetSocketAddress_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetInetSocketAddress_) && (JavaNetInetSocketAddress_INCLUDE_ALL || defined(JavaNetInetSocketAddress_INCLUDE))
+#define JavaNetInetSocketAddress_
+
+#define JavaNetSocketAddress_RESTRICT 1
+#define JavaNetSocketAddress_INCLUDE 1
 #include "../../java/net/SocketAddress.h"
 
 @class JavaNetInetAddress;
@@ -167,4 +181,8 @@ FOUNDATION_EXPORT JavaNetInetSocketAddress *JavaNetInetSocketAddress_createUnres
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetInetSocketAddress)
 
-#endif // _JavaNetInetSocketAddress_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetInetSocketAddress_INCLUDE_ALL")

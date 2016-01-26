@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/helpers/XMLReaderFactory.java
 //
 
-#ifndef _OrgXmlSaxHelpersXMLReaderFactory_H_
-#define _OrgXmlSaxHelpersXMLReaderFactory_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxHelpersXMLReaderFactory_INCLUDE_ALL")
+#ifdef OrgXmlSaxHelpersXMLReaderFactory_RESTRICT
+#define OrgXmlSaxHelpersXMLReaderFactory_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHelpersXMLReaderFactory_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHelpersXMLReaderFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHelpersXMLReaderFactory_) && (OrgXmlSaxHelpersXMLReaderFactory_INCLUDE_ALL || defined(OrgXmlSaxHelpersXMLReaderFactory_INCLUDE))
+#define OrgXmlSaxHelpersXMLReaderFactory_
 
 @protocol OrgXmlSaxXMLReader;
 
@@ -76,6 +87,7 @@
  @return A new XMLReader.
  @exception org.xml.sax.SAXException If no default XMLReader class
  can be identified and instantiated.
+ - seealso: #createXMLReader(java.lang.String)
  */
 + (id<OrgXmlSaxXMLReader>)createXMLReader;
 
@@ -90,6 +102,7 @@
  @return A new XML reader.
  @exception org.xml.sax.SAXException If the class cannot be
  loaded, instantiated, and cast to XMLReader.
+ - seealso: #createXMLReader()
  */
 + (id<OrgXmlSaxXMLReader>)createXMLReaderWithNSString:(NSString *)className_;
 
@@ -103,4 +116,8 @@ FOUNDATION_EXPORT id<OrgXmlSaxXMLReader> OrgXmlSaxHelpersXMLReaderFactory_create
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLReaderFactory)
 
-#endif // _OrgXmlSaxHelpersXMLReaderFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHelpersXMLReaderFactory_INCLUDE_ALL")

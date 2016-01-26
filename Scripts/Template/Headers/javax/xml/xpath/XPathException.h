@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/xpath/XPathException.java
 //
 
-#ifndef _JavaxXmlXpathXPathException_H_
-#define _JavaxXmlXpathXPathException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlXpathXPathException_INCLUDE_ALL")
+#ifdef JavaxXmlXpathXPathException_RESTRICT
+#define JavaxXmlXpathXPathException_INCLUDE_ALL 0
+#else
+#define JavaxXmlXpathXPathException_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlXpathXPathException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlXpathXPathException_) && (JavaxXmlXpathXPathException_INCLUDE_ALL || defined(JavaxXmlXpathXPathException_INCLUDE))
+#define JavaxXmlXpathXPathException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../../java/lang/Exception.h"
 
 @class JavaIoPrintStream;
@@ -65,4 +79,8 @@ FOUNDATION_EXPORT JavaxXmlXpathXPathException *new_JavaxXmlXpathXPathException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathException)
 
-#endif // _JavaxXmlXpathXPathException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlXpathXPathException_INCLUDE_ALL")

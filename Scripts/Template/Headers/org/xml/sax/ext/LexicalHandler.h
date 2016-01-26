@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/ext/LexicalHandler.java
 //
 
-#ifndef _OrgXmlSaxExtLexicalHandler_H_
-#define _OrgXmlSaxExtLexicalHandler_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxExtLexicalHandler_INCLUDE_ALL")
+#ifdef OrgXmlSaxExtLexicalHandler_RESTRICT
+#define OrgXmlSaxExtLexicalHandler_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxExtLexicalHandler_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxExtLexicalHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxExtLexicalHandler_) && (OrgXmlSaxExtLexicalHandler_INCLUDE_ALL || defined(OrgXmlSaxExtLexicalHandler_INCLUDE))
+#define OrgXmlSaxExtLexicalHandler_
 
 @class IOSCharArray;
 
@@ -72,6 +83,8 @@
  base URI.)
  @exception SAXException The application may raise an
  exception.
+ - seealso: #endDTD
+ - seealso: #startEntity
  */
 - (void)startDTDWithNSString:(NSString *)name
                 withNSString:(NSString *)publicId
@@ -83,6 +96,7 @@
  DOCTYPE declaration; if the document has no DOCTYPE declaration,
  this method will not be invoked.</p>
  @exception SAXException The application may raise an exception.
+ - seealso: #startDTD
  */
 - (void)endDTD;
 
@@ -121,6 +135,9 @@
  entity, the name will begin with '%', and if it is the
  external DTD subset, it will be "[dtd]".
  @exception SAXException The application may raise an exception.
+ - seealso: #endEntity
+ - seealso: org.xml.sax.ext.DeclHandler#internalEntityDecl
+ - seealso: org.xml.sax.ext.DeclHandler#externalEntityDecl
  */
 - (void)startEntityWithNSString:(NSString *)name;
 
@@ -128,6 +145,7 @@
  @brief Report the end of an entity.
  @param name The name of the entity that is ending.
  @exception SAXException The application may raise an exception.
+ - seealso: #startEntity
  */
 - (void)endEntityWithNSString:(NSString *)name;
 
@@ -138,12 +156,14 @@
   event; this event is intended only to report
  the boundary.</p>
  @exception SAXException The application may raise an exception.
+ - seealso: #endCDATA
  */
 - (void)startCDATA;
 
 /*!
  @brief Report the end of a CDATA section.
  @exception SAXException The application may raise an exception.
+ - seealso: #startCDATA
  */
 - (void)endCDATA;
 
@@ -169,4 +189,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxExtLexicalHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtLexicalHandler)
 
-#endif // _OrgXmlSaxExtLexicalHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxExtLexicalHandler_INCLUDE_ALL")

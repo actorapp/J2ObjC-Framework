@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/TreeSet.java
 //
 
-#ifndef _JavaUtilTreeSet_H_
-#define _JavaUtilTreeSet_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilTreeSet_INCLUDE_ALL")
+#ifdef JavaUtilTreeSet_RESTRICT
+#define JavaUtilTreeSet_INCLUDE_ALL 0
+#else
+#define JavaUtilTreeSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilTreeSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilTreeSet_) && (JavaUtilTreeSet_INCLUDE_ALL || defined(JavaUtilTreeSet_INCLUDE))
+#define JavaUtilTreeSet_
+
+#define JavaUtilAbstractSet_RESTRICT 1
+#define JavaUtilAbstractSet_INCLUDE 1
 #include "../../java/util/AbstractSet.h"
+
+#define JavaUtilNavigableSet_RESTRICT 1
+#define JavaUtilNavigableSet_INCLUDE 1
 #include "../../java/util/NavigableSet.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;
@@ -95,12 +115,15 @@
 
 /*!
  
+ - seealso: java.util.NavigableSet#ceiling(java.lang.Object)
  @since 1.6
  */
 - (id)ceilingWithId:(id)e;
 
 /*!
  @brief Removes all elements from this <code>TreeSet</code>, leaving it empty.
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -108,6 +131,7 @@
  @brief Returns a new <code>TreeSet</code> with the same elements, size and comparator
  as this <code>TreeSet</code>.
  @return a shallow copy of this <code>TreeSet</code>.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -134,12 +158,14 @@
 
 /*!
  
+ - seealso: java.util.NavigableSet#descendingIterator()
  @since 1.6
  */
 - (id<JavaUtilIterator>)descendingIterator;
 
 /*!
  
+ - seealso: java.util.NavigableSet#descendingSet()
  @since 1.6
  */
 - (id<JavaUtilNavigableSet>)descendingSet;
@@ -152,6 +178,7 @@
 
 /*!
  
+ - seealso: java.util.NavigableSet#floor(java.lang.Object)
  @since 1.6
  */
 - (id)floorWithId:(id)e;
@@ -175,6 +202,7 @@
 
 /*!
  
+ - seealso: java.util.NavigableSet#headSet(Object,boolean)
  @since 1.6
  */
 - (id<JavaUtilNavigableSet>)headSetWithId:(id)end
@@ -182,6 +210,7 @@
 
 /*!
  
+ - seealso: java.util.NavigableSet#higher(java.lang.Object)
  @since 1.6
  */
 - (id)higherWithId:(id)e;
@@ -189,12 +218,14 @@
 /*!
  @brief Returns true if this <code>TreeSet</code> has no element, otherwise false.
  @return true if this <code>TreeSet</code> has no element.
+ - seealso: #size
  */
 - (jboolean)isEmpty;
 
 /*!
  @brief Returns an Iterator on the elements of this <code>TreeSet</code>.
  @return an Iterator on the elements of this <code>TreeSet</code>.
+ - seealso: Iterator
  */
 - (id<JavaUtilIterator>)iterator;
 
@@ -206,18 +237,21 @@
 
 /*!
  
+ - seealso: java.util.NavigableSet#lower(java.lang.Object)
  @since 1.6
  */
 - (id)lowerWithId:(id)e;
 
 /*!
  
+ - seealso: java.util.NavigableSet#pollFirst()
  @since 1.6
  */
 - (id)pollFirst;
 
 /*!
  
+ - seealso: java.util.NavigableSet#pollLast()
  @since 1.6
  */
 - (id)pollLast;
@@ -245,6 +279,7 @@
 
 /*!
  
+ - seealso: java.util.NavigableSet#subSet(Object,boolean,Object,boolean)
  @since 1.6
  */
 - (id<JavaUtilNavigableSet>)subSetWithId:(id)start
@@ -295,6 +330,7 @@
 
 /*!
  
+ - seealso: java.util.NavigableSet#tailSet(Object,boolean)
  @since 1.6
  */
 - (id<JavaUtilNavigableSet>)tailSetWithId:(id)start
@@ -303,7 +339,6 @@
 #pragma mark Package-Private
 
 - (instancetype)initWithJavaUtilNavigableMap:(id<JavaUtilNavigableMap>)map;
-
 
 @end
 
@@ -331,4 +366,8 @@ FOUNDATION_EXPORT JavaUtilTreeSet *new_JavaUtilTreeSet_initWithJavaUtilSortedSet
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeSet)
 
-#endif // _JavaUtilTreeSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilTreeSet_INCLUDE_ALL")

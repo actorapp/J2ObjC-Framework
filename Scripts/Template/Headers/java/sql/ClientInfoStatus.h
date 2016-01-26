@@ -3,17 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/sql/ClientInfoStatus.java
 //
 
-#ifndef _JavaSqlClientInfoStatus_H_
-#define _JavaSqlClientInfoStatus_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlClientInfoStatus_INCLUDE_ALL")
+#ifdef JavaSqlClientInfoStatus_RESTRICT
+#define JavaSqlClientInfoStatus_INCLUDE_ALL 0
+#else
+#define JavaSqlClientInfoStatus_INCLUDE_ALL 1
+#endif
+#undef JavaSqlClientInfoStatus_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlClientInfoStatus_) && (JavaSqlClientInfoStatus_INCLUDE_ALL || defined(JavaSqlClientInfoStatus_INCLUDE))
+#define JavaSqlClientInfoStatus_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
 #include "../../java/lang/Enum.h"
 
-typedef NS_ENUM(NSUInteger, JavaSqlClientInfoStatus) {
-  JavaSqlClientInfoStatus_REASON_UNKNOWN = 0,
-  JavaSqlClientInfoStatus_REASON_UNKNOWN_PROPERTY = 1,
-  JavaSqlClientInfoStatus_REASON_VALUE_INVALID = 2,
-  JavaSqlClientInfoStatus_REASON_VALUE_TRUNCATED = 3,
+typedef NS_ENUM(NSUInteger, JavaSqlClientInfoStatus_Enum) {
+  JavaSqlClientInfoStatus_Enum_REASON_UNKNOWN = 0,
+  JavaSqlClientInfoStatus_Enum_REASON_UNKNOWN_PROPERTY = 1,
+  JavaSqlClientInfoStatus_Enum_REASON_VALUE_INVALID = 2,
+  JavaSqlClientInfoStatus_Enum_REASON_VALUE_TRUNCATED = 3,
 };
 
 /*!
@@ -21,36 +35,54 @@ typedef NS_ENUM(NSUInteger, JavaSqlClientInfoStatus) {
  Connection.setClientInfo.
  @since 1.6
  */
-@interface JavaSqlClientInfoStatusEnum : JavaLangEnum < NSCopying >
+@interface JavaSqlClientInfoStatus : JavaLangEnum < NSCopying >
+
++ (JavaSqlClientInfoStatus *)REASON_UNKNOWN;
+
++ (JavaSqlClientInfoStatus *)REASON_UNKNOWN_PROPERTY;
+
++ (JavaSqlClientInfoStatus *)REASON_VALUE_INVALID;
+
++ (JavaSqlClientInfoStatus *)REASON_VALUE_TRUNCATED;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaSqlClientInfoStatusEnum_values();
 
-+ (JavaSqlClientInfoStatusEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaSqlClientInfoStatusEnum *JavaSqlClientInfoStatusEnum_valueOfWithNSString_(NSString *name);
++ (JavaSqlClientInfoStatus *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaSqlClientInfoStatus_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaSqlClientInfoStatusEnum)
+J2OBJC_STATIC_INIT(JavaSqlClientInfoStatus)
 
-FOUNDATION_EXPORT JavaSqlClientInfoStatusEnum *JavaSqlClientInfoStatusEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaSqlClientInfoStatus *JavaSqlClientInfoStatus_values_[];
 
-#define JavaSqlClientInfoStatusEnum_REASON_UNKNOWN JavaSqlClientInfoStatusEnum_values_[JavaSqlClientInfoStatus_REASON_UNKNOWN]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSqlClientInfoStatusEnum, REASON_UNKNOWN)
+inline JavaSqlClientInfoStatus *JavaSqlClientInfoStatus_get_REASON_UNKNOWN();
+J2OBJC_ENUM_CONSTANT(JavaSqlClientInfoStatus, REASON_UNKNOWN)
 
-#define JavaSqlClientInfoStatusEnum_REASON_UNKNOWN_PROPERTY JavaSqlClientInfoStatusEnum_values_[JavaSqlClientInfoStatus_REASON_UNKNOWN_PROPERTY]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSqlClientInfoStatusEnum, REASON_UNKNOWN_PROPERTY)
+inline JavaSqlClientInfoStatus *JavaSqlClientInfoStatus_get_REASON_UNKNOWN_PROPERTY();
+J2OBJC_ENUM_CONSTANT(JavaSqlClientInfoStatus, REASON_UNKNOWN_PROPERTY)
 
-#define JavaSqlClientInfoStatusEnum_REASON_VALUE_INVALID JavaSqlClientInfoStatusEnum_values_[JavaSqlClientInfoStatus_REASON_VALUE_INVALID]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSqlClientInfoStatusEnum, REASON_VALUE_INVALID)
+inline JavaSqlClientInfoStatus *JavaSqlClientInfoStatus_get_REASON_VALUE_INVALID();
+J2OBJC_ENUM_CONSTANT(JavaSqlClientInfoStatus, REASON_VALUE_INVALID)
 
-#define JavaSqlClientInfoStatusEnum_REASON_VALUE_TRUNCATED JavaSqlClientInfoStatusEnum_values_[JavaSqlClientInfoStatus_REASON_VALUE_TRUNCATED]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSqlClientInfoStatusEnum, REASON_VALUE_TRUNCATED)
+inline JavaSqlClientInfoStatus *JavaSqlClientInfoStatus_get_REASON_VALUE_TRUNCATED();
+J2OBJC_ENUM_CONSTANT(JavaSqlClientInfoStatus, REASON_VALUE_TRUNCATED)
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaSqlClientInfoStatusEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaSqlClientInfoStatus_values();
 
-#endif // _JavaSqlClientInfoStatus_H_
+FOUNDATION_EXPORT JavaSqlClientInfoStatus *JavaSqlClientInfoStatus_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaSqlClientInfoStatus *JavaSqlClientInfoStatus_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaSqlClientInfoStatus)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlClientInfoStatus_INCLUDE_ALL")

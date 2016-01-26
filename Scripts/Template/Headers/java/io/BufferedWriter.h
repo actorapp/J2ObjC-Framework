@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/BufferedWriter.java
 //
 
-#ifndef _JavaIoBufferedWriter_H_
-#define _JavaIoBufferedWriter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoBufferedWriter_INCLUDE_ALL")
+#ifdef JavaIoBufferedWriter_RESTRICT
+#define JavaIoBufferedWriter_INCLUDE_ALL 0
+#else
+#define JavaIoBufferedWriter_INCLUDE_ALL 1
+#endif
+#undef JavaIoBufferedWriter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoBufferedWriter_) && (JavaIoBufferedWriter_INCLUDE_ALL || defined(JavaIoBufferedWriter_INCLUDE))
+#define JavaIoBufferedWriter_
+
+#define JavaIoWriter_RESTRICT 1
+#define JavaIoWriter_INCLUDE 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -25,6 +39,7 @@
   BufferedWriter buf = new BufferedWriter(new FileWriter(&quot;file.java&quot;));
   
 @endcode
+ - seealso: BufferedReader
  */
 @interface JavaIoBufferedWriter : JavaIoWriter
 
@@ -148,4 +163,8 @@ FOUNDATION_EXPORT JavaIoBufferedWriter *new_JavaIoBufferedWriter_initWithJavaIoW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedWriter)
 
-#endif // _JavaIoBufferedWriter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoBufferedWriter_INCLUDE_ALL")

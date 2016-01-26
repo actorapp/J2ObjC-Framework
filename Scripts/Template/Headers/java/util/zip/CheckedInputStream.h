@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/CheckedInputStream.java
 //
 
-#ifndef _JavaUtilZipCheckedInputStream_H_
-#define _JavaUtilZipCheckedInputStream_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipCheckedInputStream_INCLUDE_ALL")
+#ifdef JavaUtilZipCheckedInputStream_RESTRICT
+#define JavaUtilZipCheckedInputStream_INCLUDE_ALL 0
+#else
+#define JavaUtilZipCheckedInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipCheckedInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipCheckedInputStream_) && (JavaUtilZipCheckedInputStream_INCLUDE_ALL || defined(JavaUtilZipCheckedInputStream_INCLUDE))
+#define JavaUtilZipCheckedInputStream_
+
+#define JavaIoFilterInputStream_RESTRICT 1
+#define JavaIoFilterInputStream_INCLUDE 1
 #include "../../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
@@ -88,4 +102,8 @@ FOUNDATION_EXPORT JavaUtilZipCheckedInputStream *new_JavaUtilZipCheckedInputStre
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipCheckedInputStream)
 
-#endif // _JavaUtilZipCheckedInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipCheckedInputStream_INCLUDE_ALL")

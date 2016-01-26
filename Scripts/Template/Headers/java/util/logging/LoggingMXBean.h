@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/LoggingMXBean.java
 //
 
-#ifndef _JavaUtilLoggingLoggingMXBean_H_
-#define _JavaUtilLoggingLoggingMXBean_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLoggingLoggingMXBean_INCLUDE_ALL")
+#ifdef JavaUtilLoggingLoggingMXBean_RESTRICT
+#define JavaUtilLoggingLoggingMXBean_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingLoggingMXBean_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingLoggingMXBean_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingLoggingMXBean_) && (JavaUtilLoggingLoggingMXBean_INCLUDE_ALL || defined(JavaUtilLoggingLoggingMXBean_INCLUDE))
+#define JavaUtilLoggingLoggingMXBean_
 
 @protocol JavaUtilList;
 
@@ -28,6 +39,7 @@
  @param loggerName
  the name of the logger lookup.
  @return a <code>String</code> if the logger is found, otherwise <code>null</code>.
+ - seealso: Level#getName()
  */
 - (NSString *)getLoggerLevelWithNSString:(NSString *)loggerName;
 
@@ -62,6 +74,7 @@
  @throws IllegalArgumentException
  if <code>loggerName</code> is not a registered logger or if
  <code>levelName</code> is not null and not valid.
+ - seealso: Level#parse(String)
  */
 - (void)setLoggerLevelWithNSString:(NSString *)loggerName
                       withNSString:(NSString *)levelName;
@@ -72,4 +85,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilLoggingLoggingMXBean)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLoggingMXBean)
 
-#endif // _JavaUtilLoggingLoggingMXBean_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingLoggingMXBean_INCLUDE_ALL")

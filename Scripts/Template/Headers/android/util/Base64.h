@@ -3,19 +3,29 @@
 //  source: android/frameworks/base/core/java/android/util/Base64.java
 //
 
-#ifndef _AndroidUtilBase64_H_
-#define _AndroidUtilBase64_H_
-
 #include "../../J2ObjC_header.h"
 
-@class IOSByteArray;
+#pragma push_macro("AndroidUtilBase64_INCLUDE_ALL")
+#ifdef AndroidUtilBase64_RESTRICT
+#define AndroidUtilBase64_INCLUDE_ALL 0
+#else
+#define AndroidUtilBase64_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilBase64_RESTRICT
+#ifdef AndroidUtilBase64_Encoder_INCLUDE
+#define AndroidUtilBase64_Coder_INCLUDE 1
+#endif
+#ifdef AndroidUtilBase64_Decoder_INCLUDE
+#define AndroidUtilBase64_Coder_INCLUDE 1
+#endif
 
-#define AndroidUtilBase64_DEFAULT 0
-#define AndroidUtilBase64_NO_PADDING 1
-#define AndroidUtilBase64_NO_WRAP 2
-#define AndroidUtilBase64_CRLF 4
-#define AndroidUtilBase64_URL_SAFE 8
-#define AndroidUtilBase64_NO_CLOSE 16
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilBase64_) && (AndroidUtilBase64_INCLUDE_ALL || defined(AndroidUtilBase64_INCLUDE))
+#define AndroidUtilBase64_
+
+@class IOSByteArray;
 
 /*!
  @brief Utilities for encoding and decoding the Base64 representation of
@@ -25,6 +35,18 @@
  href="http://www.ietf.org/rfc/rfc3548.txt">3548</a>.
  */
 @interface AndroidUtilBase64 : NSObject
+
++ (jint)DEFAULT;
+
++ (jint)NO_PADDING;
+
++ (jint)NO_WRAP;
+
++ (jint)CRLF;
+
++ (jint)URL_SAFE;
+
++ (jint)NO_CLOSE;
 
 #pragma mark Public
 
@@ -133,17 +155,57 @@
 
 J2OBJC_EMPTY_STATIC_INIT(AndroidUtilBase64)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilBase64, DEFAULT, jint)
+/*!
+ @brief Default values for encoder/decoder flags.
+ */
+inline jint AndroidUtilBase64_get_DEFAULT();
+#define AndroidUtilBase64_DEFAULT 0
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, DEFAULT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilBase64, NO_PADDING, jint)
+/*!
+ @brief Encoder flag bit to omit the padding '=' characters at the end
+ of the output (if any).
+ */
+inline jint AndroidUtilBase64_get_NO_PADDING();
+#define AndroidUtilBase64_NO_PADDING 1
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, NO_PADDING, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilBase64, NO_WRAP, jint)
+/*!
+ @brief Encoder flag bit to omit all line terminators (i.e., the output
+ will be on one long line).
+ */
+inline jint AndroidUtilBase64_get_NO_WRAP();
+#define AndroidUtilBase64_NO_WRAP 2
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, NO_WRAP, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilBase64, CRLF, jint)
+/*!
+ @brief Encoder flag bit to indicate lines should be terminated with a
+ CRLF pair instead of just an LF.
+ Has no effect if <code>NO_WRAP</code>
+  is specified as well.
+ */
+inline jint AndroidUtilBase64_get_CRLF();
+#define AndroidUtilBase64_CRLF 4
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, CRLF, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilBase64, URL_SAFE, jint)
+/*!
+ @brief Encoder/decoder flag bit to indicate using the "URL and
+ filename safe" variant of Base64 (see RFC 3548 section 4) where
+ <code>-</code> and <code>_</code> are used in place of <code>+</code> and
+ <code>/</code>.
+ */
+inline jint AndroidUtilBase64_get_URL_SAFE();
+#define AndroidUtilBase64_URL_SAFE 8
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, URL_SAFE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilBase64, NO_CLOSE, jint)
+/*!
+ @brief Flag to pass to <code>Base64OutputStream</code> to indicate that it
+ should not close the output stream it is wrapping when it
+ itself is closed.
+ */
+inline jint AndroidUtilBase64_get_NO_CLOSE();
+#define AndroidUtilBase64_NO_CLOSE 16
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64, NO_CLOSE, jint)
 
 FOUNDATION_EXPORT IOSByteArray *AndroidUtilBase64_decodeWithNSString_withInt_(NSString *str, jint flags);
 
@@ -160,6 +222,13 @@ FOUNDATION_EXPORT IOSByteArray *AndroidUtilBase64_encodeWithByteArray_withInt_(I
 FOUNDATION_EXPORT IOSByteArray *AndroidUtilBase64_encodeWithByteArray_withInt_withInt_withInt_(IOSByteArray *input, jint offset, jint len, jint flags);
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64)
+
+#endif
+
+#if !defined (AndroidUtilBase64_Coder_) && (AndroidUtilBase64_INCLUDE_ALL || defined(AndroidUtilBase64_Coder_INCLUDE))
+#define AndroidUtilBase64_Coder_
+
+@class IOSByteArray;
 
 @interface AndroidUtilBase64_Coder : NSObject {
  @public
@@ -207,6 +276,13 @@ FOUNDATION_EXPORT void AndroidUtilBase64_Coder_init(AndroidUtilBase64_Coder *sel
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Coder)
 
+#endif
+
+#if !defined (AndroidUtilBase64_Decoder_) && (AndroidUtilBase64_INCLUDE_ALL || defined(AndroidUtilBase64_Decoder_INCLUDE))
+#define AndroidUtilBase64_Decoder_
+
+@class IOSByteArray;
+
 @interface AndroidUtilBase64_Decoder : AndroidUtilBase64_Coder
 
 #pragma mark Public
@@ -240,7 +316,12 @@ FOUNDATION_EXPORT AndroidUtilBase64_Decoder *new_AndroidUtilBase64_Decoder_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Decoder)
 
-#define AndroidUtilBase64_Encoder_LINE_GROUPS 19
+#endif
+
+#if !defined (AndroidUtilBase64_Encoder_) && (AndroidUtilBase64_INCLUDE_ALL || defined(AndroidUtilBase64_Encoder_INCLUDE))
+#define AndroidUtilBase64_Encoder_
+
+@class IOSByteArray;
 
 @interface AndroidUtilBase64_Encoder : AndroidUtilBase64_Coder {
  @public
@@ -249,6 +330,8 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Decoder)
   jboolean do_newline_;
   jboolean do_cr_;
 }
+
++ (jint)LINE_GROUPS;
 
 #pragma mark Public
 
@@ -270,7 +353,15 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Decoder)
 
 J2OBJC_STATIC_INIT(AndroidUtilBase64_Encoder)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilBase64_Encoder, LINE_GROUPS, jint)
+/*!
+ @brief Emit a new line every this many output tuples.
+ Corresponds to
+ a 76-character line length (the maximum allowable according to
+ <a href="http://www.ietf.org/rfc/rfc2045.txt">RFC 2045</a>).
+ */
+inline jint AndroidUtilBase64_Encoder_get_LINE_GROUPS();
+#define AndroidUtilBase64_Encoder_LINE_GROUPS 19
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilBase64_Encoder, LINE_GROUPS, jint)
 
 FOUNDATION_EXPORT void AndroidUtilBase64_Encoder_initWithInt_withByteArray_(AndroidUtilBase64_Encoder *self, jint flags, IOSByteArray *output);
 
@@ -278,4 +369,8 @@ FOUNDATION_EXPORT AndroidUtilBase64_Encoder *new_AndroidUtilBase64_Encoder_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Encoder)
 
-#endif // _AndroidUtilBase64_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilBase64_INCLUDE_ALL")

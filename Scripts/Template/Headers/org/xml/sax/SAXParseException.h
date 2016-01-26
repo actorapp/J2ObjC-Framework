@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/SAXParseException.java
 //
 
-#ifndef _OrgXmlSaxSAXParseException_H_
-#define _OrgXmlSaxSAXParseException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxSAXParseException_INCLUDE_ALL")
+#ifdef OrgXmlSaxSAXParseException_RESTRICT
+#define OrgXmlSaxSAXParseException_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxSAXParseException_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxSAXParseException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxSAXParseException_) && (OrgXmlSaxSAXParseException_INCLUDE_ALL || defined(OrgXmlSaxSAXParseException_INCLUDE))
+#define OrgXmlSaxSAXParseException_
+
+#define OrgXmlSaxSAXException_RESTRICT 1
+#define OrgXmlSaxSAXException_INCLUDE 1
 #include "../../../org/xml/sax/SAXException.h"
 
 @class JavaLangException;
@@ -33,6 +47,9 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.SAXException
+ - seealso: org.xml.sax.Locator
+ - seealso: org.xml.sax.ErrorHandler
  */
 @interface OrgXmlSaxSAXParseException : OrgXmlSaxSAXException
 
@@ -46,6 +63,7 @@
  @param message The error or warning message.
  @param locator The locator object for the error or warning (may be
  null).
+ - seealso: org.xml.sax.Locator
  */
 - (instancetype)initWithNSString:(NSString *)message
             withOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
@@ -61,6 +79,7 @@
  @param locator The locator object for the error or warning (may be
  null).
  @param e Any exception.
+ - seealso: org.xml.sax.Locator
  */
 - (instancetype)initWithNSString:(NSString *)message
             withOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator
@@ -122,6 +141,7 @@
  <p>The first column in a line is position 1.</p>
  @return An integer representing the column number, or -1
  if none is available.
+ - seealso: org.xml.sax.Locator#getColumnNumber
  */
 - (jint)getColumnNumber;
 
@@ -130,6 +150,7 @@
  <p>The first line is line 1.</p>
  @return An integer representing the line number, or -1
  if none is available.
+ - seealso: org.xml.sax.Locator#getLineNumber
  */
 - (jint)getLineNumber;
 
@@ -137,6 +158,7 @@
  @brief Get the public identifier of the entity where the exception occurred.
  @return A string containing the public identifier, or null
  if none is available.
+ - seealso: org.xml.sax.Locator#getPublicId
  */
 - (NSString *)getPublicId;
 
@@ -146,6 +168,7 @@
  fully.</p>
  @return A string containing the system identifier, or null
  if none is available.
+ - seealso: org.xml.sax.Locator#getSystemId
  */
 - (NSString *)getSystemId;
 
@@ -171,4 +194,8 @@ FOUNDATION_EXPORT OrgXmlSaxSAXParseException *new_OrgXmlSaxSAXParseException_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXParseException)
 
-#endif // _OrgXmlSaxSAXParseException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxSAXParseException_INCLUDE_ALL")

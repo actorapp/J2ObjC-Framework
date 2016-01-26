@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/sql/ResultSet.java
 //
 
-#ifndef _JavaSqlResultSet_H_
-#define _JavaSqlResultSet_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/AutoCloseable.h"
+
+#pragma push_macro("JavaSqlResultSet_INCLUDE_ALL")
+#ifdef JavaSqlResultSet_RESTRICT
+#define JavaSqlResultSet_INCLUDE_ALL 0
+#else
+#define JavaSqlResultSet_INCLUDE_ALL 1
+#endif
+#undef JavaSqlResultSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlResultSet_) && (JavaSqlResultSet_INCLUDE_ALL || defined(JavaSqlResultSet_INCLUDE))
+#define JavaSqlResultSet_
+
+#define JavaSqlWrapper_RESTRICT 1
+#define JavaSqlWrapper_INCLUDE 1
 #include "../../java/sql/Wrapper.h"
+
+#define JavaLangAutoCloseable_RESTRICT 1
+#define JavaLangAutoCloseable_INCLUDE 1
+#include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -30,17 +47,6 @@
 @protocol JavaSqlSQLXML;
 @protocol JavaSqlStatement;
 @protocol JavaUtilMap;
-
-#define JavaSqlResultSet_CLOSE_CURSORS_AT_COMMIT 2
-#define JavaSqlResultSet_HOLD_CURSORS_OVER_COMMIT 1
-#define JavaSqlResultSet_CONCUR_READ_ONLY 1007
-#define JavaSqlResultSet_CONCUR_UPDATABLE 1008
-#define JavaSqlResultSet_FETCH_FORWARD 1000
-#define JavaSqlResultSet_FETCH_REVERSE 1001
-#define JavaSqlResultSet_FETCH_UNKNOWN 1002
-#define JavaSqlResultSet_TYPE_FORWARD_ONLY 1003
-#define JavaSqlResultSet_TYPE_SCROLL_INSENSITIVE 1004
-#define JavaSqlResultSet_TYPE_SCROLL_SENSITIVE 1005
 
 /*!
  @brief An interface for an object which represents a database table entry, returned
@@ -253,7 +259,7 @@
  if a database error happens.
  */
 - (JavaMathBigDecimal *)getBigDecimalWithInt:(jint)columnIndex
-                                     withInt:(jint)scale_;
+                                     withInt:(jint)scale_ __attribute__((deprecated));
 
 /*!
  @brief Gets the value of a column specified by column name, as a <code>java.math.BigDecimal</code>
@@ -278,7 +284,7 @@
  if a database error happens.
  */
 - (JavaMathBigDecimal *)getBigDecimalWithNSString:(NSString *)columnName
-                                          withInt:(jint)scale_;
+                                          withInt:(jint)scale_ __attribute__((deprecated));
 
 /*!
  @brief Gets the value of a column specified by column index as a binary
@@ -412,6 +418,7 @@
  the column value is SQL <code>NULL</code>.
  @throws SQLException
  if a database error happens.
+ - seealso: java.io.Reader
  */
 - (JavaIoReader *)getCharacterStreamWithInt:(jint)columnIndex;
 
@@ -953,7 +960,7 @@
  @throws SQLException
  if a database error happens.
  */
-- (JavaIoInputStream *)getUnicodeStreamWithInt:(jint)columnIndex;
+- (JavaIoInputStream *)getUnicodeStreamWithInt:(jint)columnIndex __attribute__((deprecated));
 
 /*!
  @brief Gets the value of the column as an <code>InputStream</code> of Unicode
@@ -965,7 +972,7 @@
  @throws SQLException
  if a database error happens.
  */
-- (JavaIoInputStream *)getUnicodeStreamWithNSString:(NSString *)columnName;
+- (JavaIoInputStream *)getUnicodeStreamWithNSString:(NSString *)columnName __attribute__((deprecated));
 
 /*!
  @brief Gets the value of a column specified by column index as a <code>java.net.URL</code>
@@ -2192,28 +2199,116 @@
 
 @end
 
+@interface JavaSqlResultSet : NSObject
+
++ (jint)CLOSE_CURSORS_AT_COMMIT;
+
++ (jint)HOLD_CURSORS_OVER_COMMIT;
+
++ (jint)CONCUR_READ_ONLY;
+
++ (jint)CONCUR_UPDATABLE;
+
++ (jint)FETCH_FORWARD;
+
++ (jint)FETCH_REVERSE;
+
++ (jint)FETCH_UNKNOWN;
+
++ (jint)TYPE_FORWARD_ONLY;
+
++ (jint)TYPE_SCROLL_INSENSITIVE;
+
++ (jint)TYPE_SCROLL_SENSITIVE;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlResultSet)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSet, CLOSE_CURSORS_AT_COMMIT, jint)
+/*!
+ @brief A constant used to indicate that a <code>ResultSet</code> object must be
+ closed when the method <code>Connection.commit</code> is invoked.
+ */
+inline jint JavaSqlResultSet_get_CLOSE_CURSORS_AT_COMMIT();
+#define JavaSqlResultSet_CLOSE_CURSORS_AT_COMMIT 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSet, CLOSE_CURSORS_AT_COMMIT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSet, HOLD_CURSORS_OVER_COMMIT, jint)
+/*!
+ @brief A constant used to indicate that a <code>ResultSet</code> object must not be
+ closed when the method <code>Connection.commit</code> is invoked.
+ */
+inline jint JavaSqlResultSet_get_HOLD_CURSORS_OVER_COMMIT();
+#define JavaSqlResultSet_HOLD_CURSORS_OVER_COMMIT 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSet, HOLD_CURSORS_OVER_COMMIT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSet, CONCUR_READ_ONLY, jint)
+/*!
+ @brief A constant used to indicate the concurrency mode for a <code>ResultSet</code>
+ object that cannot be updated.
+ */
+inline jint JavaSqlResultSet_get_CONCUR_READ_ONLY();
+#define JavaSqlResultSet_CONCUR_READ_ONLY 1007
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSet, CONCUR_READ_ONLY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSet, CONCUR_UPDATABLE, jint)
+/*!
+ @brief A constant used to indicate the concurrency mode for a <code>ResultSet</code>
+ object that can be updated.
+ */
+inline jint JavaSqlResultSet_get_CONCUR_UPDATABLE();
+#define JavaSqlResultSet_CONCUR_UPDATABLE 1008
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSet, CONCUR_UPDATABLE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSet, FETCH_FORWARD, jint)
+/*!
+ @brief A constant used to indicate processing of the rows of a <code>ResultSet</code>
+ in the forward direction, first to last.
+ */
+inline jint JavaSqlResultSet_get_FETCH_FORWARD();
+#define JavaSqlResultSet_FETCH_FORWARD 1000
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSet, FETCH_FORWARD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSet, FETCH_REVERSE, jint)
+/*!
+ @brief A constant used to indicate processing of the rows of a <code>ResultSet</code>
+ in the reverse direction, last to first.
+ */
+inline jint JavaSqlResultSet_get_FETCH_REVERSE();
+#define JavaSqlResultSet_FETCH_REVERSE 1001
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSet, FETCH_REVERSE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSet, FETCH_UNKNOWN, jint)
+/*!
+ @brief A constant used to indicate that the order of processing of the rows of a
+ <code>ResultSet</code> is unknown.
+ */
+inline jint JavaSqlResultSet_get_FETCH_UNKNOWN();
+#define JavaSqlResultSet_FETCH_UNKNOWN 1002
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSet, FETCH_UNKNOWN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSet, TYPE_FORWARD_ONLY, jint)
+/*!
+ @brief A constant used to indicate a <code>ResultSet</code> object whose cursor can
+ only move forward.
+ */
+inline jint JavaSqlResultSet_get_TYPE_FORWARD_ONLY();
+#define JavaSqlResultSet_TYPE_FORWARD_ONLY 1003
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSet, TYPE_FORWARD_ONLY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSet, TYPE_SCROLL_INSENSITIVE, jint)
+/*!
+ @brief A constant used to indicate a <code>ResultSet</code> object which is
+ scrollable but is insensitive to changes made by others.
+ */
+inline jint JavaSqlResultSet_get_TYPE_SCROLL_INSENSITIVE();
+#define JavaSqlResultSet_TYPE_SCROLL_INSENSITIVE 1004
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSet, TYPE_SCROLL_INSENSITIVE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSet, TYPE_SCROLL_SENSITIVE, jint)
+/*!
+ @brief A constant used to indicate a <code>ResultSet</code> object which is
+ scrollable and sensitive to changes made by others.
+ */
+inline jint JavaSqlResultSet_get_TYPE_SCROLL_SENSITIVE();
+#define JavaSqlResultSet_TYPE_SCROLL_SENSITIVE 1005
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSet, TYPE_SCROLL_SENSITIVE, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlResultSet)
 
-#endif // _JavaSqlResultSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlResultSet_INCLUDE_ALL")

@@ -3,17 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ThreadPoolExecutor.java
 //
 
-#ifndef _JavaUtilConcurrentThreadPoolExecutor_H_
-#define _JavaUtilConcurrentThreadPoolExecutor_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentThreadPoolExecutor_RESTRICT
+#define JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentThreadPoolExecutor_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentThreadPoolExecutor_) && (JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentThreadPoolExecutor_INCLUDE))
+#define JavaUtilConcurrentThreadPoolExecutor_
+
+#define JavaUtilConcurrentAbstractExecutorService_RESTRICT 1
+#define JavaUtilConcurrentAbstractExecutorService_INCLUDE 1
 #include "../../../java/util/concurrent/AbstractExecutorService.h"
-#include "../../../java/util/concurrent/RejectedExecutionHandler.h"
 
 @class JavaLangThread;
 @class JavaLangThrowable;
 @class JavaUtilConcurrentThreadPoolExecutor_Worker;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaUtilConcurrentBlockingQueue;
 @protocol JavaUtilConcurrentRejectedExecutionHandler;
@@ -273,7 +286,7 @@
 - (instancetype)initWithInt:(jint)corePoolSize
                     withInt:(jint)maximumPoolSize
                    withLong:(jlong)keepAliveTime
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
 withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue;
 
 /*!
@@ -303,7 +316,7 @@ withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQue
 - (instancetype)initWithInt:(jint)corePoolSize
                     withInt:(jint)maximumPoolSize
                    withLong:(jlong)keepAliveTime
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
 withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
 withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)handler;
 
@@ -334,7 +347,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 - (instancetype)initWithInt:(jint)corePoolSize
                     withInt:(jint)maximumPoolSize
                    withLong:(jlong)keepAliveTime
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
 withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
 withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory;
 
@@ -367,7 +380,7 @@ withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadF
 - (instancetype)initWithInt:(jint)corePoolSize
                     withInt:(jint)maximumPoolSize
                    withLong:(jlong)keepAliveTime
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit
 withJavaUtilConcurrentBlockingQueue:(id<JavaUtilConcurrentBlockingQueue>)workQueue
 withJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory
 withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)handler;
@@ -405,7 +418,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 - (jboolean)allowsCoreThreadTimeOut;
 
 - (jboolean)awaitTerminationWithLong:(jlong)timeout
-  withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+      withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Executes the given task sometime in the future.
@@ -443,6 +456,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 /*!
  @brief Returns the core number of threads.
  @return the core number of threads
+ - seealso: #setCorePoolSize
  */
 - (jint)getCorePoolSize;
 
@@ -452,8 +466,9 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  idle before being terminated.
  @param unit the desired time unit of the result
  @return the time limit
+ - seealso: #setKeepAliveTime(long,TimeUnit)
  */
-- (jlong)getKeepAliveTimeWithJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+- (jlong)getKeepAliveTimeWithJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Returns the largest number of threads that have ever
@@ -465,6 +480,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 /*!
  @brief Returns the maximum allowed number of threads.
  @return the maximum allowed number of threads
+ - seealso: #setMaximumPoolSize
  */
 - (jint)getMaximumPoolSize;
 
@@ -487,6 +503,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 /*!
  @brief Returns the current handler for unexecutable tasks.
  @return the current handler
+ - seealso: #setRejectedExecutionHandler(RejectedExecutionHandler)
  */
 - (id<JavaUtilConcurrentRejectedExecutionHandler>)getRejectedExecutionHandler;
 
@@ -503,6 +520,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 /*!
  @brief Returns the thread factory used to create new threads.
  @return the current thread factory
+ - seealso: #setThreadFactory(ThreadFactory)
  */
 - (id<JavaUtilConcurrentThreadFactory>)getThreadFactory;
 
@@ -580,6 +598,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  be started to execute any queued tasks.
  @param corePoolSize the new core size
  @throws IllegalArgumentException if <code>corePoolSize < 0</code>
+ - seealso: #getCorePoolSize
  */
 - (void)setCorePoolSizeWithInt:(jint)corePoolSize;
 
@@ -595,9 +614,10 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  @param unit the time unit of the <code>time</code> argument
  @throws IllegalArgumentException if <code>time</code> less than zero or
  if <code>time</code> is zero and <code>allowsCoreThreadTimeOut</code>
+ - seealso: #getKeepAliveTime(TimeUnit)
  */
 - (void)setKeepAliveTimeWithLong:(jlong)time
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+  withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Sets the maximum allowed number of threads.
@@ -609,6 +629,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  @throws IllegalArgumentException if the new maximum is
  less than or equal to zero, or
  less than the core pool size
+ - seealso: #getMaximumPoolSize
  */
 - (void)setMaximumPoolSizeWithInt:(jint)maximumPoolSize;
 
@@ -616,6 +637,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  @brief Sets a new handler for unexecutable tasks.
  @param handler the new handler
  @throws NullPointerException if handler is null
+ - seealso: #getRejectedExecutionHandler
  */
 - (void)setRejectedExecutionHandlerWithJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExecutionHandler>)handler;
 
@@ -623,6 +645,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  @brief Sets the thread factory used to create new threads.
  @param threadFactory the new thread factory
  @throws NullPointerException if threadFactory is null
+ - seealso: #getThreadFactory
  */
 - (void)setThreadFactoryWithJavaUtilConcurrentThreadFactory:(id<JavaUtilConcurrentThreadFactory>)threadFactory;
 
@@ -825,23 +848,35 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentThreadPoolExecutor)
 
-FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnitEnum_withJavaUtilConcurrentBlockingQueue_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnitEnum *unit, id<JavaUtilConcurrentBlockingQueue> workQueue);
+FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue);
 
-FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnitEnum_withJavaUtilConcurrentBlockingQueue_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnitEnum *unit, id<JavaUtilConcurrentBlockingQueue> workQueue) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnitEnum_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnitEnum *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory);
+FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory);
 
-FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnitEnum_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnitEnum *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnitEnum_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentRejectedExecutionHandler_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnitEnum *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentRejectedExecutionHandler> handler);
+FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentRejectedExecutionHandler_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentRejectedExecutionHandler> handler);
 
-FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnitEnum_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentRejectedExecutionHandler_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnitEnum *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentRejectedExecutionHandler> handler) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentRejectedExecutionHandler_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentRejectedExecutionHandler> handler) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnitEnum_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_withJavaUtilConcurrentRejectedExecutionHandler_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnitEnum *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory, id<JavaUtilConcurrentRejectedExecutionHandler> handler);
+FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_withJavaUtilConcurrentRejectedExecutionHandler_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory, id<JavaUtilConcurrentRejectedExecutionHandler> handler);
 
-FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnitEnum_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_withJavaUtilConcurrentRejectedExecutionHandler_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnitEnum *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory, id<JavaUtilConcurrentRejectedExecutionHandler> handler) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_withJavaUtilConcurrentRejectedExecutionHandler_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory, id<JavaUtilConcurrentRejectedExecutionHandler> handler) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor)
+
+#endif
+
+#if !defined (JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy_) && (JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy_INCLUDE))
+#define JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy_
+
+#define JavaUtilConcurrentRejectedExecutionHandler_RESTRICT 1
+#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE 1
+#include "../../../java/util/concurrent/RejectedExecutionHandler.h"
+
+@class JavaUtilConcurrentThreadPoolExecutor;
+@protocol JavaLangRunnable;
 
 /*!
  @brief A handler for rejected tasks that runs the rejected task
@@ -877,6 +912,18 @@ FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy *new_Jav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy)
 
+#endif
+
+#if !defined (JavaUtilConcurrentThreadPoolExecutor_AbortPolicy_) && (JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentThreadPoolExecutor_AbortPolicy_INCLUDE))
+#define JavaUtilConcurrentThreadPoolExecutor_AbortPolicy_
+
+#define JavaUtilConcurrentRejectedExecutionHandler_RESTRICT 1
+#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE 1
+#include "../../../java/util/concurrent/RejectedExecutionHandler.h"
+
+@class JavaUtilConcurrentThreadPoolExecutor;
+@protocol JavaLangRunnable;
+
 /*!
  @brief A handler for rejected tasks that throws a
  <code>RejectedExecutionException</code>.
@@ -909,6 +956,18 @@ FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_AbortPolicy *new_JavaUtil
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_AbortPolicy)
 
+#endif
+
+#if !defined (JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_) && (JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_INCLUDE))
+#define JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_
+
+#define JavaUtilConcurrentRejectedExecutionHandler_RESTRICT 1
+#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE 1
+#include "../../../java/util/concurrent/RejectedExecutionHandler.h"
+
+@class JavaUtilConcurrentThreadPoolExecutor;
+@protocol JavaLangRunnable;
+
 /*!
  @brief A handler for rejected tasks that silently discards the
  rejected task.
@@ -939,6 +998,18 @@ FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_init(J
 FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy *new_JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy)
+
+#endif
+
+#if !defined (JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy_) && (JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy_INCLUDE))
+#define JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy_
+
+#define JavaUtilConcurrentRejectedExecutionHandler_RESTRICT 1
+#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE 1
+#include "../../../java/util/concurrent/RejectedExecutionHandler.h"
+
+@class JavaUtilConcurrentThreadPoolExecutor;
+@protocol JavaLangRunnable;
 
 /*!
  @brief A handler for rejected tasks that discards the oldest unhandled
@@ -975,4 +1046,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy *new_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy)
 
-#endif // _JavaUtilConcurrentThreadPoolExecutor_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL")

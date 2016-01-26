@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/util/EventObject.java
 //
 
-#ifndef _JavaUtilEventObject_H_
-#define _JavaUtilEventObject_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilEventObject_INCLUDE_ALL")
+#ifdef JavaUtilEventObject_RESTRICT
+#define JavaUtilEventObject_INCLUDE_ALL 0
+#else
+#define JavaUtilEventObject_INCLUDE_ALL 1
+#endif
+#undef JavaUtilEventObject_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilEventObject_) && (JavaUtilEventObject_INCLUDE_ALL || defined(JavaUtilEventObject_INCLUDE))
+#define JavaUtilEventObject_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 /*!
  @brief <code>EventObject</code>s represent events.
  Typically applications subclass this class to
  add event specific information.
+ - seealso: EventListener
  */
 @interface JavaUtilEventObject : NSObject < JavaIoSerializable > {
  @public
@@ -50,4 +65,8 @@ FOUNDATION_EXPORT JavaUtilEventObject *new_JavaUtilEventObject_initWithId_(id so
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEventObject)
 
-#endif // _JavaUtilEventObject_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilEventObject_INCLUDE_ALL")

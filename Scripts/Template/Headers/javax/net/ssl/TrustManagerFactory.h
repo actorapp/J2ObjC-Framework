@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/TrustManagerFactory.java
 //
 
-#ifndef _JavaxNetSslTrustManagerFactory_H_
-#define _JavaxNetSslTrustManagerFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslTrustManagerFactory_INCLUDE_ALL")
+#ifdef JavaxNetSslTrustManagerFactory_RESTRICT
+#define JavaxNetSslTrustManagerFactory_INCLUDE_ALL 0
+#else
+#define JavaxNetSslTrustManagerFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslTrustManagerFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslTrustManagerFactory_) && (JavaxNetSslTrustManagerFactory_INCLUDE_ALL || defined(JavaxNetSslTrustManagerFactory_INCLUDE))
+#define JavaxNetSslTrustManagerFactory_
 
 @class IOSObjectArray;
 @class JavaSecurityKeyStore;
@@ -158,4 +169,8 @@ FOUNDATION_EXPORT JavaxNetSslTrustManagerFactory *new_JavaxNetSslTrustManagerFac
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslTrustManagerFactory)
 
-#endif // _JavaxNetSslTrustManagerFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslTrustManagerFactory_INCLUDE_ALL")

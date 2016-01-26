@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/Level.java
 //
 
-#ifndef _JavaUtilLoggingLevel_H_
-#define _JavaUtilLoggingLevel_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLoggingLevel_INCLUDE_ALL")
+#ifdef JavaUtilLoggingLevel_RESTRICT
+#define JavaUtilLoggingLevel_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingLevel_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingLevel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingLevel_) && (JavaUtilLoggingLevel_INCLUDE_ALL || defined(JavaUtilLoggingLevel_INCLUDE))
+#define JavaUtilLoggingLevel_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../java/io/Serializable.h"
 
 /*!
@@ -22,6 +36,24 @@
  messages.
  */
 @interface JavaUtilLoggingLevel : NSObject < JavaIoSerializable >
+
++ (JavaUtilLoggingLevel *)OFF;
+
++ (JavaUtilLoggingLevel *)SEVERE;
+
++ (JavaUtilLoggingLevel *)WARNING;
+
++ (JavaUtilLoggingLevel *)INFO;
+
++ (JavaUtilLoggingLevel *)CONFIG;
+
++ (JavaUtilLoggingLevel *)FINE;
+
++ (JavaUtilLoggingLevel *)FINER;
+
++ (JavaUtilLoggingLevel *)FINEST;
+
++ (JavaUtilLoggingLevel *)ALL;
 
 #pragma mark Public
 
@@ -125,32 +157,77 @@
 
 J2OBJC_STATIC_INIT(JavaUtilLoggingLevel)
 
-FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_OFF_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLevel, OFF_, JavaUtilLoggingLevel *)
+/*!
+ @brief The OFF level provides no logging messages.
+ */
+inline JavaUtilLoggingLevel *JavaUtilLoggingLevel_get_OFF();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_OFF;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLevel, OFF, JavaUtilLoggingLevel *)
 
-FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_SEVERE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLevel, SEVERE_, JavaUtilLoggingLevel *)
+/*!
+ @brief The SEVERE level provides severe failure messages.
+ */
+inline JavaUtilLoggingLevel *JavaUtilLoggingLevel_get_SEVERE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_SEVERE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLevel, SEVERE, JavaUtilLoggingLevel *)
 
-FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_WARNING_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLevel, WARNING_, JavaUtilLoggingLevel *)
+/*!
+ @brief The WARNING level provides warnings.
+ */
+inline JavaUtilLoggingLevel *JavaUtilLoggingLevel_get_WARNING();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_WARNING;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLevel, WARNING, JavaUtilLoggingLevel *)
 
-FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_INFO_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLevel, INFO_, JavaUtilLoggingLevel *)
+/*!
+ @brief The INFO level provides informative messages.
+ */
+inline JavaUtilLoggingLevel *JavaUtilLoggingLevel_get_INFO();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_INFO;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLevel, INFO, JavaUtilLoggingLevel *)
 
-FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_CONFIG_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLevel, CONFIG_, JavaUtilLoggingLevel *)
+/*!
+ @brief The CONFIG level provides static configuration messages.
+ */
+inline JavaUtilLoggingLevel *JavaUtilLoggingLevel_get_CONFIG();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_CONFIG;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLevel, CONFIG, JavaUtilLoggingLevel *)
 
-FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_FINE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLevel, FINE_, JavaUtilLoggingLevel *)
+/*!
+ @brief The FINE level provides tracing messages.
+ */
+inline JavaUtilLoggingLevel *JavaUtilLoggingLevel_get_FINE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_FINE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLevel, FINE, JavaUtilLoggingLevel *)
 
-FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_FINER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLevel, FINER_, JavaUtilLoggingLevel *)
+/*!
+ @brief The FINER level provides more detailed tracing messages.
+ */
+inline JavaUtilLoggingLevel *JavaUtilLoggingLevel_get_FINER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_FINER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLevel, FINER, JavaUtilLoggingLevel *)
 
-FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_FINEST_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLevel, FINEST_, JavaUtilLoggingLevel *)
+/*!
+ @brief The FINEST level provides highly detailed tracing messages.
+ */
+inline JavaUtilLoggingLevel *JavaUtilLoggingLevel_get_FINEST();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_FINEST;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLevel, FINEST, JavaUtilLoggingLevel *)
 
-FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_ALL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLevel, ALL_, JavaUtilLoggingLevel *)
+/*!
+ @brief The ALL level provides all logging messages.
+ */
+inline JavaUtilLoggingLevel *JavaUtilLoggingLevel_get_ALL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_ALL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLevel, ALL, JavaUtilLoggingLevel *)
 
 FOUNDATION_EXPORT JavaUtilLoggingLevel *JavaUtilLoggingLevel_parseWithNSString_(NSString *name);
 
@@ -164,4 +241,8 @@ FOUNDATION_EXPORT JavaUtilLoggingLevel *new_JavaUtilLoggingLevel_initWithNSStrin
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLevel)
 
-#endif // _JavaUtilLoggingLevel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingLevel_INCLUDE_ALL")

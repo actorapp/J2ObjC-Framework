@@ -3,10 +3,21 @@
 //  source: apache_harmony/classlib/modules/beans/src/main/java/java/beans/FeatureDescriptor.java
 //
 
-#ifndef _JavaBeansFeatureDescriptor_H_
-#define _JavaBeansFeatureDescriptor_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaBeansFeatureDescriptor_INCLUDE_ALL")
+#ifdef JavaBeansFeatureDescriptor_RESTRICT
+#define JavaBeansFeatureDescriptor_INCLUDE_ALL 0
+#else
+#define JavaBeansFeatureDescriptor_INCLUDE_ALL 1
+#endif
+#undef JavaBeansFeatureDescriptor_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaBeansFeatureDescriptor_) && (JavaBeansFeatureDescriptor_INCLUDE_ALL || defined(JavaBeansFeatureDescriptor_INCLUDE))
+#define JavaBeansFeatureDescriptor_
 
 @protocol JavaUtilEnumeration;
 
@@ -181,4 +192,8 @@ FOUNDATION_EXPORT JavaBeansFeatureDescriptor *new_JavaBeansFeatureDescriptor_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansFeatureDescriptor)
 
-#endif // _JavaBeansFeatureDescriptor_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaBeansFeatureDescriptor_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/security/cert/CertificateExpiredException.java
 //
 
-#ifndef _JavaxSecurityCertCertificateExpiredException_H_
-#define _JavaxSecurityCertCertificateExpiredException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxSecurityCertCertificateExpiredException_INCLUDE_ALL")
+#ifdef JavaxSecurityCertCertificateExpiredException_RESTRICT
+#define JavaxSecurityCertCertificateExpiredException_INCLUDE_ALL 0
+#else
+#define JavaxSecurityCertCertificateExpiredException_INCLUDE_ALL 1
+#endif
+#undef JavaxSecurityCertCertificateExpiredException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxSecurityCertCertificateExpiredException_) && (JavaxSecurityCertCertificateExpiredException_INCLUDE_ALL || defined(JavaxSecurityCertCertificateExpiredException_INCLUDE))
+#define JavaxSecurityCertCertificateExpiredException_
+
+#define JavaxSecurityCertCertificateException_RESTRICT 1
+#define JavaxSecurityCertCertificateException_INCLUDE 1
 #include "../../../javax/security/cert/CertificateException.h"
 
 /*!
@@ -49,4 +63,8 @@ FOUNDATION_EXPORT JavaxSecurityCertCertificateExpiredException *new_JavaxSecurit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateExpiredException)
 
-#endif // _JavaxSecurityCertCertificateExpiredException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxSecurityCertCertificateExpiredException_INCLUDE_ALL")

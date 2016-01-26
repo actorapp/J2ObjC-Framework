@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/text/SpanSet.java
 //
 
-#ifndef _AndroidTextSpanSet_H_
-#define _AndroidTextSpanSet_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextSpanSet_INCLUDE_ALL")
+#ifdef AndroidTextSpanSet_RESTRICT
+#define AndroidTextSpanSet_INCLUDE_ALL 0
+#else
+#define AndroidTextSpanSet_INCLUDE_ALL 1
+#endif
+#undef AndroidTextSpanSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextSpanSet_) && (AndroidTextSpanSet_INCLUDE_ALL || defined(AndroidTextSpanSet_INCLUDE))
+#define AndroidTextSpanSet_
 
 @class IOSClass;
 @class IOSIntArray;
@@ -72,4 +83,8 @@ FOUNDATION_EXPORT AndroidTextSpanSet *new_AndroidTextSpanSet_initWithIOSClass_(I
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpanSet)
 
-#endif // _AndroidTextSpanSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextSpanSet_INCLUDE_ALL")

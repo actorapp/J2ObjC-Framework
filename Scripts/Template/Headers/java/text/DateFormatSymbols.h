@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/text/DateFormatSymbols.java
 //
 
-#ifndef _JavaTextDateFormatSymbols_H_
-#define _JavaTextDateFormatSymbols_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextDateFormatSymbols_INCLUDE_ALL")
+#ifdef JavaTextDateFormatSymbols_RESTRICT
+#define JavaTextDateFormatSymbols_INCLUDE_ALL 0
+#else
+#define JavaTextDateFormatSymbols_INCLUDE_ALL 1
+#endif
+#undef JavaTextDateFormatSymbols_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextDateFormatSymbols_) && (JavaTextDateFormatSymbols_INCLUDE_ALL || defined(JavaTextDateFormatSymbols_INCLUDE))
+#define JavaTextDateFormatSymbols_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -30,6 +44,8 @@
  <p>Direct use of <code>DateFormatSymbols</code> is likely to be less efficient
  because the implementation cannot make assumptions about user-supplied/user-modifiable data
  to the same extent that it can with its own built-in data.
+ - seealso: DateFormat
+ - seealso: SimpleDateFormat
  */
 @interface JavaTextDateFormatSymbols : NSObject < JavaIoSerializable, NSCopying > {
  @public
@@ -73,6 +89,7 @@
  @return <code>true</code> if <code>object</code> is an instance of
  <code>DateFormatSymbols</code> and has the same symbols as this
  object, <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -267,12 +284,12 @@
  @brief Returns the display name of the timezone specified.
  Returns null if no name was found in the
  zone strings.
- @param daylight whether to return the daylight savings or the standard name
+ @param daylight_ whether to return the daylight savings or the standard name
  @param style one of the <code>TimeZone</code> styles such as <code>TimeZone.SHORT</code>
   used internally
  */
 - (NSString *)getTimeZoneDisplayNameWithJavaUtilTimeZone:(JavaUtilTimeZone *)tz
-                                             withBoolean:(jboolean)daylight
+                                             withBoolean:(jboolean)daylight_
                                                  withInt:(jint)style;
 
 /*!
@@ -313,4 +330,8 @@ FOUNDATION_EXPORT IOSObjectArray *JavaTextDateFormatSymbols_getAvailableLocales(
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormatSymbols)
 
-#endif // _JavaTextDateFormatSymbols_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextDateFormatSymbols_INCLUDE_ALL")

@@ -3,26 +3,35 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Statement.java
 //
 
-#ifndef _JavaSqlStatement_H_
-#define _JavaSqlStatement_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/AutoCloseable.h"
+
+#pragma push_macro("JavaSqlStatement_INCLUDE_ALL")
+#ifdef JavaSqlStatement_RESTRICT
+#define JavaSqlStatement_INCLUDE_ALL 0
+#else
+#define JavaSqlStatement_INCLUDE_ALL 1
+#endif
+#undef JavaSqlStatement_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlStatement_) && (JavaSqlStatement_INCLUDE_ALL || defined(JavaSqlStatement_INCLUDE))
+#define JavaSqlStatement_
+
+#define JavaSqlWrapper_RESTRICT 1
+#define JavaSqlWrapper_INCLUDE 1
 #include "../../java/sql/Wrapper.h"
+
+#define JavaLangAutoCloseable_RESTRICT 1
+#define JavaLangAutoCloseable_INCLUDE 1
+#include "../../java/lang/AutoCloseable.h"
 
 @class IOSIntArray;
 @class IOSObjectArray;
 @class JavaSqlSQLWarning;
 @protocol JavaSqlConnection;
 @protocol JavaSqlResultSet;
-
-#define JavaSqlStatement_CLOSE_ALL_RESULTS 3
-#define JavaSqlStatement_CLOSE_CURRENT_RESULT 1
-#define JavaSqlStatement_EXECUTE_FAILED -3
-#define JavaSqlStatement_KEEP_CURRENT_RESULT 2
-#define JavaSqlStatement_NO_GENERATED_KEYS 2
-#define JavaSqlStatement_RETURN_GENERATED_KEYS 1
-#define JavaSqlStatement_SUCCESS_NO_INFO -2
 
 /*!
  @brief Interface used for executing static SQL statements to retrieve query results.
@@ -37,6 +46,8 @@
  <p>
  To obtain such an executable statement one needs to invoke <code>Connection#createStatement</code>
  .
+ - seealso: ResultSet
+ - seealso: Connection#createStatement
  */
 @protocol JavaSqlStatement < JavaSqlWrapper, JavaLangAutoCloseable, NSObject, JavaObject >
 
@@ -619,22 +630,84 @@
 
 @end
 
+@interface JavaSqlStatement : NSObject
+
++ (jint)CLOSE_ALL_RESULTS;
+
++ (jint)CLOSE_CURRENT_RESULT;
+
++ (jint)EXECUTE_FAILED;
+
++ (jint)KEEP_CURRENT_RESULT;
+
++ (jint)NO_GENERATED_KEYS;
+
++ (jint)RETURN_GENERATED_KEYS;
+
++ (jint)SUCCESS_NO_INFO;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlStatement)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlStatement, CLOSE_ALL_RESULTS, jint)
+/*!
+ @brief Passing this constant to <code>getMoreResults</code> implies that all <code>ResultSet</code>
+  objects previously kept open should be closed.
+ */
+inline jint JavaSqlStatement_get_CLOSE_ALL_RESULTS();
+#define JavaSqlStatement_CLOSE_ALL_RESULTS 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlStatement, CLOSE_ALL_RESULTS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlStatement, CLOSE_CURRENT_RESULT, jint)
+/*!
+ @brief Passing this constant to <code>getMoreResults</code> implies that the current
+ <code>ResultSet</code> object should be closed.
+ */
+inline jint JavaSqlStatement_get_CLOSE_CURRENT_RESULT();
+#define JavaSqlStatement_CLOSE_CURRENT_RESULT 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlStatement, CLOSE_CURRENT_RESULT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlStatement, EXECUTE_FAILED, jint)
+/*!
+ @brief Indicates that an error was encountered during execution of a batch
+ statement.
+ */
+inline jint JavaSqlStatement_get_EXECUTE_FAILED();
+#define JavaSqlStatement_EXECUTE_FAILED -3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlStatement, EXECUTE_FAILED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlStatement, KEEP_CURRENT_RESULT, jint)
+/*!
+ @brief Passing this constant to <i>getMoreResults</i> implies that the current
+ <code>ResultSet</code> object should not be closed.
+ */
+inline jint JavaSqlStatement_get_KEEP_CURRENT_RESULT();
+#define JavaSqlStatement_KEEP_CURRENT_RESULT 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlStatement, KEEP_CURRENT_RESULT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlStatement, NO_GENERATED_KEYS, jint)
+/*!
+ @brief Indicates that generated keys should not be accessible for retrieval.
+ */
+inline jint JavaSqlStatement_get_NO_GENERATED_KEYS();
+#define JavaSqlStatement_NO_GENERATED_KEYS 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlStatement, NO_GENERATED_KEYS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlStatement, RETURN_GENERATED_KEYS, jint)
+/*!
+ @brief Indicates that generated keys should be accessible for retrieval.
+ */
+inline jint JavaSqlStatement_get_RETURN_GENERATED_KEYS();
+#define JavaSqlStatement_RETURN_GENERATED_KEYS 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlStatement, RETURN_GENERATED_KEYS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlStatement, SUCCESS_NO_INFO, jint)
+/*!
+ @brief Indicates that a batch statement was executed with a successful result,
+ but a count of the number of rows it affected is unavailable.
+ */
+inline jint JavaSqlStatement_get_SUCCESS_NO_INFO();
+#define JavaSqlStatement_SUCCESS_NO_INFO -2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlStatement, SUCCESS_NO_INFO, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlStatement)
 
-#endif // _JavaSqlStatement_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlStatement_INCLUDE_ALL")

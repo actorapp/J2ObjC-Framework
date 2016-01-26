@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Struct.java
 //
 
-#ifndef _JavaSqlStruct_H_
-#define _JavaSqlStruct_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlStruct_INCLUDE_ALL")
+#ifdef JavaSqlStruct_RESTRICT
+#define JavaSqlStruct_INCLUDE_ALL 0
+#else
+#define JavaSqlStruct_INCLUDE_ALL 1
+#endif
+#undef JavaSqlStruct_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlStruct_) && (JavaSqlStruct_INCLUDE_ALL || defined(JavaSqlStruct_INCLUDE))
+#define JavaSqlStruct_
 
 @class IOSObjectArray;
 @protocol JavaUtilMap;
@@ -63,4 +74,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlStruct)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlStruct)
 
-#endif // _JavaSqlStruct_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlStruct_INCLUDE_ALL")

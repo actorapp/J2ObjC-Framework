@@ -3,29 +3,34 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/ZipFile.java
 //
 
-#ifndef _JavaUtilZipZipFile_H_
-#define _JavaUtilZipZipFile_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipZipFile_INCLUDE_ALL")
+#ifdef JavaUtilZipZipFile_RESTRICT
+#define JavaUtilZipZipFile_INCLUDE_ALL 0
+#else
+#define JavaUtilZipZipFile_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipZipFile_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipZipFile_) && (JavaUtilZipZipFile_INCLUDE_ALL || defined(JavaUtilZipZipFile_INCLUDE))
+#define JavaUtilZipZipFile_
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
 #include "../../../java/io/Closeable.h"
-#include "../../../java/io/InputStream.h"
-#include "../../../java/util/zip/InflaterInputStream.h"
+
+#define JavaUtilZipZipConstants_RESTRICT 1
+#define JavaUtilZipZipConstants_INCLUDE 1
 #include "../../../java/util/zip/ZipConstants.h"
 
-@class IOSByteArray;
 @class JavaIoFile;
 @class JavaIoInputStream;
-@class JavaIoRandomAccessFile;
-@class JavaUtilZipInflater;
 @class JavaUtilZipZipEntry;
 @protocol JavaUtilEnumeration;
-
-#define JavaUtilZipZipFile_GPBF_ENCRYPTED_FLAG 1
-#define JavaUtilZipZipFile_GPBF_DATA_DESCRIPTOR_FLAG 8
-#define JavaUtilZipZipFile_GPBF_UTF8_FLAG 2048
-#define JavaUtilZipZipFile_GPBF_UNSUPPORTED_MASK 1
-#define JavaUtilZipZipFile_OPEN_READ 1
-#define JavaUtilZipZipFile_OPEN_DELETE 4
 
 /*!
  @brief This class provides random read access to a zip file.
@@ -39,6 +44,18 @@
  an existing zip file.
  */
 @interface JavaUtilZipZipFile : NSObject < JavaIoCloseable, JavaUtilZipZipConstants >
+
++ (jint)GPBF_ENCRYPTED_FLAG;
+
++ (jint)GPBF_DATA_DESCRIPTOR_FLAG;
+
++ (jint)GPBF_UTF8_FLAG;
+
++ (jint)GPBF_UNSUPPORTED_MASK;
+
++ (jint)OPEN_READ;
+
++ (jint)OPEN_DELETE;
 
 #pragma mark Public
 
@@ -140,17 +157,56 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilZipZipFile)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipFile, GPBF_ENCRYPTED_FLAG, jint)
+/*!
+ @brief General Purpose Bit Flags, Bit 0.
+ If set, indicates that the file is encrypted.
+ */
+inline jint JavaUtilZipZipFile_get_GPBF_ENCRYPTED_FLAG();
+#define JavaUtilZipZipFile_GPBF_ENCRYPTED_FLAG 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipFile, GPBF_ENCRYPTED_FLAG, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipFile, GPBF_DATA_DESCRIPTOR_FLAG, jint)
+/*!
+ @brief General Purpose Bit Flags, Bit 3.
+ If this bit is set, the fields crc-32, compressed
+ size and uncompressed size are set to zero in the
+ local header.  The correct values are put in the
+ data descriptor immediately following the compressed
+ data.  (Note: PKZIP version 2.04g for DOS only
+ recognizes this bit for method 8 compression, newer
+ versions of PKZIP recognize this bit for any
+ compression method.)
+ */
+inline jint JavaUtilZipZipFile_get_GPBF_DATA_DESCRIPTOR_FLAG();
+#define JavaUtilZipZipFile_GPBF_DATA_DESCRIPTOR_FLAG 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipFile, GPBF_DATA_DESCRIPTOR_FLAG, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipFile, GPBF_UTF8_FLAG, jint)
+/*!
+ @brief General Purpose Bit Flags, Bit 11.
+ Language encoding flag (EFS).  If this bit is set,
+ the filename and comment fields for this file
+ must be encoded using UTF-8.
+ */
+inline jint JavaUtilZipZipFile_get_GPBF_UTF8_FLAG();
+#define JavaUtilZipZipFile_GPBF_UTF8_FLAG 2048
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipFile, GPBF_UTF8_FLAG, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipFile, GPBF_UNSUPPORTED_MASK, jint)
+inline jint JavaUtilZipZipFile_get_GPBF_UNSUPPORTED_MASK();
+#define JavaUtilZipZipFile_GPBF_UNSUPPORTED_MASK 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipFile, GPBF_UNSUPPORTED_MASK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipFile, OPEN_READ, jint)
+/*!
+ @brief Open zip file for reading.
+ */
+inline jint JavaUtilZipZipFile_get_OPEN_READ();
+#define JavaUtilZipZipFile_OPEN_READ 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipFile, OPEN_READ, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipFile, OPEN_DELETE, jint)
+/*!
+ @brief Delete zip file when closed.
+ */
+inline jint JavaUtilZipZipFile_get_OPEN_DELETE();
+#define JavaUtilZipZipFile_OPEN_DELETE 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipFile, OPEN_DELETE, jint)
 
 FOUNDATION_EXPORT void JavaUtilZipZipFile_initWithJavaIoFile_(JavaUtilZipZipFile *self, JavaIoFile *file);
 
@@ -167,6 +223,11 @@ FOUNDATION_EXPORT JavaUtilZipZipFile *new_JavaUtilZipZipFile_initWithJavaIoFile_
 FOUNDATION_EXPORT void JavaUtilZipZipFile_throwZipExceptionWithNSString_withInt_(NSString *msg, jint magic);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipFile)
+
+#endif
+
+#if !defined (JavaUtilZipZipFile_EocdRecord_) && (JavaUtilZipZipFile_INCLUDE_ALL || defined(JavaUtilZipZipFile_EocdRecord_INCLUDE))
+#define JavaUtilZipZipFile_EocdRecord_
 
 @interface JavaUtilZipZipFile_EocdRecord : NSObject {
  @public
@@ -190,6 +251,19 @@ FOUNDATION_EXPORT void JavaUtilZipZipFile_EocdRecord_initWithLong_withLong_withI
 FOUNDATION_EXPORT JavaUtilZipZipFile_EocdRecord *new_JavaUtilZipZipFile_EocdRecord_initWithLong_withLong_withInt_(jlong numEntries, jlong centralDirOffset, jint commentLength) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipFile_EocdRecord)
+
+#endif
+
+#if !defined (JavaUtilZipZipFile_RAFStream_) && (JavaUtilZipZipFile_INCLUDE_ALL || defined(JavaUtilZipZipFile_RAFStream_INCLUDE))
+#define JavaUtilZipZipFile_RAFStream_
+
+#define JavaIoInputStream_RESTRICT 1
+#define JavaIoInputStream_INCLUDE 1
+#include "../../../java/io/InputStream.h"
+
+@class IOSByteArray;
+@class JavaIoRandomAccessFile;
+@class JavaUtilZipInflater;
 
 /*!
  @brief Wrap a stream around a RandomAccessFile.
@@ -237,6 +311,20 @@ FOUNDATION_EXPORT JavaUtilZipZipFile_RAFStream *new_JavaUtilZipZipFile_RAFStream
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipFile_RAFStream)
 
+#endif
+
+#if !defined (JavaUtilZipZipFile_ZipInflaterInputStream_) && (JavaUtilZipZipFile_INCLUDE_ALL || defined(JavaUtilZipZipFile_ZipInflaterInputStream_INCLUDE))
+#define JavaUtilZipZipFile_ZipInflaterInputStream_
+
+#define JavaUtilZipInflaterInputStream_RESTRICT 1
+#define JavaUtilZipInflaterInputStream_INCLUDE 1
+#include "../../../java/util/zip/InflaterInputStream.h"
+
+@class IOSByteArray;
+@class JavaIoInputStream;
+@class JavaUtilZipInflater;
+@class JavaUtilZipZipEntry;
+
 /*!
   
  */
@@ -265,4 +353,8 @@ FOUNDATION_EXPORT JavaUtilZipZipFile_ZipInflaterInputStream *new_JavaUtilZipZipF
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipFile_ZipInflaterInputStream)
 
-#endif // _JavaUtilZipZipFile_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipZipFile_INCLUDE_ALL")

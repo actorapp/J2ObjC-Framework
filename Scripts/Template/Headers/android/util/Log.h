@@ -3,25 +3,24 @@
 //  source: android/frameworks/base/core/java/android/util/Log.java
 //
 
-#ifndef _AndroidUtilLog_H_
-#define _AndroidUtilLog_H_
-
 #include "../../J2ObjC_header.h"
 
-@class AndroidUtilLog_TerribleFailure;
+#pragma push_macro("AndroidUtilLog_INCLUDE_ALL")
+#ifdef AndroidUtilLog_RESTRICT
+#define AndroidUtilLog_INCLUDE_ALL 0
+#else
+#define AndroidUtilLog_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilLog_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilLog_) && (AndroidUtilLog_INCLUDE_ALL || defined(AndroidUtilLog_INCLUDE))
+#define AndroidUtilLog_
+
 @class JavaLangThrowable;
 @protocol AndroidUtilLog_TerribleFailureHandler;
-
-#define AndroidUtilLog_VERBOSE 2
-#define AndroidUtilLog_DEBUG 3
-#define AndroidUtilLog_INFO 4
-#define AndroidUtilLog_WARN 5
-#define AndroidUtilLog_ERROR 6
-#define AndroidUtilLog_ASSERT 7
-#define AndroidUtilLog_LOG_ID_MAIN 0
-#define AndroidUtilLog_LOG_ID_RADIO 1
-#define AndroidUtilLog_LOG_ID_EVENTS 2
-#define AndroidUtilLog_LOG_ID_SYSTEM 3
 
 /*!
  @brief API for sending log output.
@@ -50,6 +49,26 @@ Log.v(TAG, "index=" + i);
  significant work and incurring significant overhead.
  */
 @interface AndroidUtilLog : NSObject
+
++ (jint)VERBOSE;
+
++ (jint)DEBUG_;
+
++ (jint)INFO;
+
++ (jint)WARN;
+
++ (jint)ERROR;
+
++ (jint)ASSERT;
+
++ (jint)LOG_ID_MAIN;
+
++ (jint)LOG_ID_RADIO;
+
++ (jint)LOG_ID_EVENTS;
+
++ (jint)LOG_ID_SYSTEM;
 
 #pragma mark Public
 
@@ -255,25 +274,75 @@ withJavaLangThrowable:(JavaLangThrowable *)tr
 
 J2OBJC_STATIC_INIT(AndroidUtilLog)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilLog, VERBOSE, jint)
+/*!
+ @brief Priority constant for the println method; use Log.v.
+ */
+inline jint AndroidUtilLog_get_VERBOSE();
+#define AndroidUtilLog_VERBOSE 2
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilLog, VERBOSE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilLog, DEBUG, jint)
+/*!
+ @brief Priority constant for the println method; use Log.d.
+ */
+inline jint AndroidUtilLog_get_DEBUG();
+#define AndroidUtilLog_DEBUG 3
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilLog, DEBUG, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilLog, INFO, jint)
+/*!
+ @brief Priority constant for the println method; use Log.i.
+ */
+inline jint AndroidUtilLog_get_INFO();
+#define AndroidUtilLog_INFO 4
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilLog, INFO, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilLog, WARN, jint)
+/*!
+ @brief Priority constant for the println method; use Log.w.
+ */
+inline jint AndroidUtilLog_get_WARN();
+#define AndroidUtilLog_WARN 5
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilLog, WARN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilLog, ERROR, jint)
+/*!
+ @brief Priority constant for the println method; use Log.e.
+ */
+inline jint AndroidUtilLog_get_ERROR();
+#define AndroidUtilLog_ERROR 6
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilLog, ERROR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilLog, ASSERT, jint)
+/*!
+ @brief Priority constant for the println method.
+ */
+inline jint AndroidUtilLog_get_ASSERT();
+#define AndroidUtilLog_ASSERT 7
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilLog, ASSERT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilLog, LOG_ID_MAIN, jint)
+/*!
+  
+ */
+inline jint AndroidUtilLog_get_LOG_ID_MAIN();
+#define AndroidUtilLog_LOG_ID_MAIN 0
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilLog, LOG_ID_MAIN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilLog, LOG_ID_RADIO, jint)
+/*!
+  
+ */
+inline jint AndroidUtilLog_get_LOG_ID_RADIO();
+#define AndroidUtilLog_LOG_ID_RADIO 1
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilLog, LOG_ID_RADIO, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilLog, LOG_ID_EVENTS, jint)
+/*!
+  
+ */
+inline jint AndroidUtilLog_get_LOG_ID_EVENTS();
+#define AndroidUtilLog_LOG_ID_EVENTS 2
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilLog, LOG_ID_EVENTS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilLog, LOG_ID_SYSTEM, jint)
+/*!
+  
+ */
+inline jint AndroidUtilLog_get_LOG_ID_SYSTEM();
+#define AndroidUtilLog_LOG_ID_SYSTEM 3
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidUtilLog, LOG_ID_SYSTEM, jint)
 
 FOUNDATION_EXPORT jint AndroidUtilLog_vWithNSString_withNSString_(NSString *tag, NSString *msg);
 
@@ -319,6 +388,13 @@ FOUNDATION_EXPORT jint AndroidUtilLog_println_nativeWithInt_withInt_withNSString
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilLog)
 
+#endif
+
+#if !defined (AndroidUtilLog_TerribleFailureHandler_) && (AndroidUtilLog_INCLUDE_ALL || defined(AndroidUtilLog_TerribleFailureHandler_INCLUDE))
+#define AndroidUtilLog_TerribleFailureHandler_
+
+@class AndroidUtilLog_TerribleFailure;
+
 /*!
  @brief Interface to handle terrible failures from <code>wtf</code>.
  */
@@ -333,4 +409,8 @@ J2OBJC_EMPTY_STATIC_INIT(AndroidUtilLog_TerribleFailureHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilLog_TerribleFailureHandler)
 
-#endif // _AndroidUtilLog_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilLog_INCLUDE_ALL")

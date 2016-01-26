@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/BufferOverflowException.java
 //
 
-#ifndef _JavaNioBufferOverflowException_H_
-#define _JavaNioBufferOverflowException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioBufferOverflowException_INCLUDE_ALL")
+#ifdef JavaNioBufferOverflowException_RESTRICT
+#define JavaNioBufferOverflowException_INCLUDE_ALL 0
+#else
+#define JavaNioBufferOverflowException_INCLUDE_ALL 1
+#endif
+#undef JavaNioBufferOverflowException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioBufferOverflowException_) && (JavaNioBufferOverflowException_INCLUDE_ALL || defined(JavaNioBufferOverflowException_INCLUDE))
+#define JavaNioBufferOverflowException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioBufferOverflowException *new_JavaNioBufferOverflowExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioBufferOverflowException)
 
-#endif // _JavaNioBufferOverflowException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioBufferOverflowException_INCLUDE_ALL")

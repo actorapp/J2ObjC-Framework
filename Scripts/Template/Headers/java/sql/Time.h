@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Time.java
 //
 
-#ifndef _JavaSqlTime_H_
-#define _JavaSqlTime_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlTime_INCLUDE_ALL")
+#ifdef JavaSqlTime_RESTRICT
+#define JavaSqlTime_INCLUDE_ALL 0
+#else
+#define JavaSqlTime_INCLUDE_ALL 1
+#endif
+#undef JavaSqlTime_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlTime_) && (JavaSqlTime_INCLUDE_ALL || defined(JavaSqlTime_INCLUDE))
+#define JavaSqlTime_
+
+#define JavaUtilDate_RESTRICT 1
+#define JavaUtilDate_INCLUDE 1
 #include "../../java/util/Date.h"
 
 /*!
@@ -39,7 +53,7 @@
  */
 - (instancetype)initWithInt:(jint)theHour
                     withInt:(jint)theMinute
-                    withInt:(jint)theSecond;
+                    withInt:(jint)theSecond __attribute__((deprecated));
 
 /*!
  @brief Constructs a <code>Time</code> object using a supplied time specified in
@@ -55,40 +69,40 @@
  @throws IllegalArgumentException
  if this method is called.
  */
-- (jint)getDate;
+- (jint)getDate __attribute__((deprecated));
 
 /*!
  @return does not return anything.
  @throws IllegalArgumentException
  if this method is called.
  */
-- (jint)getDay;
+- (jint)getDay __attribute__((deprecated));
 
 /*!
  @return does not return anything.
  @throws IllegalArgumentException
  if this method is called.
  */
-- (jint)getMonth;
+- (jint)getMonth __attribute__((deprecated));
 
 /*!
  @return does not return anything.
  @throws IllegalArgumentException
  if this method is called.
  */
-- (jint)getYear;
+- (jint)getYear __attribute__((deprecated));
 
 /*!
  @throws IllegalArgumentException
  if this method is called.
  */
-- (void)setDateWithInt:(jint)i;
+- (void)setDateWithInt:(jint)i __attribute__((deprecated));
 
 /*!
  @throws IllegalArgumentException
  if this method is called.
  */
-- (void)setMonthWithInt:(jint)i;
+- (void)setMonthWithInt:(jint)i __attribute__((deprecated));
 
 /*!
  @brief Sets the time for this <code>Time</code> object to the supplied milliseconds
@@ -104,7 +118,7 @@
  @throws IllegalArgumentException
  if this method is called.
  */
-- (void)setYearWithInt:(jint)i;
+- (void)setYearWithInt:(jint)i __attribute__((deprecated));
 
 /*!
  @brief Formats the <code>Time</code> as a String in JDBC escape format: <code>hh:mm:ss</code>
@@ -145,4 +159,8 @@ FOUNDATION_EXPORT JavaSqlTime *JavaSqlTime_valueOfWithNSString_(NSString *timeSt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlTime)
 
-#endif // _JavaSqlTime_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlTime_INCLUDE_ALL")

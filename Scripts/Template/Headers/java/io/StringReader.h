@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/StringReader.java
 //
 
-#ifndef _JavaIoStringReader_H_
-#define _JavaIoStringReader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoStringReader_INCLUDE_ALL")
+#ifdef JavaIoStringReader_RESTRICT
+#define JavaIoStringReader_INCLUDE_ALL 0
+#else
+#define JavaIoStringReader_INCLUDE_ALL 1
+#endif
+#undef JavaIoStringReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoStringReader_) && (JavaIoStringReader_INCLUDE_ALL || defined(JavaIoStringReader_INCLUDE))
+#define JavaIoStringReader_
+
+#define JavaIoReader_RESTRICT 1
+#define JavaIoReader_INCLUDE 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -14,6 +28,7 @@
 /*!
  @brief A specialized <code>Reader</code> that reads characters from a <code>String</code> in
  a sequential manner.
+ - seealso: StringWriter
  */
 @interface JavaIoStringReader : JavaIoReader
 
@@ -48,6 +63,8 @@
  if <code>readLimit < 0</code>.
  @throws IOException
  if this reader is closed.
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (void)markWithInt:(jint)readLimit;
 
@@ -93,6 +110,8 @@
  @return always <code>true</code>.
  @throws IOException
  if this reader is closed.
+ - seealso: #read()
+ - seealso: #read(char[],int,int)
  */
 - (jboolean)ready;
 
@@ -103,6 +122,8 @@
  beginning of the source string.
  @throws IOException
  if this reader is closed.
+ - seealso: #mark(int)
+ - seealso: #markSupported()
  */
 - (void)reset;
 
@@ -123,6 +144,9 @@
  .
  @throws IOException
  if this reader is closed.
+ - seealso: #mark(int)
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (jlong)skipWithLong:(jlong)charCount;
 
@@ -136,4 +160,8 @@ FOUNDATION_EXPORT JavaIoStringReader *new_JavaIoStringReader_initWithNSString_(N
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoStringReader)
 
-#endif // _JavaIoStringReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoStringReader_INCLUDE_ALL")

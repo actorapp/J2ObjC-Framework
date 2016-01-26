@@ -3,12 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/util/LinkedHashMap.java
 //
 
-#ifndef _JavaUtilLinkedHashMap_H_
-#define _JavaUtilLinkedHashMap_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLinkedHashMap_INCLUDE_ALL")
+#ifdef JavaUtilLinkedHashMap_RESTRICT
+#define JavaUtilLinkedHashMap_INCLUDE_ALL 0
+#else
+#define JavaUtilLinkedHashMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLinkedHashMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLinkedHashMap_) && (JavaUtilLinkedHashMap_INCLUDE_ALL || defined(JavaUtilLinkedHashMap_INCLUDE))
+#define JavaUtilLinkedHashMap_
+
+#define JavaUtilHashMap_RESTRICT 1
+#define JavaUtilHashMap_INCLUDE 1
 #include "../../java/util/HashMap.h"
 
+@class JavaUtilHashMap_HashMapEntry;
 @class JavaUtilLinkedHashMap_LinkedEntry;
 @protocol JavaUtilIterator;
 @protocol JavaUtilMap;
@@ -181,7 +196,6 @@
 
 - (void)preModifyWithJavaUtilHashMap_HashMapEntry:(JavaUtilHashMap_HashMapEntry *)e;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilLinkedHashMap)
@@ -209,6 +223,15 @@ FOUNDATION_EXPORT void JavaUtilLinkedHashMap_initWithJavaUtilMap_(JavaUtilLinked
 FOUNDATION_EXPORT JavaUtilLinkedHashMap *new_JavaUtilLinkedHashMap_initWithJavaUtilMap_(id<JavaUtilMap> map) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashMap)
+
+#endif
+
+#if !defined (JavaUtilLinkedHashMap_LinkedEntry_) && (JavaUtilLinkedHashMap_INCLUDE_ALL || defined(JavaUtilLinkedHashMap_LinkedEntry_INCLUDE))
+#define JavaUtilLinkedHashMap_LinkedEntry_
+
+#define JavaUtilHashMap_RESTRICT 1
+#define JavaUtilHashMap_HashMapEntry_INCLUDE 1
+#include "../../java/util/HashMap.h"
 
 /*!
  @brief LinkedEntry adds nxt/prv double-links to plain HashMapEntry.
@@ -250,4 +273,8 @@ FOUNDATION_EXPORT JavaUtilLinkedHashMap_LinkedEntry *new_JavaUtilLinkedHashMap_L
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashMap_LinkedEntry)
 
-#endif // _JavaUtilLinkedHashMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLinkedHashMap_INCLUDE_ALL")

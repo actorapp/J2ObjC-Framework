@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/RunnableScheduledFuture.java
 //
 
-#ifndef _JavaUtilConcurrentRunnableScheduledFuture_H_
-#define _JavaUtilConcurrentRunnableScheduledFuture_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentRunnableScheduledFuture_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentRunnableScheduledFuture_RESTRICT
+#define JavaUtilConcurrentRunnableScheduledFuture_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentRunnableScheduledFuture_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentRunnableScheduledFuture_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentRunnableScheduledFuture_) && (JavaUtilConcurrentRunnableScheduledFuture_INCLUDE_ALL || defined(JavaUtilConcurrentRunnableScheduledFuture_INCLUDE))
+#define JavaUtilConcurrentRunnableScheduledFuture_
+
+#define JavaUtilConcurrentRunnableFuture_RESTRICT 1
+#define JavaUtilConcurrentRunnableFuture_INCLUDE 1
 #include "../../../java/util/concurrent/RunnableFuture.h"
+
+#define JavaUtilConcurrentScheduledFuture_RESTRICT 1
+#define JavaUtilConcurrentScheduledFuture_INCLUDE 1
 #include "../../../java/util/concurrent/ScheduledFuture.h"
 
 /*!
@@ -15,6 +32,8 @@
  Successful
  execution of the <code>run</code> method causes completion of the
  <code>Future</code> and allows access to its results.
+ - seealso: FutureTask
+ - seealso: Executor
  @since 1.6
  @author Doug Lea
  */
@@ -35,4 +54,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentRunnableScheduledFuture)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRunnableScheduledFuture)
 
-#endif // _JavaUtilConcurrentRunnableScheduledFuture_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentRunnableScheduledFuture_INCLUDE_ALL")

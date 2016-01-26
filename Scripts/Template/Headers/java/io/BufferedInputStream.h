@@ -3,16 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/io/BufferedInputStream.java
 //
 
-#ifndef _JavaIoBufferedInputStream_H_
-#define _JavaIoBufferedInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoBufferedInputStream_INCLUDE_ALL")
+#ifdef JavaIoBufferedInputStream_RESTRICT
+#define JavaIoBufferedInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoBufferedInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoBufferedInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoBufferedInputStream_) && (JavaIoBufferedInputStream_INCLUDE_ALL || defined(JavaIoBufferedInputStream_INCLUDE))
+#define JavaIoBufferedInputStream_
+
+#define JavaIoFilterInputStream_RESTRICT 1
+#define JavaIoFilterInputStream_INCLUDE 1
 #include "../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
-
-#define JavaIoBufferedInputStream_DEFAULT_BUFFER_SIZE 8192
 
 /*!
  @brief Wraps an existing <code>InputStream</code> and <em>buffers</em> the input.
@@ -27,6 +39,7 @@
   BufferedInputStream buf = new BufferedInputStream(new FileInputStream(&quot;file.java&quot;));
   
 @endcode
+ - seealso: BufferedOutputStream
  */
 @interface JavaIoBufferedInputStream : JavaIoFilterInputStream {
  @public
@@ -52,6 +65,8 @@
    */
   jint pos_;
 }
+
++ (jint)DEFAULT_BUFFER_SIZE;
 
 #pragma mark Public
 
@@ -109,6 +124,7 @@
  @param readlimit
  the number of bytes that can be read before the mark is
  invalidated.
+ - seealso: #reset()
  */
 - (void)markWithInt:(jint)readlimit;
 
@@ -116,6 +132,8 @@
  @brief Indicates whether <code>BufferedInputStream</code> supports the <code>mark()</code>
  and <code>reset()</code> methods.
  @return <code>true</code> for BufferedInputStreams.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (jboolean)markSupported;
 
@@ -142,6 +160,7 @@
  if this stream is closed, no mark has been set or the mark is
  no longer valid because more than <code>readlimit</code> bytes
  have been read since setting the mark.
+ - seealso: #mark(int)
  */
 - (void)reset;
 
@@ -165,7 +184,12 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoBufferedInputStream)
 
 J2OBJC_VOLATILE_FIELD_SETTER(JavaIoBufferedInputStream, buf_, IOSByteArray *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoBufferedInputStream, DEFAULT_BUFFER_SIZE, jint)
+/*!
+ @brief The default buffer size if it is not specified.
+ */
+inline jint JavaIoBufferedInputStream_get_DEFAULT_BUFFER_SIZE();
+#define JavaIoBufferedInputStream_DEFAULT_BUFFER_SIZE 8192
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoBufferedInputStream, DEFAULT_BUFFER_SIZE, jint)
 
 FOUNDATION_EXPORT void JavaIoBufferedInputStream_initWithJavaIoInputStream_(JavaIoBufferedInputStream *self, JavaIoInputStream *inArg);
 
@@ -177,4 +201,8 @@ FOUNDATION_EXPORT JavaIoBufferedInputStream *new_JavaIoBufferedInputStream_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedInputStream)
 
-#endif // _JavaIoBufferedInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoBufferedInputStream_INCLUDE_ALL")

@@ -3,26 +3,46 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CRLReason.java
 //
 
-#ifndef _JavaSecurityCertCRLReason_H_
-#define _JavaSecurityCertCRLReason_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
-#include "../../../java/lang/Comparable.h"
+
+#pragma push_macro("JavaSecurityCertCRLReason_INCLUDE_ALL")
+#ifdef JavaSecurityCertCRLReason_RESTRICT
+#define JavaSecurityCertCRLReason_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCRLReason_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCRLReason_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCRLReason_) && (JavaSecurityCertCRLReason_INCLUDE_ALL || defined(JavaSecurityCertCRLReason_INCLUDE))
+#define JavaSecurityCertCRLReason_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
 #include "../../../java/lang/Enum.h"
 
-typedef NS_ENUM(NSUInteger, JavaSecurityCertCRLReason) {
-  JavaSecurityCertCRLReason_UNSPECIFIED = 0,
-  JavaSecurityCertCRLReason_KEY_COMPROMISE = 1,
-  JavaSecurityCertCRLReason_CA_COMPROMISE = 2,
-  JavaSecurityCertCRLReason_AFFILIATION_CHANGED = 3,
-  JavaSecurityCertCRLReason_SUPERSEDED = 4,
-  JavaSecurityCertCRLReason_CESSATION_OF_OPERATION = 5,
-  JavaSecurityCertCRLReason_CERTIFICATE_HOLD = 6,
-  JavaSecurityCertCRLReason_UNUSED = 7,
-  JavaSecurityCertCRLReason_REMOVE_FROM_CRL = 8,
-  JavaSecurityCertCRLReason_PRIVILEGE_WITHDRAWN = 9,
-  JavaSecurityCertCRLReason_AA_COMPROMISE = 10,
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
+#include "../../../java/lang/Comparable.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
+typedef NS_ENUM(NSUInteger, JavaSecurityCertCRLReason_Enum) {
+  JavaSecurityCertCRLReason_Enum_UNSPECIFIED = 0,
+  JavaSecurityCertCRLReason_Enum_KEY_COMPROMISE = 1,
+  JavaSecurityCertCRLReason_Enum_CA_COMPROMISE = 2,
+  JavaSecurityCertCRLReason_Enum_AFFILIATION_CHANGED = 3,
+  JavaSecurityCertCRLReason_Enum_SUPERSEDED = 4,
+  JavaSecurityCertCRLReason_Enum_CESSATION_OF_OPERATION = 5,
+  JavaSecurityCertCRLReason_Enum_CERTIFICATE_HOLD = 6,
+  JavaSecurityCertCRLReason_Enum_UNUSED = 7,
+  JavaSecurityCertCRLReason_Enum_REMOVE_FROM_CRL = 8,
+  JavaSecurityCertCRLReason_Enum_PRIVILEGE_WITHDRAWN = 9,
+  JavaSecurityCertCRLReason_Enum_AA_COMPROMISE = 10,
 };
 
 /*!
@@ -31,57 +51,89 @@ typedef NS_ENUM(NSUInteger, JavaSecurityCertCRLReason) {
  href="http://www.ietf.org/rfc/rfc3280.txt">RFC 3280</a> for more information.
  @since 1.7
  */
-@interface JavaSecurityCertCRLReasonEnum : JavaLangEnum < NSCopying, JavaLangComparable, JavaIoSerializable >
+@interface JavaSecurityCertCRLReason : JavaLangEnum < NSCopying, JavaLangComparable, JavaIoSerializable >
+
++ (JavaSecurityCertCRLReason *)UNSPECIFIED;
+
++ (JavaSecurityCertCRLReason *)KEY_COMPROMISE;
+
++ (JavaSecurityCertCRLReason *)CA_COMPROMISE;
+
++ (JavaSecurityCertCRLReason *)AFFILIATION_CHANGED;
+
++ (JavaSecurityCertCRLReason *)SUPERSEDED;
+
++ (JavaSecurityCertCRLReason *)CESSATION_OF_OPERATION;
+
++ (JavaSecurityCertCRLReason *)CERTIFICATE_HOLD;
+
++ (JavaSecurityCertCRLReason *)UNUSED;
+
++ (JavaSecurityCertCRLReason *)REMOVE_FROM_CRL;
+
++ (JavaSecurityCertCRLReason *)PRIVILEGE_WITHDRAWN;
+
++ (JavaSecurityCertCRLReason *)AA_COMPROMISE;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaSecurityCertCRLReasonEnum_values();
 
-+ (JavaSecurityCertCRLReasonEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaSecurityCertCRLReasonEnum *JavaSecurityCertCRLReasonEnum_valueOfWithNSString_(NSString *name);
++ (JavaSecurityCertCRLReason *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaSecurityCertCRLReason_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaSecurityCertCRLReasonEnum)
+J2OBJC_STATIC_INIT(JavaSecurityCertCRLReason)
 
-FOUNDATION_EXPORT JavaSecurityCertCRLReasonEnum *JavaSecurityCertCRLReasonEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_values_[];
 
-#define JavaSecurityCertCRLReasonEnum_UNSPECIFIED JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_UNSPECIFIED]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, UNSPECIFIED)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_UNSPECIFIED();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, UNSPECIFIED)
 
-#define JavaSecurityCertCRLReasonEnum_KEY_COMPROMISE JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_KEY_COMPROMISE]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, KEY_COMPROMISE)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_KEY_COMPROMISE();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, KEY_COMPROMISE)
 
-#define JavaSecurityCertCRLReasonEnum_CA_COMPROMISE JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_CA_COMPROMISE]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, CA_COMPROMISE)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_CA_COMPROMISE();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, CA_COMPROMISE)
 
-#define JavaSecurityCertCRLReasonEnum_AFFILIATION_CHANGED JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_AFFILIATION_CHANGED]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, AFFILIATION_CHANGED)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_AFFILIATION_CHANGED();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, AFFILIATION_CHANGED)
 
-#define JavaSecurityCertCRLReasonEnum_SUPERSEDED JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_SUPERSEDED]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, SUPERSEDED)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_SUPERSEDED();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, SUPERSEDED)
 
-#define JavaSecurityCertCRLReasonEnum_CESSATION_OF_OPERATION JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_CESSATION_OF_OPERATION]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, CESSATION_OF_OPERATION)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_CESSATION_OF_OPERATION();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, CESSATION_OF_OPERATION)
 
-#define JavaSecurityCertCRLReasonEnum_CERTIFICATE_HOLD JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_CERTIFICATE_HOLD]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, CERTIFICATE_HOLD)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_CERTIFICATE_HOLD();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, CERTIFICATE_HOLD)
 
-#define JavaSecurityCertCRLReasonEnum_UNUSED JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_UNUSED]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, UNUSED)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_UNUSED();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, UNUSED)
 
-#define JavaSecurityCertCRLReasonEnum_REMOVE_FROM_CRL JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_REMOVE_FROM_CRL]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, REMOVE_FROM_CRL)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_REMOVE_FROM_CRL();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, REMOVE_FROM_CRL)
 
-#define JavaSecurityCertCRLReasonEnum_PRIVILEGE_WITHDRAWN JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_PRIVILEGE_WITHDRAWN]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, PRIVILEGE_WITHDRAWN)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_PRIVILEGE_WITHDRAWN();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, PRIVILEGE_WITHDRAWN)
 
-#define JavaSecurityCertCRLReasonEnum_AA_COMPROMISE JavaSecurityCertCRLReasonEnum_values_[JavaSecurityCertCRLReason_AA_COMPROMISE]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSecurityCertCRLReasonEnum, AA_COMPROMISE)
+inline JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_get_AA_COMPROMISE();
+J2OBJC_ENUM_CONSTANT(JavaSecurityCertCRLReason, AA_COMPROMISE)
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCRLReasonEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaSecurityCertCRLReason_values();
 
-#endif // _JavaSecurityCertCRLReason_H_
+FOUNDATION_EXPORT JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaSecurityCertCRLReason *JavaSecurityCertCRLReason_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCRLReason)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCRLReason_INCLUDE_ALL")

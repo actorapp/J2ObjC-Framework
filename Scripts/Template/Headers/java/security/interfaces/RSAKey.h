@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/interfaces/RSAKey.java
 //
 
-#ifndef _JavaSecurityInterfacesRSAKey_H_
-#define _JavaSecurityInterfacesRSAKey_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityInterfacesRSAKey_INCLUDE_ALL")
+#ifdef JavaSecurityInterfacesRSAKey_RESTRICT
+#define JavaSecurityInterfacesRSAKey_INCLUDE_ALL 0
+#else
+#define JavaSecurityInterfacesRSAKey_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityInterfacesRSAKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityInterfacesRSAKey_) && (JavaSecurityInterfacesRSAKey_INCLUDE_ALL || defined(JavaSecurityInterfacesRSAKey_INCLUDE))
+#define JavaSecurityInterfacesRSAKey_
 
 @class JavaMathBigInteger;
 
@@ -27,4 +38,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecurityInterfacesRSAKey)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesRSAKey)
 
-#endif // _JavaSecurityInterfacesRSAKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityInterfacesRSAKey_INCLUDE_ALL")

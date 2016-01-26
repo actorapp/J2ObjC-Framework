@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/helpers/NewInstance.java
 //
 
-#ifndef _OrgXmlSaxHelpersNewInstance_H_
-#define _OrgXmlSaxHelpersNewInstance_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxHelpersNewInstance_INCLUDE_ALL")
+#ifdef OrgXmlSaxHelpersNewInstance_RESTRICT
+#define OrgXmlSaxHelpersNewInstance_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHelpersNewInstance_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHelpersNewInstance_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHelpersNewInstance_) && (OrgXmlSaxHelpersNewInstance_INCLUDE_ALL || defined(OrgXmlSaxHelpersNewInstance_INCLUDE))
+#define OrgXmlSaxHelpersNewInstance_
 
 @class JavaLangClassLoader;
 
@@ -60,4 +71,8 @@ FOUNDATION_EXPORT OrgXmlSaxHelpersNewInstance *new_OrgXmlSaxHelpersNewInstance_i
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNewInstance)
 
-#endif // _OrgXmlSaxHelpersNewInstance_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHelpersNewInstance_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/NumberFormatException.java
 //
 
-#ifndef _JavaLangNumberFormatException_H_
-#define _JavaLangNumberFormatException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangNumberFormatException_INCLUDE_ALL")
+#ifdef JavaLangNumberFormatException_RESTRICT
+#define JavaLangNumberFormatException_INCLUDE_ALL 0
+#else
+#define JavaLangNumberFormatException_INCLUDE_ALL 1
+#endif
+#undef JavaLangNumberFormatException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangNumberFormatException_) && (JavaLangNumberFormatException_INCLUDE_ALL || defined(JavaLangNumberFormatException_INCLUDE))
+#define JavaLangNumberFormatException_
+
+#define JavaLangIllegalArgumentException_RESTRICT 1
+#define JavaLangIllegalArgumentException_INCLUDE 1
 #include "../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaLangNumberFormatException *new_JavaLangNumberFormatExcepti
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNumberFormatException)
 
-#endif // _JavaLangNumberFormatException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangNumberFormatException_INCLUDE_ALL")

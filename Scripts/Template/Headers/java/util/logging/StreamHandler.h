@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/StreamHandler.java
 //
 
-#ifndef _JavaUtilLoggingStreamHandler_H_
-#define _JavaUtilLoggingStreamHandler_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLoggingStreamHandler_INCLUDE_ALL")
+#ifdef JavaUtilLoggingStreamHandler_RESTRICT
+#define JavaUtilLoggingStreamHandler_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingStreamHandler_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingStreamHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingStreamHandler_) && (JavaUtilLoggingStreamHandler_INCLUDE_ALL || defined(JavaUtilLoggingStreamHandler_INCLUDE))
+#define JavaUtilLoggingStreamHandler_
+
+#define JavaUtilLoggingHandler_RESTRICT 1
+#define JavaUtilLoggingHandler_INCLUDE 1
 #include "../../../java/util/logging/Handler.h"
 
 @class JavaIoOutputStream;
@@ -190,4 +204,8 @@ FOUNDATION_EXPORT JavaUtilLoggingStreamHandler *new_JavaUtilLoggingStreamHandler
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingStreamHandler)
 
-#endif // _JavaUtilLoggingStreamHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingStreamHandler_INCLUDE_ALL")

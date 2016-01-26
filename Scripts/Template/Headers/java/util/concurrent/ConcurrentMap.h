@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ConcurrentMap.java
 //
 
-#ifndef _JavaUtilConcurrentConcurrentMap_H_
-#define _JavaUtilConcurrentConcurrentMap_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentConcurrentMap_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentConcurrentMap_RESTRICT
+#define JavaUtilConcurrentConcurrentMap_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentConcurrentMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentConcurrentMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentConcurrentMap_) && (JavaUtilConcurrentConcurrentMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentMap_INCLUDE))
+#define JavaUtilConcurrentConcurrentMap_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_INCLUDE 1
 #include "../../../java/util/Map.h"
 
 /*!
@@ -146,4 +160,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentConcurrentMap)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentMap)
 
-#endif // _JavaUtilConcurrentConcurrentMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentConcurrentMap_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/text/SimpleDateFormat.java
 //
 
-#ifndef _JavaTextSimpleDateFormat_H_
-#define _JavaTextSimpleDateFormat_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextSimpleDateFormat_INCLUDE_ALL")
+#ifdef JavaTextSimpleDateFormat_RESTRICT
+#define JavaTextSimpleDateFormat_INCLUDE_ALL 0
+#else
+#define JavaTextSimpleDateFormat_INCLUDE_ALL 1
+#endif
+#undef JavaTextSimpleDateFormat_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextSimpleDateFormat_) && (JavaTextSimpleDateFormat_INCLUDE_ALL || defined(JavaTextSimpleDateFormat_INCLUDE))
+#define JavaTextSimpleDateFormat_
+
+#define JavaTextDateFormat_RESTRICT 1
+#define JavaTextDateFormat_INCLUDE 1
 #include "../../java/text/DateFormat.h"
 
 @class JavaLangStringBuffer;
@@ -164,8 +178,14 @@
  <h4>Synchronization</h4>
  <code>SimpleDateFormat</code> is not thread-safe. Users should create a separate instance for
  each thread.
+ - seealso: java.util.Calendar
+ - seealso: java.util.Date
+ - seealso: java.util.TimeZone
+ - seealso: java.text.DateFormat
  */
 @interface JavaTextSimpleDateFormat : JavaTextDateFormat
+
++ (NSString *)PATTERN_CHARS;
 
 #pragma mark Public
 
@@ -260,6 +280,7 @@
  the object to compare with this object.
  @return <code>true</code> if the specified object is equal to this simple date
  format; <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -387,8 +408,10 @@
 
 J2OBJC_STATIC_INIT(JavaTextSimpleDateFormat)
 
-FOUNDATION_EXPORT NSString *JavaTextSimpleDateFormat_PATTERN_CHARS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextSimpleDateFormat, PATTERN_CHARS_, NSString *)
+inline NSString *JavaTextSimpleDateFormat_get_PATTERN_CHARS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaTextSimpleDateFormat_PATTERN_CHARS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextSimpleDateFormat, PATTERN_CHARS, NSString *)
 
 FOUNDATION_EXPORT void JavaTextSimpleDateFormat_init(JavaTextSimpleDateFormat *self);
 
@@ -408,4 +431,8 @@ FOUNDATION_EXPORT JavaTextSimpleDateFormat *new_JavaTextSimpleDateFormat_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextSimpleDateFormat)
 
-#endif // _JavaTextSimpleDateFormat_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextSimpleDateFormat_INCLUDE_ALL")

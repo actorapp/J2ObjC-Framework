@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicReferenceFieldUpdater.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_H_
-#define _JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_RESTRICT
+#define JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_) && (JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_INCLUDE))
+#define JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_
 
 @class IOSClass;
 
@@ -155,4 +166,8 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_init(
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater)
 
-#endif // _JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicAtomicReferenceFieldUpdater_INCLUDE_ALL")

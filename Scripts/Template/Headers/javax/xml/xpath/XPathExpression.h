@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/xpath/XPathExpression.java
 //
 
-#ifndef _JavaxXmlXpathXPathExpression_H_
-#define _JavaxXmlXpathXPathExpression_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlXpathXPathExpression_INCLUDE_ALL")
+#ifdef JavaxXmlXpathXPathExpression_RESTRICT
+#define JavaxXmlXpathXPathExpression_INCLUDE_ALL 0
+#else
+#define JavaxXmlXpathXPathExpression_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlXpathXPathExpression_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlXpathXPathExpression_) && (JavaxXmlXpathXPathExpression_INCLUDE_ALL || defined(JavaxXmlXpathXPathExpression_INCLUDE))
+#define JavaxXmlXpathXPathExpression_
 
 @class JavaxXmlNamespaceQName;
 @class OrgXmlSaxInputSource;
@@ -65,6 +76,7 @@
  @author <a href="mailto:Norman.Walsh@@Sun.com">Norman Walsh</a>
  @author <a href="mailto:Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  @version $Revision: 446598 $, $Date: 2006-09-15 05:55:40 -0700 (Fri, 15 Sep 2006) $
+ - seealso: <a href="http://www.w3.org/TR/xpath#section-Expressions">XML Path Language (XPath) Version 1.0, Expressions</a>
  @since 1.5
  */
 @protocol JavaxXmlXpathXPathExpression < NSObject, JavaObject >
@@ -154,4 +166,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlXpathXPathExpression)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathExpression)
 
-#endif // _JavaxXmlXpathXPathExpression_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlXpathXPathExpression_INCLUDE_ALL")

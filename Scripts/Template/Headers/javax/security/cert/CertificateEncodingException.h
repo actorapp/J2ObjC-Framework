@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/security/cert/CertificateEncodingException.java
 //
 
-#ifndef _JavaxSecurityCertCertificateEncodingException_H_
-#define _JavaxSecurityCertCertificateEncodingException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxSecurityCertCertificateEncodingException_INCLUDE_ALL")
+#ifdef JavaxSecurityCertCertificateEncodingException_RESTRICT
+#define JavaxSecurityCertCertificateEncodingException_INCLUDE_ALL 0
+#else
+#define JavaxSecurityCertCertificateEncodingException_INCLUDE_ALL 1
+#endif
+#undef JavaxSecurityCertCertificateEncodingException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxSecurityCertCertificateEncodingException_) && (JavaxSecurityCertCertificateEncodingException_INCLUDE_ALL || defined(JavaxSecurityCertCertificateEncodingException_INCLUDE))
+#define JavaxSecurityCertCertificateEncodingException_
+
+#define JavaxSecurityCertCertificateException_RESTRICT 1
+#define JavaxSecurityCertCertificateException_INCLUDE 1
 #include "../../../javax/security/cert/CertificateException.h"
 
 /*!
@@ -50,4 +64,8 @@ FOUNDATION_EXPORT JavaxSecurityCertCertificateEncodingException *new_JavaxSecuri
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateEncodingException)
 
-#endif // _JavaxSecurityCertCertificateEncodingException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxSecurityCertCertificateEncodingException_INCLUDE_ALL")

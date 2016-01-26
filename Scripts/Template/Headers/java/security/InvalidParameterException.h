@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/InvalidParameterException.java
 //
 
-#ifndef _JavaSecurityInvalidParameterException_H_
-#define _JavaSecurityInvalidParameterException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityInvalidParameterException_INCLUDE_ALL")
+#ifdef JavaSecurityInvalidParameterException_RESTRICT
+#define JavaSecurityInvalidParameterException_INCLUDE_ALL 0
+#else
+#define JavaSecurityInvalidParameterException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityInvalidParameterException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityInvalidParameterException_) && (JavaSecurityInvalidParameterException_INCLUDE_ALL || defined(JavaSecurityInvalidParameterException_INCLUDE))
+#define JavaSecurityInvalidParameterException_
+
+#define JavaLangIllegalArgumentException_RESTRICT 1
+#define JavaLangIllegalArgumentException_INCLUDE 1
 #include "../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -44,4 +58,8 @@ FOUNDATION_EXPORT JavaSecurityInvalidParameterException *new_JavaSecurityInvalid
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInvalidParameterException)
 
-#endif // _JavaSecurityInvalidParameterException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityInvalidParameterException_INCLUDE_ALL")

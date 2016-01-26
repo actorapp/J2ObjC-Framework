@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/text/util/Rfc822Token.java
 //
 
-#ifndef _AndroidTextUtilRfc822Token_H_
-#define _AndroidTextUtilRfc822Token_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextUtilRfc822Token_INCLUDE_ALL")
+#ifdef AndroidTextUtilRfc822Token_RESTRICT
+#define AndroidTextUtilRfc822Token_INCLUDE_ALL 0
+#else
+#define AndroidTextUtilRfc822Token_INCLUDE_ALL 1
+#endif
+#undef AndroidTextUtilRfc822Token_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextUtilRfc822Token_) && (AndroidTextUtilRfc822Token_INCLUDE_ALL || defined(AndroidTextUtilRfc822Token_INCLUDE))
+#define AndroidTextUtilRfc822Token_
 
 /*!
  @brief This class stores an RFC 822-like name, address, and comment,
@@ -104,4 +115,8 @@ FOUNDATION_EXPORT NSString *AndroidTextUtilRfc822Token_quoteCommentWithNSString_
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextUtilRfc822Token)
 
-#endif // _AndroidTextUtilRfc822Token_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextUtilRfc822Token_INCLUDE_ALL")

@@ -3,17 +3,25 @@
 //  source: android/libcore/luni/src/main/java/java/util/jar/JarVerifier.java
 //
 
-#ifndef _JavaUtilJarJarVerifier_H_
-#define _JavaUtilJarJarVerifier_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/OutputStream.h"
+
+#pragma push_macro("JavaUtilJarJarVerifier_INCLUDE_ALL")
+#ifdef JavaUtilJarJarVerifier_RESTRICT
+#define JavaUtilJarJarVerifier_INCLUDE_ALL 0
+#else
+#define JavaUtilJarJarVerifier_INCLUDE_ALL 1
+#endif
+#undef JavaUtilJarJarVerifier_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilJarJarVerifier_) && (JavaUtilJarJarVerifier_INCLUDE_ALL || defined(JavaUtilJarJarVerifier_INCLUDE))
+#define JavaUtilJarJarVerifier_
 
 @class IOSByteArray;
 @class IOSObjectArray;
-@class JavaSecurityMessageDigest;
 @class JavaUtilHashMap;
-@class JavaUtilHashtable;
 @class JavaUtilJarJarVerifier_VerifierEntry;
 @class JavaUtilJarManifest;
 
@@ -56,6 +64,7 @@
  directory.
  @param buf
  the file bytes for the file called <code>name</code>.
+ - seealso: #removeMetaEntries()
  */
 - (void)addMetaEntryWithNSString:(NSString *)name
                    withByteArray:(IOSByteArray *)buf;
@@ -127,6 +136,20 @@ FOUNDATION_EXPORT JavaUtilJarJarVerifier *new_JavaUtilJarJarVerifier_initWithNSS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarVerifier)
 
+#endif
+
+#if !defined (JavaUtilJarJarVerifier_VerifierEntry_) && (JavaUtilJarJarVerifier_INCLUDE_ALL || defined(JavaUtilJarJarVerifier_VerifierEntry_INCLUDE))
+#define JavaUtilJarJarVerifier_VerifierEntry_
+
+#define JavaIoOutputStream_RESTRICT 1
+#define JavaIoOutputStream_INCLUDE 1
+#include "../../../java/io/OutputStream.h"
+
+@class IOSByteArray;
+@class IOSObjectArray;
+@class JavaSecurityMessageDigest;
+@class JavaUtilHashtable;
+
 /*!
  @brief Stores and a hash and a message digest and verifies that massage digest
  matches the hash.
@@ -178,4 +201,8 @@ FOUNDATION_EXPORT JavaUtilJarJarVerifier_VerifierEntry *new_JavaUtilJarJarVerifi
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarVerifier_VerifierEntry)
 
-#endif // _JavaUtilJarJarVerifier_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilJarJarVerifier_INCLUDE_ALL")

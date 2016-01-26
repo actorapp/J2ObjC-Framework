@@ -3,17 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Long.java
 //
 
-#ifndef _JavaLangLong_H_
-#define _JavaLangLong_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangLong_INCLUDE_ALL")
+#ifdef JavaLangLong_RESTRICT
+#define JavaLangLong_INCLUDE_ALL 0
+#else
+#define JavaLangLong_INCLUDE_ALL 1
+#endif
+#undef JavaLangLong_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangLong_) && (JavaLangLong_INCLUDE_ALL || defined(JavaLangLong_INCLUDE))
+#define JavaLangLong_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
-
-#define JavaLangLong_MAX_VALUE 9223372036854775807LL
-#define JavaLangLong_MIN_VALUE ((jlong) 0x8000000000000000LL)
-#define JavaLangLong_SIZE 64
 
 /*!
  @brief The wrapper for the primitive type <code>long</code>.
@@ -23,9 +33,18 @@
  Jr.'s Hacker's Delight, (Addison Wesley, 2002)</a> and <a href=
  "http://graphics.stanford.edu/~seander/bithacks.html">Sean Anderson's
  Bit Twiddling Hacks.</a>
+ - seealso: java.lang.Integer
  @since 1.0
  */
 @interface JavaLangLong : NSNumber < JavaLangComparable >
+
++ (jlong)MAX_VALUE;
+
++ (jlong)MIN_VALUE;
+
++ (IOSClass *)TYPE;
+
++ (jint)SIZE;
 
 #pragma mark Public
 
@@ -42,6 +61,7 @@
  the string representation of a long value.
  @throws NumberFormatException
  if <code>string</code> cannot be parsed as a long value.
+ - seealso: #parseLong(String)
  */
 - (instancetype)initWithNSString:(NSString *)string;
 
@@ -74,6 +94,7 @@
  of <code>object</code>; 0 if the value of this long and the value of
  <code>object</code> are equal; a positive value if the value of this
  long is greater than the value of <code>object</code>.
+ - seealso: java.lang.Comparable
  @since 1.2
  */
 - (jint)compareToWithId:(JavaLangLong *)object;
@@ -245,6 +266,7 @@
 
 /*!
  @brief Equivalent to <code>parsePositiveLong(string, 10)</code>.
+ - seealso: #parsePositiveLong(String,int)
  */
 + (jlong)parsePositiveLongWithNSString:(NSString *)string;
 
@@ -255,6 +277,7 @@
  This method behaves the same as <code>parseLong(String,int)</code> except
  that it disallows leading '+' and '-' characters. See that method for
  error conditions.
+ - seealso: #parseLong(String,int)
  */
 + (jlong)parsePositiveLongWithNSString:(NSString *)string
                                withInt:(jint)radix;
@@ -399,6 +422,7 @@
  <code>string</code>.
  @throws NumberFormatException
  if <code>string</code> cannot be parsed as a long value.
+ - seealso: #parseLong(String)
  */
 + (JavaLangLong *)valueOfWithNSString:(NSString *)string;
 
@@ -416,25 +440,47 @@
  <code>radix < Character.MIN_RADIX ||
  radix > Character.MAX_RADIX</code>
  .
+ - seealso: #parseLong(String,int)
  */
 + (JavaLangLong *)valueOfWithNSString:(NSString *)string
                               withInt:(jint)radix;
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaLangLong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangLong, MAX_VALUE, jlong)
+/*!
+ @brief Constant for the maximum <code>long</code> value, 2<sup>63</sup>-1.
+ */
+inline jlong JavaLangLong_get_MAX_VALUE();
+#define JavaLangLong_MAX_VALUE 9223372036854775807LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangLong, MAX_VALUE, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangLong, MIN_VALUE, jlong)
+/*!
+ @brief Constant for the minimum <code>long</code> value, -2<sup>63</sup>.
+ */
+inline jlong JavaLangLong_get_MIN_VALUE();
+#define JavaLangLong_MIN_VALUE ((jlong) 0x8000000000000000LL)
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangLong, MIN_VALUE, jlong)
 
-FOUNDATION_EXPORT IOSClass *JavaLangLong_TYPE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangLong, TYPE_, IOSClass *)
+/*!
+ @brief The <code>Class</code> object that represents the primitive type <code>long</code>.
+ */
+inline IOSClass *JavaLangLong_get_TYPE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaLangLong_TYPE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangLong, TYPE, IOSClass *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangLong, SIZE, jint)
+/*!
+ @brief Constant for the number of bits needed to represent a <code>long</code> in
+ two's complement form.
+ @since 1.5
+ */
+inline jint JavaLangLong_get_SIZE();
+#define JavaLangLong_SIZE 64
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangLong, SIZE, jint)
 
 FOUNDATION_EXPORT void JavaLangLong_initWithLong_(JavaLangLong *self, jlong value);
 
@@ -506,4 +552,8 @@ BOXED_COMPOUND_ASSIGN_MOD(Long, longLongValue, jlong, JavaLangLong)
 BOXED_COMPOUND_ASSIGN_BITWISE(Long, longLongValue, jlong, JavaLangLong)
 BOXED_SHIFT_ASSIGN_64(Long, longLongValue, jlong, JavaLangLong)
 
-#endif // _JavaLangLong_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangLong_INCLUDE_ALL")

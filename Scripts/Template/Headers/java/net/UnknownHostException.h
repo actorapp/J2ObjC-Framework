@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/UnknownHostException.java
 //
 
-#ifndef _JavaNetUnknownHostException_H_
-#define _JavaNetUnknownHostException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetUnknownHostException_INCLUDE_ALL")
+#ifdef JavaNetUnknownHostException_RESTRICT
+#define JavaNetUnknownHostException_INCLUDE_ALL 0
+#else
+#define JavaNetUnknownHostException_INCLUDE_ALL 1
+#endif
+#undef JavaNetUnknownHostException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetUnknownHostException_) && (JavaNetUnknownHostException_INCLUDE_ALL || defined(JavaNetUnknownHostException_INCLUDE))
+#define JavaNetUnknownHostException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaNetUnknownHostException *new_JavaNetUnknownHostException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetUnknownHostException)
 
-#endif // _JavaNetUnknownHostException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetUnknownHostException_INCLUDE_ALL")

@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/io/FilePermission.java
 //
 
-#ifndef _JavaIoFilePermission_H_
-#define _JavaIoFilePermission_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaIoFilePermission_INCLUDE_ALL")
+#ifdef JavaIoFilePermission_RESTRICT
+#define JavaIoFilePermission_INCLUDE_ALL 0
+#else
+#define JavaIoFilePermission_INCLUDE_ALL 1
+#endif
+#undef JavaIoFilePermission_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFilePermission_) && (JavaIoFilePermission_INCLUDE_ALL || defined(JavaIoFilePermission_INCLUDE))
+#define JavaIoFilePermission_
+
+#define JavaSecurityPermission_RESTRICT 1
+#define JavaSecurityPermission_INCLUDE 1
 #include "../../java/security/Permission.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief Legacy security code; do not use.
@@ -34,4 +51,8 @@ FOUNDATION_EXPORT JavaIoFilePermission *new_JavaIoFilePermission_initWithNSStrin
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilePermission)
 
-#endif // _JavaIoFilePermission_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFilePermission_INCLUDE_ALL")

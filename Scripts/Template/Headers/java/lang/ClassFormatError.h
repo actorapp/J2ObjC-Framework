@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ClassFormatError.java
 //
 
-#ifndef _JavaLangClassFormatError_H_
-#define _JavaLangClassFormatError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangClassFormatError_INCLUDE_ALL")
+#ifdef JavaLangClassFormatError_RESTRICT
+#define JavaLangClassFormatError_INCLUDE_ALL 0
+#else
+#define JavaLangClassFormatError_INCLUDE_ALL 1
+#endif
+#undef JavaLangClassFormatError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangClassFormatError_) && (JavaLangClassFormatError_INCLUDE_ALL || defined(JavaLangClassFormatError_INCLUDE))
+#define JavaLangClassFormatError_
+
+#define JavaLangLinkageError_RESTRICT 1
+#define JavaLangLinkageError_INCLUDE 1
 #include "../../java/lang/LinkageError.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaLangClassFormatError *new_JavaLangClassFormatError_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassFormatError)
 
-#endif // _JavaLangClassFormatError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangClassFormatError_INCLUDE_ALL")

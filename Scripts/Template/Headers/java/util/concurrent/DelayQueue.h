@@ -3,15 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/DelayQueue.java
 //
 
-#ifndef _JavaUtilConcurrentDelayQueue_H_
-#define _JavaUtilConcurrentDelayQueue_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentDelayQueue_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentDelayQueue_RESTRICT
+#define JavaUtilConcurrentDelayQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentDelayQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentDelayQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentDelayQueue_) && (JavaUtilConcurrentDelayQueue_INCLUDE_ALL || defined(JavaUtilConcurrentDelayQueue_INCLUDE))
+#define JavaUtilConcurrentDelayQueue_
+
+#define JavaUtilAbstractQueue_RESTRICT 1
+#define JavaUtilAbstractQueue_INCLUDE 1
 #include "../../../java/util/AbstractQueue.h"
+
+#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
+#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
 
 @class IOSObjectArray;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilCollection;
 @protocol JavaUtilConcurrentDelayed;
 @protocol JavaUtilIterator;
@@ -124,7 +141,7 @@
  */
 - (jboolean)offerWithId:(id<JavaUtilConcurrentDelayed>)e
                withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Retrieves, but does not remove, the head of this queue, or
@@ -156,7 +173,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  @throws InterruptedException
  */
 - (id)pollWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Inserts the specified element into this delay queue.
@@ -242,7 +259,6 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  */
 - (void)removeEQWithId:(id)o;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentDelayQueue)
@@ -257,4 +273,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentDelayQueue *new_JavaUtilConcurrentDelayQueue
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentDelayQueue)
 
-#endif // _JavaUtilConcurrentDelayQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentDelayQueue_INCLUDE_ALL")

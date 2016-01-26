@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/URLDecoder.java
 //
 
-#ifndef _JavaNetURLDecoder_H_
-#define _JavaNetURLDecoder_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetURLDecoder_INCLUDE_ALL")
+#ifdef JavaNetURLDecoder_RESTRICT
+#define JavaNetURLDecoder_INCLUDE_ALL 0
+#else
+#define JavaNetURLDecoder_INCLUDE_ALL 1
+#endif
+#undef JavaNetURLDecoder_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetURLDecoder_) && (JavaNetURLDecoder_INCLUDE_ALL || defined(JavaNetURLDecoder_INCLUDE))
+#define JavaNetURLDecoder_
 
 /*!
  @brief This class is used to decode a string which is encoded in the <code>application/x-www-form-urlencoded</code>
@@ -30,7 +41,7 @@
  the encoded string.
  @return the decoded clear-text representation of the given string.
  */
-+ (NSString *)decodeWithNSString:(NSString *)s;
++ (NSString *)decodeWithNSString:(NSString *)s __attribute__((deprecated));
 
 /*!
  @brief Decodes the argument which is assumed to be encoded in the <code>x-www-form-urlencoded</code>
@@ -58,4 +69,8 @@ FOUNDATION_EXPORT JavaNetURLDecoder *new_JavaNetURLDecoder_init() NS_RETURNS_RET
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLDecoder)
 
-#endif // _JavaNetURLDecoder_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetURLDecoder_INCLUDE_ALL")

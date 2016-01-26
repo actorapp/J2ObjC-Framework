@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/Objects.java
 //
 
-#ifndef _JavaUtilObjects_H_
-#define _JavaUtilObjects_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilObjects_INCLUDE_ALL")
+#ifdef JavaUtilObjects_RESTRICT
+#define JavaUtilObjects_INCLUDE_ALL 0
+#else
+#define JavaUtilObjects_INCLUDE_ALL 1
+#endif
+#undef JavaUtilObjects_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilObjects_) && (JavaUtilObjects_INCLUDE_ALL || defined(JavaUtilObjects_INCLUDE))
+#define JavaUtilObjects_
 
 @class IOSObjectArray;
 @protocol JavaUtilComparator;
@@ -101,4 +112,8 @@ FOUNDATION_EXPORT NSString *JavaUtilObjects_toStringWithId_withNSString_(id o, N
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilObjects)
 
-#endif // _JavaUtilObjects_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilObjects_INCLUDE_ALL")

@@ -3,14 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/text/DecimalFormat.java
 //
 
-#ifndef _JavaTextDecimalFormat_H_
-#define _JavaTextDecimalFormat_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextDecimalFormat_INCLUDE_ALL")
+#ifdef JavaTextDecimalFormat_RESTRICT
+#define JavaTextDecimalFormat_INCLUDE_ALL 0
+#else
+#define JavaTextDecimalFormat_INCLUDE_ALL 1
+#endif
+#undef JavaTextDecimalFormat_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextDecimalFormat_) && (JavaTextDecimalFormat_INCLUDE_ALL || defined(JavaTextDecimalFormat_INCLUDE))
+#define JavaTextDecimalFormat_
+
+#define JavaTextNumberFormat_RESTRICT 1
+#define JavaTextNumberFormat_INCLUDE 1
 #include "../../java/text/NumberFormat.h"
 
 @class JavaLangStringBuffer;
-@class JavaMathRoundingModeEnum;
+@class JavaMathRoundingMode;
 @class JavaTextDecimalFormatSymbols;
 @class JavaTextFieldPosition;
 @class JavaTextParsePosition;
@@ -479,6 +493,8 @@
  <p>
  <code>DecimalFormat</code> objects are not synchronized. Multiple threads should
  not access one formatter concurrently.
+ - seealso: Format
+ - seealso: NumberFormat
  */
 @interface JavaTextDecimalFormat : JavaTextNumberFormat
 
@@ -550,6 +566,7 @@ withJavaTextDecimalFormatSymbols:(JavaTextDecimalFormatSymbols *)value;
  the object to compare with this object.
  @return <code>true</code> if the specified object is equal to this decimal
  format; <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -583,6 +600,7 @@ withJavaTextDecimalFormatSymbols:(JavaTextDecimalFormatSymbols *)value;
 /*!
  @brief Returns the currency used by this decimal format.
  @return the currency used by this decimal format.
+ - seealso: DecimalFormatSymbols#getCurrency()
  */
 - (JavaUtilCurrency *)getCurrency;
 
@@ -636,7 +654,7 @@ withJavaTextDecimalFormatSymbols:(JavaTextDecimalFormatSymbols *)value;
  @brief Returns the <code>RoundingMode</code> used by this <code>NumberFormat</code>.
  @since 1.6
  */
-- (JavaMathRoundingModeEnum *)getRoundingMode;
+- (JavaMathRoundingMode *)getRoundingMode;
 
 - (NSUInteger)hash;
 
@@ -704,6 +722,7 @@ withJavaTextDecimalFormatSymbols:(JavaTextDecimalFormatSymbols *)value;
  digits remain the same.
  @param currency
  the currency this <code>DecimalFormat</code> should use.
+ - seealso: DecimalFormatSymbols#setCurrency(Currency)
  */
 - (void)setCurrencyWithJavaUtilCurrency:(JavaUtilCurrency *)currency;
 
@@ -836,7 +855,7 @@ withJavaTextDecimalFormatSymbols:(JavaTextDecimalFormatSymbols *)value;
  @brief Sets the <code>RoundingMode</code> used by this <code>NumberFormat</code>.
  @since 1.6
  */
-- (void)setRoundingModeWithJavaMathRoundingModeEnum:(JavaMathRoundingModeEnum *)roundingMode;
+- (void)setRoundingModeWithJavaMathRoundingMode:(JavaMathRoundingMode *)roundingMode;
 
 /*!
  @brief Returns the pattern of this decimal format using localized pattern
@@ -879,4 +898,8 @@ FOUNDATION_EXPORT JavaTextDecimalFormat *new_JavaTextDecimalFormat_initWithNSStr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextDecimalFormat)
 
-#endif // _JavaTextDecimalFormat_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextDecimalFormat_INCLUDE_ALL")

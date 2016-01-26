@@ -3,47 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Types.java
 //
 
-#ifndef _JavaSqlTypes_H_
-#define _JavaSqlTypes_H_
-
 #include "../../J2ObjC_header.h"
 
-#define JavaSqlTypes_ARRAY 2003
-#define JavaSqlTypes_BIGINT -5
-#define JavaSqlTypes_BINARY -2
-#define JavaSqlTypes_BIT -7
-#define JavaSqlTypes_BLOB 2004
-#define JavaSqlTypes_BOOLEAN 16
-#define JavaSqlTypes_CHAR 1
-#define JavaSqlTypes_CLOB 2005
-#define JavaSqlTypes_DATALINK 70
-#define JavaSqlTypes_DATE 91
-#define JavaSqlTypes_DECIMAL 3
-#define JavaSqlTypes_DISTINCT 2001
-#define JavaSqlTypes_DOUBLE 8
-#define JavaSqlTypes_FLOAT 6
-#define JavaSqlTypes_INTEGER 4
-#define JavaSqlTypes_JAVA_OBJECT 2000
-#define JavaSqlTypes_LONGVARBINARY -4
-#define JavaSqlTypes_LONGVARCHAR -1
-#define JavaSqlTypes_NULL 0
-#define JavaSqlTypes_NUMERIC 2
-#define JavaSqlTypes_OTHER 1111
-#define JavaSqlTypes_REAL 7
-#define JavaSqlTypes_REF 2006
-#define JavaSqlTypes_SMALLINT 5
-#define JavaSqlTypes_STRUCT 2002
-#define JavaSqlTypes_TIME 92
-#define JavaSqlTypes_TIMESTAMP 93
-#define JavaSqlTypes_TINYINT -6
-#define JavaSqlTypes_VARBINARY -3
-#define JavaSqlTypes_VARCHAR 12
-#define JavaSqlTypes_ROWID -8
-#define JavaSqlTypes_NCHAR -15
-#define JavaSqlTypes_NVARCHAR -9
-#define JavaSqlTypes_LONGNVARCHAR -16
-#define JavaSqlTypes_NCLOB 2011
-#define JavaSqlTypes_SQLXML 2009
+#pragma push_macro("JavaSqlTypes_INCLUDE_ALL")
+#ifdef JavaSqlTypes_RESTRICT
+#define JavaSqlTypes_INCLUDE_ALL 0
+#else
+#define JavaSqlTypes_INCLUDE_ALL 1
+#endif
+#undef JavaSqlTypes_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlTypes_) && (JavaSqlTypes_INCLUDE_ALL || defined(JavaSqlTypes_INCLUDE))
+#define JavaSqlTypes_
 
 /*!
  @brief A class which defines constants used to identify generic SQL types, also
@@ -53,82 +27,340 @@
  */
 @interface JavaSqlTypes : NSObject
 
++ (jint)ARRAY;
+
++ (jint)BIGINT;
+
++ (jint)BINARY;
+
++ (jint)BIT;
+
++ (jint)BLOB;
+
++ (jint)BOOLEAN;
+
++ (jint)CHAR;
+
++ (jint)CLOB;
+
++ (jint)DATALINK;
+
++ (jint)DATE;
+
++ (jint)DECIMAL;
+
++ (jint)DISTINCT;
+
++ (jint)DOUBLE;
+
++ (jint)FLOAT;
+
++ (jint)INTEGER;
+
++ (jint)JAVA_OBJECT;
+
++ (jint)LONGVARBINARY;
+
++ (jint)LONGVARCHAR;
+
++ (jint)NULL_;
+
++ (jint)NUMERIC;
+
++ (jint)OTHER;
+
++ (jint)REAL;
+
++ (jint)REF;
+
++ (jint)SMALLINT;
+
++ (jint)STRUCT;
+
++ (jint)TIME;
+
++ (jint)TIMESTAMP;
+
++ (jint)TINYINT;
+
++ (jint)VARBINARY;
+
++ (jint)VARCHAR;
+
++ (jint)ROWID;
+
++ (jint)NCHAR;
+
++ (jint)NVARCHAR;
+
++ (jint)LONGNVARCHAR;
+
++ (jint)NCLOB;
+
++ (jint)SQLXML;
+
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlTypes)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, ARRAY, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>ARRAY</code>.
+ */
+inline jint JavaSqlTypes_get_ARRAY();
+#define JavaSqlTypes_ARRAY 2003
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, ARRAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, BIGINT, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>BIGINT</code>.
+ */
+inline jint JavaSqlTypes_get_BIGINT();
+#define JavaSqlTypes_BIGINT -5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, BIGINT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, BINARY, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>BINARY</code>.
+ */
+inline jint JavaSqlTypes_get_BINARY();
+#define JavaSqlTypes_BINARY -2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, BINARY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, BIT, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>BIT</code>.
+ */
+inline jint JavaSqlTypes_get_BIT();
+#define JavaSqlTypes_BIT -7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, BIT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, BLOB, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>BLOB</code>.
+ */
+inline jint JavaSqlTypes_get_BLOB();
+#define JavaSqlTypes_BLOB 2004
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, BLOB, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, BOOLEAN, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>BOOLEAN</code>.
+ */
+inline jint JavaSqlTypes_get_BOOLEAN();
+#define JavaSqlTypes_BOOLEAN 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, BOOLEAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, CHAR, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>CHAR</code>.
+ */
+inline jint JavaSqlTypes_get_CHAR();
+#define JavaSqlTypes_CHAR 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, CHAR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, CLOB, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>CLOB</code>.
+ */
+inline jint JavaSqlTypes_get_CLOB();
+#define JavaSqlTypes_CLOB 2005
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, CLOB, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, DATALINK, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>DATALINK</code>.
+ */
+inline jint JavaSqlTypes_get_DATALINK();
+#define JavaSqlTypes_DATALINK 70
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, DATALINK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, DATE, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>DATE</code>.
+ */
+inline jint JavaSqlTypes_get_DATE();
+#define JavaSqlTypes_DATE 91
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, DATE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, DECIMAL, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>DECIMAL</code>.
+ */
+inline jint JavaSqlTypes_get_DECIMAL();
+#define JavaSqlTypes_DECIMAL 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, DECIMAL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, DISTINCT, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>DISTINCT</code>.
+ */
+inline jint JavaSqlTypes_get_DISTINCT();
+#define JavaSqlTypes_DISTINCT 2001
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, DISTINCT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, DOUBLE, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>DOUBLE</code>.
+ */
+inline jint JavaSqlTypes_get_DOUBLE();
+#define JavaSqlTypes_DOUBLE 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, DOUBLE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, FLOAT, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>FLOAT</code>.
+ */
+inline jint JavaSqlTypes_get_FLOAT();
+#define JavaSqlTypes_FLOAT 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, FLOAT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, INTEGER, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>INTEGER</code>.
+ */
+inline jint JavaSqlTypes_get_INTEGER();
+#define JavaSqlTypes_INTEGER 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, INTEGER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, JAVA_OBJECT, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>JAVA_OBJECT</code>.
+ */
+inline jint JavaSqlTypes_get_JAVA_OBJECT();
+#define JavaSqlTypes_JAVA_OBJECT 2000
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, JAVA_OBJECT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, LONGVARBINARY, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>LONGVARBINARY</code>.
+ */
+inline jint JavaSqlTypes_get_LONGVARBINARY();
+#define JavaSqlTypes_LONGVARBINARY -4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, LONGVARBINARY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, LONGVARCHAR, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>LONGVARCHAR</code>.
+ */
+inline jint JavaSqlTypes_get_LONGVARCHAR();
+#define JavaSqlTypes_LONGVARCHAR -1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, LONGVARCHAR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, NULL, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>NULL</code>.
+ */
+inline jint JavaSqlTypes_get_NULL();
+#define JavaSqlTypes_NULL 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, NULL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, NUMERIC, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>NUMERIC</code>.
+ */
+inline jint JavaSqlTypes_get_NUMERIC();
+#define JavaSqlTypes_NUMERIC 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, NUMERIC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, OTHER, jint)
+/*!
+ @brief The type code that identifies that the SQL type is database specific and
+ is mapped to a Java object, accessed via the methods
+ <code>getObject</code> and <code>setObject</code>.
+ */
+inline jint JavaSqlTypes_get_OTHER();
+#define JavaSqlTypes_OTHER 1111
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, OTHER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, REAL, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>REAL</code>.
+ */
+inline jint JavaSqlTypes_get_REAL();
+#define JavaSqlTypes_REAL 7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, REAL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, REF, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>REF</code>.
+ */
+inline jint JavaSqlTypes_get_REF();
+#define JavaSqlTypes_REF 2006
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, REF, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, SMALLINT, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>SMALLINT</code>.
+ */
+inline jint JavaSqlTypes_get_SMALLINT();
+#define JavaSqlTypes_SMALLINT 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, SMALLINT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, STRUCT, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>STRUCT</code>.
+ */
+inline jint JavaSqlTypes_get_STRUCT();
+#define JavaSqlTypes_STRUCT 2002
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, STRUCT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, TIME, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>TIME</code>.
+ */
+inline jint JavaSqlTypes_get_TIME();
+#define JavaSqlTypes_TIME 92
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, TIME, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, TIMESTAMP, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>TIMESTAMP</code>.
+ */
+inline jint JavaSqlTypes_get_TIMESTAMP();
+#define JavaSqlTypes_TIMESTAMP 93
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, TIMESTAMP, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, TINYINT, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>TINYINT</code>.
+ */
+inline jint JavaSqlTypes_get_TINYINT();
+#define JavaSqlTypes_TINYINT -6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, TINYINT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, VARBINARY, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>VARBINARY</code>.
+ */
+inline jint JavaSqlTypes_get_VARBINARY();
+#define JavaSqlTypes_VARBINARY -3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, VARBINARY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, VARCHAR, jint)
+/*!
+ @brief The type code that identifies the SQL type <code>VARCHAR</code>.
+ */
+inline jint JavaSqlTypes_get_VARCHAR();
+#define JavaSqlTypes_VARCHAR 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, VARCHAR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, ROWID, jint)
+/*!
+ @brief The type code that identifies the SQL type ROWID.
+ */
+inline jint JavaSqlTypes_get_ROWID();
+#define JavaSqlTypes_ROWID -8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, ROWID, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, NCHAR, jint)
+/*!
+ @brief The type code that identifies the SQL type NCHAR.
+ */
+inline jint JavaSqlTypes_get_NCHAR();
+#define JavaSqlTypes_NCHAR -15
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, NCHAR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, NVARCHAR, jint)
+/*!
+ @brief The type code that identifies the SQL type NVARCHAR.
+ */
+inline jint JavaSqlTypes_get_NVARCHAR();
+#define JavaSqlTypes_NVARCHAR -9
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, NVARCHAR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, LONGNVARCHAR, jint)
+/*!
+ @brief The type code that identifies the SQL type LONGNVARCHAR.
+ */
+inline jint JavaSqlTypes_get_LONGNVARCHAR();
+#define JavaSqlTypes_LONGNVARCHAR -16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, LONGNVARCHAR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, NCLOB, jint)
+/*!
+ @brief The type code that identifies the SQL type NCLOB.
+ */
+inline jint JavaSqlTypes_get_NCLOB();
+#define JavaSqlTypes_NCLOB 2011
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, NCLOB, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlTypes, SQLXML, jint)
+/*!
+ @brief The type code that identifies the SQL type SQLXML.
+ */
+inline jint JavaSqlTypes_get_SQLXML();
+#define JavaSqlTypes_SQLXML 2009
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlTypes, SQLXML, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlTypes)
 
-#endif // _JavaSqlTypes_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlTypes_INCLUDE_ALL")

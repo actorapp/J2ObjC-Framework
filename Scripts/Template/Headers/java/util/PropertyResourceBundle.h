@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/PropertyResourceBundle.java
 //
 
-#ifndef _JavaUtilPropertyResourceBundle_H_
-#define _JavaUtilPropertyResourceBundle_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilPropertyResourceBundle_INCLUDE_ALL")
+#ifdef JavaUtilPropertyResourceBundle_RESTRICT
+#define JavaUtilPropertyResourceBundle_INCLUDE_ALL 0
+#else
+#define JavaUtilPropertyResourceBundle_INCLUDE_ALL 1
+#endif
+#undef JavaUtilPropertyResourceBundle_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilPropertyResourceBundle_) && (JavaUtilPropertyResourceBundle_INCLUDE_ALL || defined(JavaUtilPropertyResourceBundle_INCLUDE))
+#define JavaUtilPropertyResourceBundle_
+
+#define JavaUtilResourceBundle_RESTRICT 1
+#define JavaUtilResourceBundle_INCLUDE 1
 #include "../../java/util/ResourceBundle.h"
 
 @class JavaIoInputStream;
@@ -20,6 +34,8 @@
  All resources are
  Strings. The resources must be of the form <code>key=value</code>, one
  resource per line (see Properties).
+ - seealso: ResourceBundle
+ - seealso: Properties
  @since 1.1
  */
 @interface JavaUtilPropertyResourceBundle : JavaUtilResourceBundle {
@@ -72,4 +88,8 @@ FOUNDATION_EXPORT JavaUtilPropertyResourceBundle *new_JavaUtilPropertyResourceBu
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPropertyResourceBundle)
 
-#endif // _JavaUtilPropertyResourceBundle_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilPropertyResourceBundle_INCLUDE_ALL")

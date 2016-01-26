@@ -3,19 +3,38 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ArrayBlockingQueue.java
 //
 
-#ifndef _JavaUtilConcurrentArrayBlockingQueue_H_
-#define _JavaUtilConcurrentArrayBlockingQueue_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentArrayBlockingQueue_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentArrayBlockingQueue_RESTRICT
+#define JavaUtilConcurrentArrayBlockingQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentArrayBlockingQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentArrayBlockingQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentArrayBlockingQueue_) && (JavaUtilConcurrentArrayBlockingQueue_INCLUDE_ALL || defined(JavaUtilConcurrentArrayBlockingQueue_INCLUDE))
+#define JavaUtilConcurrentArrayBlockingQueue_
+
+#define JavaUtilAbstractQueue_RESTRICT 1
+#define JavaUtilAbstractQueue_INCLUDE 1
 #include "../../../java/util/AbstractQueue.h"
+
+#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
+#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
 
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
 @class IOSObjectArray;
-@class JavaUtilConcurrentArrayBlockingQueue_Itr;
 @class JavaUtilConcurrentArrayBlockingQueue_Itrs;
 @class JavaUtilConcurrentLocksReentrantLock;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilCollection;
 @protocol JavaUtilIterator;
 
@@ -191,14 +210,14 @@
  */
 - (jboolean)offerWithId:(id)e
                withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id)peek;
 
 - (id)poll;
 
 - (id)pollWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Inserts the specified element at the tail of this queue, waiting
@@ -314,7 +333,6 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  */
 - (void)removeAtWithInt:(jint)removeIndex;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentArrayBlockingQueue)
@@ -336,6 +354,14 @@ FOUNDATION_EXPORT void JavaUtilConcurrentArrayBlockingQueue_initWithInt_withBool
 FOUNDATION_EXPORT JavaUtilConcurrentArrayBlockingQueue *new_JavaUtilConcurrentArrayBlockingQueue_initWithInt_withBoolean_withJavaUtilCollection_(jint capacity, jboolean fair, id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentArrayBlockingQueue)
+
+#endif
+
+#if !defined (JavaUtilConcurrentArrayBlockingQueue_Itrs_) && (JavaUtilConcurrentArrayBlockingQueue_INCLUDE_ALL || defined(JavaUtilConcurrentArrayBlockingQueue_Itrs_INCLUDE))
+#define JavaUtilConcurrentArrayBlockingQueue_Itrs_
+
+@class JavaUtilConcurrentArrayBlockingQueue;
+@class JavaUtilConcurrentArrayBlockingQueue_Itr;
 
 /*!
  @brief Shared data between iterators and their queue, allowing queue
@@ -440,4 +466,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentArrayBlockingQueue_Itrs *new_JavaUtilConcurr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentArrayBlockingQueue_Itrs)
 
-#endif // _JavaUtilConcurrentArrayBlockingQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentArrayBlockingQueue_INCLUDE_ALL")

@@ -3,81 +3,36 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Character.java
 //
 
-#ifndef _JavaLangCharacter_H_
-#define _JavaLangCharacter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangCharacter_INCLUDE_ALL")
+#ifdef JavaLangCharacter_RESTRICT
+#define JavaLangCharacter_INCLUDE_ALL 0
+#else
+#define JavaLangCharacter_INCLUDE_ALL 1
+#endif
+#undef JavaLangCharacter_RESTRICT
+#ifdef JavaLangCharacter_UnicodeBlock_INCLUDE
+#define JavaLangCharacter_Subset_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangCharacter_) && (JavaLangCharacter_INCLUDE_ALL || defined(JavaLangCharacter_INCLUDE))
+#define JavaLangCharacter_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSCharArray;
 @class IOSClass;
 @protocol JavaLangCharSequence;
-
-#define JavaLangCharacter_MIN_VALUE 0x0000
-#define JavaLangCharacter_MAX_VALUE 0xffff
-#define JavaLangCharacter_MIN_RADIX 2
-#define JavaLangCharacter_MAX_RADIX 36
-#define JavaLangCharacter_UNASSIGNED 0
-#define JavaLangCharacter_UPPERCASE_LETTER 1
-#define JavaLangCharacter_LOWERCASE_LETTER 2
-#define JavaLangCharacter_TITLECASE_LETTER 3
-#define JavaLangCharacter_MODIFIER_LETTER 4
-#define JavaLangCharacter_OTHER_LETTER 5
-#define JavaLangCharacter_NON_SPACING_MARK 6
-#define JavaLangCharacter_ENCLOSING_MARK 7
-#define JavaLangCharacter_COMBINING_SPACING_MARK 8
-#define JavaLangCharacter_DECIMAL_DIGIT_NUMBER 9
-#define JavaLangCharacter_LETTER_NUMBER 10
-#define JavaLangCharacter_OTHER_NUMBER 11
-#define JavaLangCharacter_SPACE_SEPARATOR 12
-#define JavaLangCharacter_LINE_SEPARATOR 13
-#define JavaLangCharacter_PARAGRAPH_SEPARATOR 14
-#define JavaLangCharacter_CONTROL 15
-#define JavaLangCharacter_FORMAT 16
-#define JavaLangCharacter_PRIVATE_USE 18
-#define JavaLangCharacter_SURROGATE 19
-#define JavaLangCharacter_DASH_PUNCTUATION 20
-#define JavaLangCharacter_START_PUNCTUATION 21
-#define JavaLangCharacter_END_PUNCTUATION 22
-#define JavaLangCharacter_CONNECTOR_PUNCTUATION 23
-#define JavaLangCharacter_OTHER_PUNCTUATION 24
-#define JavaLangCharacter_MATH_SYMBOL 25
-#define JavaLangCharacter_CURRENCY_SYMBOL 26
-#define JavaLangCharacter_MODIFIER_SYMBOL 27
-#define JavaLangCharacter_OTHER_SYMBOL 28
-#define JavaLangCharacter_INITIAL_QUOTE_PUNCTUATION 29
-#define JavaLangCharacter_FINAL_QUOTE_PUNCTUATION 30
-#define JavaLangCharacter_DIRECTIONALITY_UNDEFINED -1
-#define JavaLangCharacter_DIRECTIONALITY_LEFT_TO_RIGHT 0
-#define JavaLangCharacter_DIRECTIONALITY_RIGHT_TO_LEFT 1
-#define JavaLangCharacter_DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC 2
-#define JavaLangCharacter_DIRECTIONALITY_EUROPEAN_NUMBER 3
-#define JavaLangCharacter_DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR 4
-#define JavaLangCharacter_DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR 5
-#define JavaLangCharacter_DIRECTIONALITY_ARABIC_NUMBER 6
-#define JavaLangCharacter_DIRECTIONALITY_COMMON_NUMBER_SEPARATOR 7
-#define JavaLangCharacter_DIRECTIONALITY_NONSPACING_MARK 8
-#define JavaLangCharacter_DIRECTIONALITY_BOUNDARY_NEUTRAL 9
-#define JavaLangCharacter_DIRECTIONALITY_PARAGRAPH_SEPARATOR 10
-#define JavaLangCharacter_DIRECTIONALITY_SEGMENT_SEPARATOR 11
-#define JavaLangCharacter_DIRECTIONALITY_WHITESPACE 12
-#define JavaLangCharacter_DIRECTIONALITY_OTHER_NEUTRALS 13
-#define JavaLangCharacter_DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING 14
-#define JavaLangCharacter_DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE 15
-#define JavaLangCharacter_DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING 16
-#define JavaLangCharacter_DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE 17
-#define JavaLangCharacter_DIRECTIONALITY_POP_DIRECTIONAL_FORMAT 18
-#define JavaLangCharacter_MIN_HIGH_SURROGATE 0xd800
-#define JavaLangCharacter_MAX_HIGH_SURROGATE 0xdbff
-#define JavaLangCharacter_MIN_LOW_SURROGATE 0xdc00
-#define JavaLangCharacter_MAX_LOW_SURROGATE 0xdfff
-#define JavaLangCharacter_MIN_SURROGATE 0xd800
-#define JavaLangCharacter_MAX_SURROGATE 0xdfff
-#define JavaLangCharacter_MIN_SUPPLEMENTARY_CODE_POINT 65536
-#define JavaLangCharacter_MIN_CODE_POINT 0
-#define JavaLangCharacter_MAX_CODE_POINT 1114111
-#define JavaLangCharacter_SIZE 16
 
 /*!
  @brief The wrapper for the primitive type <code>char</code>.
@@ -153,6 +108,136 @@
  */
 @interface JavaLangCharacter : NSObject < JavaIoSerializable, JavaLangComparable >
 
++ (jchar)MIN_VALUE;
+
++ (jchar)MAX_VALUE;
+
++ (jint)MIN_RADIX;
+
++ (jint)MAX_RADIX;
+
++ (IOSClass *)TYPE;
+
++ (jbyte)UNASSIGNED;
+
++ (jbyte)UPPERCASE_LETTER;
+
++ (jbyte)LOWERCASE_LETTER;
+
++ (jbyte)TITLECASE_LETTER;
+
++ (jbyte)MODIFIER_LETTER;
+
++ (jbyte)OTHER_LETTER;
+
++ (jbyte)NON_SPACING_MARK;
+
++ (jbyte)ENCLOSING_MARK;
+
++ (jbyte)COMBINING_SPACING_MARK;
+
++ (jbyte)DECIMAL_DIGIT_NUMBER;
+
++ (jbyte)LETTER_NUMBER;
+
++ (jbyte)OTHER_NUMBER;
+
++ (jbyte)SPACE_SEPARATOR;
+
++ (jbyte)LINE_SEPARATOR;
+
++ (jbyte)PARAGRAPH_SEPARATOR;
+
++ (jbyte)CONTROL;
+
++ (jbyte)FORMAT;
+
++ (jbyte)PRIVATE_USE;
+
++ (jbyte)SURROGATE;
+
++ (jbyte)DASH_PUNCTUATION;
+
++ (jbyte)START_PUNCTUATION;
+
++ (jbyte)END_PUNCTUATION;
+
++ (jbyte)CONNECTOR_PUNCTUATION;
+
++ (jbyte)OTHER_PUNCTUATION;
+
++ (jbyte)MATH_SYMBOL;
+
++ (jbyte)CURRENCY_SYMBOL;
+
++ (jbyte)MODIFIER_SYMBOL;
+
++ (jbyte)OTHER_SYMBOL;
+
++ (jbyte)INITIAL_QUOTE_PUNCTUATION;
+
++ (jbyte)FINAL_QUOTE_PUNCTUATION;
+
++ (jbyte)DIRECTIONALITY_UNDEFINED;
+
++ (jbyte)DIRECTIONALITY_LEFT_TO_RIGHT;
+
++ (jbyte)DIRECTIONALITY_RIGHT_TO_LEFT;
+
++ (jbyte)DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC;
+
++ (jbyte)DIRECTIONALITY_EUROPEAN_NUMBER;
+
++ (jbyte)DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR;
+
++ (jbyte)DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR;
+
++ (jbyte)DIRECTIONALITY_ARABIC_NUMBER;
+
++ (jbyte)DIRECTIONALITY_COMMON_NUMBER_SEPARATOR;
+
++ (jbyte)DIRECTIONALITY_NONSPACING_MARK;
+
++ (jbyte)DIRECTIONALITY_BOUNDARY_NEUTRAL;
+
++ (jbyte)DIRECTIONALITY_PARAGRAPH_SEPARATOR;
+
++ (jbyte)DIRECTIONALITY_SEGMENT_SEPARATOR;
+
++ (jbyte)DIRECTIONALITY_WHITESPACE;
+
++ (jbyte)DIRECTIONALITY_OTHER_NEUTRALS;
+
++ (jbyte)DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING;
+
++ (jbyte)DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE;
+
++ (jbyte)DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING;
+
++ (jbyte)DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE;
+
++ (jbyte)DIRECTIONALITY_POP_DIRECTIONAL_FORMAT;
+
++ (jchar)MIN_HIGH_SURROGATE;
+
++ (jchar)MAX_HIGH_SURROGATE;
+
++ (jchar)MIN_LOW_SURROGATE;
+
++ (jchar)MAX_LOW_SURROGATE;
+
++ (jchar)MIN_SURROGATE;
+
++ (jchar)MAX_SURROGATE;
+
++ (jint)MIN_SUPPLEMENTARY_CODE_POINT;
+
++ (jint)MIN_CODE_POINT;
+
++ (jint)MAX_CODE_POINT;
+
++ (jint)SIZE;
+
 #pragma mark Public
 
 /*!
@@ -174,6 +259,8 @@
  the code point for which to calculate the number of required
  chars.
  @return <code>2</code> if <code>codePoint >= 0x10000</code>; <code>1</code> otherwise.
+ - seealso: #isValidCodePoint(int)
+ - seealso: #isSupplementaryCodePoint(int)
  @since 1.5
  */
 + (jint)charCountWithInt:(jint)codePoint;
@@ -410,6 +497,7 @@
  character is greater than the value of <code>c</code>; a negative
  value if the value of this character is less than the value of
  <code>c</code>.
+ - seealso: java.lang.Comparable
  @since 1.2
  */
 - (jint)compareToWithId:(JavaLangCharacter *)c;
@@ -625,6 +713,7 @@
  the character to test.
  @return <code>true</code> if <code>ch</code> is a high-surrogate code unit;
  <code>false</code> otherwise.
+ - seealso: #isLowSurrogate(char)
  @since 1.5
  */
 + (jboolean)isHighSurrogateWithChar:(jchar)ch;
@@ -719,7 +808,7 @@
  @return <code>true</code> if <code>c</code> is a Java letter; <code>false</code>
  otherwise.
  */
-+ (jboolean)isJavaLetterWithChar:(jchar)c;
++ (jboolean)isJavaLetterWithChar:(jchar)c __attribute__((deprecated));
 
 /*!
  @brief Indicates whether the specified character is a Java letter or digit
@@ -729,7 +818,7 @@
  @return <code>true</code> if <code>c</code> is a Java letter or digit;
  <code>false</code> otherwise.
  */
-+ (jboolean)isJavaLetterOrDigitWithChar:(jchar)c;
++ (jboolean)isJavaLetterOrDigitWithChar:(jchar)c __attribute__((deprecated));
 
 /*!
  @brief Indicates whether the specified character is a letter.
@@ -792,6 +881,7 @@
  the character to test.
  @return <code>true</code> if <code>ch</code> is a low-surrogate code unit;
  <code>false</code> otherwise.
+ - seealso: #isHighSurrogate(char)
  @since 1.5
  */
 + (jboolean)isLowSurrogateWithChar:(jchar)ch;
@@ -817,7 +907,7 @@
 /*!
  @brief Use <code>isWhitespace(char)</code> instead.
  */
-+ (jboolean)isSpaceWithChar:(jchar)c;
++ (jboolean)isSpaceWithChar:(jchar)c __attribute__((deprecated));
 
 /*!
  @brief See <code>isSpaceChar(int)</code>.
@@ -859,6 +949,8 @@
  @return <code>true</code> if <code>high</code> is a high-surrogate code unit and
  <code>low</code> is a low-surrogate code unit; <code>false</code>
  otherwise.
+ - seealso: #isHighSurrogate(char)
+ - seealso: #isLowSurrogate(char)
  @since 1.5
  */
 + (jboolean)isSurrogatePairWithChar:(jchar)high
@@ -1095,6 +1187,7 @@
  @param low
  the low surrogate unit.
  @return the Unicode code point corresponding to the surrogate unit pair.
+ - seealso: #isSurrogatePair(char,char)
  @since 1.5
  */
 + (jint)toCodePointWithChar:(jchar)high
@@ -1195,144 +1288,502 @@
 
 #pragma mark Package-Private
 
-
-
-
-
 @end
 
 J2OBJC_STATIC_INIT(JavaLangCharacter)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MIN_VALUE, jchar)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MAX_VALUE, jchar)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MIN_RADIX, jint)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MAX_RADIX, jint)
-
-FOUNDATION_EXPORT IOSClass *JavaLangCharacter_TYPE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, TYPE_, IOSClass *)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, UNASSIGNED, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, UPPERCASE_LETTER, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, LOWERCASE_LETTER, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, TITLECASE_LETTER, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MODIFIER_LETTER, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, OTHER_LETTER, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, NON_SPACING_MARK, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, ENCLOSING_MARK, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, COMBINING_SPACING_MARK, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DECIMAL_DIGIT_NUMBER, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, LETTER_NUMBER, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, OTHER_NUMBER, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, SPACE_SEPARATOR, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, LINE_SEPARATOR, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, PARAGRAPH_SEPARATOR, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, CONTROL, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, FORMAT, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, PRIVATE_USE, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, SURROGATE, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DASH_PUNCTUATION, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, START_PUNCTUATION, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, END_PUNCTUATION, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, CONNECTOR_PUNCTUATION, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, OTHER_PUNCTUATION, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MATH_SYMBOL, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, CURRENCY_SYMBOL, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MODIFIER_SYMBOL, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, OTHER_SYMBOL, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, INITIAL_QUOTE_PUNCTUATION, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, FINAL_QUOTE_PUNCTUATION, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_UNDEFINED, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_LEFT_TO_RIGHT, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_RIGHT_TO_LEFT, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_EUROPEAN_NUMBER, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_ARABIC_NUMBER, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_COMMON_NUMBER_SEPARATOR, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_NONSPACING_MARK, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_BOUNDARY_NEUTRAL, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_PARAGRAPH_SEPARATOR, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_SEGMENT_SEPARATOR, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_WHITESPACE, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_OTHER_NEUTRALS, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, DIRECTIONALITY_POP_DIRECTIONAL_FORMAT, jbyte)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MIN_HIGH_SURROGATE, jchar)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MAX_HIGH_SURROGATE, jchar)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MIN_LOW_SURROGATE, jchar)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MAX_LOW_SURROGATE, jchar)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MIN_SURROGATE, jchar)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MAX_SURROGATE, jchar)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MIN_SUPPLEMENTARY_CODE_POINT, jint)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MIN_CODE_POINT, jint)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, MAX_CODE_POINT, jint)
-
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter, SIZE, jint)
+/*!
+ @brief The minimum <code>Character</code> value.
+ */
+inline jchar JavaLangCharacter_get_MIN_VALUE();
+#define JavaLangCharacter_MIN_VALUE 0x0000
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MIN_VALUE, jchar)
+
+/*!
+ @brief The maximum <code>Character</code> value.
+ */
+inline jchar JavaLangCharacter_get_MAX_VALUE();
+#define JavaLangCharacter_MAX_VALUE 0xffff
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MAX_VALUE, jchar)
+
+/*!
+ @brief The minimum radix used for conversions between characters and integers.
+ */
+inline jint JavaLangCharacter_get_MIN_RADIX();
+#define JavaLangCharacter_MIN_RADIX 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MIN_RADIX, jint)
+
+/*!
+ @brief The maximum radix used for conversions between characters and integers.
+ */
+inline jint JavaLangCharacter_get_MAX_RADIX();
+#define JavaLangCharacter_MAX_RADIX 36
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MAX_RADIX, jint)
+
+/*!
+ @brief The <code>Class</code> object that represents the primitive type <code>char</code>.
+ */
+inline IOSClass *JavaLangCharacter_get_TYPE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaLangCharacter_TYPE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter, TYPE, IOSClass *)
+
+/*!
+ @brief Unicode category constant Cn.
+ */
+inline jbyte JavaLangCharacter_get_UNASSIGNED();
+#define JavaLangCharacter_UNASSIGNED 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, UNASSIGNED, jbyte)
+
+/*!
+ @brief Unicode category constant Lu.
+ */
+inline jbyte JavaLangCharacter_get_UPPERCASE_LETTER();
+#define JavaLangCharacter_UPPERCASE_LETTER 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, UPPERCASE_LETTER, jbyte)
+
+/*!
+ @brief Unicode category constant Ll.
+ */
+inline jbyte JavaLangCharacter_get_LOWERCASE_LETTER();
+#define JavaLangCharacter_LOWERCASE_LETTER 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, LOWERCASE_LETTER, jbyte)
+
+/*!
+ @brief Unicode category constant Lt.
+ */
+inline jbyte JavaLangCharacter_get_TITLECASE_LETTER();
+#define JavaLangCharacter_TITLECASE_LETTER 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, TITLECASE_LETTER, jbyte)
+
+/*!
+ @brief Unicode category constant Lm.
+ */
+inline jbyte JavaLangCharacter_get_MODIFIER_LETTER();
+#define JavaLangCharacter_MODIFIER_LETTER 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MODIFIER_LETTER, jbyte)
+
+/*!
+ @brief Unicode category constant Lo.
+ */
+inline jbyte JavaLangCharacter_get_OTHER_LETTER();
+#define JavaLangCharacter_OTHER_LETTER 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, OTHER_LETTER, jbyte)
+
+/*!
+ @brief Unicode category constant Mn.
+ */
+inline jbyte JavaLangCharacter_get_NON_SPACING_MARK();
+#define JavaLangCharacter_NON_SPACING_MARK 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, NON_SPACING_MARK, jbyte)
+
+/*!
+ @brief Unicode category constant Me.
+ */
+inline jbyte JavaLangCharacter_get_ENCLOSING_MARK();
+#define JavaLangCharacter_ENCLOSING_MARK 7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, ENCLOSING_MARK, jbyte)
+
+/*!
+ @brief Unicode category constant Mc.
+ */
+inline jbyte JavaLangCharacter_get_COMBINING_SPACING_MARK();
+#define JavaLangCharacter_COMBINING_SPACING_MARK 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, COMBINING_SPACING_MARK, jbyte)
+
+/*!
+ @brief Unicode category constant Nd.
+ */
+inline jbyte JavaLangCharacter_get_DECIMAL_DIGIT_NUMBER();
+#define JavaLangCharacter_DECIMAL_DIGIT_NUMBER 9
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DECIMAL_DIGIT_NUMBER, jbyte)
+
+/*!
+ @brief Unicode category constant Nl.
+ */
+inline jbyte JavaLangCharacter_get_LETTER_NUMBER();
+#define JavaLangCharacter_LETTER_NUMBER 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, LETTER_NUMBER, jbyte)
+
+/*!
+ @brief Unicode category constant No.
+ */
+inline jbyte JavaLangCharacter_get_OTHER_NUMBER();
+#define JavaLangCharacter_OTHER_NUMBER 11
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, OTHER_NUMBER, jbyte)
+
+/*!
+ @brief Unicode category constant Zs.
+ */
+inline jbyte JavaLangCharacter_get_SPACE_SEPARATOR();
+#define JavaLangCharacter_SPACE_SEPARATOR 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, SPACE_SEPARATOR, jbyte)
+
+/*!
+ @brief Unicode category constant Zl.
+ */
+inline jbyte JavaLangCharacter_get_LINE_SEPARATOR();
+#define JavaLangCharacter_LINE_SEPARATOR 13
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, LINE_SEPARATOR, jbyte)
+
+/*!
+ @brief Unicode category constant Zp.
+ */
+inline jbyte JavaLangCharacter_get_PARAGRAPH_SEPARATOR();
+#define JavaLangCharacter_PARAGRAPH_SEPARATOR 14
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, PARAGRAPH_SEPARATOR, jbyte)
+
+/*!
+ @brief Unicode category constant Cc.
+ */
+inline jbyte JavaLangCharacter_get_CONTROL();
+#define JavaLangCharacter_CONTROL 15
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, CONTROL, jbyte)
+
+/*!
+ @brief Unicode category constant Cf.
+ */
+inline jbyte JavaLangCharacter_get_FORMAT();
+#define JavaLangCharacter_FORMAT 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, FORMAT, jbyte)
+
+/*!
+ @brief Unicode category constant Co.
+ */
+inline jbyte JavaLangCharacter_get_PRIVATE_USE();
+#define JavaLangCharacter_PRIVATE_USE 18
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, PRIVATE_USE, jbyte)
+
+/*!
+ @brief Unicode category constant Cs.
+ */
+inline jbyte JavaLangCharacter_get_SURROGATE();
+#define JavaLangCharacter_SURROGATE 19
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, SURROGATE, jbyte)
+
+/*!
+ @brief Unicode category constant Pd.
+ */
+inline jbyte JavaLangCharacter_get_DASH_PUNCTUATION();
+#define JavaLangCharacter_DASH_PUNCTUATION 20
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DASH_PUNCTUATION, jbyte)
+
+/*!
+ @brief Unicode category constant Ps.
+ */
+inline jbyte JavaLangCharacter_get_START_PUNCTUATION();
+#define JavaLangCharacter_START_PUNCTUATION 21
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, START_PUNCTUATION, jbyte)
+
+/*!
+ @brief Unicode category constant Pe.
+ */
+inline jbyte JavaLangCharacter_get_END_PUNCTUATION();
+#define JavaLangCharacter_END_PUNCTUATION 22
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, END_PUNCTUATION, jbyte)
+
+/*!
+ @brief Unicode category constant Pc.
+ */
+inline jbyte JavaLangCharacter_get_CONNECTOR_PUNCTUATION();
+#define JavaLangCharacter_CONNECTOR_PUNCTUATION 23
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, CONNECTOR_PUNCTUATION, jbyte)
+
+/*!
+ @brief Unicode category constant Po.
+ */
+inline jbyte JavaLangCharacter_get_OTHER_PUNCTUATION();
+#define JavaLangCharacter_OTHER_PUNCTUATION 24
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, OTHER_PUNCTUATION, jbyte)
+
+/*!
+ @brief Unicode category constant Sm.
+ */
+inline jbyte JavaLangCharacter_get_MATH_SYMBOL();
+#define JavaLangCharacter_MATH_SYMBOL 25
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MATH_SYMBOL, jbyte)
+
+/*!
+ @brief Unicode category constant Sc.
+ */
+inline jbyte JavaLangCharacter_get_CURRENCY_SYMBOL();
+#define JavaLangCharacter_CURRENCY_SYMBOL 26
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, CURRENCY_SYMBOL, jbyte)
+
+/*!
+ @brief Unicode category constant Sk.
+ */
+inline jbyte JavaLangCharacter_get_MODIFIER_SYMBOL();
+#define JavaLangCharacter_MODIFIER_SYMBOL 27
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MODIFIER_SYMBOL, jbyte)
+
+/*!
+ @brief Unicode category constant So.
+ */
+inline jbyte JavaLangCharacter_get_OTHER_SYMBOL();
+#define JavaLangCharacter_OTHER_SYMBOL 28
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, OTHER_SYMBOL, jbyte)
+
+/*!
+ @brief Unicode category constant Pi.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_INITIAL_QUOTE_PUNCTUATION();
+#define JavaLangCharacter_INITIAL_QUOTE_PUNCTUATION 29
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, INITIAL_QUOTE_PUNCTUATION, jbyte)
+
+/*!
+ @brief Unicode category constant Pf.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_FINAL_QUOTE_PUNCTUATION();
+#define JavaLangCharacter_FINAL_QUOTE_PUNCTUATION 30
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, FINAL_QUOTE_PUNCTUATION, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_UNDEFINED();
+#define JavaLangCharacter_DIRECTIONALITY_UNDEFINED -1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_UNDEFINED, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant L.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_LEFT_TO_RIGHT();
+#define JavaLangCharacter_DIRECTIONALITY_LEFT_TO_RIGHT 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_LEFT_TO_RIGHT, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant R.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_RIGHT_TO_LEFT();
+#define JavaLangCharacter_DIRECTIONALITY_RIGHT_TO_LEFT 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_RIGHT_TO_LEFT, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant AL.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC();
+#define JavaLangCharacter_DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_RIGHT_TO_LEFT_ARABIC, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant EN.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_EUROPEAN_NUMBER();
+#define JavaLangCharacter_DIRECTIONALITY_EUROPEAN_NUMBER 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_EUROPEAN_NUMBER, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant ES.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR();
+#define JavaLangCharacter_DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_EUROPEAN_NUMBER_SEPARATOR, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant ET.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR();
+#define JavaLangCharacter_DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_EUROPEAN_NUMBER_TERMINATOR, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant AN.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_ARABIC_NUMBER();
+#define JavaLangCharacter_DIRECTIONALITY_ARABIC_NUMBER 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_ARABIC_NUMBER, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant CS.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_COMMON_NUMBER_SEPARATOR();
+#define JavaLangCharacter_DIRECTIONALITY_COMMON_NUMBER_SEPARATOR 7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_COMMON_NUMBER_SEPARATOR, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant NSM.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_NONSPACING_MARK();
+#define JavaLangCharacter_DIRECTIONALITY_NONSPACING_MARK 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_NONSPACING_MARK, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant BN.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_BOUNDARY_NEUTRAL();
+#define JavaLangCharacter_DIRECTIONALITY_BOUNDARY_NEUTRAL 9
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_BOUNDARY_NEUTRAL, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant B.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_PARAGRAPH_SEPARATOR();
+#define JavaLangCharacter_DIRECTIONALITY_PARAGRAPH_SEPARATOR 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_PARAGRAPH_SEPARATOR, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant S.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_SEGMENT_SEPARATOR();
+#define JavaLangCharacter_DIRECTIONALITY_SEGMENT_SEPARATOR 11
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_SEGMENT_SEPARATOR, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant WS.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_WHITESPACE();
+#define JavaLangCharacter_DIRECTIONALITY_WHITESPACE 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_WHITESPACE, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant ON.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_OTHER_NEUTRALS();
+#define JavaLangCharacter_DIRECTIONALITY_OTHER_NEUTRALS 13
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_OTHER_NEUTRALS, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant LRE.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING();
+#define JavaLangCharacter_DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING 14
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_LEFT_TO_RIGHT_EMBEDDING, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant LRO.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE();
+#define JavaLangCharacter_DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE 15
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_LEFT_TO_RIGHT_OVERRIDE, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant RLE.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING();
+#define JavaLangCharacter_DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_RIGHT_TO_LEFT_EMBEDDING, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant RLO.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE();
+#define JavaLangCharacter_DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE 17
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_RIGHT_TO_LEFT_OVERRIDE, jbyte)
+
+/*!
+ @brief Unicode bidirectional constant PDF.
+ @since 1.4
+ */
+inline jbyte JavaLangCharacter_get_DIRECTIONALITY_POP_DIRECTIONAL_FORMAT();
+#define JavaLangCharacter_DIRECTIONALITY_POP_DIRECTIONAL_FORMAT 18
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, DIRECTIONALITY_POP_DIRECTIONAL_FORMAT, jbyte)
+
+/*!
+ @brief The minimum value of a high surrogate or leading surrogate unit in UTF-16
+ encoding, <code>'\uD800'</code>.
+ @since 1.5
+ */
+inline jchar JavaLangCharacter_get_MIN_HIGH_SURROGATE();
+#define JavaLangCharacter_MIN_HIGH_SURROGATE 0xd800
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MIN_HIGH_SURROGATE, jchar)
+
+/*!
+ @brief The maximum value of a high surrogate or leading surrogate unit in UTF-16
+ encoding, <code>'\uDBFF'</code>.
+ @since 1.5
+ */
+inline jchar JavaLangCharacter_get_MAX_HIGH_SURROGATE();
+#define JavaLangCharacter_MAX_HIGH_SURROGATE 0xdbff
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MAX_HIGH_SURROGATE, jchar)
+
+/*!
+ @brief The minimum value of a low surrogate or trailing surrogate unit in UTF-16
+ encoding, <code>'\uDC00'</code>.
+ @since 1.5
+ */
+inline jchar JavaLangCharacter_get_MIN_LOW_SURROGATE();
+#define JavaLangCharacter_MIN_LOW_SURROGATE 0xdc00
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MIN_LOW_SURROGATE, jchar)
+
+/*!
+ @brief The maximum value of a low surrogate or trailing surrogate unit in UTF-16
+ encoding, <code>'\uDFFF'</code>.
+ @since 1.5
+ */
+inline jchar JavaLangCharacter_get_MAX_LOW_SURROGATE();
+#define JavaLangCharacter_MAX_LOW_SURROGATE 0xdfff
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MAX_LOW_SURROGATE, jchar)
+
+/*!
+ @brief The minimum value of a surrogate unit in UTF-16 encoding, <code>'\uD800'</code>.
+ @since 1.5
+ */
+inline jchar JavaLangCharacter_get_MIN_SURROGATE();
+#define JavaLangCharacter_MIN_SURROGATE 0xd800
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MIN_SURROGATE, jchar)
+
+/*!
+ @brief The maximum value of a surrogate unit in UTF-16 encoding, <code>'\uDFFF'</code>.
+ @since 1.5
+ */
+inline jchar JavaLangCharacter_get_MAX_SURROGATE();
+#define JavaLangCharacter_MAX_SURROGATE 0xdfff
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MAX_SURROGATE, jchar)
+
+/*!
+ @brief The minimum value of a supplementary code point, <code>U+010000</code>.
+ @since 1.5
+ */
+inline jint JavaLangCharacter_get_MIN_SUPPLEMENTARY_CODE_POINT();
+#define JavaLangCharacter_MIN_SUPPLEMENTARY_CODE_POINT 65536
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MIN_SUPPLEMENTARY_CODE_POINT, jint)
+
+/*!
+ @brief The minimum code point value, <code>U+0000</code>.
+ @since 1.5
+ */
+inline jint JavaLangCharacter_get_MIN_CODE_POINT();
+#define JavaLangCharacter_MIN_CODE_POINT 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MIN_CODE_POINT, jint)
+
+/*!
+ @brief The maximum code point value, <code>U+10FFFF</code>.
+ @since 1.5
+ */
+inline jint JavaLangCharacter_get_MAX_CODE_POINT();
+#define JavaLangCharacter_MAX_CODE_POINT 1114111
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, MAX_CODE_POINT, jint)
+
+/*!
+ @brief The number of bits required to represent a <code>Character</code> value
+ unsigned form.
+ @since 1.5
+ */
+inline jint JavaLangCharacter_get_SIZE();
+#define JavaLangCharacter_SIZE 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangCharacter, SIZE, jint)
 
 FOUNDATION_EXPORT void JavaLangCharacter_initWithChar_(JavaLangCharacter *self, jchar value);
 
@@ -1502,6 +1953,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangCharacter)
 
 BOXED_INC_AND_DEC(Char, charValue, JavaLangCharacter)
 
+#endif
+
+#if !defined (JavaLangCharacter_Subset_) && (JavaLangCharacter_INCLUDE_ALL || defined(JavaLangCharacter_Subset_INCLUDE))
+#define JavaLangCharacter_Subset_
+
 @interface JavaLangCharacter_Subset : NSObject
 
 #pragma mark Public
@@ -1539,6 +1995,11 @@ FOUNDATION_EXPORT JavaLangCharacter_Subset *new_JavaLangCharacter_Subset_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangCharacter_Subset)
 
+#endif
+
+#if !defined (JavaLangCharacter_UnicodeBlock_) && (JavaLangCharacter_INCLUDE_ALL || defined(JavaLangCharacter_UnicodeBlock_INCLUDE))
+#define JavaLangCharacter_UnicodeBlock_
+
 /*!
  @brief Represents a block of Unicode characters.
  This class provides constants for various
@@ -1551,6 +2012,426 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangCharacter_Subset)
   jint rangeStart_;
   jint rangeEnd_;
 }
+
++ (JavaLangCharacter_UnicodeBlock *)SURROGATES_AREA;
+
++ (JavaLangCharacter_UnicodeBlock *)BASIC_LATIN;
+
++ (JavaLangCharacter_UnicodeBlock *)LATIN_1_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)LATIN_EXTENDED_A;
+
++ (JavaLangCharacter_UnicodeBlock *)LATIN_EXTENDED_B;
+
++ (JavaLangCharacter_UnicodeBlock *)IPA_EXTENSIONS;
+
++ (JavaLangCharacter_UnicodeBlock *)SPACING_MODIFIER_LETTERS;
+
++ (JavaLangCharacter_UnicodeBlock *)COMBINING_DIACRITICAL_MARKS;
+
++ (JavaLangCharacter_UnicodeBlock *)GREEK;
+
++ (JavaLangCharacter_UnicodeBlock *)CYRILLIC;
+
++ (JavaLangCharacter_UnicodeBlock *)CYRILLIC_SUPPLEMENTARY;
+
++ (JavaLangCharacter_UnicodeBlock *)ARMENIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)HEBREW;
+
++ (JavaLangCharacter_UnicodeBlock *)ARABIC;
+
++ (JavaLangCharacter_UnicodeBlock *)SYRIAC;
+
++ (JavaLangCharacter_UnicodeBlock *)THAANA;
+
++ (JavaLangCharacter_UnicodeBlock *)DEVANAGARI;
+
++ (JavaLangCharacter_UnicodeBlock *)BENGALI;
+
++ (JavaLangCharacter_UnicodeBlock *)GURMUKHI;
+
++ (JavaLangCharacter_UnicodeBlock *)GUJARATI;
+
++ (JavaLangCharacter_UnicodeBlock *)ORIYA;
+
++ (JavaLangCharacter_UnicodeBlock *)TAMIL;
+
++ (JavaLangCharacter_UnicodeBlock *)TELUGU;
+
++ (JavaLangCharacter_UnicodeBlock *)KANNADA;
+
++ (JavaLangCharacter_UnicodeBlock *)MALAYALAM;
+
++ (JavaLangCharacter_UnicodeBlock *)SINHALA;
+
++ (JavaLangCharacter_UnicodeBlock *)THAI;
+
++ (JavaLangCharacter_UnicodeBlock *)LAO;
+
++ (JavaLangCharacter_UnicodeBlock *)TIBETAN;
+
++ (JavaLangCharacter_UnicodeBlock *)MYANMAR;
+
++ (JavaLangCharacter_UnicodeBlock *)GEORGIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)HANGUL_JAMO;
+
++ (JavaLangCharacter_UnicodeBlock *)ETHIOPIC;
+
++ (JavaLangCharacter_UnicodeBlock *)CHEROKEE;
+
++ (JavaLangCharacter_UnicodeBlock *)UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS;
+
++ (JavaLangCharacter_UnicodeBlock *)OGHAM;
+
++ (JavaLangCharacter_UnicodeBlock *)RUNIC;
+
++ (JavaLangCharacter_UnicodeBlock *)TAGALOG;
+
++ (JavaLangCharacter_UnicodeBlock *)HANUNOO;
+
++ (JavaLangCharacter_UnicodeBlock *)BUHID;
+
++ (JavaLangCharacter_UnicodeBlock *)TAGBANWA;
+
++ (JavaLangCharacter_UnicodeBlock *)KHMER;
+
++ (JavaLangCharacter_UnicodeBlock *)MONGOLIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)LIMBU;
+
++ (JavaLangCharacter_UnicodeBlock *)TAI_LE;
+
++ (JavaLangCharacter_UnicodeBlock *)KHMER_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)PHONETIC_EXTENSIONS;
+
++ (JavaLangCharacter_UnicodeBlock *)LATIN_EXTENDED_ADDITIONAL;
+
++ (JavaLangCharacter_UnicodeBlock *)GREEK_EXTENDED;
+
++ (JavaLangCharacter_UnicodeBlock *)GENERAL_PUNCTUATION;
+
++ (JavaLangCharacter_UnicodeBlock *)SUPERSCRIPTS_AND_SUBSCRIPTS;
+
++ (JavaLangCharacter_UnicodeBlock *)CURRENCY_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)COMBINING_MARKS_FOR_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)LETTERLIKE_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)NUMBER_FORMS;
+
++ (JavaLangCharacter_UnicodeBlock *)ARROWS;
+
++ (JavaLangCharacter_UnicodeBlock *)MATHEMATICAL_OPERATORS;
+
++ (JavaLangCharacter_UnicodeBlock *)MISCELLANEOUS_TECHNICAL;
+
++ (JavaLangCharacter_UnicodeBlock *)CONTROL_PICTURES;
+
++ (JavaLangCharacter_UnicodeBlock *)OPTICAL_CHARACTER_RECOGNITION;
+
++ (JavaLangCharacter_UnicodeBlock *)ENCLOSED_ALPHANUMERICS;
+
++ (JavaLangCharacter_UnicodeBlock *)BOX_DRAWING;
+
++ (JavaLangCharacter_UnicodeBlock *)BLOCK_ELEMENTS;
+
++ (JavaLangCharacter_UnicodeBlock *)GEOMETRIC_SHAPES;
+
++ (JavaLangCharacter_UnicodeBlock *)MISCELLANEOUS_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)DINGBATS;
+
++ (JavaLangCharacter_UnicodeBlock *)MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A;
+
++ (JavaLangCharacter_UnicodeBlock *)SUPPLEMENTAL_ARROWS_A;
+
++ (JavaLangCharacter_UnicodeBlock *)BRAILLE_PATTERNS;
+
++ (JavaLangCharacter_UnicodeBlock *)SUPPLEMENTAL_ARROWS_B;
+
++ (JavaLangCharacter_UnicodeBlock *)MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B;
+
++ (JavaLangCharacter_UnicodeBlock *)SUPPLEMENTAL_MATHEMATICAL_OPERATORS;
+
++ (JavaLangCharacter_UnicodeBlock *)MISCELLANEOUS_SYMBOLS_AND_ARROWS;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_RADICALS_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)KANGXI_RADICALS;
+
++ (JavaLangCharacter_UnicodeBlock *)IDEOGRAPHIC_DESCRIPTION_CHARACTERS;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_SYMBOLS_AND_PUNCTUATION;
+
++ (JavaLangCharacter_UnicodeBlock *)HIRAGANA;
+
++ (JavaLangCharacter_UnicodeBlock *)KATAKANA;
+
++ (JavaLangCharacter_UnicodeBlock *)BOPOMOFO;
+
++ (JavaLangCharacter_UnicodeBlock *)HANGUL_COMPATIBILITY_JAMO;
+
++ (JavaLangCharacter_UnicodeBlock *)KANBUN;
+
++ (JavaLangCharacter_UnicodeBlock *)BOPOMOFO_EXTENDED;
+
++ (JavaLangCharacter_UnicodeBlock *)KATAKANA_PHONETIC_EXTENSIONS;
+
++ (JavaLangCharacter_UnicodeBlock *)ENCLOSED_CJK_LETTERS_AND_MONTHS;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_COMPATIBILITY;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A;
+
++ (JavaLangCharacter_UnicodeBlock *)YIJING_HEXAGRAM_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_UNIFIED_IDEOGRAPHS;
+
++ (JavaLangCharacter_UnicodeBlock *)YI_SYLLABLES;
+
++ (JavaLangCharacter_UnicodeBlock *)YI_RADICALS;
+
++ (JavaLangCharacter_UnicodeBlock *)HANGUL_SYLLABLES;
+
++ (JavaLangCharacter_UnicodeBlock *)HIGH_SURROGATES;
+
++ (JavaLangCharacter_UnicodeBlock *)HIGH_PRIVATE_USE_SURROGATES;
+
++ (JavaLangCharacter_UnicodeBlock *)LOW_SURROGATES;
+
++ (JavaLangCharacter_UnicodeBlock *)PRIVATE_USE_AREA;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_COMPATIBILITY_IDEOGRAPHS;
+
++ (JavaLangCharacter_UnicodeBlock *)ALPHABETIC_PRESENTATION_FORMS;
+
++ (JavaLangCharacter_UnicodeBlock *)ARABIC_PRESENTATION_FORMS_A;
+
++ (JavaLangCharacter_UnicodeBlock *)VARIATION_SELECTORS;
+
++ (JavaLangCharacter_UnicodeBlock *)COMBINING_HALF_MARKS;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_COMPATIBILITY_FORMS;
+
++ (JavaLangCharacter_UnicodeBlock *)SMALL_FORM_VARIANTS;
+
++ (JavaLangCharacter_UnicodeBlock *)ARABIC_PRESENTATION_FORMS_B;
+
++ (JavaLangCharacter_UnicodeBlock *)HALFWIDTH_AND_FULLWIDTH_FORMS;
+
++ (JavaLangCharacter_UnicodeBlock *)SPECIALS;
+
++ (JavaLangCharacter_UnicodeBlock *)LINEAR_B_SYLLABARY;
+
++ (JavaLangCharacter_UnicodeBlock *)LINEAR_B_IDEOGRAMS;
+
++ (JavaLangCharacter_UnicodeBlock *)AEGEAN_NUMBERS;
+
++ (JavaLangCharacter_UnicodeBlock *)OLD_ITALIC;
+
++ (JavaLangCharacter_UnicodeBlock *)GOTHIC;
+
++ (JavaLangCharacter_UnicodeBlock *)UGARITIC;
+
++ (JavaLangCharacter_UnicodeBlock *)DESERET;
+
++ (JavaLangCharacter_UnicodeBlock *)SHAVIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)OSMANYA;
+
++ (JavaLangCharacter_UnicodeBlock *)CYPRIOT_SYLLABARY;
+
++ (JavaLangCharacter_UnicodeBlock *)BYZANTINE_MUSICAL_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)MUSICAL_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)TAI_XUAN_JING_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)MATHEMATICAL_ALPHANUMERIC_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)TAGS;
+
++ (JavaLangCharacter_UnicodeBlock *)VARIATION_SELECTORS_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)SUPPLEMENTARY_PRIVATE_USE_AREA_A;
+
++ (JavaLangCharacter_UnicodeBlock *)SUPPLEMENTARY_PRIVATE_USE_AREA_B;
+
++ (JavaLangCharacter_UnicodeBlock *)ANCIENT_GREEK_MUSICAL_NOTATION;
+
++ (JavaLangCharacter_UnicodeBlock *)ANCIENT_GREEK_NUMBERS;
+
++ (JavaLangCharacter_UnicodeBlock *)ARABIC_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)BUGINESE;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_STROKES;
+
++ (JavaLangCharacter_UnicodeBlock *)COMBINING_DIACRITICAL_MARKS_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)COPTIC;
+
++ (JavaLangCharacter_UnicodeBlock *)ETHIOPIC_EXTENDED;
+
++ (JavaLangCharacter_UnicodeBlock *)ETHIOPIC_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)GEORGIAN_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)GLAGOLITIC;
+
++ (JavaLangCharacter_UnicodeBlock *)KHAROSHTHI;
+
++ (JavaLangCharacter_UnicodeBlock *)MODIFIER_TONE_LETTERS;
+
++ (JavaLangCharacter_UnicodeBlock *)NEW_TAI_LUE;
+
++ (JavaLangCharacter_UnicodeBlock *)OLD_PERSIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)PHONETIC_EXTENSIONS_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)SUPPLEMENTAL_PUNCTUATION;
+
++ (JavaLangCharacter_UnicodeBlock *)SYLOTI_NAGRI;
+
++ (JavaLangCharacter_UnicodeBlock *)TIFINAGH;
+
++ (JavaLangCharacter_UnicodeBlock *)VERTICAL_FORMS;
+
++ (JavaLangCharacter_UnicodeBlock *)NKO;
+
++ (JavaLangCharacter_UnicodeBlock *)BALINESE;
+
++ (JavaLangCharacter_UnicodeBlock *)LATIN_EXTENDED_C;
+
++ (JavaLangCharacter_UnicodeBlock *)LATIN_EXTENDED_D;
+
++ (JavaLangCharacter_UnicodeBlock *)PHAGS_PA;
+
++ (JavaLangCharacter_UnicodeBlock *)PHOENICIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)CUNEIFORM;
+
++ (JavaLangCharacter_UnicodeBlock *)CUNEIFORM_NUMBERS_AND_PUNCTUATION;
+
++ (JavaLangCharacter_UnicodeBlock *)COUNTING_ROD_NUMERALS;
+
++ (JavaLangCharacter_UnicodeBlock *)SUNDANESE;
+
++ (JavaLangCharacter_UnicodeBlock *)LEPCHA;
+
++ (JavaLangCharacter_UnicodeBlock *)OL_CHIKI;
+
++ (JavaLangCharacter_UnicodeBlock *)CYRILLIC_EXTENDED_A;
+
++ (JavaLangCharacter_UnicodeBlock *)VAI;
+
++ (JavaLangCharacter_UnicodeBlock *)CYRILLIC_EXTENDED_B;
+
++ (JavaLangCharacter_UnicodeBlock *)SAURASHTRA;
+
++ (JavaLangCharacter_UnicodeBlock *)KAYAH_LI;
+
++ (JavaLangCharacter_UnicodeBlock *)REJANG;
+
++ (JavaLangCharacter_UnicodeBlock *)CHAM;
+
++ (JavaLangCharacter_UnicodeBlock *)ANCIENT_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)PHAISTOS_DISC;
+
++ (JavaLangCharacter_UnicodeBlock *)LYCIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)CARIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)LYDIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)MAHJONG_TILES;
+
++ (JavaLangCharacter_UnicodeBlock *)DOMINO_TILES;
+
++ (JavaLangCharacter_UnicodeBlock *)SAMARITAN;
+
++ (JavaLangCharacter_UnicodeBlock *)UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED;
+
++ (JavaLangCharacter_UnicodeBlock *)TAI_THAM;
+
++ (JavaLangCharacter_UnicodeBlock *)VEDIC_EXTENSIONS;
+
++ (JavaLangCharacter_UnicodeBlock *)LISU;
+
++ (JavaLangCharacter_UnicodeBlock *)BAMUM;
+
++ (JavaLangCharacter_UnicodeBlock *)COMMON_INDIC_NUMBER_FORMS;
+
++ (JavaLangCharacter_UnicodeBlock *)DEVANAGARI_EXTENDED;
+
++ (JavaLangCharacter_UnicodeBlock *)HANGUL_JAMO_EXTENDED_A;
+
++ (JavaLangCharacter_UnicodeBlock *)JAVANESE;
+
++ (JavaLangCharacter_UnicodeBlock *)MYANMAR_EXTENDED_A;
+
++ (JavaLangCharacter_UnicodeBlock *)TAI_VIET;
+
++ (JavaLangCharacter_UnicodeBlock *)MEETEI_MAYEK;
+
++ (JavaLangCharacter_UnicodeBlock *)HANGUL_JAMO_EXTENDED_B;
+
++ (JavaLangCharacter_UnicodeBlock *)IMPERIAL_ARAMAIC;
+
++ (JavaLangCharacter_UnicodeBlock *)OLD_SOUTH_ARABIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)AVESTAN;
+
++ (JavaLangCharacter_UnicodeBlock *)INSCRIPTIONAL_PARTHIAN;
+
++ (JavaLangCharacter_UnicodeBlock *)INSCRIPTIONAL_PAHLAVI;
+
++ (JavaLangCharacter_UnicodeBlock *)OLD_TURKIC;
+
++ (JavaLangCharacter_UnicodeBlock *)RUMI_NUMERAL_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)KAITHI;
+
++ (JavaLangCharacter_UnicodeBlock *)EGYPTIAN_HIEROGLYPHS;
+
++ (JavaLangCharacter_UnicodeBlock *)ENCLOSED_ALPHANUMERIC_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)ENCLOSED_IDEOGRAPHIC_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C;
+
++ (JavaLangCharacter_UnicodeBlock *)MANDAIC;
+
++ (JavaLangCharacter_UnicodeBlock *)BATAK;
+
++ (JavaLangCharacter_UnicodeBlock *)ETHIOPIC_EXTENDED_A;
+
++ (JavaLangCharacter_UnicodeBlock *)BRAHMI;
+
++ (JavaLangCharacter_UnicodeBlock *)BAMUM_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)KANA_SUPPLEMENT;
+
++ (JavaLangCharacter_UnicodeBlock *)PLAYING_CARDS;
+
++ (JavaLangCharacter_UnicodeBlock *)MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS;
+
++ (JavaLangCharacter_UnicodeBlock *)EMOTICONS;
+
++ (JavaLangCharacter_UnicodeBlock *)TRANSPORT_AND_MAP_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)ALCHEMICAL_SYMBOLS;
+
++ (JavaLangCharacter_UnicodeBlock *)CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D;
 
 #pragma mark Public
 
@@ -1591,635 +2472,1697 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangCharacter_Subset)
 
 J2OBJC_STATIC_INIT(JavaLangCharacter_UnicodeBlock)
 
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SURROGATES_AREA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SURROGATES_AREA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BASIC_LATIN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BASIC_LATIN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_1_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LATIN_1_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_EXTENDED_A_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LATIN_EXTENDED_A_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_EXTENDED_B_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LATIN_EXTENDED_B_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_IPA_EXTENSIONS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, IPA_EXTENSIONS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SPACING_MODIFIER_LETTERS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SPACING_MODIFIER_LETTERS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COMBINING_DIACRITICAL_MARKS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, COMBINING_DIACRITICAL_MARKS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GREEK_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, GREEK_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CYRILLIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CYRILLIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CYRILLIC_SUPPLEMENTARY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CYRILLIC_SUPPLEMENTARY_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARMENIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ARMENIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HEBREW_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HEBREW_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARABIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ARABIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SYRIAC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SYRIAC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_THAANA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, THAANA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_DEVANAGARI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, DEVANAGARI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BENGALI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BENGALI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GURMUKHI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, GURMUKHI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GUJARATI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, GUJARATI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ORIYA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ORIYA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAMIL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TAMIL_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TELUGU_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TELUGU_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KANNADA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KANNADA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MALAYALAM_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MALAYALAM_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SINHALA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SINHALA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_THAI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, THAI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LAO_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LAO_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TIBETAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TIBETAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MYANMAR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MYANMAR_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GEORGIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, GEORGIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANGUL_JAMO_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HANGUL_JAMO_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ETHIOPIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ETHIOPIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CHEROKEE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CHEROKEE_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OGHAM_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, OGHAM_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_RUNIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, RUNIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAGALOG_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TAGALOG_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANUNOO_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HANUNOO_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BUHID_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BUHID_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAGBANWA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TAGBANWA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KHMER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KHMER_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MONGOLIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MONGOLIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LIMBU_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LIMBU_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAI_LE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TAI_LE_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KHMER_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KHMER_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PHONETIC_EXTENSIONS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, PHONETIC_EXTENSIONS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_EXTENDED_ADDITIONAL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LATIN_EXTENDED_ADDITIONAL_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GREEK_EXTENDED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, GREEK_EXTENDED_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GENERAL_PUNCTUATION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, GENERAL_PUNCTUATION_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPERSCRIPTS_AND_SUBSCRIPTS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SUPERSCRIPTS_AND_SUBSCRIPTS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CURRENCY_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CURRENCY_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COMBINING_MARKS_FOR_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, COMBINING_MARKS_FOR_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LETTERLIKE_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LETTERLIKE_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_NUMBER_FORMS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, NUMBER_FORMS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARROWS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ARROWS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MATHEMATICAL_OPERATORS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MATHEMATICAL_OPERATORS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_TECHNICAL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_TECHNICAL_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CONTROL_PICTURES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CONTROL_PICTURES_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OPTICAL_CHARACTER_RECOGNITION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, OPTICAL_CHARACTER_RECOGNITION_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ENCLOSED_ALPHANUMERICS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ENCLOSED_ALPHANUMERICS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BOX_DRAWING_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BOX_DRAWING_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BLOCK_ELEMENTS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BLOCK_ELEMENTS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GEOMETRIC_SHAPES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, GEOMETRIC_SHAPES_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_DINGBATS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, DINGBATS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTAL_ARROWS_A_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SUPPLEMENTAL_ARROWS_A_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BRAILLE_PATTERNS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BRAILLE_PATTERNS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTAL_ARROWS_B_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SUPPLEMENTAL_ARROWS_B_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTAL_MATHEMATICAL_OPERATORS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SUPPLEMENTAL_MATHEMATICAL_OPERATORS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_SYMBOLS_AND_ARROWS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_SYMBOLS_AND_ARROWS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_RADICALS_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_RADICALS_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KANGXI_RADICALS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KANGXI_RADICALS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_IDEOGRAPHIC_DESCRIPTION_CHARACTERS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, IDEOGRAPHIC_DESCRIPTION_CHARACTERS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_SYMBOLS_AND_PUNCTUATION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_SYMBOLS_AND_PUNCTUATION_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HIRAGANA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HIRAGANA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KATAKANA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KATAKANA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BOPOMOFO_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BOPOMOFO_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANGUL_COMPATIBILITY_JAMO_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HANGUL_COMPATIBILITY_JAMO_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KANBUN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KANBUN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BOPOMOFO_EXTENDED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BOPOMOFO_EXTENDED_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KATAKANA_PHONETIC_EXTENSIONS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KATAKANA_PHONETIC_EXTENSIONS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ENCLOSED_CJK_LETTERS_AND_MONTHS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ENCLOSED_CJK_LETTERS_AND_MONTHS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_COMPATIBILITY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_COMPATIBILITY_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_YIJING_HEXAGRAM_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, YIJING_HEXAGRAM_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_UNIFIED_IDEOGRAPHS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_UNIFIED_IDEOGRAPHS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_YI_SYLLABLES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, YI_SYLLABLES_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_YI_RADICALS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, YI_RADICALS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANGUL_SYLLABLES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HANGUL_SYLLABLES_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HIGH_SURROGATES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HIGH_SURROGATES_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HIGH_PRIVATE_USE_SURROGATES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HIGH_PRIVATE_USE_SURROGATES_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LOW_SURROGATES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LOW_SURROGATES_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PRIVATE_USE_AREA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, PRIVATE_USE_AREA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_COMPATIBILITY_IDEOGRAPHS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_COMPATIBILITY_IDEOGRAPHS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ALPHABETIC_PRESENTATION_FORMS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ALPHABETIC_PRESENTATION_FORMS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARABIC_PRESENTATION_FORMS_A_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ARABIC_PRESENTATION_FORMS_A_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_VARIATION_SELECTORS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, VARIATION_SELECTORS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COMBINING_HALF_MARKS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, COMBINING_HALF_MARKS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_COMPATIBILITY_FORMS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_COMPATIBILITY_FORMS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SMALL_FORM_VARIANTS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SMALL_FORM_VARIANTS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARABIC_PRESENTATION_FORMS_B_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ARABIC_PRESENTATION_FORMS_B_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HALFWIDTH_AND_FULLWIDTH_FORMS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HALFWIDTH_AND_FULLWIDTH_FORMS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SPECIALS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SPECIALS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LINEAR_B_SYLLABARY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LINEAR_B_SYLLABARY_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LINEAR_B_IDEOGRAMS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LINEAR_B_IDEOGRAMS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_AEGEAN_NUMBERS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, AEGEAN_NUMBERS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OLD_ITALIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, OLD_ITALIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GOTHIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, GOTHIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_UGARITIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, UGARITIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_DESERET_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, DESERET_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SHAVIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SHAVIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OSMANYA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, OSMANYA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CYPRIOT_SYLLABARY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CYPRIOT_SYLLABARY_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BYZANTINE_MUSICAL_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BYZANTINE_MUSICAL_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MUSICAL_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MUSICAL_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAI_XUAN_JING_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TAI_XUAN_JING_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MATHEMATICAL_ALPHANUMERIC_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MATHEMATICAL_ALPHANUMERIC_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAGS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TAGS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_VARIATION_SELECTORS_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, VARIATION_SELECTORS_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTARY_PRIVATE_USE_AREA_A_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SUPPLEMENTARY_PRIVATE_USE_AREA_A_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTARY_PRIVATE_USE_AREA_B_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SUPPLEMENTARY_PRIVATE_USE_AREA_B_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ANCIENT_GREEK_MUSICAL_NOTATION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ANCIENT_GREEK_MUSICAL_NOTATION_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ANCIENT_GREEK_NUMBERS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ANCIENT_GREEK_NUMBERS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARABIC_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ARABIC_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BUGINESE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BUGINESE_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_STROKES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_STROKES_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, COMBINING_DIACRITICAL_MARKS_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COPTIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, COPTIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ETHIOPIC_EXTENDED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ETHIOPIC_EXTENDED_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ETHIOPIC_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ETHIOPIC_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GEORGIAN_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, GEORGIAN_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GLAGOLITIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, GLAGOLITIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KHAROSHTHI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KHAROSHTHI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MODIFIER_TONE_LETTERS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MODIFIER_TONE_LETTERS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_NEW_TAI_LUE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, NEW_TAI_LUE_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OLD_PERSIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, OLD_PERSIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PHONETIC_EXTENSIONS_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, PHONETIC_EXTENSIONS_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTAL_PUNCTUATION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SUPPLEMENTAL_PUNCTUATION_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SYLOTI_NAGRI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SYLOTI_NAGRI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TIFINAGH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TIFINAGH_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_VERTICAL_FORMS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, VERTICAL_FORMS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_NKO_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, NKO_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BALINESE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BALINESE_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_EXTENDED_C_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LATIN_EXTENDED_C_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_EXTENDED_D_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LATIN_EXTENDED_D_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PHAGS_PA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, PHAGS_PA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PHOENICIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, PHOENICIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CUNEIFORM_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CUNEIFORM_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CUNEIFORM_NUMBERS_AND_PUNCTUATION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CUNEIFORM_NUMBERS_AND_PUNCTUATION_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COUNTING_ROD_NUMERALS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, COUNTING_ROD_NUMERALS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUNDANESE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SUNDANESE_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LEPCHA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LEPCHA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OL_CHIKI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, OL_CHIKI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CYRILLIC_EXTENDED_A_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CYRILLIC_EXTENDED_A_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_VAI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, VAI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CYRILLIC_EXTENDED_B_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CYRILLIC_EXTENDED_B_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SAURASHTRA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SAURASHTRA_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KAYAH_LI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KAYAH_LI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_REJANG_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, REJANG_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CHAM_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CHAM_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ANCIENT_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ANCIENT_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PHAISTOS_DISC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, PHAISTOS_DISC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LYCIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LYCIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CARIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CARIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LYDIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LYDIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MAHJONG_TILES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MAHJONG_TILES_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_DOMINO_TILES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, DOMINO_TILES_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SAMARITAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, SAMARITAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAI_THAM_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TAI_THAM_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_VEDIC_EXTENSIONS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, VEDIC_EXTENSIONS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LISU_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, LISU_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BAMUM_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BAMUM_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COMMON_INDIC_NUMBER_FORMS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, COMMON_INDIC_NUMBER_FORMS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_DEVANAGARI_EXTENDED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, DEVANAGARI_EXTENDED_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANGUL_JAMO_EXTENDED_A_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HANGUL_JAMO_EXTENDED_A_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_JAVANESE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, JAVANESE_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MYANMAR_EXTENDED_A_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MYANMAR_EXTENDED_A_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAI_VIET_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TAI_VIET_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MEETEI_MAYEK_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MEETEI_MAYEK_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANGUL_JAMO_EXTENDED_B_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, HANGUL_JAMO_EXTENDED_B_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_IMPERIAL_ARAMAIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, IMPERIAL_ARAMAIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OLD_SOUTH_ARABIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, OLD_SOUTH_ARABIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_AVESTAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, AVESTAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_INSCRIPTIONAL_PARTHIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, INSCRIPTIONAL_PARTHIAN_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_INSCRIPTIONAL_PAHLAVI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, INSCRIPTIONAL_PAHLAVI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OLD_TURKIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, OLD_TURKIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_RUMI_NUMERAL_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, RUMI_NUMERAL_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KAITHI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KAITHI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_EGYPTIAN_HIEROGLYPHS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, EGYPTIAN_HIEROGLYPHS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ENCLOSED_ALPHANUMERIC_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ENCLOSED_ALPHANUMERIC_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ENCLOSED_IDEOGRAPHIC_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MANDAIC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MANDAIC_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BATAK_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BATAK_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ETHIOPIC_EXTENDED_A_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ETHIOPIC_EXTENDED_A_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BRAHMI_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BRAHMI_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BAMUM_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, BAMUM_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KANA_SUPPLEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, KANA_SUPPLEMENT_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PLAYING_CARDS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, PLAYING_CARDS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_EMOTICONS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, EMOTICONS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TRANSPORT_AND_MAP_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, TRANSPORT_AND_MAP_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ALCHEMICAL_SYMBOLS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, ALCHEMICAL_SYMBOLS_, JavaLangCharacter_UnicodeBlock *)
-
-FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangCharacter_UnicodeBlock, CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D_, JavaLangCharacter_UnicodeBlock *)
+/*!
+ @brief The Surrogates Area Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SURROGATES_AREA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SURROGATES_AREA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SURROGATES_AREA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Basic Latin Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BASIC_LATIN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BASIC_LATIN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BASIC_LATIN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Latin-1 Supplement Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LATIN_1_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_1_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LATIN_1_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Latin Extended-A Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LATIN_EXTENDED_A();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_EXTENDED_A;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LATIN_EXTENDED_A, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Latin Extended-B Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LATIN_EXTENDED_B();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_EXTENDED_B;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LATIN_EXTENDED_B, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The IPA Extensions Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_IPA_EXTENSIONS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_IPA_EXTENSIONS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, IPA_EXTENSIONS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Spacing Modifier Letters Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SPACING_MODIFIER_LETTERS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SPACING_MODIFIER_LETTERS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SPACING_MODIFIER_LETTERS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Combining Diacritical Marks Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_COMBINING_DIACRITICAL_MARKS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COMBINING_DIACRITICAL_MARKS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, COMBINING_DIACRITICAL_MARKS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Greek and Coptic Unicode block.
+ Previously referred to as Greek.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_GREEK();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GREEK;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, GREEK, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Cyrillic Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CYRILLIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CYRILLIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CYRILLIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Cyrillic Supplement Unicode block.
+ Previously referred to as Cyrillic Supplementary.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CYRILLIC_SUPPLEMENTARY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CYRILLIC_SUPPLEMENTARY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CYRILLIC_SUPPLEMENTARY, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Armenian Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ARMENIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARMENIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ARMENIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Hebrew Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HEBREW();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HEBREW;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HEBREW, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Arabic Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ARABIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARABIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ARABIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Syriac Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SYRIAC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SYRIAC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SYRIAC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Thaana Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_THAANA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_THAANA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, THAANA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Devanagari Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_DEVANAGARI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_DEVANAGARI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, DEVANAGARI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Bengali Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BENGALI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BENGALI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BENGALI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Gurmukhi Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_GURMUKHI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GURMUKHI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, GURMUKHI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Gujarati Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_GUJARATI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GUJARATI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, GUJARATI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Oriya Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ORIYA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ORIYA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ORIYA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Tamil Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TAMIL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAMIL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TAMIL, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Telugu Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TELUGU();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TELUGU;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TELUGU, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Kannada Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KANNADA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KANNADA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KANNADA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Malayalam Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MALAYALAM();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MALAYALAM;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MALAYALAM, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Sinhala Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SINHALA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SINHALA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SINHALA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Thai Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_THAI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_THAI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, THAI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Lao Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LAO();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LAO;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LAO, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Tibetan Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TIBETAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TIBETAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TIBETAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Myanmar Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MYANMAR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MYANMAR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MYANMAR, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Georgian Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_GEORGIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GEORGIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, GEORGIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Hangul Jamo Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HANGUL_JAMO();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANGUL_JAMO;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HANGUL_JAMO, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ethiopic Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ETHIOPIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ETHIOPIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ETHIOPIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Cherokee Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CHEROKEE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CHEROKEE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CHEROKEE, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Unified Canadian Aboriginal Syllabics Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ogham Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_OGHAM();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OGHAM;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, OGHAM, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Runic Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_RUNIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_RUNIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, RUNIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Tagalog Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TAGALOG();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAGALOG;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TAGALOG, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Hanunoo Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HANUNOO();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANUNOO;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HANUNOO, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Buhid Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BUHID();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BUHID;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BUHID, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Tagbanwa Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TAGBANWA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAGBANWA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TAGBANWA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Khmer Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KHMER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KHMER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KHMER, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Mongolian Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MONGOLIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MONGOLIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MONGOLIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Limbu Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LIMBU();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LIMBU;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LIMBU, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Tai Le Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TAI_LE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAI_LE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TAI_LE, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Khmer Symbols Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KHMER_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KHMER_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KHMER_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Phonetic Extensions Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_PHONETIC_EXTENSIONS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PHONETIC_EXTENSIONS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, PHONETIC_EXTENSIONS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Latin Extended Additional Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LATIN_EXTENDED_ADDITIONAL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_EXTENDED_ADDITIONAL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LATIN_EXTENDED_ADDITIONAL, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Greek Extended Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_GREEK_EXTENDED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GREEK_EXTENDED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, GREEK_EXTENDED, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The General Punctuation Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_GENERAL_PUNCTUATION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GENERAL_PUNCTUATION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, GENERAL_PUNCTUATION, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Superscripts and Subscripts Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SUPERSCRIPTS_AND_SUBSCRIPTS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPERSCRIPTS_AND_SUBSCRIPTS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SUPERSCRIPTS_AND_SUBSCRIPTS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Currency Symbols Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CURRENCY_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CURRENCY_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CURRENCY_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Combining Diacritical Marks for Symbols Unicode
+ Block.
+ Previously referred to as Combining Marks for
+ Symbols.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_COMBINING_MARKS_FOR_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COMBINING_MARKS_FOR_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, COMBINING_MARKS_FOR_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Letterlike Symbols Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LETTERLIKE_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LETTERLIKE_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LETTERLIKE_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Number Forms Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_NUMBER_FORMS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_NUMBER_FORMS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, NUMBER_FORMS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Arrows Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ARROWS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARROWS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ARROWS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Mathematical Operators Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MATHEMATICAL_OPERATORS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MATHEMATICAL_OPERATORS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MATHEMATICAL_OPERATORS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Miscellaneous Technical Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MISCELLANEOUS_TECHNICAL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_TECHNICAL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_TECHNICAL, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Control Pictures Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CONTROL_PICTURES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CONTROL_PICTURES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CONTROL_PICTURES, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Optical Character Recognition Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_OPTICAL_CHARACTER_RECOGNITION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OPTICAL_CHARACTER_RECOGNITION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, OPTICAL_CHARACTER_RECOGNITION, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Enclosed Alphanumerics Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ENCLOSED_ALPHANUMERICS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ENCLOSED_ALPHANUMERICS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ENCLOSED_ALPHANUMERICS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Box Drawing Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BOX_DRAWING();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BOX_DRAWING;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BOX_DRAWING, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Block Elements Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BLOCK_ELEMENTS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BLOCK_ELEMENTS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BLOCK_ELEMENTS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Geometric Shapes Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_GEOMETRIC_SHAPES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GEOMETRIC_SHAPES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, GEOMETRIC_SHAPES, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Miscellaneous Symbols Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MISCELLANEOUS_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Dingbats Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_DINGBATS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_DINGBATS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, DINGBATS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Miscellaneous Mathematical Symbols-A Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_MATHEMATICAL_SYMBOLS_A, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Supplemental Arrows-A Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SUPPLEMENTAL_ARROWS_A();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTAL_ARROWS_A;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SUPPLEMENTAL_ARROWS_A, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Braille Patterns Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BRAILLE_PATTERNS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BRAILLE_PATTERNS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BRAILLE_PATTERNS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Supplemental Arrows-B Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SUPPLEMENTAL_ARROWS_B();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTAL_ARROWS_B;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SUPPLEMENTAL_ARROWS_B, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Miscellaneous Mathematical Symbols-B Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_MATHEMATICAL_SYMBOLS_B, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Supplemental Mathematical Operators Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SUPPLEMENTAL_MATHEMATICAL_OPERATORS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTAL_MATHEMATICAL_OPERATORS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SUPPLEMENTAL_MATHEMATICAL_OPERATORS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Miscellaneous Symbols and Arrows Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MISCELLANEOUS_SYMBOLS_AND_ARROWS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_SYMBOLS_AND_ARROWS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_SYMBOLS_AND_ARROWS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Radicals Supplement Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_RADICALS_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_RADICALS_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_RADICALS_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Kangxi Radicals Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KANGXI_RADICALS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KANGXI_RADICALS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KANGXI_RADICALS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ideographic Description Characters Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_IDEOGRAPHIC_DESCRIPTION_CHARACTERS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_IDEOGRAPHIC_DESCRIPTION_CHARACTERS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, IDEOGRAPHIC_DESCRIPTION_CHARACTERS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Symbols and Punctuation Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_SYMBOLS_AND_PUNCTUATION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_SYMBOLS_AND_PUNCTUATION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_SYMBOLS_AND_PUNCTUATION, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Hiragana Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HIRAGANA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HIRAGANA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HIRAGANA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Katakana Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KATAKANA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KATAKANA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KATAKANA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Bopomofo Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BOPOMOFO();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BOPOMOFO;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BOPOMOFO, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Hangul Compatibility Jamo Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HANGUL_COMPATIBILITY_JAMO();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANGUL_COMPATIBILITY_JAMO;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HANGUL_COMPATIBILITY_JAMO, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Kanbun Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KANBUN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KANBUN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KANBUN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Bopomofo Extended Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BOPOMOFO_EXTENDED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BOPOMOFO_EXTENDED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BOPOMOFO_EXTENDED, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Katakana Phonetic Extensions Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KATAKANA_PHONETIC_EXTENSIONS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KATAKANA_PHONETIC_EXTENSIONS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KATAKANA_PHONETIC_EXTENSIONS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Enclosed CJK Letters and Months Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ENCLOSED_CJK_LETTERS_AND_MONTHS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ENCLOSED_CJK_LETTERS_AND_MONTHS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ENCLOSED_CJK_LETTERS_AND_MONTHS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Compatibility Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_COMPATIBILITY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_COMPATIBILITY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_COMPATIBILITY, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Unified Ideographs Extension A Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_UNIFIED_IDEOGRAPHS_EXTENSION_A, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Yijing Hexagram Symbols Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_YIJING_HEXAGRAM_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_YIJING_HEXAGRAM_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, YIJING_HEXAGRAM_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Unified Ideographs Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_UNIFIED_IDEOGRAPHS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_UNIFIED_IDEOGRAPHS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_UNIFIED_IDEOGRAPHS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Yi Syllables Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_YI_SYLLABLES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_YI_SYLLABLES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, YI_SYLLABLES, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Yi Radicals Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_YI_RADICALS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_YI_RADICALS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, YI_RADICALS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Hangul Syllables Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HANGUL_SYLLABLES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANGUL_SYLLABLES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HANGUL_SYLLABLES, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The High Surrogates Unicode block.
+ This block represents
+ code point values in the high surrogate range 0xD800 to 0xDB7F
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HIGH_SURROGATES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HIGH_SURROGATES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HIGH_SURROGATES, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The High Private Use Surrogates Unicode block.
+ This block
+ represents code point values in the high surrogate range 0xDB80 to
+ 0xDBFF
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HIGH_PRIVATE_USE_SURROGATES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HIGH_PRIVATE_USE_SURROGATES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HIGH_PRIVATE_USE_SURROGATES, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Low Surrogates Unicode block.
+ This block represents
+ code point values in the low surrogate range 0xDC00 to 0xDFFF
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LOW_SURROGATES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LOW_SURROGATES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LOW_SURROGATES, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Private Use Area Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_PRIVATE_USE_AREA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PRIVATE_USE_AREA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, PRIVATE_USE_AREA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Compatibility Ideographs Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_COMPATIBILITY_IDEOGRAPHS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_COMPATIBILITY_IDEOGRAPHS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_COMPATIBILITY_IDEOGRAPHS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Alphabetic Presentation Forms Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ALPHABETIC_PRESENTATION_FORMS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ALPHABETIC_PRESENTATION_FORMS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ALPHABETIC_PRESENTATION_FORMS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Arabic Presentation Forms-A Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ARABIC_PRESENTATION_FORMS_A();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARABIC_PRESENTATION_FORMS_A;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ARABIC_PRESENTATION_FORMS_A, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Variation Selectors Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_VARIATION_SELECTORS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_VARIATION_SELECTORS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, VARIATION_SELECTORS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Combining Half Marks Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_COMBINING_HALF_MARKS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COMBINING_HALF_MARKS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, COMBINING_HALF_MARKS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Compatibility Forms Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_COMPATIBILITY_FORMS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_COMPATIBILITY_FORMS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_COMPATIBILITY_FORMS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Small Form Variants Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SMALL_FORM_VARIANTS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SMALL_FORM_VARIANTS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SMALL_FORM_VARIANTS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Arabic Presentation Forms-B Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ARABIC_PRESENTATION_FORMS_B();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARABIC_PRESENTATION_FORMS_B;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ARABIC_PRESENTATION_FORMS_B, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Halfwidth and Fullwidth Forms Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HALFWIDTH_AND_FULLWIDTH_FORMS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HALFWIDTH_AND_FULLWIDTH_FORMS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HALFWIDTH_AND_FULLWIDTH_FORMS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Specials Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SPECIALS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SPECIALS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SPECIALS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Linear B Syllabary Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LINEAR_B_SYLLABARY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LINEAR_B_SYLLABARY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LINEAR_B_SYLLABARY, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Linear B Ideograms Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LINEAR_B_IDEOGRAMS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LINEAR_B_IDEOGRAMS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LINEAR_B_IDEOGRAMS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Aegean Numbers Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_AEGEAN_NUMBERS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_AEGEAN_NUMBERS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, AEGEAN_NUMBERS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Old Italic Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_OLD_ITALIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OLD_ITALIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, OLD_ITALIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Gothic Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_GOTHIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GOTHIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, GOTHIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ugaritic Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_UGARITIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_UGARITIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, UGARITIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Deseret Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_DESERET();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_DESERET;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, DESERET, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Shavian Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SHAVIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SHAVIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SHAVIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Osmanya Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_OSMANYA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OSMANYA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, OSMANYA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Cypriot Syllabary Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CYPRIOT_SYLLABARY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CYPRIOT_SYLLABARY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CYPRIOT_SYLLABARY, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Byzantine Musical Symbols Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BYZANTINE_MUSICAL_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BYZANTINE_MUSICAL_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BYZANTINE_MUSICAL_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Musical Symbols Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MUSICAL_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MUSICAL_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MUSICAL_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Tai Xuan Jing Symbols Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TAI_XUAN_JING_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAI_XUAN_JING_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TAI_XUAN_JING_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Mathematical Alphanumeric Symbols Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MATHEMATICAL_ALPHANUMERIC_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MATHEMATICAL_ALPHANUMERIC_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MATHEMATICAL_ALPHANUMERIC_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Unified Ideographs Extension B Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_UNIFIED_IDEOGRAPHS_EXTENSION_B, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Compatibility Ideographs Supplement Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_COMPATIBILITY_IDEOGRAPHS_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Tags Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TAGS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAGS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TAGS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Variation Selectors Supplement Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_VARIATION_SELECTORS_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_VARIATION_SELECTORS_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, VARIATION_SELECTORS_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Supplementary Private Use Area-A Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SUPPLEMENTARY_PRIVATE_USE_AREA_A();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTARY_PRIVATE_USE_AREA_A;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SUPPLEMENTARY_PRIVATE_USE_AREA_A, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Supplementary Private Use Area-B Unicode block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SUPPLEMENTARY_PRIVATE_USE_AREA_B();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTARY_PRIVATE_USE_AREA_B;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SUPPLEMENTARY_PRIVATE_USE_AREA_B, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ancient Greek Musical Notation Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ANCIENT_GREEK_MUSICAL_NOTATION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ANCIENT_GREEK_MUSICAL_NOTATION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ANCIENT_GREEK_MUSICAL_NOTATION, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ancient Greek Numbers Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ANCIENT_GREEK_NUMBERS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ANCIENT_GREEK_NUMBERS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ANCIENT_GREEK_NUMBERS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Arabic Supplement Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ARABIC_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ARABIC_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ARABIC_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Buginese Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BUGINESE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BUGINESE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BUGINESE, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Strokes Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_STROKES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_STROKES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_STROKES, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Combining Diacritical Marks Supplement Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COMBINING_DIACRITICAL_MARKS_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, COMBINING_DIACRITICAL_MARKS_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Coptic Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_COPTIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COPTIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, COPTIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ethiopic Extended Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ETHIOPIC_EXTENDED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ETHIOPIC_EXTENDED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ETHIOPIC_EXTENDED, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ethiopic Supplement Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ETHIOPIC_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ETHIOPIC_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ETHIOPIC_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Georgian Supplement Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_GEORGIAN_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GEORGIAN_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, GEORGIAN_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Glagolitic Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_GLAGOLITIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_GLAGOLITIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, GLAGOLITIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Kharoshthi Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KHAROSHTHI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KHAROSHTHI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KHAROSHTHI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Modifier Tone Letters Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MODIFIER_TONE_LETTERS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MODIFIER_TONE_LETTERS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MODIFIER_TONE_LETTERS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The New Tai Lue Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_NEW_TAI_LUE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_NEW_TAI_LUE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, NEW_TAI_LUE, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Old Persian Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_OLD_PERSIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OLD_PERSIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, OLD_PERSIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Phonetic Extensions Supplement Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_PHONETIC_EXTENSIONS_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PHONETIC_EXTENSIONS_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, PHONETIC_EXTENSIONS_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Supplemental Punctuation Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SUPPLEMENTAL_PUNCTUATION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUPPLEMENTAL_PUNCTUATION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SUPPLEMENTAL_PUNCTUATION, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Syloti Nagri Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SYLOTI_NAGRI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SYLOTI_NAGRI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SYLOTI_NAGRI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Tifinagh Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TIFINAGH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TIFINAGH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TIFINAGH, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Vertical Forms Unicode 4.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_VERTICAL_FORMS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_VERTICAL_FORMS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, VERTICAL_FORMS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The NKo Unicode 5.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_NKO();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_NKO;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, NKO, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Balinese Unicode 5.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BALINESE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BALINESE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BALINESE, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Latin Extended C Unicode 5.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LATIN_EXTENDED_C();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_EXTENDED_C;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LATIN_EXTENDED_C, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Latin Extended D Unicode 5.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LATIN_EXTENDED_D();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LATIN_EXTENDED_D;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LATIN_EXTENDED_D, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Phags-pa Unicode 5.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_PHAGS_PA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PHAGS_PA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, PHAGS_PA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Phoenician Unicode 5.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_PHOENICIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PHOENICIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, PHOENICIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Cuneiform Unicode 5.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CUNEIFORM();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CUNEIFORM;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CUNEIFORM, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Cuneiform Numbers And Punctuation Unicode 5.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CUNEIFORM_NUMBERS_AND_PUNCTUATION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CUNEIFORM_NUMBERS_AND_PUNCTUATION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CUNEIFORM_NUMBERS_AND_PUNCTUATION, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Counting Rod Numerals Unicode 5.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_COUNTING_ROD_NUMERALS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COUNTING_ROD_NUMERALS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, COUNTING_ROD_NUMERALS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Sudanese Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SUNDANESE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SUNDANESE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SUNDANESE, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Lepcha Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LEPCHA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LEPCHA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LEPCHA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ol Chiki Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_OL_CHIKI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OL_CHIKI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, OL_CHIKI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Cyrillic Extended-A Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CYRILLIC_EXTENDED_A();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CYRILLIC_EXTENDED_A;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CYRILLIC_EXTENDED_A, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Vai Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_VAI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_VAI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, VAI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Cyrillic Extended-B Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CYRILLIC_EXTENDED_B();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CYRILLIC_EXTENDED_B;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CYRILLIC_EXTENDED_B, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Saurashtra Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SAURASHTRA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SAURASHTRA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SAURASHTRA, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Kayah Li Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KAYAH_LI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KAYAH_LI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KAYAH_LI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Rejang Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_REJANG();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_REJANG;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, REJANG, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Cham Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CHAM();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CHAM;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CHAM, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ancient Symbols Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ANCIENT_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ANCIENT_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ANCIENT_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Phaistos Disc Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_PHAISTOS_DISC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PHAISTOS_DISC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, PHAISTOS_DISC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Lycian Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LYCIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LYCIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LYCIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Carian Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CARIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CARIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CARIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Lydian Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LYDIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LYDIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LYDIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Mahjong Tiles Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MAHJONG_TILES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MAHJONG_TILES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MAHJONG_TILES, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Domino Tiles Unicode 5.1 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_DOMINO_TILES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_DOMINO_TILES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, DOMINO_TILES, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Samaritan Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_SAMARITAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_SAMARITAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, SAMARITAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Unified Canadian Aboriginal Syllabics Expanded Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, UNIFIED_CANADIAN_ABORIGINAL_SYLLABICS_EXTENDED, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Tai Tham Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TAI_THAM();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAI_THAM;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TAI_THAM, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Vedic Extensions Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_VEDIC_EXTENSIONS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_VEDIC_EXTENSIONS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, VEDIC_EXTENSIONS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Lisu Extensions Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_LISU();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_LISU;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, LISU, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Bamum Extensions Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BAMUM();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BAMUM;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BAMUM, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Common Indic Number Forms Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_COMMON_INDIC_NUMBER_FORMS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_COMMON_INDIC_NUMBER_FORMS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, COMMON_INDIC_NUMBER_FORMS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Devanagari Extended Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_DEVANAGARI_EXTENDED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_DEVANAGARI_EXTENDED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, DEVANAGARI_EXTENDED, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Hangul Jamo Extended-A Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HANGUL_JAMO_EXTENDED_A();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANGUL_JAMO_EXTENDED_A;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HANGUL_JAMO_EXTENDED_A, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Javanese Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_JAVANESE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_JAVANESE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, JAVANESE, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Myanmar Extended-A Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MYANMAR_EXTENDED_A();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MYANMAR_EXTENDED_A;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MYANMAR_EXTENDED_A, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Tai Viet Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TAI_VIET();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TAI_VIET;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TAI_VIET, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Meetei Mayek Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MEETEI_MAYEK();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MEETEI_MAYEK;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MEETEI_MAYEK, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Hangul Jamo Extended-B Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_HANGUL_JAMO_EXTENDED_B();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_HANGUL_JAMO_EXTENDED_B;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, HANGUL_JAMO_EXTENDED_B, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Imperial Aramaic Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_IMPERIAL_ARAMAIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_IMPERIAL_ARAMAIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, IMPERIAL_ARAMAIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Old South Arabian Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_OLD_SOUTH_ARABIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OLD_SOUTH_ARABIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, OLD_SOUTH_ARABIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Avestan Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_AVESTAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_AVESTAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, AVESTAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Inscriptional Pathian Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_INSCRIPTIONAL_PARTHIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_INSCRIPTIONAL_PARTHIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, INSCRIPTIONAL_PARTHIAN, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Inscriptional Pahlavi Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_INSCRIPTIONAL_PAHLAVI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_INSCRIPTIONAL_PAHLAVI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, INSCRIPTIONAL_PAHLAVI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Old Turkic Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_OLD_TURKIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_OLD_TURKIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, OLD_TURKIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Rumi Numeral Symbols Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_RUMI_NUMERAL_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_RUMI_NUMERAL_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, RUMI_NUMERAL_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Kaithi Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KAITHI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KAITHI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KAITHI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Egyptian Hieroglyphs Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_EGYPTIAN_HIEROGLYPHS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_EGYPTIAN_HIEROGLYPHS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, EGYPTIAN_HIEROGLYPHS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Enclosed Alphanumeric Supplement Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ENCLOSED_ALPHANUMERIC_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ENCLOSED_ALPHANUMERIC_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ENCLOSED_ALPHANUMERIC_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Enclosed Ideographic Supplement Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ENCLOSED_IDEOGRAPHIC_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ENCLOSED_IDEOGRAPHIC_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Unified Ideographs Unicode 5.2 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_UNIFIED_IDEOGRAPHS_EXTENSION_C, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Mandaic Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MANDAIC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MANDAIC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MANDAIC, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Batak Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BATAK();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BATAK;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BATAK, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Ethiopic Extended-A Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ETHIOPIC_EXTENDED_A();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ETHIOPIC_EXTENDED_A;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ETHIOPIC_EXTENDED_A, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Brahmi Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BRAHMI();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BRAHMI;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BRAHMI, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Bamum Supplement Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_BAMUM_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_BAMUM_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, BAMUM_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Kana Supplement Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_KANA_SUPPLEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_KANA_SUPPLEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, KANA_SUPPLEMENT, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Playing Cards Supplement Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_PLAYING_CARDS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_PLAYING_CARDS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, PLAYING_CARDS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Miscellaneous Symbols And Pictographs Supplement Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, MISCELLANEOUS_SYMBOLS_AND_PICTOGRAPHS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Emoticons Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_EMOTICONS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_EMOTICONS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, EMOTICONS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Transport And Map Symbols Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_TRANSPORT_AND_MAP_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_TRANSPORT_AND_MAP_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, TRANSPORT_AND_MAP_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The Alchemical Symbols Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_ALCHEMICAL_SYMBOLS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_ALCHEMICAL_SYMBOLS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, ALCHEMICAL_SYMBOLS, JavaLangCharacter_UnicodeBlock *)
+
+/*!
+ @brief The CJK Unified Ideographs Extension-D Unicode 6.0 block.
+ */
+inline JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_get_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangCharacter_UnicodeBlock, CJK_UNIFIED_IDEOGRAPHS_EXTENSION_D, JavaLangCharacter_UnicodeBlock *)
 
 FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock_forNameWithNSString_(NSString *blockName);
 
@@ -2229,4 +4172,8 @@ FOUNDATION_EXPORT JavaLangCharacter_UnicodeBlock *JavaLangCharacter_UnicodeBlock
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangCharacter_UnicodeBlock)
 
-#endif // _JavaLangCharacter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangCharacter_INCLUDE_ALL")

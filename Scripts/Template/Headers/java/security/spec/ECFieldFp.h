@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/ECFieldFp.java
 //
 
-#ifndef _JavaSecuritySpecECFieldFp_H_
-#define _JavaSecuritySpecECFieldFp_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecECFieldFp_INCLUDE_ALL")
+#ifdef JavaSecuritySpecECFieldFp_RESTRICT
+#define JavaSecuritySpecECFieldFp_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecECFieldFp_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecECFieldFp_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecECFieldFp_) && (JavaSecuritySpecECFieldFp_INCLUDE_ALL || defined(JavaSecuritySpecECFieldFp_INCLUDE))
+#define JavaSecuritySpecECFieldFp_
+
+#define JavaSecuritySpecECField_RESTRICT 1
+#define JavaSecuritySpecECField_INCLUDE 1
 #include "../../../java/security/spec/ECField.h"
 
 @class JavaMathBigInteger;
@@ -66,4 +80,8 @@ FOUNDATION_EXPORT JavaSecuritySpecECFieldFp *new_JavaSecuritySpecECFieldFp_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECFieldFp)
 
-#endif // _JavaSecuritySpecECFieldFp_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecECFieldFp_INCLUDE_ALL")

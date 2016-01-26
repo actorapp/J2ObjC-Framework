@@ -3,14 +3,37 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/ext/DefaultHandler2.java
 //
 
-#ifndef _OrgXmlSaxExtDefaultHandler2_H_
-#define _OrgXmlSaxExtDefaultHandler2_H_
-
 #include "../../../../J2ObjC_header.h"
-#include "../../../../org/xml/sax/ext/DeclHandler.h"
-#include "../../../../org/xml/sax/ext/EntityResolver2.h"
-#include "../../../../org/xml/sax/ext/LexicalHandler.h"
+
+#pragma push_macro("OrgXmlSaxExtDefaultHandler2_INCLUDE_ALL")
+#ifdef OrgXmlSaxExtDefaultHandler2_RESTRICT
+#define OrgXmlSaxExtDefaultHandler2_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxExtDefaultHandler2_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxExtDefaultHandler2_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxExtDefaultHandler2_) && (OrgXmlSaxExtDefaultHandler2_INCLUDE_ALL || defined(OrgXmlSaxExtDefaultHandler2_INCLUDE))
+#define OrgXmlSaxExtDefaultHandler2_
+
+#define OrgXmlSaxHelpersDefaultHandler_RESTRICT 1
+#define OrgXmlSaxHelpersDefaultHandler_INCLUDE 1
 #include "../../../../org/xml/sax/helpers/DefaultHandler.h"
+
+#define OrgXmlSaxExtLexicalHandler_RESTRICT 1
+#define OrgXmlSaxExtLexicalHandler_INCLUDE 1
+#include "../../../../org/xml/sax/ext/LexicalHandler.h"
+
+#define OrgXmlSaxExtDeclHandler_RESTRICT 1
+#define OrgXmlSaxExtDeclHandler_INCLUDE 1
+#include "../../../../org/xml/sax/ext/DeclHandler.h"
+
+#define OrgXmlSaxExtEntityResolver2_RESTRICT 1
+#define OrgXmlSaxExtEntityResolver2_INCLUDE 1
+#include "../../../../org/xml/sax/ext/EntityResolver2.h"
 
 @class IOSCharArray;
 @class OrgXmlSaxInputSource;
@@ -165,4 +188,8 @@ FOUNDATION_EXPORT OrgXmlSaxExtDefaultHandler2 *new_OrgXmlSaxExtDefaultHandler2_i
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtDefaultHandler2)
 
-#endif // _OrgXmlSaxExtDefaultHandler2_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxExtDefaultHandler2_INCLUDE_ALL")

@@ -3,29 +3,25 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/DOMException.java
 //
 
-#ifndef _OrgW3cDomDOMException_H_
-#define _OrgW3cDomDOMException_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/lang/RuntimeException.h"
 
-#define OrgW3cDomDOMException_INDEX_SIZE_ERR 1
-#define OrgW3cDomDOMException_DOMSTRING_SIZE_ERR 2
-#define OrgW3cDomDOMException_HIERARCHY_REQUEST_ERR 3
-#define OrgW3cDomDOMException_WRONG_DOCUMENT_ERR 4
-#define OrgW3cDomDOMException_INVALID_CHARACTER_ERR 5
-#define OrgW3cDomDOMException_NO_DATA_ALLOWED_ERR 6
-#define OrgW3cDomDOMException_NO_MODIFICATION_ALLOWED_ERR 7
-#define OrgW3cDomDOMException_NOT_FOUND_ERR 8
-#define OrgW3cDomDOMException_NOT_SUPPORTED_ERR 9
-#define OrgW3cDomDOMException_INUSE_ATTRIBUTE_ERR 10
-#define OrgW3cDomDOMException_INVALID_STATE_ERR 11
-#define OrgW3cDomDOMException_SYNTAX_ERR 12
-#define OrgW3cDomDOMException_INVALID_MODIFICATION_ERR 13
-#define OrgW3cDomDOMException_NAMESPACE_ERR 14
-#define OrgW3cDomDOMException_INVALID_ACCESS_ERR 15
-#define OrgW3cDomDOMException_VALIDATION_ERR 16
-#define OrgW3cDomDOMException_TYPE_MISMATCH_ERR 17
+#pragma push_macro("OrgW3cDomDOMException_INCLUDE_ALL")
+#ifdef OrgW3cDomDOMException_RESTRICT
+#define OrgW3cDomDOMException_INCLUDE_ALL 0
+#else
+#define OrgW3cDomDOMException_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomDOMException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomDOMException_) && (OrgW3cDomDOMException_INCLUDE_ALL || defined(OrgW3cDomDOMException_INCLUDE))
+#define OrgW3cDomDOMException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
+#include "../../../java/lang/RuntimeException.h"
 
 /*!
  @brief DOM operations only raise exceptions in "exceptional" circumstances, i.e.,
@@ -50,6 +46,40 @@
   jshort code_;
 }
 
++ (jshort)INDEX_SIZE_ERR;
+
++ (jshort)DOMSTRING_SIZE_ERR;
+
++ (jshort)HIERARCHY_REQUEST_ERR;
+
++ (jshort)WRONG_DOCUMENT_ERR;
+
++ (jshort)INVALID_CHARACTER_ERR;
+
++ (jshort)NO_DATA_ALLOWED_ERR;
+
++ (jshort)NO_MODIFICATION_ALLOWED_ERR;
+
++ (jshort)NOT_FOUND_ERR;
+
++ (jshort)NOT_SUPPORTED_ERR;
+
++ (jshort)INUSE_ATTRIBUTE_ERR;
+
++ (jshort)INVALID_STATE_ERR;
+
++ (jshort)SYNTAX_ERR;
+
++ (jshort)INVALID_MODIFICATION_ERR;
+
++ (jshort)NAMESPACE_ERR;
+
++ (jshort)INVALID_ACCESS_ERR;
+
++ (jshort)VALIDATION_ERR;
+
++ (jshort)TYPE_MISMATCH_ERR;
+
 #pragma mark Public
 
 - (instancetype)initWithShort:(jshort)code
@@ -59,39 +89,147 @@
 
 J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomDOMException)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, INDEX_SIZE_ERR, jshort)
+/*!
+ @brief If index or size is negative, or greater than the allowed value.
+ */
+inline jshort OrgW3cDomDOMException_get_INDEX_SIZE_ERR();
+#define OrgW3cDomDOMException_INDEX_SIZE_ERR 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, INDEX_SIZE_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, DOMSTRING_SIZE_ERR, jshort)
+/*!
+ @brief If the specified range of text does not fit into a
+ <code>DOMString</code>.
+ */
+inline jshort OrgW3cDomDOMException_get_DOMSTRING_SIZE_ERR();
+#define OrgW3cDomDOMException_DOMSTRING_SIZE_ERR 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, DOMSTRING_SIZE_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, HIERARCHY_REQUEST_ERR, jshort)
+/*!
+ @brief If any <code>Node</code> is inserted somewhere it doesn't belong.
+ */
+inline jshort OrgW3cDomDOMException_get_HIERARCHY_REQUEST_ERR();
+#define OrgW3cDomDOMException_HIERARCHY_REQUEST_ERR 3
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, HIERARCHY_REQUEST_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, WRONG_DOCUMENT_ERR, jshort)
+/*!
+ @brief If a <code>Node</code> is used in a different document than the one
+ that created it (that doesn't support it).
+ */
+inline jshort OrgW3cDomDOMException_get_WRONG_DOCUMENT_ERR();
+#define OrgW3cDomDOMException_WRONG_DOCUMENT_ERR 4
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, WRONG_DOCUMENT_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, INVALID_CHARACTER_ERR, jshort)
+/*!
+ @brief If an invalid or illegal character is specified, such as in an XML name.
+ */
+inline jshort OrgW3cDomDOMException_get_INVALID_CHARACTER_ERR();
+#define OrgW3cDomDOMException_INVALID_CHARACTER_ERR 5
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, INVALID_CHARACTER_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, NO_DATA_ALLOWED_ERR, jshort)
+/*!
+ @brief If data is specified for a <code>Node</code> which does not support
+ data.
+ */
+inline jshort OrgW3cDomDOMException_get_NO_DATA_ALLOWED_ERR();
+#define OrgW3cDomDOMException_NO_DATA_ALLOWED_ERR 6
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, NO_DATA_ALLOWED_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, NO_MODIFICATION_ALLOWED_ERR, jshort)
+/*!
+ @brief If an attempt is made to modify an object where modifications are not
+ allowed.
+ */
+inline jshort OrgW3cDomDOMException_get_NO_MODIFICATION_ALLOWED_ERR();
+#define OrgW3cDomDOMException_NO_MODIFICATION_ALLOWED_ERR 7
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, NO_MODIFICATION_ALLOWED_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, NOT_FOUND_ERR, jshort)
+/*!
+ @brief If an attempt is made to reference a <code>Node</code> in a context
+ where it does not exist.
+ */
+inline jshort OrgW3cDomDOMException_get_NOT_FOUND_ERR();
+#define OrgW3cDomDOMException_NOT_FOUND_ERR 8
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, NOT_FOUND_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, NOT_SUPPORTED_ERR, jshort)
+/*!
+ @brief If the implementation does not support the requested type of object or
+ operation.
+ */
+inline jshort OrgW3cDomDOMException_get_NOT_SUPPORTED_ERR();
+#define OrgW3cDomDOMException_NOT_SUPPORTED_ERR 9
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, NOT_SUPPORTED_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, INUSE_ATTRIBUTE_ERR, jshort)
+/*!
+ @brief If an attempt is made to add an attribute that is already in use
+ elsewhere.
+ */
+inline jshort OrgW3cDomDOMException_get_INUSE_ATTRIBUTE_ERR();
+#define OrgW3cDomDOMException_INUSE_ATTRIBUTE_ERR 10
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, INUSE_ATTRIBUTE_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, INVALID_STATE_ERR, jshort)
+/*!
+ @brief If an attempt is made to use an object that is not, or is no longer,
+ usable.
+ @since DOM Level 2
+ */
+inline jshort OrgW3cDomDOMException_get_INVALID_STATE_ERR();
+#define OrgW3cDomDOMException_INVALID_STATE_ERR 11
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, INVALID_STATE_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, SYNTAX_ERR, jshort)
+/*!
+ @brief If an invalid or illegal string is specified.
+ @since DOM Level 2
+ */
+inline jshort OrgW3cDomDOMException_get_SYNTAX_ERR();
+#define OrgW3cDomDOMException_SYNTAX_ERR 12
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, SYNTAX_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, INVALID_MODIFICATION_ERR, jshort)
+/*!
+ @brief If an attempt is made to modify the type of the underlying object.
+ @since DOM Level 2
+ */
+inline jshort OrgW3cDomDOMException_get_INVALID_MODIFICATION_ERR();
+#define OrgW3cDomDOMException_INVALID_MODIFICATION_ERR 13
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, INVALID_MODIFICATION_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, NAMESPACE_ERR, jshort)
+/*!
+ @brief If an attempt is made to create or change an object in a way which is
+ incorrect with regard to namespaces.
+ @since DOM Level 2
+ */
+inline jshort OrgW3cDomDOMException_get_NAMESPACE_ERR();
+#define OrgW3cDomDOMException_NAMESPACE_ERR 14
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, NAMESPACE_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, INVALID_ACCESS_ERR, jshort)
+/*!
+ @brief If a parameter or an operation is not supported by the underlying
+ object.
+ @since DOM Level 2
+ */
+inline jshort OrgW3cDomDOMException_get_INVALID_ACCESS_ERR();
+#define OrgW3cDomDOMException_INVALID_ACCESS_ERR 15
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, INVALID_ACCESS_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, VALIDATION_ERR, jshort)
+/*!
+ @brief If a call to a method such as <code>insertBefore</code> or
+ <code>removeChild</code> would make the <code>Node</code> invalid
+ with respect to "partial validity", this exception would be raised
+ and the operation would not be done.
+ This code is used in [<a href='http://www.w3.org/TR/2004/REC-DOM-Level-3-Val-20040127/'>DOM Level 3 Validation</a>]
+ . Refer to this specification for further information.
+ @since DOM Level 3
+ */
+inline jshort OrgW3cDomDOMException_get_VALIDATION_ERR();
+#define OrgW3cDomDOMException_VALIDATION_ERR 16
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, VALIDATION_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomDOMException, TYPE_MISMATCH_ERR, jshort)
+/*!
+ @brief If the type of an object is incompatible with the expected type of the
+ parameter associated to the object.
+ @since DOM Level 3
+ */
+inline jshort OrgW3cDomDOMException_get_TYPE_MISMATCH_ERR();
+#define OrgW3cDomDOMException_TYPE_MISMATCH_ERR 17
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomDOMException, TYPE_MISMATCH_ERR, jshort)
 
 FOUNDATION_EXPORT void OrgW3cDomDOMException_initWithShort_withNSString_(OrgW3cDomDOMException *self, jshort code, NSString *message);
 
@@ -99,4 +237,8 @@ FOUNDATION_EXPORT OrgW3cDomDOMException *new_OrgW3cDomDOMException_initWithShort
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMException)
 
-#endif // _OrgW3cDomDOMException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomDOMException_INCLUDE_ALL")

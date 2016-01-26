@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/WritableByteChannel.java
 //
 
-#ifndef _JavaNioChannelsWritableByteChannel_H_
-#define _JavaNioChannelsWritableByteChannel_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsWritableByteChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsWritableByteChannel_RESTRICT
+#define JavaNioChannelsWritableByteChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsWritableByteChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsWritableByteChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsWritableByteChannel_) && (JavaNioChannelsWritableByteChannel_INCLUDE_ALL || defined(JavaNioChannelsWritableByteChannel_INCLUDE))
+#define JavaNioChannelsWritableByteChannel_
+
+#define JavaNioChannelsChannel_RESTRICT 1
+#define JavaNioChannelsChannel_INCLUDE 1
 #include "../../../java/nio/channels/Channel.h"
 
 @class JavaNioByteBuffer;
@@ -59,4 +73,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNioChannelsWritableByteChannel)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsWritableByteChannel)
 
-#endif // _JavaNioChannelsWritableByteChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsWritableByteChannel_INCLUDE_ALL")

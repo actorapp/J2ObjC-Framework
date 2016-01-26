@@ -3,15 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/security/UnrecoverableKeyException.java
 //
 
-#ifndef _JavaSecurityUnrecoverableKeyException_H_
-#define _JavaSecurityUnrecoverableKeyException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityUnrecoverableKeyException_INCLUDE_ALL")
+#ifdef JavaSecurityUnrecoverableKeyException_RESTRICT
+#define JavaSecurityUnrecoverableKeyException_INCLUDE_ALL 0
+#else
+#define JavaSecurityUnrecoverableKeyException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityUnrecoverableKeyException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityUnrecoverableKeyException_) && (JavaSecurityUnrecoverableKeyException_INCLUDE_ALL || defined(JavaSecurityUnrecoverableKeyException_INCLUDE))
+#define JavaSecurityUnrecoverableKeyException_
+
+#define JavaSecurityUnrecoverableEntryException_RESTRICT 1
+#define JavaSecurityUnrecoverableEntryException_INCLUDE 1
 #include "../../java/security/UnrecoverableEntryException.h"
 
 /*!
  @brief <code>UnrecoverableKeyException</code> indicates, that a key cannot be recovered
  from a <code>KeyStore</code>.
+ - seealso: KeyStore
  */
 @interface JavaSecurityUnrecoverableKeyException : JavaSecurityUnrecoverableEntryException
 
@@ -44,4 +59,8 @@ FOUNDATION_EXPORT JavaSecurityUnrecoverableKeyException *new_JavaSecurityUnrecov
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityUnrecoverableKeyException)
 
-#endif // _JavaSecurityUnrecoverableKeyException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityUnrecoverableKeyException_INCLUDE_ALL")

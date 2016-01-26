@@ -3,40 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectStreamConstants.java
 //
 
-#ifndef _JavaIoObjectStreamConstants_H_
-#define _JavaIoObjectStreamConstants_H_
-
 #include "../../J2ObjC_header.h"
 
-@class JavaIoSerializablePermission;
+#pragma push_macro("JavaIoObjectStreamConstants_INCLUDE_ALL")
+#ifdef JavaIoObjectStreamConstants_RESTRICT
+#define JavaIoObjectStreamConstants_INCLUDE_ALL 0
+#else
+#define JavaIoObjectStreamConstants_INCLUDE_ALL 1
+#endif
+#undef JavaIoObjectStreamConstants_RESTRICT
 
-#define JavaIoObjectStreamConstants_STREAM_MAGIC -21267
-#define JavaIoObjectStreamConstants_STREAM_VERSION 5
-#define JavaIoObjectStreamConstants_TC_BASE 112
-#define JavaIoObjectStreamConstants_TC_NULL 112
-#define JavaIoObjectStreamConstants_TC_REFERENCE 113
-#define JavaIoObjectStreamConstants_TC_CLASSDESC 114
-#define JavaIoObjectStreamConstants_TC_OBJECT 115
-#define JavaIoObjectStreamConstants_TC_STRING 116
-#define JavaIoObjectStreamConstants_TC_ARRAY 117
-#define JavaIoObjectStreamConstants_TC_CLASS 118
-#define JavaIoObjectStreamConstants_TC_BLOCKDATA 119
-#define JavaIoObjectStreamConstants_TC_ENDBLOCKDATA 120
-#define JavaIoObjectStreamConstants_TC_RESET 121
-#define JavaIoObjectStreamConstants_TC_BLOCKDATALONG 122
-#define JavaIoObjectStreamConstants_TC_EXCEPTION 123
-#define JavaIoObjectStreamConstants_TC_LONGSTRING 124
-#define JavaIoObjectStreamConstants_TC_PROXYCLASSDESC 125
-#define JavaIoObjectStreamConstants_TC_MAX 126
-#define JavaIoObjectStreamConstants_baseWireHandle 8257536
-#define JavaIoObjectStreamConstants_PROTOCOL_VERSION_1 1
-#define JavaIoObjectStreamConstants_PROTOCOL_VERSION_2 2
-#define JavaIoObjectStreamConstants_SC_WRITE_METHOD 1
-#define JavaIoObjectStreamConstants_SC_SERIALIZABLE 2
-#define JavaIoObjectStreamConstants_SC_EXTERNALIZABLE 4
-#define JavaIoObjectStreamConstants_SC_BLOCK_DATA 8
-#define JavaIoObjectStreamConstants_TC_ENUM 126
-#define JavaIoObjectStreamConstants_SC_ENUM 16
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoObjectStreamConstants_) && (JavaIoObjectStreamConstants_INCLUDE_ALL || defined(JavaIoObjectStreamConstants_INCLUDE))
+#define JavaIoObjectStreamConstants_
+
+@class JavaIoSerializablePermission;
 
 /*!
  @brief A helper interface with constants used by the serialization implementation.
@@ -47,70 +30,294 @@
 
 @interface JavaIoObjectStreamConstants : NSObject
 
++ (jshort)STREAM_MAGIC;
+
++ (jshort)STREAM_VERSION;
+
++ (jbyte)TC_BASE;
+
++ (jbyte)TC_NULL;
+
++ (jbyte)TC_REFERENCE;
+
++ (jbyte)TC_CLASSDESC;
+
++ (jbyte)TC_OBJECT;
+
++ (jbyte)TC_STRING;
+
++ (jbyte)TC_ARRAY;
+
++ (jbyte)TC_CLASS;
+
++ (jbyte)TC_BLOCKDATA;
+
++ (jbyte)TC_ENDBLOCKDATA;
+
++ (jbyte)TC_RESET;
+
++ (jbyte)TC_BLOCKDATALONG;
+
++ (jbyte)TC_EXCEPTION;
+
++ (jbyte)TC_LONGSTRING;
+
++ (jbyte)TC_PROXYCLASSDESC;
+
++ (jbyte)TC_MAX;
+
++ (jint)baseWireHandle;
+
++ (jint)PROTOCOL_VERSION_1;
+
++ (jint)PROTOCOL_VERSION_2;
+
++ (JavaIoSerializablePermission *)SUBCLASS_IMPLEMENTATION_PERMISSION;
+
++ (JavaIoSerializablePermission *)SUBSTITUTION_PERMISSION;
+
++ (jbyte)SC_WRITE_METHOD;
+
++ (jbyte)SC_SERIALIZABLE;
+
++ (jbyte)SC_EXTERNALIZABLE;
+
++ (jbyte)SC_BLOCK_DATA;
+
++ (jbyte)TC_ENUM;
+
++ (jbyte)SC_ENUM;
+
 @end
 
 J2OBJC_STATIC_INIT(JavaIoObjectStreamConstants)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, STREAM_MAGIC, jshort)
+/*!
+ @brief The stream header's magic number.
+ */
+inline jshort JavaIoObjectStreamConstants_get_STREAM_MAGIC();
+#define JavaIoObjectStreamConstants_STREAM_MAGIC -21267
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, STREAM_MAGIC, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, STREAM_VERSION, jshort)
+/*!
+ @brief The stream header's version number.
+ */
+inline jshort JavaIoObjectStreamConstants_get_STREAM_VERSION();
+#define JavaIoObjectStreamConstants_STREAM_VERSION 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, STREAM_VERSION, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_BASE, jbyte)
+/*!
+ @brief The minimum tag value.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_BASE();
+#define JavaIoObjectStreamConstants_TC_BASE 112
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_BASE, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_NULL, jbyte)
+/*!
+ @brief Tag to mark a <code>null</code> object reference.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_NULL();
+#define JavaIoObjectStreamConstants_TC_NULL 112
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_NULL, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_REFERENCE, jbyte)
+/*!
+ @brief Tag to mark a reference to an object that has already been written to the
+ stream.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_REFERENCE();
+#define JavaIoObjectStreamConstants_TC_REFERENCE 113
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_REFERENCE, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_CLASSDESC, jbyte)
+/*!
+ @brief Tag to mark a new class descriptor.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_CLASSDESC();
+#define JavaIoObjectStreamConstants_TC_CLASSDESC 114
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_CLASSDESC, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_OBJECT, jbyte)
+/*!
+ @brief Tag to mark a new object.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_OBJECT();
+#define JavaIoObjectStreamConstants_TC_OBJECT 115
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_OBJECT, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_STRING, jbyte)
+/*!
+ @brief Tag to mark a new string.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_STRING();
+#define JavaIoObjectStreamConstants_TC_STRING 116
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_STRING, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_ARRAY, jbyte)
+/*!
+ @brief Tag to mark a new array.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_ARRAY();
+#define JavaIoObjectStreamConstants_TC_ARRAY 117
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_ARRAY, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_CLASS, jbyte)
+/*!
+ @brief Tag to mark a reference to a class.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_CLASS();
+#define JavaIoObjectStreamConstants_TC_CLASS 118
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_CLASS, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_BLOCKDATA, jbyte)
+/*!
+ @brief Tag to mark a block of optional data.
+ The byte following this tag
+ indicates the size of the block.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_BLOCKDATA();
+#define JavaIoObjectStreamConstants_TC_BLOCKDATA 119
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_BLOCKDATA, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_ENDBLOCKDATA, jbyte)
+/*!
+ @brief Tag to mark the end of block data blocks for an object.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_ENDBLOCKDATA();
+#define JavaIoObjectStreamConstants_TC_ENDBLOCKDATA 120
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_ENDBLOCKDATA, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_RESET, jbyte)
+/*!
+ @brief Tag to mark a stream reset.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_RESET();
+#define JavaIoObjectStreamConstants_TC_RESET 121
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_RESET, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_BLOCKDATALONG, jbyte)
+/*!
+ @brief Tag to mark a long block of data.
+ The long following this tag
+ indicates the size of the block.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_BLOCKDATALONG();
+#define JavaIoObjectStreamConstants_TC_BLOCKDATALONG 122
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_BLOCKDATALONG, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_EXCEPTION, jbyte)
+/*!
+ @brief Tag to mark an exception.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_EXCEPTION();
+#define JavaIoObjectStreamConstants_TC_EXCEPTION 123
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_EXCEPTION, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_LONGSTRING, jbyte)
+/*!
+ @brief Tag to mark a long string.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_LONGSTRING();
+#define JavaIoObjectStreamConstants_TC_LONGSTRING 124
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_LONGSTRING, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_PROXYCLASSDESC, jbyte)
+/*!
+ @brief Tag to mark a new proxy class descriptor.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_PROXYCLASSDESC();
+#define JavaIoObjectStreamConstants_TC_PROXYCLASSDESC 125
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_PROXYCLASSDESC, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_MAX, jbyte)
+/*!
+ @brief The maximum tag value.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_MAX();
+#define JavaIoObjectStreamConstants_TC_MAX 126
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_MAX, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, baseWireHandle, jint)
+/*!
+ @brief Handle for the first object that gets serialized.
+ */
+inline jint JavaIoObjectStreamConstants_get_baseWireHandle();
+#define JavaIoObjectStreamConstants_baseWireHandle 8257536
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, baseWireHandle, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, PROTOCOL_VERSION_1, jint)
+/*!
+ @brief Stream protocol version 1.
+ */
+inline jint JavaIoObjectStreamConstants_get_PROTOCOL_VERSION_1();
+#define JavaIoObjectStreamConstants_PROTOCOL_VERSION_1 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, PROTOCOL_VERSION_1, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, PROTOCOL_VERSION_2, jint)
+/*!
+ @brief Stream protocol version 2.
+ */
+inline jint JavaIoObjectStreamConstants_get_PROTOCOL_VERSION_2();
+#define JavaIoObjectStreamConstants_PROTOCOL_VERSION_2 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, PROTOCOL_VERSION_2, jint)
 
-FOUNDATION_EXPORT JavaIoSerializablePermission *JavaIoObjectStreamConstants_SUBCLASS_IMPLEMENTATION_PERMISSION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, SUBCLASS_IMPLEMENTATION_PERMISSION_, JavaIoSerializablePermission *)
+/*!
+ @brief Permission constant to enable subclassing of ObjectInputStream and
+ ObjectOutputStream.
+ */
+inline JavaIoSerializablePermission *JavaIoObjectStreamConstants_get_SUBCLASS_IMPLEMENTATION_PERMISSION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaIoSerializablePermission *JavaIoObjectStreamConstants_SUBCLASS_IMPLEMENTATION_PERMISSION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoObjectStreamConstants, SUBCLASS_IMPLEMENTATION_PERMISSION, JavaIoSerializablePermission *)
 
-FOUNDATION_EXPORT JavaIoSerializablePermission *JavaIoObjectStreamConstants_SUBSTITUTION_PERMISSION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, SUBSTITUTION_PERMISSION_, JavaIoSerializablePermission *)
+/*!
+ @brief Permission constant to enable object substitution during serialization
+ and deserialization.
+ */
+inline JavaIoSerializablePermission *JavaIoObjectStreamConstants_get_SUBSTITUTION_PERMISSION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaIoSerializablePermission *JavaIoObjectStreamConstants_SUBSTITUTION_PERMISSION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoObjectStreamConstants, SUBSTITUTION_PERMISSION, JavaIoSerializablePermission *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, SC_WRITE_METHOD, jbyte)
+/*!
+ @brief Bit mask for the <code>flag</code> field in ObjectStreamClass.
+ Indicates
+ that a serializable class has its own <code>writeObject</code> method.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_SC_WRITE_METHOD();
+#define JavaIoObjectStreamConstants_SC_WRITE_METHOD 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, SC_WRITE_METHOD, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, SC_SERIALIZABLE, jbyte)
+/*!
+ @brief Bit mask for the <code>flag</code> field in ObjectStreamClass.
+ Indicates
+ that a class is serializable.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_SC_SERIALIZABLE();
+#define JavaIoObjectStreamConstants_SC_SERIALIZABLE 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, SC_SERIALIZABLE, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, SC_EXTERNALIZABLE, jbyte)
+/*!
+ @brief Bit mask for the <code>flag</code> field in ObjectStreamClass.
+ Indicates
+ that a class is externalizable.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_SC_EXTERNALIZABLE();
+#define JavaIoObjectStreamConstants_SC_EXTERNALIZABLE 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, SC_EXTERNALIZABLE, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, SC_BLOCK_DATA, jbyte)
+/*!
+ @brief Bit mask for the <code>flag</code> field in ObjectStreamClass.
+ Indicates
+ that an externalizable class is written in block data mode.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_SC_BLOCK_DATA();
+#define JavaIoObjectStreamConstants_SC_BLOCK_DATA 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, SC_BLOCK_DATA, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, TC_ENUM, jbyte)
+/*!
+ @brief Tag to mark a new enum.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_TC_ENUM();
+#define JavaIoObjectStreamConstants_TC_ENUM 126
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, TC_ENUM, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamConstants, SC_ENUM, jbyte)
+/*!
+ @brief Bit mask for the <code>flag</code> field in ObjectStreamClass.
+ Indicates
+ that a class is an enum type.
+ */
+inline jbyte JavaIoObjectStreamConstants_get_SC_ENUM();
+#define JavaIoObjectStreamConstants_SC_ENUM 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamConstants, SC_ENUM, jbyte)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamConstants)
 
-#endif // _JavaIoObjectStreamConstants_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoObjectStreamConstants_INCLUDE_ALL")

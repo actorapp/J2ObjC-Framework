@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Driver.java
 //
 
-#ifndef _JavaSqlDriver_H_
-#define _JavaSqlDriver_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlDriver_INCLUDE_ALL")
+#ifdef JavaSqlDriver_RESTRICT
+#define JavaSqlDriver_INCLUDE_ALL 0
+#else
+#define JavaSqlDriver_INCLUDE_ALL 1
+#endif
+#undef JavaSqlDriver_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlDriver_) && (JavaSqlDriver_INCLUDE_ALL || defined(JavaSqlDriver_INCLUDE))
+#define JavaSqlDriver_
 
 @class IOSObjectArray;
 @class JavaUtilProperties;
@@ -20,6 +31,7 @@
  <code>xxxx:yyyy</code>" is referred to as the <i>subprotocol</i> and is normally
  the same for all of a particular driver. " <code>SpecificData</code>" is a string
  which identifies the particular data source that the driver should use.
+ - seealso: DriverManager
  */
 @protocol JavaSqlDriver < NSObject, JavaObject >
 
@@ -111,4 +123,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlDriver)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDriver)
 
-#endif // _JavaSqlDriver_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlDriver_INCLUDE_ALL")

@@ -3,16 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/security/Provider.java
 //
 
-#ifndef _JavaSecurityProvider_H_
-#define _JavaSecurityProvider_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityProvider_INCLUDE_ALL")
+#ifdef JavaSecurityProvider_RESTRICT
+#define JavaSecurityProvider_INCLUDE_ALL 0
+#else
+#define JavaSecurityProvider_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityProvider_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityProvider_) && (JavaSecurityProvider_INCLUDE_ALL || defined(JavaSecurityProvider_INCLUDE))
+#define JavaSecurityProvider_
+
+#define JavaUtilProperties_RESTRICT 1
+#define JavaUtilProperties_INCLUDE 1
 #include "../../java/util/Properties.h"
 
 @class JavaIoInputStream;
 @class JavaSecurityProvider_Service;
 @protocol JavaUtilCollection;
-@protocol JavaUtilList;
 @protocol JavaUtilMap;
 @protocol JavaUtilSet;
 
@@ -199,6 +212,15 @@ FOUNDATION_EXPORT void JavaSecurityProvider_initWithNSString_withDouble_withNSSt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProvider)
 
+#endif
+
+#if !defined (JavaSecurityProvider_Service_) && (JavaSecurityProvider_INCLUDE_ALL || defined(JavaSecurityProvider_Service_INCLUDE))
+#define JavaSecurityProvider_Service_
+
+@class JavaSecurityProvider;
+@protocol JavaUtilList;
+@protocol JavaUtilMap;
+
 /*!
  @brief <code>Service</code> represents a service in the Java Security infrastructure.
  Each service describes its type, the algorithm it implements, to which
@@ -338,4 +360,8 @@ FOUNDATION_EXPORT JavaSecurityProvider_Service *new_JavaSecurityProvider_Service
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProvider_Service)
 
-#endif // _JavaSecurityProvider_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityProvider_INCLUDE_ALL")

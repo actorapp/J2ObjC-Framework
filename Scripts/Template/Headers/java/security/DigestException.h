@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/DigestException.java
 //
 
-#ifndef _JavaSecurityDigestException_H_
-#define _JavaSecurityDigestException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityDigestException_INCLUDE_ALL")
+#ifdef JavaSecurityDigestException_RESTRICT
+#define JavaSecurityDigestException_INCLUDE_ALL 0
+#else
+#define JavaSecurityDigestException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityDigestException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityDigestException_) && (JavaSecurityDigestException_INCLUDE_ALL || defined(JavaSecurityDigestException_INCLUDE))
+#define JavaSecurityDigestException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
 #include "../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
@@ -72,4 +86,8 @@ FOUNDATION_EXPORT JavaSecurityDigestException *new_JavaSecurityDigestException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityDigestException)
 
-#endif // _JavaSecurityDigestException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityDigestException_INCLUDE_ALL")

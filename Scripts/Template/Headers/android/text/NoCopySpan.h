@@ -3,10 +3,24 @@
 //  source: android/frameworks/base/core/java/android/text/NoCopySpan.java
 //
 
-#ifndef _AndroidTextNoCopySpan_H_
-#define _AndroidTextNoCopySpan_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextNoCopySpan_INCLUDE_ALL")
+#ifdef AndroidTextNoCopySpan_RESTRICT
+#define AndroidTextNoCopySpan_INCLUDE_ALL 0
+#else
+#define AndroidTextNoCopySpan_INCLUDE_ALL 1
+#endif
+#undef AndroidTextNoCopySpan_RESTRICT
+#ifdef AndroidTextNoCopySpan_Concrete_INCLUDE
+#define AndroidTextNoCopySpan_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextNoCopySpan_) && (AndroidTextNoCopySpan_INCLUDE_ALL || defined(AndroidTextNoCopySpan_INCLUDE))
+#define AndroidTextNoCopySpan_
 
 /*!
  @brief This interface should be added to a span object that should not be copied
@@ -20,6 +34,11 @@
 J2OBJC_EMPTY_STATIC_INIT(AndroidTextNoCopySpan)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextNoCopySpan)
+
+#endif
+
+#if !defined (AndroidTextNoCopySpan_Concrete_) && (AndroidTextNoCopySpan_INCLUDE_ALL || defined(AndroidTextNoCopySpan_Concrete_INCLUDE))
+#define AndroidTextNoCopySpan_Concrete_
 
 /*!
  @brief Convenience equivalent for when you would just want a new Object() for
@@ -42,4 +61,8 @@ FOUNDATION_EXPORT AndroidTextNoCopySpan_Concrete *new_AndroidTextNoCopySpan_Conc
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextNoCopySpan_Concrete)
 
-#endif // _AndroidTextNoCopySpan_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextNoCopySpan_INCLUDE_ALL")

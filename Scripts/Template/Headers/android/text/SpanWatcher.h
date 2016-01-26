@@ -3,10 +3,24 @@
 //  source: android/frameworks/base/core/java/android/text/SpanWatcher.java
 //
 
-#ifndef _AndroidTextSpanWatcher_H_
-#define _AndroidTextSpanWatcher_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextSpanWatcher_INCLUDE_ALL")
+#ifdef AndroidTextSpanWatcher_RESTRICT
+#define AndroidTextSpanWatcher_INCLUDE_ALL 0
+#else
+#define AndroidTextSpanWatcher_INCLUDE_ALL 1
+#endif
+#undef AndroidTextSpanWatcher_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextSpanWatcher_) && (AndroidTextSpanWatcher_INCLUDE_ALL || defined(AndroidTextSpanWatcher_INCLUDE))
+#define AndroidTextSpanWatcher_
+
+#define AndroidTextNoCopySpan_RESTRICT 1
+#define AndroidTextNoCopySpan_INCLUDE 1
 #include "../../android/text/NoCopySpan.h"
 
 @protocol AndroidTextSpannable;
@@ -54,4 +68,8 @@ J2OBJC_EMPTY_STATIC_INIT(AndroidTextSpanWatcher)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpanWatcher)
 
-#endif // _AndroidTextSpanWatcher_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextSpanWatcher_INCLUDE_ALL")

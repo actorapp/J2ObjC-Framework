@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLFeatureNotSupportedException.java
 //
 
-#ifndef _JavaSqlSQLFeatureNotSupportedException_H_
-#define _JavaSqlSQLFeatureNotSupportedException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLFeatureNotSupportedException_INCLUDE_ALL")
+#ifdef JavaSqlSQLFeatureNotSupportedException_RESTRICT
+#define JavaSqlSQLFeatureNotSupportedException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLFeatureNotSupportedException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLFeatureNotSupportedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLFeatureNotSupportedException_) && (JavaSqlSQLFeatureNotSupportedException_INCLUDE_ALL || defined(JavaSqlSQLFeatureNotSupportedException_INCLUDE))
+#define JavaSqlSQLFeatureNotSupportedException_
+
+#define JavaSqlSQLNonTransientException_RESTRICT 1
+#define JavaSqlSQLNonTransientException_INCLUDE 1
 #include "../../java/sql/SQLNonTransientException.h"
 
 @class JavaLangThrowable;
@@ -133,7 +147,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLFeatureNotSupportedException)
@@ -172,4 +185,8 @@ FOUNDATION_EXPORT JavaSqlSQLFeatureNotSupportedException *new_JavaSqlSQLFeatureN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLFeatureNotSupportedException)
 
-#endif // _JavaSqlSQLFeatureNotSupportedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLFeatureNotSupportedException_INCLUDE_ALL")

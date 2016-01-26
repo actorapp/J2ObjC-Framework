@@ -3,30 +3,49 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ForkJoinTask.java
 //
 
-#ifndef _JavaUtilConcurrentForkJoinTask_H_
-#define _JavaUtilConcurrentForkJoinTask_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
-#include "../../../java/lang/ref/WeakReference.h"
+
+#pragma push_macro("JavaUtilConcurrentForkJoinTask_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentForkJoinTask_RESTRICT
+#define JavaUtilConcurrentForkJoinTask_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentForkJoinTask_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentForkJoinTask_RESTRICT
+#ifdef JavaUtilConcurrentForkJoinTask_AdaptedCallable_INCLUDE
+#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_INCLUDE
+#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_INCLUDE
+#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentForkJoinTask_AdaptedRunnable_INCLUDE
+#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentForkJoinTask_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_INCLUDE))
+#define JavaUtilConcurrentForkJoinTask_
+
+#define JavaUtilConcurrentFuture_RESTRICT 1
+#define JavaUtilConcurrentFuture_INCLUDE 1
 #include "../../../java/util/concurrent/Future.h"
-#include "../../../java/util/concurrent/RunnableFuture.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaLangThrowable;
-@class JavaLangVoid;
 @class JavaUtilConcurrentForkJoinPool;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaUtilCollection;
 @protocol JavaUtilConcurrentCallable;
-
-#define JavaUtilConcurrentForkJoinTask_DONE_MASK -268435456
-#define JavaUtilConcurrentForkJoinTask_NORMAL -268435456
-#define JavaUtilConcurrentForkJoinTask_CANCELLED -1073741824
-#define JavaUtilConcurrentForkJoinTask_EXCEPTIONAL ((jint) 0x80000000)
-#define JavaUtilConcurrentForkJoinTask_SIGNAL 65536
-#define JavaUtilConcurrentForkJoinTask_SMASK 65535
 
 /*!
  @brief Abstract base class for tasks that run within a <code>ForkJoinPool</code>.
@@ -178,6 +197,18 @@
   volatile_jint status_;
 }
 
++ (jint)DONE_MASK;
+
++ (jint)NORMAL;
+
++ (jint)CANCELLED;
+
++ (jint)EXCEPTIONAL;
+
++ (jint)SIGNAL;
+
++ (jint)SMASK;
+
 #pragma mark Public
 
 - (instancetype)init;
@@ -327,7 +358,7 @@
  @throws TimeoutException if the wait timed out
  */
 - (id)getWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Returns the exception thrown by the base computation, or a
@@ -347,6 +378,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
 /*!
  @brief Returns the pool hosting the current task execution, or null
  if this task is executing outside of any ForkJoinPool.
+ - seealso: #inForkJoinPool
  @return the pool, or <code>null</code> if none
  */
 + (JavaUtilConcurrentForkJoinPool *)getPool;
@@ -696,17 +728,29 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentForkJoinTask)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinTask, DONE_MASK, jint)
+inline jint JavaUtilConcurrentForkJoinTask_get_DONE_MASK();
+#define JavaUtilConcurrentForkJoinTask_DONE_MASK -268435456
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinTask, DONE_MASK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinTask, NORMAL, jint)
+inline jint JavaUtilConcurrentForkJoinTask_get_NORMAL();
+#define JavaUtilConcurrentForkJoinTask_NORMAL -268435456
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinTask, NORMAL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinTask, CANCELLED, jint)
+inline jint JavaUtilConcurrentForkJoinTask_get_CANCELLED();
+#define JavaUtilConcurrentForkJoinTask_CANCELLED -1073741824
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinTask, CANCELLED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinTask, EXCEPTIONAL, jint)
+inline jint JavaUtilConcurrentForkJoinTask_get_EXCEPTIONAL();
+#define JavaUtilConcurrentForkJoinTask_EXCEPTIONAL ((jint) 0x80000000)
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinTask, EXCEPTIONAL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinTask, SIGNAL, jint)
+inline jint JavaUtilConcurrentForkJoinTask_get_SIGNAL();
+#define JavaUtilConcurrentForkJoinTask_SIGNAL 65536
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinTask, SIGNAL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinTask, SMASK, jint)
+inline jint JavaUtilConcurrentForkJoinTask_get_SMASK();
+#define JavaUtilConcurrentForkJoinTask_SMASK 65535
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinTask, SMASK, jint)
 
 FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_cancelIgnoringExceptionsWithJavaUtilConcurrentForkJoinTask_(JavaUtilConcurrentForkJoinTask *t);
 
@@ -748,6 +792,18 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_init(JavaUtilConcurrentFor
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask)
 
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinTask_ExceptionNode_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_ExceptionNode_INCLUDE))
+#define JavaUtilConcurrentForkJoinTask_ExceptionNode_
+
+#define JavaLangRefWeakReference_RESTRICT 1
+#define JavaLangRefWeakReference_INCLUDE 1
+#include "../../../java/lang/ref/WeakReference.h"
+
+@class JavaLangThrowable;
+@class JavaUtilConcurrentForkJoinTask;
+
 /*!
  @brief Key-value nodes for exception table.
  The chained hash table
@@ -787,6 +843,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_ExceptionNode_initWithJava
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_ExceptionNode *new_JavaUtilConcurrentForkJoinTask_ExceptionNode_initWithJavaUtilConcurrentForkJoinTask_withJavaLangThrowable_withJavaUtilConcurrentForkJoinTask_ExceptionNode_(JavaUtilConcurrentForkJoinTask *task, JavaLangThrowable *ex, JavaUtilConcurrentForkJoinTask_ExceptionNode *next) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_ExceptionNode)
+
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinTask_AdaptedRunnable_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_AdaptedRunnable_INCLUDE))
+#define JavaUtilConcurrentForkJoinTask_AdaptedRunnable_
+
+#define JavaUtilConcurrentRunnableFuture_RESTRICT 1
+#define JavaUtilConcurrentRunnableFuture_INCLUDE 1
+#include "../../../java/util/concurrent/RunnableFuture.h"
+
+@protocol JavaLangRunnable;
 
 /*!
  @brief Adaptor for Runnables.
@@ -828,6 +895,18 @@ FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_AdaptedRunnable *new_JavaUtilCo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_AdaptedRunnable)
 
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_INCLUDE))
+#define JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_
+
+#define JavaUtilConcurrentRunnableFuture_RESTRICT 1
+#define JavaUtilConcurrentRunnableFuture_INCLUDE 1
+#include "../../../java/util/concurrent/RunnableFuture.h"
+
+@class JavaLangVoid;
+@protocol JavaLangRunnable;
+
 /*!
  @brief Adaptor for Runnables without results
  */
@@ -862,6 +941,15 @@ FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction *new_Java
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction)
 
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_INCLUDE))
+#define JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_
+
+@class JavaLangThrowable;
+@class JavaLangVoid;
+@protocol JavaLangRunnable;
+
 /*!
  @brief Adaptor for Runnables in which failure forces worker exception
  */
@@ -895,6 +983,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_init
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_RunnableExecuteAction *new_JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_initWithJavaLangRunnable_(id<JavaLangRunnable> runnable) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_RunnableExecuteAction)
+
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinTask_AdaptedCallable_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_AdaptedCallable_INCLUDE))
+#define JavaUtilConcurrentForkJoinTask_AdaptedCallable_
+
+#define JavaUtilConcurrentRunnableFuture_RESTRICT 1
+#define JavaUtilConcurrentRunnableFuture_INCLUDE 1
+#include "../../../java/util/concurrent/RunnableFuture.h"
+
+@protocol JavaUtilConcurrentCallable;
 
 /*!
  @brief Adaptor for Callables
@@ -932,4 +1031,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_AdaptedCallable *new_JavaUtilCo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_AdaptedCallable)
 
-#endif // _JavaUtilConcurrentForkJoinTask_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentForkJoinTask_INCLUDE_ALL")

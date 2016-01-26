@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/FilterWriter.java
 //
 
-#ifndef _JavaIoFilterWriter_H_
-#define _JavaIoFilterWriter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFilterWriter_INCLUDE_ALL")
+#ifdef JavaIoFilterWriter_RESTRICT
+#define JavaIoFilterWriter_INCLUDE_ALL 0
+#else
+#define JavaIoFilterWriter_INCLUDE_ALL 1
+#endif
+#undef JavaIoFilterWriter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFilterWriter_) && (JavaIoFilterWriter_INCLUDE_ALL || defined(JavaIoFilterWriter_INCLUDE))
+#define JavaIoFilterWriter_
+
+#define JavaIoWriter_RESTRICT 1
+#define JavaIoWriter_INCLUDE 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -19,6 +33,7 @@
  decompression of the underlying writer. Writers that wrap another writer and
  provide some additional functionality on top of it usually inherit from this
  class.
+ - seealso: FilterReader
  */
 @interface JavaIoFilterWriter : JavaIoWriter {
  @public
@@ -113,4 +128,8 @@ FOUNDATION_EXPORT void JavaIoFilterWriter_initWithJavaIoWriter_(JavaIoFilterWrit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterWriter)
 
-#endif // _JavaIoFilterWriter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFilterWriter_INCLUDE_ALL")

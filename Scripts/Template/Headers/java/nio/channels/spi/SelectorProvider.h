@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/spi/SelectorProvider.java
 //
 
-#ifndef _JavaNioChannelsSpiSelectorProvider_H_
-#define _JavaNioChannelsSpiSelectorProvider_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsSpiSelectorProvider_INCLUDE_ALL")
+#ifdef JavaNioChannelsSpiSelectorProvider_RESTRICT
+#define JavaNioChannelsSpiSelectorProvider_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsSpiSelectorProvider_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsSpiSelectorProvider_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsSpiSelectorProvider_) && (JavaNioChannelsSpiSelectorProvider_INCLUDE_ALL || defined(JavaNioChannelsSpiSelectorProvider_INCLUDE))
+#define JavaNioChannelsSpiSelectorProvider_
 
 @class JavaNioChannelsDatagramChannel;
 @class JavaNioChannelsPipe;
@@ -114,4 +125,8 @@ FOUNDATION_EXPORT JavaNioChannelsSpiSelectorProvider *JavaNioChannelsSpiSelector
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiSelectorProvider)
 
-#endif // _JavaNioChannelsSpiSelectorProvider_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsSpiSelectorProvider_INCLUDE_ALL")

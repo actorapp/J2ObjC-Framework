@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/MGF1ParameterSpec.java
 //
 
-#ifndef _JavaSecuritySpecMGF1ParameterSpec_H_
-#define _JavaSecuritySpecMGF1ParameterSpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecMGF1ParameterSpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecMGF1ParameterSpec_RESTRICT
+#define JavaSecuritySpecMGF1ParameterSpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecMGF1ParameterSpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecMGF1ParameterSpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecMGF1ParameterSpec_) && (JavaSecuritySpecMGF1ParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecMGF1ParameterSpec_INCLUDE))
+#define JavaSecuritySpecMGF1ParameterSpec_
+
+#define JavaSecuritySpecAlgorithmParameterSpec_RESTRICT 1
+#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE 1
 #include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 /*!
@@ -18,6 +32,14 @@
  standard
  */
 @interface JavaSecuritySpecMGF1ParameterSpec : NSObject < JavaSecuritySpecAlgorithmParameterSpec >
+
++ (JavaSecuritySpecMGF1ParameterSpec *)SHA1;
+
++ (JavaSecuritySpecMGF1ParameterSpec *)SHA256;
+
++ (JavaSecuritySpecMGF1ParameterSpec *)SHA384;
+
++ (JavaSecuritySpecMGF1ParameterSpec *)SHA512;
 
 #pragma mark Public
 
@@ -39,17 +61,41 @@
 
 J2OBJC_STATIC_INIT(JavaSecuritySpecMGF1ParameterSpec)
 
-FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_SHA1_;
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySpecMGF1ParameterSpec, SHA1_, JavaSecuritySpecMGF1ParameterSpec *)
+/*!
+ @brief The predefined MGF1 parameter specification with an "SHA-1" message
+ digest.
+ */
+inline JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_get_SHA1();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_SHA1;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaSecuritySpecMGF1ParameterSpec, SHA1, JavaSecuritySpecMGF1ParameterSpec *)
 
-FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_SHA256_;
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySpecMGF1ParameterSpec, SHA256_, JavaSecuritySpecMGF1ParameterSpec *)
+/*!
+ @brief The predefined MGF1 parameter specification with an "SHA-256" message
+ digest.
+ */
+inline JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_get_SHA256();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_SHA256;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaSecuritySpecMGF1ParameterSpec, SHA256, JavaSecuritySpecMGF1ParameterSpec *)
 
-FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_SHA384_;
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySpecMGF1ParameterSpec, SHA384_, JavaSecuritySpecMGF1ParameterSpec *)
+/*!
+ @brief The predefined MGF1 parameter specification with an "SHA-384" message
+ digest.
+ */
+inline JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_get_SHA384();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_SHA384;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaSecuritySpecMGF1ParameterSpec, SHA384, JavaSecuritySpecMGF1ParameterSpec *)
 
-FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_SHA512_;
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySpecMGF1ParameterSpec, SHA512_, JavaSecuritySpecMGF1ParameterSpec *)
+/*!
+ @brief The predefined MGF1 parameter specification with an "SHA-512" message
+ digest.
+ */
+inline JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_get_SHA512();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *JavaSecuritySpecMGF1ParameterSpec_SHA512;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaSecuritySpecMGF1ParameterSpec, SHA512, JavaSecuritySpecMGF1ParameterSpec *)
 
 FOUNDATION_EXPORT void JavaSecuritySpecMGF1ParameterSpec_initWithNSString_(JavaSecuritySpecMGF1ParameterSpec *self, NSString *mdName);
 
@@ -57,4 +103,8 @@ FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *new_JavaSecuritySpecMGF1Par
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecMGF1ParameterSpec)
 
-#endif // _JavaSecuritySpecMGF1ParameterSpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecMGF1ParameterSpec_INCLUDE_ALL")

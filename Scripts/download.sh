@@ -1,8 +1,8 @@
 #!/bin/bash
 set -ev
 
-j2objc_version=0.9.8.2.1
-sha1_checksum=1acbe5cfc1a782687a6f4020e2db151087645bfc
+j2objc_version=1.0
+sha1_checksum=703d2a8d132f828a9dece35a0efc7cbdcef83e29
 
 echo "fetching j2objc dist"
 curl -OL https://github.com/google/j2objc/releases/download/${j2objc_version}/j2objc-${j2objc_version}.zip

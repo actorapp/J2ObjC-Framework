@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/CRC32.java
 //
 
-#ifndef _JavaUtilZipCRC32_H_
-#define _JavaUtilZipCRC32_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipCRC32_INCLUDE_ALL")
+#ifdef JavaUtilZipCRC32_RESTRICT
+#define JavaUtilZipCRC32_INCLUDE_ALL 0
+#else
+#define JavaUtilZipCRC32_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipCRC32_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipCRC32_) && (JavaUtilZipCRC32_INCLUDE_ALL || defined(JavaUtilZipCRC32_INCLUDE))
+#define JavaUtilZipCRC32_
+
+#define JavaUtilZipChecksum_RESTRICT 1
+#define JavaUtilZipChecksum_INCLUDE 1
 #include "../../../java/util/zip/Checksum.h"
 
 @class IOSByteArray;
@@ -69,4 +83,8 @@ FOUNDATION_EXPORT JavaUtilZipCRC32 *new_JavaUtilZipCRC32_init() NS_RETURNS_RETAI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipCRC32)
 
-#endif // _JavaUtilZipCRC32_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipCRC32_INCLUDE_ALL")

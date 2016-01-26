@@ -3,57 +3,91 @@
 //  source: android/libcore/luni/src/main/java/java/sql/RowIdLifetime.java
 //
 
-#ifndef _JavaSqlRowIdLifetime_H_
-#define _JavaSqlRowIdLifetime_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlRowIdLifetime_INCLUDE_ALL")
+#ifdef JavaSqlRowIdLifetime_RESTRICT
+#define JavaSqlRowIdLifetime_INCLUDE_ALL 0
+#else
+#define JavaSqlRowIdLifetime_INCLUDE_ALL 1
+#endif
+#undef JavaSqlRowIdLifetime_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlRowIdLifetime_) && (JavaSqlRowIdLifetime_INCLUDE_ALL || defined(JavaSqlRowIdLifetime_INCLUDE))
+#define JavaSqlRowIdLifetime_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
 #include "../../java/lang/Enum.h"
 
-typedef NS_ENUM(NSUInteger, JavaSqlRowIdLifetime) {
-  JavaSqlRowIdLifetime_ROWID_UNSUPPORTED = 0,
-  JavaSqlRowIdLifetime_ROWID_VALID_OTHER = 1,
-  JavaSqlRowIdLifetime_ROWID_VALID_SESSION = 2,
-  JavaSqlRowIdLifetime_ROWID_VALID_TRANSACTION = 3,
-  JavaSqlRowIdLifetime_ROWID_VALID_FOREVER = 4,
+typedef NS_ENUM(NSUInteger, JavaSqlRowIdLifetime_Enum) {
+  JavaSqlRowIdLifetime_Enum_ROWID_UNSUPPORTED = 0,
+  JavaSqlRowIdLifetime_Enum_ROWID_VALID_OTHER = 1,
+  JavaSqlRowIdLifetime_Enum_ROWID_VALID_SESSION = 2,
+  JavaSqlRowIdLifetime_Enum_ROWID_VALID_TRANSACTION = 3,
+  JavaSqlRowIdLifetime_Enum_ROWID_VALID_FOREVER = 4,
 };
 
 /*!
  @brief An enumeration to describe the life-time of RowID.
  @since 1.6
  */
-@interface JavaSqlRowIdLifetimeEnum : JavaLangEnum < NSCopying >
+@interface JavaSqlRowIdLifetime : JavaLangEnum < NSCopying >
+
++ (JavaSqlRowIdLifetime *)ROWID_UNSUPPORTED;
+
++ (JavaSqlRowIdLifetime *)ROWID_VALID_OTHER;
+
++ (JavaSqlRowIdLifetime *)ROWID_VALID_SESSION;
+
++ (JavaSqlRowIdLifetime *)ROWID_VALID_TRANSACTION;
+
++ (JavaSqlRowIdLifetime *)ROWID_VALID_FOREVER;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaSqlRowIdLifetimeEnum_values();
 
-+ (JavaSqlRowIdLifetimeEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaSqlRowIdLifetimeEnum *JavaSqlRowIdLifetimeEnum_valueOfWithNSString_(NSString *name);
++ (JavaSqlRowIdLifetime *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaSqlRowIdLifetime_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaSqlRowIdLifetimeEnum)
+J2OBJC_STATIC_INIT(JavaSqlRowIdLifetime)
 
-FOUNDATION_EXPORT JavaSqlRowIdLifetimeEnum *JavaSqlRowIdLifetimeEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaSqlRowIdLifetime *JavaSqlRowIdLifetime_values_[];
 
-#define JavaSqlRowIdLifetimeEnum_ROWID_UNSUPPORTED JavaSqlRowIdLifetimeEnum_values_[JavaSqlRowIdLifetime_ROWID_UNSUPPORTED]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSqlRowIdLifetimeEnum, ROWID_UNSUPPORTED)
+inline JavaSqlRowIdLifetime *JavaSqlRowIdLifetime_get_ROWID_UNSUPPORTED();
+J2OBJC_ENUM_CONSTANT(JavaSqlRowIdLifetime, ROWID_UNSUPPORTED)
 
-#define JavaSqlRowIdLifetimeEnum_ROWID_VALID_OTHER JavaSqlRowIdLifetimeEnum_values_[JavaSqlRowIdLifetime_ROWID_VALID_OTHER]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSqlRowIdLifetimeEnum, ROWID_VALID_OTHER)
+inline JavaSqlRowIdLifetime *JavaSqlRowIdLifetime_get_ROWID_VALID_OTHER();
+J2OBJC_ENUM_CONSTANT(JavaSqlRowIdLifetime, ROWID_VALID_OTHER)
 
-#define JavaSqlRowIdLifetimeEnum_ROWID_VALID_SESSION JavaSqlRowIdLifetimeEnum_values_[JavaSqlRowIdLifetime_ROWID_VALID_SESSION]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSqlRowIdLifetimeEnum, ROWID_VALID_SESSION)
+inline JavaSqlRowIdLifetime *JavaSqlRowIdLifetime_get_ROWID_VALID_SESSION();
+J2OBJC_ENUM_CONSTANT(JavaSqlRowIdLifetime, ROWID_VALID_SESSION)
 
-#define JavaSqlRowIdLifetimeEnum_ROWID_VALID_TRANSACTION JavaSqlRowIdLifetimeEnum_values_[JavaSqlRowIdLifetime_ROWID_VALID_TRANSACTION]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSqlRowIdLifetimeEnum, ROWID_VALID_TRANSACTION)
+inline JavaSqlRowIdLifetime *JavaSqlRowIdLifetime_get_ROWID_VALID_TRANSACTION();
+J2OBJC_ENUM_CONSTANT(JavaSqlRowIdLifetime, ROWID_VALID_TRANSACTION)
 
-#define JavaSqlRowIdLifetimeEnum_ROWID_VALID_FOREVER JavaSqlRowIdLifetimeEnum_values_[JavaSqlRowIdLifetime_ROWID_VALID_FOREVER]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaSqlRowIdLifetimeEnum, ROWID_VALID_FOREVER)
+inline JavaSqlRowIdLifetime *JavaSqlRowIdLifetime_get_ROWID_VALID_FOREVER();
+J2OBJC_ENUM_CONSTANT(JavaSqlRowIdLifetime, ROWID_VALID_FOREVER)
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaSqlRowIdLifetimeEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaSqlRowIdLifetime_values();
 
-#endif // _JavaSqlRowIdLifetime_H_
+FOUNDATION_EXPORT JavaSqlRowIdLifetime *JavaSqlRowIdLifetime_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaSqlRowIdLifetime *JavaSqlRowIdLifetime_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaSqlRowIdLifetime)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlRowIdLifetime_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/List.java
 //
 
-#ifndef _JavaUtilList_H_
-#define _JavaUtilList_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilList_INCLUDE_ALL")
+#ifdef JavaUtilList_RESTRICT
+#define JavaUtilList_INCLUDE_ALL 0
+#else
+#define JavaUtilList_INCLUDE_ALL 1
+#endif
+#undef JavaUtilList_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilList_) && (JavaUtilList_INCLUDE_ALL || defined(JavaUtilList_INCLUDE))
+#define JavaUtilList_
+
+#define JavaUtilCollection_RESTRICT 1
+#define JavaUtilCollection_INCLUDE 1
 #include "../../java/util/Collection.h"
 
 @class IOSObjectArray;
@@ -108,6 +122,8 @@
  @brief Removes all elements from this <code>List</code>, leaving it empty.
  @throws UnsupportedOperationException
  if removing from this <code>List</code> is not supported.
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -140,6 +156,7 @@
  the object to compare with this object.
  @return boolean <code>true</code> if the object is the same as this object,
  and <code>false</code> if it is different from this object.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -175,6 +192,7 @@
  @brief Returns whether this <code>List</code> contains no elements.
  @return <code>true</code> if this <code>List</code> has no elements, <code>false</code>
  otherwise.
+ - seealso: #size
  */
 - (jboolean)isEmpty;
 
@@ -183,6 +201,7 @@
  The elements are
  iterated in the same order as they occur in the <code>List</code>.
  @return an iterator on the elements of this <code>List</code>.
+ - seealso: Iterator
  */
 - (id<JavaUtilIterator>)iterator;
 
@@ -201,6 +220,7 @@
  The elements are
  iterated in the same order that they occur in the <code>List</code>.
  @return a <code>List</code> iterator on the elements of this <code>List</code>
+ - seealso: ListIterator
  */
 - (id<JavaUtilListIterator>)listIterator;
 
@@ -214,6 +234,7 @@
  @return a list iterator on the elements of this <code>List</code>.
  @throws IndexOutOfBoundsException
  if <code>location < 0 || location > size()</code>
+ - seealso: ListIterator
  */
 - (id<JavaUtilListIterator>)listIteratorWithInt:(jint)location;
 
@@ -335,4 +356,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilList)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilList)
 
-#endif // _JavaUtilList_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilList_INCLUDE_ALL")

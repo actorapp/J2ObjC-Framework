@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/NetworkInterface.java
 //
 
-#ifndef _JavaNetNetworkInterface_H_
-#define _JavaNetNetworkInterface_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetNetworkInterface_INCLUDE_ALL")
+#ifdef JavaNetNetworkInterface_RESTRICT
+#define JavaNetNetworkInterface_INCLUDE_ALL 0
+#else
+#define JavaNetNetworkInterface_INCLUDE_ALL 1
+#endif
+#undef JavaNetNetworkInterface_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetNetworkInterface_) && (JavaNetNetworkInterface_INCLUDE_ALL || defined(JavaNetNetworkInterface_INCLUDE))
+#define JavaNetNetworkInterface_
 
 @class IOSByteArray;
 @class JavaNetInetAddress;
@@ -34,6 +45,7 @@
  the object to compare with this instance.
  @return <code>true</code> if the specified object is equal to this <code>NetworkInterface</code>
  , <code>false</code> otherwise.
+ - seealso: #hashCode()
  */
 - (jboolean)isEqual:(id)obj;
 
@@ -198,7 +210,6 @@
 
 + (JavaNetNetworkInterface *)forUnboundMulticastSocket;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaNetNetworkInterface)
@@ -215,4 +226,8 @@ FOUNDATION_EXPORT id<JavaUtilEnumeration> JavaNetNetworkInterface_getNetworkInte
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetNetworkInterface)
 
-#endif // _JavaNetNetworkInterface_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetNetworkInterface_INCLUDE_ALL")

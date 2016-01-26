@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/parsers/FactoryConfigurationError.java
 //
 
-#ifndef _JavaxXmlParsersFactoryConfigurationError_H_
-#define _JavaxXmlParsersFactoryConfigurationError_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlParsersFactoryConfigurationError_INCLUDE_ALL")
+#ifdef JavaxXmlParsersFactoryConfigurationError_RESTRICT
+#define JavaxXmlParsersFactoryConfigurationError_INCLUDE_ALL 0
+#else
+#define JavaxXmlParsersFactoryConfigurationError_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlParsersFactoryConfigurationError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlParsersFactoryConfigurationError_) && (JavaxXmlParsersFactoryConfigurationError_INCLUDE_ALL || defined(JavaxXmlParsersFactoryConfigurationError_INCLUDE))
+#define JavaxXmlParsersFactoryConfigurationError_
+
+#define JavaLangError_RESTRICT 1
+#define JavaLangError_INCLUDE 1
 #include "../../../java/lang/Error.h"
 
 @class JavaLangException;
@@ -95,4 +109,8 @@ FOUNDATION_EXPORT JavaxXmlParsersFactoryConfigurationError *new_JavaxXmlParsersF
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersFactoryConfigurationError)
 
-#endif // _JavaxXmlParsersFactoryConfigurationError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlParsersFactoryConfigurationError_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/stream/FilePathToURI.java
 //
 
-#ifndef _JavaxXmlTransformStreamFilePathToURI_H_
-#define _JavaxXmlTransformStreamFilePathToURI_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformStreamFilePathToURI_INCLUDE_ALL")
+#ifdef JavaxXmlTransformStreamFilePathToURI_RESTRICT
+#define JavaxXmlTransformStreamFilePathToURI_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformStreamFilePathToURI_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformStreamFilePathToURI_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformStreamFilePathToURI_) && (JavaxXmlTransformStreamFilePathToURI_INCLUDE_ALL || defined(JavaxXmlTransformStreamFilePathToURI_INCLUDE))
+#define JavaxXmlTransformStreamFilePathToURI_
 
 @interface JavaxXmlTransformStreamFilePathToURI : NSObject
 
@@ -30,4 +41,8 @@ FOUNDATION_EXPORT JavaxXmlTransformStreamFilePathToURI *new_JavaxXmlTransformStr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformStreamFilePathToURI)
 
-#endif // _JavaxXmlTransformStreamFilePathToURI_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformStreamFilePathToURI_INCLUDE_ALL")

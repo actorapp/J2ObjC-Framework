@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/TransformerException.java
 //
 
-#ifndef _JavaxXmlTransformTransformerException_H_
-#define _JavaxXmlTransformTransformerException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformTransformerException_INCLUDE_ALL")
+#ifdef JavaxXmlTransformTransformerException_RESTRICT
+#define JavaxXmlTransformTransformerException_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformTransformerException_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformTransformerException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformTransformerException_) && (JavaxXmlTransformTransformerException_INCLUDE_ALL || defined(JavaxXmlTransformTransformerException_INCLUDE))
+#define JavaxXmlTransformTransformerException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../../java/lang/Exception.h"
 
 @class JavaIoPrintStream;
@@ -89,6 +103,7 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
 /*!
  @brief This method retrieves an exception that this exception wraps.
  @return An Throwable object, or null.
+ - seealso: #getCause
  */
 - (JavaLangThrowable *)getException;
 
@@ -200,4 +215,8 @@ FOUNDATION_EXPORT JavaxXmlTransformTransformerException *new_JavaxXmlTransformTr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformerException)
 
-#endif // _JavaxXmlTransformTransformerException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformTransformerException_INCLUDE_ALL")

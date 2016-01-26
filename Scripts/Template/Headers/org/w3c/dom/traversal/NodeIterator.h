@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/traversal/NodeIterator.java
 //
 
-#ifndef _OrgW3cDomTraversalNodeIterator_H_
-#define _OrgW3cDomTraversalNodeIterator_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomTraversalNodeIterator_INCLUDE_ALL")
+#ifdef OrgW3cDomTraversalNodeIterator_RESTRICT
+#define OrgW3cDomTraversalNodeIterator_INCLUDE_ALL 0
+#else
+#define OrgW3cDomTraversalNodeIterator_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomTraversalNodeIterator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomTraversalNodeIterator_) && (OrgW3cDomTraversalNodeIterator_INCLUDE_ALL || defined(OrgW3cDomTraversalNodeIterator_INCLUDE))
+#define OrgW3cDomTraversalNodeIterator_
 
 @protocol OrgW3cDomNode;
 @protocol OrgW3cDomTraversalNodeFilter;
@@ -111,4 +122,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomTraversalNodeIterator)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomTraversalNodeIterator)
 
-#endif // _OrgW3cDomTraversalNodeIterator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomTraversalNodeIterator_INCLUDE_ALL")

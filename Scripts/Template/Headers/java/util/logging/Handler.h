@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/Handler.java
 //
 
-#ifndef _JavaUtilLoggingHandler_H_
-#define _JavaUtilLoggingHandler_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLoggingHandler_INCLUDE_ALL")
+#ifdef JavaUtilLoggingHandler_RESTRICT
+#define JavaUtilLoggingHandler_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingHandler_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingHandler_) && (JavaUtilLoggingHandler_INCLUDE_ALL || defined(JavaUtilLoggingHandler_INCLUDE))
+#define JavaUtilLoggingHandler_
 
 @class JavaLangException;
 @class JavaUtilLoggingErrorManager;
@@ -202,4 +213,8 @@ FOUNDATION_EXPORT void JavaUtilLoggingHandler_init(JavaUtilLoggingHandler *self)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingHandler)
 
-#endif // _JavaUtilLoggingHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingHandler_INCLUDE_ALL")

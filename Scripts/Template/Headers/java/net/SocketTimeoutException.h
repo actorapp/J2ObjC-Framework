@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/SocketTimeoutException.java
 //
 
-#ifndef _JavaNetSocketTimeoutException_H_
-#define _JavaNetSocketTimeoutException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetSocketTimeoutException_INCLUDE_ALL")
+#ifdef JavaNetSocketTimeoutException_RESTRICT
+#define JavaNetSocketTimeoutException_INCLUDE_ALL 0
+#else
+#define JavaNetSocketTimeoutException_INCLUDE_ALL 1
+#endif
+#undef JavaNetSocketTimeoutException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetSocketTimeoutException_) && (JavaNetSocketTimeoutException_INCLUDE_ALL || defined(JavaNetSocketTimeoutException_INCLUDE))
+#define JavaNetSocketTimeoutException_
+
+#define JavaIoInterruptedIOException_RESTRICT 1
+#define JavaIoInterruptedIOException_INCLUDE 1
 #include "../../java/io/InterruptedIOException.h"
 
 @class JavaLangThrowable;
@@ -64,4 +78,8 @@ FOUNDATION_EXPORT JavaNetSocketTimeoutException *new_JavaNetSocketTimeoutExcepti
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketTimeoutException)
 
-#endif // _JavaNetSocketTimeoutException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetSocketTimeoutException_INCLUDE_ALL")

@@ -3,18 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/security/Key.java
 //
 
-#ifndef _JavaSecurityKey_H_
-#define _JavaSecurityKey_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityKey_INCLUDE_ALL")
+#ifdef JavaSecurityKey_RESTRICT
+#define JavaSecurityKey_INCLUDE_ALL 0
+#else
+#define JavaSecurityKey_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityKey_) && (JavaSecurityKey_INCLUDE_ALL || defined(JavaSecurityKey_INCLUDE))
+#define JavaSecurityKey_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
 
-#define JavaSecurityKey_serialVersionUID 6603384152749567654LL
-
 /*!
  @brief <code>Key</code> is the common interface for all keys.
+ - seealso: PublicKey
+ - seealso: PrivateKey
  */
 @protocol JavaSecurityKey < JavaIoSerializable, NSObject, JavaObject >
 
@@ -45,10 +59,25 @@
 
 @end
 
+@interface JavaSecurityKey : NSObject
+
++ (jlong)serialVersionUID;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSecurityKey)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSecurityKey, serialVersionUID, jlong)
+/*!
+ @brief The <code>serialVersionUID</code> to be compatible with JDK1.1.
+ */
+inline jlong JavaSecurityKey_get_serialVersionUID();
+#define JavaSecurityKey_serialVersionUID 6603384152749567654LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSecurityKey, serialVersionUID, jlong)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKey)
 
-#endif // _JavaSecurityKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityKey_INCLUDE_ALL")

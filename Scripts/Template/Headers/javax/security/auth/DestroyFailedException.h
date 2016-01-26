@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/security/auth/DestroyFailedException.java
 //
 
-#ifndef _JavaxSecurityAuthDestroyFailedException_H_
-#define _JavaxSecurityAuthDestroyFailedException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxSecurityAuthDestroyFailedException_INCLUDE_ALL")
+#ifdef JavaxSecurityAuthDestroyFailedException_RESTRICT
+#define JavaxSecurityAuthDestroyFailedException_INCLUDE_ALL 0
+#else
+#define JavaxSecurityAuthDestroyFailedException_INCLUDE_ALL 1
+#endif
+#undef JavaxSecurityAuthDestroyFailedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxSecurityAuthDestroyFailedException_) && (JavaxSecurityAuthDestroyFailedException_INCLUDE_ALL || defined(JavaxSecurityAuthDestroyFailedException_INCLUDE))
+#define JavaxSecurityAuthDestroyFailedException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -42,4 +56,8 @@ FOUNDATION_EXPORT JavaxSecurityAuthDestroyFailedException *new_JavaxSecurityAuth
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthDestroyFailedException)
 
-#endif // _JavaxSecurityAuthDestroyFailedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxSecurityAuthDestroyFailedException_INCLUDE_ALL")

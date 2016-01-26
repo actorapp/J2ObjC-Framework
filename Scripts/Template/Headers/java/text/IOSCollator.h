@@ -3,14 +3,26 @@
 //  source: Classes/java/text/IOSCollator.java
 //
 
-#ifndef _JavaTextIOSCollator_H_
-#define _JavaTextIOSCollator_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/text/CollationKey.h"
+
+#pragma push_macro("JavaTextIOSCollator_INCLUDE_ALL")
+#ifdef JavaTextIOSCollator_RESTRICT
+#define JavaTextIOSCollator_INCLUDE_ALL 0
+#else
+#define JavaTextIOSCollator_INCLUDE_ALL 1
+#endif
+#undef JavaTextIOSCollator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextIOSCollator_) && (JavaTextIOSCollator_INCLUDE_ALL || defined(JavaTextIOSCollator_INCLUDE))
+#define JavaTextIOSCollator_
+
+#define JavaTextCollator_RESTRICT 1
+#define JavaTextCollator_INCLUDE 1
 #include "../../java/text/Collator.h"
 
-@class IOSByteArray;
 @class JavaTextCollationKey;
 @class JavaUtilLocale;
 
@@ -63,6 +75,17 @@ FOUNDATION_EXPORT JavaTextIOSCollator *new_JavaTextIOSCollator_initWithJavaUtilL
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextIOSCollator)
 
+#endif
+
+#if !defined (JavaTextIOSCollator_IOSCollationKey_) && (JavaTextIOSCollator_INCLUDE_ALL || defined(JavaTextIOSCollator_IOSCollationKey_INCLUDE))
+#define JavaTextIOSCollator_IOSCollationKey_
+
+#define JavaTextCollationKey_RESTRICT 1
+#define JavaTextCollationKey_INCLUDE 1
+#include "../../java/text/CollationKey.h"
+
+@class IOSByteArray;
+
 @interface JavaTextIOSCollator_IOSCollationKey : JavaTextCollationKey
 
 #pragma mark Public
@@ -85,4 +108,8 @@ FOUNDATION_EXPORT JavaTextIOSCollator_IOSCollationKey *new_JavaTextIOSCollator_I
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextIOSCollator_IOSCollationKey)
 
-#endif // _JavaTextIOSCollator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextIOSCollator_INCLUDE_ALL")

@@ -3,15 +3,41 @@
 //  source: android/libcore/luni/src/main/java/java/util/LinkedList.java
 //
 
-#ifndef _JavaUtilLinkedList_H_
-#define _JavaUtilLinkedList_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilLinkedList_INCLUDE_ALL")
+#ifdef JavaUtilLinkedList_RESTRICT
+#define JavaUtilLinkedList_INCLUDE_ALL 0
+#else
+#define JavaUtilLinkedList_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLinkedList_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLinkedList_) && (JavaUtilLinkedList_INCLUDE_ALL || defined(JavaUtilLinkedList_INCLUDE))
+#define JavaUtilLinkedList_
+
+#define JavaUtilAbstractSequentialList_RESTRICT 1
+#define JavaUtilAbstractSequentialList_INCLUDE 1
 #include "../../java/util/AbstractSequentialList.h"
-#include "../../java/util/Deque.h"
+
+#define JavaUtilList_RESTRICT 1
+#define JavaUtilList_INCLUDE 1
 #include "../../java/util/List.h"
+
+#define JavaUtilDeque_RESTRICT 1
+#define JavaUtilDeque_INCLUDE 1
+#include "../../java/util/Deque.h"
+
+#define JavaUtilQueue_RESTRICT 1
+#define JavaUtilQueue_INCLUDE 1
 #include "../../java/util/Queue.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilLinkedList_Link;
@@ -123,6 +149,8 @@
 
 /*!
  @brief Removes all elements from this <code>LinkedList</code>, leaving it empty.
+ - seealso: List#isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -130,6 +158,7 @@
  @brief Returns a new <code>LinkedList</code> with the same elements and size as this
  <code>LinkedList</code>.
  @return a shallow copy of this <code>LinkedList</code>.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -144,6 +173,7 @@
 
 /*!
  
+ - seealso: java.util.Deque#descendingIterator()
  @since 1.6
  */
 - (id<JavaUtilIterator>)descendingIterator;
@@ -190,6 +220,7 @@
  @return a ListIterator on the elements of this <code>LinkedList</code>
  @throws IndexOutOfBoundsException
  if <code>location < 0 || location > size()</code>
+ - seealso: ListIterator
  */
 - (id<JavaUtilListIterator>)listIteratorWithInt:(jint)location;
 
@@ -197,12 +228,14 @@
 
 /*!
  
+ - seealso: java.util.Deque#offerFirst(java.lang.Object)
  @since 1.6
  */
 - (jboolean)offerFirstWithId:(id)e;
 
 /*!
  
+ - seealso: java.util.Deque#offerLast(java.lang.Object)
  @since 1.6
  */
 - (jboolean)offerLastWithId:(id)e;
@@ -211,12 +244,14 @@
 
 /*!
  
+ - seealso: java.util.Deque#peekFirst()
  @since 1.6
  */
 - (id)peekFirst;
 
 /*!
  
+ - seealso: java.util.Deque#peekLast()
  @since 1.6
  */
 - (id)peekLast;
@@ -225,24 +260,28 @@
 
 /*!
  
+ - seealso: java.util.Deque#pollFirst()
  @since 1.6
  */
 - (id)pollFirst;
 
 /*!
  
+ - seealso: java.util.Deque#pollLast()
  @since 1.6
  */
 - (id)pollLast;
 
 /*!
  
+ - seealso: java.util.Deque#pop()
  @since 1.6
  */
 - (id)pop;
 
 /*!
  
+ - seealso: java.util.Deque#push(java.lang.Object)
  @since 1.6
  */
 - (void)pushWithId:(id)e;
@@ -271,6 +310,7 @@
 
 /*!
  
+ - seealso: java.util.Deque#removeFirstOccurrence(java.lang.Object)
  @since 1.6
  */
 - (jboolean)removeFirstOccurrenceWithId:(id)o;
@@ -285,6 +325,7 @@
 
 /*!
  
+ - seealso: java.util.Deque#removeLastOccurrence(java.lang.Object)
  @since 1.6
  */
 - (jboolean)removeLastOccurrenceWithId:(id)o;
@@ -343,7 +384,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilLinkedList)
@@ -359,6 +399,11 @@ FOUNDATION_EXPORT void JavaUtilLinkedList_initWithJavaUtilCollection_(JavaUtilLi
 FOUNDATION_EXPORT JavaUtilLinkedList *new_JavaUtilLinkedList_initWithJavaUtilCollection_(id<JavaUtilCollection> collection) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList)
+
+#endif
+
+#if !defined (JavaUtilLinkedList_Link_) && (JavaUtilLinkedList_INCLUDE_ALL || defined(JavaUtilLinkedList_Link_INCLUDE))
+#define JavaUtilLinkedList_Link_
 
 @interface JavaUtilLinkedList_Link : NSObject {
  @public
@@ -386,4 +431,8 @@ FOUNDATION_EXPORT JavaUtilLinkedList_Link *new_JavaUtilLinkedList_Link_initWithI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList_Link)
 
-#endif // _JavaUtilLinkedList_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLinkedList_INCLUDE_ALL")

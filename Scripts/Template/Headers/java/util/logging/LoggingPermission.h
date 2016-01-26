@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/LoggingPermission.java
 //
 
-#ifndef _JavaUtilLoggingLoggingPermission_H_
-#define _JavaUtilLoggingLoggingPermission_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilLoggingLoggingPermission_INCLUDE_ALL")
+#ifdef JavaUtilLoggingLoggingPermission_RESTRICT
+#define JavaUtilLoggingLoggingPermission_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingLoggingPermission_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingLoggingPermission_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingLoggingPermission_) && (JavaUtilLoggingLoggingPermission_INCLUDE_ALL || defined(JavaUtilLoggingLoggingPermission_INCLUDE))
+#define JavaUtilLoggingLoggingPermission_
+
+#define JavaSecurityBasicPermission_RESTRICT 1
+#define JavaSecurityBasicPermission_INCLUDE 1
 #include "../../../java/security/BasicPermission.h"
+
+#define JavaSecurityGuard_RESTRICT 1
+#define JavaSecurityGuard_INCLUDE 1
 #include "../../../java/security/Guard.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
 
 @class JavaSecurityPermission;
 
@@ -37,4 +57,8 @@ FOUNDATION_EXPORT JavaUtilLoggingLoggingPermission *new_JavaUtilLoggingLoggingPe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLoggingPermission)
 
-#endif // _JavaUtilLoggingLoggingPermission_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingLoggingPermission_INCLUDE_ALL")

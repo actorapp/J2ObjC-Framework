@@ -3,11 +3,23 @@
 //  source: Classes/java/lang/System.java
 //
 
-#ifndef _JavaLangSystem_H_
-#define _JavaLangSystem_H_
-
 #include "../../J2ObjC_header.h"
 
+#pragma push_macro("JavaLangSystem_INCLUDE_ALL")
+#ifdef JavaLangSystem_RESTRICT
+#define JavaLangSystem_INCLUDE_ALL 0
+#else
+#define JavaLangSystem_INCLUDE_ALL 1
+#endif
+#undef JavaLangSystem_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangSystem_) && (JavaLangSystem_INCLUDE_ALL || defined(JavaLangSystem_INCLUDE))
+#define JavaLangSystem_
+
+@class JavaIoConsole;
 @class JavaIoInputStream;
 @class JavaIoPrintStream;
 @class JavaLangSecurityManager;
@@ -23,6 +35,12 @@
  */
 @interface JavaLangSystem : NSObject
 
++ (JavaIoInputStream *)in;
+
++ (JavaIoPrintStream *)out;
+
++ (JavaIoPrintStream *)err;
+
 #pragma mark Public
 
 - (instancetype)init;
@@ -35,9 +53,19 @@
 
 + (NSString *)clearPropertyWithNSString:(NSString *)key;
 
+/*!
+ @brief Returns the <code>java.io.Console</code> associated with this VM, or null.
+ Not all VMs will have an associated console. A console is typically only
+ available for programs run from the command line.
+ @since 1.6
+ */
++ (JavaIoConsole *)console;
+
 + (jlong)currentTimeMillis;
 
 + (void)exitWithInt:(jint)status;
+
++ (void)gc;
 
 + (id<JavaUtilMap>)getenv;
 
@@ -134,19 +162,24 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaLangSystem)
 
-FOUNDATION_EXPORT JavaIoInputStream *JavaLangSystem_in_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangSystem, in_, JavaIoInputStream *)
+inline JavaIoInputStream *JavaLangSystem_get_in();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaIoInputStream *JavaLangSystem_in;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangSystem, in, JavaIoInputStream *)
 
-FOUNDATION_EXPORT JavaIoPrintStream *JavaLangSystem_out_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangSystem, out_, JavaIoPrintStream *)
+inline JavaIoPrintStream *JavaLangSystem_get_out();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaIoPrintStream *JavaLangSystem_out;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangSystem, out, JavaIoPrintStream *)
 
-FOUNDATION_EXPORT JavaIoPrintStream *JavaLangSystem_err_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangSystem, err_, JavaIoPrintStream *)
+inline JavaIoPrintStream *JavaLangSystem_get_err();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaIoPrintStream *JavaLangSystem_err;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangSystem, err, JavaIoPrintStream *)
 
 FOUNDATION_EXPORT void JavaLangSystem_setInWithJavaIoInputStream_(JavaIoInputStream *newIn);
 
@@ -188,9 +221,13 @@ FOUNDATION_EXPORT void JavaLangSystem_load__WithNSString_(NSString *pathName);
 
 FOUNDATION_EXPORT void JavaLangSystem_loadLibraryWithNSString_(NSString *libName);
 
+FOUNDATION_EXPORT void JavaLangSystem_gc();
+
 FOUNDATION_EXPORT void JavaLangSystem_runFinalization();
 
 FOUNDATION_EXPORT void JavaLangSystem_runFinalizersOnExitWithBoolean_(jboolean b);
+
+FOUNDATION_EXPORT JavaIoConsole *JavaLangSystem_console();
 
 FOUNDATION_EXPORT void JavaLangSystem_logEWithNSString_(NSString *message);
 
@@ -210,4 +247,8 @@ FOUNDATION_EXPORT JavaLangSystem *new_JavaLangSystem_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangSystem)
 
-#endif // _JavaLangSystem_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangSystem_INCLUDE_ALL")

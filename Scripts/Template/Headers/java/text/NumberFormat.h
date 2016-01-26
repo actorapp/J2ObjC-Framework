@@ -3,22 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/text/NumberFormat.java
 //
 
-#ifndef _JavaTextNumberFormat_H_
-#define _JavaTextNumberFormat_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextNumberFormat_INCLUDE_ALL")
+#ifdef JavaTextNumberFormat_RESTRICT
+#define JavaTextNumberFormat_INCLUDE_ALL 0
+#else
+#define JavaTextNumberFormat_INCLUDE_ALL 1
+#endif
+#undef JavaTextNumberFormat_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextNumberFormat_) && (JavaTextNumberFormat_INCLUDE_ALL || defined(JavaTextNumberFormat_INCLUDE))
+#define JavaTextNumberFormat_
+
+#define JavaTextFormat_RESTRICT 1
+#define JavaTextFormat_INCLUDE 1
 #include "../../java/text/Format.h"
 
 @class IOSObjectArray;
 @class JavaLangStringBuffer;
-@class JavaMathRoundingModeEnum;
+@class JavaMathRoundingMode;
 @class JavaTextFieldPosition;
 @class JavaTextParsePosition;
 @class JavaUtilCurrency;
 @class JavaUtilLocale;
-
-#define JavaTextNumberFormat_INTEGER_FIELD 0
-#define JavaTextNumberFormat_FRACTION_FIELD 1
 
 /*!
  @brief The abstract base class for all number formats.
@@ -125,8 +136,14 @@
  and the <code>NumberFormat</code> API is essentially an abstraction of
  <code>DecimalFormat's</code> API. Refer to <code>DecimalFormat</code> for more
  information about this API.
+ - seealso: DecimalFormat
+ - seealso: java.text.ChoiceFormat
  */
 @interface JavaTextNumberFormat : JavaTextFormat
+
++ (jint)INTEGER_FIELD;
+
++ (jint)FRACTION_FIELD;
 
 #pragma mark Public
 
@@ -144,6 +161,7 @@
  the object to compare with this object.
  @return <code>true</code> if the specified object is equal to this number
  format; <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -381,7 +399,7 @@
  Subclasses for which a rounding mode is meaningful are expected to override this method.
  @since 1.6
  */
-- (JavaMathRoundingModeEnum *)getRoundingMode;
+- (JavaMathRoundingMode *)getRoundingMode;
 
 - (NSUInteger)hash;
 
@@ -515,7 +533,7 @@
  Subclasses for which a rounding mode is meaningful are expected to override this method.
  @since 1.6
  */
-- (void)setRoundingModeWithJavaMathRoundingModeEnum:(JavaMathRoundingModeEnum *)roundingMode;
+- (void)setRoundingModeWithJavaMathRoundingMode:(JavaMathRoundingMode *)roundingMode;
 
 #pragma mark Protected
 
@@ -529,9 +547,19 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaTextNumberFormat)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat, INTEGER_FIELD, jint)
+/*!
+ @brief Field constant identifying the integer part of a number.
+ */
+inline jint JavaTextNumberFormat_get_INTEGER_FIELD();
+#define JavaTextNumberFormat_INTEGER_FIELD 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextNumberFormat, INTEGER_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat, FRACTION_FIELD, jint)
+/*!
+ @brief Field constant identifying the fractional part of a number.
+ */
+inline jint JavaTextNumberFormat_get_FRACTION_FIELD();
+#define JavaTextNumberFormat_FRACTION_FIELD 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextNumberFormat, FRACTION_FIELD, jint)
 
 FOUNDATION_EXPORT void JavaTextNumberFormat_init(JavaTextNumberFormat *self);
 
@@ -559,6 +587,15 @@ FOUNDATION_EXPORT JavaTextNumberFormat *JavaTextNumberFormat_getPercentInstanceW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextNumberFormat)
 
+#endif
+
+#if !defined (JavaTextNumberFormat_Field_) && (JavaTextNumberFormat_INCLUDE_ALL || defined(JavaTextNumberFormat_Field_INCLUDE))
+#define JavaTextNumberFormat_Field_
+
+#define JavaTextFormat_RESTRICT 1
+#define JavaTextFormat_Field_INCLUDE 1
+#include "../../java/text/Format.h"
+
 /*!
  @brief The instances of this inner class are used as attribute keys and values
  in <code>AttributedCharacterIterator</code> that the
@@ -569,6 +606,28 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNumberFormat)
  <p>
  */
 @interface JavaTextNumberFormat_Field : JavaTextFormat_Field
+
++ (JavaTextNumberFormat_Field *)SIGN;
+
++ (JavaTextNumberFormat_Field *)INTEGER;
+
++ (JavaTextNumberFormat_Field *)FRACTION;
+
++ (JavaTextNumberFormat_Field *)EXPONENT;
+
++ (JavaTextNumberFormat_Field *)EXPONENT_SIGN;
+
++ (JavaTextNumberFormat_Field *)EXPONENT_SYMBOL;
+
++ (JavaTextNumberFormat_Field *)DECIMAL_SEPARATOR;
+
++ (JavaTextNumberFormat_Field *)GROUPING_SEPARATOR;
+
++ (JavaTextNumberFormat_Field *)PERCENT;
+
++ (JavaTextNumberFormat_Field *)PERMILLE;
+
++ (JavaTextNumberFormat_Field *)CURRENCY;
 
 #pragma mark Protected
 
@@ -584,38 +643,93 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNumberFormat)
 
 J2OBJC_STATIC_INIT(JavaTextNumberFormat_Field)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_SIGN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, SIGN_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the number sign.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_SIGN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_SIGN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, SIGN, JavaTextNumberFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_INTEGER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, INTEGER_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the integer part of the number.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_INTEGER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_INTEGER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, INTEGER, JavaTextNumberFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_FRACTION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, FRACTION_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the fraction part of the number.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_FRACTION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_FRACTION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, FRACTION, JavaTextNumberFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_EXPONENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, EXPONENT_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the exponent part of the number.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_EXPONENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_EXPONENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, EXPONENT, JavaTextNumberFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_EXPONENT_SIGN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, EXPONENT_SIGN_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the exponent sign symbol.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_EXPONENT_SIGN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_EXPONENT_SIGN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, EXPONENT_SIGN, JavaTextNumberFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_EXPONENT_SYMBOL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, EXPONENT_SYMBOL_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the exponent symbol.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_EXPONENT_SYMBOL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_EXPONENT_SYMBOL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, EXPONENT_SYMBOL, JavaTextNumberFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_DECIMAL_SEPARATOR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, DECIMAL_SEPARATOR_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the decimal separator.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_DECIMAL_SEPARATOR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_DECIMAL_SEPARATOR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, DECIMAL_SEPARATOR, JavaTextNumberFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_GROUPING_SEPARATOR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, GROUPING_SEPARATOR_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the grouping separator.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_GROUPING_SEPARATOR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_GROUPING_SEPARATOR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, GROUPING_SEPARATOR, JavaTextNumberFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_PERCENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, PERCENT_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the percent symbol.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_PERCENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_PERCENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, PERCENT, JavaTextNumberFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_PERMILLE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, PERMILLE_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the permille symbol.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_PERMILLE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_PERMILLE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, PERMILLE, JavaTextNumberFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_CURRENCY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextNumberFormat_Field, CURRENCY_, JavaTextNumberFormat_Field *)
+/*!
+ @brief This constant stands for the currency symbol.
+ */
+inline JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_get_CURRENCY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *JavaTextNumberFormat_Field_CURRENCY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextNumberFormat_Field, CURRENCY, JavaTextNumberFormat_Field *)
 
 FOUNDATION_EXPORT void JavaTextNumberFormat_Field_initWithNSString_(JavaTextNumberFormat_Field *self, NSString *fieldName);
 
@@ -623,4 +737,8 @@ FOUNDATION_EXPORT JavaTextNumberFormat_Field *new_JavaTextNumberFormat_Field_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextNumberFormat_Field)
 
-#endif // _JavaTextNumberFormat_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextNumberFormat_INCLUDE_ALL")

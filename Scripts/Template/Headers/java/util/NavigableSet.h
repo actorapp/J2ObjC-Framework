@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/NavigableSet.java
 //
 
-#ifndef _JavaUtilNavigableSet_H_
-#define _JavaUtilNavigableSet_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilNavigableSet_INCLUDE_ALL")
+#ifdef JavaUtilNavigableSet_RESTRICT
+#define JavaUtilNavigableSet_INCLUDE_ALL 0
+#else
+#define JavaUtilNavigableSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilNavigableSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilNavigableSet_) && (JavaUtilNavigableSet_INCLUDE_ALL || defined(JavaUtilNavigableSet_INCLUDE))
+#define JavaUtilNavigableSet_
+
+#define JavaUtilSortedSet_RESTRICT 1
+#define JavaUtilSortedSet_INCLUDE 1
 #include "../../java/util/SortedSet.h"
 
 @protocol JavaUtilIterator;
@@ -279,4 +293,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilNavigableSet)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilNavigableSet)
 
-#endif // _JavaUtilNavigableSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilNavigableSet_INCLUDE_ALL")

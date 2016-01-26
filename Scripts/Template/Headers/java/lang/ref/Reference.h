@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ref/Reference.java
 //
 
-#ifndef _JavaLangRefReference_H_
-#define _JavaLangRefReference_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangRefReference_INCLUDE_ALL")
+#ifdef JavaLangRefReference_RESTRICT
+#define JavaLangRefReference_INCLUDE_ALL 0
+#else
+#define JavaLangRefReference_INCLUDE_ALL 1
+#endif
+#undef JavaLangRefReference_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangRefReference_) && (JavaLangRefReference_INCLUDE_ALL || defined(JavaLangRefReference_INCLUDE))
+#define JavaLangRefReference_
 
 @class JavaLangRefReferenceQueue;
 
@@ -164,4 +175,8 @@ FOUNDATION_EXPORT void JavaLangRefReference_initWithId_withJavaLangRefReferenceQ
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefReference)
 
-#endif // _JavaLangRefReference_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangRefReference_INCLUDE_ALL")

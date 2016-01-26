@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLSocketFactory.java
 //
 
-#ifndef _JavaxNetSslSSLSocketFactory_H_
-#define _JavaxNetSslSSLSocketFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLSocketFactory_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLSocketFactory_RESTRICT
+#define JavaxNetSslSSLSocketFactory_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLSocketFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLSocketFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLSocketFactory_) && (JavaxNetSslSSLSocketFactory_INCLUDE_ALL || defined(JavaxNetSslSSLSocketFactory_INCLUDE))
+#define JavaxNetSslSSLSocketFactory_
+
+#define JavaxNetSocketFactory_RESTRICT 1
+#define JavaxNetSocketFactory_INCLUDE 1
 #include "../../../javax/net/SocketFactory.h"
 
 @class IOSObjectArray;
@@ -79,4 +93,8 @@ FOUNDATION_EXPORT void JavaxNetSslSSLSocketFactory_init(JavaxNetSslSSLSocketFact
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLSocketFactory)
 
-#endif // _JavaxNetSslSSLSocketFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLSocketFactory_INCLUDE_ALL")

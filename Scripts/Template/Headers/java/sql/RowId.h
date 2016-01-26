@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/RowId.java
 //
 
-#ifndef _JavaSqlRowId_H_
-#define _JavaSqlRowId_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlRowId_INCLUDE_ALL")
+#ifdef JavaSqlRowId_RESTRICT
+#define JavaSqlRowId_INCLUDE_ALL 0
+#else
+#define JavaSqlRowId_INCLUDE_ALL 1
+#endif
+#undef JavaSqlRowId_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlRowId_) && (JavaSqlRowId_INCLUDE_ALL || defined(JavaSqlRowId_INCLUDE))
+#define JavaSqlRowId_
 
 @class IOSByteArray;
 
@@ -33,4 +44,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlRowId)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlRowId)
 
-#endif // _JavaSqlRowId_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlRowId_INCLUDE_ALL")

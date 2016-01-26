@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/LinkageError.java
 //
 
-#ifndef _JavaLangLinkageError_H_
-#define _JavaLangLinkageError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangLinkageError_INCLUDE_ALL")
+#ifdef JavaLangLinkageError_RESTRICT
+#define JavaLangLinkageError_INCLUDE_ALL 0
+#else
+#define JavaLangLinkageError_INCLUDE_ALL 1
+#endif
+#undef JavaLangLinkageError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangLinkageError_) && (JavaLangLinkageError_INCLUDE_ALL || defined(JavaLangLinkageError_INCLUDE))
+#define JavaLangLinkageError_
+
+#define JavaLangError_RESTRICT 1
+#define JavaLangError_INCLUDE 1
 #include "../../java/lang/Error.h"
 
 @class JavaLangThrowable;
@@ -14,6 +28,7 @@
 /*!
  @brief <code>LinkageError</code> is the superclass of all error classes that occur when
  loading and linking class files.
+ - seealso: Error
  */
 @interface JavaLangLinkageError : JavaLangError
 
@@ -40,6 +55,13 @@
 - (instancetype)initWithNSString:(NSString *)detailMessage
            withJavaLangThrowable:(JavaLangThrowable *)cause;
 
+#pragma mark Protected
+
+/*!
+ @brief Constructs a new <code>LinkageError</code> with the given cause.
+ */
+- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaLangLinkageError)
@@ -56,6 +78,14 @@ FOUNDATION_EXPORT void JavaLangLinkageError_initWithNSString_withJavaLangThrowab
 
 FOUNDATION_EXPORT JavaLangLinkageError *new_JavaLangLinkageError_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT void JavaLangLinkageError_initWithJavaLangThrowable_(JavaLangLinkageError *self, JavaLangThrowable *cause);
+
+FOUNDATION_EXPORT JavaLangLinkageError *new_JavaLangLinkageError_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangLinkageError)
 
-#endif // _JavaLangLinkageError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangLinkageError_INCLUDE_ALL")

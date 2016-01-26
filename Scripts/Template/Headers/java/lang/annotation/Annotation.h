@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/annotation/Annotation.java
 //
 
-#ifndef _JavaLangAnnotationAnnotation_H_
-#define _JavaLangAnnotationAnnotation_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangAnnotationAnnotation_INCLUDE_ALL")
+#ifdef JavaLangAnnotationAnnotation_RESTRICT
+#define JavaLangAnnotationAnnotation_INCLUDE_ALL 0
+#else
+#define JavaLangAnnotationAnnotation_INCLUDE_ALL 1
+#endif
+#undef JavaLangAnnotationAnnotation_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangAnnotationAnnotation_) && (JavaLangAnnotationAnnotation_INCLUDE_ALL || defined(JavaLangAnnotationAnnotation_INCLUDE))
+#define JavaLangAnnotationAnnotation_
 
 @class IOSClass;
 
@@ -118,4 +129,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangAnnotationAnnotation)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationAnnotation)
 
-#endif // _JavaLangAnnotationAnnotation_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangAnnotationAnnotation_INCLUDE_ALL")

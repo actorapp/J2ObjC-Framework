@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/Enumeration.java
 //
 
-#ifndef _JavaUtilEnumeration_H_
-#define _JavaUtilEnumeration_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilEnumeration_INCLUDE_ALL")
+#ifdef JavaUtilEnumeration_RESTRICT
+#define JavaUtilEnumeration_INCLUDE_ALL 0
+#else
+#define JavaUtilEnumeration_INCLUDE_ALL 1
+#endif
+#undef JavaUtilEnumeration_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilEnumeration_) && (JavaUtilEnumeration_INCLUDE_ALL || defined(JavaUtilEnumeration_INCLUDE))
+#define JavaUtilEnumeration_
 
 /*!
  @brief A legacy iteration interface.
@@ -17,12 +28,14 @@
  <p>If you <i>need</i> an <code>Enumeration</code> for a legacy API and have a
  <code>Collection</code>, you can use <code>Collections.enumeration</code>.
  @version 1.0
+ - seealso: Iterator
  */
 @protocol JavaUtilEnumeration < NSObject, JavaObject >
 
 /*!
  @brief Returns whether this <code>Enumeration</code> has more elements.
  @return <code>true</code> if there are more elements, <code>false</code> otherwise.
+ - seealso: #nextElement
  */
 - (jboolean)hasMoreElements;
 
@@ -31,6 +44,7 @@
  @return the next element..
  @throws NoSuchElementException
  if there are no more elements.
+ - seealso: #hasMoreElements
  */
 - (id)nextElement;
 
@@ -40,4 +54,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilEnumeration)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEnumeration)
 
-#endif // _JavaUtilEnumeration_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilEnumeration_INCLUDE_ALL")

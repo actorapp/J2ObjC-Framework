@@ -3,22 +3,35 @@
 //  source: android/libcore/luni/src/main/java/java/io/PipedInputStream.java
 //
 
-#ifndef _JavaIoPipedInputStream_H_
-#define _JavaIoPipedInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoPipedInputStream_INCLUDE_ALL")
+#ifdef JavaIoPipedInputStream_RESTRICT
+#define JavaIoPipedInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoPipedInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoPipedInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoPipedInputStream_) && (JavaIoPipedInputStream_INCLUDE_ALL || defined(JavaIoPipedInputStream_INCLUDE))
+#define JavaIoPipedInputStream_
+
+#define JavaIoInputStream_RESTRICT 1
+#define JavaIoInputStream_INCLUDE 1
 #include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
 @class JavaIoPipedOutputStream;
-
-#define JavaIoPipedInputStream_PIPE_SIZE 1024
 
 /*!
  @brief Receives information from a communications pipe.
  When two threads want to
  pass data back and forth, one creates a piped output stream and the other one
  creates a piped input stream.
+ - seealso: PipedOutputStream
  */
 @interface JavaIoPipedInputStream : JavaIoInputStream {
  @public
@@ -61,6 +74,8 @@
    */
   jboolean isConnected_;
 }
+
++ (jint)PIPE_SIZE;
 
 #pragma mark Public
 
@@ -225,7 +240,12 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoPipedInputStream)
 
 J2OBJC_FIELD_SETTER(JavaIoPipedInputStream, buffer_, IOSByteArray *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoPipedInputStream, PIPE_SIZE, jint)
+/*!
+ @brief The size of the default pipe in bytes.
+ */
+inline jint JavaIoPipedInputStream_get_PIPE_SIZE();
+#define JavaIoPipedInputStream_PIPE_SIZE 1024
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoPipedInputStream, PIPE_SIZE, jint)
 
 FOUNDATION_EXPORT void JavaIoPipedInputStream_init(JavaIoPipedInputStream *self);
 
@@ -245,4 +265,8 @@ FOUNDATION_EXPORT JavaIoPipedInputStream *new_JavaIoPipedInputStream_initWithJav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedInputStream)
 
-#endif // _JavaIoPipedInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoPipedInputStream_INCLUDE_ALL")

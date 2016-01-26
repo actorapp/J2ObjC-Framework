@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/xpath/XPathVariableResolver.java
 //
 
-#ifndef _JavaxXmlXpathXPathVariableResolver_H_
-#define _JavaxXmlXpathXPathVariableResolver_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlXpathXPathVariableResolver_INCLUDE_ALL")
+#ifdef JavaxXmlXpathXPathVariableResolver_RESTRICT
+#define JavaxXmlXpathXPathVariableResolver_INCLUDE_ALL 0
+#else
+#define JavaxXmlXpathXPathVariableResolver_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlXpathXPathVariableResolver_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlXpathXPathVariableResolver_) && (JavaxXmlXpathXPathVariableResolver_INCLUDE_ALL || defined(JavaxXmlXpathXPathVariableResolver_INCLUDE))
+#define JavaxXmlXpathXPathVariableResolver_
 
 @class JavaxXmlNamespaceQName;
 
@@ -42,4 +53,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlXpathXPathVariableResolver)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathVariableResolver)
 
-#endif // _JavaxXmlXpathXPathVariableResolver_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlXpathXPathVariableResolver_INCLUDE_ALL")

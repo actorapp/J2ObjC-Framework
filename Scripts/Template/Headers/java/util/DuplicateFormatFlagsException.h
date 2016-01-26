@@ -3,15 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/util/DuplicateFormatFlagsException.java
 //
 
-#ifndef _JavaUtilDuplicateFormatFlagsException_H_
-#define _JavaUtilDuplicateFormatFlagsException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilDuplicateFormatFlagsException_INCLUDE_ALL")
+#ifdef JavaUtilDuplicateFormatFlagsException_RESTRICT
+#define JavaUtilDuplicateFormatFlagsException_INCLUDE_ALL 0
+#else
+#define JavaUtilDuplicateFormatFlagsException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilDuplicateFormatFlagsException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilDuplicateFormatFlagsException_) && (JavaUtilDuplicateFormatFlagsException_INCLUDE_ALL || defined(JavaUtilDuplicateFormatFlagsException_INCLUDE))
+#define JavaUtilDuplicateFormatFlagsException_
+
+#define JavaUtilIllegalFormatException_RESTRICT 1
+#define JavaUtilIllegalFormatException_INCLUDE 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief The unchecked exception will be thrown out if there are duplicate flags given
  out in the format specifier.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilDuplicateFormatFlagsException : JavaUtilIllegalFormatException
 
@@ -43,4 +58,8 @@ FOUNDATION_EXPORT JavaUtilDuplicateFormatFlagsException *new_JavaUtilDuplicateFo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDuplicateFormatFlagsException)
 
-#endif // _JavaUtilDuplicateFormatFlagsException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilDuplicateFormatFlagsException_INCLUDE_ALL")

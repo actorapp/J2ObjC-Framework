@@ -3,31 +3,28 @@
 //  source: android/frameworks/base/core/java/android/text/Spanned.java
 //
 
-#ifndef _AndroidTextSpanned_H_
-#define _AndroidTextSpanned_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextSpanned_INCLUDE_ALL")
+#ifdef AndroidTextSpanned_RESTRICT
+#define AndroidTextSpanned_INCLUDE_ALL 0
+#else
+#define AndroidTextSpanned_INCLUDE_ALL 1
+#endif
+#undef AndroidTextSpanned_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextSpanned_) && (AndroidTextSpanned_INCLUDE_ALL || defined(AndroidTextSpanned_INCLUDE))
+#define AndroidTextSpanned_
+
+#define JavaLangCharSequence_RESTRICT 1
+#define JavaLangCharSequence_INCLUDE 1
 #include "../../java/lang/CharSequence.h"
 
 @class IOSClass;
 @class IOSObjectArray;
-
-#define AndroidTextSpanned_SPAN_POINT_MARK_MASK 51
-#define AndroidTextSpanned_SPAN_MARK_MARK 17
-#define AndroidTextSpanned_SPAN_MARK_POINT 18
-#define AndroidTextSpanned_SPAN_POINT_MARK 33
-#define AndroidTextSpanned_SPAN_POINT_POINT 34
-#define AndroidTextSpanned_SPAN_PARAGRAPH 51
-#define AndroidTextSpanned_SPAN_INCLUSIVE_EXCLUSIVE 17
-#define AndroidTextSpanned_SPAN_INCLUSIVE_INCLUSIVE 18
-#define AndroidTextSpanned_SPAN_EXCLUSIVE_EXCLUSIVE 33
-#define AndroidTextSpanned_SPAN_EXCLUSIVE_INCLUSIVE 34
-#define AndroidTextSpanned_SPAN_COMPOSING 256
-#define AndroidTextSpanned_SPAN_INTERMEDIATE 512
-#define AndroidTextSpanned_SPAN_USER_SHIFT 24
-#define AndroidTextSpanned_SPAN_USER -16777216
-#define AndroidTextSpanned_SPAN_PRIORITY_SHIFT 16
-#define AndroidTextSpanned_SPAN_PRIORITY 16711680
 
 /*!
  @brief This is the interface for text that has markup objects attached to
@@ -83,40 +80,220 @@
 
 @end
 
+@interface AndroidTextSpanned : NSObject
+
++ (jint)SPAN_POINT_MARK_MASK;
+
++ (jint)SPAN_MARK_MARK;
+
++ (jint)SPAN_MARK_POINT;
+
++ (jint)SPAN_POINT_MARK;
+
++ (jint)SPAN_POINT_POINT;
+
++ (jint)SPAN_PARAGRAPH;
+
++ (jint)SPAN_INCLUSIVE_EXCLUSIVE;
+
++ (jint)SPAN_INCLUSIVE_INCLUSIVE;
+
++ (jint)SPAN_EXCLUSIVE_EXCLUSIVE;
+
++ (jint)SPAN_EXCLUSIVE_INCLUSIVE;
+
++ (jint)SPAN_COMPOSING;
+
++ (jint)SPAN_INTERMEDIATE;
+
++ (jint)SPAN_USER_SHIFT;
+
++ (jint)SPAN_USER;
+
++ (jint)SPAN_PRIORITY_SHIFT;
+
++ (jint)SPAN_PRIORITY;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(AndroidTextSpanned)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_POINT_MARK_MASK, jint)
+/*!
+ @brief Bitmask of bits that are relevent for controlling point/mark behavior
+ of spans.
+ MARK and POINT are conceptually located <i>between</i> two adjacent characters.
+ A MARK is "attached" to the character before, while a POINT will stick to the character
+ after. The insertion cursor is conceptually located between the MARK and the POINT.
+ As a result, inserting a new character between a MARK and a POINT will leave the MARK
+ unchanged, while the POINT will be shifted, now located after the inserted character and
+ still glued to the same character after it.
+ Depending on whether the insertion happens at the beginning or the end of a span, the span
+ will hence be expanded to <i>include</i> the new character (when the span is using a MARK at
+ its beginning or a POINT at its end) or it will be <i>excluded</i>.
+ Note that <i>before</i> and <i>after</i> here refer to offsets in the String, which are
+ independent from the visual representation of the text (left-to-right or right-to-left).
+ */
+inline jint AndroidTextSpanned_get_SPAN_POINT_MARK_MASK();
+#define AndroidTextSpanned_SPAN_POINT_MARK_MASK 51
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_POINT_MARK_MASK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_MARK_MARK, jint)
+/*!
+ @brief 0-length spans with type SPAN_MARK_MARK behave like text marks:
+ they remain at their original offset when text is inserted
+ at that offset.
+ Conceptually, the text is added after the mark.
+ */
+inline jint AndroidTextSpanned_get_SPAN_MARK_MARK();
+#define AndroidTextSpanned_SPAN_MARK_MARK 17
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_MARK_MARK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_MARK_POINT, jint)
+/*!
+ @brief SPAN_MARK_POINT is a synonym for <code>SPAN_INCLUSIVE_INCLUSIVE</code>.
+ */
+inline jint AndroidTextSpanned_get_SPAN_MARK_POINT();
+#define AndroidTextSpanned_SPAN_MARK_POINT 18
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_MARK_POINT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_POINT_MARK, jint)
+/*!
+ @brief SPAN_POINT_MARK is a synonym for <code>SPAN_EXCLUSIVE_EXCLUSIVE</code>.
+ */
+inline jint AndroidTextSpanned_get_SPAN_POINT_MARK();
+#define AndroidTextSpanned_SPAN_POINT_MARK 33
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_POINT_MARK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_POINT_POINT, jint)
+/*!
+ @brief 0-length spans with type SPAN_POINT_POINT behave like cursors:
+ they are pushed forward by the length of the insertion when text
+ is inserted at their offset.
+ The text is conceptually inserted before the point.
+ */
+inline jint AndroidTextSpanned_get_SPAN_POINT_POINT();
+#define AndroidTextSpanned_SPAN_POINT_POINT 34
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_POINT_POINT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_PARAGRAPH, jint)
+/*!
+ @brief SPAN_PARAGRAPH behaves like SPAN_INCLUSIVE_EXCLUSIVE
+ (SPAN_MARK_MARK), except that if either end of the span is
+ at the end of the buffer, that end behaves like _POINT
+ instead (so SPAN_INCLUSIVE_INCLUSIVE if it starts in the
+ middle and ends at the end, or SPAN_EXCLUSIVE_INCLUSIVE
+ if it both starts and ends at the end).
+ <p>
+ Its endpoints must be the start or end of the buffer or
+ immediately after a \n character, and if the \n
+ that anchors it is deleted, the endpoint is pulled to the
+ next \n that follows in the buffer (or to the end of
+ the buffer).
+ */
+inline jint AndroidTextSpanned_get_SPAN_PARAGRAPH();
+#define AndroidTextSpanned_SPAN_PARAGRAPH 51
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_PARAGRAPH, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_INCLUSIVE_EXCLUSIVE, jint)
+/*!
+ @brief Non-0-length spans of type SPAN_INCLUSIVE_EXCLUSIVE expand
+ to include text inserted at their starting point but not at their
+ ending point.
+ When 0-length, they behave like marks.
+ */
+inline jint AndroidTextSpanned_get_SPAN_INCLUSIVE_EXCLUSIVE();
+#define AndroidTextSpanned_SPAN_INCLUSIVE_EXCLUSIVE 17
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_INCLUSIVE_EXCLUSIVE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_INCLUSIVE_INCLUSIVE, jint)
+/*!
+ @brief Spans of type SPAN_INCLUSIVE_INCLUSIVE expand
+ to include text inserted at either their starting or ending point.
+ */
+inline jint AndroidTextSpanned_get_SPAN_INCLUSIVE_INCLUSIVE();
+#define AndroidTextSpanned_SPAN_INCLUSIVE_INCLUSIVE 18
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_INCLUSIVE_INCLUSIVE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_EXCLUSIVE_EXCLUSIVE, jint)
+/*!
+ @brief Spans of type SPAN_EXCLUSIVE_EXCLUSIVE do not expand
+ to include text inserted at either their starting or ending point.
+ They can never have a length of 0 and are automatically removed
+ from the buffer if all the text they cover is removed.
+ */
+inline jint AndroidTextSpanned_get_SPAN_EXCLUSIVE_EXCLUSIVE();
+#define AndroidTextSpanned_SPAN_EXCLUSIVE_EXCLUSIVE 33
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_EXCLUSIVE_EXCLUSIVE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_EXCLUSIVE_INCLUSIVE, jint)
+/*!
+ @brief Non-0-length spans of type SPAN_EXCLUSIVE_INCLUSIVE expand
+ to include text inserted at their ending point but not at their
+ starting point.
+ When 0-length, they behave like points.
+ */
+inline jint AndroidTextSpanned_get_SPAN_EXCLUSIVE_INCLUSIVE();
+#define AndroidTextSpanned_SPAN_EXCLUSIVE_INCLUSIVE 34
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_EXCLUSIVE_INCLUSIVE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_COMPOSING, jint)
+/*!
+ @brief This flag is set on spans that are being used to apply temporary
+ styling information on the composing text of an input method, so that
+ they can be found and removed when the composing text is being
+ replaced.
+ */
+inline jint AndroidTextSpanned_get_SPAN_COMPOSING();
+#define AndroidTextSpanned_SPAN_COMPOSING 256
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_COMPOSING, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_INTERMEDIATE, jint)
+/*!
+ @brief This flag will be set for intermediate span changes, meaning there
+ is guaranteed to be another change following it.
+ Typically it is
+ used for <code>Selection</code> which automatically uses this with the first
+ offset it sets when updating the selection.
+ */
+inline jint AndroidTextSpanned_get_SPAN_INTERMEDIATE();
+#define AndroidTextSpanned_SPAN_INTERMEDIATE 512
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_INTERMEDIATE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_USER_SHIFT, jint)
+/*!
+ @brief The bits numbered SPAN_USER_SHIFT and above are available
+ for callers to use to store scalar data associated with their
+ span object.
+ */
+inline jint AndroidTextSpanned_get_SPAN_USER_SHIFT();
+#define AndroidTextSpanned_SPAN_USER_SHIFT 24
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_USER_SHIFT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_USER, jint)
+/*!
+ @brief The bits specified by the SPAN_USER bitfield are available
+ for callers to use to store scalar data associated with their
+ span object.
+ */
+inline jint AndroidTextSpanned_get_SPAN_USER();
+#define AndroidTextSpanned_SPAN_USER -16777216
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_USER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_PRIORITY_SHIFT, jint)
+/*!
+ @brief The bits numbered just above SPAN_PRIORITY_SHIFT determine the order
+ of change notifications -- higher numbers go first.
+ You probably
+ don't need to set this; it is used so that when text changes, the
+ text layout gets the chance to update itself before any other
+ callbacks can inquire about the layout of the text.
+ */
+inline jint AndroidTextSpanned_get_SPAN_PRIORITY_SHIFT();
+#define AndroidTextSpanned_SPAN_PRIORITY_SHIFT 16
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_PRIORITY_SHIFT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpanned, SPAN_PRIORITY, jint)
+/*!
+ @brief The bits specified by the SPAN_PRIORITY bitmap determine the order
+ of change notifications -- higher numbers go first.
+ You probably
+ don't need to set this; it is used so that when text changes, the
+ text layout gets the chance to update itself before any other
+ callbacks can inquire about the layout of the text.
+ */
+inline jint AndroidTextSpanned_get_SPAN_PRIORITY();
+#define AndroidTextSpanned_SPAN_PRIORITY 16711680
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextSpanned, SPAN_PRIORITY, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpanned)
 
-#endif // _AndroidTextSpanned_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextSpanned_INCLUDE_ALL")

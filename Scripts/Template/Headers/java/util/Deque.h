@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/Deque.java
 //
 
-#ifndef _JavaUtilDeque_H_
-#define _JavaUtilDeque_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilDeque_INCLUDE_ALL")
+#ifdef JavaUtilDeque_RESTRICT
+#define JavaUtilDeque_INCLUDE_ALL 0
+#else
+#define JavaUtilDeque_INCLUDE_ALL 1
+#endif
+#undef JavaUtilDeque_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilDeque_) && (JavaUtilDeque_INCLUDE_ALL || defined(JavaUtilDeque_INCLUDE))
+#define JavaUtilDeque_
+
+#define JavaUtilQueue_RESTRICT 1
+#define JavaUtilQueue_INCLUDE 1
 #include "../../java/util/Queue.h"
 
 @protocol JavaUtilIterator;
@@ -499,4 +513,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilDeque)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDeque)
 
-#endif // _JavaUtilDeque_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilDeque_INCLUDE_ALL")

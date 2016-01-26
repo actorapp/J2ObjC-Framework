@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/ParameterizedType.java
 //
 
-#ifndef _JavaLangReflectParameterizedType_H_
-#define _JavaLangReflectParameterizedType_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectParameterizedType_INCLUDE_ALL")
+#ifdef JavaLangReflectParameterizedType_RESTRICT
+#define JavaLangReflectParameterizedType_INCLUDE_ALL 0
+#else
+#define JavaLangReflectParameterizedType_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectParameterizedType_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectParameterizedType_) && (JavaLangReflectParameterizedType_INCLUDE_ALL || defined(JavaLangReflectParameterizedType_INCLUDE))
+#define JavaLangReflectParameterizedType_
+
+#define JavaLangReflectType_RESTRICT 1
+#define JavaLangReflectType_INCLUDE 1
 #include "../../../java/lang/reflect/Type.h"
 
 @class IOSObjectArray;
@@ -67,4 +81,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangReflectParameterizedType)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectParameterizedType)
 
-#endif // _JavaLangReflectParameterizedType_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectParameterizedType_INCLUDE_ALL")

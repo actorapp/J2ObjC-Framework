@@ -3,11 +3,24 @@
 //  source: Classes/java/util/logging/IOSLogHandler.java
 //
 
-#ifndef _JavaUtilLoggingIOSLogHandler_H_
-#define _JavaUtilLoggingIOSLogHandler_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/util/logging/Formatter.h"
+
+#pragma push_macro("JavaUtilLoggingIOSLogHandler_INCLUDE_ALL")
+#ifdef JavaUtilLoggingIOSLogHandler_RESTRICT
+#define JavaUtilLoggingIOSLogHandler_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingIOSLogHandler_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingIOSLogHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingIOSLogHandler_) && (JavaUtilLoggingIOSLogHandler_INCLUDE_ALL || defined(JavaUtilLoggingIOSLogHandler_INCLUDE))
+#define JavaUtilLoggingIOSLogHandler_
+
+#define JavaUtilLoggingHandler_RESTRICT 1
+#define JavaUtilLoggingHandler_INCLUDE 1
 #include "../../../java/util/logging/Handler.h"
 
 @class JavaUtilLoggingLogRecord;
@@ -17,6 +30,8 @@
  @author Tom Ball
  */
 @interface JavaUtilLoggingIOSLogHandler : JavaUtilLoggingHandler
+
++ (NSString *)IOS_LOG_MANAGER_DEFAULTS;
 
 #pragma mark Public
 
@@ -32,14 +47,27 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilLoggingIOSLogHandler)
 
-FOUNDATION_EXPORT NSString *JavaUtilLoggingIOSLogHandler_IOS_LOG_MANAGER_DEFAULTS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingIOSLogHandler, IOS_LOG_MANAGER_DEFAULTS_, NSString *)
+inline NSString *JavaUtilLoggingIOSLogHandler_get_IOS_LOG_MANAGER_DEFAULTS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaUtilLoggingIOSLogHandler_IOS_LOG_MANAGER_DEFAULTS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingIOSLogHandler, IOS_LOG_MANAGER_DEFAULTS, NSString *)
 
 FOUNDATION_EXPORT void JavaUtilLoggingIOSLogHandler_init(JavaUtilLoggingIOSLogHandler *self);
 
 FOUNDATION_EXPORT JavaUtilLoggingIOSLogHandler *new_JavaUtilLoggingIOSLogHandler_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingIOSLogHandler)
+
+#endif
+
+#if !defined (JavaUtilLoggingIOSLogHandler_IOSLogFormatter_) && (JavaUtilLoggingIOSLogHandler_INCLUDE_ALL || defined(JavaUtilLoggingIOSLogHandler_IOSLogFormatter_INCLUDE))
+#define JavaUtilLoggingIOSLogHandler_IOSLogFormatter_
+
+#define JavaUtilLoggingFormatter_RESTRICT 1
+#define JavaUtilLoggingFormatter_INCLUDE 1
+#include "../../../java/util/logging/Formatter.h"
+
+@class JavaUtilLoggingLogRecord;
 
 @interface JavaUtilLoggingIOSLogHandler_IOSLogFormatter : JavaUtilLoggingFormatter
 
@@ -64,4 +92,8 @@ FOUNDATION_EXPORT JavaUtilLoggingIOSLogHandler_IOSLogFormatter *new_JavaUtilLogg
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingIOSLogHandler_IOSLogFormatter)
 
-#endif // _JavaUtilLoggingIOSLogHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingIOSLogHandler_INCLUDE_ALL")

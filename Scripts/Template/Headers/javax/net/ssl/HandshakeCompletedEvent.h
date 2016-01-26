@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/HandshakeCompletedEvent.java
 //
 
-#ifndef _JavaxNetSslHandshakeCompletedEvent_H_
-#define _JavaxNetSslHandshakeCompletedEvent_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslHandshakeCompletedEvent_INCLUDE_ALL")
+#ifdef JavaxNetSslHandshakeCompletedEvent_RESTRICT
+#define JavaxNetSslHandshakeCompletedEvent_INCLUDE_ALL 0
+#else
+#define JavaxNetSslHandshakeCompletedEvent_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslHandshakeCompletedEvent_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslHandshakeCompletedEvent_) && (JavaxNetSslHandshakeCompletedEvent_INCLUDE_ALL || defined(JavaxNetSslHandshakeCompletedEvent_INCLUDE))
+#define JavaxNetSslHandshakeCompletedEvent_
+
+#define JavaUtilEventObject_RESTRICT 1
+#define JavaUtilEventObject_INCLUDE 1
 #include "../../../java/util/EventObject.h"
 
 @class IOSObjectArray;
@@ -108,4 +122,8 @@ FOUNDATION_EXPORT JavaxNetSslHandshakeCompletedEvent *new_JavaxNetSslHandshakeCo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHandshakeCompletedEvent)
 
-#endif // _JavaxNetSslHandshakeCompletedEvent_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslHandshakeCompletedEvent_INCLUDE_ALL")

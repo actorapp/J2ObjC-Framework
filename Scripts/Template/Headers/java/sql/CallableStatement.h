@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/CallableStatement.java
 //
 
-#ifndef _JavaSqlCallableStatement_H_
-#define _JavaSqlCallableStatement_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlCallableStatement_INCLUDE_ALL")
+#ifdef JavaSqlCallableStatement_RESTRICT
+#define JavaSqlCallableStatement_INCLUDE_ALL 0
+#else
+#define JavaSqlCallableStatement_INCLUDE_ALL 1
+#endif
+#undef JavaSqlCallableStatement_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlCallableStatement_) && (JavaSqlCallableStatement_INCLUDE_ALL || defined(JavaSqlCallableStatement_INCLUDE))
+#define JavaSqlCallableStatement_
+
+#define JavaSqlPreparedStatement_RESTRICT 1
+#define JavaSqlPreparedStatement_INCLUDE 1
 #include "../../java/sql/PreparedStatement.h"
 
 @class IOSByteArray;
@@ -113,7 +127,7 @@
  if a database error occurs.
  */
 - (JavaMathBigDecimal *)getBigDecimalWithInt:(jint)parameterIndex
-                                     withInt:(jint)scale_;
+                                     withInt:(jint)scale_ __attribute__((deprecated));
 
 /*!
  @brief Returns a new <code>BigDecimal</code> representation of the JDBC <code>NUMERIC</code>
@@ -240,6 +254,7 @@
  <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Clob
  */
 - (id<JavaSqlClob>)getClobWithInt:(jint)parameterIndex;
 
@@ -252,6 +267,7 @@
   is returned if the value is SQL <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Clob
  */
 - (id<JavaSqlClob>)getClobWithNSString:(NSString *)parameterName;
 
@@ -265,6 +281,7 @@
  <code>null</code> is returned if the value is SQL <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Date
  */
 - (JavaSqlDate *)getDateWithInt:(jint)parameterIndex;
 
@@ -283,6 +300,7 @@
  is returned if the value is SQL <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Date
  */
 - (JavaSqlDate *)getDateWithInt:(jint)parameterIndex
            withJavaUtilCalendar:(JavaUtilCalendar *)cal;
@@ -296,6 +314,7 @@
  is returned if the value is SQL <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Date
  */
 - (JavaSqlDate *)getDateWithNSString:(NSString *)parameterName;
 
@@ -313,6 +332,7 @@
  is returned if the value is SQL <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Date
  */
 - (JavaSqlDate *)getDateWithNSString:(NSString *)parameterName
                 withJavaUtilCalendar:(JavaUtilCalendar *)cal;
@@ -506,6 +526,7 @@
  parameter's value is SQL <code>NULL</code>.
  @throws SQLException
  if there is a problem accessing the database.
+ - seealso: Ref
  */
 - (id<JavaSqlRef>)getRefWithNSString:(NSString *)parameterName;
 
@@ -581,6 +602,7 @@
  <code>null</code> is returned if the value is SQL <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Time
  */
 - (JavaSqlTime *)getTimeWithInt:(jint)parameterIndex;
 
@@ -599,6 +621,8 @@
  <code>null</code> is returned if the value is SQL <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Time
+ - seealso: java.util.Calendar
  */
 - (JavaSqlTime *)getTimeWithInt:(jint)parameterIndex
            withJavaUtilCalendar:(JavaUtilCalendar *)cal;
@@ -612,6 +636,7 @@
   reference is returned for an SQL value of <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Time
  */
 - (JavaSqlTime *)getTimeWithNSString:(NSString *)parameterName;
 
@@ -629,6 +654,8 @@
   reference is returned for an SQL value of <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Time
+ - seealso: java.util.Calendar
  */
 - (JavaSqlTime *)getTimeWithNSString:(NSString *)parameterName
                 withJavaUtilCalendar:(JavaUtilCalendar *)cal;
@@ -644,6 +671,7 @@
  .
  @throws SQLException
  if a database error occurs.
+ - seealso: Timestamp
  */
 - (JavaSqlTimestamp *)getTimestampWithInt:(jint)parameterIndex;
 
@@ -662,6 +690,7 @@
  .
  @throws SQLException
  if a database error occurs.
+ - seealso: Timestamp
  */
 - (JavaSqlTimestamp *)getTimestampWithInt:(jint)parameterIndex
                      withJavaUtilCalendar:(JavaUtilCalendar *)cal;
@@ -676,6 +705,7 @@
  .
  @throws SQLException
  if a database error occurs.
+ - seealso: Timestamp
  */
 - (JavaSqlTimestamp *)getTimestampWithNSString:(NSString *)parameterName;
 
@@ -693,6 +723,7 @@
  .
  @throws SQLException
  if a database error occurs.
+ - seealso: Timestamp
  */
 - (JavaSqlTimestamp *)getTimestampWithNSString:(NSString *)parameterName
                           withJavaUtilCalendar:(JavaUtilCalendar *)cal;
@@ -707,6 +738,7 @@
  is returned if the value is SQL <code>NULL</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: java.net.URL
  */
 - (JavaNetURL *)getURLWithInt:(jint)parameterIndex;
 
@@ -720,6 +752,7 @@
  .
  @throws SQLException
  if a database error occurs.
+ - seealso: java.net.URL
  */
 - (JavaNetURL *)getURLWithNSString:(NSString *)parameterName;
 
@@ -744,6 +777,7 @@
  using <code>registerOutParameter(int,int,int)</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Types
  */
 - (void)registerOutParameterWithInt:(jint)parameterIndex
                             withInt:(jint)sqlType;
@@ -770,6 +804,7 @@
  than or equal to 0.
  @throws SQLException
  if a database error occurs.
+ - seealso: Types
  */
 - (void)registerOutParameterWithInt:(jint)parameterIndex
                             withInt:(jint)sqlType
@@ -791,6 +826,7 @@
  the fully qualified name of the referenced type.
  @throws SQLException
  if a database error occurs.
+ - seealso: Ref
  */
 - (void)registerOutParameterWithInt:(jint)paramIndex
                             withInt:(jint)sqlType
@@ -1010,6 +1046,8 @@
  value.
  @throws SQLException
  if a database error occurs.
+ - seealso: java.util.Calendar
+ - seealso: Date
  */
 - (void)setDateWithNSString:(NSString *)parameterName
             withJavaSqlDate:(JavaSqlDate *)theDate
@@ -1101,6 +1139,7 @@
  is not a <code>UDT</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: Types
  */
 - (void)setNullWithNSString:(NSString *)parameterName
                     withInt:(jint)sqlType
@@ -1128,6 +1167,7 @@
  the new value with which to update the parameter
  @throws SQLException
  if a database error occurs.
+ - seealso: SQLData
  */
 - (void)setObjectWithNSString:(NSString *)parameterName
                        withId:(id)theObject;
@@ -1158,6 +1198,7 @@
  a JDBC type expressed as a constant from <code>Types</code>.
  @throws SQLException
  if a database error occurs.
+ - seealso: SQLData
  */
 - (void)setObjectWithNSString:(NSString *)parameterName
                        withId:(id)theObject
@@ -1191,6 +1232,7 @@
  point.
  @throws SQLException
  if a database error occurs.
+ - seealso: SQLData
  */
 - (void)setObjectWithNSString:(NSString *)parameterName
                        withId:(id)theObject
@@ -1231,6 +1273,7 @@
  the new value with which to update the parameter.
  @throws SQLException
  if a database error occurs.
+ - seealso: Time
  */
 - (void)setTimeWithNSString:(NSString *)parameterName
             withJavaSqlTime:(JavaSqlTime *)theTime;
@@ -1250,6 +1293,7 @@
  used for creating the new SQL <code>TIME</code> value.
  @throws SQLException
  if a database error occurs.
+ - seealso: Time
  */
 - (void)setTimeWithNSString:(NSString *)parameterName
             withJavaSqlTime:(JavaSqlTime *)theTime
@@ -1264,6 +1308,7 @@
  the new value with which to update the parameter.
  @throws SQLException
  if a database error occurs.
+ - seealso: Timestamp
  */
 - (void)setTimestampWithNSString:(NSString *)parameterName
             withJavaSqlTimestamp:(JavaSqlTimestamp *)theTimestamp;
@@ -1283,6 +1328,8 @@
  used for creating the new SQL <code>TIME</code> value.
  @throws SQLException
  if a database error occurs.
+ - seealso: Timestamp
+ - seealso: java.util.Calendar
  */
 - (void)setTimestampWithNSString:(NSString *)parameterName
             withJavaSqlTimestamp:(JavaSqlTimestamp *)theTimestamp
@@ -1297,6 +1344,7 @@
  the new value with which to update the parameter.
  @throws SQLException
  if a database error occurs.
+ - seealso: java.net.URL
  */
 - (void)setURLWithNSString:(NSString *)parameterName
             withJavaNetURL:(JavaNetURL *)theURL;
@@ -1576,4 +1624,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlCallableStatement)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlCallableStatement)
 
-#endif // _JavaSqlCallableStatement_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlCallableStatement_INCLUDE_ALL")

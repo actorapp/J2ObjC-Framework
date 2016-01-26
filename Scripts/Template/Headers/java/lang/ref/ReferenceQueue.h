@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ref/ReferenceQueue.java
 //
 
-#ifndef _JavaLangRefReferenceQueue_H_
-#define _JavaLangRefReferenceQueue_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangRefReferenceQueue_INCLUDE_ALL")
+#ifdef JavaLangRefReferenceQueue_RESTRICT
+#define JavaLangRefReferenceQueue_INCLUDE_ALL 0
+#else
+#define JavaLangRefReferenceQueue_INCLUDE_ALL 1
+#endif
+#undef JavaLangRefReferenceQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangRefReferenceQueue_) && (JavaLangRefReferenceQueue_INCLUDE_ALL || defined(JavaLangRefReferenceQueue_INCLUDE))
+#define JavaLangRefReferenceQueue_
 
 @class JavaLangRefReference;
 
@@ -17,6 +28,10 @@
  @since 1.2
  */
 @interface JavaLangRefReferenceQueue : NSObject
+
++ (JavaLangRefReference *)unenqueued;
+
++ (void)setUnenqueued:(JavaLangRefReference *)value;
 
 #pragma mark Public
 
@@ -72,9 +87,14 @@
 
 J2OBJC_STATIC_INIT(JavaLangRefReferenceQueue)
 
-FOUNDATION_EXPORT JavaLangRefReference *JavaLangRefReferenceQueue_unenqueued_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangRefReferenceQueue, unenqueued_, JavaLangRefReference *)
-J2OBJC_STATIC_FIELD_SETTER(JavaLangRefReferenceQueue, unenqueued_, JavaLangRefReference *)
+/*!
+  
+ */
+inline JavaLangRefReference *JavaLangRefReferenceQueue_get_unenqueued();
+inline JavaLangRefReference *JavaLangRefReferenceQueue_set_unenqueued(JavaLangRefReference *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangRefReference *JavaLangRefReferenceQueue_unenqueued;
+J2OBJC_STATIC_FIELD_OBJ(JavaLangRefReferenceQueue, unenqueued, JavaLangRefReference *)
 
 FOUNDATION_EXPORT void JavaLangRefReferenceQueue_init(JavaLangRefReferenceQueue *self);
 
@@ -84,4 +104,8 @@ FOUNDATION_EXPORT void JavaLangRefReferenceQueue_addWithJavaLangRefReference_(Ja
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefReferenceQueue)
 
-#endif // _JavaLangRefReferenceQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangRefReferenceQueue_INCLUDE_ALL")

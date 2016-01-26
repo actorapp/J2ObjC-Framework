@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/Collection.java
 //
 
-#ifndef _JavaUtilCollection_H_
-#define _JavaUtilCollection_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilCollection_INCLUDE_ALL")
+#ifdef JavaUtilCollection_RESTRICT
+#define JavaUtilCollection_INCLUDE_ALL 0
+#else
+#define JavaUtilCollection_INCLUDE_ALL 1
+#endif
+#undef JavaUtilCollection_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilCollection_) && (JavaUtilCollection_INCLUDE_ALL || defined(JavaUtilCollection_INCLUDE))
+#define JavaUtilCollection_
+
+#define JavaLangIterable_RESTRICT 1
+#define JavaLangIterable_INCLUDE 1
 #include "../../java/lang/Iterable.h"
 
 @class IOSObjectArray;
@@ -96,6 +110,8 @@
  @brief Removes all elements from this <code>Collection</code>, leaving it empty (optional).
  @throws UnsupportedOperationException
  if removing from this <code>Collection</code> is not supported.
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -147,6 +163,7 @@
  the object to compare with this object.
  @return <code>true</code> if the object is the same as this object and
  <code>false</code> if it is different from this object.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -155,6 +172,7 @@
  Objects which are equal
  return the same value for this method.
  @return the receiver's hash.
+ - seealso: #equals
  */
 - (NSUInteger)hash;
 
@@ -162,6 +180,7 @@
  @brief Returns if this <code>Collection</code> contains no elements.
  @return <code>true</code> if this <code>Collection</code> has no elements, <code>false</code>
  otherwise.
+ - seealso: #size
  */
 - (jboolean)isEmpty;
 
@@ -287,4 +306,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilCollection)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollection)
 
-#endif // _JavaUtilCollection_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilCollection_INCLUDE_ALL")

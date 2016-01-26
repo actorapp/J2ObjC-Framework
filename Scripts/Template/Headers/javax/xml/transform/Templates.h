@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/Templates.java
 //
 
-#ifndef _JavaxXmlTransformTemplates_H_
-#define _JavaxXmlTransformTemplates_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformTemplates_INCLUDE_ALL")
+#ifdef JavaxXmlTransformTemplates_RESTRICT
+#define JavaxXmlTransformTemplates_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformTemplates_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformTemplates_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformTemplates_) && (JavaxXmlTransformTemplates_INCLUDE_ALL || defined(JavaxXmlTransformTemplates_INCLUDE))
+#define JavaxXmlTransformTemplates_
 
 @class JavaUtilProperties;
 @class JavaxXmlTransformTransformer;
@@ -61,4 +72,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformTemplates)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTemplates)
 
-#endif // _JavaxXmlTransformTemplates_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformTemplates_INCLUDE_ALL")

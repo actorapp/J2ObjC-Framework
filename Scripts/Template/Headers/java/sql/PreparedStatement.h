@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/PreparedStatement.java
 //
 
-#ifndef _JavaSqlPreparedStatement_H_
-#define _JavaSqlPreparedStatement_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlPreparedStatement_INCLUDE_ALL")
+#ifdef JavaSqlPreparedStatement_RESTRICT
+#define JavaSqlPreparedStatement_INCLUDE_ALL 0
+#else
+#define JavaSqlPreparedStatement_INCLUDE_ALL 1
+#endif
+#undef JavaSqlPreparedStatement_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlPreparedStatement_) && (JavaSqlPreparedStatement_INCLUDE_ALL || defined(JavaSqlPreparedStatement_INCLUDE))
+#define JavaSqlPreparedStatement_
+
+#define JavaSqlStatement_RESTRICT 1
+#define JavaSqlStatement_INCLUDE 1
 #include "../../java/sql/Statement.h"
 
 @class IOSByteArray;
@@ -136,6 +150,7 @@
  .
  @throws SQLException
  if a database error happens.
+ - seealso: Array
  */
 - (void)setArrayWithInt:(jint)parameterIndex
        withJavaSqlArray:(id<JavaSqlArray>)theArray;
@@ -175,6 +190,7 @@
  set.
  @throws SQLException
  if a database error happens.
+ - seealso: java.math.BigDecimal
  */
 - (void)setBigDecimalWithInt:(jint)parameterIndex
       withJavaMathBigDecimal:(JavaMathBigDecimal *)theBigDecimal;
@@ -211,6 +227,7 @@
   is set.
  @throws SQLException
  if a database error happens.
+ - seealso: Blob
  */
 - (void)setBlobWithInt:(jint)parameterIndex
        withJavaSqlBlob:(id<JavaSqlBlob>)theBlob;
@@ -329,6 +346,8 @@
  value.
  @throws SQLException
  if a database error happens.
+ - seealso: Date
+ - seealso: java.util.Calendar
  */
 - (void)setDateWithInt:(jint)parameterIndex
        withJavaSqlDate:(JavaSqlDate *)theDate
@@ -430,6 +449,7 @@
  parameter is not a UDT.
  @throws SQLException
  if a database error happens.
+ - seealso: Types
  */
 - (void)setNullWithInt:(jint)paramIndex
                withInt:(jint)sqlType
@@ -527,6 +547,7 @@
   is set.
  @throws SQLException
  if a database error happens.
+ - seealso: Ref
  */
 - (void)setRefWithInt:(jint)parameterIndex
        withJavaSqlRef:(id<JavaSqlRef>)theRef;
@@ -594,6 +615,8 @@
  value.
  @throws SQLException
  if a database error happens.
+ - seealso: Time
+ - seealso: java.util.Calendar
  */
 - (void)setTimeWithInt:(jint)parameterIndex
        withJavaSqlTime:(JavaSqlTime *)theTime
@@ -633,6 +656,8 @@
   value
  @throws SQLException
  if a database error happens.
+ - seealso: Timestamp
+ - seealso: java.util.Calendar
  */
 - (void)setTimestampWithInt:(jint)parameterIndex
        withJavaSqlTimestamp:(JavaSqlTimestamp *)theTimestamp
@@ -654,7 +679,7 @@
  */
 - (void)setUnicodeStreamWithInt:(jint)parameterIndex
           withJavaIoInputStream:(JavaIoInputStream *)theInputStream
-                        withInt:(jint)length;
+                        withInt:(jint)length __attribute__((deprecated));
 
 /*!
  @brief Sets the value of a specified parameter to a supplied <code>java.net.URL</code>
@@ -667,6 +692,7 @@
   is set.
  @throws SQLException
  if a database error happens.
+ - seealso: URL
  */
 - (void)setURLWithInt:(jint)parameterIndex
        withJavaNetURL:(JavaNetURL *)theURL;
@@ -910,4 +936,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlPreparedStatement)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlPreparedStatement)
 
-#endif // _JavaSqlPreparedStatement_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlPreparedStatement_INCLUDE_ALL")

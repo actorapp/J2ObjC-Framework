@@ -3,10 +3,27 @@
 //  source: android/frameworks/base/core/java/android/text/InputFilter.java
 //
 
-#ifndef _AndroidTextInputFilter_H_
-#define _AndroidTextInputFilter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextInputFilter_INCLUDE_ALL")
+#ifdef AndroidTextInputFilter_RESTRICT
+#define AndroidTextInputFilter_INCLUDE_ALL 0
+#else
+#define AndroidTextInputFilter_INCLUDE_ALL 1
+#endif
+#undef AndroidTextInputFilter_RESTRICT
+#ifdef AndroidTextInputFilter_LengthFilter_INCLUDE
+#define AndroidTextInputFilter_INCLUDE 1
+#endif
+#ifdef AndroidTextInputFilter_AllCaps_INCLUDE
+#define AndroidTextInputFilter_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextInputFilter_) && (AndroidTextInputFilter_INCLUDE_ALL || defined(AndroidTextInputFilter_INCLUDE))
+#define AndroidTextInputFilter_
 
 @protocol AndroidTextSpanned;
 @protocol JavaLangCharSequence;
@@ -47,6 +64,14 @@ J2OBJC_EMPTY_STATIC_INIT(AndroidTextInputFilter)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputFilter)
 
+#endif
+
+#if !defined (AndroidTextInputFilter_AllCaps_) && (AndroidTextInputFilter_INCLUDE_ALL || defined(AndroidTextInputFilter_AllCaps_INCLUDE))
+#define AndroidTextInputFilter_AllCaps_
+
+@protocol AndroidTextSpanned;
+@protocol JavaLangCharSequence;
+
 /*!
  @brief This filter will capitalize all the lower case letters that are added
  through edits.
@@ -73,6 +98,14 @@ FOUNDATION_EXPORT void AndroidTextInputFilter_AllCaps_init(AndroidTextInputFilte
 FOUNDATION_EXPORT AndroidTextInputFilter_AllCaps *new_AndroidTextInputFilter_AllCaps_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputFilter_AllCaps)
+
+#endif
+
+#if !defined (AndroidTextInputFilter_LengthFilter_) && (AndroidTextInputFilter_INCLUDE_ALL || defined(AndroidTextInputFilter_LengthFilter_INCLUDE))
+#define AndroidTextInputFilter_LengthFilter_
+
+@protocol AndroidTextSpanned;
+@protocol JavaLangCharSequence;
 
 /*!
  @brief This filter will constrain edits not to make the length of the text
@@ -101,4 +134,8 @@ FOUNDATION_EXPORT AndroidTextInputFilter_LengthFilter *new_AndroidTextInputFilte
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputFilter_LengthFilter)
 
-#endif // _AndroidTextInputFilter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextInputFilter_INCLUDE_ALL")

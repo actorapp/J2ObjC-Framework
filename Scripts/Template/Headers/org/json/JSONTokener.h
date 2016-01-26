@@ -3,10 +3,21 @@
 //  source: android/libcore/json/src/main/java/org/json/JSONTokener.java
 //
 
-#ifndef _OrgJsonJSONTokener_H_
-#define _OrgJsonJSONTokener_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("OrgJsonJSONTokener_INCLUDE_ALL")
+#ifdef OrgJsonJSONTokener_RESTRICT
+#define OrgJsonJSONTokener_INCLUDE_ALL 0
+#else
+#define OrgJsonJSONTokener_INCLUDE_ALL 1
+#endif
+#undef OrgJsonJSONTokener_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgJsonJSONTokener_) && (OrgJsonJSONTokener_INCLUDE_ALL || defined(OrgJsonJSONTokener_INCLUDE))
+#define OrgJsonJSONTokener_
 
 @class OrgJsonJSONException;
 
@@ -199,4 +210,8 @@ FOUNDATION_EXPORT jint OrgJsonJSONTokener_dehexcharWithChar_(jchar hex);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONTokener)
 
-#endif // _OrgJsonJSONTokener_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgJsonJSONTokener_INCLUDE_ALL")

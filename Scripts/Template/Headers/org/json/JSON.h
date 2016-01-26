@@ -3,10 +3,21 @@
 //  source: android/libcore/json/src/main/java/org/json/JSON.java
 //
 
-#ifndef _OrgJsonJSON_H_
-#define _OrgJsonJSON_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("OrgJsonJSON_INCLUDE_ALL")
+#ifdef OrgJsonJSON_RESTRICT
+#define OrgJsonJSON_INCLUDE_ALL 0
+#else
+#define OrgJsonJSON_INCLUDE_ALL 1
+#endif
+#undef OrgJsonJSON_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgJsonJSON_) && (OrgJsonJSON_INCLUDE_ALL || defined(OrgJsonJSON_INCLUDE))
+#define OrgJsonJSON_
 
 @class JavaLangBoolean;
 @class JavaLangDouble;
@@ -70,4 +81,8 @@ FOUNDATION_EXPORT OrgJsonJSON *new_OrgJsonJSON_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSON)
 
-#endif // _OrgJsonJSON_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgJsonJSON_INCLUDE_ALL")

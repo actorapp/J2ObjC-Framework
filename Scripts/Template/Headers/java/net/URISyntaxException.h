@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/URISyntaxException.java
 //
 
-#ifndef _JavaNetURISyntaxException_H_
-#define _JavaNetURISyntaxException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetURISyntaxException_INCLUDE_ALL")
+#ifdef JavaNetURISyntaxException_RESTRICT
+#define JavaNetURISyntaxException_INCLUDE_ALL 0
+#else
+#define JavaNetURISyntaxException_INCLUDE_ALL 1
+#endif
+#undef JavaNetURISyntaxException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetURISyntaxException_) && (JavaNetURISyntaxException_INCLUDE_ALL || defined(JavaNetURISyntaxException_INCLUDE))
+#define JavaNetURISyntaxException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -69,6 +83,7 @@
  that caused the syntax error and the position of the syntax error if
  available.
  @return a sting containing information about the exception.
+ - seealso: java.lang.Throwable#getMessage()
  */
 - (NSString *)getMessage;
 
@@ -92,4 +107,8 @@ FOUNDATION_EXPORT JavaNetURISyntaxException *new_JavaNetURISyntaxException_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURISyntaxException)
 
-#endif // _JavaNetURISyntaxException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetURISyntaxException_INCLUDE_ALL")

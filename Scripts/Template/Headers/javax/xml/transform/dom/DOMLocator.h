@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/dom/DOMLocator.java
 //
 
-#ifndef _JavaxXmlTransformDomDOMLocator_H_
-#define _JavaxXmlTransformDomDOMLocator_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformDomDOMLocator_INCLUDE_ALL")
+#ifdef JavaxXmlTransformDomDOMLocator_RESTRICT
+#define JavaxXmlTransformDomDOMLocator_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformDomDOMLocator_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformDomDOMLocator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformDomDOMLocator_) && (JavaxXmlTransformDomDOMLocator_INCLUDE_ALL || defined(JavaxXmlTransformDomDOMLocator_INCLUDE))
+#define JavaxXmlTransformDomDOMLocator_
+
+#define JavaxXmlTransformSourceLocator_RESTRICT 1
+#define JavaxXmlTransformSourceLocator_INCLUDE 1
 #include "../../../../javax/xml/transform/SourceLocator.h"
 
 @protocol OrgW3cDomNode;
@@ -34,4 +48,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformDomDOMLocator)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMLocator)
 
-#endif // _JavaxXmlTransformDomDOMLocator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformDomDOMLocator_INCLUDE_ALL")

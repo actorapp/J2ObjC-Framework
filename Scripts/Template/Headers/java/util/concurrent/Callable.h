@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/Callable.java
 //
 
-#ifndef _JavaUtilConcurrentCallable_H_
-#define _JavaUtilConcurrentCallable_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentCallable_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentCallable_RESTRICT
+#define JavaUtilConcurrentCallable_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentCallable_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentCallable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentCallable_) && (JavaUtilConcurrentCallable_INCLUDE_ALL || defined(JavaUtilConcurrentCallable_INCLUDE))
+#define JavaUtilConcurrentCallable_
 
 /*!
  @brief A task that returns a result and may throw an exception.
@@ -19,6 +30,7 @@
  throw a checked exception.
  <p>The <code>Executors</code> class contains utility methods to
  convert from other common forms to <code>Callable</code> classes.
+ - seealso: Executor
  @since 1.5
  @author Doug Lea
  */
@@ -37,4 +49,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentCallable)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCallable)
 
-#endif // _JavaUtilConcurrentCallable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentCallable_INCLUDE_ALL")

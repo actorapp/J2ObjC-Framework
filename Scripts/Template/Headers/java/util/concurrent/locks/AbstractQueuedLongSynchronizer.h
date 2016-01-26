@@ -3,22 +3,34 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/locks/AbstractQueuedLongSynchronizer.java
 //
 
-#ifndef _JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_H_
-#define _JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_H_
-
 #include "../../../../J2ObjC_header.h"
-#include "../../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_RESTRICT
+#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_) && (JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_INCLUDE_ALL || defined(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_INCLUDE))
+#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_
+
+#define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_RESTRICT 1
+#define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE 1
 #include "../../../../java/util/concurrent/locks/AbstractOwnableSynchronizer.h"
-#include "../../../../java/util/concurrent/locks/Condition.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../../java/io/Serializable.h"
 
 @class JavaLangThread;
 @class JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_ConditionObject;
 @class JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node;
-@class JavaUtilConcurrentTimeUnitEnum;
-@class JavaUtilDate;
 @protocol JavaUtilCollection;
-
-#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_spinForTimeoutThreshold 1000LL
 
 /*!
  @brief A version of <code>AbstractQueuedSynchronizer</code> in
@@ -36,6 +48,8 @@
  @author Doug Lea
  */
 @interface JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer : JavaUtilConcurrentLocksAbstractOwnableSynchronizer < JavaIoSerializable >
+
++ (jlong)spinForTimeoutThreshold;
 
 #pragma mark Public
 
@@ -582,7 +596,15 @@
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer, spinForTimeoutThreshold, jlong)
+/*!
+ @brief The number of nanoseconds for which it is faster to spin
+ rather than to use timed park.
+ A rough estimate suffices
+ to improve responsiveness with very short timeouts.
+ */
+inline jlong JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_get_spinForTimeoutThreshold();
+#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_spinForTimeoutThreshold 1000LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer, spinForTimeoutThreshold, jlong)
 
 FOUNDATION_EXPORT void JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_init(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer *self);
 
@@ -590,10 +612,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_sel
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer)
 
-#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_CANCELLED 1
-#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_SIGNAL -1
-#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_CONDITION -2
-#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_PROPAGATE -3
+#endif
+
+#if !defined (JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_) && (JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_INCLUDE_ALL || defined(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_INCLUDE))
+#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_
+
+@class JavaLangThread;
 
 /*!
  @brief Wait queue node class.
@@ -751,6 +775,18 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer
   JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *nextWaiter_;
 }
 
++ (JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *)SHARED;
+
++ (JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *)EXCLUSIVE;
+
++ (jint)CANCELLED;
+
++ (jint)SIGNAL;
+
++ (jint)CONDITION;
+
++ (jint)PROPAGATE;
+
 #pragma mark Package-Private
 
 - (instancetype)init;
@@ -783,19 +819,50 @@ J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentLocksAbstractQueuedLongSynchroniz
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, thread_, JavaLangThread *)
 J2OBJC_FIELD_SETTER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, nextWaiter_, JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *)
 
-FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_SHARED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, SHARED_, JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *)
+/*!
+ @brief Marker to indicate a node is waiting in shared mode
+ */
+inline JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_get_SHARED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_SHARED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, SHARED, JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *)
 
-FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_EXCLUSIVE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, EXCLUSIVE_, JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *)
+/*!
+ @brief Marker to indicate a node is waiting in exclusive mode
+ */
+inline JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_get_EXCLUSIVE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_EXCLUSIVE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, EXCLUSIVE, JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, CANCELLED, jint)
+/*!
+ @brief waitStatus value to indicate thread has cancelled
+ */
+inline jint JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_get_CANCELLED();
+#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_CANCELLED 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, CANCELLED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, SIGNAL, jint)
+/*!
+ @brief waitStatus value to indicate successor's thread needs unparking
+ */
+inline jint JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_get_SIGNAL();
+#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_SIGNAL -1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, SIGNAL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, CONDITION, jint)
+/*!
+ @brief waitStatus value to indicate thread is waiting on condition
+ */
+inline jint JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_get_CONDITION();
+#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_CONDITION -2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, CONDITION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, PROPAGATE, jint)
+/*!
+ @brief waitStatus value to indicate the next acquireShared should
+ unconditionally propagate
+ */
+inline jint JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_get_PROPAGATE();
+#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_PROPAGATE -3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node, PROPAGATE, jint)
 
 FOUNDATION_EXPORT void JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_init(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *self);
 
@@ -810,6 +877,24 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Nod
 FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node *new_JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node_initWithJavaLangThread_withInt_(JavaLangThread *thread, jint waitStatus) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Node)
+
+#endif
+
+#if !defined (JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_ConditionObject_) && (JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_INCLUDE_ALL || defined(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_ConditionObject_INCLUDE))
+#define JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_ConditionObject_
+
+#define JavaUtilConcurrentLocksCondition_RESTRICT 1
+#define JavaUtilConcurrentLocksCondition_INCLUDE 1
+#include "../../../../java/util/concurrent/locks/Condition.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../../java/io/Serializable.h"
+
+@class JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer;
+@class JavaUtilConcurrentTimeUnit;
+@class JavaUtilDate;
+@protocol JavaUtilCollection;
 
 /*!
  @brief Condition implementation for a <code>AbstractQueuedLongSynchronizer</code>
@@ -866,7 +951,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer
  </ol>
  */
 - (jboolean)awaitWithLong:(jlong)time
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Implements timed condition wait.
@@ -982,4 +1067,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_Conditio
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_ConditionObject)
 
-#endif // _JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentLocksAbstractQueuedLongSynchronizer_INCLUDE_ALL")

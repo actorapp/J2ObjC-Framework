@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/ECPublicKeySpec.java
 //
 
-#ifndef _JavaSecuritySpecECPublicKeySpec_H_
-#define _JavaSecuritySpecECPublicKeySpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecECPublicKeySpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecECPublicKeySpec_RESTRICT
+#define JavaSecuritySpecECPublicKeySpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecECPublicKeySpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecECPublicKeySpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecECPublicKeySpec_) && (JavaSecuritySpecECPublicKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecECPublicKeySpec_INCLUDE))
+#define JavaSecuritySpecECPublicKeySpec_
+
+#define JavaSecuritySpecKeySpec_RESTRICT 1
+#define JavaSecuritySpecKeySpec_INCLUDE 1
 #include "../../../java/security/spec/KeySpec.h"
 
 @class JavaSecuritySpecECParameterSpec;
@@ -54,4 +68,8 @@ FOUNDATION_EXPORT JavaSecuritySpecECPublicKeySpec *new_JavaSecuritySpecECPublicK
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECPublicKeySpec)
 
-#endif // _JavaSecuritySpecECPublicKeySpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecECPublicKeySpec_INCLUDE_ALL")

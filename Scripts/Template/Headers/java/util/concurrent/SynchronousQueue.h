@@ -3,25 +3,52 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/SynchronousQueue.java
 //
 
-#ifndef _JavaUtilConcurrentSynchronousQueue_H_
-#define _JavaUtilConcurrentSynchronousQueue_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentSynchronousQueue_RESTRICT
+#define JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentSynchronousQueue_RESTRICT
+#ifdef JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_INCLUDE
+#define JavaUtilConcurrentSynchronousQueue_WaitQueue_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_INCLUDE
+#define JavaUtilConcurrentSynchronousQueue_WaitQueue_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentSynchronousQueue_TransferQueue_INCLUDE
+#define JavaUtilConcurrentSynchronousQueue_Transferer_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentSynchronousQueue_TransferStack_INCLUDE
+#define JavaUtilConcurrentSynchronousQueue_Transferer_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentSynchronousQueue_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_INCLUDE))
+#define JavaUtilConcurrentSynchronousQueue_
+
+#define JavaUtilAbstractQueue_RESTRICT 1
+#define JavaUtilAbstractQueue_INCLUDE 1
 #include "../../../java/util/AbstractQueue.h"
+
+#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
+#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
 
 @class IOSClass;
 @class IOSObjectArray;
-@class JavaLangThread;
-@class JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode;
-@class JavaUtilConcurrentSynchronousQueue_TransferStack_SNode;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @class SunMiscUnsafe;
 @protocol JavaUtilCollection;
 @protocol JavaUtilIterator;
-
-#define JavaUtilConcurrentSynchronousQueue_spinForTimeoutThreshold 1000LL
 
 /*!
  @brief A blocking queue in which each insert
@@ -56,6 +83,14 @@
  @author Doug Lea and Bill Scherer and Michael Scott
  */
 @interface JavaUtilConcurrentSynchronousQueue : JavaUtilAbstractQueue < JavaUtilConcurrentBlockingQueue, JavaIoSerializable >
+
++ (jint)NCPUS;
+
++ (jint)maxTimedSpins;
+
++ (jint)maxUntimedSpins;
+
++ (jlong)spinForTimeoutThreshold;
 
 #pragma mark Public
 
@@ -144,7 +179,7 @@
  */
 - (jboolean)offerWithId:(id)e
                withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Always returns <code>null</code>.
@@ -171,7 +206,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  @throws InterruptedException
  */
 - (id)pollWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Adds the specified element to this queue, waiting if necessary for
@@ -248,21 +283,48 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
                                withNSString:(NSString *)field
                                withIOSClass:(IOSClass *)klazz;
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentSynchronousQueue)
 
-FOUNDATION_EXPORT jint JavaUtilConcurrentSynchronousQueue_NCPUS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentSynchronousQueue, NCPUS_, jint)
+/*!
+ @brief The number of CPUs, for spin control
+ */
+inline jint JavaUtilConcurrentSynchronousQueue_get_NCPUS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint JavaUtilConcurrentSynchronousQueue_NCPUS;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaUtilConcurrentSynchronousQueue, NCPUS, jint)
 
-FOUNDATION_EXPORT jint JavaUtilConcurrentSynchronousQueue_maxTimedSpins_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentSynchronousQueue, maxTimedSpins_, jint)
+/*!
+ @brief The number of times to spin before blocking in timed waits.
+ The value is empirically derived -- it works well across a
+ variety of processors and OSes. Empirically, the best value
+ seems not to vary with number of CPUs (beyond 2) so is just
+ a constant.
+ */
+inline jint JavaUtilConcurrentSynchronousQueue_get_maxTimedSpins();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint JavaUtilConcurrentSynchronousQueue_maxTimedSpins;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaUtilConcurrentSynchronousQueue, maxTimedSpins, jint)
 
-FOUNDATION_EXPORT jint JavaUtilConcurrentSynchronousQueue_maxUntimedSpins_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentSynchronousQueue, maxUntimedSpins_, jint)
+/*!
+ @brief The number of times to spin before blocking in untimed waits.
+ This is greater than timed value because untimed waits spin
+ faster since they don't need to check times on each spin.
+ */
+inline jint JavaUtilConcurrentSynchronousQueue_get_maxUntimedSpins();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint JavaUtilConcurrentSynchronousQueue_maxUntimedSpins;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaUtilConcurrentSynchronousQueue, maxUntimedSpins, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentSynchronousQueue, spinForTimeoutThreshold, jlong)
+/*!
+ @brief The number of nanoseconds for which it is faster to spin
+ rather than to use timed park.
+ A rough estimate suffices.
+ */
+inline jlong JavaUtilConcurrentSynchronousQueue_get_spinForTimeoutThreshold();
+#define JavaUtilConcurrentSynchronousQueue_spinForTimeoutThreshold 1000LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentSynchronousQueue, spinForTimeoutThreshold, jlong)
 
 FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_init(JavaUtilConcurrentSynchronousQueue *self);
 
@@ -275,6 +337,11 @@ FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue *new_JavaUtilConcurrentSync
 FOUNDATION_EXPORT jlong JavaUtilConcurrentSynchronousQueue_objectFieldOffsetWithSunMiscUnsafe_withNSString_withIOSClass_(SunMiscUnsafe *UNSAFE, NSString *field, IOSClass *klazz);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue)
+
+#endif
+
+#if !defined (JavaUtilConcurrentSynchronousQueue_Transferer_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_Transferer_INCLUDE))
+#define JavaUtilConcurrentSynchronousQueue_Transferer_
 
 /*!
  @brief Shared internal API for dual stacks and queues.
@@ -309,9 +376,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_Transferer_init(JavaUt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_Transferer)
 
-#define JavaUtilConcurrentSynchronousQueue_TransferStack_REQUEST 0
-#define JavaUtilConcurrentSynchronousQueue_TransferStack_DATA 1
-#define JavaUtilConcurrentSynchronousQueue_TransferStack_FULFILLING 2
+#endif
+
+#if !defined (JavaUtilConcurrentSynchronousQueue_TransferStack_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_TransferStack_INCLUDE))
+#define JavaUtilConcurrentSynchronousQueue_TransferStack_
+
+@class JavaUtilConcurrentSynchronousQueue_TransferStack_SNode;
 
 /*!
  @brief Dual stack
@@ -323,6 +393,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_Transferer)
    */
   volatile_id head_;
 }
+
++ (jint)REQUEST;
+
++ (jint)DATA;
+
++ (jint)FULFILLING;
 
 #pragma mark Package-Private
 
@@ -384,11 +460,26 @@ J2OBJC_STATIC_INIT(JavaUtilConcurrentSynchronousQueue_TransferStack)
 
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentSynchronousQueue_TransferStack, head_, JavaUtilConcurrentSynchronousQueue_TransferStack_SNode *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentSynchronousQueue_TransferStack, REQUEST, jint)
+/*!
+ @brief Node represents an unfulfilled consumer
+ */
+inline jint JavaUtilConcurrentSynchronousQueue_TransferStack_get_REQUEST();
+#define JavaUtilConcurrentSynchronousQueue_TransferStack_REQUEST 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentSynchronousQueue_TransferStack, REQUEST, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentSynchronousQueue_TransferStack, DATA, jint)
+/*!
+ @brief Node represents an unfulfilled producer
+ */
+inline jint JavaUtilConcurrentSynchronousQueue_TransferStack_get_DATA();
+#define JavaUtilConcurrentSynchronousQueue_TransferStack_DATA 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentSynchronousQueue_TransferStack, DATA, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentSynchronousQueue_TransferStack, FULFILLING, jint)
+/*!
+ @brief Node is fulfilling another unfulfilled DATA or REQUEST
+ */
+inline jint JavaUtilConcurrentSynchronousQueue_TransferStack_get_FULFILLING();
+#define JavaUtilConcurrentSynchronousQueue_TransferStack_FULFILLING 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentSynchronousQueue_TransferStack, FULFILLING, jint)
 
 FOUNDATION_EXPORT jboolean JavaUtilConcurrentSynchronousQueue_TransferStack_isFulfillingWithInt_(jint m);
 
@@ -399,6 +490,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_TransferStack_init(Jav
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferStack *new_JavaUtilConcurrentSynchronousQueue_TransferStack_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferStack)
+
+#endif
+
+#if !defined (JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_INCLUDE))
+#define JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_
+
+@class JavaLangThread;
 
 /*!
  @brief Node class for TransferStacks.
@@ -449,6 +547,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_in
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferStack_SNode *new_JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_initWithId_(id item) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferStack_SNode)
+
+#endif
+
+#if !defined (JavaUtilConcurrentSynchronousQueue_TransferQueue_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_TransferQueue_INCLUDE))
+#define JavaUtilConcurrentSynchronousQueue_TransferQueue_
+
+@class JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode;
 
 /*!
  @brief Dual Queue
@@ -534,6 +639,13 @@ FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferQueue *new_JavaUtil
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferQueue)
 
+#endif
+
+#if !defined (JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode_INCLUDE))
+#define JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode_
+
+@class JavaLangThread;
+
 /*!
  @brief Node class for TransferQueue.
  */
@@ -584,6 +696,15 @@ FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode *new_Ja
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode)
 
+#endif
+
+#if !defined (JavaUtilConcurrentSynchronousQueue_WaitQueue_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_WaitQueue_INCLUDE))
+#define JavaUtilConcurrentSynchronousQueue_WaitQueue_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
 @interface JavaUtilConcurrentSynchronousQueue_WaitQueue : NSObject < JavaIoSerializable >
 
 #pragma mark Package-Private
@@ -599,6 +720,11 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_WaitQueue_init(JavaUti
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_WaitQueue *new_JavaUtilConcurrentSynchronousQueue_WaitQueue_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_WaitQueue)
+
+#endif
+
+#if !defined (JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_INCLUDE))
+#define JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_
 
 @interface JavaUtilConcurrentSynchronousQueue_LifoWaitQueue : JavaUtilConcurrentSynchronousQueue_WaitQueue
 
@@ -616,6 +742,11 @@ FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_LifoWaitQueue *new_JavaUtil
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_LifoWaitQueue)
 
+#endif
+
+#if !defined (JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_INCLUDE))
+#define JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_
+
 @interface JavaUtilConcurrentSynchronousQueue_FifoWaitQueue : JavaUtilConcurrentSynchronousQueue_WaitQueue
 
 #pragma mark Package-Private
@@ -632,4 +763,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_FifoWaitQueue *new_JavaUtil
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_FifoWaitQueue)
 
-#endif // _JavaUtilConcurrentSynchronousQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL")

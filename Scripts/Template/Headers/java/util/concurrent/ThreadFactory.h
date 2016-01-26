@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ThreadFactory.java
 //
 
-#ifndef _JavaUtilConcurrentThreadFactory_H_
-#define _JavaUtilConcurrentThreadFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentThreadFactory_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentThreadFactory_RESTRICT
+#define JavaUtilConcurrentThreadFactory_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentThreadFactory_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentThreadFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentThreadFactory_) && (JavaUtilConcurrentThreadFactory_INCLUDE_ALL || defined(JavaUtilConcurrentThreadFactory_INCLUDE))
+#define JavaUtilConcurrentThreadFactory_
 
 @class JavaLangThread;
 @protocol JavaLangRunnable;
@@ -50,4 +61,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentThreadFactory)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadFactory)
 
-#endif // _JavaUtilConcurrentThreadFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentThreadFactory_INCLUDE_ALL")

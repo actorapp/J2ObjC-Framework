@@ -3,13 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/StrictMath.java
 //
 
-#ifndef _JavaLangStrictMath_H_
-#define _JavaLangStrictMath_H_
-
 #include "../../J2ObjC_header.h"
 
-#define JavaLangStrictMath_E 2.718281828459045
-#define JavaLangStrictMath_PI 3.141592653589793
+#pragma push_macro("JavaLangStrictMath_INCLUDE_ALL")
+#ifdef JavaLangStrictMath_RESTRICT
+#define JavaLangStrictMath_INCLUDE_ALL 0
+#else
+#define JavaLangStrictMath_INCLUDE_ALL 1
+#endif
+#undef JavaLangStrictMath_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangStrictMath_) && (JavaLangStrictMath_INCLUDE_ALL || defined(JavaLangStrictMath_INCLUDE))
+#define JavaLangStrictMath_
 
 /*!
  @brief Class StrictMath provides basic math constants and operations such as
@@ -29,6 +37,10 @@
  <a href="http://www.netlib.org/fdlibm/">http://www.netlib.org/fdlibm/</a>
  */
 @interface JavaLangStrictMath : NSObject
+
++ (jdouble)E;
+
++ (jdouble)PI;
 
 #pragma mark Public
 
@@ -878,9 +890,20 @@
 
 J2OBJC_STATIC_INIT(JavaLangStrictMath)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangStrictMath, E, jdouble)
+/*!
+ @brief The double value closest to e, the base of the natural logarithm.
+ */
+inline jdouble JavaLangStrictMath_get_E();
+#define JavaLangStrictMath_E 2.718281828459045
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangStrictMath, E, jdouble)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangStrictMath, PI, jdouble)
+/*!
+ @brief The double value closest to pi, the ratio of a circle's circumference to
+ its diameter.
+ */
+inline jdouble JavaLangStrictMath_get_PI();
+#define JavaLangStrictMath_PI 3.141592653589793
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangStrictMath, PI, jdouble)
 
 FOUNDATION_EXPORT jdouble JavaLangStrictMath_absWithDouble_(jdouble d);
 
@@ -992,4 +1015,8 @@ FOUNDATION_EXPORT jfloat JavaLangStrictMath_scalbWithFloat_withInt_(jfloat d, ji
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangStrictMath)
 
-#endif // _JavaLangStrictMath_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangStrictMath_INCLUDE_ALL")

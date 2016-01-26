@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/annotation/IncompleteAnnotationException.java
 //
 
-#ifndef _JavaLangAnnotationIncompleteAnnotationException_H_
-#define _JavaLangAnnotationIncompleteAnnotationException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangAnnotationIncompleteAnnotationException_INCLUDE_ALL")
+#ifdef JavaLangAnnotationIncompleteAnnotationException_RESTRICT
+#define JavaLangAnnotationIncompleteAnnotationException_INCLUDE_ALL 0
+#else
+#define JavaLangAnnotationIncompleteAnnotationException_INCLUDE_ALL 1
+#endif
+#undef JavaLangAnnotationIncompleteAnnotationException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangAnnotationIncompleteAnnotationException_) && (JavaLangAnnotationIncompleteAnnotationException_INCLUDE_ALL || defined(JavaLangAnnotationIncompleteAnnotationException_INCLUDE))
+#define JavaLangAnnotationIncompleteAnnotationException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../../java/lang/RuntimeException.h"
 
 @class IOSClass;
@@ -55,4 +69,8 @@ FOUNDATION_EXPORT JavaLangAnnotationIncompleteAnnotationException *new_JavaLangA
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationIncompleteAnnotationException)
 
-#endif // _JavaLangAnnotationIncompleteAnnotationException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangAnnotationIncompleteAnnotationException_INCLUDE_ALL")

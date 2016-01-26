@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/locks/ReadWriteLock.java
 //
 
-#ifndef _JavaUtilConcurrentLocksReadWriteLock_H_
-#define _JavaUtilConcurrentLocksReadWriteLock_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentLocksReadWriteLock_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentLocksReadWriteLock_RESTRICT
+#define JavaUtilConcurrentLocksReadWriteLock_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentLocksReadWriteLock_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentLocksReadWriteLock_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentLocksReadWriteLock_) && (JavaUtilConcurrentLocksReadWriteLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReadWriteLock_INCLUDE))
+#define JavaUtilConcurrentLocksReadWriteLock_
 
 @protocol JavaUtilConcurrentLocksLock;
 
@@ -74,6 +85,9 @@
  </ul>
  You should consider all of these things when evaluating the suitability
  of a given implementation for your application.
+ - seealso: ReentrantReadWriteLock
+ - seealso: Lock
+ - seealso: ReentrantLock
  @since 1.5
  @author Doug Lea
  */
@@ -97,4 +111,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentLocksReadWriteLock)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReadWriteLock)
 
-#endif // _JavaUtilConcurrentLocksReadWriteLock_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentLocksReadWriteLock_INCLUDE_ALL")

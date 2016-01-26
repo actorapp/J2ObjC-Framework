@@ -3,27 +3,35 @@
 //  source: apache_harmony/classlib/modules/math/src/main/java/java/math/BigDecimal.java
 //
 
-#ifndef _JavaMathBigDecimal_H_
-#define _JavaMathBigDecimal_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaMathBigDecimal_INCLUDE_ALL")
+#ifdef JavaMathBigDecimal_RESTRICT
+#define JavaMathBigDecimal_INCLUDE_ALL 0
+#else
+#define JavaMathBigDecimal_INCLUDE_ALL 1
+#endif
+#undef JavaMathBigDecimal_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaMathBigDecimal_) && (JavaMathBigDecimal_INCLUDE_ALL || defined(JavaMathBigDecimal_INCLUDE))
+#define JavaMathBigDecimal_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSCharArray;
 @class IOSObjectArray;
 @class JavaMathBigInteger;
 @class JavaMathMathContext;
-@class JavaMathRoundingModeEnum;
-
-#define JavaMathBigDecimal_ROUND_UP 0
-#define JavaMathBigDecimal_ROUND_DOWN 1
-#define JavaMathBigDecimal_ROUND_CEILING 2
-#define JavaMathBigDecimal_ROUND_FLOOR 3
-#define JavaMathBigDecimal_ROUND_HALF_UP 4
-#define JavaMathBigDecimal_ROUND_HALF_DOWN 5
-#define JavaMathBigDecimal_ROUND_HALF_EVEN 6
-#define JavaMathBigDecimal_ROUND_UNNECESSARY 7
+@class JavaMathRoundingMode;
 
 /*!
  @brief This class represents immutable arbitrary precision decimal numbers.
@@ -33,6 +41,28 @@
   is <code>unscaledValue</code> 10^(-<code>scale</code>).
  */
 @interface JavaMathBigDecimal : NSNumber < JavaLangComparable, JavaIoSerializable >
+
++ (JavaMathBigDecimal *)ZERO;
+
++ (JavaMathBigDecimal *)ONE;
+
++ (JavaMathBigDecimal *)TEN;
+
++ (jint)ROUND_UP;
+
++ (jint)ROUND_DOWN;
+
++ (jint)ROUND_CEILING;
+
++ (jint)ROUND_FLOOR;
+
++ (jint)ROUND_HALF_UP;
+
++ (jint)ROUND_HALF_DOWN;
+
++ (jint)ROUND_HALF_EVEN;
+
++ (jint)ROUND_UNNECESSARY;
 
 #pragma mark Public
 
@@ -494,7 +524,7 @@
  */
 - (JavaMathBigDecimal *)divideWithJavaMathBigDecimal:(JavaMathBigDecimal *)divisor
                                              withInt:(jint)scale_
-                        withJavaMathRoundingModeEnum:(JavaMathRoundingModeEnum *)roundingMode;
+                            withJavaMathRoundingMode:(JavaMathRoundingMode *)roundingMode;
 
 /*!
  @brief Returns a new <code>BigDecimal</code> whose value is <code>this / divisor</code>.
@@ -537,7 +567,7 @@
  rounding is necessary according to the scale of this.
  */
 - (JavaMathBigDecimal *)divideWithJavaMathBigDecimal:(JavaMathBigDecimal *)divisor
-                        withJavaMathRoundingModeEnum:(JavaMathRoundingModeEnum *)roundingMode;
+                            withJavaMathRoundingMode:(JavaMathRoundingMode *)roundingMode;
 
 /*!
  @brief Returns a <code>BigDecimal</code> array which contains the integral part of
@@ -555,6 +585,8 @@
  if <code>divisor == null</code>.
  @throws ArithmeticException
  if <code>divisor == 0</code>.
+ - seealso: #divideToIntegralValue
+ - seealso: #remainder
  */
 - (IOSObjectArray *)divideAndRemainderWithJavaMathBigDecimal:(JavaMathBigDecimal *)divisor;
 
@@ -579,6 +611,8 @@
  if <code>divisor == null</code>.
  @throws ArithmeticException
  if <code>divisor == 0</code>.
+ - seealso: #divideToIntegralValue
+ - seealso: #remainder
  */
 - (IOSObjectArray *)divideAndRemainderWithJavaMathBigDecimal:(JavaMathBigDecimal *)divisor
                                      withJavaMathMathContext:(JavaMathMathContext *)mc;
@@ -1040,7 +1074,7 @@
  necessary according to the given scale.
  */
 - (JavaMathBigDecimal *)setScaleWithInt:(jint)newScale
-           withJavaMathRoundingModeEnum:(JavaMathRoundingModeEnum *)roundingMode;
+               withJavaMathRoundingMode:(JavaMathRoundingMode *)roundingMode;
 
 /*!
  @brief Returns this <code>BigDecimal</code> as a short value if it has no fractional
@@ -1236,35 +1270,109 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaMathBigDecimal)
 
-FOUNDATION_EXPORT JavaMathBigDecimal *JavaMathBigDecimal_ZERO_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, ZERO_, JavaMathBigDecimal *)
+/*!
+ @brief The constant zero as a <code>BigDecimal</code>.
+ */
+inline JavaMathBigDecimal *JavaMathBigDecimal_get_ZERO();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathBigDecimal *JavaMathBigDecimal_ZERO;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathBigDecimal, ZERO, JavaMathBigDecimal *)
 
-FOUNDATION_EXPORT JavaMathBigDecimal *JavaMathBigDecimal_ONE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, ONE_, JavaMathBigDecimal *)
+/*!
+ @brief The constant one as a <code>BigDecimal</code>.
+ */
+inline JavaMathBigDecimal *JavaMathBigDecimal_get_ONE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathBigDecimal *JavaMathBigDecimal_ONE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathBigDecimal, ONE, JavaMathBigDecimal *)
 
-FOUNDATION_EXPORT JavaMathBigDecimal *JavaMathBigDecimal_TEN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, TEN_, JavaMathBigDecimal *)
+/*!
+ @brief The constant ten as a <code>BigDecimal</code>.
+ */
+inline JavaMathBigDecimal *JavaMathBigDecimal_get_TEN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathBigDecimal *JavaMathBigDecimal_TEN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathBigDecimal, TEN, JavaMathBigDecimal *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, ROUND_UP, jint)
+/*!
+ @brief Rounding mode where positive values are rounded towards positive infinity
+ and negative values towards negative infinity.
+ - seealso: RoundingMode#UP
+ */
+inline jint JavaMathBigDecimal_get_ROUND_UP();
+#define JavaMathBigDecimal_ROUND_UP 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigDecimal, ROUND_UP, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, ROUND_DOWN, jint)
+/*!
+ @brief Rounding mode where the values are rounded towards zero.
+ - seealso: RoundingMode#DOWN
+ */
+inline jint JavaMathBigDecimal_get_ROUND_DOWN();
+#define JavaMathBigDecimal_ROUND_DOWN 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigDecimal, ROUND_DOWN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, ROUND_CEILING, jint)
+/*!
+ @brief Rounding mode to round towards positive infinity.
+ For positive values
+ this rounding mode behaves as <code>ROUND_UP</code>, for negative values as
+ <code>ROUND_DOWN</code>.
+ - seealso: RoundingMode#CEILING
+ */
+inline jint JavaMathBigDecimal_get_ROUND_CEILING();
+#define JavaMathBigDecimal_ROUND_CEILING 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigDecimal, ROUND_CEILING, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, ROUND_FLOOR, jint)
+/*!
+ @brief Rounding mode to round towards negative infinity.
+ For positive values
+ this rounding mode behaves as <code>ROUND_DOWN</code>, for negative values as
+ <code>ROUND_UP</code>.
+ - seealso: RoundingMode#FLOOR
+ */
+inline jint JavaMathBigDecimal_get_ROUND_FLOOR();
+#define JavaMathBigDecimal_ROUND_FLOOR 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigDecimal, ROUND_FLOOR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, ROUND_HALF_UP, jint)
+/*!
+ @brief Rounding mode where values are rounded towards the nearest neighbor.
+ Ties are broken by rounding up.
+ - seealso: RoundingMode#HALF_UP
+ */
+inline jint JavaMathBigDecimal_get_ROUND_HALF_UP();
+#define JavaMathBigDecimal_ROUND_HALF_UP 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigDecimal, ROUND_HALF_UP, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, ROUND_HALF_DOWN, jint)
+/*!
+ @brief Rounding mode where values are rounded towards the nearest neighbor.
+ Ties are broken by rounding down.
+ - seealso: RoundingMode#HALF_DOWN
+ */
+inline jint JavaMathBigDecimal_get_ROUND_HALF_DOWN();
+#define JavaMathBigDecimal_ROUND_HALF_DOWN 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigDecimal, ROUND_HALF_DOWN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, ROUND_HALF_EVEN, jint)
+/*!
+ @brief Rounding mode where values are rounded towards the nearest neighbor.
+ Ties are broken by rounding to the even neighbor.
+ - seealso: RoundingMode#HALF_EVEN
+ */
+inline jint JavaMathBigDecimal_get_ROUND_HALF_EVEN();
+#define JavaMathBigDecimal_ROUND_HALF_EVEN 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigDecimal, ROUND_HALF_EVEN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigDecimal, ROUND_UNNECESSARY, jint)
+/*!
+ @brief Rounding mode where the rounding operations throws an <code>ArithmeticException</code>
+  for the case that rounding is necessary, i.e. for
+ the case that the value cannot be represented exactly.
+ - seealso: RoundingMode#UNNECESSARY
+ */
+inline jint JavaMathBigDecimal_get_ROUND_UNNECESSARY();
+#define JavaMathBigDecimal_ROUND_UNNECESSARY 7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigDecimal, ROUND_UNNECESSARY, jint)
 
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithCharArray_withInt_withInt_(JavaMathBigDecimal *self, IOSCharArray *inArg, jint offset, jint len);
 
@@ -1338,4 +1446,8 @@ FOUNDATION_EXPORT JavaMathBigDecimal *JavaMathBigDecimal_valueOfWithDouble_(jdou
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaMathBigDecimal)
 
-#endif // _JavaMathBigDecimal_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaMathBigDecimal_INCLUDE_ALL")

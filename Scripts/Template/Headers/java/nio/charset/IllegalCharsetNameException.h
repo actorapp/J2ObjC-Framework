@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/IllegalCharsetNameException.java
 //
 
-#ifndef _JavaNioCharsetIllegalCharsetNameException_H_
-#define _JavaNioCharsetIllegalCharsetNameException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioCharsetIllegalCharsetNameException_INCLUDE_ALL")
+#ifdef JavaNioCharsetIllegalCharsetNameException_RESTRICT
+#define JavaNioCharsetIllegalCharsetNameException_INCLUDE_ALL 0
+#else
+#define JavaNioCharsetIllegalCharsetNameException_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharsetIllegalCharsetNameException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharsetIllegalCharsetNameException_) && (JavaNioCharsetIllegalCharsetNameException_INCLUDE_ALL || defined(JavaNioCharsetIllegalCharsetNameException_INCLUDE))
+#define JavaNioCharsetIllegalCharsetNameException_
+
+#define JavaLangIllegalArgumentException_RESTRICT 1
+#define JavaLangIllegalArgumentException_INCLUDE 1
 #include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -40,4 +54,8 @@ FOUNDATION_EXPORT JavaNioCharsetIllegalCharsetNameException *new_JavaNioCharsetI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetIllegalCharsetNameException)
 
-#endif // _JavaNioCharsetIllegalCharsetNameException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharsetIllegalCharsetNameException_INCLUDE_ALL")

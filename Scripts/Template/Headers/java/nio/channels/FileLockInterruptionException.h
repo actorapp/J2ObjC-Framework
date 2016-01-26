@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/FileLockInterruptionException.java
 //
 
-#ifndef _JavaNioChannelsFileLockInterruptionException_H_
-#define _JavaNioChannelsFileLockInterruptionException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsFileLockInterruptionException_INCLUDE_ALL")
+#ifdef JavaNioChannelsFileLockInterruptionException_RESTRICT
+#define JavaNioChannelsFileLockInterruptionException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsFileLockInterruptionException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsFileLockInterruptionException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsFileLockInterruptionException_) && (JavaNioChannelsFileLockInterruptionException_INCLUDE_ALL || defined(JavaNioChannelsFileLockInterruptionException_INCLUDE))
+#define JavaNioChannelsFileLockInterruptionException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../../java/io/IOException.h"
 
 /*!
@@ -34,4 +48,8 @@ FOUNDATION_EXPORT JavaNioChannelsFileLockInterruptionException *new_JavaNioChann
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileLockInterruptionException)
 
-#endif // _JavaNioChannelsFileLockInterruptionException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsFileLockInterruptionException_INCLUDE_ALL")

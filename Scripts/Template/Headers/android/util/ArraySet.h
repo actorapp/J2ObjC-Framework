@@ -3,11 +3,28 @@
 //  source: android/frameworks/base/core/java/android/util/ArraySet.java
 //
 
-#ifndef _AndroidUtilArraySet_H_
-#define _AndroidUtilArraySet_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidUtilArraySet_INCLUDE_ALL")
+#ifdef AndroidUtilArraySet_RESTRICT
+#define AndroidUtilArraySet_INCLUDE_ALL 0
+#else
+#define AndroidUtilArraySet_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilArraySet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilArraySet_) && (AndroidUtilArraySet_INCLUDE_ALL || defined(AndroidUtilArraySet_INCLUDE))
+#define AndroidUtilArraySet_
+
+#define JavaUtilCollection_RESTRICT 1
+#define JavaUtilCollection_INCLUDE 1
 #include "../../java/util/Collection.h"
+
+#define JavaUtilSet_RESTRICT 1
+#define JavaUtilSet_INCLUDE 1
 #include "../../java/util/Set.h"
 
 @class AndroidUtilMapCollections;
@@ -40,6 +57,22 @@
   jint mSize_;
   AndroidUtilMapCollections *mCollections_;
 }
+
++ (IOSObjectArray *)mBaseCache;
+
++ (void)setMBaseCache:(IOSObjectArray *)value;
+
++ (jint)mBaseCacheSize;
+
++ (void)setMBaseCacheSize:(jint)value;
+
++ (IOSObjectArray *)mTwiceBaseCache;
+
++ (void)setMTwiceBaseCache:(IOSObjectArray *)value;
+
++ (jint)mTwiceBaseCacheSize;
+
++ (void)setMTwiceBaseCacheSize:(jint)value;
 
 #pragma mark Public
 
@@ -168,7 +201,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(AndroidUtilArraySet)
@@ -177,20 +209,39 @@ J2OBJC_FIELD_SETTER(AndroidUtilArraySet, mHashes_, IOSIntArray *)
 J2OBJC_FIELD_SETTER(AndroidUtilArraySet, mArray_, IOSObjectArray *)
 J2OBJC_FIELD_SETTER(AndroidUtilArraySet, mCollections_, AndroidUtilMapCollections *)
 
-FOUNDATION_EXPORT IOSObjectArray *AndroidUtilArraySet_mBaseCache_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilArraySet, mBaseCache_, IOSObjectArray *)
-J2OBJC_STATIC_FIELD_SETTER(AndroidUtilArraySet, mBaseCache_, IOSObjectArray *)
+/*!
+ @brief Caches of small array objects to avoid spamming garbage.
+ The cache
+ Object[] variable is a pointer to a linked list of array objects.
+ The first entry in the array is a pointer to the next array in the
+ list; the second entry is a pointer to the int[] hash code array for it.
+ */
+inline IOSObjectArray *AndroidUtilArraySet_get_mBaseCache();
+inline IOSObjectArray *AndroidUtilArraySet_set_mBaseCache(IOSObjectArray *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSObjectArray *AndroidUtilArraySet_mBaseCache;
+J2OBJC_STATIC_FIELD_OBJ(AndroidUtilArraySet, mBaseCache, IOSObjectArray *)
 
-FOUNDATION_EXPORT jint AndroidUtilArraySet_mBaseCacheSize_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilArraySet, mBaseCacheSize_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(AndroidUtilArraySet, mBaseCacheSize_, jint)
-FOUNDATION_EXPORT IOSObjectArray *AndroidUtilArraySet_mTwiceBaseCache_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilArraySet, mTwiceBaseCache_, IOSObjectArray *)
-J2OBJC_STATIC_FIELD_SETTER(AndroidUtilArraySet, mTwiceBaseCache_, IOSObjectArray *)
+inline jint AndroidUtilArraySet_get_mBaseCacheSize();
+inline jint AndroidUtilArraySet_set_mBaseCacheSize(jint value);
+inline jint *AndroidUtilArraySet_getRef_mBaseCacheSize();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint AndroidUtilArraySet_mBaseCacheSize;
+J2OBJC_STATIC_FIELD_PRIMITIVE(AndroidUtilArraySet, mBaseCacheSize, jint)
 
-FOUNDATION_EXPORT jint AndroidUtilArraySet_mTwiceBaseCacheSize_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilArraySet, mTwiceBaseCacheSize_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(AndroidUtilArraySet, mTwiceBaseCacheSize_, jint)
+inline IOSObjectArray *AndroidUtilArraySet_get_mTwiceBaseCache();
+inline IOSObjectArray *AndroidUtilArraySet_set_mTwiceBaseCache(IOSObjectArray *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSObjectArray *AndroidUtilArraySet_mTwiceBaseCache;
+J2OBJC_STATIC_FIELD_OBJ(AndroidUtilArraySet, mTwiceBaseCache, IOSObjectArray *)
+
+inline jint AndroidUtilArraySet_get_mTwiceBaseCacheSize();
+inline jint AndroidUtilArraySet_set_mTwiceBaseCacheSize(jint value);
+inline jint *AndroidUtilArraySet_getRef_mTwiceBaseCacheSize();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint AndroidUtilArraySet_mTwiceBaseCacheSize;
+J2OBJC_STATIC_FIELD_PRIMITIVE(AndroidUtilArraySet, mTwiceBaseCacheSize, jint)
+
 FOUNDATION_EXPORT void AndroidUtilArraySet_init(AndroidUtilArraySet *self);
 
 FOUNDATION_EXPORT AndroidUtilArraySet *new_AndroidUtilArraySet_init() NS_RETURNS_RETAINED;
@@ -205,4 +256,8 @@ FOUNDATION_EXPORT AndroidUtilArraySet *new_AndroidUtilArraySet_initWithAndroidUt
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilArraySet)
 
-#endif // _AndroidUtilArraySet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilArraySet_INCLUDE_ALL")

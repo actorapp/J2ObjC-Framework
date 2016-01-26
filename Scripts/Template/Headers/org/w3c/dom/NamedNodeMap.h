@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/NamedNodeMap.java
 //
 
-#ifndef _OrgW3cDomNamedNodeMap_H_
-#define _OrgW3cDomNamedNodeMap_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomNamedNodeMap_INCLUDE_ALL")
+#ifdef OrgW3cDomNamedNodeMap_RESTRICT
+#define OrgW3cDomNamedNodeMap_INCLUDE_ALL 0
+#else
+#define OrgW3cDomNamedNodeMap_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomNamedNodeMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomNamedNodeMap_) && (OrgW3cDomNamedNodeMap_INCLUDE_ALL || defined(OrgW3cDomNamedNodeMap_INCLUDE))
+#define OrgW3cDomNamedNodeMap_
 
 @protocol OrgW3cDomNode;
 
@@ -187,4 +198,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomNamedNodeMap)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomNamedNodeMap)
 
-#endif // _OrgW3cDomNamedNodeMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomNamedNodeMap_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/CharSequence.java
 //
 
-#ifndef _JavaLangCharSequence_H_
-#define _JavaLangCharSequence_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangCharSequence_INCLUDE_ALL")
+#ifdef JavaLangCharSequence_RESTRICT
+#define JavaLangCharSequence_INCLUDE_ALL 0
+#else
+#define JavaLangCharSequence_INCLUDE_ALL 1
+#endif
+#undef JavaLangCharSequence_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangCharSequence_) && (JavaLangCharSequence_INCLUDE_ALL || defined(JavaLangCharSequence_INCLUDE))
+#define JavaLangCharSequence_
 
 /*!
  @brief This interface represents an ordered set of characters and defines the
@@ -59,4 +70,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangCharSequence)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangCharSequence)
 
-#endif // _JavaLangCharSequence_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangCharSequence_INCLUDE_ALL")

@@ -3,12 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/text/CharacterIterator.java
 //
 
-#ifndef _JavaTextCharacterIterator_H_
-#define _JavaTextCharacterIterator_H_
-
 #include "../../J2ObjC_header.h"
 
-#define JavaTextCharacterIterator_DONE 0xffff
+#pragma push_macro("JavaTextCharacterIterator_INCLUDE_ALL")
+#ifdef JavaTextCharacterIterator_RESTRICT
+#define JavaTextCharacterIterator_INCLUDE_ALL 0
+#else
+#define JavaTextCharacterIterator_INCLUDE_ALL 1
+#endif
+#undef JavaTextCharacterIterator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextCharacterIterator_) && (JavaTextCharacterIterator_INCLUDE_ALL || defined(JavaTextCharacterIterator_INCLUDE))
+#define JavaTextCharacterIterator_
 
 /*!
  @brief An interface for the bidirectional iteration over a group of characters.
@@ -21,6 +30,7 @@
 /*!
  @brief Returns a new <code>CharacterIterator</code> with the same properties.
  @return a shallow copy of this character iterator.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -92,10 +102,26 @@
 
 @end
 
+@interface JavaTextCharacterIterator : NSObject
+
++ (jchar)DONE;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaTextCharacterIterator)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextCharacterIterator, DONE, jchar)
+/*!
+ @brief A constant which indicates that there is no character at the current
+ index.
+ */
+inline jchar JavaTextCharacterIterator_get_DONE();
+#define JavaTextCharacterIterator_DONE 0xffff
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextCharacterIterator, DONE, jchar)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextCharacterIterator)
 
-#endif // _JavaTextCharacterIterator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextCharacterIterator_INCLUDE_ALL")

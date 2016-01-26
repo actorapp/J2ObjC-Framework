@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/Properties.java
 //
 
-#ifndef _JavaUtilProperties_H_
-#define _JavaUtilProperties_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilProperties_INCLUDE_ALL")
+#ifdef JavaUtilProperties_RESTRICT
+#define JavaUtilProperties_INCLUDE_ALL 0
+#else
+#define JavaUtilProperties_INCLUDE_ALL 1
+#endif
+#undef JavaUtilProperties_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilProperties_) && (JavaUtilProperties_INCLUDE_ALL || defined(JavaUtilProperties_INCLUDE))
+#define JavaUtilProperties_
+
+#define JavaUtilHashtable_RESTRICT 1
+#define JavaUtilHashtable_INCLUDE 1
 #include "../../java/util/Hashtable.h"
 
 @class JavaIoInputStream;
@@ -31,6 +45,8 @@
  Use either the <code>loadFromXML</code>/<code>storeToXML</code> methods (which use UTF-8 by
  default) or the <code>load</code>/<code>store</code> overloads that take
  an <code>OutputStreamWriter</code> (so you can supply a UTF-8 instance) instead.
+ - seealso: Hashtable
+ - seealso: java.lang.System#getProperties
  */
 @interface JavaUtilProperties : JavaUtilHashtable {
  @public
@@ -165,7 +181,7 @@
  String.
  */
 - (void)saveWithJavaIoOutputStream:(JavaIoOutputStream *)outArg
-                      withNSString:(NSString *)comment;
+                      withNSString:(NSString *)comment __attribute__((deprecated));
 
 /*!
  @brief Maps the specified key to the specified value.
@@ -270,4 +286,42 @@ FOUNDATION_EXPORT JavaUtilProperties *new_JavaUtilProperties_initWithJavaUtilPro
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties)
 
-#endif // _JavaUtilProperties_H_
+#endif
+
+#if !defined (JavaUtilProperties_XmlLoader_) && (JavaUtilProperties_INCLUDE_ALL || defined(JavaUtilProperties_XmlLoader_INCLUDE))
+#define JavaUtilProperties_XmlLoader_
+
+@class JavaIoInputStream;
+@class JavaUtilProperties;
+
+/*!
+ @brief Creates a dynamic dependency on XML support so that XML support can be excluded from the
+ application binary without incurring link errors.
+ */
+@protocol JavaUtilProperties_XmlLoader < NSObject, JavaObject >
+
+- (void)load__WithJavaUtilProperties:(JavaUtilProperties *)p
+               withJavaIoInputStream:(JavaIoInputStream *)inArg;
+
+@end
+
+@interface JavaUtilProperties_XmlLoader : NSObject
+
++ (id<JavaUtilProperties_XmlLoader>)INSTANCE;
+
+@end
+
+J2OBJC_STATIC_INIT(JavaUtilProperties_XmlLoader)
+
+inline id<JavaUtilProperties_XmlLoader> JavaUtilProperties_XmlLoader_get_INSTANCE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilProperties_XmlLoader> JavaUtilProperties_XmlLoader_INSTANCE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilProperties_XmlLoader, INSTANCE, id<JavaUtilProperties_XmlLoader>)
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties_XmlLoader)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilProperties_INCLUDE_ALL")

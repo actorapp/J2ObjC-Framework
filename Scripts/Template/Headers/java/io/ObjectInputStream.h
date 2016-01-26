@@ -3,12 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectInputStream.java
 //
 
-#ifndef _JavaIoObjectInputStream_H_
-#define _JavaIoObjectInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoObjectInputStream_INCLUDE_ALL")
+#ifdef JavaIoObjectInputStream_RESTRICT
+#define JavaIoObjectInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoObjectInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoObjectInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoObjectInputStream_) && (JavaIoObjectInputStream_INCLUDE_ALL || defined(JavaIoObjectInputStream_INCLUDE))
+#define JavaIoObjectInputStream_
+
+#define JavaIoInputStream_RESTRICT 1
+#define JavaIoInputStream_INCLUDE 1
 #include "../../java/io/InputStream.h"
+
+#define JavaIoObjectInput_RESTRICT 1
+#define JavaIoObjectInput_INCLUDE 1
 #include "../../java/io/ObjectInput.h"
+
+#define JavaIoObjectStreamConstants_RESTRICT 1
+#define JavaIoObjectStreamConstants_INCLUDE 1
 #include "../../java/io/ObjectStreamConstants.h"
 
 @class IOSByteArray;
@@ -23,6 +43,10 @@
  objects as well as primitive data types (int, byte, char etc.).
  The data has
  typically been saved using an ObjectOutputStream.
+ - seealso: ObjectOutputStream
+ - seealso: ObjectInput
+ - seealso: Serializable
+ - seealso: Externalizable
  */
 @interface JavaIoObjectInputStream : JavaIoInputStream < JavaIoObjectInput, JavaIoObjectStreamConstants >
 
@@ -62,6 +86,7 @@
  if an I/O error occurs while reading the object data.
  @throws NotActiveException
  if this method is not called from <code>readObject()</code>.
+ - seealso: ObjectOutputStream#defaultWriteObject
  */
 - (void)defaultReadObject;
 
@@ -229,7 +254,7 @@
  @throws IOException
  if an error occurs while reading from the source stream.
  */
-- (NSString *)readLine;
+- (NSString *)readLine __attribute__((deprecated));
 
 /*!
  @brief Reads a long (64 bit) from the source stream.
@@ -252,6 +277,7 @@
  if an error occurs while reading from the source stream.
  @throws OptionalDataException
  if primitive data types were found instead of an object.
+ - seealso: ObjectOutputStream#writeObject(Object)
  */
 - (id)readObject;
 
@@ -271,6 +297,7 @@
  be found.
  @throws IOException
  if an error occurs while reading from the source stream.
+ - seealso: ObjectOutputStream#writeUnshared
  */
 - (id)readUnshared;
 
@@ -329,6 +356,7 @@
  @throws NotActiveException
  if this stream is currently not reading objects. In that
  case, calling this method is not allowed.
+ - seealso: ObjectInputValidation#validateObject()
  */
 - (void)registerValidationWithJavaIoObjectInputValidation:(id<JavaIoObjectInputValidation>)object
                                                   withInt:(jint)priority;
@@ -369,6 +397,8 @@
  <code>true</code> to enable object replacement; <code>false</code> to
  disable it.
  @return the previous setting.
+ - seealso: #resolveObject
+ - seealso: ObjectOutputStream#enableReplaceObject
  */
 - (jboolean)enableResolveObjectWithBoolean:(jboolean)enable;
 
@@ -393,6 +423,7 @@
  if an error occurs while reading from the source stream.
  @throws OptionalDataException
  if primitive data types were found instead of an object.
+ - seealso: ObjectOutputStream#writeObjectOverride
  */
 - (id)readObjectOverride;
 
@@ -416,6 +447,7 @@
  if the class for an object cannot be found.
  @throws IOException
  if an I/O error occurs while creating the class.
+ - seealso: ObjectOutputStream#annotateClass(Class)
  */
 - (IOSClass *)resolveClassWithJavaIoObjectStreamClass:(JavaIoObjectStreamClass *)osClass;
 
@@ -431,6 +463,9 @@
  @throws IOException
  if any I/O error occurs while creating the replacement
  object.
+ - seealso: #enableResolveObject
+ - seealso: ObjectOutputStream#enableReplaceObject
+ - seealso: ObjectOutputStream#replaceObject
  */
 - (id)resolveObjectWithId:(id)object;
 
@@ -445,6 +480,7 @@
  be created.
  @throws IOException
  if an error occurs while reading from the source stream.
+ - seealso: ObjectOutputStream#annotateProxyClass(Class)
  */
 - (IOSClass *)resolveProxyClassWithNSStringArray:(IOSObjectArray *)interfaceNames;
 
@@ -461,6 +497,13 @@ FOUNDATION_EXPORT void JavaIoObjectInputStream_initWithJavaIoInputStream_(JavaIo
 FOUNDATION_EXPORT JavaIoObjectInputStream *new_JavaIoObjectInputStream_initWithJavaIoInputStream_(JavaIoInputStream *input) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInputStream)
+
+#endif
+
+#if !defined (JavaIoObjectInputStream_InputValidationDesc_) && (JavaIoObjectInputStream_INCLUDE_ALL || defined(JavaIoObjectInputStream_InputValidationDesc_INCLUDE))
+#define JavaIoObjectInputStream_InputValidationDesc_
+
+@protocol JavaIoObjectInputValidation;
 
 @interface JavaIoObjectInputStream_InputValidationDesc : NSObject {
  @public
@@ -483,6 +526,13 @@ FOUNDATION_EXPORT void JavaIoObjectInputStream_InputValidationDesc_init(JavaIoOb
 FOUNDATION_EXPORT JavaIoObjectInputStream_InputValidationDesc *new_JavaIoObjectInputStream_InputValidationDesc_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInputStream_InputValidationDesc)
+
+#endif
+
+#if !defined (JavaIoObjectInputStream_GetField_) && (JavaIoObjectInputStream_INCLUDE_ALL || defined(JavaIoObjectInputStream_GetField_INCLUDE))
+#define JavaIoObjectInputStream_GetField_
+
+@class JavaIoObjectStreamClass;
 
 /*!
  @brief GetField is an inner class that provides access to the persistent fields
@@ -695,4 +745,8 @@ FOUNDATION_EXPORT void JavaIoObjectInputStream_GetField_init(JavaIoObjectInputSt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInputStream_GetField)
 
-#endif // _JavaIoObjectInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoObjectInputStream_INCLUDE_ALL")

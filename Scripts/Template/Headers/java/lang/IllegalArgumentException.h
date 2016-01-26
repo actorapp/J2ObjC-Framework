@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/IllegalArgumentException.java
 //
 
-#ifndef _JavaLangIllegalArgumentException_H_
-#define _JavaLangIllegalArgumentException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangIllegalArgumentException_INCLUDE_ALL")
+#ifdef JavaLangIllegalArgumentException_RESTRICT
+#define JavaLangIllegalArgumentException_INCLUDE_ALL 0
+#else
+#define JavaLangIllegalArgumentException_INCLUDE_ALL 1
+#endif
+#undef JavaLangIllegalArgumentException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangIllegalArgumentException_) && (JavaLangIllegalArgumentException_INCLUDE_ALL || defined(JavaLangIllegalArgumentException_INCLUDE))
+#define JavaLangIllegalArgumentException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 @class JavaLangThrowable;
@@ -76,4 +90,8 @@ FOUNDATION_EXPORT JavaLangIllegalArgumentException *new_JavaLangIllegalArgumentE
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalArgumentException)
 
-#endif // _JavaLangIllegalArgumentException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangIllegalArgumentException_INCLUDE_ALL")

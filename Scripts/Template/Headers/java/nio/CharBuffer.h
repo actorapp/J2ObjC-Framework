@@ -3,15 +3,41 @@
 //  source: android/libcore/luni/src/main/java/java/nio/CharBuffer.java
 //
 
-#ifndef _JavaNioCharBuffer_H_
-#define _JavaNioCharBuffer_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Appendable.h"
-#include "../../java/lang/CharSequence.h"
-#include "../../java/lang/Comparable.h"
-#include "../../java/lang/Readable.h"
+
+#pragma push_macro("JavaNioCharBuffer_INCLUDE_ALL")
+#ifdef JavaNioCharBuffer_RESTRICT
+#define JavaNioCharBuffer_INCLUDE_ALL 0
+#else
+#define JavaNioCharBuffer_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharBuffer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharBuffer_) && (JavaNioCharBuffer_INCLUDE_ALL || defined(JavaNioCharBuffer_INCLUDE))
+#define JavaNioCharBuffer_
+
+#define JavaNioBuffer_RESTRICT 1
+#define JavaNioBuffer_INCLUDE 1
 #include "../../java/nio/Buffer.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
+#include "../../java/lang/Comparable.h"
+
+#define JavaLangCharSequence_RESTRICT 1
+#define JavaLangCharSequence_INCLUDE 1
+#include "../../java/lang/CharSequence.h"
+
+#define JavaLangAppendable_RESTRICT 1
+#define JavaLangAppendable_INCLUDE 1
+#include "../../java/lang/Appendable.h"
+
+#define JavaLangReadable_RESTRICT 1
+#define JavaLangReadable_INCLUDE 1
+#include "../../java/lang/Readable.h"
 
 @class IOSCharArray;
 @class JavaNioByteOrder;
@@ -533,16 +559,19 @@
 
 /*!
  @brief Child class implements this method to realize <code>array()</code>.
+ - seealso: #array()
  */
 - (IOSCharArray *)protectedArray;
 
 /*!
  @brief Child class implements this method to realize <code>arrayOffset()</code>.
+ - seealso: #arrayOffset()
  */
 - (jint)protectedArrayOffset;
 
 /*!
  @brief Child class implements this method to realize <code>hasArray()</code>.
+ - seealso: #hasArray()
  */
 - (jboolean)protectedHasArray;
 
@@ -564,4 +593,8 @@ FOUNDATION_EXPORT void JavaNioCharBuffer_initWithInt_withLong_(JavaNioCharBuffer
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharBuffer)
 
-#endif // _JavaNioCharBuffer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharBuffer_INCLUDE_ALL")

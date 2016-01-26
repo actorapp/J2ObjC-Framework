@@ -3,15 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/ZipException.java
 //
 
-#ifndef _JavaUtilZipZipException_H_
-#define _JavaUtilZipZipException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipZipException_INCLUDE_ALL")
+#ifdef JavaUtilZipZipException_RESTRICT
+#define JavaUtilZipZipException_INCLUDE_ALL 0
+#else
+#define JavaUtilZipZipException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipZipException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipZipException_) && (JavaUtilZipZipException_INCLUDE_ALL || defined(JavaUtilZipZipException_INCLUDE))
+#define JavaUtilZipZipException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../../java/io/IOException.h"
 
 /*!
  @brief This runtime exception is thrown by <code>ZipFile</code> and <code>ZipInputStream</code>
   when the file or stream is not a valid zip file.
+ - seealso: ZipFile
+ - seealso: ZipInputStream
  */
 @interface JavaUtilZipZipException : JavaIoIOException
 
@@ -44,4 +60,8 @@ FOUNDATION_EXPORT JavaUtilZipZipException *new_JavaUtilZipZipException_initWithN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipException)
 
-#endif // _JavaUtilZipZipException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipZipException_INCLUDE_ALL")

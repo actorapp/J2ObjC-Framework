@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/Extension.java
 //
 
-#ifndef _JavaSecurityCertExtension_H_
-#define _JavaSecurityCertExtension_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertExtension_INCLUDE_ALL")
+#ifdef JavaSecurityCertExtension_RESTRICT
+#define JavaSecurityCertExtension_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertExtension_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertExtension_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertExtension_) && (JavaSecurityCertExtension_INCLUDE_ALL || defined(JavaSecurityCertExtension_INCLUDE))
+#define JavaSecurityCertExtension_
 
 @class IOSByteArray;
 @class JavaIoOutputStream;
@@ -61,4 +72,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecurityCertExtension)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertExtension)
 
-#endif // _JavaSecurityCertExtension_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertExtension_INCLUDE_ALL")

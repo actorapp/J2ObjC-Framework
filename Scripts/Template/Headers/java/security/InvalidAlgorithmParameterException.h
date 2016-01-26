@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/InvalidAlgorithmParameterException.java
 //
 
-#ifndef _JavaSecurityInvalidAlgorithmParameterException_H_
-#define _JavaSecurityInvalidAlgorithmParameterException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityInvalidAlgorithmParameterException_INCLUDE_ALL")
+#ifdef JavaSecurityInvalidAlgorithmParameterException_RESTRICT
+#define JavaSecurityInvalidAlgorithmParameterException_INCLUDE_ALL 0
+#else
+#define JavaSecurityInvalidAlgorithmParameterException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityInvalidAlgorithmParameterException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityInvalidAlgorithmParameterException_) && (JavaSecurityInvalidAlgorithmParameterException_INCLUDE_ALL || defined(JavaSecurityInvalidAlgorithmParameterException_INCLUDE))
+#define JavaSecurityInvalidAlgorithmParameterException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
 #include "../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
@@ -73,4 +87,8 @@ FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *new_JavaSecuri
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInvalidAlgorithmParameterException)
 
-#endif // _JavaSecurityInvalidAlgorithmParameterException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityInvalidAlgorithmParameterException_INCLUDE_ALL")

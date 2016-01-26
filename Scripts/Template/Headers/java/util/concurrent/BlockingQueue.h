@@ -3,13 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/BlockingQueue.java
 //
 
-#ifndef _JavaUtilConcurrentBlockingQueue_H_
-#define _JavaUtilConcurrentBlockingQueue_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentBlockingQueue_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentBlockingQueue_RESTRICT
+#define JavaUtilConcurrentBlockingQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentBlockingQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentBlockingQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentBlockingQueue_) && (JavaUtilConcurrentBlockingQueue_INCLUDE_ALL || defined(JavaUtilConcurrentBlockingQueue_INCLUDE))
+#define JavaUtilConcurrentBlockingQueue_
+
+#define JavaUtilQueue_RESTRICT 1
+#define JavaUtilQueue_INCLUDE 1
 #include "../../../java/util/Queue.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilCollection;
 
 /*!
@@ -209,7 +223,7 @@
  */
 - (jboolean)offerWithId:(id)e
                withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Retrieves and removes the head of this queue, waiting if necessary
@@ -231,7 +245,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  @throws InterruptedException if interrupted while waiting
  */
 - (id)pollWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Returns the number of additional elements that this queue can ideally
@@ -335,4 +349,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentBlockingQueue)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentBlockingQueue)
 
-#endif // _JavaUtilConcurrentBlockingQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentBlockingQueue_INCLUDE_ALL")

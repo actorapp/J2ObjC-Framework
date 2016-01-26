@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/NoSuchAlgorithmException.java
 //
 
-#ifndef _JavaSecurityNoSuchAlgorithmException_H_
-#define _JavaSecurityNoSuchAlgorithmException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityNoSuchAlgorithmException_INCLUDE_ALL")
+#ifdef JavaSecurityNoSuchAlgorithmException_RESTRICT
+#define JavaSecurityNoSuchAlgorithmException_INCLUDE_ALL 0
+#else
+#define JavaSecurityNoSuchAlgorithmException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityNoSuchAlgorithmException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityNoSuchAlgorithmException_) && (JavaSecurityNoSuchAlgorithmException_INCLUDE_ALL || defined(JavaSecurityNoSuchAlgorithmException_INCLUDE))
+#define JavaSecurityNoSuchAlgorithmException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
 #include "../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
@@ -73,4 +87,8 @@ FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *new_JavaSecurityNoSuchAl
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityNoSuchAlgorithmException)
 
-#endif // _JavaSecurityNoSuchAlgorithmException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityNoSuchAlgorithmException_INCLUDE_ALL")

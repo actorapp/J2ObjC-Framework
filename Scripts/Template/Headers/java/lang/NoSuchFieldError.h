@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/NoSuchFieldError.java
 //
 
-#ifndef _JavaLangNoSuchFieldError_H_
-#define _JavaLangNoSuchFieldError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangNoSuchFieldError_INCLUDE_ALL")
+#ifdef JavaLangNoSuchFieldError_RESTRICT
+#define JavaLangNoSuchFieldError_INCLUDE_ALL 0
+#else
+#define JavaLangNoSuchFieldError_INCLUDE_ALL 1
+#endif
+#undef JavaLangNoSuchFieldError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangNoSuchFieldError_) && (JavaLangNoSuchFieldError_INCLUDE_ALL || defined(JavaLangNoSuchFieldError_INCLUDE))
+#define JavaLangNoSuchFieldError_
+
+#define JavaLangIncompatibleClassChangeError_RESTRICT 1
+#define JavaLangIncompatibleClassChangeError_INCLUDE 1
 #include "../../java/lang/IncompatibleClassChangeError.h"
 
 /*!
@@ -47,4 +61,8 @@ FOUNDATION_EXPORT JavaLangNoSuchFieldError *new_JavaLangNoSuchFieldError_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoSuchFieldError)
 
-#endif // _JavaLangNoSuchFieldError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangNoSuchFieldError_INCLUDE_ALL")

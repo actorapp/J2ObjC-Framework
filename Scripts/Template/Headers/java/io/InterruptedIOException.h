@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/InterruptedIOException.java
 //
 
-#ifndef _JavaIoInterruptedIOException_H_
-#define _JavaIoInterruptedIOException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoInterruptedIOException_INCLUDE_ALL")
+#ifdef JavaIoInterruptedIOException_RESTRICT
+#define JavaIoInterruptedIOException_INCLUDE_ALL 0
+#else
+#define JavaIoInterruptedIOException_INCLUDE_ALL 1
+#endif
+#undef JavaIoInterruptedIOException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoInterruptedIOException_) && (JavaIoInterruptedIOException_INCLUDE_ALL || defined(JavaIoInterruptedIOException_INCLUDE))
+#define JavaIoInterruptedIOException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 @class JavaLangThrowable;
@@ -62,4 +76,8 @@ FOUNDATION_EXPORT JavaIoInterruptedIOException *new_JavaIoInterruptedIOException
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoInterruptedIOException)
 
-#endif // _JavaIoInterruptedIOException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoInterruptedIOException_INCLUDE_ALL")

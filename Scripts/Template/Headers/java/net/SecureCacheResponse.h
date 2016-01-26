@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/SecureCacheResponse.java
 //
 
-#ifndef _JavaNetSecureCacheResponse_H_
-#define _JavaNetSecureCacheResponse_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetSecureCacheResponse_INCLUDE_ALL")
+#ifdef JavaNetSecureCacheResponse_RESTRICT
+#define JavaNetSecureCacheResponse_INCLUDE_ALL 0
+#else
+#define JavaNetSecureCacheResponse_INCLUDE_ALL 1
+#endif
+#undef JavaNetSecureCacheResponse_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetSecureCacheResponse_) && (JavaNetSecureCacheResponse_INCLUDE_ALL || defined(JavaNetSecureCacheResponse_INCLUDE))
+#define JavaNetSecureCacheResponse_
+
+#define JavaNetCacheResponse_RESTRICT 1
+#define JavaNetCacheResponse_INCLUDE 1
 #include "../../java/net/CacheResponse.h"
 
 @protocol JavaSecurityPrincipal;
@@ -17,6 +31,7 @@
  secure connection.
  Such a connection can be secured by using a cryptographic
  protocol like TLS or SSL.
+ - seealso: ResponseCache
  */
 @interface JavaNetSecureCacheResponse : JavaNetCacheResponse
 
@@ -87,4 +102,8 @@ FOUNDATION_EXPORT void JavaNetSecureCacheResponse_init(JavaNetSecureCacheRespons
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetSecureCacheResponse)
 
-#endif // _JavaNetSecureCacheResponse_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetSecureCacheResponse_INCLUDE_ALL")

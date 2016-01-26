@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/Currency.java
 //
 
-#ifndef _JavaUtilCurrency_H_
-#define _JavaUtilCurrency_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilCurrency_INCLUDE_ALL")
+#ifdef JavaUtilCurrency_RESTRICT
+#define JavaUtilCurrency_INCLUDE_ALL 0
+#else
+#define JavaUtilCurrency_INCLUDE_ALL 1
+#endif
+#undef JavaUtilCurrency_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilCurrency_) && (JavaUtilCurrency_INCLUDE_ALL || defined(JavaUtilCurrency_INCLUDE))
+#define JavaUtilCurrency_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class JavaUtilLocale;
@@ -39,6 +53,20 @@
  IMF Special Drawing Rights, -1 is returned.
  */
 - (jint)getDefaultFractionDigits;
+
+/*!
+ @brief Equivalent to <code>getDisplayName(Locale.getDefault())</code>.
+ See "<a href="../util/Locale.html#default_locale">Be wary of the default locale</a>".
+ @since 1.7
+ */
+- (NSString *)getDisplayName;
+
+/*!
+ @brief Returns the localized name of this currency in the given <code>locale</code>.
+ Returns the ISO 4217 currency code if no localized name is available.
+ @since 1.7
+ */
+- (NSString *)getDisplayNameWithJavaUtilLocale:(JavaUtilLocale *)locale;
 
 /*!
  @brief Returns the <code>Currency</code> instance for this <code>Locale</code>'s country.
@@ -88,4 +116,8 @@ FOUNDATION_EXPORT id<JavaUtilSet> JavaUtilCurrency_getAvailableCurrencies();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCurrency)
 
-#endif // _JavaUtilCurrency_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilCurrency_INCLUDE_ALL")

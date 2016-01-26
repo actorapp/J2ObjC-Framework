@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/stream/StreamResult.java
 //
 
-#ifndef _JavaxXmlTransformStreamStreamResult_H_
-#define _JavaxXmlTransformStreamStreamResult_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformStreamStreamResult_INCLUDE_ALL")
+#ifdef JavaxXmlTransformStreamStreamResult_RESTRICT
+#define JavaxXmlTransformStreamStreamResult_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformStreamStreamResult_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformStreamStreamResult_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformStreamStreamResult_) && (JavaxXmlTransformStreamStreamResult_INCLUDE_ALL || defined(JavaxXmlTransformStreamStreamResult_INCLUDE))
+#define JavaxXmlTransformStreamStreamResult_
+
+#define JavaxXmlTransformResult_RESTRICT 1
+#define JavaxXmlTransformResult_INCLUDE 1
 #include "../../../../javax/xml/transform/Result.h"
 
 @class JavaIoFile;
@@ -20,6 +34,8 @@
  @author <a href="Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  */
 @interface JavaxXmlTransformStreamStreamResult : NSObject < JavaxXmlTransformResult >
+
++ (NSString *)FEATURE;
 
 #pragma mark Public
 
@@ -129,8 +145,15 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformStreamStreamResult)
 
-FOUNDATION_EXPORT NSString *JavaxXmlTransformStreamStreamResult_FEATURE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlTransformStreamStreamResult, FEATURE_, NSString *)
+/*!
+ @brief If <code>javax.xml.transform.TransformerFactory.getFeature</code>
+ returns true when passed this value as an argument,
+ the Transformer supports Result output of this type.
+ */
+inline NSString *JavaxXmlTransformStreamStreamResult_get_FEATURE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlTransformStreamStreamResult_FEATURE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlTransformStreamStreamResult, FEATURE, NSString *)
 
 FOUNDATION_EXPORT void JavaxXmlTransformStreamStreamResult_init(JavaxXmlTransformStreamStreamResult *self);
 
@@ -154,4 +177,8 @@ FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *new_JavaxXmlTransformStre
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformStreamStreamResult)
 
-#endif // _JavaxXmlTransformStreamStreamResult_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformStreamStreamResult_INCLUDE_ALL")

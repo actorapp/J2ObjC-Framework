@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/PSSParameterSpec.java
 //
 
-#ifndef _JavaSecuritySpecPSSParameterSpec_H_
-#define _JavaSecuritySpecPSSParameterSpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecPSSParameterSpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecPSSParameterSpec_RESTRICT
+#define JavaSecuritySpecPSSParameterSpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecPSSParameterSpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecPSSParameterSpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecPSSParameterSpec_) && (JavaSecuritySpecPSSParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecPSSParameterSpec_INCLUDE))
+#define JavaSecuritySpecPSSParameterSpec_
+
+#define JavaSecuritySpecAlgorithmParameterSpec_RESTRICT 1
+#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE 1
 #include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 /*!
@@ -17,6 +31,8 @@
  standard.
  */
 @interface JavaSecuritySpecPSSParameterSpec : NSObject < JavaSecuritySpecAlgorithmParameterSpec >
+
++ (JavaSecuritySpecPSSParameterSpec *)DEFAULT;
 
 #pragma mark Public
 
@@ -88,8 +104,21 @@ withJavaSecuritySpecAlgorithmParameterSpec:(id<JavaSecuritySpecAlgorithmParamete
 
 J2OBJC_STATIC_INIT(JavaSecuritySpecPSSParameterSpec)
 
-FOUNDATION_EXPORT JavaSecuritySpecPSSParameterSpec *JavaSecuritySpecPSSParameterSpec_DEFAULT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySpecPSSParameterSpec, DEFAULT_, JavaSecuritySpecPSSParameterSpec *)
+/*!
+ @brief The default parameter specification.
+ It specifies the following parameters:
+ <ul>
+ <li>message digest: <code>"SHA-1"</code></li>
+ <li>mask generation function (<i>mgf</i>): <code>"MGF1"</code></li>
+ <li>parameters for the <i>mgf</i>: <code>MGF1ParameterSpec.SHA1</code></li>
+ <li>salt length: <code>20</code></li>
+ <li>trailer field: <code>-1</code></li>
+ </ul>
+ */
+inline JavaSecuritySpecPSSParameterSpec *JavaSecuritySpecPSSParameterSpec_get_DEFAULT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaSecuritySpecPSSParameterSpec *JavaSecuritySpecPSSParameterSpec_DEFAULT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaSecuritySpecPSSParameterSpec, DEFAULT, JavaSecuritySpecPSSParameterSpec *)
 
 FOUNDATION_EXPORT void JavaSecuritySpecPSSParameterSpec_initWithInt_(JavaSecuritySpecPSSParameterSpec *self, jint saltLen);
 
@@ -101,4 +130,8 @@ FOUNDATION_EXPORT JavaSecuritySpecPSSParameterSpec *new_JavaSecuritySpecPSSParam
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecPSSParameterSpec)
 
-#endif // _JavaSecuritySpecPSSParameterSpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecPSSParameterSpec_INCLUDE_ALL")

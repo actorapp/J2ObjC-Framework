@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/RandomAccess.java
 //
 
-#ifndef _JavaUtilRandomAccess_H_
-#define _JavaUtilRandomAccess_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilRandomAccess_INCLUDE_ALL")
+#ifdef JavaUtilRandomAccess_RESTRICT
+#define JavaUtilRandomAccess_INCLUDE_ALL 0
+#else
+#define JavaUtilRandomAccess_INCLUDE_ALL 1
+#endif
+#undef JavaUtilRandomAccess_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilRandomAccess_) && (JavaUtilRandomAccess_INCLUDE_ALL || defined(JavaUtilRandomAccess_INCLUDE))
+#define JavaUtilRandomAccess_
 
 /*!
  @brief RandomAccess is implemented by <code>List</code> implementations that support fast
@@ -20,4 +31,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilRandomAccess)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandomAccess)
 
-#endif // _JavaUtilRandomAccess_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilRandomAccess_INCLUDE_ALL")

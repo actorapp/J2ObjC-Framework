@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/Array.java
 //
 
-#ifndef _JavaLangReflectArray_H_
-#define _JavaLangReflectArray_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectArray_INCLUDE_ALL")
+#ifdef JavaLangReflectArray_RESTRICT
+#define JavaLangReflectArray_INCLUDE_ALL 0
+#else
+#define JavaLangReflectArray_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectArray_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectArray_) && (JavaLangReflectArray_INCLUDE_ALL || defined(JavaLangReflectArray_INCLUDE))
+#define JavaLangReflectArray_
 
 @class IOSClass;
 @class IOSIntArray;
@@ -342,4 +353,8 @@ FOUNDATION_EXPORT void JavaLangReflectArray_setShortWithId_withInt_withShort_(id
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectArray)
 
-#endif // _JavaLangReflectArray_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectArray_INCLUDE_ALL")

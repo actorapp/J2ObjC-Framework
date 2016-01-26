@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/beans/PropertyChangeEvent.java
 //
 
-#ifndef _JavaBeansPropertyChangeEvent_H_
-#define _JavaBeansPropertyChangeEvent_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaBeansPropertyChangeEvent_INCLUDE_ALL")
+#ifdef JavaBeansPropertyChangeEvent_RESTRICT
+#define JavaBeansPropertyChangeEvent_INCLUDE_ALL 0
+#else
+#define JavaBeansPropertyChangeEvent_INCLUDE_ALL 1
+#endif
+#undef JavaBeansPropertyChangeEvent_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaBeansPropertyChangeEvent_) && (JavaBeansPropertyChangeEvent_INCLUDE_ALL || defined(JavaBeansPropertyChangeEvent_INCLUDE))
+#define JavaBeansPropertyChangeEvent_
+
+#define JavaUtilEventObject_RESTRICT 1
+#define JavaUtilEventObject_INCLUDE 1
 #include "../../java/util/EventObject.h"
 
 /*!
@@ -80,6 +94,7 @@
 
 /*!
  @brief Sets the propagationId object.
+ - seealso: #getPropagationId()
  */
 - (void)setPropagationIdWithId:(id)propagationId;
 
@@ -98,4 +113,8 @@ FOUNDATION_EXPORT JavaBeansPropertyChangeEvent *new_JavaBeansPropertyChangeEvent
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyChangeEvent)
 
-#endif // _JavaBeansPropertyChangeEvent_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaBeansPropertyChangeEvent_INCLUDE_ALL")

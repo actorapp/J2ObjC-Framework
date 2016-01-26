@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/ListIterator.java
 //
 
-#ifndef _JavaUtilListIterator_H_
-#define _JavaUtilListIterator_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilListIterator_INCLUDE_ALL")
+#ifdef JavaUtilListIterator_RESTRICT
+#define JavaUtilListIterator_INCLUDE_ALL 0
+#else
+#define JavaUtilListIterator_INCLUDE_ALL 1
+#endif
+#undef JavaUtilListIterator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilListIterator_) && (JavaUtilListIterator_INCLUDE_ALL || defined(JavaUtilListIterator_INCLUDE))
+#define JavaUtilListIterator_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
 #include "../../java/util/Iterator.h"
 
 /*!
@@ -34,6 +48,7 @@
 /*!
  @brief Returns whether there are more elements to iterate.
  @return <code>true</code> if there are more elements, <code>false</code> otherwise.
+ - seealso: #next
  */
 - (jboolean)hasNext;
 
@@ -41,6 +56,7 @@
  @brief Returns whether there are previous elements to iterate.
  @return <code>true</code> if there are previous elements, <code>false</code>
  otherwise.
+ - seealso: #previous
  */
 - (jboolean)hasPrevious;
 
@@ -49,6 +65,7 @@
  @return the next object.
  @throws NoSuchElementException
  if there are no more elements.
+ - seealso: #hasNext
  */
 - (id)next;
 
@@ -58,6 +75,7 @@
  iterator is at the end.
  @throws NoSuchElementException
  if there are no more elements.
+ - seealso: #next
  */
 - (jint)nextIndex;
 
@@ -66,6 +84,7 @@
  @return the previous object.
  @throws NoSuchElementException
  if there are no previous elements.
+ - seealso: #hasPrevious
  */
 - (id)previous;
 
@@ -75,6 +94,7 @@
  beginning.
  @throws NoSuchElementException
  if there are no previous elements.
+ - seealso: #previous
  */
 - (jint)previousIndex;
 
@@ -114,4 +134,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilListIterator)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilListIterator)
 
-#endif // _JavaUtilListIterator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilListIterator_INCLUDE_ALL")

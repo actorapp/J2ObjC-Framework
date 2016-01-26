@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/ConcurrentModificationException.java
 //
 
-#ifndef _JavaUtilConcurrentModificationException_H_
-#define _JavaUtilConcurrentModificationException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentModificationException_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentModificationException_RESTRICT
+#define JavaUtilConcurrentModificationException_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentModificationException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentModificationException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentModificationException_) && (JavaUtilConcurrentModificationException_INCLUDE_ALL || defined(JavaUtilConcurrentModificationException_INCLUDE))
+#define JavaUtilConcurrentModificationException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 @class JavaLangThrowable;
@@ -15,6 +29,7 @@
  @brief An <code>ConcurrentModificationException</code> is thrown when a Collection is
  modified and an existing iterator on the Collection is used to modify the
  Collection as well.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilConcurrentModificationException : JavaLangRuntimeException
 
@@ -70,4 +85,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentModificationException *new_JavaUtilConcurren
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentModificationException)
 
-#endif // _JavaUtilConcurrentModificationException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentModificationException_INCLUDE_ALL")

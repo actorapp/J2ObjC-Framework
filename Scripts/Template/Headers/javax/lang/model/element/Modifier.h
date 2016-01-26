@@ -3,27 +3,63 @@
 //  source: Classes/javax/lang/model/element/Modifier.java
 //
 
-#ifndef _JavaxLangModelElementModifier_H_
-#define _JavaxLangModelElementModifier_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxLangModelElementModifier_INCLUDE_ALL")
+#ifdef JavaxLangModelElementModifier_RESTRICT
+#define JavaxLangModelElementModifier_INCLUDE_ALL 0
+#else
+#define JavaxLangModelElementModifier_INCLUDE_ALL 1
+#endif
+#undef JavaxLangModelElementModifier_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxLangModelElementModifier_) && (JavaxLangModelElementModifier_INCLUDE_ALL || defined(JavaxLangModelElementModifier_INCLUDE))
+#define JavaxLangModelElementModifier_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
 #include "../../../../java/lang/Enum.h"
 
-typedef NS_ENUM(NSUInteger, JavaxLangModelElementModifier) {
-  JavaxLangModelElementModifier_PUBLIC = 0,
-  JavaxLangModelElementModifier_PROTECTED = 1,
-  JavaxLangModelElementModifier_PRIVATE = 2,
-  JavaxLangModelElementModifier_ABSTRACT = 3,
-  JavaxLangModelElementModifier_STATIC = 4,
-  JavaxLangModelElementModifier_FINAL = 5,
-  JavaxLangModelElementModifier_TRANSIENT = 6,
-  JavaxLangModelElementModifier_VOLATILE = 7,
-  JavaxLangModelElementModifier_SYNCHRONIZED = 8,
-  JavaxLangModelElementModifier_NATIVE = 9,
-  JavaxLangModelElementModifier_STRICTFP = 10,
+typedef NS_ENUM(NSUInteger, JavaxLangModelElementModifier_Enum) {
+  JavaxLangModelElementModifier_Enum_PUBLIC = 0,
+  JavaxLangModelElementModifier_Enum_PROTECTED = 1,
+  JavaxLangModelElementModifier_Enum_PRIVATE = 2,
+  JavaxLangModelElementModifier_Enum_ABSTRACT = 3,
+  JavaxLangModelElementModifier_Enum_STATIC = 4,
+  JavaxLangModelElementModifier_Enum_FINAL = 5,
+  JavaxLangModelElementModifier_Enum_TRANSIENT = 6,
+  JavaxLangModelElementModifier_Enum_VOLATILE = 7,
+  JavaxLangModelElementModifier_Enum_SYNCHRONIZED = 8,
+  JavaxLangModelElementModifier_Enum_NATIVE = 9,
+  JavaxLangModelElementModifier_Enum_STRICTFP = 10,
 };
 
-@interface JavaxLangModelElementModifierEnum : JavaLangEnum < NSCopying >
+@interface JavaxLangModelElementModifier : JavaLangEnum < NSCopying >
+
++ (JavaxLangModelElementModifier *)PUBLIC;
+
++ (JavaxLangModelElementModifier *)PROTECTED;
+
++ (JavaxLangModelElementModifier *)PRIVATE;
+
++ (JavaxLangModelElementModifier *)ABSTRACT;
+
++ (JavaxLangModelElementModifier *)STATIC;
+
++ (JavaxLangModelElementModifier *)FINAL;
+
++ (JavaxLangModelElementModifier *)TRANSIENT;
+
++ (JavaxLangModelElementModifier *)VOLATILE;
+
++ (JavaxLangModelElementModifier *)SYNCHRONIZED;
+
++ (JavaxLangModelElementModifier *)NATIVE;
+
++ (JavaxLangModelElementModifier *)STRICTFP;
 
 #pragma mark Public
 
@@ -32,52 +68,62 @@ typedef NS_ENUM(NSUInteger, JavaxLangModelElementModifier) {
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaxLangModelElementModifierEnum_values();
 
-+ (JavaxLangModelElementModifierEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaxLangModelElementModifierEnum *JavaxLangModelElementModifierEnum_valueOfWithNSString_(NSString *name);
++ (JavaxLangModelElementModifier *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaxLangModelElementModifier_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaxLangModelElementModifierEnum)
+J2OBJC_STATIC_INIT(JavaxLangModelElementModifier)
 
-FOUNDATION_EXPORT JavaxLangModelElementModifierEnum *JavaxLangModelElementModifierEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaxLangModelElementModifier *JavaxLangModelElementModifier_values_[];
 
-#define JavaxLangModelElementModifierEnum_PUBLIC JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_PUBLIC]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, PUBLIC)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_PUBLIC();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, PUBLIC)
 
-#define JavaxLangModelElementModifierEnum_PROTECTED JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_PROTECTED]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, PROTECTED)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_PROTECTED();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, PROTECTED)
 
-#define JavaxLangModelElementModifierEnum_PRIVATE JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_PRIVATE]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, PRIVATE)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_PRIVATE();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, PRIVATE)
 
-#define JavaxLangModelElementModifierEnum_ABSTRACT JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_ABSTRACT]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, ABSTRACT)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_ABSTRACT();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, ABSTRACT)
 
-#define JavaxLangModelElementModifierEnum_STATIC JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_STATIC]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, STATIC)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_STATIC();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, STATIC)
 
-#define JavaxLangModelElementModifierEnum_FINAL JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_FINAL]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, FINAL)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_FINAL();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, FINAL)
 
-#define JavaxLangModelElementModifierEnum_TRANSIENT JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_TRANSIENT]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, TRANSIENT)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_TRANSIENT();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, TRANSIENT)
 
-#define JavaxLangModelElementModifierEnum_VOLATILE JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_VOLATILE]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, VOLATILE)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_VOLATILE();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, VOLATILE)
 
-#define JavaxLangModelElementModifierEnum_SYNCHRONIZED JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_SYNCHRONIZED]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, SYNCHRONIZED)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_SYNCHRONIZED();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, SYNCHRONIZED)
 
-#define JavaxLangModelElementModifierEnum_NATIVE JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_NATIVE]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, NATIVE)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_NATIVE();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, NATIVE)
 
-#define JavaxLangModelElementModifierEnum_STRICTFP JavaxLangModelElementModifierEnum_values_[JavaxLangModelElementModifier_STRICTFP]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaxLangModelElementModifierEnum, STRICTFP)
+inline JavaxLangModelElementModifier *JavaxLangModelElementModifier_get_STRICTFP();
+J2OBJC_ENUM_CONSTANT(JavaxLangModelElementModifier, STRICTFP)
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaxLangModelElementModifierEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaxLangModelElementModifier_values();
 
-#endif // _JavaxLangModelElementModifier_H_
+FOUNDATION_EXPORT JavaxLangModelElementModifier *JavaxLangModelElementModifier_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaxLangModelElementModifier *JavaxLangModelElementModifier_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaxLangModelElementModifier)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxLangModelElementModifier_INCLUDE_ALL")

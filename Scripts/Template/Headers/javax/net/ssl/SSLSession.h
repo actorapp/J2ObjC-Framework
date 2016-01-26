@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLSession.java
 //
 
-#ifndef _JavaxNetSslSSLSession_H_
-#define _JavaxNetSslSSLSession_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLSession_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLSession_RESTRICT
+#define JavaxNetSslSSLSession_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLSession_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLSession_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLSession_) && (JavaxNetSslSSLSession_INCLUDE_ALL || defined(JavaxNetSslSSLSession_INCLUDE))
+#define JavaxNetSslSSLSession_
 
 @class IOSByteArray;
 @class IOSObjectArray;
@@ -206,4 +217,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxNetSslSSLSession)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLSession)
 
-#endif // _JavaxNetSslSSLSession_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLSession_INCLUDE_ALL")

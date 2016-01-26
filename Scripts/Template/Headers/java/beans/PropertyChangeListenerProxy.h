@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/beans/PropertyChangeListenerProxy.java
 //
 
-#ifndef _JavaBeansPropertyChangeListenerProxy_H_
-#define _JavaBeansPropertyChangeListenerProxy_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/beans/PropertyChangeListener.h"
+
+#pragma push_macro("JavaBeansPropertyChangeListenerProxy_INCLUDE_ALL")
+#ifdef JavaBeansPropertyChangeListenerProxy_RESTRICT
+#define JavaBeansPropertyChangeListenerProxy_INCLUDE_ALL 0
+#else
+#define JavaBeansPropertyChangeListenerProxy_INCLUDE_ALL 1
+#endif
+#undef JavaBeansPropertyChangeListenerProxy_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaBeansPropertyChangeListenerProxy_) && (JavaBeansPropertyChangeListenerProxy_INCLUDE_ALL || defined(JavaBeansPropertyChangeListenerProxy_INCLUDE))
+#define JavaBeansPropertyChangeListenerProxy_
+
+#define JavaUtilEventListenerProxy_RESTRICT 1
+#define JavaUtilEventListenerProxy_INCLUDE 1
 #include "../../java/util/EventListenerProxy.h"
+
+#define JavaBeansPropertyChangeListener_RESTRICT 1
+#define JavaBeansPropertyChangeListener_INCLUDE 1
+#include "../../java/beans/PropertyChangeListener.h"
 
 @class JavaBeansPropertyChangeEvent;
 
@@ -54,4 +71,8 @@ FOUNDATION_EXPORT JavaBeansPropertyChangeListenerProxy *new_JavaBeansPropertyCha
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyChangeListenerProxy)
 
-#endif // _JavaBeansPropertyChangeListenerProxy_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaBeansPropertyChangeListenerProxy_INCLUDE_ALL")

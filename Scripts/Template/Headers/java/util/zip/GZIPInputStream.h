@@ -3,17 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/GZIPInputStream.java
 //
 
-#ifndef _JavaUtilZipGZIPInputStream_H_
-#define _JavaUtilZipGZIPInputStream_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipGZIPInputStream_INCLUDE_ALL")
+#ifdef JavaUtilZipGZIPInputStream_RESTRICT
+#define JavaUtilZipGZIPInputStream_INCLUDE_ALL 0
+#else
+#define JavaUtilZipGZIPInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipGZIPInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipGZIPInputStream_) && (JavaUtilZipGZIPInputStream_INCLUDE_ALL || defined(JavaUtilZipGZIPInputStream_INCLUDE))
+#define JavaUtilZipGZIPInputStream_
+
+#define JavaUtilZipInflaterInputStream_RESTRICT 1
+#define JavaUtilZipInflaterInputStream_INCLUDE 1
 #include "../../../java/util/zip/InflaterInputStream.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
 @class JavaUtilZipCRC32;
-
-#define JavaUtilZipGZIPInputStream_GZIP_MAGIC 35615
 
 /*!
  @brief The <code>GZIPInputStream</code> class is used to read data stored in the GZIP
@@ -49,6 +61,8 @@
    */
   jboolean eos_;
 }
+
++ (jint)GZIP_MAGIC;
 
 #pragma mark Public
 
@@ -91,7 +105,12 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilZipGZIPInputStream)
 
 J2OBJC_FIELD_SETTER(JavaUtilZipGZIPInputStream, crc_, JavaUtilZipCRC32 *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipGZIPInputStream, GZIP_MAGIC, jint)
+/*!
+ @brief The magic header for the GZIP format.
+ */
+inline jint JavaUtilZipGZIPInputStream_get_GZIP_MAGIC();
+#define JavaUtilZipGZIPInputStream_GZIP_MAGIC 35615
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipGZIPInputStream, GZIP_MAGIC, jint)
 
 FOUNDATION_EXPORT void JavaUtilZipGZIPInputStream_initWithJavaIoInputStream_(JavaUtilZipGZIPInputStream *self, JavaIoInputStream *is);
 
@@ -103,4 +122,8 @@ FOUNDATION_EXPORT JavaUtilZipGZIPInputStream *new_JavaUtilZipGZIPInputStream_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipGZIPInputStream)
 
-#endif // _JavaUtilZipGZIPInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipGZIPInputStream_INCLUDE_ALL")

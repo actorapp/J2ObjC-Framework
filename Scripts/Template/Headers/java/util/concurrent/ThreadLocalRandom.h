@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ThreadLocalRandom.java
 //
 
-#ifndef _JavaUtilConcurrentThreadLocalRandom_H_
-#define _JavaUtilConcurrentThreadLocalRandom_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentThreadLocalRandom_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentThreadLocalRandom_RESTRICT
+#define JavaUtilConcurrentThreadLocalRandom_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentThreadLocalRandom_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentThreadLocalRandom_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentThreadLocalRandom_) && (JavaUtilConcurrentThreadLocalRandom_INCLUDE_ALL || defined(JavaUtilConcurrentThreadLocalRandom_INCLUDE))
+#define JavaUtilConcurrentThreadLocalRandom_
+
+#define JavaUtilRandom_RESTRICT 1
+#define JavaUtilRandom_INCLUDE 1
 #include "../../../java/util/Random.h"
 
 /*!
@@ -138,4 +152,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentThreadLocalRandom *JavaUtilConcurrentThreadL
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadLocalRandom)
 
-#endif // _JavaUtilConcurrentThreadLocalRandom_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentThreadLocalRandom_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLHandshakeException.java
 //
 
-#ifndef _JavaxNetSslSSLHandshakeException_H_
-#define _JavaxNetSslSSLHandshakeException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLHandshakeException_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLHandshakeException_RESTRICT
+#define JavaxNetSslSSLHandshakeException_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLHandshakeException_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLHandshakeException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLHandshakeException_) && (JavaxNetSslSSLHandshakeException_INCLUDE_ALL || defined(JavaxNetSslSSLHandshakeException_INCLUDE))
+#define JavaxNetSslSSLHandshakeException_
+
+#define JavaxNetSslSSLException_RESTRICT 1
+#define JavaxNetSslSSLException_INCLUDE 1
 #include "../../../javax/net/ssl/SSLException.h"
 
 @class JavaLangThrowable;
@@ -55,4 +69,8 @@ FOUNDATION_EXPORT JavaxNetSslSSLHandshakeException *new_JavaxNetSslSSLHandshakeE
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLHandshakeException)
 
-#endif // _JavaxNetSslSSLHandshakeException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLHandshakeException_INCLUDE_ALL")

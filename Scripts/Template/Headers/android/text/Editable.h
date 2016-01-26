@@ -3,14 +3,37 @@
 //  source: android/frameworks/base/core/java/android/text/Editable.java
 //
 
-#ifndef _AndroidTextEditable_H_
-#define _AndroidTextEditable_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../android/text/GetChars.h"
-#include "../../android/text/Spannable.h"
-#include "../../java/lang/Appendable.h"
+
+#pragma push_macro("AndroidTextEditable_INCLUDE_ALL")
+#ifdef AndroidTextEditable_RESTRICT
+#define AndroidTextEditable_INCLUDE_ALL 0
+#else
+#define AndroidTextEditable_INCLUDE_ALL 1
+#endif
+#undef AndroidTextEditable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextEditable_) && (AndroidTextEditable_INCLUDE_ALL || defined(AndroidTextEditable_INCLUDE))
+#define AndroidTextEditable_
+
+#define JavaLangCharSequence_RESTRICT 1
+#define JavaLangCharSequence_INCLUDE 1
 #include "../../java/lang/CharSequence.h"
+
+#define AndroidTextGetChars_RESTRICT 1
+#define AndroidTextGetChars_INCLUDE 1
+#include "../../android/text/GetChars.h"
+
+#define AndroidTextSpannable_RESTRICT 1
+#define AndroidTextSpannable_INCLUDE 1
+#include "../../android/text/Spannable.h"
+
+#define JavaLangAppendable_RESTRICT 1
+#define JavaLangAppendable_INCLUDE 1
+#include "../../java/lang/Appendable.h"
 
 @class IOSObjectArray;
 
@@ -50,6 +73,7 @@
 
 /*!
  @brief Convenience for replace(st, en, text, 0, text.length())
+ - seealso: #replace(int,int,CharSequence,int,int)
  */
 - (id<AndroidTextEditable>)replaceWithInt:(jint)st
                                   withInt:(jint)en
@@ -57,6 +81,7 @@
 
 /*!
  @brief Convenience for replace(where, where, text, start, end)
+ - seealso: #replace(int,int,CharSequence,int,int)
  */
 - (id<AndroidTextEditable>)insertWithInt:(jint)where
                 withJavaLangCharSequence:(id<JavaLangCharSequence>)text
@@ -65,23 +90,27 @@
 
 /*!
  @brief Convenience for replace(where, where, text, 0, text.length());
+ - seealso: #replace(int,int,CharSequence,int,int)
  */
 - (id<AndroidTextEditable>)insertWithInt:(jint)where
                 withJavaLangCharSequence:(id<JavaLangCharSequence>)text;
 
 /*!
  @brief Convenience for replace(st, en, "", 0, 0)
+ - seealso: #replace(int,int,CharSequence,int,int)
  */
 - (id<AndroidTextEditable>)delete__WithInt:(jint)st
                                    withInt:(jint)en;
 
 /*!
  @brief Convenience for replace(length(), length(), text, 0, text.length())
+ - seealso: #replace(int,int,CharSequence,int,int)
  */
 - (id<AndroidTextEditable>)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)text;
 
 /*!
  @brief Convenience for replace(length(), length(), text, start, end)
+ - seealso: #replace(int,int,CharSequence,int,int)
  */
 - (id<AndroidTextEditable>)appendWithJavaLangCharSequence:(id<JavaLangCharSequence>)text
                                                   withInt:(jint)start
@@ -89,11 +118,15 @@
 
 /*!
  @brief Convenience for append(String.valueOf(text)).
+ - seealso: #replace(int,int,CharSequence,int,int)
  */
 - (id<AndroidTextEditable>)appendWithChar:(jchar)text;
 
 /*!
  @brief Convenience for replace(0, length(), "", 0, 0)
+ - seealso: #replace(int,int,CharSequence,int,int)
+ Note that this clears the text, not the spans;
+ use <code>clearSpans</code> if you need that.
  */
 - (void)clear;
 
@@ -121,6 +154,14 @@
 J2OBJC_EMPTY_STATIC_INIT(AndroidTextEditable)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextEditable)
+
+#endif
+
+#if !defined (AndroidTextEditable_Factory_) && (AndroidTextEditable_INCLUDE_ALL || defined(AndroidTextEditable_Factory_INCLUDE))
+#define AndroidTextEditable_Factory_
+
+@protocol AndroidTextEditable;
+@protocol JavaLangCharSequence;
 
 /*!
  @brief Factory used by TextView to create new Editables.
@@ -158,4 +199,8 @@ FOUNDATION_EXPORT AndroidTextEditable_Factory *new_AndroidTextEditable_Factory_i
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextEditable_Factory)
 
-#endif // _AndroidTextEditable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextEditable_INCLUDE_ALL")

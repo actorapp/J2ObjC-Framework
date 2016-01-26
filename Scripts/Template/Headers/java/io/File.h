@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/io/File.java
 //
 
-#ifndef _JavaIoFile_H_
-#define _JavaIoFile_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFile_INCLUDE_ALL")
+#ifdef JavaIoFile_RESTRICT
+#define JavaIoFile_INCLUDE_ALL 0
+#else
+#define JavaIoFile_INCLUDE_ALL 1
+#endif
+#undef JavaIoFile_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFile_) && (JavaIoFile_INCLUDE_ALL || defined(JavaIoFile_INCLUDE))
+#define JavaIoFile_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSObjectArray;
@@ -31,8 +48,18 @@
  the operating system, and byte sequences returned by the operating system (from the
  various <code>list</code> methods) are converted to strings by decoding them as UTF-8
  byte sequences.
+ - seealso: java.io.Serializable
+ - seealso: java.lang.Comparable
  */
 @interface JavaIoFile : NSObject < JavaIoSerializable, JavaLangComparable >
+
++ (jchar)separatorChar;
+
++ (NSString *)separator;
+
++ (jchar)pathSeparatorChar;
+
++ (NSString *)pathSeparator;
 
 #pragma mark Public
 
@@ -79,6 +106,8 @@
  file.
  @throws IllegalArgumentException
  if <code>uri</code> does not comply with the conditions above.
+ - seealso: #toURI
+ - seealso: java.net.URI
  */
 - (instancetype)initWithJavaNetURI:(JavaNetURI *)uri;
 
@@ -112,6 +141,7 @@
  a file to compare this file to
  @return an int determined by comparing the two paths. Possible values are
  described in the Comparable interface.
+ - seealso: Comparable
  */
 - (jint)compareToWithId:(JavaIoFile *)another;
 
@@ -329,6 +359,7 @@
  Any two objects for which
  <code>equals</code> returns <code>true</code> must return the same hash code.
  @return this files's hash value.
+ - seealso: #equals
  */
 - (NSUInteger)hash;
 
@@ -339,6 +370,7 @@
  the character '/'.
  @return <code>true</code> if this file's pathname is absolute, <code>false</code>
  otherwise.
+ - seealso: #getPath
  */
 - (jboolean)isAbsolute;
 
@@ -508,6 +540,7 @@
 
 /*!
  @brief Equivalent to setExecutable(executable, true).
+ - seealso: #setExecutable(boolean,boolean)
  @since 1.6
  */
 - (jboolean)setExecutableWithBoolean:(jboolean)executable;
@@ -550,6 +583,7 @@
 
 /*!
  @brief Equivalent to setReadable(readable, true).
+ - seealso: #setReadable(boolean,boolean)
  @since 1.6
  */
 - (jboolean)setReadableWithBoolean:(jboolean)readable;
@@ -576,11 +610,13 @@
 
 /*!
  @brief Equivalent to setWritable(false, false).
+ - seealso: #setWritable(boolean,boolean)
  */
 - (jboolean)setReadOnly;
 
 /*!
  @brief Equivalent to setWritable(writable, true).
+ - seealso: #setWritable(boolean,boolean)
  @since 1.6
  */
 - (jboolean)setWritableWithBoolean:(jboolean)writable;
@@ -628,26 +664,54 @@
  @throws java.net.MalformedURLException
  if the path cannot be transformed into a URL.
  */
-- (JavaNetURL *)toURL;
+- (JavaNetURL *)toURL __attribute__((deprecated));
 
 #pragma mark Package-Private
-
 
 @end
 
 J2OBJC_STATIC_INIT(JavaIoFile)
 
-FOUNDATION_EXPORT jchar JavaIoFile_separatorChar_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoFile, separatorChar_, jchar)
+/*!
+ @brief The system-dependent character used to separate components in filenames ('/').
+ Use of this (rather than hard-coding '/') helps portability to other operating systems.
+ <p>This field is initialized from the system property "file.separator".
+ Later changes to that property will have no effect on this field or this class.
+ */
+inline jchar JavaIoFile_get_separatorChar();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jchar JavaIoFile_separatorChar;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaIoFile, separatorChar, jchar)
 
-FOUNDATION_EXPORT NSString *JavaIoFile_separator_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoFile, separator_, NSString *)
+/*!
+ @brief The system-dependent string used to separate components in filenames ('/').
+ See <code>separatorChar</code>.
+ */
+inline NSString *JavaIoFile_get_separator();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaIoFile_separator;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoFile, separator, NSString *)
 
-FOUNDATION_EXPORT jchar JavaIoFile_pathSeparatorChar_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoFile, pathSeparatorChar_, jchar)
+/*!
+ @brief The system-dependent character used to separate components in search paths (':').
+ This is used to split such things as the PATH environment variable and classpath
+ system properties into lists of directories to be searched.
+ <p>This field is initialized from the system property "path.separator".
+ Later changes to that property will have no effect on this field or this class.
+ */
+inline jchar JavaIoFile_get_pathSeparatorChar();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jchar JavaIoFile_pathSeparatorChar;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaIoFile, pathSeparatorChar, jchar)
 
-FOUNDATION_EXPORT NSString *JavaIoFile_pathSeparator_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoFile, pathSeparator_, NSString *)
+/*!
+ @brief The system-dependent string used to separate components in search paths (":").
+ See <code>pathSeparatorChar</code>.
+ */
+inline NSString *JavaIoFile_get_pathSeparator();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaIoFile_pathSeparator;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoFile, pathSeparator, NSString *)
 
 FOUNDATION_EXPORT void JavaIoFile_initWithJavaIoFile_withNSString_(JavaIoFile *self, JavaIoFile *dir, NSString *name);
 
@@ -673,4 +737,8 @@ FOUNDATION_EXPORT JavaIoFile *JavaIoFile_createTempFileWithNSString_withNSString
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFile)
 
-#endif // _JavaIoFile_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFile_INCLUDE_ALL")

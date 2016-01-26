@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ref/PhantomReference.java
 //
 
-#ifndef _JavaLangRefPhantomReference_H_
-#define _JavaLangRefPhantomReference_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangRefPhantomReference_INCLUDE_ALL")
+#ifdef JavaLangRefPhantomReference_RESTRICT
+#define JavaLangRefPhantomReference_INCLUDE_ALL 0
+#else
+#define JavaLangRefPhantomReference_INCLUDE_ALL 1
+#endif
+#undef JavaLangRefPhantomReference_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangRefPhantomReference_) && (JavaLangRefPhantomReference_INCLUDE_ALL || defined(JavaLangRefPhantomReference_INCLUDE))
+#define JavaLangRefPhantomReference_
+
+#define JavaLangRefReference_RESTRICT 1
+#define JavaLangRefReference_INCLUDE 1
 #include "../../../java/lang/ref/Reference.h"
 
 @class JavaLangRefReferenceQueue;
@@ -59,4 +73,8 @@ FOUNDATION_EXPORT JavaLangRefPhantomReference *new_JavaLangRefPhantomReference_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefPhantomReference)
 
-#endif // _JavaLangRefPhantomReference_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangRefPhantomReference_INCLUDE_ALL")

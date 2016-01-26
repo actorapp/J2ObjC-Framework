@@ -3,13 +3,26 @@
 //  source: android/libcore/luni/src/main/java/java/nio/MappedByteBuffer.java
 //
 
-#ifndef _JavaNioMappedByteBuffer_H_
-#define _JavaNioMappedByteBuffer_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioMappedByteBuffer_INCLUDE_ALL")
+#ifdef JavaNioMappedByteBuffer_RESTRICT
+#define JavaNioMappedByteBuffer_INCLUDE_ALL 0
+#else
+#define JavaNioMappedByteBuffer_INCLUDE_ALL 1
+#endif
+#undef JavaNioMappedByteBuffer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioMappedByteBuffer_) && (JavaNioMappedByteBuffer_INCLUDE_ALL || defined(JavaNioMappedByteBuffer_INCLUDE))
+#define JavaNioMappedByteBuffer_
+
+#define JavaNioByteBuffer_RESTRICT 1
+#define JavaNioByteBuffer_INCLUDE 1
 #include "../../java/nio/ByteBuffer.h"
 
-@class JavaNioChannelsFileChannel_MapMode;
 @class JavaNioMemoryBlock;
 
 /*!
@@ -28,7 +41,7 @@
  */
 @interface JavaNioMappedByteBuffer : JavaNioByteBuffer {
  @public
-  JavaNioChannelsFileChannel_MapMode *mapMode_;
+  jint mapMode_;
   JavaNioMemoryBlock *block_;
 }
 
@@ -61,18 +74,21 @@
 
 - (instancetype)initWithJavaNioMemoryBlock:(JavaNioMemoryBlock *)block
                                    withInt:(jint)capacity
-    withJavaNioChannelsFileChannel_MapMode:(JavaNioChannelsFileChannel_MapMode *)mapMode
+                                   withInt:(jint)mapMode
                                   withLong:(jlong)effectiveDirectAddress;
 
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaNioMappedByteBuffer)
 
-J2OBJC_FIELD_SETTER(JavaNioMappedByteBuffer, mapMode_, JavaNioChannelsFileChannel_MapMode *)
 J2OBJC_FIELD_SETTER(JavaNioMappedByteBuffer, block_, JavaNioMemoryBlock *)
 
-FOUNDATION_EXPORT void JavaNioMappedByteBuffer_initWithJavaNioMemoryBlock_withInt_withJavaNioChannelsFileChannel_MapMode_withLong_(JavaNioMappedByteBuffer *self, JavaNioMemoryBlock *block, jint capacity, JavaNioChannelsFileChannel_MapMode *mapMode, jlong effectiveDirectAddress);
+FOUNDATION_EXPORT void JavaNioMappedByteBuffer_initWithJavaNioMemoryBlock_withInt_withInt_withLong_(JavaNioMappedByteBuffer *self, JavaNioMemoryBlock *block, jint capacity, jint mapMode, jlong effectiveDirectAddress);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioMappedByteBuffer)
 
-#endif // _JavaNioMappedByteBuffer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioMappedByteBuffer_INCLUDE_ALL")

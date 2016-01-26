@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/CodeSigner.java
 //
 
-#ifndef _JavaSecurityCodeSigner_H_
-#define _JavaSecurityCodeSigner_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCodeSigner_INCLUDE_ALL")
+#ifdef JavaSecurityCodeSigner_RESTRICT
+#define JavaSecurityCodeSigner_INCLUDE_ALL 0
+#else
+#define JavaSecurityCodeSigner_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCodeSigner_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCodeSigner_) && (JavaSecurityCodeSigner_INCLUDE_ALL || defined(JavaSecurityCodeSigner_INCLUDE))
+#define JavaSecurityCodeSigner_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class JavaSecurityCertCertPath;
@@ -65,6 +79,8 @@
  hash code for <code>CodeSigner</code>s that are equal to each other as
  required by the general contract of <code>Object.hashCode</code>.
  @return the hash code value for this <code>CodeSigner</code>.
+ - seealso: Object#equals(Object)
+ - seealso: CodeSigner#equals(Object)
  */
 - (NSUInteger)hash;
 
@@ -86,4 +102,8 @@ FOUNDATION_EXPORT JavaSecurityCodeSigner *new_JavaSecurityCodeSigner_initWithJav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCodeSigner)
 
-#endif // _JavaSecurityCodeSigner_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCodeSigner_INCLUDE_ALL")

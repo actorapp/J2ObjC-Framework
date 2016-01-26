@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/text/MessageFormat.java
 //
 
-#ifndef _JavaTextMessageFormat_H_
-#define _JavaTextMessageFormat_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextMessageFormat_INCLUDE_ALL")
+#ifdef JavaTextMessageFormat_RESTRICT
+#define JavaTextMessageFormat_INCLUDE_ALL 0
+#else
+#define JavaTextMessageFormat_INCLUDE_ALL 1
+#endif
+#undef JavaTextMessageFormat_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextMessageFormat_) && (JavaTextMessageFormat_INCLUDE_ALL || defined(JavaTextMessageFormat_INCLUDE))
+#define JavaTextMessageFormat_
+
+#define JavaTextFormat_RESTRICT 1
+#define JavaTextFormat_INCLUDE 1
 #include "../../java/text/Format.h"
 
 @class IOSObjectArray;
@@ -312,6 +326,7 @@
  Message formats are not synchronized. It is recommended to create separate
  format instances for each thread. If multiple threads access a format
  concurrently, it must be synchronized externally.
+ - seealso: java.util.Formatter
  */
 @interface JavaTextMessageFormat : JavaTextFormat
 
@@ -353,6 +368,7 @@
  @brief Returns a new instance of <code>MessageFormat</code> with the same pattern and
  formats as this <code>MessageFormat</code>.
  @return a shallow copy of this <code>MessageFormat</code>.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -365,6 +381,7 @@
  the object to compare with this object.
  @return <code>true</code> if the specified object is equal to this
  <code>MessageFormat</code>; <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -598,6 +615,15 @@ FOUNDATION_EXPORT NSString *JavaTextMessageFormat_formatWithNSString_withNSObjec
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat)
 
+#endif
+
+#if !defined (JavaTextMessageFormat_Field_) && (JavaTextMessageFormat_INCLUDE_ALL || defined(JavaTextMessageFormat_Field_INCLUDE))
+#define JavaTextMessageFormat_Field_
+
+#define JavaTextFormat_RESTRICT 1
+#define JavaTextFormat_Field_INCLUDE 1
+#include "../../java/text/Format.h"
+
 /*!
  @brief The instances of this inner class are used as attribute keys in
  <code>AttributedCharacterIterator</code> that the
@@ -607,6 +633,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat)
  constants defined here.
  */
 @interface JavaTextMessageFormat_Field : JavaTextFormat_Field
+
++ (JavaTextMessageFormat_Field *)ARGUMENT;
 
 #pragma mark Protected
 
@@ -622,8 +650,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat)
 
 J2OBJC_STATIC_INIT(JavaTextMessageFormat_Field)
 
-FOUNDATION_EXPORT JavaTextMessageFormat_Field *JavaTextMessageFormat_Field_ARGUMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextMessageFormat_Field, ARGUMENT_, JavaTextMessageFormat_Field *)
+/*!
+ @brief This constant stands for the message argument.
+ */
+inline JavaTextMessageFormat_Field *JavaTextMessageFormat_Field_get_ARGUMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextMessageFormat_Field *JavaTextMessageFormat_Field_ARGUMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextMessageFormat_Field, ARGUMENT, JavaTextMessageFormat_Field *)
 
 FOUNDATION_EXPORT void JavaTextMessageFormat_Field_initWithNSString_(JavaTextMessageFormat_Field *self, NSString *fieldName);
 
@@ -631,4 +664,8 @@ FOUNDATION_EXPORT JavaTextMessageFormat_Field *new_JavaTextMessageFormat_Field_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat_Field)
 
-#endif // _JavaTextMessageFormat_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextMessageFormat_INCLUDE_ALL")

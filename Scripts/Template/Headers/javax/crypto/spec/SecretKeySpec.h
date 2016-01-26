@@ -3,20 +3,40 @@
 //  source: android/libcore/luni/src/main/java/javax/crypto/spec/SecretKeySpec.java
 //
 
-#ifndef _JavaxCryptoSpecSecretKeySpec_H_
-#define _JavaxCryptoSpecSecretKeySpec_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
-#include "../../../java/security/spec/KeySpec.h"
-#include "../../../javax/crypto/SecretKey.h"
 
-@class IOSByteArray;
+#pragma push_macro("JavaxCryptoSpecSecretKeySpec_INCLUDE_ALL")
+#ifdef JavaxCryptoSpecSecretKeySpec_RESTRICT
+#define JavaxCryptoSpecSecretKeySpec_INCLUDE_ALL 0
+#else
+#define JavaxCryptoSpecSecretKeySpec_INCLUDE_ALL 1
+#endif
+#undef JavaxCryptoSpecSecretKeySpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 /*!
  @author Alexander Y. Kleymenov
  @version $Revision$
  */
+
+#if !defined (JavaxCryptoSpecSecretKeySpec_) && (JavaxCryptoSpecSecretKeySpec_INCLUDE_ALL || defined(JavaxCryptoSpecSecretKeySpec_INCLUDE))
+#define JavaxCryptoSpecSecretKeySpec_
+
+#define JavaxCryptoSecretKey_RESTRICT 1
+#define JavaxCryptoSecretKey_INCLUDE 1
+#include "../../../javax/crypto/SecretKey.h"
+
+#define JavaSecuritySpecKeySpec_RESTRICT 1
+#define JavaSecuritySpecKeySpec_INCLUDE 1
+#include "../../../java/security/spec/KeySpec.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
+@class IOSByteArray;
 
 /*!
  @brief A key specification for a <code>SecretKey</code> and also a secret key
@@ -114,4 +134,8 @@ FOUNDATION_EXPORT JavaxCryptoSpecSecretKeySpec *new_JavaxCryptoSpecSecretKeySpec
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSpecSecretKeySpec)
 
-#endif // _JavaxCryptoSpecSecretKeySpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxCryptoSpecSecretKeySpec_INCLUDE_ALL")

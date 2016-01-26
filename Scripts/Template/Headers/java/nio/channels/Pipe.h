@@ -3,19 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/Pipe.java
 //
 
-#ifndef _JavaNioChannelsPipe_H_
-#define _JavaNioChannelsPipe_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/nio/channels/GatheringByteChannel.h"
-#include "../../../java/nio/channels/ReadableByteChannel.h"
-#include "../../../java/nio/channels/ScatteringByteChannel.h"
-#include "../../../java/nio/channels/WritableByteChannel.h"
-#include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
+
+#pragma push_macro("JavaNioChannelsPipe_INCLUDE_ALL")
+#ifdef JavaNioChannelsPipe_RESTRICT
+#define JavaNioChannelsPipe_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsPipe_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsPipe_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsPipe_) && (JavaNioChannelsPipe_INCLUDE_ALL || defined(JavaNioChannelsPipe_INCLUDE))
+#define JavaNioChannelsPipe_
 
 @class JavaNioChannelsPipe_SinkChannel;
 @class JavaNioChannelsPipe_SourceChannel;
-@class JavaNioChannelsSpiSelectorProvider;
 
 /*!
  @brief A pipe contains two channels, forming a unidirectional pipe.
@@ -29,7 +34,7 @@
 #pragma mark Public
 
 /*!
- @brief Returns a new pipe from the default .
+ @brief Returns a new pipe from the default - seealso: java.nio.channels.spi.SelectorProvider.
  @throws IOException
  if an I/O error occurs.
  */
@@ -64,6 +69,25 @@ FOUNDATION_EXPORT void JavaNioChannelsPipe_init(JavaNioChannelsPipe *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsPipe)
 
+#endif
+
+#if !defined (JavaNioChannelsPipe_SinkChannel_) && (JavaNioChannelsPipe_INCLUDE_ALL || defined(JavaNioChannelsPipe_SinkChannel_INCLUDE))
+#define JavaNioChannelsPipe_SinkChannel_
+
+#define JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT 1
+#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE 1
+#include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
+
+#define JavaNioChannelsWritableByteChannel_RESTRICT 1
+#define JavaNioChannelsWritableByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/WritableByteChannel.h"
+
+#define JavaNioChannelsGatheringByteChannel_RESTRICT 1
+#define JavaNioChannelsGatheringByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/GatheringByteChannel.h"
+
+@class JavaNioChannelsSpiSelectorProvider;
+
 /*!
  @brief Writable sink channel used to write to a pipe.
  */
@@ -93,6 +117,25 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNioChannelsPipe_SinkChannel)
 FOUNDATION_EXPORT void JavaNioChannelsPipe_SinkChannel_initWithJavaNioChannelsSpiSelectorProvider_(JavaNioChannelsPipe_SinkChannel *self, JavaNioChannelsSpiSelectorProvider *provider);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsPipe_SinkChannel)
+
+#endif
+
+#if !defined (JavaNioChannelsPipe_SourceChannel_) && (JavaNioChannelsPipe_INCLUDE_ALL || defined(JavaNioChannelsPipe_SourceChannel_INCLUDE))
+#define JavaNioChannelsPipe_SourceChannel_
+
+#define JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT 1
+#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE 1
+#include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
+
+#define JavaNioChannelsReadableByteChannel_RESTRICT 1
+#define JavaNioChannelsReadableByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/ReadableByteChannel.h"
+
+#define JavaNioChannelsScatteringByteChannel_RESTRICT 1
+#define JavaNioChannelsScatteringByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/ScatteringByteChannel.h"
+
+@class JavaNioChannelsSpiSelectorProvider;
 
 /*!
  @brief Readable source channel used to read from a pipe.
@@ -124,4 +167,8 @@ FOUNDATION_EXPORT void JavaNioChannelsPipe_SourceChannel_initWithJavaNioChannels
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsPipe_SourceChannel)
 
-#endif // _JavaNioChannelsPipe_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsPipe_INCLUDE_ALL")

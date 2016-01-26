@@ -3,12 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/CountDownLatch.java
 //
 
-#ifndef _JavaUtilConcurrentCountDownLatch_H_
-#define _JavaUtilConcurrentCountDownLatch_H_
-
 #include "../../../J2ObjC_header.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+#pragma push_macro("JavaUtilConcurrentCountDownLatch_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentCountDownLatch_RESTRICT
+#define JavaUtilConcurrentCountDownLatch_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentCountDownLatch_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentCountDownLatch_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentCountDownLatch_) && (JavaUtilConcurrentCountDownLatch_INCLUDE_ALL || defined(JavaUtilConcurrentCountDownLatch_INCLUDE))
+#define JavaUtilConcurrentCountDownLatch_
+
+@class JavaUtilConcurrentTimeUnit;
 
 /*!
  @brief A synchronization aid that allows one or more threads to wait until
@@ -187,7 +198,7 @@
  while waiting
  */
 - (jboolean)awaitWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Decrements the count of the latch, releasing all waiting threads if
@@ -224,4 +235,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentCountDownLatch *new_JavaUtilConcurrentCountD
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCountDownLatch)
 
-#endif // _JavaUtilConcurrentCountDownLatch_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentCountDownLatch_INCLUDE_ALL")

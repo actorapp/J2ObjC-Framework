@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/lang/IncompatibleClassChangeError.java
 //
 
-#ifndef _JavaLangIncompatibleClassChangeError_H_
-#define _JavaLangIncompatibleClassChangeError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangIncompatibleClassChangeError_INCLUDE_ALL")
+#ifdef JavaLangIncompatibleClassChangeError_RESTRICT
+#define JavaLangIncompatibleClassChangeError_INCLUDE_ALL 0
+#else
+#define JavaLangIncompatibleClassChangeError_INCLUDE_ALL 1
+#endif
+#undef JavaLangIncompatibleClassChangeError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangIncompatibleClassChangeError_) && (JavaLangIncompatibleClassChangeError_INCLUDE_ALL || defined(JavaLangIncompatibleClassChangeError_INCLUDE))
+#define JavaLangIncompatibleClassChangeError_
+
+#define JavaLangLinkageError_RESTRICT 1
+#define JavaLangLinkageError_INCLUDE 1
 #include "../../java/lang/LinkageError.h"
 
 /*!
  @brief <code>IncompatibleClassChangeError</code> is the superclass of all classes which
  represent errors that occur when inconsistent class files are loaded into
  the same running image.
+ - seealso: Error
  */
 @interface JavaLangIncompatibleClassChangeError : JavaLangLinkageError
 
@@ -46,4 +61,8 @@ FOUNDATION_EXPORT JavaLangIncompatibleClassChangeError *new_JavaLangIncompatible
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIncompatibleClassChangeError)
 
-#endif // _JavaLangIncompatibleClassChangeError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangIncompatibleClassChangeError_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ref/WeakReference.java
 //
 
-#ifndef _JavaLangRefWeakReference_H_
-#define _JavaLangRefWeakReference_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangRefWeakReference_INCLUDE_ALL")
+#ifdef JavaLangRefWeakReference_RESTRICT
+#define JavaLangRefWeakReference_INCLUDE_ALL 0
+#else
+#define JavaLangRefWeakReference_INCLUDE_ALL 1
+#endif
+#undef JavaLangRefWeakReference_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangRefWeakReference_) && (JavaLangRefWeakReference_INCLUDE_ALL || defined(JavaLangRefWeakReference_INCLUDE))
+#define JavaLangRefWeakReference_
+
+#define JavaLangRefReference_RESTRICT 1
+#define JavaLangRefReference_INCLUDE 1
 #include "../../../java/lang/ref/Reference.h"
 
 @class JavaLangRefReferenceQueue;
@@ -98,4 +112,8 @@ FOUNDATION_EXPORT JavaLangRefWeakReference *new_JavaLangRefWeakReference_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefWeakReference)
 
-#endif // _JavaLangRefWeakReference_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangRefWeakReference_INCLUDE_ALL")

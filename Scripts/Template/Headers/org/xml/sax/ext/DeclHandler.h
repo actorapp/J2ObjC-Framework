@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/ext/DeclHandler.java
 //
 
-#ifndef _OrgXmlSaxExtDeclHandler_H_
-#define _OrgXmlSaxExtDeclHandler_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxExtDeclHandler_INCLUDE_ALL")
+#ifdef OrgXmlSaxExtDeclHandler_RESTRICT
+#define OrgXmlSaxExtDeclHandler_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxExtDeclHandler_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxExtDeclHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxExtDeclHandler_) && (OrgXmlSaxExtDeclHandler_INCLUDE_ALL || defined(OrgXmlSaxExtDeclHandler_INCLUDE))
+#define OrgXmlSaxExtDeclHandler_
 
 /*!
  @brief SAX2 extension handler for DTD declaration events.
@@ -95,6 +106,8 @@
  entity, the name will begin with '%'.
  @param value The replacement text of the entity.
  @exception SAXException The application may raise an exception.
+ - seealso: #externalEntityDecl
+ - seealso: org.xml.sax.DTDHandler#unparsedEntityDecl
  */
 - (void)internalEntityDeclWithNSString:(NSString *)name
                           withNSString:(NSString *)value;
@@ -111,6 +124,8 @@
  was given.
  @param systemId The entity's system identifier.
  @exception SAXException The application may raise an exception.
+ - seealso: #internalEntityDecl
+ - seealso: org.xml.sax.DTDHandler#unparsedEntityDecl
  */
 - (void)externalEntityDeclWithNSString:(NSString *)name
                           withNSString:(NSString *)publicId
@@ -122,4 +137,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxExtDeclHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtDeclHandler)
 
-#endif // _OrgXmlSaxExtDeclHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxExtDeclHandler_INCLUDE_ALL")

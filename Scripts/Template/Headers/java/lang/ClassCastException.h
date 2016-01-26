@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ClassCastException.java
 //
 
-#ifndef _JavaLangClassCastException_H_
-#define _JavaLangClassCastException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangClassCastException_INCLUDE_ALL")
+#ifdef JavaLangClassCastException_RESTRICT
+#define JavaLangClassCastException_INCLUDE_ALL 0
+#else
+#define JavaLangClassCastException_INCLUDE_ALL 1
+#endif
+#undef JavaLangClassCastException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangClassCastException_) && (JavaLangClassCastException_INCLUDE_ALL || defined(JavaLangClassCastException_INCLUDE))
+#define JavaLangClassCastException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaLangClassCastException *new_JavaLangClassCastException_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassCastException)
 
-#endif // _JavaLangClassCastException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangClassCastException_INCLUDE_ALL")

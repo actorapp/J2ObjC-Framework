@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/ECFieldF2m.java
 //
 
-#ifndef _JavaSecuritySpecECFieldF2m_H_
-#define _JavaSecuritySpecECFieldF2m_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecECFieldF2m_INCLUDE_ALL")
+#ifdef JavaSecuritySpecECFieldF2m_RESTRICT
+#define JavaSecuritySpecECFieldF2m_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecECFieldF2m_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecECFieldF2m_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecECFieldF2m_) && (JavaSecuritySpecECFieldF2m_INCLUDE_ALL || defined(JavaSecuritySpecECFieldF2m_INCLUDE))
+#define JavaSecuritySpecECFieldF2m_
+
+#define JavaSecuritySpecECField_RESTRICT 1
+#define JavaSecuritySpecECField_INCLUDE 1
 #include "../../../java/security/spec/ECField.h"
 
 @class IOSIntArray;
@@ -131,4 +145,8 @@ FOUNDATION_EXPORT JavaSecuritySpecECFieldF2m *new_JavaSecuritySpecECFieldF2m_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECFieldF2m)
 
-#endif // _JavaSecuritySpecECFieldF2m_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecECFieldF2m_INCLUDE_ALL")

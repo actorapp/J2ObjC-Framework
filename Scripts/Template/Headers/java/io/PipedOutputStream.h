@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/PipedOutputStream.java
 //
 
-#ifndef _JavaIoPipedOutputStream_H_
-#define _JavaIoPipedOutputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoPipedOutputStream_INCLUDE_ALL")
+#ifdef JavaIoPipedOutputStream_RESTRICT
+#define JavaIoPipedOutputStream_INCLUDE_ALL 0
+#else
+#define JavaIoPipedOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoPipedOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoPipedOutputStream_) && (JavaIoPipedOutputStream_INCLUDE_ALL || defined(JavaIoPipedOutputStream_INCLUDE))
+#define JavaIoPipedOutputStream_
+
+#define JavaIoOutputStream_RESTRICT 1
+#define JavaIoOutputStream_INCLUDE 1
 #include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
@@ -17,6 +31,7 @@
  When two threads want to pass
  data back and forth, one creates a piped output stream and the other one
  creates a piped input stream.
+ - seealso: PipedInputStream
  */
 @interface JavaIoPipedOutputStream : JavaIoOutputStream
 
@@ -139,4 +154,8 @@ FOUNDATION_EXPORT JavaIoPipedOutputStream *new_JavaIoPipedOutputStream_initWithJ
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedOutputStream)
 
-#endif // _JavaIoPipedOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoPipedOutputStream_INCLUDE_ALL")

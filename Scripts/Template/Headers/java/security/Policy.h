@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/Policy.java
 //
 
-#ifndef _JavaSecurityPolicy_H_
-#define _JavaSecurityPolicy_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityPolicy_INCLUDE_ALL")
+#ifdef JavaSecurityPolicy_RESTRICT
+#define JavaSecurityPolicy_INCLUDE_ALL 0
+#else
+#define JavaSecurityPolicy_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityPolicy_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityPolicy_) && (JavaSecurityPolicy_INCLUDE_ALL || defined(JavaSecurityPolicy_INCLUDE))
+#define JavaSecurityPolicy_
 
 @class JavaSecurityCodeSource;
 @class JavaSecurityPermission;
@@ -19,6 +30,8 @@
  @brief Legacy security code; do not use.
  */
 @interface JavaSecurityPolicy : NSObject
+
++ (JavaSecurityPermissionCollection *)UNSUPPORTED_EMPTY_COLLECTION;
 
 #pragma mark Public
 
@@ -58,8 +71,10 @@
 
 J2OBJC_STATIC_INIT(JavaSecurityPolicy)
 
-FOUNDATION_EXPORT JavaSecurityPermissionCollection *JavaSecurityPolicy_UNSUPPORTED_EMPTY_COLLECTION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaSecurityPolicy, UNSUPPORTED_EMPTY_COLLECTION_, JavaSecurityPermissionCollection *)
+inline JavaSecurityPermissionCollection *JavaSecurityPolicy_get_UNSUPPORTED_EMPTY_COLLECTION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaSecurityPermissionCollection *JavaSecurityPolicy_UNSUPPORTED_EMPTY_COLLECTION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaSecurityPolicy, UNSUPPORTED_EMPTY_COLLECTION, JavaSecurityPermissionCollection *)
 
 FOUNDATION_EXPORT void JavaSecurityPolicy_init(JavaSecurityPolicy *self);
 
@@ -75,6 +90,11 @@ FOUNDATION_EXPORT void JavaSecurityPolicy_setPolicyWithJavaSecurityPolicy_(JavaS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPolicy)
 
+#endif
+
+#if !defined (JavaSecurityPolicy_Parameters_) && (JavaSecurityPolicy_INCLUDE_ALL || defined(JavaSecurityPolicy_Parameters_INCLUDE))
+#define JavaSecurityPolicy_Parameters_
+
 /*!
  @brief Legacy security code; do not use.
  */
@@ -86,4 +106,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecurityPolicy_Parameters)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPolicy_Parameters)
 
-#endif // _JavaSecurityPolicy_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityPolicy_INCLUDE_ALL")

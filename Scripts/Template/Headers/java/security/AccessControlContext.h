@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/AccessControlContext.java
 //
 
-#ifndef _JavaSecurityAccessControlContext_H_
-#define _JavaSecurityAccessControlContext_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityAccessControlContext_INCLUDE_ALL")
+#ifdef JavaSecurityAccessControlContext_RESTRICT
+#define JavaSecurityAccessControlContext_INCLUDE_ALL 0
+#else
+#define JavaSecurityAccessControlContext_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityAccessControlContext_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityAccessControlContext_) && (JavaSecurityAccessControlContext_INCLUDE_ALL || defined(JavaSecurityAccessControlContext_INCLUDE))
+#define JavaSecurityAccessControlContext_
 
 @class IOSObjectArray;
 @class JavaSecurityPermission;
@@ -42,4 +53,8 @@ FOUNDATION_EXPORT JavaSecurityAccessControlContext *new_JavaSecurityAccessContro
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAccessControlContext)
 
-#endif // _JavaSecurityAccessControlContext_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityAccessControlContext_INCLUDE_ALL")

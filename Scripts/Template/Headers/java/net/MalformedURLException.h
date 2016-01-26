@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/MalformedURLException.java
 //
 
-#ifndef _JavaNetMalformedURLException_H_
-#define _JavaNetMalformedURLException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetMalformedURLException_INCLUDE_ALL")
+#ifdef JavaNetMalformedURLException_RESTRICT
+#define JavaNetMalformedURLException_INCLUDE_ALL 0
+#else
+#define JavaNetMalformedURLException_INCLUDE_ALL 1
+#endif
+#undef JavaNetMalformedURLException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetMalformedURLException_) && (JavaNetMalformedURLException_INCLUDE_ALL || defined(JavaNetMalformedURLException_INCLUDE))
+#define JavaNetMalformedURLException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 @class JavaLangThrowable;
@@ -14,6 +28,7 @@
 /*!
  @brief This exception is thrown when a program attempts to create an URL from an
  incorrect specification.
+ - seealso: URL
  */
 @interface JavaNetMalformedURLException : JavaIoIOException
 
@@ -54,4 +69,8 @@ FOUNDATION_EXPORT JavaNetMalformedURLException *new_JavaNetMalformedURLException
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetMalformedURLException)
 
-#endif // _JavaNetMalformedURLException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetMalformedURLException_INCLUDE_ALL")

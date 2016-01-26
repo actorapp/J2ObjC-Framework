@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/InvalidKeySpecException.java
 //
 
-#ifndef _JavaSecuritySpecInvalidKeySpecException_H_
-#define _JavaSecuritySpecInvalidKeySpecException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecInvalidKeySpecException_INCLUDE_ALL")
+#ifdef JavaSecuritySpecInvalidKeySpecException_RESTRICT
+#define JavaSecuritySpecInvalidKeySpecException_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecInvalidKeySpecException_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecInvalidKeySpecException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecInvalidKeySpecException_) && (JavaSecuritySpecInvalidKeySpecException_INCLUDE_ALL || defined(JavaSecuritySpecInvalidKeySpecException_INCLUDE))
+#define JavaSecuritySpecInvalidKeySpecException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
 #include "../../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
@@ -71,4 +85,8 @@ FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *new_JavaSecuritySpecI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecInvalidKeySpecException)
 
-#endif // _JavaSecuritySpecInvalidKeySpecException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecInvalidKeySpecException_INCLUDE_ALL")

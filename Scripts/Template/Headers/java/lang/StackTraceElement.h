@@ -3,10 +3,24 @@
 //  source: Classes/java/lang/StackTraceElement.java
 //
 
-#ifndef _JavaLangStackTraceElement_H_
-#define _JavaLangStackTraceElement_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangStackTraceElement_INCLUDE_ALL")
+#ifdef JavaLangStackTraceElement_RESTRICT
+#define JavaLangStackTraceElement_INCLUDE_ALL 0
+#else
+#define JavaLangStackTraceElement_INCLUDE_ALL 1
+#endif
+#undef JavaLangStackTraceElement_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangStackTraceElement_) && (JavaLangStackTraceElement_INCLUDE_ALL || defined(JavaLangStackTraceElement_INCLUDE))
+#define JavaLangStackTraceElement_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -64,7 +78,6 @@
 
 - (instancetype)initWithLong:(jlong)address;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaLangStackTraceElement)
@@ -79,4 +92,8 @@ FOUNDATION_EXPORT JavaLangStackTraceElement *new_JavaLangStackTraceElement_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangStackTraceElement)
 
-#endif // _JavaLangStackTraceElement_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangStackTraceElement_INCLUDE_ALL")

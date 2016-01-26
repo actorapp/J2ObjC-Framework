@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/Externalizable.java
 //
 
-#ifndef _JavaIoExternalizable_H_
-#define _JavaIoExternalizable_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoExternalizable_INCLUDE_ALL")
+#ifdef JavaIoExternalizable_RESTRICT
+#define JavaIoExternalizable_INCLUDE_ALL 0
+#else
+#define JavaIoExternalizable_INCLUDE_ALL 1
+#endif
+#undef JavaIoExternalizable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoExternalizable_) && (JavaIoExternalizable_INCLUDE_ALL || defined(JavaIoExternalizable_INCLUDE))
+#define JavaIoExternalizable_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @protocol JavaIoObjectInput;
@@ -44,4 +58,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoExternalizable)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoExternalizable)
 
-#endif // _JavaIoExternalizable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoExternalizable_INCLUDE_ALL")

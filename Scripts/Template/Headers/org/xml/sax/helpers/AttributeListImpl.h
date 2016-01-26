@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/helpers/AttributeListImpl.java
 //
 
-#ifndef _OrgXmlSaxHelpersAttributeListImpl_H_
-#define _OrgXmlSaxHelpersAttributeListImpl_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxHelpersAttributeListImpl_INCLUDE_ALL")
+#ifdef OrgXmlSaxHelpersAttributeListImpl_RESTRICT
+#define OrgXmlSaxHelpersAttributeListImpl_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHelpersAttributeListImpl_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHelpersAttributeListImpl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHelpersAttributeListImpl_) && (OrgXmlSaxHelpersAttributeListImpl_INCLUDE_ALL || defined(OrgXmlSaxHelpersAttributeListImpl_INCLUDE))
+#define OrgXmlSaxHelpersAttributeListImpl_
+
+#define OrgXmlSaxAttributeList_RESTRICT 1
+#define OrgXmlSaxAttributeList_INCLUDE 1
 #include "../../../../org/xml/sax/AttributeList.h"
 
 /*!
@@ -47,7 +61,10 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.AttributeList
+ - seealso: org.xml.sax.DocumentHandler#startElement
  */
+__attribute__((deprecated))
 @interface OrgXmlSaxHelpersAttributeListImpl : NSObject < OrgXmlSaxAttributeList >
 
 #pragma mark Public
@@ -57,6 +74,8 @@
  <p>This constructor is most useful for parser writers, who
  will use it to create a single, reusable attribute list that
  can be reset with the clear method between elements.</p>
+ - seealso: #addAttribute
+ - seealso: #clear
  */
 - (instancetype)init;
 
@@ -66,6 +85,7 @@
  who will use it to create a persistent copy of an existing
  attribute list.</p>
  @param atts The attribute list to copy
+ - seealso: org.xml.sax.DocumentHandler#startElement
  */
 - (instancetype)initWithOrgXmlSaxAttributeList:(id<OrgXmlSaxAttributeList>)atts;
 
@@ -77,6 +97,8 @@
  @param name The attribute name.
  @param type The attribute type ("NMTOKEN" for an enumeration).
  @param value The attribute value (must not be null).
+ - seealso: #removeAttribute
+ - seealso: org.xml.sax.DocumentHandler#startElement
  */
 - (void)addAttributeWithNSString:(NSString *)name
                     withNSString:(NSString *)type
@@ -88,12 +110,14 @@
  list between DocumentHandler.startElement events.  Normally,
  it will make sense to reuse the same AttributeListImpl object
  rather than allocating a new one each time.</p>
+ - seealso: org.xml.sax.DocumentHandler#startElement
  */
 - (void)clear;
 
 /*!
  @brief Return the number of attributes in the list.
  @return The number of attributes in the list.
+ - seealso: org.xml.sax.AttributeList#getLength
  */
 - (jint)getLength;
 
@@ -102,6 +126,7 @@
  @param i The position of the attribute in the list.
  @return The attribute name as a string, or null if there
  is no attribute at that position.
+ - seealso: org.xml.sax.AttributeList#getName(int)
  */
 - (NSString *)getNameWithInt:(jint)i;
 
@@ -112,6 +137,7 @@
  enumeration, and "CDATA" if no declaration was
  read), or null if there is no attribute at
  that position.
+ - seealso: org.xml.sax.AttributeList#getType(int)
  */
 - (NSString *)getTypeWithInt:(jint)i;
 
@@ -121,6 +147,7 @@
  @return The attribute type as a string ("NMTOKEN" for an
  enumeration, and "CDATA" if no declaration was
  read).
+ - seealso: org.xml.sax.AttributeList#getType(java.lang.String)
  */
 - (NSString *)getTypeWithNSString:(NSString *)name;
 
@@ -129,6 +156,7 @@
  @param i The position of the attribute in the list.
  @return The attribute value as a string, or null if
  there is no attribute at that position.
+ - seealso: org.xml.sax.AttributeList#getValue(int)
  */
 - (NSString *)getValueWithInt:(jint)i;
 
@@ -137,6 +165,7 @@
  @param name The attribute name.
  @return the named attribute's value or null, if the attribute does not
  exist.
+ - seealso: org.xml.sax.AttributeList#getValue(java.lang.String)
  */
 - (NSString *)getValueWithNSString:(NSString *)name;
 
@@ -149,6 +178,7 @@
  <p>If the requested attribute is not in the list, this is
  a no-op.</p>
  @param name The attribute name.
+ - seealso: #addAttribute
  */
 - (void)removeAttributeWithNSString:(NSString *)name;
 
@@ -174,4 +204,8 @@ FOUNDATION_EXPORT OrgXmlSaxHelpersAttributeListImpl *new_OrgXmlSaxHelpersAttribu
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersAttributeListImpl)
 
-#endif // _OrgXmlSaxHelpersAttributeListImpl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHelpersAttributeListImpl_INCLUDE_ALL")

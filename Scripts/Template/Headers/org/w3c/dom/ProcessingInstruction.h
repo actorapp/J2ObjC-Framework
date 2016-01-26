@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/ProcessingInstruction.java
 //
 
-#ifndef _OrgW3cDomProcessingInstruction_H_
-#define _OrgW3cDomProcessingInstruction_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomProcessingInstruction_INCLUDE_ALL")
+#ifdef OrgW3cDomProcessingInstruction_RESTRICT
+#define OrgW3cDomProcessingInstruction_INCLUDE_ALL 0
+#else
+#define OrgW3cDomProcessingInstruction_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomProcessingInstruction_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomProcessingInstruction_) && (OrgW3cDomProcessingInstruction_INCLUDE_ALL || defined(OrgW3cDomProcessingInstruction_INCLUDE))
+#define OrgW3cDomProcessingInstruction_
+
+#define OrgW3cDomNode_RESTRICT 1
+#define OrgW3cDomNode_INCLUDE 1
 #include "../../../org/w3c/dom/Node.h"
 
 /*!
@@ -55,4 +69,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomProcessingInstruction)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomProcessingInstruction)
 
-#endif // _OrgW3cDomProcessingInstruction_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomProcessingInstruction_INCLUDE_ALL")

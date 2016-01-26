@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/util/IllegalFormatWidthException.java
 //
 
-#ifndef _JavaUtilIllegalFormatWidthException_H_
-#define _JavaUtilIllegalFormatWidthException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilIllegalFormatWidthException_INCLUDE_ALL")
+#ifdef JavaUtilIllegalFormatWidthException_RESTRICT
+#define JavaUtilIllegalFormatWidthException_INCLUDE_ALL 0
+#else
+#define JavaUtilIllegalFormatWidthException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilIllegalFormatWidthException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilIllegalFormatWidthException_) && (JavaUtilIllegalFormatWidthException_INCLUDE_ALL || defined(JavaUtilIllegalFormatWidthException_INCLUDE))
+#define JavaUtilIllegalFormatWidthException_
+
+#define JavaUtilIllegalFormatException_RESTRICT 1
+#define JavaUtilIllegalFormatException_INCLUDE 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief An <code>IllegalFormatWidthException</code> will be thrown if the width is a
  negative value other than -1 or in other cases where a width is not
  supported.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilIllegalFormatWidthException : JavaUtilIllegalFormatException
 
@@ -44,4 +59,8 @@ FOUNDATION_EXPORT JavaUtilIllegalFormatWidthException *new_JavaUtilIllegalFormat
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatWidthException)
 
-#endif // _JavaUtilIllegalFormatWidthException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilIllegalFormatWidthException_INCLUDE_ALL")

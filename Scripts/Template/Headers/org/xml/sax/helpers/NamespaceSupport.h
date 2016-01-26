@@ -3,13 +3,23 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/helpers/NamespaceSupport.java
 //
 
-#ifndef _OrgXmlSaxHelpersNamespaceSupport_H_
-#define _OrgXmlSaxHelpersNamespaceSupport_H_
-
 #include "../../../../J2ObjC_header.h"
 
+#pragma push_macro("OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL")
+#ifdef OrgXmlSaxHelpersNamespaceSupport_RESTRICT
+#define OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHelpersNamespaceSupport_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHelpersNamespaceSupport_) && (OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL || defined(OrgXmlSaxHelpersNamespaceSupport_INCLUDE))
+#define OrgXmlSaxHelpersNamespaceSupport_
+
 @class IOSObjectArray;
-@class JavaUtilHashtable;
 @protocol JavaUtilEnumeration;
 
 /*!
@@ -61,6 +71,10 @@
  */
 @interface OrgXmlSaxHelpersNamespaceSupport : NSObject
 
++ (NSString *)XMLNS;
+
++ (NSString *)NSDECL;
+
 #pragma mark Public
 
 /*!
@@ -97,6 +111,9 @@
  the value "xml" or "xmlns".
  @param uri The Namespace URI to associate with the prefix.
  @return true if the prefix was legal, false otherwise
+ - seealso: #processName
+ - seealso: #getURI
+ - seealso: #getPrefix
  */
 - (jboolean)declarePrefixWithNSString:(NSString *)prefix
                          withNSString:(NSString *)uri;
@@ -108,6 +125,8 @@
  <code>getPrefix</code> and <code>getPrefixes</code>.</p>
  @return An enumeration of all prefixes declared in this
  context.
+ - seealso: #getPrefixes
+ - seealso: #getURI
  */
 - (id<JavaUtilEnumeration>)getDeclaredPrefixes;
 
@@ -124,6 +143,8 @@
  @return one of the prefixes currently mapped to the URI supplied,
  or null if none is mapped or if the URI is assigned to
  the default namespace
+ - seealso: #getPrefixes(java.lang.String)
+ - seealso: #getURI
  */
 - (NSString *)getPrefixWithNSString:(NSString *)uri;
 
@@ -136,6 +157,8 @@
  returned in this enumeration; check for the default prefix
  using the <code>getURI</code> with an argument of "".</p>
  @return An enumeration of prefixes (never empty).
+ - seealso: #getDeclaredPrefixes
+ - seealso: #getURI
  */
 - (id<JavaUtilEnumeration>)getPrefixes;
 
@@ -155,6 +178,9 @@
  argument of "".</p>
  @param uri The Namespace URI.
  @return An enumeration of prefixes (never empty).
+ - seealso: #getPrefix
+ - seealso: #getDeclaredPrefixes
+ - seealso: #getURI
  */
 - (id<JavaUtilEnumeration>)getPrefixesWithNSString:(NSString *)uri;
 
@@ -165,6 +191,8 @@
  @param prefix The prefix to look up.
  @return The associated Namespace URI, or null if the prefix
  is undeclared in this context.
+ - seealso: #getPrefix
+ - seealso: #getPrefixes
  */
 - (NSString *)getURIWithNSString:(NSString *)prefix;
 
@@ -186,6 +214,7 @@
  <p>You must not attempt to declare additional Namespace
  prefixes after popping a context, unless you push another
  context first.</p>
+ - seealso: #pushContext
  */
 - (void)popContext;
 
@@ -222,6 +251,8 @@
  representing the Namespace URI (or empty string), the
  local name, and the XML qualified name; or null if there
  is an undeclared prefix.
+ - seealso: #declarePrefix
+ - seealso: java.lang.String#intern
  */
 - (IOSObjectArray *)processNameWithNSString:(NSString *)qName
                           withNSStringArray:(IOSObjectArray *)parts
@@ -256,6 +287,8 @@
  <p>The Namespace support object always starts with a base context
  already in force: in this context, only the "xml" prefix is
  declared.</p>
+ - seealso: org.xml.sax.ContentHandler
+ - seealso: #popContext
  */
 - (void)pushContext;
 
@@ -266,6 +299,7 @@
  declaration URIs are to be supported, that flag must also
  be set to a non-default value.
  </p>
+ - seealso: #setNamespaceDeclUris
  */
 - (void)reset;
 
@@ -287,17 +321,51 @@
 
 J2OBJC_STATIC_INIT(OrgXmlSaxHelpersNamespaceSupport)
 
-FOUNDATION_EXPORT NSString *OrgXmlSaxHelpersNamespaceSupport_XMLNS_;
-J2OBJC_STATIC_FIELD_GETTER(OrgXmlSaxHelpersNamespaceSupport, XMLNS_, NSString *)
+/*!
+ @brief The XML Namespace URI as a constant.
+ The value is <code>http://www.w3.org/XML/1998/namespace</code>
+ as defined in the "Namespaces in XML" * recommendation.
+ <p>This is the Namespace URI that is automatically mapped
+ to the "xml" prefix.</p>
+ */
+inline NSString *OrgXmlSaxHelpersNamespaceSupport_get_XMLNS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *OrgXmlSaxHelpersNamespaceSupport_XMLNS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(OrgXmlSaxHelpersNamespaceSupport, XMLNS, NSString *)
 
-FOUNDATION_EXPORT NSString *OrgXmlSaxHelpersNamespaceSupport_NSDECL_;
-J2OBJC_STATIC_FIELD_GETTER(OrgXmlSaxHelpersNamespaceSupport, NSDECL_, NSString *)
+/*!
+ @brief The namespace declaration URI as a constant.
+ The value is <code>http://www.w3.org/xmlns/2000/</code>, as defined
+ in a backwards-incompatible erratum to the "Namespaces in XML"
+ recommendation.  Because that erratum postdated SAX2, SAX2 defaults
+ to the original recommendation, and does not normally use this URI.
+ <p>This is the Namespace URI that is optionally applied to
+ <em>xmlns</em> and <em>xmlns:*</em> attributes, which are used to
+ declare namespaces.  </p>
+ @since SAX 2.1alpha
+ - seealso: #setNamespaceDeclUris
+ - seealso: #isNamespaceDeclUris
+ */
+inline NSString *OrgXmlSaxHelpersNamespaceSupport_get_NSDECL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *OrgXmlSaxHelpersNamespaceSupport_NSDECL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(OrgXmlSaxHelpersNamespaceSupport, NSDECL, NSString *)
 
 FOUNDATION_EXPORT void OrgXmlSaxHelpersNamespaceSupport_init(OrgXmlSaxHelpersNamespaceSupport *self);
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersNamespaceSupport *new_OrgXmlSaxHelpersNamespaceSupport_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport)
+
+#endif
+
+#if !defined (OrgXmlSaxHelpersNamespaceSupport_Context_) && (OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL || defined(OrgXmlSaxHelpersNamespaceSupport_Context_INCLUDE))
+#define OrgXmlSaxHelpersNamespaceSupport_Context_
+
+@class IOSObjectArray;
+@class JavaUtilHashtable;
+@class OrgXmlSaxHelpersNamespaceSupport;
+@protocol JavaUtilEnumeration;
 
 /*!
  @brief Internal class for a single Namespace context.
@@ -339,6 +407,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport)
  @brief Declare a Namespace prefix for this context.
  @param prefix The prefix to declare.
  @param uri The associated Namespace URI.
+ - seealso: org.xml.sax.helpers.NamespaceSupport#declarePrefix
  */
 - (void)declarePrefixWithNSString:(NSString *)prefix
                      withNSString:(NSString *)uri;
@@ -346,6 +415,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport)
 /*!
  @brief Return an enumeration of prefixes declared in this context.
  @return An enumeration of prefixes (possibly empty).
+ - seealso: org.xml.sax.helpers.NamespaceSupport#getDeclaredPrefixes
  */
 - (id<JavaUtilEnumeration>)getDeclaredPrefixes;
 
@@ -355,6 +425,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport)
  the return value may be unreliable.</p>
  @param uri The URI to look up.
  @return The associated prefix, or null if none is declared.
+ - seealso: org.xml.sax.helpers.NamespaceSupport#getPrefix
  */
 - (NSString *)getPrefixWithNSString:(NSString *)uri;
 
@@ -363,6 +434,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport)
  <p>The default prefix, if in force, is <em>not</em>
  returned, and will have to be checked for separately.</p>
  @return An enumeration of prefixes (never empty).
+ - seealso: org.xml.sax.helpers.NamespaceSupport#getPrefixes
  */
 - (id<JavaUtilEnumeration>)getPrefixes;
 
@@ -371,6 +443,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport)
  @param prefix The prefix to look up.
  @return The associated Namespace URI, or null if none is
  declared.
+ - seealso: org.xml.sax.helpers.NamespaceSupport#getURI
  */
 - (NSString *)getURIWithNSString:(NSString *)prefix;
 
@@ -382,6 +455,7 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport)
  URI part (or empty string), the local part,
  and the raw name, all internalized, or null
  if there is an undeclared prefix.
+ - seealso: org.xml.sax.helpers.NamespaceSupport#processName
  */
 - (IOSObjectArray *)processNameWithNSString:(NSString *)qName
                                 withBoolean:(jboolean)isAttribute;
@@ -410,4 +484,8 @@ FOUNDATION_EXPORT OrgXmlSaxHelpersNamespaceSupport_Context *new_OrgXmlSaxHelpers
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport_Context)
 
-#endif // _OrgXmlSaxHelpersNamespaceSupport_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL")

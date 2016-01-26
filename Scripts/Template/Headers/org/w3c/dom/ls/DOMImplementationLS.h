@@ -3,18 +3,26 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/ls/DOMImplementationLS.java
 //
 
-#ifndef _OrgW3cDomLsDOMImplementationLS_H_
-#define _OrgW3cDomLsDOMImplementationLS_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomLsDOMImplementationLS_INCLUDE_ALL")
+#ifdef OrgW3cDomLsDOMImplementationLS_RESTRICT
+#define OrgW3cDomLsDOMImplementationLS_INCLUDE_ALL 0
+#else
+#define OrgW3cDomLsDOMImplementationLS_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomLsDOMImplementationLS_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomLsDOMImplementationLS_) && (OrgW3cDomLsDOMImplementationLS_INCLUDE_ALL || defined(OrgW3cDomLsDOMImplementationLS_INCLUDE))
+#define OrgW3cDomLsDOMImplementationLS_
 
 @protocol OrgW3cDomLsLSInput;
 @protocol OrgW3cDomLsLSOutput;
 @protocol OrgW3cDomLsLSParser;
 @protocol OrgW3cDomLsLSSerializer;
-
-#define OrgW3cDomLsDOMImplementationLS_MODE_SYNCHRONOUS 1
-#define OrgW3cDomLsDOMImplementationLS_MODE_ASYNCHRONOUS 2
 
 /*!
  @brief <code>DOMImplementationLS</code> contains the factory methods for creating
@@ -114,12 +122,34 @@
 
 @end
 
+@interface OrgW3cDomLsDOMImplementationLS : NSObject
+
++ (jshort)MODE_SYNCHRONOUS;
+
++ (jshort)MODE_ASYNCHRONOUS;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomLsDOMImplementationLS)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsDOMImplementationLS, MODE_SYNCHRONOUS, jshort)
+/*!
+ @brief Create a synchronous <code>LSParser</code>.
+ */
+inline jshort OrgW3cDomLsDOMImplementationLS_get_MODE_SYNCHRONOUS();
+#define OrgW3cDomLsDOMImplementationLS_MODE_SYNCHRONOUS 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsDOMImplementationLS, MODE_SYNCHRONOUS, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsDOMImplementationLS, MODE_ASYNCHRONOUS, jshort)
+/*!
+ @brief Create an asynchronous <code>LSParser</code>.
+ */
+inline jshort OrgW3cDomLsDOMImplementationLS_get_MODE_ASYNCHRONOUS();
+#define OrgW3cDomLsDOMImplementationLS_MODE_ASYNCHRONOUS 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsDOMImplementationLS, MODE_ASYNCHRONOUS, jshort)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsDOMImplementationLS)
 
-#endif // _OrgW3cDomLsDOMImplementationLS_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomLsDOMImplementationLS_INCLUDE_ALL")

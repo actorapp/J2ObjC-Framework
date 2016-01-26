@@ -3,16 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/net/PasswordAuthentication.java
 //
 
-#ifndef _JavaNetPasswordAuthentication_H_
-#define _JavaNetPasswordAuthentication_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetPasswordAuthentication_INCLUDE_ALL")
+#ifdef JavaNetPasswordAuthentication_RESTRICT
+#define JavaNetPasswordAuthentication_INCLUDE_ALL 0
+#else
+#define JavaNetPasswordAuthentication_INCLUDE_ALL 1
+#endif
+#undef JavaNetPasswordAuthentication_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetPasswordAuthentication_) && (JavaNetPasswordAuthentication_INCLUDE_ALL || defined(JavaNetPasswordAuthentication_INCLUDE))
+#define JavaNetPasswordAuthentication_
 
 @class IOSCharArray;
 
 /*!
  @brief This immutable class is a data structure that encapsulates username and
  password which is used by the <code>Authenticator</code> class.
+ - seealso: Authenticator
  */
 @interface JavaNetPasswordAuthentication : NSObject
 
@@ -54,4 +66,8 @@ FOUNDATION_EXPORT JavaNetPasswordAuthentication *new_JavaNetPasswordAuthenticati
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetPasswordAuthentication)
 
-#endif // _JavaNetPasswordAuthentication_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetPasswordAuthentication_INCLUDE_ALL")

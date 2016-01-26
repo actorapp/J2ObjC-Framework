@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/ServiceConfigurationError.java
 //
 
-#ifndef _JavaUtilServiceConfigurationError_H_
-#define _JavaUtilServiceConfigurationError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilServiceConfigurationError_INCLUDE_ALL")
+#ifdef JavaUtilServiceConfigurationError_RESTRICT
+#define JavaUtilServiceConfigurationError_INCLUDE_ALL 0
+#else
+#define JavaUtilServiceConfigurationError_INCLUDE_ALL 1
+#endif
+#undef JavaUtilServiceConfigurationError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilServiceConfigurationError_) && (JavaUtilServiceConfigurationError_INCLUDE_ALL || defined(JavaUtilServiceConfigurationError_INCLUDE))
+#define JavaUtilServiceConfigurationError_
+
+#define JavaLangError_RESTRICT 1
+#define JavaLangError_INCLUDE 1
 #include "../../java/lang/Error.h"
 
 @class JavaLangThrowable;
@@ -47,4 +61,8 @@ FOUNDATION_EXPORT JavaUtilServiceConfigurationError *new_JavaUtilServiceConfigur
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilServiceConfigurationError)
 
-#endif // _JavaUtilServiceConfigurationError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilServiceConfigurationError_INCLUDE_ALL")

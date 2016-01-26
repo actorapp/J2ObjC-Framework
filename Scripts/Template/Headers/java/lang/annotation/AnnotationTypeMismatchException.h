@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/annotation/AnnotationTypeMismatchException.java
 //
 
-#ifndef _JavaLangAnnotationAnnotationTypeMismatchException_H_
-#define _JavaLangAnnotationAnnotationTypeMismatchException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangAnnotationAnnotationTypeMismatchException_INCLUDE_ALL")
+#ifdef JavaLangAnnotationAnnotationTypeMismatchException_RESTRICT
+#define JavaLangAnnotationAnnotationTypeMismatchException_INCLUDE_ALL 0
+#else
+#define JavaLangAnnotationAnnotationTypeMismatchException_INCLUDE_ALL 1
+#endif
+#undef JavaLangAnnotationAnnotationTypeMismatchException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangAnnotationAnnotationTypeMismatchException_) && (JavaLangAnnotationAnnotationTypeMismatchException_INCLUDE_ALL || defined(JavaLangAnnotationAnnotationTypeMismatchException_INCLUDE))
+#define JavaLangAnnotationAnnotationTypeMismatchException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../../java/lang/RuntimeException.h"
 
 @class JavaLangReflectMethod;
@@ -54,4 +68,8 @@ FOUNDATION_EXPORT JavaLangAnnotationAnnotationTypeMismatchException *new_JavaLan
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationAnnotationTypeMismatchException)
 
-#endif // _JavaLangAnnotationAnnotationTypeMismatchException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangAnnotationAnnotationTypeMismatchException_INCLUDE_ALL")

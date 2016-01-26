@@ -3,79 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/sql/DatabaseMetaData.java
 //
 
-#ifndef _JavaSqlDatabaseMetaData_H_
-#define _JavaSqlDatabaseMetaData_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlDatabaseMetaData_INCLUDE_ALL")
+#ifdef JavaSqlDatabaseMetaData_RESTRICT
+#define JavaSqlDatabaseMetaData_INCLUDE_ALL 0
+#else
+#define JavaSqlDatabaseMetaData_INCLUDE_ALL 1
+#endif
+#undef JavaSqlDatabaseMetaData_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlDatabaseMetaData_) && (JavaSqlDatabaseMetaData_INCLUDE_ALL || defined(JavaSqlDatabaseMetaData_INCLUDE))
+#define JavaSqlDatabaseMetaData_
+
+#define JavaSqlWrapper_RESTRICT 1
+#define JavaSqlWrapper_INCLUDE 1
 #include "../../java/sql/Wrapper.h"
 
 @class IOSIntArray;
 @class IOSObjectArray;
-@class JavaSqlRowIdLifetimeEnum;
+@class JavaSqlRowIdLifetime;
 @protocol JavaSqlConnection;
 @protocol JavaSqlResultSet;
-
-#define JavaSqlDatabaseMetaData_attributeNoNulls 0
-#define JavaSqlDatabaseMetaData_attributeNullable 1
-#define JavaSqlDatabaseMetaData_attributeNullableUnknown 2
-#define JavaSqlDatabaseMetaData_bestRowNotPseudo 1
-#define JavaSqlDatabaseMetaData_bestRowPseudo 2
-#define JavaSqlDatabaseMetaData_bestRowSession 2
-#define JavaSqlDatabaseMetaData_bestRowTemporary 0
-#define JavaSqlDatabaseMetaData_bestRowTransaction 1
-#define JavaSqlDatabaseMetaData_bestRowUnknown 0
-#define JavaSqlDatabaseMetaData_columnNoNulls 0
-#define JavaSqlDatabaseMetaData_columnNullable 1
-#define JavaSqlDatabaseMetaData_columnNullableUnknown 2
-#define JavaSqlDatabaseMetaData_importedKeyCascade 0
-#define JavaSqlDatabaseMetaData_importedKeyInitiallyDeferred 5
-#define JavaSqlDatabaseMetaData_importedKeyInitiallyImmediate 6
-#define JavaSqlDatabaseMetaData_importedKeyNoAction 3
-#define JavaSqlDatabaseMetaData_importedKeyNotDeferrable 7
-#define JavaSqlDatabaseMetaData_importedKeyRestrict 1
-#define JavaSqlDatabaseMetaData_importedKeySetDefault 4
-#define JavaSqlDatabaseMetaData_importedKeySetNull 2
-#define JavaSqlDatabaseMetaData_procedureColumnIn 1
-#define JavaSqlDatabaseMetaData_procedureColumnInOut 2
-#define JavaSqlDatabaseMetaData_procedureColumnOut 4
-#define JavaSqlDatabaseMetaData_procedureColumnResult 3
-#define JavaSqlDatabaseMetaData_procedureColumnReturn 5
-#define JavaSqlDatabaseMetaData_procedureColumnUnknown 0
-#define JavaSqlDatabaseMetaData_procedureNoNulls 0
-#define JavaSqlDatabaseMetaData_procedureNoResult 1
-#define JavaSqlDatabaseMetaData_procedureNullable 1
-#define JavaSqlDatabaseMetaData_procedureNullableUnknown 2
-#define JavaSqlDatabaseMetaData_procedureResultUnknown 0
-#define JavaSqlDatabaseMetaData_procedureReturnsResult 2
-#define JavaSqlDatabaseMetaData_sqlStateSQL99 2
-#define JavaSqlDatabaseMetaData_sqlStateXOpen 1
-#define JavaSqlDatabaseMetaData_tableIndexClustered 1
-#define JavaSqlDatabaseMetaData_tableIndexHashed 2
-#define JavaSqlDatabaseMetaData_tableIndexOther 3
-#define JavaSqlDatabaseMetaData_tableIndexStatistic 0
-#define JavaSqlDatabaseMetaData_typeNoNulls 0
-#define JavaSqlDatabaseMetaData_typeNullable 1
-#define JavaSqlDatabaseMetaData_typeNullableUnknown 2
-#define JavaSqlDatabaseMetaData_typePredBasic 2
-#define JavaSqlDatabaseMetaData_typePredChar 1
-#define JavaSqlDatabaseMetaData_typePredNone 0
-#define JavaSqlDatabaseMetaData_typeSearchable 3
-#define JavaSqlDatabaseMetaData_versionColumnNotPseudo 1
-#define JavaSqlDatabaseMetaData_versionColumnPseudo 2
-#define JavaSqlDatabaseMetaData_versionColumnUnknown 0
-#define JavaSqlDatabaseMetaData_sqlStateSQL 2
-#define JavaSqlDatabaseMetaData_functionColumnIn 1
-#define JavaSqlDatabaseMetaData_functionColumnInOut 2
-#define JavaSqlDatabaseMetaData_functionColumnOut 3
-#define JavaSqlDatabaseMetaData_functionReturn 4
-#define JavaSqlDatabaseMetaData_functionColumnUnknown 0
-#define JavaSqlDatabaseMetaData_functionColumnResult 5
-#define JavaSqlDatabaseMetaData_functionNoNulls 0
-#define JavaSqlDatabaseMetaData_functionNullable 1
-#define JavaSqlDatabaseMetaData_functionNullableUnknown 2
-#define JavaSqlDatabaseMetaData_functionResultUnknown 0
-#define JavaSqlDatabaseMetaData_functionNoTable 1
-#define JavaSqlDatabaseMetaData_functionReturnsTable 2
 
 /*!
  @brief An interface which provides comprehensive information about the database
@@ -1812,6 +1764,7 @@
  row insert otherwise <code>false</code>.
  @throws SQLException
  a database error occurred.
+ - seealso: ResultSet#rowInserted()
  */
 - (jboolean)insertsAreDetectedWithInt:(jint)type;
 
@@ -2808,7 +2761,7 @@
  @throws SQLException
  if any error occurs
  */
-- (JavaSqlRowIdLifetimeEnum *)getRowIdLifetime;
+- (JavaSqlRowIdLifetime *)getRowIdLifetime;
 
 /*!
  @brief Returns the schema names ordered by TABLE_CATALOG and TABLE_SCHEMA.
@@ -2835,130 +2788,590 @@
 
 @end
 
+@interface JavaSqlDatabaseMetaData : NSObject
+
++ (jshort)attributeNoNulls;
+
++ (jshort)attributeNullable;
+
++ (jshort)attributeNullableUnknown;
+
++ (jint)bestRowNotPseudo;
+
++ (jint)bestRowPseudo;
+
++ (jint)bestRowSession;
+
++ (jint)bestRowTemporary;
+
++ (jint)bestRowTransaction;
+
++ (jint)bestRowUnknown;
+
++ (jint)columnNoNulls;
+
++ (jint)columnNullable;
+
++ (jint)columnNullableUnknown;
+
++ (jint)importedKeyCascade;
+
++ (jint)importedKeyInitiallyDeferred;
+
++ (jint)importedKeyInitiallyImmediate;
+
++ (jint)importedKeyNoAction;
+
++ (jint)importedKeyNotDeferrable;
+
++ (jint)importedKeyRestrict;
+
++ (jint)importedKeySetDefault;
+
++ (jint)importedKeySetNull;
+
++ (jint)procedureColumnIn;
+
++ (jint)procedureColumnInOut;
+
++ (jint)procedureColumnOut;
+
++ (jint)procedureColumnResult;
+
++ (jint)procedureColumnReturn;
+
++ (jint)procedureColumnUnknown;
+
++ (jint)procedureNoNulls;
+
++ (jint)procedureNoResult;
+
++ (jint)procedureNullable;
+
++ (jint)procedureNullableUnknown;
+
++ (jint)procedureResultUnknown;
+
++ (jint)procedureReturnsResult;
+
++ (jint)sqlStateSQL99;
+
++ (jint)sqlStateXOpen;
+
++ (jshort)tableIndexClustered;
+
++ (jshort)tableIndexHashed;
+
++ (jshort)tableIndexOther;
+
++ (jshort)tableIndexStatistic;
+
++ (jint)typeNoNulls;
+
++ (jint)typeNullable;
+
++ (jint)typeNullableUnknown;
+
++ (jint)typePredBasic;
+
++ (jint)typePredChar;
+
++ (jint)typePredNone;
+
++ (jint)typeSearchable;
+
++ (jint)versionColumnNotPseudo;
+
++ (jint)versionColumnPseudo;
+
++ (jint)versionColumnUnknown;
+
++ (jint)sqlStateSQL;
+
++ (jint)functionColumnIn;
+
++ (jint)functionColumnInOut;
+
++ (jint)functionColumnOut;
+
++ (jint)functionReturn;
+
++ (jint)functionColumnUnknown;
+
++ (jint)functionColumnResult;
+
++ (jint)functionNoNulls;
+
++ (jint)functionNullable;
+
++ (jint)functionNullableUnknown;
+
++ (jint)functionResultUnknown;
+
++ (jint)functionNoTable;
+
++ (jint)functionReturnsTable;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlDatabaseMetaData)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, attributeNoNulls, jshort)
+/*!
+ @brief States that it may not be permitted to store <code>NULL</code> values.
+ */
+inline jshort JavaSqlDatabaseMetaData_get_attributeNoNulls();
+#define JavaSqlDatabaseMetaData_attributeNoNulls 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, attributeNoNulls, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, attributeNullable, jshort)
+/*!
+ @brief States that <code>NULL</code> values are definitely permitted.
+ */
+inline jshort JavaSqlDatabaseMetaData_get_attributeNullable();
+#define JavaSqlDatabaseMetaData_attributeNullable 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, attributeNullable, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, attributeNullableUnknown, jshort)
+/*!
+ @brief States that whether <code>NULL</code> values are permitted is unknown.
+ */
+inline jshort JavaSqlDatabaseMetaData_get_attributeNullableUnknown();
+#define JavaSqlDatabaseMetaData_attributeNullableUnknown 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, attributeNullableUnknown, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, bestRowNotPseudo, jint)
+/*!
+ @brief States the best row identifier is <em>NOT</em> a pseudo column.
+ */
+inline jint JavaSqlDatabaseMetaData_get_bestRowNotPseudo();
+#define JavaSqlDatabaseMetaData_bestRowNotPseudo 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, bestRowNotPseudo, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, bestRowPseudo, jint)
+/*!
+ @brief States that the best row identifier is a pseudo column.
+ */
+inline jint JavaSqlDatabaseMetaData_get_bestRowPseudo();
+#define JavaSqlDatabaseMetaData_bestRowPseudo 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, bestRowPseudo, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, bestRowSession, jint)
+/*!
+ @brief States that the remainder of the current session is used as the scope for
+ the best row identifier.
+ */
+inline jint JavaSqlDatabaseMetaData_get_bestRowSession();
+#define JavaSqlDatabaseMetaData_bestRowSession 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, bestRowSession, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, bestRowTemporary, jint)
+/*!
+ @brief States that best row identifier scope lasts only while the row is being
+ used.
+ */
+inline jint JavaSqlDatabaseMetaData_get_bestRowTemporary();
+#define JavaSqlDatabaseMetaData_bestRowTemporary 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, bestRowTemporary, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, bestRowTransaction, jint)
+/*!
+ @brief States that the remainder of the current transaction is used as the scope
+ for the best row identifier.
+ */
+inline jint JavaSqlDatabaseMetaData_get_bestRowTransaction();
+#define JavaSqlDatabaseMetaData_bestRowTransaction 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, bestRowTransaction, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, bestRowUnknown, jint)
+/*!
+ @brief States that the best row identifier may or may not be a pseudo column.
+ */
+inline jint JavaSqlDatabaseMetaData_get_bestRowUnknown();
+#define JavaSqlDatabaseMetaData_bestRowUnknown 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, bestRowUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, columnNoNulls, jint)
+/*!
+ @brief States that the column must not allow <code>NULL</code> values.
+ */
+inline jint JavaSqlDatabaseMetaData_get_columnNoNulls();
+#define JavaSqlDatabaseMetaData_columnNoNulls 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, columnNoNulls, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, columnNullable, jint)
+/*!
+ @brief States that the column definitely allows <code>NULL</code> values.
+ */
+inline jint JavaSqlDatabaseMetaData_get_columnNullable();
+#define JavaSqlDatabaseMetaData_columnNullable 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, columnNullable, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, columnNullableUnknown, jint)
+/*!
+ @brief States that it is unknown whether the columns may be nulled.
+ */
+inline jint JavaSqlDatabaseMetaData_get_columnNullableUnknown();
+#define JavaSqlDatabaseMetaData_columnNullableUnknown 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, columnNullableUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, importedKeyCascade, jint)
+/*!
+ @brief For the column <code>UPDATE_RULE</code>, states that when the primary key is
+ updated, the foreign key (imported key) is changed accordingly.
+ */
+inline jint JavaSqlDatabaseMetaData_get_importedKeyCascade();
+#define JavaSqlDatabaseMetaData_importedKeyCascade 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, importedKeyCascade, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, importedKeyInitiallyDeferred, jint)
+/*!
+ @brief States that the evaluation of foreign key constraints is deferred (delayed
+ until commit).
+ */
+inline jint JavaSqlDatabaseMetaData_get_importedKeyInitiallyDeferred();
+#define JavaSqlDatabaseMetaData_importedKeyInitiallyDeferred 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, importedKeyInitiallyDeferred, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, importedKeyInitiallyImmediate, jint)
+/*!
+ @brief States that the evaluation of foreign key constraint is <code>IMMEDIATE</code>
+ .
+ */
+inline jint JavaSqlDatabaseMetaData_get_importedKeyInitiallyImmediate();
+#define JavaSqlDatabaseMetaData_importedKeyInitiallyImmediate 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, importedKeyInitiallyImmediate, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, importedKeyNoAction, jint)
+/*!
+ @brief For the columns <code>UPDATE_RULE</code> and <code>DELETE_RULE</code>, states that
+ if the primary key has been imported, it cannot be updated or deleted.
+ */
+inline jint JavaSqlDatabaseMetaData_get_importedKeyNoAction();
+#define JavaSqlDatabaseMetaData_importedKeyNoAction 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, importedKeyNoAction, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, importedKeyNotDeferrable, jint)
+/*!
+ @brief States that the evaluation of foreign key constraint must not be <code>DEFERRED</code>
+ .
+ */
+inline jint JavaSqlDatabaseMetaData_get_importedKeyNotDeferrable();
+#define JavaSqlDatabaseMetaData_importedKeyNotDeferrable 7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, importedKeyNotDeferrable, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, importedKeyRestrict, jint)
+/*!
+ @brief States that a primary key must not be updated when imported as a foreign
+ key by some other table.
+ Used for the column <code>UPDATE_RULE</code>.
+ */
+inline jint JavaSqlDatabaseMetaData_get_importedKeyRestrict();
+#define JavaSqlDatabaseMetaData_importedKeyRestrict 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, importedKeyRestrict, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, importedKeySetDefault, jint)
+/*!
+ @brief States that when the primary key is modified (updated or deleted) the
+ foreign (imported) key is changed to its default value.
+ Applies to the
+ <code>UPDATE_RULE</code> and <code>DELETE_RULE</code> columns.
+ */
+inline jint JavaSqlDatabaseMetaData_get_importedKeySetDefault();
+#define JavaSqlDatabaseMetaData_importedKeySetDefault 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, importedKeySetDefault, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, importedKeySetNull, jint)
+/*!
+ @brief States that when the primary key is modified (updated or deleted) the
+ foreign (imported) key is changed to <code>NULL</code>.
+ Applies to the <code>UPDATE_RULE</code>
+  and <code>DELETE_RULE</code> columns.
+ */
+inline jint JavaSqlDatabaseMetaData_get_importedKeySetNull();
+#define JavaSqlDatabaseMetaData_importedKeySetNull 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, importedKeySetNull, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureColumnIn, jint)
+/*!
+ @brief States that the column stores <code>IN</code> type parameters.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureColumnIn();
+#define JavaSqlDatabaseMetaData_procedureColumnIn 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureColumnIn, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureColumnInOut, jint)
+/*!
+ @brief States that this column stores <code>INOUT</code> type parameters.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureColumnInOut();
+#define JavaSqlDatabaseMetaData_procedureColumnInOut 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureColumnInOut, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureColumnOut, jint)
+/*!
+ @brief States that this column stores <code>OUT</code> type parameters.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureColumnOut();
+#define JavaSqlDatabaseMetaData_procedureColumnOut 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureColumnOut, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureColumnResult, jint)
+/*!
+ @brief States that the column stores results.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureColumnResult();
+#define JavaSqlDatabaseMetaData_procedureColumnResult 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureColumnResult, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureColumnReturn, jint)
+/*!
+ @brief States that the column stores return values.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureColumnReturn();
+#define JavaSqlDatabaseMetaData_procedureColumnReturn 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureColumnReturn, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureColumnUnknown, jint)
+/*!
+ @brief States that type of the column is unknown.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureColumnUnknown();
+#define JavaSqlDatabaseMetaData_procedureColumnUnknown 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureColumnUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureNoNulls, jint)
+/*!
+ @brief States that <code>NULL</code> values are not permitted.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureNoNulls();
+#define JavaSqlDatabaseMetaData_procedureNoNulls 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureNoNulls, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureNoResult, jint)
+/*!
+ @brief States that the procedure does not return a result.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureNoResult();
+#define JavaSqlDatabaseMetaData_procedureNoResult 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureNoResult, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureNullable, jint)
+/*!
+ @brief States that <code>NULL</code> values are permitted.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureNullable();
+#define JavaSqlDatabaseMetaData_procedureNullable 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureNullable, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureNullableUnknown, jint)
+/*!
+ @brief States that it is unknown whether <code>NULL</code> values are permitted.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureNullableUnknown();
+#define JavaSqlDatabaseMetaData_procedureNullableUnknown 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureNullableUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureResultUnknown, jint)
+/*!
+ @brief States that it is unknown whether or not the procedure returns a result.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureResultUnknown();
+#define JavaSqlDatabaseMetaData_procedureResultUnknown 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureResultUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, procedureReturnsResult, jint)
+/*!
+ @brief States that the procedure returns a result.
+ */
+inline jint JavaSqlDatabaseMetaData_get_procedureReturnsResult();
+#define JavaSqlDatabaseMetaData_procedureReturnsResult 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, procedureReturnsResult, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, sqlStateSQL99, jint)
+/*!
+ @brief States that the value is an SQL99 <code>SQLSTATE</code> value.
+ */
+inline jint JavaSqlDatabaseMetaData_get_sqlStateSQL99();
+#define JavaSqlDatabaseMetaData_sqlStateSQL99 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, sqlStateSQL99, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, sqlStateXOpen, jint)
+/*!
+ @brief States that the value is an SQL <code>CLI SQLSTATE</code> value as defined by
+ the X/Open standard.
+ */
+inline jint JavaSqlDatabaseMetaData_get_sqlStateXOpen();
+#define JavaSqlDatabaseMetaData_sqlStateXOpen 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, sqlStateXOpen, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, tableIndexClustered, jshort)
+/*!
+ @brief States that this table index is a clustered index.
+ */
+inline jshort JavaSqlDatabaseMetaData_get_tableIndexClustered();
+#define JavaSqlDatabaseMetaData_tableIndexClustered 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, tableIndexClustered, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, tableIndexHashed, jshort)
+/*!
+ @brief States that this table index is a hashed index.
+ */
+inline jshort JavaSqlDatabaseMetaData_get_tableIndexHashed();
+#define JavaSqlDatabaseMetaData_tableIndexHashed 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, tableIndexHashed, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, tableIndexOther, jshort)
+/*!
+ @brief States this table's index is neither a clustered index, not a hashed
+ index, and not a table statistics index; i.e. it is something else.
+ */
+inline jshort JavaSqlDatabaseMetaData_get_tableIndexOther();
+#define JavaSqlDatabaseMetaData_tableIndexOther 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, tableIndexOther, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, tableIndexStatistic, jshort)
+/*!
+ @brief States this column has the table's statistics, and that it is returned in
+ conjunction with the table's index description.
+ */
+inline jshort JavaSqlDatabaseMetaData_get_tableIndexStatistic();
+#define JavaSqlDatabaseMetaData_tableIndexStatistic 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, tableIndexStatistic, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, typeNoNulls, jint)
+/*!
+ @brief States that a <code>NULL</code> value is <em>NOT</em> permitted for
+ this data type.
+ */
+inline jint JavaSqlDatabaseMetaData_get_typeNoNulls();
+#define JavaSqlDatabaseMetaData_typeNoNulls 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, typeNoNulls, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, typeNullable, jint)
+/*!
+ @brief States that a <code>NULL</code> value is permitted for this data type.
+ */
+inline jint JavaSqlDatabaseMetaData_get_typeNullable();
+#define JavaSqlDatabaseMetaData_typeNullable 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, typeNullable, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, typeNullableUnknown, jint)
+/*!
+ @brief States that it is unknown if a <code>NULL</code> value is permitted for
+ this data type.
+ */
+inline jint JavaSqlDatabaseMetaData_get_typeNullableUnknown();
+#define JavaSqlDatabaseMetaData_typeNullableUnknown 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, typeNullableUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, typePredBasic, jint)
+/*!
+ @brief States that this column shall not be used for <code>WHERE</code> statements
+ with a <code>LIKE</code> clause.
+ */
+inline jint JavaSqlDatabaseMetaData_get_typePredBasic();
+#define JavaSqlDatabaseMetaData_typePredBasic 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, typePredBasic, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, typePredChar, jint)
+/*!
+ @brief States that this column can only be used in a <code>WHERE...LIKE</code>
+ statement.
+ */
+inline jint JavaSqlDatabaseMetaData_get_typePredChar();
+#define JavaSqlDatabaseMetaData_typePredChar 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, typePredChar, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, typePredNone, jint)
+/*!
+ @brief States that this column does not support searches.
+ */
+inline jint JavaSqlDatabaseMetaData_get_typePredNone();
+#define JavaSqlDatabaseMetaData_typePredNone 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, typePredNone, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, typeSearchable, jint)
+/*!
+ @brief States that the column is searchable.
+ */
+inline jint JavaSqlDatabaseMetaData_get_typeSearchable();
+#define JavaSqlDatabaseMetaData_typeSearchable 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, typeSearchable, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, versionColumnNotPseudo, jint)
+/*!
+ @brief States that the version column is known to be not a pseudo column.
+ */
+inline jint JavaSqlDatabaseMetaData_get_versionColumnNotPseudo();
+#define JavaSqlDatabaseMetaData_versionColumnNotPseudo 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, versionColumnNotPseudo, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, versionColumnPseudo, jint)
+/*!
+ @brief States that this version column is known to be a pseudo column.
+ */
+inline jint JavaSqlDatabaseMetaData_get_versionColumnPseudo();
+#define JavaSqlDatabaseMetaData_versionColumnPseudo 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, versionColumnPseudo, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, versionColumnUnknown, jint)
+/*!
+ @brief States that the version column may be a pseudo column or not.
+ */
+inline jint JavaSqlDatabaseMetaData_get_versionColumnUnknown();
+#define JavaSqlDatabaseMetaData_versionColumnUnknown 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, versionColumnUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, sqlStateSQL, jint)
+/*!
+ @brief States that the method DatabaseMetaData.getSQLStateType may returns an
+ SQLSTATE value or not.
+ */
+inline jint JavaSqlDatabaseMetaData_get_sqlStateSQL();
+#define JavaSqlDatabaseMetaData_sqlStateSQL 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, sqlStateSQL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionColumnIn, jint)
+/*!
+ @brief States that the parameter or column is an IN parameter
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionColumnIn();
+#define JavaSqlDatabaseMetaData_functionColumnIn 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionColumnIn, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionColumnInOut, jint)
+/*!
+ @brief States that the parameter or column is an INOUT parameter
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionColumnInOut();
+#define JavaSqlDatabaseMetaData_functionColumnInOut 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionColumnInOut, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionColumnOut, jint)
+/*!
+ @brief States that the parameter or column is an OUT parameter
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionColumnOut();
+#define JavaSqlDatabaseMetaData_functionColumnOut 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionColumnOut, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionReturn, jint)
+/*!
+ @brief States that the parameter or column is a return value
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionReturn();
+#define JavaSqlDatabaseMetaData_functionReturn 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionReturn, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionColumnUnknown, jint)
+/*!
+ @brief States that the parameter of function is unknown
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionColumnUnknown();
+#define JavaSqlDatabaseMetaData_functionColumnUnknown 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionColumnUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionColumnResult, jint)
+/*!
+ @brief States that the parameter or column is a column in a result set
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionColumnResult();
+#define JavaSqlDatabaseMetaData_functionColumnResult 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionColumnResult, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionNoNulls, jint)
+/*!
+ @brief States that NULL values are not allowed
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionNoNulls();
+#define JavaSqlDatabaseMetaData_functionNoNulls 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionNoNulls, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionNullable, jint)
+/*!
+ @brief States that NULL values are allowed
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionNullable();
+#define JavaSqlDatabaseMetaData_functionNullable 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionNullable, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionNullableUnknown, jint)
+/*!
+ @brief States that whether NULL values are allowed is unknown
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionNullableUnknown();
+#define JavaSqlDatabaseMetaData_functionNullableUnknown 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionNullableUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionResultUnknown, jint)
+/*!
+ @brief States that it is not known whether the function returns a result or a
+ table
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionResultUnknown();
+#define JavaSqlDatabaseMetaData_functionResultUnknown 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionResultUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionNoTable, jint)
+/*!
+ @brief States that the function does not return a table
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionNoTable();
+#define JavaSqlDatabaseMetaData_functionNoTable 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionNoTable, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlDatabaseMetaData, functionReturnsTable, jint)
+/*!
+ @brief States that the function returns a table.
+ */
+inline jint JavaSqlDatabaseMetaData_get_functionReturnsTable();
+#define JavaSqlDatabaseMetaData_functionReturnsTable 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlDatabaseMetaData, functionReturnsTable, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDatabaseMetaData)
 
-#endif // _JavaSqlDatabaseMetaData_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlDatabaseMetaData_INCLUDE_ALL")

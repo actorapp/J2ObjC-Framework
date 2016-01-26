@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/NoConnectionPendingException.java
 //
 
-#ifndef _JavaNioChannelsNoConnectionPendingException_H_
-#define _JavaNioChannelsNoConnectionPendingException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsNoConnectionPendingException_INCLUDE_ALL")
+#ifdef JavaNioChannelsNoConnectionPendingException_RESTRICT
+#define JavaNioChannelsNoConnectionPendingException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsNoConnectionPendingException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsNoConnectionPendingException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsNoConnectionPendingException_) && (JavaNioChannelsNoConnectionPendingException_INCLUDE_ALL || defined(JavaNioChannelsNoConnectionPendingException_INCLUDE))
+#define JavaNioChannelsNoConnectionPendingException_
+
+#define JavaLangIllegalStateException_RESTRICT 1
+#define JavaLangIllegalStateException_INCLUDE 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -35,4 +49,8 @@ FOUNDATION_EXPORT JavaNioChannelsNoConnectionPendingException *new_JavaNioChanne
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsNoConnectionPendingException)
 
-#endif // _JavaNioChannelsNoConnectionPendingException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsNoConnectionPendingException_INCLUDE_ALL")

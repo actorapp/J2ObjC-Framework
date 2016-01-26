@@ -3,25 +3,53 @@
 //  source: android/libcore/luni/src/main/java/java/security/PublicKey.java
 //
 
-#ifndef _JavaSecurityPublicKey_H_
-#define _JavaSecurityPublicKey_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/security/Key.h"
 
-#define JavaSecurityPublicKey_serialVersionUID 7187392471159151072LL
+#pragma push_macro("JavaSecurityPublicKey_INCLUDE_ALL")
+#ifdef JavaSecurityPublicKey_RESTRICT
+#define JavaSecurityPublicKey_INCLUDE_ALL 0
+#else
+#define JavaSecurityPublicKey_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityPublicKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityPublicKey_) && (JavaSecurityPublicKey_INCLUDE_ALL || defined(JavaSecurityPublicKey_INCLUDE))
+#define JavaSecurityPublicKey_
+
+#define JavaSecurityKey_RESTRICT 1
+#define JavaSecurityKey_INCLUDE 1
+#include "../../java/security/Key.h"
 
 /*!
  @brief <code>PublicKey</code> is the common interface for public keys.
+ - seealso: PrivateKey
  */
 @protocol JavaSecurityPublicKey < JavaSecurityKey, NSObject, JavaObject >
 
 @end
 
+@interface JavaSecurityPublicKey : NSObject
+
++ (jlong)serialVersionUID;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSecurityPublicKey)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSecurityPublicKey, serialVersionUID, jlong)
+/*!
+ @brief The <code>serialVersionUID</code> to be compatible with JDK1.1.
+ */
+inline jlong JavaSecurityPublicKey_get_serialVersionUID();
+#define JavaSecurityPublicKey_serialVersionUID 7187392471159151072LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSecurityPublicKey, serialVersionUID, jlong)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPublicKey)
 
-#endif // _JavaSecurityPublicKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityPublicKey_INCLUDE_ALL")

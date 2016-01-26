@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/ECGenParameterSpec.java
 //
 
-#ifndef _JavaSecuritySpecECGenParameterSpec_H_
-#define _JavaSecuritySpecECGenParameterSpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecECGenParameterSpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecECGenParameterSpec_RESTRICT
+#define JavaSecuritySpecECGenParameterSpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecECGenParameterSpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecECGenParameterSpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecECGenParameterSpec_) && (JavaSecuritySpecECGenParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecECGenParameterSpec_INCLUDE))
+#define JavaSecuritySpecECGenParameterSpec_
+
+#define JavaSecuritySpecAlgorithmParameterSpec_RESTRICT 1
+#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE 1
 #include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 /*!
@@ -41,4 +55,8 @@ FOUNDATION_EXPORT JavaSecuritySpecECGenParameterSpec *new_JavaSecuritySpecECGenP
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECGenParameterSpec)
 
-#endif // _JavaSecuritySpecECGenParameterSpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecECGenParameterSpec_INCLUDE_ALL")

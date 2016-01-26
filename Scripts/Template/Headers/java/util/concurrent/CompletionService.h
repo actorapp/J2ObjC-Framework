@@ -3,12 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/CompletionService.java
 //
 
-#ifndef _JavaUtilConcurrentCompletionService_H_
-#define _JavaUtilConcurrentCompletionService_H_
-
 #include "../../../J2ObjC_header.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+#pragma push_macro("JavaUtilConcurrentCompletionService_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentCompletionService_RESTRICT
+#define JavaUtilConcurrentCompletionService_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentCompletionService_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentCompletionService_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentCompletionService_) && (JavaUtilConcurrentCompletionService_INCLUDE_ALL || defined(JavaUtilConcurrentCompletionService_INCLUDE))
+#define JavaUtilConcurrentCompletionService_
+
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaUtilConcurrentCallable;
 @protocol JavaUtilConcurrentFuture;
@@ -97,7 +108,7 @@
  @throws InterruptedException if interrupted while waiting
  */
 - (id<JavaUtilConcurrentFuture>)pollWithLong:(jlong)timeout
-          withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+              withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 @end
 
@@ -105,4 +116,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentCompletionService)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCompletionService)
 
-#endif // _JavaUtilConcurrentCompletionService_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentCompletionService_INCLUDE_ALL")

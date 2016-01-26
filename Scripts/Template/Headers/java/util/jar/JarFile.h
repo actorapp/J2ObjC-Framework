@@ -3,21 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/util/jar/JarFile.java
 //
 
-#ifndef _JavaUtilJarJarFile_H_
-#define _JavaUtilJarJarFile_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/FilterInputStream.h"
-#include "../../../java/util/Enumeration.h"
+
+#pragma push_macro("JavaUtilJarJarFile_INCLUDE_ALL")
+#ifdef JavaUtilJarJarFile_RESTRICT
+#define JavaUtilJarJarFile_INCLUDE_ALL 0
+#else
+#define JavaUtilJarJarFile_INCLUDE_ALL 1
+#endif
+#undef JavaUtilJarJarFile_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilJarJarFile_) && (JavaUtilJarJarFile_INCLUDE_ALL || defined(JavaUtilJarJarFile_INCLUDE))
+#define JavaUtilJarJarFile_
+
+#define JavaUtilZipZipFile_RESTRICT 1
+#define JavaUtilZipZipFile_INCLUDE 1
 #include "../../../java/util/zip/ZipFile.h"
 
-@class IOSByteArray;
 @class JavaIoFile;
 @class JavaIoInputStream;
 @class JavaUtilHashMap;
 @class JavaUtilJarJarEntry;
 @class JavaUtilJarJarVerifier;
-@class JavaUtilJarJarVerifier_VerifierEntry;
 @class JavaUtilJarManifest;
 @class JavaUtilZipZipEntry;
 @protocol JavaUtilEnumeration;
@@ -25,11 +35,17 @@
 /*!
  @brief <code>JarFile</code> is used to read jar entries and their associated data from
  jar files.
+ - seealso: JarInputStream
+ - seealso: JarEntry
  */
 @interface JavaUtilJarJarFile : JavaUtilZipZipFile {
  @public
   JavaUtilJarJarVerifier *verifier_;
 }
+
++ (NSString *)MANIFEST_NAME;
+
++ (NSString *)META_DIR;
 
 #pragma mark Public
 
@@ -146,6 +162,7 @@
  if an error occurs reading the MANIFEST file.
  @throws IllegalStateException
  if the jar file is closed.
+ - seealso: Manifest
  */
 - (JavaUtilJarManifest *)getManifest;
 
@@ -168,11 +185,18 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilJarJarFile)
 
 J2OBJC_FIELD_SETTER(JavaUtilJarJarFile, verifier_, JavaUtilJarJarVerifier *)
 
-FOUNDATION_EXPORT NSString *JavaUtilJarJarFile_MANIFEST_NAME_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarJarFile, MANIFEST_NAME_, NSString *)
+/*!
+ @brief The MANIFEST file name.
+ */
+inline NSString *JavaUtilJarJarFile_get_MANIFEST_NAME();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaUtilJarJarFile_MANIFEST_NAME;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarJarFile, MANIFEST_NAME, NSString *)
 
-FOUNDATION_EXPORT NSString *JavaUtilJarJarFile_META_DIR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarJarFile, META_DIR_, NSString *)
+inline NSString *JavaUtilJarJarFile_get_META_DIR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaUtilJarJarFile_META_DIR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarJarFile, META_DIR, NSString *)
 
 FOUNDATION_EXPORT void JavaUtilJarJarFile_initWithJavaIoFile_(JavaUtilJarJarFile *self, JavaIoFile *file);
 
@@ -197,6 +221,19 @@ FOUNDATION_EXPORT JavaUtilJarJarFile *new_JavaUtilJarJarFile_initWithNSString_wi
 FOUNDATION_EXPORT JavaUtilHashMap *JavaUtilJarJarFile_readMetaEntriesWithJavaUtilZipZipFile_withBoolean_(JavaUtilZipZipFile *zipFile, jboolean verificationRequired);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarFile)
+
+#endif
+
+#if !defined (JavaUtilJarJarFile_JarFileInputStream_) && (JavaUtilJarJarFile_INCLUDE_ALL || defined(JavaUtilJarJarFile_JarFileInputStream_INCLUDE))
+#define JavaUtilJarJarFile_JarFileInputStream_
+
+#define JavaIoFilterInputStream_RESTRICT 1
+#define JavaIoFilterInputStream_INCLUDE 1
+#include "../../../java/io/FilterInputStream.h"
+
+@class IOSByteArray;
+@class JavaIoInputStream;
+@class JavaUtilJarJarVerifier_VerifierEntry;
 
 @interface JavaUtilJarJarFile_JarFileInputStream : JavaIoFilterInputStream
 
@@ -228,6 +265,18 @@ FOUNDATION_EXPORT JavaUtilJarJarFile_JarFileInputStream *new_JavaUtilJarJarFile_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarFile_JarFileInputStream)
 
+#endif
+
+#if !defined (JavaUtilJarJarFile_JarFileEnumerator_) && (JavaUtilJarJarFile_INCLUDE_ALL || defined(JavaUtilJarJarFile_JarFileEnumerator_INCLUDE))
+#define JavaUtilJarJarFile_JarFileEnumerator_
+
+#define JavaUtilEnumeration_RESTRICT 1
+#define JavaUtilEnumeration_INCLUDE 1
+#include "../../../java/util/Enumeration.h"
+
+@class JavaUtilJarJarEntry;
+@class JavaUtilJarJarFile;
+
 @interface JavaUtilJarJarFile_JarFileEnumerator : NSObject < JavaUtilEnumeration > {
  @public
   id<JavaUtilEnumeration> ze_;
@@ -258,4 +307,8 @@ FOUNDATION_EXPORT JavaUtilJarJarFile_JarFileEnumerator *new_JavaUtilJarJarFile_J
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarFile_JarFileEnumerator)
 
-#endif // _JavaUtilJarJarFile_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilJarJarFile_INCLUDE_ALL")

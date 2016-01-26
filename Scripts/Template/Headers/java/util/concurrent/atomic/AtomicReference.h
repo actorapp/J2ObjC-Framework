@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicReference.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicAtomicReference_H_
-#define _JavaUtilConcurrentAtomicAtomicReference_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicAtomicReference_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicAtomicReference_RESTRICT
+#define JavaUtilConcurrentAtomicAtomicReference_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicAtomicReference_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicAtomicReference_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicAtomicReference_) && (JavaUtilConcurrentAtomicAtomicReference_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicReference_INCLUDE))
+#define JavaUtilConcurrentAtomicAtomicReference_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../../java/io/Serializable.h"
 
 /*!
@@ -102,4 +116,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicReference *new_JavaUtilConcurren
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicReference)
 
-#endif // _JavaUtilConcurrentAtomicAtomicReference_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicAtomicReference_INCLUDE_ALL")

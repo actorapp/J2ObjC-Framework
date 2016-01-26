@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/RSAPublicKeySpec.java
 //
 
-#ifndef _JavaSecuritySpecRSAPublicKeySpec_H_
-#define _JavaSecuritySpecRSAPublicKeySpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecRSAPublicKeySpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecRSAPublicKeySpec_RESTRICT
+#define JavaSecuritySpecRSAPublicKeySpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecRSAPublicKeySpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecRSAPublicKeySpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecRSAPublicKeySpec_) && (JavaSecuritySpecRSAPublicKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecRSAPublicKeySpec_INCLUDE))
+#define JavaSecuritySpecRSAPublicKeySpec_
+
+#define JavaSecuritySpecKeySpec_RESTRICT 1
+#define JavaSecuritySpecKeySpec_INCLUDE 1
 #include "../../../java/security/spec/KeySpec.h"
 
 @class JavaMathBigInteger;
@@ -55,4 +69,8 @@ FOUNDATION_EXPORT JavaSecuritySpecRSAPublicKeySpec *new_JavaSecuritySpecRSAPubli
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAPublicKeySpec)
 
-#endif // _JavaSecuritySpecRSAPublicKeySpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecRSAPublicKeySpec_INCLUDE_ALL")

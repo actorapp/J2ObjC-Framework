@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/io/DataOutput.java
 //
 
-#ifndef _JavaIoDataOutput_H_
-#define _JavaIoDataOutput_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoDataOutput_INCLUDE_ALL")
+#ifdef JavaIoDataOutput_RESTRICT
+#define JavaIoDataOutput_INCLUDE_ALL 0
+#else
+#define JavaIoDataOutput_INCLUDE_ALL 1
+#endif
+#undef JavaIoDataOutput_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoDataOutput_) && (JavaIoDataOutput_INCLUDE_ALL || defined(JavaIoDataOutput_INCLUDE))
+#define JavaIoDataOutput_
 
 @class IOSByteArray;
 
@@ -17,6 +28,8 @@
  DataInput. Types that can be written include byte, 16-bit short, 32-bit int,
  32-bit float, 64-bit long, 64-bit double, byte strings, and <code>MUTF-8</code>
   encoded strings.
+ - seealso: DataOutputStream
+ - seealso: RandomAccessFile
  */
 @protocol JavaIoDataOutput < NSObject, JavaObject >
 
@@ -52,6 +65,7 @@
  the byte to write.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readByte()
  */
 - (void)writeWithInt:(jint)oneByte;
 
@@ -61,6 +75,7 @@
  the boolean value to write.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readBoolean()
  */
 - (void)writeBooleanWithBoolean:(jboolean)val;
 
@@ -70,6 +85,8 @@
  the byte value to write.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readByte()
+ - seealso: DataInput#readUnsignedByte()
  */
 - (void)writeByteWithInt:(jint)val;
 
@@ -90,6 +107,7 @@
  the character to write.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readChar()
  */
 - (void)writeCharWithInt:(jint)val;
 
@@ -99,6 +117,7 @@
  the string that contains the characters to write.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readChar()
  */
 - (void)writeCharsWithNSString:(NSString *)str;
 
@@ -110,6 +129,7 @@
  the double to write.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readDouble()
  */
 - (void)writeDoubleWithDouble:(jdouble)val;
 
@@ -121,6 +141,7 @@
  the float to write.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readFloat()
  */
 - (void)writeFloatWithFloat:(jfloat)val;
 
@@ -130,6 +151,7 @@
  the int to write.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readInt()
  */
 - (void)writeIntWithInt:(jint)val;
 
@@ -139,6 +161,7 @@
  the long to write.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readLong()
  */
 - (void)writeLongWithLong:(jlong)val;
 
@@ -150,6 +173,8 @@
  the short to write.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readShort()
+ - seealso: DataInput#readUnsignedShort()
  */
 - (void)writeShortWithInt:(jint)val;
 
@@ -159,6 +184,7 @@
  the string to write encoded in <code>modified UTF-8</code>.
  @throws IOException
  if an I/O error occurs while writing.
+ - seealso: DataInput#readUTF()
  */
 - (void)writeUTFWithNSString:(NSString *)str;
 
@@ -168,4 +194,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoDataOutput)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataOutput)
 
-#endif // _JavaIoDataOutput_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoDataOutput_INCLUDE_ALL")

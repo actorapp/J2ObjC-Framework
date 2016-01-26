@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/net/URI.java
 //
 
-#ifndef _JavaNetURI_H_
-#define _JavaNetURI_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaNetURI_INCLUDE_ALL")
+#ifdef JavaNetURI_RESTRICT
+#define JavaNetURI_INCLUDE_ALL 0
+#else
+#define JavaNetURI_INCLUDE_ALL 1
+#endif
+#undef JavaNetURI_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetURI_) && (JavaNetURI_INCLUDE_ALL || defined(JavaNetURI_INCLUDE))
+#define JavaNetURI_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class JavaNetURL;
 @class LibcoreNetUriCodec;
@@ -107,6 +124,20 @@
  <p>The <code>URL</code> class can be used to retrieve resources by their URI.
  */
 @interface JavaNetURI : NSObject < JavaLangComparable, JavaIoSerializable >
+
++ (NSString *)UNRESERVED;
+
++ (NSString *)PUNCTUATION;
+
++ (LibcoreNetUriCodec *)USER_INFO_ENCODER;
+
++ (LibcoreNetUriCodec *)PATH_ENCODER;
+
++ (LibcoreNetUriCodec *)AUTHORITY_ENCODER;
+
++ (LibcoreNetUriCodec *)FILE_AND_QUERY_ENCODER;
+
++ (LibcoreNetUriCodec *)ALL_LEGAL_ENCODER;
 
 #pragma mark Public
 
@@ -371,26 +402,46 @@
 
 J2OBJC_STATIC_INIT(JavaNetURI)
 
-FOUNDATION_EXPORT NSString *JavaNetURI_UNRESERVED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetURI, UNRESERVED_, NSString *)
+inline NSString *JavaNetURI_get_UNRESERVED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaNetURI_UNRESERVED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetURI, UNRESERVED, NSString *)
 
-FOUNDATION_EXPORT NSString *JavaNetURI_PUNCTUATION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetURI, PUNCTUATION_, NSString *)
+inline NSString *JavaNetURI_get_PUNCTUATION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaNetURI_PUNCTUATION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetURI, PUNCTUATION, NSString *)
 
-FOUNDATION_EXPORT LibcoreNetUriCodec *JavaNetURI_USER_INFO_ENCODER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetURI, USER_INFO_ENCODER_, LibcoreNetUriCodec *)
+inline LibcoreNetUriCodec *JavaNetURI_get_USER_INFO_ENCODER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT LibcoreNetUriCodec *JavaNetURI_USER_INFO_ENCODER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetURI, USER_INFO_ENCODER, LibcoreNetUriCodec *)
 
-FOUNDATION_EXPORT LibcoreNetUriCodec *JavaNetURI_PATH_ENCODER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetURI, PATH_ENCODER_, LibcoreNetUriCodec *)
+inline LibcoreNetUriCodec *JavaNetURI_get_PATH_ENCODER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT LibcoreNetUriCodec *JavaNetURI_PATH_ENCODER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetURI, PATH_ENCODER, LibcoreNetUriCodec *)
 
-FOUNDATION_EXPORT LibcoreNetUriCodec *JavaNetURI_AUTHORITY_ENCODER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetURI, AUTHORITY_ENCODER_, LibcoreNetUriCodec *)
+inline LibcoreNetUriCodec *JavaNetURI_get_AUTHORITY_ENCODER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT LibcoreNetUriCodec *JavaNetURI_AUTHORITY_ENCODER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetURI, AUTHORITY_ENCODER, LibcoreNetUriCodec *)
 
-FOUNDATION_EXPORT LibcoreNetUriCodec *JavaNetURI_FILE_AND_QUERY_ENCODER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetURI, FILE_AND_QUERY_ENCODER_, LibcoreNetUriCodec *)
+/*!
+ @brief for java.net.URL, which foolishly combines these two parts
+ */
+inline LibcoreNetUriCodec *JavaNetURI_get_FILE_AND_QUERY_ENCODER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT LibcoreNetUriCodec *JavaNetURI_FILE_AND_QUERY_ENCODER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetURI, FILE_AND_QUERY_ENCODER, LibcoreNetUriCodec *)
 
-FOUNDATION_EXPORT LibcoreNetUriCodec *JavaNetURI_ALL_LEGAL_ENCODER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetURI, ALL_LEGAL_ENCODER_, LibcoreNetUriCodec *)
+/*!
+ @brief for query, fragment, and scheme-specific part
+ */
+inline LibcoreNetUriCodec *JavaNetURI_get_ALL_LEGAL_ENCODER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT LibcoreNetUriCodec *JavaNetURI_ALL_LEGAL_ENCODER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetURI, ALL_LEGAL_ENCODER, LibcoreNetUriCodec *)
 
 FOUNDATION_EXPORT void JavaNetURI_initWithNSString_(JavaNetURI *self, NSString *spec);
 
@@ -418,4 +469,8 @@ FOUNDATION_EXPORT jint JavaNetURI_getEffectivePortWithNSString_withInt_(NSString
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURI)
 
-#endif // _JavaNetURI_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetURI_INCLUDE_ALL")

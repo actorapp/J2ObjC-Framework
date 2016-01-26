@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/security/interfaces/ECPrivateKey.java
 //
 
-#ifndef _JavaSecurityInterfacesECPrivateKey_H_
-#define _JavaSecurityInterfacesECPrivateKey_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityInterfacesECPrivateKey_INCLUDE_ALL")
+#ifdef JavaSecurityInterfacesECPrivateKey_RESTRICT
+#define JavaSecurityInterfacesECPrivateKey_INCLUDE_ALL 0
+#else
+#define JavaSecurityInterfacesECPrivateKey_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityInterfacesECPrivateKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityInterfacesECPrivateKey_) && (JavaSecurityInterfacesECPrivateKey_INCLUDE_ALL || defined(JavaSecurityInterfacesECPrivateKey_INCLUDE))
+#define JavaSecurityInterfacesECPrivateKey_
+
+#define JavaSecurityPrivateKey_RESTRICT 1
+#define JavaSecurityPrivateKey_INCLUDE 1
 #include "../../../java/security/PrivateKey.h"
+
+#define JavaSecurityInterfacesECKey_RESTRICT 1
+#define JavaSecurityInterfacesECKey_INCLUDE 1
 #include "../../../java/security/interfaces/ECKey.h"
 
 @class JavaMathBigInteger;
-
-#define JavaSecurityInterfacesECPrivateKey_serialVersionUID -7896394956925609184LL
 
 /*!
  @brief The interface for an Elliptic Curve (EC) private key.
@@ -27,10 +42,25 @@
 
 @end
 
+@interface JavaSecurityInterfacesECPrivateKey : NSObject
+
++ (jlong)serialVersionUID;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSecurityInterfacesECPrivateKey)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSecurityInterfacesECPrivateKey, serialVersionUID, jlong)
+/*!
+ @brief The serial version identifier.
+ */
+inline jlong JavaSecurityInterfacesECPrivateKey_get_serialVersionUID();
+#define JavaSecurityInterfacesECPrivateKey_serialVersionUID -7896394956925609184LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSecurityInterfacesECPrivateKey, serialVersionUID, jlong)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesECPrivateKey)
 
-#endif // _JavaSecurityInterfacesECPrivateKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityInterfacesECPrivateKey_INCLUDE_ALL")

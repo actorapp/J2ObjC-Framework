@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicLong.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicAtomicLong_H_
-#define _JavaUtilConcurrentAtomicAtomicLong_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicAtomicLong_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicAtomicLong_RESTRICT
+#define JavaUtilConcurrentAtomicAtomicLong_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicAtomicLong_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicAtomicLong_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicAtomicLong_) && (JavaUtilConcurrentAtomicAtomicLong_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicLong_INCLUDE))
+#define JavaUtilConcurrentAtomicAtomicLong_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../../java/io/Serializable.h"
 
 /*!
@@ -23,6 +37,8 @@
  @author Doug Lea
  */
 @interface JavaUtilConcurrentAtomicAtomicLong : NSNumber < JavaIoSerializable >
+
++ (jboolean)VM_SUPPORTS_LONG_CAS;
 
 #pragma mark Public
 
@@ -158,8 +174,17 @@
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentAtomicAtomicLong)
 
-FOUNDATION_EXPORT jboolean JavaUtilConcurrentAtomicAtomicLong_VM_SUPPORTS_LONG_CAS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentAtomicAtomicLong, VM_SUPPORTS_LONG_CAS_, jboolean)
+/*!
+ @brief Records whether the underlying JVM supports lockless
+ compareAndSwap for longs.
+ While the Unsafe.compareAndSwapLong
+ method works in either case, some constructions should be
+ handled at Java level to avoid locking user-visible locks.
+ */
+inline jboolean JavaUtilConcurrentAtomicAtomicLong_get_VM_SUPPORTS_LONG_CAS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jboolean JavaUtilConcurrentAtomicAtomicLong_VM_SUPPORTS_LONG_CAS;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaUtilConcurrentAtomicAtomicLong, VM_SUPPORTS_LONG_CAS, jboolean)
 
 FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicLong_initWithLong_(JavaUtilConcurrentAtomicAtomicLong *self, jlong initialValue);
 
@@ -171,4 +196,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicLong *new_JavaUtilConcurrentAtom
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLong)
 
-#endif // _JavaUtilConcurrentAtomicAtomicLong_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicAtomicLong_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/xpath/XPathFunctionResolver.java
 //
 
-#ifndef _JavaxXmlXpathXPathFunctionResolver_H_
-#define _JavaxXmlXpathXPathFunctionResolver_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlXpathXPathFunctionResolver_INCLUDE_ALL")
+#ifdef JavaxXmlXpathXPathFunctionResolver_RESTRICT
+#define JavaxXmlXpathXPathFunctionResolver_INCLUDE_ALL 0
+#else
+#define JavaxXmlXpathXPathFunctionResolver_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlXpathXPathFunctionResolver_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlXpathXPathFunctionResolver_) && (JavaxXmlXpathXPathFunctionResolver_INCLUDE_ALL || defined(JavaxXmlXpathXPathFunctionResolver_INCLUDE))
+#define JavaxXmlXpathXPathFunctionResolver_
 
 @class JavaxXmlNamespaceQName;
 @protocol JavaxXmlXpathXPathFunction;
@@ -28,6 +39,7 @@
  @author <a href="mailto:Norman.Walsh@@Sun.com">Norman Walsh</a>
  @author <a href="mailto:Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  @version $Revision: 446598 $, $Date: 2006-09-15 05:55:40 -0700 (Fri, 15 Sep 2006) $
+ - seealso: <a href="http://www.w3.org/TR/xpath#corelib">XML Path Language (XPath) Version 1.0, Core Function Library</a>
  @since 1.5
  */
 @protocol JavaxXmlXpathXPathFunctionResolver < NSObject, JavaObject >
@@ -50,4 +62,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlXpathXPathFunctionResolver)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFunctionResolver)
 
-#endif // _JavaxXmlXpathXPathFunctionResolver_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlXpathXPathFunctionResolver_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/text/StringCharacterIterator.java
 //
 
-#ifndef _JavaTextStringCharacterIterator_H_
-#define _JavaTextStringCharacterIterator_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextStringCharacterIterator_INCLUDE_ALL")
+#ifdef JavaTextStringCharacterIterator_RESTRICT
+#define JavaTextStringCharacterIterator_INCLUDE_ALL 0
+#else
+#define JavaTextStringCharacterIterator_INCLUDE_ALL 1
+#endif
+#undef JavaTextStringCharacterIterator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextStringCharacterIterator_) && (JavaTextStringCharacterIterator_INCLUDE_ALL || defined(JavaTextStringCharacterIterator_INCLUDE))
+#define JavaTextStringCharacterIterator_
+
+#define JavaTextCharacterIterator_RESTRICT 1
+#define JavaTextCharacterIterator_INCLUDE 1
 #include "../../java/text/CharacterIterator.h"
 
 /*!
@@ -72,6 +86,7 @@
  @brief Returns a new <code>StringCharacterIterator</code> with the same source
  string, begin, end, and current index as this iterator.
  @return a shallow copy of this iterator.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -92,6 +107,7 @@
  the object to compare with this object.
  @return <code>true</code> if the specified object is equal to this
  <code>StringCharacterIterator</code>; <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -186,4 +202,8 @@ FOUNDATION_EXPORT JavaTextStringCharacterIterator *new_JavaTextStringCharacterIt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextStringCharacterIterator)
 
-#endif // _JavaTextStringCharacterIterator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextStringCharacterIterator_INCLUDE_ALL")

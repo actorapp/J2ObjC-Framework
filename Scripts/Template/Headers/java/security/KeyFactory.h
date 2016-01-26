@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/KeyFactory.java
 //
 
-#ifndef _JavaSecurityKeyFactory_H_
-#define _JavaSecurityKeyFactory_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityKeyFactory_INCLUDE_ALL")
+#ifdef JavaSecurityKeyFactory_RESTRICT
+#define JavaSecurityKeyFactory_INCLUDE_ALL 0
+#else
+#define JavaSecurityKeyFactory_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityKeyFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityKeyFactory_) && (JavaSecurityKeyFactory_INCLUDE_ALL || defined(JavaSecurityKeyFactory_INCLUDE))
+#define JavaSecurityKeyFactory_
 
 @class IOSClass;
 @class JavaSecurityKeyFactorySpi;
@@ -167,4 +178,8 @@ FOUNDATION_EXPORT JavaSecurityKeyFactory *JavaSecurityKeyFactory_getInstanceWith
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyFactory)
 
-#endif // _JavaSecurityKeyFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityKeyFactory_INCLUDE_ALL")

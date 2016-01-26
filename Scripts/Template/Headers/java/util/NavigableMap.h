@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/NavigableMap.java
 //
 
-#ifndef _JavaUtilNavigableMap_H_
-#define _JavaUtilNavigableMap_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilNavigableMap_INCLUDE_ALL")
+#ifdef JavaUtilNavigableMap_RESTRICT
+#define JavaUtilNavigableMap_INCLUDE_ALL 0
+#else
+#define JavaUtilNavigableMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilNavigableMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilNavigableMap_) && (JavaUtilNavigableMap_INCLUDE_ALL || defined(JavaUtilNavigableMap_INCLUDE))
+#define JavaUtilNavigableMap_
+
+#define JavaUtilSortedMap_RESTRICT 1
+#define JavaUtilSortedMap_INCLUDE 1
 #include "../../java/util/SortedMap.h"
 
 @protocol JavaUtilMap_Entry;
@@ -376,4 +390,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilNavigableMap)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilNavigableMap)
 
-#endif // _JavaUtilNavigableMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilNavigableMap_INCLUDE_ALL")

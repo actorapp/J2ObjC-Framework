@@ -3,16 +3,34 @@
 //  source: android/libcore/luni/src/main/java/java/util/IllegalFormatFlagsException.java
 //
 
-#ifndef _JavaUtilIllegalFormatFlagsException_H_
-#define _JavaUtilIllegalFormatFlagsException_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilIllegalFormatFlagsException_INCLUDE_ALL")
+#ifdef JavaUtilIllegalFormatFlagsException_RESTRICT
+#define JavaUtilIllegalFormatFlagsException_INCLUDE_ALL 0
+#else
+#define JavaUtilIllegalFormatFlagsException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilIllegalFormatFlagsException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilIllegalFormatFlagsException_) && (JavaUtilIllegalFormatFlagsException_INCLUDE_ALL || defined(JavaUtilIllegalFormatFlagsException_INCLUDE))
+#define JavaUtilIllegalFormatFlagsException_
+
+#define JavaUtilIllegalFormatException_RESTRICT 1
+#define JavaUtilIllegalFormatException_INCLUDE 1
 #include "../../java/util/IllegalFormatException.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief An <code>IllegalFormatFlagsException</code> will be thrown if the combination of
  the format flags is illegal.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilIllegalFormatFlagsException : JavaUtilIllegalFormatException < JavaIoSerializable >
 
@@ -44,4 +62,8 @@ FOUNDATION_EXPORT JavaUtilIllegalFormatFlagsException *new_JavaUtilIllegalFormat
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatFlagsException)
 
-#endif // _JavaUtilIllegalFormatFlagsException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilIllegalFormatFlagsException_INCLUDE_ALL")

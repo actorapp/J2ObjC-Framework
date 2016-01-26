@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/util/SparseLongArray.java
 //
 
-#ifndef _AndroidUtilSparseLongArray_H_
-#define _AndroidUtilSparseLongArray_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidUtilSparseLongArray_INCLUDE_ALL")
+#ifdef AndroidUtilSparseLongArray_RESTRICT
+#define AndroidUtilSparseLongArray_INCLUDE_ALL 0
+#else
+#define AndroidUtilSparseLongArray_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilSparseLongArray_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilSparseLongArray_) && (AndroidUtilSparseLongArray_INCLUDE_ALL || defined(AndroidUtilSparseLongArray_INCLUDE))
+#define AndroidUtilSparseLongArray_
 
 /*!
  @brief SparseLongArrays map integers to longs.
@@ -158,4 +169,8 @@ FOUNDATION_EXPORT AndroidUtilSparseLongArray *new_AndroidUtilSparseLongArray_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilSparseLongArray)
 
-#endif // _AndroidUtilSparseLongArray_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilSparseLongArray_INCLUDE_ALL")

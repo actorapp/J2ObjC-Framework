@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ArrayStoreException.java
 //
 
-#ifndef _JavaLangArrayStoreException_H_
-#define _JavaLangArrayStoreException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangArrayStoreException_INCLUDE_ALL")
+#ifdef JavaLangArrayStoreException_RESTRICT
+#define JavaLangArrayStoreException_INCLUDE_ALL 0
+#else
+#define JavaLangArrayStoreException_INCLUDE_ALL 1
+#endif
+#undef JavaLangArrayStoreException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangArrayStoreException_) && (JavaLangArrayStoreException_INCLUDE_ALL || defined(JavaLangArrayStoreException_INCLUDE))
+#define JavaLangArrayStoreException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaLangArrayStoreException *new_JavaLangArrayStoreException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangArrayStoreException)
 
-#endif // _JavaLangArrayStoreException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangArrayStoreException_INCLUDE_ALL")

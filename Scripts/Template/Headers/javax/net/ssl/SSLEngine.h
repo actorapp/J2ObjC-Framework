@@ -3,15 +3,26 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLEngine.java
 //
 
-#ifndef _JavaxNetSslSSLEngine_H_
-#define _JavaxNetSslSSLEngine_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLEngine_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLEngine_RESTRICT
+#define JavaxNetSslSSLEngine_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLEngine_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLEngine_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLEngine_) && (JavaxNetSslSSLEngine_INCLUDE_ALL || defined(JavaxNetSslSSLEngine_INCLUDE))
+#define JavaxNetSslSSLEngine_
 
 @class IOSObjectArray;
 @class JavaNioByteBuffer;
 @class JavaxNetSslSSLEngineResult;
-@class JavaxNetSslSSLEngineResult_HandshakeStatusEnum;
+@class JavaxNetSslSSLEngineResult_HandshakeStatus;
 @class JavaxNetSslSSLParameters;
 @protocol JavaLangRunnable;
 @protocol JavaxNetSslSSLSession;
@@ -715,7 +726,7 @@
  @brief Returns the status of the handshake of this engine instance.
  @return the status of the handshake of this engine instance.
  */
-- (JavaxNetSslSSLEngineResult_HandshakeStatusEnum *)getHandshakeStatus;
+- (JavaxNetSslSSLEngineResult_HandshakeStatus *)getHandshakeStatus;
 
 /*!
  @brief Returns whether this engine instance will require client authentication.
@@ -1074,4 +1085,8 @@ FOUNDATION_EXPORT void JavaxNetSslSSLEngine_initWithNSString_withInt_(JavaxNetSs
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLEngine)
 
-#endif // _JavaxNetSslSSLEngine_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLEngine_INCLUDE_ALL")

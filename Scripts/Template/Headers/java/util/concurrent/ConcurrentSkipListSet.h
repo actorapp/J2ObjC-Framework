@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ConcurrentSkipListSet.java
 //
 
-#ifndef _JavaUtilConcurrentConcurrentSkipListSet_H_
-#define _JavaUtilConcurrentConcurrentSkipListSet_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentConcurrentSkipListSet_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentConcurrentSkipListSet_RESTRICT
+#define JavaUtilConcurrentConcurrentSkipListSet_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentConcurrentSkipListSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentConcurrentSkipListSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentConcurrentSkipListSet_) && (JavaUtilConcurrentConcurrentSkipListSet_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentSkipListSet_INCLUDE))
+#define JavaUtilConcurrentConcurrentSkipListSet_
+
+#define JavaUtilAbstractSet_RESTRICT 1
+#define JavaUtilAbstractSet_INCLUDE 1
 #include "../../../java/util/AbstractSet.h"
+
+#define JavaUtilNavigableSet_RESTRICT 1
+#define JavaUtilNavigableSet_INCLUDE 1
 #include "../../../java/util/NavigableSet.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;
@@ -323,7 +343,6 @@
  */
 - (instancetype)initWithJavaUtilConcurrentConcurrentNavigableMap:(id<JavaUtilConcurrentConcurrentNavigableMap>)m;
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentConcurrentSkipListSet)
@@ -350,4 +369,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *new_JavaUtilConcurren
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListSet)
 
-#endif // _JavaUtilConcurrentConcurrentSkipListSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentConcurrentSkipListSet_INCLUDE_ALL")

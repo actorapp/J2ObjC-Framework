@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/MemoryHandler.java
 //
 
-#ifndef _JavaUtilLoggingMemoryHandler_H_
-#define _JavaUtilLoggingMemoryHandler_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLoggingMemoryHandler_INCLUDE_ALL")
+#ifdef JavaUtilLoggingMemoryHandler_RESTRICT
+#define JavaUtilLoggingMemoryHandler_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingMemoryHandler_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingMemoryHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingMemoryHandler_) && (JavaUtilLoggingMemoryHandler_INCLUDE_ALL || defined(JavaUtilLoggingMemoryHandler_INCLUDE))
+#define JavaUtilLoggingMemoryHandler_
+
+#define JavaUtilLoggingHandler_RESTRICT 1
+#define JavaUtilLoggingHandler_INCLUDE 1
 #include "../../../java/util/logging/Handler.h"
 
 @class JavaUtilLoggingLevel;
@@ -158,4 +172,8 @@ FOUNDATION_EXPORT JavaUtilLoggingMemoryHandler *new_JavaUtilLoggingMemoryHandler
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingMemoryHandler)
 
-#endif // _JavaUtilLoggingMemoryHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingMemoryHandler_INCLUDE_ALL")

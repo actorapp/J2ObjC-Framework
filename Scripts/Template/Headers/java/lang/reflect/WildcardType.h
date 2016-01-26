@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/WildcardType.java
 //
 
-#ifndef _JavaLangReflectWildcardType_H_
-#define _JavaLangReflectWildcardType_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectWildcardType_INCLUDE_ALL")
+#ifdef JavaLangReflectWildcardType_RESTRICT
+#define JavaLangReflectWildcardType_INCLUDE_ALL 0
+#else
+#define JavaLangReflectWildcardType_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectWildcardType_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectWildcardType_) && (JavaLangReflectWildcardType_INCLUDE_ALL || defined(JavaLangReflectWildcardType_INCLUDE))
+#define JavaLangReflectWildcardType_
+
+#define JavaLangReflectType_RESTRICT 1
+#define JavaLangReflectType_INCLUDE 1
 #include "../../../java/lang/reflect/Type.h"
 
 @class IOSObjectArray;
@@ -62,4 +76,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangReflectWildcardType)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectWildcardType)
 
-#endif // _JavaLangReflectWildcardType_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectWildcardType_INCLUDE_ALL")

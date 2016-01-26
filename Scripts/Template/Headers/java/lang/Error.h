@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Error.java
 //
 
-#ifndef _JavaLangError_H_
-#define _JavaLangError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangError_INCLUDE_ALL")
+#ifdef JavaLangError_RESTRICT
+#define JavaLangError_INCLUDE_ALL 0
+#else
+#define JavaLangError_INCLUDE_ALL 1
+#endif
+#undef JavaLangError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangError_) && (JavaLangError_INCLUDE_ALL || defined(JavaLangError_INCLUDE))
+#define JavaLangError_
+
+#define JavaLangThrowable_RESTRICT 1
+#define JavaLangThrowable_INCLUDE 1
 #include "../../java/lang/Throwable.h"
 
 /*!
@@ -14,6 +28,9 @@
  errors.
  When errors are thrown, they should not be caught by application
  code.
+ - seealso: Throwable
+ - seealso: Exception
+ - seealso: RuntimeException
  */
 @interface JavaLangError : JavaLangThrowable
 
@@ -90,4 +107,8 @@ FOUNDATION_EXPORT JavaLangError *new_JavaLangError_initWithNSString_withJavaLang
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangError)
 
-#endif // _JavaLangError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangError_INCLUDE_ALL")

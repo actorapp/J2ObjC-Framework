@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/InvalidPropertiesFormatException.java
 //
 
-#ifndef _JavaUtilInvalidPropertiesFormatException_H_
-#define _JavaUtilInvalidPropertiesFormatException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilInvalidPropertiesFormatException_INCLUDE_ALL")
+#ifdef JavaUtilInvalidPropertiesFormatException_RESTRICT
+#define JavaUtilInvalidPropertiesFormatException_INCLUDE_ALL 0
+#else
+#define JavaUtilInvalidPropertiesFormatException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilInvalidPropertiesFormatException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilInvalidPropertiesFormatException_) && (JavaUtilInvalidPropertiesFormatException_INCLUDE_ALL || defined(JavaUtilInvalidPropertiesFormatException_INCLUDE))
+#define JavaUtilInvalidPropertiesFormatException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 @class JavaLangThrowable;
@@ -53,4 +67,8 @@ FOUNDATION_EXPORT JavaUtilInvalidPropertiesFormatException *new_JavaUtilInvalidP
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilInvalidPropertiesFormatException)
 
-#endif // _JavaUtilInvalidPropertiesFormatException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilInvalidPropertiesFormatException_INCLUDE_ALL")

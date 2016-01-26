@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/URLStreamHandler.java
 //
 
-#ifndef _JavaNetURLStreamHandler_H_
-#define _JavaNetURLStreamHandler_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetURLStreamHandler_INCLUDE_ALL")
+#ifdef JavaNetURLStreamHandler_RESTRICT
+#define JavaNetURLStreamHandler_INCLUDE_ALL 0
+#else
+#define JavaNetURLStreamHandler_INCLUDE_ALL 1
+#endif
+#undef JavaNetURLStreamHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetURLStreamHandler_) && (JavaNetURLStreamHandler_INCLUDE_ALL || defined(JavaNetURLStreamHandler_INCLUDE))
+#define JavaNetURLStreamHandler_
 
 @class JavaNetInetAddress;
 @class JavaNetProxy;
@@ -107,6 +118,8 @@
  the string position from where to begin parsing.
  @param end
  the string position to stop parsing.
+ - seealso: #toExternalForm
+ - seealso: URL
  */
 - (void)parseURLWithJavaNetURL:(JavaNetURL *)url
                   withNSString:(NSString *)spec
@@ -141,7 +154,7 @@
                 withNSString:(NSString *)host
                      withInt:(jint)port
                 withNSString:(NSString *)file
-                withNSString:(NSString *)ref;
+                withNSString:(NSString *)ref __attribute__((deprecated));
 
 /*!
  @brief Sets the fields of the URL <code>u</code> to the values of the supplied
@@ -162,6 +175,8 @@
  @param url
  the URL object to be converted.
  @return the clear text representation of the specified URL.
+ - seealso: #parseURL
+ - seealso: URL#toExternalForm()
  */
 - (NSString *)toExternalFormWithJavaNetURL:(JavaNetURL *)url;
 
@@ -178,4 +193,8 @@ FOUNDATION_EXPORT void JavaNetURLStreamHandler_init(JavaNetURLStreamHandler *sel
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLStreamHandler)
 
-#endif // _JavaNetURLStreamHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetURLStreamHandler_INCLUDE_ALL")

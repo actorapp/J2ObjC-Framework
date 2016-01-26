@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/MessageDigest.java
 //
 
-#ifndef _JavaSecurityMessageDigest_H_
-#define _JavaSecurityMessageDigest_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityMessageDigest_INCLUDE_ALL")
+#ifdef JavaSecurityMessageDigest_RESTRICT
+#define JavaSecurityMessageDigest_INCLUDE_ALL 0
+#else
+#define JavaSecurityMessageDigest_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityMessageDigest_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityMessageDigest_) && (JavaSecurityMessageDigest_INCLUDE_ALL || defined(JavaSecurityMessageDigest_INCLUDE))
+#define JavaSecurityMessageDigest_
+
+#define JavaSecurityMessageDigestSpi_RESTRICT 1
+#define JavaSecurityMessageDigestSpi_INCLUDE 1
 #include "../../java/security/MessageDigestSpi.h"
 
 @class IOSByteArray;
@@ -38,6 +52,7 @@
  Advanced users who want partial digests should clone their <code>MessageDigest</code> before
  calling <code>digest</code>.
  <p>This class is not thread-safe.
+ - seealso: MessageDigestSpi
  */
 @interface JavaSecurityMessageDigest : JavaSecurityMessageDigestSpi
 
@@ -49,6 +64,7 @@
  @brief Computes and returns the final hash value for this <code>MessageDigest</code>.
  After the digest is computed the receiver is reset.
  @return the computed one way hash value
+ - seealso: #reset
  */
 - (IOSByteArray *)digest;
 
@@ -60,6 +76,7 @@
  @param input
  the <code>byte</code> array
  @return the computed one way hash value
+ - seealso: #reset()
  */
 - (IOSByteArray *)digestWithByteArray:(IOSByteArray *)input;
 
@@ -78,6 +95,7 @@
  @throws IllegalArgumentException
  if <code>offset</code> or <code>len</code> are not valid in respect to
  <code>buf</code>
+ - seealso: #reset()
  */
 - (jint)digestWithByteArray:(IOSByteArray *)buf
                     withInt:(jint)offset
@@ -185,6 +203,7 @@
  @brief Updates this <code>MessageDigest</code> using the given <code>byte</code>.
  @param arg0
  the <code>byte</code> to update this <code>MessageDigest</code> with
+ - seealso: #reset()
  */
 - (void)updateWithByte:(jbyte)arg0;
 
@@ -246,4 +265,8 @@ FOUNDATION_EXPORT jboolean JavaSecurityMessageDigest_isEqualWithByteArray_withBy
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityMessageDigest)
 
-#endif // _JavaSecurityMessageDigest_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityMessageDigest_INCLUDE_ALL")

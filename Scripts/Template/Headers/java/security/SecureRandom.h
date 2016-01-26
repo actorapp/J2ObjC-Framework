@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/SecureRandom.java
 //
 
-#ifndef _JavaSecuritySecureRandom_H_
-#define _JavaSecuritySecureRandom_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySecureRandom_INCLUDE_ALL")
+#ifdef JavaSecuritySecureRandom_RESTRICT
+#define JavaSecuritySecureRandom_INCLUDE_ALL 0
+#else
+#define JavaSecuritySecureRandom_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySecureRandom_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySecureRandom_) && (JavaSecuritySecureRandom_INCLUDE_ALL || defined(JavaSecuritySecureRandom_INCLUDE))
+#define JavaSecuritySecureRandom_
+
+#define JavaUtilRandom_RESTRICT 1
+#define JavaUtilRandom_INCLUDE 1
 #include "../../java/util/Random.h"
 
 @class IOSByteArray;
@@ -215,4 +229,8 @@ FOUNDATION_EXPORT IOSByteArray *JavaSecuritySecureRandom_getSeedWithInt_(jint nu
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureRandom)
 
-#endif // _JavaSecuritySecureRandom_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySecureRandom_INCLUDE_ALL")

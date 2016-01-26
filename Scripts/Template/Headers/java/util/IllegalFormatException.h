@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/IllegalFormatException.java
 //
 
-#ifndef _JavaUtilIllegalFormatException_H_
-#define _JavaUtilIllegalFormatException_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilIllegalFormatException_INCLUDE_ALL")
+#ifdef JavaUtilIllegalFormatException_RESTRICT
+#define JavaUtilIllegalFormatException_INCLUDE_ALL 0
+#else
+#define JavaUtilIllegalFormatException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilIllegalFormatException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilIllegalFormatException_) && (JavaUtilIllegalFormatException_INCLUDE_ALL || defined(JavaUtilIllegalFormatException_INCLUDE))
+#define JavaUtilIllegalFormatException_
+
+#define JavaLangIllegalArgumentException_RESTRICT 1
+#define JavaLangIllegalArgumentException_INCLUDE 1
 #include "../../java/lang/IllegalArgumentException.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief An <code>IllegalFormatException</code> is thrown when a format string that
@@ -16,6 +33,7 @@
  parameter.
  Only subclasses inheriting explicitly from this exception are
  allowed to be instantiated.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilIllegalFormatException : JavaLangIllegalArgumentException < JavaIoSerializable >
 
@@ -33,4 +51,8 @@ FOUNDATION_EXPORT JavaUtilIllegalFormatException *new_JavaUtilIllegalFormatExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatException)
 
-#endif // _JavaUtilIllegalFormatException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilIllegalFormatException_INCLUDE_ALL")

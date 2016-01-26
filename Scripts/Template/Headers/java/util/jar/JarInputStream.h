@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/jar/JarInputStream.java
 //
 
-#ifndef _JavaUtilJarJarInputStream_H_
-#define _JavaUtilJarJarInputStream_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilJarJarInputStream_INCLUDE_ALL")
+#ifdef JavaUtilJarJarInputStream_RESTRICT
+#define JavaUtilJarJarInputStream_INCLUDE_ALL 0
+#else
+#define JavaUtilJarJarInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaUtilJarJarInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilJarJarInputStream_) && (JavaUtilJarJarInputStream_INCLUDE_ALL || defined(JavaUtilJarJarInputStream_INCLUDE))
+#define JavaUtilJarJarInputStream_
+
+#define JavaUtilZipZipInputStream_RESTRICT 1
+#define JavaUtilZipZipInputStream_INCLUDE 1
 #include "../../../java/util/zip/ZipInputStream.h"
 
 @class IOSByteArray;
@@ -19,6 +33,7 @@
  @brief The input stream from which the JAR file to be read may be fetched.
  It is
  used like the <code>ZipInputStream</code>.
+ - seealso: ZipInputStream
  */
 @interface JavaUtilJarJarInputStream : JavaUtilZipZipInputStream
 
@@ -30,6 +45,7 @@
  the input stream containing the JAR file.
  @throws IOException
  If an error occurs reading entries from the input stream.
+ - seealso: ZipInputStream#ZipInputStream(InputStream)
  */
 - (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)stream;
 
@@ -41,6 +57,7 @@
  if the file should be verified with a <code>JarVerifier</code>.
  @throws IOException
  If an error occurs reading entries from the input stream.
+ - seealso: ZipInputStream#ZipInputStream(InputStream)
  */
 - (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)stream
                               withBoolean:(jboolean)verify;
@@ -101,4 +118,8 @@ FOUNDATION_EXPORT JavaUtilJarJarInputStream *new_JavaUtilJarJarInputStream_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarInputStream)
 
-#endif // _JavaUtilJarJarInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilJarJarInputStream_INCLUDE_ALL")

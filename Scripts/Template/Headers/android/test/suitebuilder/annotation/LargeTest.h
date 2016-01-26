@@ -3,10 +3,24 @@
 //  source: android/frameworks/base/core/java/android/test/suitebuilder/annotation/LargeTest.java
 //
 
-#ifndef _AndroidTestSuitebuilderAnnotationLargeTest_H_
-#define _AndroidTestSuitebuilderAnnotationLargeTest_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE_ALL")
+#ifdef AndroidTestSuitebuilderAnnotationLargeTest_RESTRICT
+#define AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE_ALL 0
+#else
+#define AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE_ALL 1
+#endif
+#undef AndroidTestSuitebuilderAnnotationLargeTest_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTestSuitebuilderAnnotationLargeTest_) && (AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE_ALL || defined(AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE))
+#define AndroidTestSuitebuilderAnnotationLargeTest_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../../../java/lang/annotation/Annotation.h"
 
 /*!
@@ -24,4 +38,8 @@ J2OBJC_EMPTY_STATIC_INIT(AndroidTestSuitebuilderAnnotationLargeTest)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTestSuitebuilderAnnotationLargeTest)
 
-#endif // _AndroidTestSuitebuilderAnnotationLargeTest_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE_ALL")

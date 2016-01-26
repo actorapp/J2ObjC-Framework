@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/Locator.java
 //
 
-#ifndef _OrgXmlSaxLocator_H_
-#define _OrgXmlSaxLocator_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxLocator_INCLUDE_ALL")
+#ifdef OrgXmlSaxLocator_RESTRICT
+#define OrgXmlSaxLocator_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxLocator_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxLocator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxLocator_) && (OrgXmlSaxLocator_INCLUDE_ALL || defined(OrgXmlSaxLocator_INCLUDE))
+#define OrgXmlSaxLocator_
 
 /*!
  @brief Interface for associating a SAX event with a document location.
@@ -37,6 +48,7 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.ContentHandler#setDocumentLocator
  */
 @protocol OrgXmlSaxLocator < NSObject, JavaObject >
 
@@ -47,6 +59,7 @@
  triggering the event appears.</p>
  @return A string containing the public identifier, or
  null if none is available.
+ - seealso: #getSystemId
  */
 - (NSString *)getPublicId;
 
@@ -61,6 +74,7 @@
  kinds of relative URI are also resolved against their bases.</p>
  @return A string containing the system identifier, or null
  if none is available.
+ - seealso: #getPublicId
  */
 - (NSString *)getSystemId;
 
@@ -82,6 +96,7 @@
  of the first character after the text associated with the document
  event.  The first line is line 1.</p>
  @return The line number, or -1 if none is available.
+ - seealso: #getColumnNumber
  */
 - (jint)getLineNumber;
 
@@ -103,6 +118,7 @@
  of the first character after the text associated with the document
  event.  The first column in each line is column 1.</p>
  @return The column number, or -1 if none is available.
+ - seealso: #getLineNumber
  */
 - (jint)getColumnNumber;
 
@@ -112,4 +128,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxLocator)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxLocator)
 
-#endif // _OrgXmlSaxLocator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxLocator_INCLUDE_ALL")

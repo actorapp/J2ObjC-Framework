@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/regex/Matcher.java
 //
 
-#ifndef _JavaUtilRegexMatcher_H_
-#define _JavaUtilRegexMatcher_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilRegexMatcher_INCLUDE_ALL")
+#ifdef JavaUtilRegexMatcher_RESTRICT
+#define JavaUtilRegexMatcher_INCLUDE_ALL 0
+#else
+#define JavaUtilRegexMatcher_INCLUDE_ALL 1
+#endif
+#undef JavaUtilRegexMatcher_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilRegexMatcher_) && (JavaUtilRegexMatcher_INCLUDE_ALL || defined(JavaUtilRegexMatcher_INCLUDE))
+#define JavaUtilRegexMatcher_
+
+#define JavaUtilRegexMatchResult_RESTRICT 1
+#define JavaUtilRegexMatchResult_INCLUDE 1
 #include "../../../java/util/regex/MatchResult.h"
 
 @class JavaLangStringBuffer;
@@ -315,4 +329,8 @@ FOUNDATION_EXPORT NSString *JavaUtilRegexMatcher_quoteReplacementWithNSString_(N
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexMatcher)
 
-#endif // _JavaUtilRegexMatcher_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilRegexMatcher_INCLUDE_ALL")

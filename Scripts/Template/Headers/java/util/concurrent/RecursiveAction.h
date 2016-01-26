@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/RecursiveAction.java
 //
 
-#ifndef _JavaUtilConcurrentRecursiveAction_H_
-#define _JavaUtilConcurrentRecursiveAction_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentRecursiveAction_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentRecursiveAction_RESTRICT
+#define JavaUtilConcurrentRecursiveAction_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentRecursiveAction_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentRecursiveAction_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentRecursiveAction_) && (JavaUtilConcurrentRecursiveAction_INCLUDE_ALL || defined(JavaUtilConcurrentRecursiveAction_INCLUDE))
+#define JavaUtilConcurrentRecursiveAction_
+
+#define JavaUtilConcurrentForkJoinTask_RESTRICT 1
+#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
 #include "../../../java/util/concurrent/ForkJoinTask.h"
 
 @class JavaLangVoid;
@@ -174,4 +188,8 @@ FOUNDATION_EXPORT void JavaUtilConcurrentRecursiveAction_init(JavaUtilConcurrent
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRecursiveAction)
 
-#endif // _JavaUtilConcurrentRecursiveAction_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentRecursiveAction_INCLUDE_ALL")

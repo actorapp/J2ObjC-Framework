@@ -3,12 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLException.java
 //
 
-#ifndef _JavaSqlSQLException_H_
-#define _JavaSqlSQLException_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaSqlSQLException_INCLUDE_ALL")
+#ifdef JavaSqlSQLException_RESTRICT
+#define JavaSqlSQLException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLException_) && (JavaSqlSQLException_INCLUDE_ALL || defined(JavaSqlSQLException_INCLUDE))
+#define JavaSqlSQLException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
+
+#define JavaLangIterable_RESTRICT 1
+#define JavaLangIterable_INCLUDE 1
 #include "../../java/lang/Iterable.h"
 
 @class JavaLangThrowable;
@@ -27,6 +47,7 @@
  <li>A database-specific error code.</li>
  <li>The next exception in the chain.</li>
  </ul>
+ - seealso: DatabaseMetaData
  */
 @interface JavaSqlSQLException : JavaLangException < JavaIoSerializable, JavaLangIterable >
 
@@ -192,7 +213,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLException)
@@ -231,4 +251,8 @@ FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSString_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLException)
 
-#endif // _JavaSqlSQLException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLException_INCLUDE_ALL")

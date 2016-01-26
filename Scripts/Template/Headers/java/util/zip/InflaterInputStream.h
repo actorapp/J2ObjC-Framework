@@ -3,17 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/InflaterInputStream.java
 //
 
-#ifndef _JavaUtilZipInflaterInputStream_H_
-#define _JavaUtilZipInflaterInputStream_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipInflaterInputStream_INCLUDE_ALL")
+#ifdef JavaUtilZipInflaterInputStream_RESTRICT
+#define JavaUtilZipInflaterInputStream_INCLUDE_ALL 0
+#else
+#define JavaUtilZipInflaterInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipInflaterInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipInflaterInputStream_) && (JavaUtilZipInflaterInputStream_INCLUDE_ALL || defined(JavaUtilZipInflaterInputStream_INCLUDE))
+#define JavaUtilZipInflaterInputStream_
+
+#define JavaIoFilterInputStream_RESTRICT 1
+#define JavaIoFilterInputStream_INCLUDE 1
 #include "../../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
 @class JavaUtilZipInflater;
-
-#define JavaUtilZipInflaterInputStream_BUF_SIZE 512
 
 /*!
  @brief This class provides an implementation of <code>FilterInputStream</code> that
@@ -21,6 +33,8 @@
  (see <a href="http://www.gzip.org/algorithm.txt">specification</a>).
  Basically it wraps the <code>Inflater</code> class and takes care of the
  buffering.
+ - seealso: Inflater
+ - seealso: DeflaterOutputStream
  */
 @interface JavaUtilZipInflaterInputStream : JavaIoFilterInputStream {
  @public
@@ -46,6 +60,8 @@
   jboolean eof_;
   jint nativeEndBufSize_;
 }
+
++ (jint)BUF_SIZE;
 
 #pragma mark Public
 
@@ -172,7 +188,9 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilZipInflaterInputStream)
 J2OBJC_FIELD_SETTER(JavaUtilZipInflaterInputStream, inf_, JavaUtilZipInflater *)
 J2OBJC_FIELD_SETTER(JavaUtilZipInflaterInputStream, buf_, IOSByteArray *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipInflaterInputStream, BUF_SIZE, jint)
+inline jint JavaUtilZipInflaterInputStream_get_BUF_SIZE();
+#define JavaUtilZipInflaterInputStream_BUF_SIZE 512
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipInflaterInputStream, BUF_SIZE, jint)
 
 FOUNDATION_EXPORT void JavaUtilZipInflaterInputStream_initWithJavaIoInputStream_(JavaUtilZipInflaterInputStream *self, JavaIoInputStream *is);
 
@@ -188,4 +206,8 @@ FOUNDATION_EXPORT JavaUtilZipInflaterInputStream *new_JavaUtilZipInflaterInputSt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipInflaterInputStream)
 
-#endif // _JavaUtilZipInflaterInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipInflaterInputStream_INCLUDE_ALL")

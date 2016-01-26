@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/Inflater.java
 //
 
-#ifndef _JavaUtilZipInflater_H_
-#define _JavaUtilZipInflater_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipInflater_INCLUDE_ALL")
+#ifdef JavaUtilZipInflater_RESTRICT
+#define JavaUtilZipInflater_INCLUDE_ALL 0
+#else
+#define JavaUtilZipInflater_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipInflater_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipInflater_) && (JavaUtilZipInflater_INCLUDE_ALL || defined(JavaUtilZipInflater_INCLUDE))
+#define JavaUtilZipInflater_
 
 @class IOSByteArray;
 @class JavaIoFileDescriptor;
@@ -228,4 +239,8 @@ FOUNDATION_EXPORT JavaUtilZipInflater *new_JavaUtilZipInflater_initWithBoolean_(
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipInflater)
 
-#endif // _JavaUtilZipInflater_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipInflater_INCLUDE_ALL")

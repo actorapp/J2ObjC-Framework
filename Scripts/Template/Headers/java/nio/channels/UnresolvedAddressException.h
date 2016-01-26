@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/UnresolvedAddressException.java
 //
 
-#ifndef _JavaNioChannelsUnresolvedAddressException_H_
-#define _JavaNioChannelsUnresolvedAddressException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsUnresolvedAddressException_INCLUDE_ALL")
+#ifdef JavaNioChannelsUnresolvedAddressException_RESTRICT
+#define JavaNioChannelsUnresolvedAddressException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsUnresolvedAddressException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsUnresolvedAddressException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsUnresolvedAddressException_) && (JavaNioChannelsUnresolvedAddressException_INCLUDE_ALL || defined(JavaNioChannelsUnresolvedAddressException_INCLUDE))
+#define JavaNioChannelsUnresolvedAddressException_
+
+#define JavaLangIllegalArgumentException_RESTRICT 1
+#define JavaLangIllegalArgumentException_INCLUDE 1
 #include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioChannelsUnresolvedAddressException *new_JavaNioChannels
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsUnresolvedAddressException)
 
-#endif // _JavaNioChannelsUnresolvedAddressException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsUnresolvedAddressException_INCLUDE_ALL")

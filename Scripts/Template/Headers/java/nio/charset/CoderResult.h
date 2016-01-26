@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/CoderResult.java
 //
 
-#ifndef _JavaNioCharsetCoderResult_H_
-#define _JavaNioCharsetCoderResult_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioCharsetCoderResult_INCLUDE_ALL")
+#ifdef JavaNioCharsetCoderResult_RESTRICT
+#define JavaNioCharsetCoderResult_INCLUDE_ALL 0
+#else
+#define JavaNioCharsetCoderResult_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharsetCoderResult_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharsetCoderResult_) && (JavaNioCharsetCoderResult_INCLUDE_ALL || defined(JavaNioCharsetCoderResult_INCLUDE))
+#define JavaNioCharsetCoderResult_
 
 /*!
  @brief Used to indicate the result of encoding/decoding.
@@ -29,6 +40,10 @@
  </ol>
  */
 @interface JavaNioCharsetCoderResult : NSObject
+
++ (JavaNioCharsetCoderResult *)UNDERFLOW_;
+
++ (JavaNioCharsetCoderResult *)OVERFLOW_;
 
 #pragma mark Public
 
@@ -124,11 +139,23 @@
 
 J2OBJC_STATIC_INIT(JavaNioCharsetCoderResult)
 
-FOUNDATION_EXPORT JavaNioCharsetCoderResult *JavaNioCharsetCoderResult_UNDERFLOW__;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetCoderResult, UNDERFLOW__, JavaNioCharsetCoderResult *)
+/*!
+ @brief Result object indicating that there is insufficient data in the
+ encoding/decoding buffer or that additional data is required.
+ */
+inline JavaNioCharsetCoderResult *JavaNioCharsetCoderResult_get_UNDERFLOW();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCoderResult *JavaNioCharsetCoderResult_UNDERFLOW;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetCoderResult, UNDERFLOW, JavaNioCharsetCoderResult *)
 
-FOUNDATION_EXPORT JavaNioCharsetCoderResult *JavaNioCharsetCoderResult_OVERFLOW__;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetCoderResult, OVERFLOW__, JavaNioCharsetCoderResult *)
+/*!
+ @brief Result object used to indicate that the output buffer does not have
+ enough space available to store the result of the encoding/decoding.
+ */
+inline JavaNioCharsetCoderResult *JavaNioCharsetCoderResult_get_OVERFLOW();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCoderResult *JavaNioCharsetCoderResult_OVERFLOW;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetCoderResult, OVERFLOW, JavaNioCharsetCoderResult *)
 
 FOUNDATION_EXPORT JavaNioCharsetCoderResult *JavaNioCharsetCoderResult_malformedForLengthWithInt_(jint length);
 
@@ -136,4 +163,8 @@ FOUNDATION_EXPORT JavaNioCharsetCoderResult *JavaNioCharsetCoderResult_unmappabl
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCoderResult)
 
-#endif // _JavaNioCharsetCoderResult_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharsetCoderResult_INCLUDE_ALL")

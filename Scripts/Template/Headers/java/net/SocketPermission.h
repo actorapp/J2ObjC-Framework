@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/net/SocketPermission.java
 //
 
-#ifndef _JavaNetSocketPermission_H_
-#define _JavaNetSocketPermission_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaNetSocketPermission_INCLUDE_ALL")
+#ifdef JavaNetSocketPermission_RESTRICT
+#define JavaNetSocketPermission_INCLUDE_ALL 0
+#else
+#define JavaNetSocketPermission_INCLUDE_ALL 1
+#endif
+#undef JavaNetSocketPermission_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetSocketPermission_) && (JavaNetSocketPermission_INCLUDE_ALL || defined(JavaNetSocketPermission_INCLUDE))
+#define JavaNetSocketPermission_
+
+#define JavaSecurityPermission_RESTRICT 1
+#define JavaSecurityPermission_INCLUDE 1
 #include "../../java/security/Permission.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief Legacy security code; do not use.
@@ -34,4 +51,8 @@ FOUNDATION_EXPORT JavaNetSocketPermission *new_JavaNetSocketPermission_initWithN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketPermission)
 
-#endif // _JavaNetSocketPermission_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetSocketPermission_INCLUDE_ALL")

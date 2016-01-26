@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/InstantiationException.java
 //
 
-#ifndef _JavaLangInstantiationException_H_
-#define _JavaLangInstantiationException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangInstantiationException_INCLUDE_ALL")
+#ifdef JavaLangInstantiationException_RESTRICT
+#define JavaLangInstantiationException_INCLUDE_ALL 0
+#else
+#define JavaLangInstantiationException_INCLUDE_ALL 1
+#endif
+#undef JavaLangInstantiationException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangInstantiationException_) && (JavaLangInstantiationException_INCLUDE_ALL || defined(JavaLangInstantiationException_INCLUDE))
+#define JavaLangInstantiationException_
+
+#define JavaLangReflectiveOperationException_RESTRICT 1
+#define JavaLangReflectiveOperationException_INCLUDE 1
 #include "../../java/lang/ReflectiveOperationException.h"
 
 @class IOSClass;
@@ -61,4 +75,8 @@ FOUNDATION_EXPORT JavaLangInstantiationException *new_JavaLangInstantiationExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangInstantiationException)
 
-#endif // _JavaLangInstantiationException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangInstantiationException_INCLUDE_ALL")

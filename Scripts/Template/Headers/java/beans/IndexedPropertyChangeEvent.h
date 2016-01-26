@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/beans/IndexedPropertyChangeEvent.java
 //
 
-#ifndef _JavaBeansIndexedPropertyChangeEvent_H_
-#define _JavaBeansIndexedPropertyChangeEvent_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaBeansIndexedPropertyChangeEvent_INCLUDE_ALL")
+#ifdef JavaBeansIndexedPropertyChangeEvent_RESTRICT
+#define JavaBeansIndexedPropertyChangeEvent_INCLUDE_ALL 0
+#else
+#define JavaBeansIndexedPropertyChangeEvent_INCLUDE_ALL 1
+#endif
+#undef JavaBeansIndexedPropertyChangeEvent_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaBeansIndexedPropertyChangeEvent_) && (JavaBeansIndexedPropertyChangeEvent_INCLUDE_ALL || defined(JavaBeansIndexedPropertyChangeEvent_INCLUDE))
+#define JavaBeansIndexedPropertyChangeEvent_
+
+#define JavaBeansPropertyChangeEvent_RESTRICT 1
+#define JavaBeansPropertyChangeEvent_INCLUDE 1
 #include "../../java/beans/PropertyChangeEvent.h"
 
 /*!
@@ -57,4 +71,8 @@ FOUNDATION_EXPORT JavaBeansIndexedPropertyChangeEvent *new_JavaBeansIndexedPrope
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIndexedPropertyChangeEvent)
 
-#endif // _JavaBeansIndexedPropertyChangeEvent_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaBeansIndexedPropertyChangeEvent_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/jar/JarEntry.java
 //
 
-#ifndef _JavaUtilJarJarEntry_H_
-#define _JavaUtilJarJarEntry_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilJarJarEntry_INCLUDE_ALL")
+#ifdef JavaUtilJarJarEntry_RESTRICT
+#define JavaUtilJarJarEntry_INCLUDE_ALL 0
+#else
+#define JavaUtilJarJarEntry_INCLUDE_ALL 1
+#endif
+#undef JavaUtilJarJarEntry_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilJarJarEntry_) && (JavaUtilJarJarEntry_INCLUDE_ALL || defined(JavaUtilJarJarEntry_INCLUDE))
+#define JavaUtilJarJarEntry_
+
+#define JavaUtilZipZipEntry_RESTRICT 1
+#define JavaUtilZipZipEntry_INCLUDE 1
 #include "../../../java/util/zip/ZipEntry.h"
 
 @class IOSObjectArray;
@@ -16,6 +30,8 @@
 /*!
  @brief Represents a single file in a JAR archive together with the manifest
  attributes and digital signatures associated with it.
+ - seealso: JarFile
+ - seealso: JarInputStream
  */
 @interface JavaUtilJarJarEntry : JavaUtilZipZipEntry {
  @public
@@ -53,6 +69,7 @@
  @return the <code>Attributes</code> for this entry.
  @throws IOException
  If an error occurs obtaining the <code>Attributes</code>.
+ - seealso: Attributes
  */
 - (JavaUtilJarAttributes *)getAttributes;
 
@@ -67,6 +84,7 @@
  together in one array. To know which certificates were tied to the
  private keys that made the signatures on this entry, see
  <code>getCodeSigners()</code> instead.
+ - seealso: java.security.cert.Certificate
  */
 - (IOSObjectArray *)getCertificates;
 
@@ -83,6 +101,7 @@
  by the caller if needed. See <code>CertPathValidator</code> for more
  information.
  @return an array of CodeSigner for this JAR entry.
+ - seealso: CodeSigner
  */
 - (IOSObjectArray *)getCodeSigners;
 
@@ -117,4 +136,8 @@ FOUNDATION_EXPORT JavaUtilJarJarEntry *new_JavaUtilJarJarEntry_initWithJavaUtilJ
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarEntry)
 
-#endif // _JavaUtilJarJarEntry_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilJarJarEntry_INCLUDE_ALL")

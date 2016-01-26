@@ -3,23 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/text/Collator.java
 //
 
-#ifndef _JavaTextCollator_H_
-#define _JavaTextCollator_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextCollator_INCLUDE_ALL")
+#ifdef JavaTextCollator_RESTRICT
+#define JavaTextCollator_INCLUDE_ALL 0
+#else
+#define JavaTextCollator_INCLUDE_ALL 1
+#endif
+#undef JavaTextCollator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextCollator_) && (JavaTextCollator_INCLUDE_ALL || defined(JavaTextCollator_INCLUDE))
+#define JavaTextCollator_
+
+#define JavaUtilComparator_RESTRICT 1
+#define JavaUtilComparator_INCLUDE 1
 #include "../../java/util/Comparator.h"
 
 @class IOSObjectArray;
 @class JavaTextCollationKey;
 @class JavaUtilLocale;
-
-#define JavaTextCollator_NO_DECOMPOSITION 0
-#define JavaTextCollator_CANONICAL_DECOMPOSITION 1
-#define JavaTextCollator_FULL_DECOMPOSITION 2
-#define JavaTextCollator_PRIMARY 0
-#define JavaTextCollator_SECONDARY 1
-#define JavaTextCollator_TERTIARY 2
-#define JavaTextCollator_IDENTICAL 3
 
 /*!
  @brief Performs locale-sensitive string comparison.
@@ -101,8 +107,23 @@
   
 @endcode
  </blockquote>
+ - seealso: CollationKey
  */
 @interface JavaTextCollator : NSObject < JavaUtilComparator, NSCopying >
+
++ (jint)NO_DECOMPOSITION;
+
++ (jint)CANONICAL_DECOMPOSITION;
+
++ (jint)FULL_DECOMPOSITION;
+
++ (jint)PRIMARY;
+
++ (jint)SECONDARY;
+
++ (jint)TERTIARY;
+
++ (jint)IDENTICAL;
 
 #pragma mark Public
 
@@ -222,19 +243,56 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaTextCollator)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextCollator, NO_DECOMPOSITION, jint)
+/*!
+ @brief Constant used to specify the decomposition rule.
+ */
+inline jint JavaTextCollator_get_NO_DECOMPOSITION();
+#define JavaTextCollator_NO_DECOMPOSITION 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextCollator, NO_DECOMPOSITION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextCollator, CANONICAL_DECOMPOSITION, jint)
+/*!
+ @brief Constant used to specify the decomposition rule.
+ */
+inline jint JavaTextCollator_get_CANONICAL_DECOMPOSITION();
+#define JavaTextCollator_CANONICAL_DECOMPOSITION 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextCollator, CANONICAL_DECOMPOSITION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextCollator, FULL_DECOMPOSITION, jint)
+/*!
+ @brief Constant used to specify the decomposition rule.
+ This value for
+ decomposition is not supported.
+ */
+inline jint JavaTextCollator_get_FULL_DECOMPOSITION();
+#define JavaTextCollator_FULL_DECOMPOSITION 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextCollator, FULL_DECOMPOSITION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextCollator, PRIMARY, jint)
+/*!
+ @brief Constant used to specify the collation strength.
+ */
+inline jint JavaTextCollator_get_PRIMARY();
+#define JavaTextCollator_PRIMARY 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextCollator, PRIMARY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextCollator, SECONDARY, jint)
+/*!
+ @brief Constant used to specify the collation strength.
+ */
+inline jint JavaTextCollator_get_SECONDARY();
+#define JavaTextCollator_SECONDARY 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextCollator, SECONDARY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextCollator, TERTIARY, jint)
+/*!
+ @brief Constant used to specify the collation strength.
+ */
+inline jint JavaTextCollator_get_TERTIARY();
+#define JavaTextCollator_TERTIARY 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextCollator, TERTIARY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextCollator, IDENTICAL, jint)
+/*!
+ @brief Constant used to specify the collation strength.
+ */
+inline jint JavaTextCollator_get_IDENTICAL();
+#define JavaTextCollator_IDENTICAL 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextCollator, IDENTICAL, jint)
 
 FOUNDATION_EXPORT IOSObjectArray *JavaTextCollator_getAvailableLocales();
 
@@ -246,4 +304,8 @@ FOUNDATION_EXPORT void JavaTextCollator_init(JavaTextCollator *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextCollator)
 
-#endif // _JavaTextCollator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextCollator_INCLUDE_ALL")

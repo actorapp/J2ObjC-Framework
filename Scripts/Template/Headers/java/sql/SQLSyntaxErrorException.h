@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLSyntaxErrorException.java
 //
 
-#ifndef _JavaSqlSQLSyntaxErrorException_H_
-#define _JavaSqlSQLSyntaxErrorException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLSyntaxErrorException_INCLUDE_ALL")
+#ifdef JavaSqlSQLSyntaxErrorException_RESTRICT
+#define JavaSqlSQLSyntaxErrorException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLSyntaxErrorException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLSyntaxErrorException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLSyntaxErrorException_) && (JavaSqlSQLSyntaxErrorException_INCLUDE_ALL || defined(JavaSqlSQLSyntaxErrorException_INCLUDE))
+#define JavaSqlSQLSyntaxErrorException_
+
+#define JavaSqlSQLNonTransientException_RESTRICT 1
+#define JavaSqlSQLNonTransientException_INCLUDE 1
 #include "../../java/sql/SQLNonTransientException.h"
 
 @class JavaLangThrowable;
@@ -127,7 +141,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLSyntaxErrorException)
@@ -166,4 +179,8 @@ FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLSyntaxErrorException)
 
-#endif // _JavaSqlSQLSyntaxErrorException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLSyntaxErrorException_INCLUDE_ALL")

@@ -3,12 +3,25 @@
 //  source: android/libcore/luni/src/main/java/java/text/Format.java
 //
 
-#ifndef _JavaTextFormat_H_
-#define _JavaTextFormat_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextFormat_INCLUDE_ALL")
+#ifdef JavaTextFormat_RESTRICT
+#define JavaTextFormat_INCLUDE_ALL 0
+#else
+#define JavaTextFormat_INCLUDE_ALL 1
+#endif
+#undef JavaTextFormat_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextFormat_) && (JavaTextFormat_INCLUDE_ALL || defined(JavaTextFormat_INCLUDE))
+#define JavaTextFormat_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
-#include "../../java/text/AttributedCharacterIterator.h"
 
 @class JavaLangStringBuffer;
 @class JavaTextFieldPosition;
@@ -57,6 +70,7 @@
 /*!
  @brief Returns a copy of this <code>Format</code> instance.
  @return a shallow copy of this format.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -173,6 +187,15 @@ FOUNDATION_EXPORT jboolean JavaTextFormat_upToWithQuotesWithNSString_withJavaTex
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextFormat)
 
+#endif
+
+#if !defined (JavaTextFormat_Field_) && (JavaTextFormat_INCLUDE_ALL || defined(JavaTextFormat_Field_INCLUDE))
+#define JavaTextFormat_Field_
+
+#define JavaTextAttributedCharacterIterator_RESTRICT 1
+#define JavaTextAttributedCharacterIterator_Attribute_INCLUDE 1
+#include "../../java/text/AttributedCharacterIterator.h"
+
 /*!
  @brief Inner class used to represent <code>Format</code> attributes in the
  <code>AttributedCharacterIterator</code> that the
@@ -200,4 +223,8 @@ FOUNDATION_EXPORT JavaTextFormat_Field *new_JavaTextFormat_Field_initWithNSStrin
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextFormat_Field)
 
-#endif // _JavaTextFormat_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextFormat_INCLUDE_ALL")

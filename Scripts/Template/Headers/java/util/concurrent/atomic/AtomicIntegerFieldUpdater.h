@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicIntegerFieldUpdater.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_H_
-#define _JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_RESTRICT
+#define JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_) && (JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE))
+#define JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_
 
 @class IOSClass;
 
@@ -193,4 +204,8 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_init(Ja
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater)
 
-#endif // _JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE_ALL")

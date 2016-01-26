@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/util/SparseArray.java
 //
 
-#ifndef _AndroidUtilSparseArray_H_
-#define _AndroidUtilSparseArray_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidUtilSparseArray_INCLUDE_ALL")
+#ifdef AndroidUtilSparseArray_RESTRICT
+#define AndroidUtilSparseArray_INCLUDE_ALL 0
+#else
+#define AndroidUtilSparseArray_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilSparseArray_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilSparseArray_) && (AndroidUtilSparseArray_INCLUDE_ALL || defined(AndroidUtilSparseArray_INCLUDE))
+#define AndroidUtilSparseArray_
 
 /*!
  @brief SparseArrays map integers to Objects.
@@ -190,4 +201,8 @@ FOUNDATION_EXPORT AndroidUtilSparseArray *new_AndroidUtilSparseArray_initWithInt
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilSparseArray)
 
-#endif // _AndroidUtilSparseArray_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilSparseArray_INCLUDE_ALL")

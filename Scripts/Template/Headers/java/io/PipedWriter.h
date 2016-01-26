@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/PipedWriter.java
 //
 
-#ifndef _JavaIoPipedWriter_H_
-#define _JavaIoPipedWriter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoPipedWriter_INCLUDE_ALL")
+#ifdef JavaIoPipedWriter_RESTRICT
+#define JavaIoPipedWriter_INCLUDE_ALL 0
+#else
+#define JavaIoPipedWriter_INCLUDE_ALL 1
+#endif
+#undef JavaIoPipedWriter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoPipedWriter_) && (JavaIoPipedWriter_INCLUDE_ALL || defined(JavaIoPipedWriter_INCLUDE))
+#define JavaIoPipedWriter_
+
+#define JavaIoWriter_RESTRICT 1
+#define JavaIoWriter_INCLUDE 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -17,6 +31,7 @@
  When two threads want to pass
  data back and forth, one creates a piped writer and the other creates a piped
  reader.
+ - seealso: PipedReader
  */
 @interface JavaIoPipedWriter : JavaIoWriter
 
@@ -27,6 +42,7 @@
  The resulting writer
  must be connected to a <code>PipedReader</code> before data may be written to
  it.
+ - seealso: PipedReader
  */
 - (instancetype)init;
 
@@ -142,4 +158,8 @@ FOUNDATION_EXPORT JavaIoPipedWriter *new_JavaIoPipedWriter_initWithJavaIoPipedRe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedWriter)
 
-#endif // _JavaIoPipedWriter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoPipedWriter_INCLUDE_ALL")

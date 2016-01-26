@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/NetworkChannel.java
 //
 
-#ifndef _JavaNioChannelsNetworkChannel_H_
-#define _JavaNioChannelsNetworkChannel_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Closeable.h"
+
+#pragma push_macro("JavaNioChannelsNetworkChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsNetworkChannel_RESTRICT
+#define JavaNioChannelsNetworkChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsNetworkChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsNetworkChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsNetworkChannel_) && (JavaNioChannelsNetworkChannel_INCLUDE_ALL || defined(JavaNioChannelsNetworkChannel_INCLUDE))
+#define JavaNioChannelsNetworkChannel_
+
+#define JavaLangAutoCloseable_RESTRICT 1
+#define JavaLangAutoCloseable_INCLUDE 1
 #include "../../../java/lang/AutoCloseable.h"
+
+#define JavaNioChannelsChannel_RESTRICT 1
+#define JavaNioChannelsChannel_INCLUDE 1
 #include "../../../java/nio/channels/Channel.h"
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
+#include "../../../java/io/Closeable.h"
 
 @class JavaNetSocketAddress;
 @protocol JavaNetSocketOption;
@@ -68,6 +88,7 @@
  @throws IOException
  if the value cannot be read.
   Until ready for a public API change
+ - seealso: java.net.StandardSocketOptions
  */
 - (id)getOptionWithJavaNetSocketOption:(id<JavaNetSocketOption>)option;
 
@@ -83,6 +104,7 @@
  @throws IOException
  if the value cannot be written.
   Until ready for a public API change
+ - seealso: java.net.StandardSocketOptions
  */
 - (id<JavaNioChannelsNetworkChannel>)setOptionWithJavaNetSocketOption:(id<JavaNetSocketOption>)option
                                                                withId:(id)value;
@@ -99,4 +121,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNioChannelsNetworkChannel)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsNetworkChannel)
 
-#endif // _JavaNioChannelsNetworkChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsNetworkChannel_INCLUDE_ALL")

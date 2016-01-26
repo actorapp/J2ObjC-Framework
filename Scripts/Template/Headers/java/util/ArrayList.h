@@ -3,12 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/util/ArrayList.java
 //
 
-#ifndef _JavaUtilArrayList_H_
-#define _JavaUtilArrayList_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilArrayList_INCLUDE_ALL")
+#ifdef JavaUtilArrayList_RESTRICT
+#define JavaUtilArrayList_INCLUDE_ALL 0
+#else
+#define JavaUtilArrayList_INCLUDE_ALL 1
+#endif
+#undef JavaUtilArrayList_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilArrayList_) && (JavaUtilArrayList_INCLUDE_ALL || defined(JavaUtilArrayList_INCLUDE))
+#define JavaUtilArrayList_
+
+#define JavaUtilAbstractList_RESTRICT 1
+#define JavaUtilAbstractList_INCLUDE 1
 #include "../../java/util/AbstractList.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
+
+#define JavaUtilRandomAccess_RESTRICT 1
+#define JavaUtilRandomAccess_INCLUDE 1
 #include "../../java/util/RandomAccess.h"
 
 @class IOSObjectArray;
@@ -115,6 +135,8 @@
 
 /*!
  @brief Removes all elements from this <code>ArrayList</code>, leaving it empty.
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -122,6 +144,7 @@
  @brief Returns a new <code>ArrayList</code> with the same elements, the same size and
  the same capacity as this <code>ArrayList</code>.
  @return a shallow copy of this <code>ArrayList</code>
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -215,6 +238,7 @@
 /*!
  @brief Sets the capacity of this <code>ArrayList</code> to be the same as the current
  size.
+ - seealso: #size
  */
 - (void)trimToSize;
 
@@ -231,7 +255,6 @@
  */
 + (JavaLangIndexOutOfBoundsException *)throwIndexOutOfBoundsExceptionWithInt:(jint)index
                                                                      withInt:(jint)size;
-
 
 @end
 
@@ -255,4 +278,8 @@ FOUNDATION_EXPORT JavaLangIndexOutOfBoundsException *JavaUtilArrayList_throwInde
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayList)
 
-#endif // _JavaUtilArrayList_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilArrayList_INCLUDE_ALL")

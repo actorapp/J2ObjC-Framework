@@ -3,12 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/CyclicBarrier.java
 //
 
-#ifndef _JavaUtilConcurrentCyclicBarrier_H_
-#define _JavaUtilConcurrentCyclicBarrier_H_
-
 #include "../../../J2ObjC_header.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+#pragma push_macro("JavaUtilConcurrentCyclicBarrier_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentCyclicBarrier_RESTRICT
+#define JavaUtilConcurrentCyclicBarrier_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentCyclicBarrier_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentCyclicBarrier_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentCyclicBarrier_) && (JavaUtilConcurrentCyclicBarrier_INCLUDE_ALL || defined(JavaUtilConcurrentCyclicBarrier_INCLUDE))
+#define JavaUtilConcurrentCyclicBarrier_
+
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 
 /*!
@@ -95,6 +106,7 @@
  <i>happen-before</i> actions following a successful return from the
  corresponding <code>await()</code> in other threads.
  @since 1.5
+ - seealso: CountDownLatch
  @author Doug Lea
  */
 @interface JavaUtilConcurrentCyclicBarrier : NSObject
@@ -231,7 +243,7 @@
  present) failed due to an exception
  */
 - (jint)awaitWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Returns the number of parties currently waiting at the barrier.
@@ -281,4 +293,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentCyclicBarrier *new_JavaUtilConcurrentCyclicB
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCyclicBarrier)
 
-#endif // _JavaUtilConcurrentCyclicBarrier_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentCyclicBarrier_INCLUDE_ALL")

@@ -3,12 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/util/EnumMap.java
 //
 
-#ifndef _JavaUtilEnumMap_H_
-#define _JavaUtilEnumMap_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilEnumMap_INCLUDE_ALL")
+#ifdef JavaUtilEnumMap_RESTRICT
+#define JavaUtilEnumMap_INCLUDE_ALL 0
+#else
+#define JavaUtilEnumMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilEnumMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilEnumMap_) && (JavaUtilEnumMap_INCLUDE_ALL || defined(JavaUtilEnumMap_INCLUDE))
+#define JavaUtilEnumMap_
+
+#define JavaUtilAbstractMap_RESTRICT 1
+#define JavaUtilAbstractMap_INCLUDE 1
 #include "../../java/util/AbstractMap.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_INCLUDE 1
 #include "../../java/util/Map.h"
 
 @class IOSBooleanArray;
@@ -68,6 +88,8 @@
 
 /*!
  @brief Removes all elements from this <code>EnumMap</code>, leaving it empty.
+ - seealso: #isEmpty()
+ - seealso: #size()
  */
 - (void)clear;
 
@@ -114,6 +136,8 @@
  the <code>Object</code> to compare with this <code>EnumMap</code>.
  @return boolean <code>true</code> if <code>object</code> is the same as this <code>EnumMap</code>,
  <code>false</code> otherwise.
+ - seealso: #hashCode()
+ - seealso: #entrySet()
  */
 - (jboolean)isEqual:(id)object;
 
@@ -230,4 +254,8 @@ FOUNDATION_EXPORT JavaUtilEnumMap *new_JavaUtilEnumMap_initWithJavaUtilMap_(id<J
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEnumMap)
 
-#endif // _JavaUtilEnumMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilEnumMap_INCLUDE_ALL")

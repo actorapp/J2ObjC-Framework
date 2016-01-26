@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/ListResourceBundle.java
 //
 
-#ifndef _JavaUtilListResourceBundle_H_
-#define _JavaUtilListResourceBundle_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilListResourceBundle_INCLUDE_ALL")
+#ifdef JavaUtilListResourceBundle_RESTRICT
+#define JavaUtilListResourceBundle_INCLUDE_ALL 0
+#else
+#define JavaUtilListResourceBundle_INCLUDE_ALL 1
+#endif
+#undef JavaUtilListResourceBundle_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilListResourceBundle_) && (JavaUtilListResourceBundle_INCLUDE_ALL || defined(JavaUtilListResourceBundle_INCLUDE))
+#define JavaUtilListResourceBundle_
+
+#define JavaUtilResourceBundle_RESTRICT 1
+#define JavaUtilResourceBundle_INCLUDE 1
 #include "../../java/util/ResourceBundle.h"
 
 @class IOSObjectArray;
@@ -18,6 +32,7 @@
  @brief <code>ListResourceBundle</code> is the abstract superclass of classes which provide
  resources by implementing the <code>getContents()</code> method to return
  the list of resources.
+ - seealso: ResourceBundle
  @since 1.1
  */
 @interface JavaUtilListResourceBundle : JavaUtilResourceBundle {
@@ -65,4 +80,8 @@ FOUNDATION_EXPORT void JavaUtilListResourceBundle_init(JavaUtilListResourceBundl
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilListResourceBundle)
 
-#endif // _JavaUtilListResourceBundle_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilListResourceBundle_INCLUDE_ALL")

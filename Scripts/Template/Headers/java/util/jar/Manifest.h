@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/jar/Manifest.java
 //
 
-#ifndef _JavaUtilJarManifest_H_
-#define _JavaUtilJarManifest_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilJarManifest_INCLUDE_ALL")
+#ifdef JavaUtilJarManifest_RESTRICT
+#define JavaUtilJarManifest_INCLUDE_ALL 0
+#else
+#define JavaUtilJarManifest_INCLUDE_ALL 1
+#endif
+#undef JavaUtilJarManifest_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilJarManifest_) && (JavaUtilJarManifest_INCLUDE_ALL || defined(JavaUtilJarManifest_INCLUDE))
+#define JavaUtilJarManifest_
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -15,13 +26,13 @@
 @class JavaUtilJarManifest_Chunk;
 @protocol JavaUtilMap;
 
-#define JavaUtilJarManifest_LINE_LENGTH_LIMIT 72
-
 /*!
  @brief The <code>Manifest</code> class is used to obtain attribute information for a
  <code>JarFile</code> and its entries.
  */
 @interface JavaUtilJarManifest : NSObject < NSCopying >
+
++ (jint)LINE_LENGTH_LIMIT;
 
 #pragma mark Public
 
@@ -150,7 +161,9 @@
 
 J2OBJC_STATIC_INIT(JavaUtilJarManifest)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarManifest, LINE_LENGTH_LIMIT, jint)
+inline jint JavaUtilJarManifest_get_LINE_LENGTH_LIMIT();
+#define JavaUtilJarManifest_LINE_LENGTH_LIMIT 72
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilJarManifest, LINE_LENGTH_LIMIT, jint)
 
 FOUNDATION_EXPORT void JavaUtilJarManifest_init(JavaUtilJarManifest *self);
 
@@ -171,6 +184,11 @@ FOUNDATION_EXPORT JavaUtilJarManifest *new_JavaUtilJarManifest_initWithByteArray
 FOUNDATION_EXPORT void JavaUtilJarManifest_writeWithJavaUtilJarManifest_withJavaIoOutputStream_(JavaUtilJarManifest *manifest, JavaIoOutputStream *outArg);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarManifest)
+
+#endif
+
+#if !defined (JavaUtilJarManifest_Chunk_) && (JavaUtilJarManifest_INCLUDE_ALL || defined(JavaUtilJarManifest_Chunk_INCLUDE))
+#define JavaUtilJarManifest_Chunk_
 
 @interface JavaUtilJarManifest_Chunk : NSObject {
  @public
@@ -193,4 +211,8 @@ FOUNDATION_EXPORT JavaUtilJarManifest_Chunk *new_JavaUtilJarManifest_Chunk_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarManifest_Chunk)
 
-#endif // _JavaUtilJarManifest_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilJarManifest_INCLUDE_ALL")

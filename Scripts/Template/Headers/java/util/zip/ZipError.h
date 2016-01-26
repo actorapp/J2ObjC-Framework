@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/ZipError.java
 //
 
-#ifndef _JavaUtilZipZipError_H_
-#define _JavaUtilZipZipError_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipZipError_INCLUDE_ALL")
+#ifdef JavaUtilZipZipError_RESTRICT
+#define JavaUtilZipZipError_INCLUDE_ALL 0
+#else
+#define JavaUtilZipZipError_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipZipError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipZipError_) && (JavaUtilZipZipError_INCLUDE_ALL || defined(JavaUtilZipZipError_INCLUDE))
+#define JavaUtilZipZipError_
+
+#define JavaLangInternalError_RESTRICT 1
+#define JavaLangInternalError_INCLUDE 1
 #include "../../../java/lang/InternalError.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaUtilZipZipError *new_JavaUtilZipZipError_initWithNSString_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipError)
 
-#endif // _JavaUtilZipZipError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipZipError_INCLUDE_ALL")

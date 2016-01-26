@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/KeyManagerFactory.java
 //
 
-#ifndef _JavaxNetSslKeyManagerFactory_H_
-#define _JavaxNetSslKeyManagerFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslKeyManagerFactory_INCLUDE_ALL")
+#ifdef JavaxNetSslKeyManagerFactory_RESTRICT
+#define JavaxNetSslKeyManagerFactory_INCLUDE_ALL 0
+#else
+#define JavaxNetSslKeyManagerFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslKeyManagerFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslKeyManagerFactory_) && (JavaxNetSslKeyManagerFactory_INCLUDE_ALL || defined(JavaxNetSslKeyManagerFactory_INCLUDE))
+#define JavaxNetSslKeyManagerFactory_
 
 @class IOSCharArray;
 @class IOSObjectArray;
@@ -162,4 +173,8 @@ FOUNDATION_EXPORT JavaxNetSslKeyManagerFactory *new_JavaxNetSslKeyManagerFactory
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslKeyManagerFactory)
 
-#endif // _JavaxNetSslKeyManagerFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslKeyManagerFactory_INCLUDE_ALL")

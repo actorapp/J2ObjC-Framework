@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/BitSet.java
 //
 
-#ifndef _JavaUtilBitSet_H_
-#define _JavaUtilBitSet_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilBitSet_INCLUDE_ALL")
+#ifdef JavaUtilBitSet_RESTRICT
+#define JavaUtilBitSet_INCLUDE_ALL 0
+#else
+#define JavaUtilBitSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilBitSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilBitSet_) && (JavaUtilBitSet_INCLUDE_ALL || defined(JavaUtilBitSet_INCLUDE))
+#define JavaUtilBitSet_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -265,7 +279,7 @@
 
 @end
 
-J2OBJC_STATIC_INIT(JavaUtilBitSet)
+J2OBJC_EMPTY_STATIC_INIT(JavaUtilBitSet)
 
 FOUNDATION_EXPORT void JavaUtilBitSet_init(JavaUtilBitSet *self);
 
@@ -285,4 +299,8 @@ FOUNDATION_EXPORT JavaUtilBitSet *JavaUtilBitSet_valueOfWithJavaNioByteBuffer_(J
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilBitSet)
 
-#endif // _JavaUtilBitSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilBitSet_INCLUDE_ALL")

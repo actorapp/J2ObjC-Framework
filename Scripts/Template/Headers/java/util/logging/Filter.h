@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/Filter.java
 //
 
-#ifndef _JavaUtilLoggingFilter_H_
-#define _JavaUtilLoggingFilter_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLoggingFilter_INCLUDE_ALL")
+#ifdef JavaUtilLoggingFilter_RESTRICT
+#define JavaUtilLoggingFilter_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingFilter_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingFilter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingFilter_) && (JavaUtilLoggingFilter_INCLUDE_ALL || defined(JavaUtilLoggingFilter_INCLUDE))
+#define JavaUtilLoggingFilter_
 
 @class JavaUtilLoggingLogRecord;
 
@@ -31,4 +42,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilLoggingFilter)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingFilter)
 
-#endif // _JavaUtilLoggingFilter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingFilter_INCLUDE_ALL")

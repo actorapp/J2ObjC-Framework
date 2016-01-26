@@ -3,14 +3,21 @@
 //  source: android/frameworks/base/core/java/android/util/MapCollections.java
 //
 
-#ifndef _AndroidUtilMapCollections_H_
-#define _AndroidUtilMapCollections_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/util/Collection.h"
-#include "../../java/util/Iterator.h"
-#include "../../java/util/Map.h"
-#include "../../java/util/Set.h"
+
+#pragma push_macro("AndroidUtilMapCollections_INCLUDE_ALL")
+#ifdef AndroidUtilMapCollections_RESTRICT
+#define AndroidUtilMapCollections_INCLUDE_ALL 0
+#else
+#define AndroidUtilMapCollections_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilMapCollections_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilMapCollections_) && (AndroidUtilMapCollections_INCLUDE_ALL || defined(AndroidUtilMapCollections_INCLUDE))
+#define AndroidUtilMapCollections_
 
 @class AndroidUtilMapCollections_EntrySet;
 @class AndroidUtilMapCollections_KeySet;
@@ -103,6 +110,17 @@ FOUNDATION_EXPORT void AndroidUtilMapCollections_init(AndroidUtilMapCollections 
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections)
 
+#endif
+
+#if !defined (AndroidUtilMapCollections_ArrayIterator_) && (AndroidUtilMapCollections_INCLUDE_ALL || defined(AndroidUtilMapCollections_ArrayIterator_INCLUDE))
+#define AndroidUtilMapCollections_ArrayIterator_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
+#include "../../java/util/Iterator.h"
+
+@class AndroidUtilMapCollections;
+
 @interface AndroidUtilMapCollections_ArrayIterator : NSObject < JavaUtilIterator > {
  @public
   jint mOffset_;
@@ -133,6 +151,21 @@ FOUNDATION_EXPORT void AndroidUtilMapCollections_ArrayIterator_initWithAndroidUt
 FOUNDATION_EXPORT AndroidUtilMapCollections_ArrayIterator *new_AndroidUtilMapCollections_ArrayIterator_initWithAndroidUtilMapCollections_withInt_(AndroidUtilMapCollections *outer$, jint offset) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_ArrayIterator)
+
+#endif
+
+#if !defined (AndroidUtilMapCollections_MapIterator_) && (AndroidUtilMapCollections_INCLUDE_ALL || defined(AndroidUtilMapCollections_MapIterator_INCLUDE))
+#define AndroidUtilMapCollections_MapIterator_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
+#include "../../java/util/Iterator.h"
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_Entry_INCLUDE 1
+#include "../../java/util/Map.h"
+
+@class AndroidUtilMapCollections;
 
 @interface AndroidUtilMapCollections_MapIterator : NSObject < JavaUtilIterator, JavaUtilMap_Entry > {
  @public
@@ -175,6 +208,21 @@ FOUNDATION_EXPORT AndroidUtilMapCollections_MapIterator *new_AndroidUtilMapColle
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_MapIterator)
 
+#endif
+
+#if !defined (AndroidUtilMapCollections_EntrySet_) && (AndroidUtilMapCollections_INCLUDE_ALL || defined(AndroidUtilMapCollections_EntrySet_INCLUDE))
+#define AndroidUtilMapCollections_EntrySet_
+
+#define JavaUtilSet_RESTRICT 1
+#define JavaUtilSet_INCLUDE 1
+#include "../../java/util/Set.h"
+
+@class AndroidUtilMapCollections;
+@class IOSObjectArray;
+@protocol JavaUtilCollection;
+@protocol JavaUtilIterator;
+@protocol JavaUtilMap_Entry;
+
 @interface AndroidUtilMapCollections_EntrySet : NSObject < JavaUtilSet >
 
 #pragma mark Public
@@ -213,7 +261,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_MapIterator)
 
 - (instancetype)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(AndroidUtilMapCollections_EntrySet)
@@ -223,6 +270,20 @@ FOUNDATION_EXPORT void AndroidUtilMapCollections_EntrySet_initWithAndroidUtilMap
 FOUNDATION_EXPORT AndroidUtilMapCollections_EntrySet *new_AndroidUtilMapCollections_EntrySet_initWithAndroidUtilMapCollections_(AndroidUtilMapCollections *outer$) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_EntrySet)
+
+#endif
+
+#if !defined (AndroidUtilMapCollections_KeySet_) && (AndroidUtilMapCollections_INCLUDE_ALL || defined(AndroidUtilMapCollections_KeySet_INCLUDE))
+#define AndroidUtilMapCollections_KeySet_
+
+#define JavaUtilSet_RESTRICT 1
+#define JavaUtilSet_INCLUDE 1
+#include "../../java/util/Set.h"
+
+@class AndroidUtilMapCollections;
+@class IOSObjectArray;
+@protocol JavaUtilCollection;
+@protocol JavaUtilIterator;
 
 @interface AndroidUtilMapCollections_KeySet : NSObject < JavaUtilSet >
 
@@ -262,7 +323,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_EntrySet)
 
 - (instancetype)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(AndroidUtilMapCollections_KeySet)
@@ -272,6 +332,19 @@ FOUNDATION_EXPORT void AndroidUtilMapCollections_KeySet_initWithAndroidUtilMapCo
 FOUNDATION_EXPORT AndroidUtilMapCollections_KeySet *new_AndroidUtilMapCollections_KeySet_initWithAndroidUtilMapCollections_(AndroidUtilMapCollections *outer$) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_KeySet)
+
+#endif
+
+#if !defined (AndroidUtilMapCollections_ValuesCollection_) && (AndroidUtilMapCollections_INCLUDE_ALL || defined(AndroidUtilMapCollections_ValuesCollection_INCLUDE))
+#define AndroidUtilMapCollections_ValuesCollection_
+
+#define JavaUtilCollection_RESTRICT 1
+#define JavaUtilCollection_INCLUDE 1
+#include "../../java/util/Collection.h"
+
+@class AndroidUtilMapCollections;
+@class IOSObjectArray;
+@protocol JavaUtilIterator;
 
 @interface AndroidUtilMapCollections_ValuesCollection : NSObject < JavaUtilCollection >
 
@@ -307,7 +380,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_KeySet)
 
 - (instancetype)initWithAndroidUtilMapCollections:(AndroidUtilMapCollections *)outer$;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(AndroidUtilMapCollections_ValuesCollection)
@@ -318,4 +390,8 @@ FOUNDATION_EXPORT AndroidUtilMapCollections_ValuesCollection *new_AndroidUtilMap
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilMapCollections_ValuesCollection)
 
-#endif // _AndroidUtilMapCollections_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilMapCollections_INCLUDE_ALL")

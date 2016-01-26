@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/MalformedParameterizedTypeException.java
 //
 
-#ifndef _JavaLangReflectMalformedParameterizedTypeException_H_
-#define _JavaLangReflectMalformedParameterizedTypeException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectMalformedParameterizedTypeException_INCLUDE_ALL")
+#ifdef JavaLangReflectMalformedParameterizedTypeException_RESTRICT
+#define JavaLangReflectMalformedParameterizedTypeException_INCLUDE_ALL 0
+#else
+#define JavaLangReflectMalformedParameterizedTypeException_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectMalformedParameterizedTypeException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectMalformedParameterizedTypeException_) && (JavaLangReflectMalformedParameterizedTypeException_INCLUDE_ALL || defined(JavaLangReflectMalformedParameterizedTypeException_INCLUDE))
+#define JavaLangReflectMalformedParameterizedTypeException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../../java/lang/RuntimeException.h"
 
 /*!
@@ -33,4 +47,8 @@ FOUNDATION_EXPORT JavaLangReflectMalformedParameterizedTypeException *new_JavaLa
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectMalformedParameterizedTypeException)
 
-#endif // _JavaLangReflectMalformedParameterizedTypeException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectMalformedParameterizedTypeException_INCLUDE_ALL")

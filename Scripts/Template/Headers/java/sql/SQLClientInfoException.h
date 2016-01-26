@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLClientInfoException.java
 //
 
-#ifndef _JavaSqlSQLClientInfoException_H_
-#define _JavaSqlSQLClientInfoException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLClientInfoException_INCLUDE_ALL")
+#ifdef JavaSqlSQLClientInfoException_RESTRICT
+#define JavaSqlSQLClientInfoException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLClientInfoException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLClientInfoException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLClientInfoException_) && (JavaSqlSQLClientInfoException_INCLUDE_ALL || defined(JavaSqlSQLClientInfoException_INCLUDE))
+#define JavaSqlSQLClientInfoException_
+
+#define JavaSqlSQLException_RESTRICT 1
+#define JavaSqlSQLException_INCLUDE 1
 #include "../../java/sql/SQLException.h"
 
 @class JavaLangThrowable;
@@ -183,7 +197,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLClientInfoException)
@@ -226,4 +239,8 @@ FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoExcepti
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLClientInfoException)
 
-#endif // _JavaSqlSQLClientInfoException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLClientInfoException_INCLUDE_ALL")

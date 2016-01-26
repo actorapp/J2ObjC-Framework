@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/Result.java
 //
 
-#ifndef _JavaxXmlTransformResult_H_
-#define _JavaxXmlTransformResult_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformResult_INCLUDE_ALL")
+#ifdef JavaxXmlTransformResult_RESTRICT
+#define JavaxXmlTransformResult_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformResult_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformResult_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformResult_) && (JavaxXmlTransformResult_INCLUDE_ALL || defined(JavaxXmlTransformResult_INCLUDE))
+#define JavaxXmlTransformResult_
 
 /*!
  @brief <p>An object that implements this interface contains the information
@@ -34,14 +45,52 @@
 
 @end
 
+@interface JavaxXmlTransformResult : NSObject
+
++ (NSString *)PI_DISABLE_OUTPUT_ESCAPING;
+
++ (NSString *)PI_ENABLE_OUTPUT_ESCAPING;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformResult)
 
-FOUNDATION_EXPORT NSString *JavaxXmlTransformResult_PI_DISABLE_OUTPUT_ESCAPING_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlTransformResult, PI_DISABLE_OUTPUT_ESCAPING_, NSString *)
+/*!
+ @brief The name of the processing instruction that is sent if the
+ result tree disables output escaping.
+ <p>Normally, result tree serialization escapes & and < (and
+ possibly other characters) when outputting text nodes.
+ This ensures that the output is well-formed XML. However,
+ it is sometimes convenient to be able to produce output that is
+ almost, but not quite well-formed XML; for example,
+ the output may include ill-formed sections that will
+ be transformed into well-formed XML by a subsequent non-XML aware
+ process. If a processing instruction is sent with this name,
+ serialization should be output without any escaping. </p>
+ <p>Result DOM trees may also have PI_DISABLE_OUTPUT_ESCAPING and
+ PI_ENABLE_OUTPUT_ESCAPING inserted into the tree.</p>
+ - seealso: <a href="http://www.w3.org/TR/xslt#disable-output-escaping">disable-output-escaping in XSLT Specification</a>
+ */
+inline NSString *JavaxXmlTransformResult_get_PI_DISABLE_OUTPUT_ESCAPING();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlTransformResult_PI_DISABLE_OUTPUT_ESCAPING;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlTransformResult, PI_DISABLE_OUTPUT_ESCAPING, NSString *)
 
-FOUNDATION_EXPORT NSString *JavaxXmlTransformResult_PI_ENABLE_OUTPUT_ESCAPING_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlTransformResult, PI_ENABLE_OUTPUT_ESCAPING_, NSString *)
+/*!
+ @brief The name of the processing instruction that is sent
+ if the result tree enables output escaping at some point after having
+ received a PI_DISABLE_OUTPUT_ESCAPING processing instruction.
+ - seealso: <a href="http://www.w3.org/TR/xslt#disable-output-escaping">disable-output-escaping in XSLT Specification</a>
+ */
+inline NSString *JavaxXmlTransformResult_get_PI_ENABLE_OUTPUT_ESCAPING();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlTransformResult_PI_ENABLE_OUTPUT_ESCAPING;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlTransformResult, PI_ENABLE_OUTPUT_ESCAPING, NSString *)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformResult)
 
-#endif // _JavaxXmlTransformResult_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformResult_INCLUDE_ALL")

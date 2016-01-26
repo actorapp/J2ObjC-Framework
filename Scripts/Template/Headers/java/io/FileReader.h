@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/FileReader.java
 //
 
-#ifndef _JavaIoFileReader_H_
-#define _JavaIoFileReader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFileReader_INCLUDE_ALL")
+#ifdef JavaIoFileReader_RESTRICT
+#define JavaIoFileReader_INCLUDE_ALL 0
+#else
+#define JavaIoFileReader_INCLUDE_ALL 1
+#endif
+#undef JavaIoFileReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFileReader_) && (JavaIoFileReader_INCLUDE_ALL || defined(JavaIoFileReader_INCLUDE))
+#define JavaIoFileReader_
+
+#define JavaIoInputStreamReader_RESTRICT 1
+#define JavaIoInputStreamReader_INCLUDE 1
 #include "../../java/io/InputStreamReader.h"
 
 @class JavaIoFile;
@@ -19,6 +33,8 @@
  Since this may induce some performance penalty, in particular if many small
  read requests are made, a FileReader is often wrapped by a
  BufferedReader.
+ - seealso: BufferedReader
+ - seealso: FileWriter
  */
 @interface JavaIoFileReader : JavaIoInputStreamReader
 
@@ -70,4 +86,8 @@ FOUNDATION_EXPORT JavaIoFileReader *new_JavaIoFileReader_initWithNSString_(NSStr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileReader)
 
-#endif // _JavaIoFileReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFileReader_INCLUDE_ALL")

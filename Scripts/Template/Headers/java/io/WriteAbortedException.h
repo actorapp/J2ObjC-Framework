@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/WriteAbortedException.java
 //
 
-#ifndef _JavaIoWriteAbortedException_H_
-#define _JavaIoWriteAbortedException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoWriteAbortedException_INCLUDE_ALL")
+#ifdef JavaIoWriteAbortedException_RESTRICT
+#define JavaIoWriteAbortedException_INCLUDE_ALL 0
+#else
+#define JavaIoWriteAbortedException_INCLUDE_ALL 1
+#endif
+#undef JavaIoWriteAbortedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoWriteAbortedException_) && (JavaIoWriteAbortedException_INCLUDE_ALL || defined(JavaIoWriteAbortedException_INCLUDE))
+#define JavaIoWriteAbortedException_
+
+#define JavaIoObjectStreamException_RESTRICT 1
+#define JavaIoObjectStreamException_INCLUDE 1
 #include "../../java/io/ObjectStreamException.h"
 
 @class JavaLangException;
@@ -20,6 +34,7 @@
  of the original object. It is a way to "propagate" an exception from the code
  that attempted to write the object to the code that is attempting to read the
  object.
+ - seealso: ObjectInputStream#readObject()
  */
 @interface JavaIoWriteAbortedException : JavaIoObjectStreamException {
  @public
@@ -71,4 +86,8 @@ FOUNDATION_EXPORT JavaIoWriteAbortedException *new_JavaIoWriteAbortedException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoWriteAbortedException)
 
-#endif // _JavaIoWriteAbortedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoWriteAbortedException_INCLUDE_ALL")

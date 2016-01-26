@@ -3,17 +3,37 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/LinkedBlockingQueue.java
 //
 
-#ifndef _JavaUtilConcurrentLinkedBlockingQueue_H_
-#define _JavaUtilConcurrentLinkedBlockingQueue_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentLinkedBlockingQueue_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentLinkedBlockingQueue_RESTRICT
+#define JavaUtilConcurrentLinkedBlockingQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentLinkedBlockingQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentLinkedBlockingQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentLinkedBlockingQueue_) && (JavaUtilConcurrentLinkedBlockingQueue_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedBlockingQueue_INCLUDE))
+#define JavaUtilConcurrentLinkedBlockingQueue_
+
+#define JavaUtilAbstractQueue_RESTRICT 1
+#define JavaUtilAbstractQueue_INCLUDE 1
 #include "../../../java/util/AbstractQueue.h"
+
+#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
+#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentLinkedBlockingQueue_Node;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilCollection;
 @protocol JavaUtilIterator;
 
@@ -143,14 +163,14 @@
  */
 - (jboolean)offerWithId:(id)e
                withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id)peek;
 
 - (id)poll;
 
 - (id)pollWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Inserts the specified element at the tail of this queue, waiting if
@@ -260,7 +280,6 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
 - (void)unlinkWithJavaUtilConcurrentLinkedBlockingQueue_Node:(JavaUtilConcurrentLinkedBlockingQueue_Node *)p
               withJavaUtilConcurrentLinkedBlockingQueue_Node:(JavaUtilConcurrentLinkedBlockingQueue_Node *)trail;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentLinkedBlockingQueue)
@@ -280,6 +299,11 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLinkedBlockingQueue_initWithJavaUtilCol
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingQueue *new_JavaUtilConcurrentLinkedBlockingQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue)
+
+#endif
+
+#if !defined (JavaUtilConcurrentLinkedBlockingQueue_Node_) && (JavaUtilConcurrentLinkedBlockingQueue_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedBlockingQueue_Node_INCLUDE))
+#define JavaUtilConcurrentLinkedBlockingQueue_Node_
 
 /*!
  @brief Linked list node class
@@ -313,4 +337,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingQueue_Node *new_JavaUtilConcur
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingQueue_Node)
 
-#endif // _JavaUtilConcurrentLinkedBlockingQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentLinkedBlockingQueue_INCLUDE_ALL")

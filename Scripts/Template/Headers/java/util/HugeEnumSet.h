@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/HugeEnumSet.java
 //
 
-#ifndef _JavaUtilHugeEnumSet_H_
-#define _JavaUtilHugeEnumSet_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilHugeEnumSet_INCLUDE_ALL")
+#ifdef JavaUtilHugeEnumSet_RESTRICT
+#define JavaUtilHugeEnumSet_INCLUDE_ALL 0
+#else
+#define JavaUtilHugeEnumSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilHugeEnumSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilHugeEnumSet_) && (JavaUtilHugeEnumSet_INCLUDE_ALL || defined(JavaUtilHugeEnumSet_INCLUDE))
+#define JavaUtilHugeEnumSet_
+
+#define JavaUtilEnumSet_RESTRICT 1
+#define JavaUtilEnumSet_INCLUDE 1
 #include "../../java/util/EnumSet.h"
 
 @class IOSClass;
@@ -64,7 +78,6 @@
 - (void)setRangeWithJavaLangEnum:(JavaLangEnum *)start
                 withJavaLangEnum:(JavaLangEnum *)end;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilHugeEnumSet)
@@ -75,4 +88,8 @@ FOUNDATION_EXPORT JavaUtilHugeEnumSet *new_JavaUtilHugeEnumSet_initWithIOSClass_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHugeEnumSet)
 
-#endif // _JavaUtilHugeEnumSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilHugeEnumSet_INCLUDE_ALL")

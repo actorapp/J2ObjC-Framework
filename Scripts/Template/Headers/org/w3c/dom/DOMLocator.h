@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/DOMLocator.java
 //
 
-#ifndef _OrgW3cDomDOMLocator_H_
-#define _OrgW3cDomDOMLocator_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomDOMLocator_INCLUDE_ALL")
+#ifdef OrgW3cDomDOMLocator_RESTRICT
+#define OrgW3cDomDOMLocator_INCLUDE_ALL 0
+#else
+#define OrgW3cDomDOMLocator_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomDOMLocator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomDOMLocator_) && (OrgW3cDomDOMLocator_INCLUDE_ALL || defined(OrgW3cDomDOMLocator_INCLUDE))
+#define OrgW3cDomDOMLocator_
 
 @protocol OrgW3cDomNode;
 
@@ -60,4 +71,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomDOMLocator)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMLocator)
 
-#endif // _OrgW3cDomDOMLocator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomDOMLocator_INCLUDE_ALL")

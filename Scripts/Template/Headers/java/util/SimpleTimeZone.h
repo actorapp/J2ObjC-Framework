@@ -3,17 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/util/SimpleTimeZone.java
 //
 
-#ifndef _JavaUtilSimpleTimeZone_H_
-#define _JavaUtilSimpleTimeZone_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilSimpleTimeZone_INCLUDE_ALL")
+#ifdef JavaUtilSimpleTimeZone_RESTRICT
+#define JavaUtilSimpleTimeZone_INCLUDE_ALL 0
+#else
+#define JavaUtilSimpleTimeZone_INCLUDE_ALL 1
+#endif
+#undef JavaUtilSimpleTimeZone_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilSimpleTimeZone_) && (JavaUtilSimpleTimeZone_INCLUDE_ALL || defined(JavaUtilSimpleTimeZone_INCLUDE))
+#define JavaUtilSimpleTimeZone_
+
+#define JavaUtilTimeZone_RESTRICT 1
+#define JavaUtilTimeZone_INCLUDE 1
 #include "../../java/util/TimeZone.h"
 
 @class JavaUtilDate;
-
-#define JavaUtilSimpleTimeZone_UTC_TIME 2
-#define JavaUtilSimpleTimeZone_STANDARD_TIME 1
-#define JavaUtilSimpleTimeZone_WALL_TIME 0
 
 /*!
  @brief <code>SimpleTimeZone</code> is a concrete subclass of <code>TimeZone</code>
@@ -25,8 +35,17 @@
  <code>SimpleTimeZone</code> should count from the end of the month
  backwards. For example, Daylight Savings Time ends at the last
  (dayOfWeekInMonth = -1) Sunday in October, at 2 AM in standard time.
+ - seealso: Calendar
+ - seealso: GregorianCalendar
+ - seealso: TimeZone
  */
 @interface JavaUtilSimpleTimeZone : JavaUtilTimeZone
+
++ (jint)UTC_TIME;
+
++ (jint)STANDARD_TIME;
+
++ (jint)WALL_TIME;
 
 #pragma mark Public
 
@@ -241,6 +260,7 @@
  @brief Returns a new <code>SimpleTimeZone</code> with the same ID, <code>rawOffset</code> and daylight
  savings time rules as this SimpleTimeZone.
  @return a shallow copy of this <code>SimpleTimeZone</code>.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -253,6 +273,7 @@
  the object to compare with this object.
  @return <code>true</code> if the specified object is equal to this
  <code>SimpleTimeZone</code>, <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -274,6 +295,7 @@
  Objects which are equal
  return the same value for this method.
  @return the receiver's hash.
+ - seealso: #equals
  */
 - (NSUInteger)hash;
 
@@ -425,11 +447,30 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilSimpleTimeZone)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilSimpleTimeZone, UTC_TIME, jint)
+/*!
+ @brief The constant for representing a start or end time in GMT time mode.
+ */
+inline jint JavaUtilSimpleTimeZone_get_UTC_TIME();
+#define JavaUtilSimpleTimeZone_UTC_TIME 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilSimpleTimeZone, UTC_TIME, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilSimpleTimeZone, STANDARD_TIME, jint)
+/*!
+ @brief The constant for representing a start or end time in standard local time mode,
+ based on timezone's raw offset from GMT; does not include Daylight
+ savings.
+ */
+inline jint JavaUtilSimpleTimeZone_get_STANDARD_TIME();
+#define JavaUtilSimpleTimeZone_STANDARD_TIME 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilSimpleTimeZone, STANDARD_TIME, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilSimpleTimeZone, WALL_TIME, jint)
+/*!
+ @brief The constant for representing a start or end time in local wall clock time
+ mode, based on timezone's adjusted offset from GMT; includes
+ Daylight savings.
+ */
+inline jint JavaUtilSimpleTimeZone_get_WALL_TIME();
+#define JavaUtilSimpleTimeZone_WALL_TIME 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilSimpleTimeZone, WALL_TIME, jint)
 
 FOUNDATION_EXPORT void JavaUtilSimpleTimeZone_initWithInt_withNSString_(JavaUtilSimpleTimeZone *self, jint offset, NSString *name);
 
@@ -449,4 +490,8 @@ FOUNDATION_EXPORT JavaUtilSimpleTimeZone *new_JavaUtilSimpleTimeZone_initWithInt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSimpleTimeZone)
 
-#endif // _JavaUtilSimpleTimeZone_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilSimpleTimeZone_INCLUDE_ALL")

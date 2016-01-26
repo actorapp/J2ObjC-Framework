@@ -3,21 +3,34 @@
 //  source: apache_harmony/classlib/modules/math/src/main/java/java/math/BigInteger.java
 //
 
-#ifndef _JavaMathBigInteger_H_
-#define _JavaMathBigInteger_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaMathBigInteger_INCLUDE_ALL")
+#ifdef JavaMathBigInteger_RESTRICT
+#define JavaMathBigInteger_INCLUDE_ALL 0
+#else
+#define JavaMathBigInteger_INCLUDE_ALL 1
+#endif
+#undef JavaMathBigInteger_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaMathBigInteger_) && (JavaMathBigInteger_INCLUDE_ALL || defined(JavaMathBigInteger_INCLUDE))
+#define JavaMathBigInteger_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
 @class IOSIntArray;
 @class IOSObjectArray;
 @class JavaUtilRandom;
-
-#define JavaMathBigInteger_EQUALS 0
-#define JavaMathBigInteger_GREATER 1
-#define JavaMathBigInteger_LESS -1
 
 /*!
  @brief This class represents immutable integer numbers of arbitrary length.
@@ -59,6 +72,24 @@
    */
   jint sign_;
 }
+
++ (JavaMathBigInteger *)ZERO;
+
++ (JavaMathBigInteger *)ONE;
+
++ (JavaMathBigInteger *)TEN;
+
++ (JavaMathBigInteger *)MINUS_ONE;
+
++ (jint)EQUALS;
+
++ (jint)GREATER;
+
++ (jint)LESS;
+
++ (IOSObjectArray *)SMALL_VALUES;
+
++ (IOSObjectArray *)TWO_POWS;
 
 #pragma mark Public
 
@@ -293,6 +324,8 @@
  if <code>divisor == null</code>.
  @throws ArithmeticException
  if <code>divisor == 0</code>.
+ - seealso: #divide
+ - seealso: #remainder
  */
 - (IOSObjectArray *)divideAndRemainderWithJavaMathBigInteger:(JavaMathBigInteger *)divisor;
 
@@ -773,36 +806,77 @@
 
 - (void)unCache;
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaMathBigInteger)
 
 J2OBJC_FIELD_SETTER(JavaMathBigInteger, digits_, IOSIntArray *)
 
-FOUNDATION_EXPORT JavaMathBigInteger *JavaMathBigInteger_ZERO_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigInteger, ZERO_, JavaMathBigInteger *)
+/*!
+ @brief The <code>BigInteger</code> constant 0.
+ */
+inline JavaMathBigInteger *JavaMathBigInteger_get_ZERO();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathBigInteger *JavaMathBigInteger_ZERO;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathBigInteger, ZERO, JavaMathBigInteger *)
 
-FOUNDATION_EXPORT JavaMathBigInteger *JavaMathBigInteger_ONE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigInteger, ONE_, JavaMathBigInteger *)
+/*!
+ @brief The <code>BigInteger</code> constant 1.
+ */
+inline JavaMathBigInteger *JavaMathBigInteger_get_ONE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathBigInteger *JavaMathBigInteger_ONE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathBigInteger, ONE, JavaMathBigInteger *)
 
-FOUNDATION_EXPORT JavaMathBigInteger *JavaMathBigInteger_TEN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigInteger, TEN_, JavaMathBigInteger *)
+/*!
+ @brief The <code>BigInteger</code> constant 10.
+ */
+inline JavaMathBigInteger *JavaMathBigInteger_get_TEN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathBigInteger *JavaMathBigInteger_TEN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathBigInteger, TEN, JavaMathBigInteger *)
 
-FOUNDATION_EXPORT JavaMathBigInteger *JavaMathBigInteger_MINUS_ONE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigInteger, MINUS_ONE_, JavaMathBigInteger *)
+/*!
+ @brief The <code>BigInteger</code> constant -1.
+ */
+inline JavaMathBigInteger *JavaMathBigInteger_get_MINUS_ONE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathBigInteger *JavaMathBigInteger_MINUS_ONE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathBigInteger, MINUS_ONE, JavaMathBigInteger *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigInteger, EQUALS, jint)
+/*!
+ @brief The <code>BigInteger</code> constant 0 used for comparison.
+ */
+inline jint JavaMathBigInteger_get_EQUALS();
+#define JavaMathBigInteger_EQUALS 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigInteger, EQUALS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigInteger, GREATER, jint)
+/*!
+ @brief The <code>BigInteger</code> constant 1 used for comparison.
+ */
+inline jint JavaMathBigInteger_get_GREATER();
+#define JavaMathBigInteger_GREATER 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigInteger, GREATER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigInteger, LESS, jint)
+/*!
+ @brief The <code>BigInteger</code> constant -1 used for comparison.
+ */
+inline jint JavaMathBigInteger_get_LESS();
+#define JavaMathBigInteger_LESS -1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaMathBigInteger, LESS, jint)
 
-FOUNDATION_EXPORT IOSObjectArray *JavaMathBigInteger_SMALL_VALUES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigInteger, SMALL_VALUES_, IOSObjectArray *)
+/*!
+ @brief All the <code>BigInteger</code> numbers in the range [0,10] are cached.
+ */
+inline IOSObjectArray *JavaMathBigInteger_get_SMALL_VALUES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSObjectArray *JavaMathBigInteger_SMALL_VALUES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathBigInteger, SMALL_VALUES, IOSObjectArray *)
 
-FOUNDATION_EXPORT IOSObjectArray *JavaMathBigInteger_TWO_POWS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathBigInteger, TWO_POWS_, IOSObjectArray *)
+inline IOSObjectArray *JavaMathBigInteger_get_TWO_POWS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSObjectArray *JavaMathBigInteger_TWO_POWS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathBigInteger, TWO_POWS, IOSObjectArray *)
 
 FOUNDATION_EXPORT void JavaMathBigInteger_initWithInt_withJavaUtilRandom_(JavaMathBigInteger *self, jint numBits, JavaUtilRandom *rnd);
 
@@ -852,4 +926,8 @@ FOUNDATION_EXPORT JavaMathBigInteger *JavaMathBigInteger_getPowerOfTwoWithInt_(j
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaMathBigInteger)
 
-#endif // _JavaMathBigInteger_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaMathBigInteger_INCLUDE_ALL")

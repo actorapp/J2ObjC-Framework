@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/spi/AbstractSelector.java
 //
 
-#ifndef _JavaNioChannelsSpiAbstractSelector_H_
-#define _JavaNioChannelsSpiAbstractSelector_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsSpiAbstractSelector_INCLUDE_ALL")
+#ifdef JavaNioChannelsSpiAbstractSelector_RESTRICT
+#define JavaNioChannelsSpiAbstractSelector_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsSpiAbstractSelector_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsSpiAbstractSelector_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsSpiAbstractSelector_) && (JavaNioChannelsSpiAbstractSelector_INCLUDE_ALL || defined(JavaNioChannelsSpiAbstractSelector_INCLUDE))
+#define JavaNioChannelsSpiAbstractSelector_
+
+#define JavaNioChannelsSelector_RESTRICT 1
+#define JavaNioChannelsSelector_INCLUDE 1
 #include "../../../../java/nio/channels/Selector.h"
 
 @class JavaNioChannelsSelectionKey;
@@ -99,4 +113,8 @@ FOUNDATION_EXPORT void JavaNioChannelsSpiAbstractSelector_initWithJavaNioChannel
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiAbstractSelector)
 
-#endif // _JavaNioChannelsSpiAbstractSelector_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsSpiAbstractSelector_INCLUDE_ALL")

@@ -3,15 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/FutureTask.java
 //
 
-#ifndef _JavaUtilConcurrentFutureTask_H_
-#define _JavaUtilConcurrentFutureTask_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentFutureTask_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentFutureTask_RESTRICT
+#define JavaUtilConcurrentFutureTask_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentFutureTask_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentFutureTask_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentFutureTask_) && (JavaUtilConcurrentFutureTask_INCLUDE_ALL || defined(JavaUtilConcurrentFutureTask_INCLUDE))
+#define JavaUtilConcurrentFutureTask_
+
+#define JavaUtilConcurrentRunnableFuture_RESTRICT 1
+#define JavaUtilConcurrentRunnableFuture_INCLUDE 1
 #include "../../../java/util/concurrent/RunnableFuture.h"
 
-@class JavaLangThread;
 @class JavaLangThrowable;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaUtilConcurrentCallable;
 
@@ -73,7 +86,7 @@
  @throws CancellationException
  */
 - (id)getWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (jboolean)isCancelled;
 
@@ -139,6 +152,13 @@ FOUNDATION_EXPORT JavaUtilConcurrentFutureTask *new_JavaUtilConcurrentFutureTask
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentFutureTask)
 
+#endif
+
+#if !defined (JavaUtilConcurrentFutureTask_WaitNode_) && (JavaUtilConcurrentFutureTask_INCLUDE_ALL || defined(JavaUtilConcurrentFutureTask_WaitNode_INCLUDE))
+#define JavaUtilConcurrentFutureTask_WaitNode_
+
+@class JavaLangThread;
+
 /*!
  @brief Simple linked list nodes to record waiting threads in a Treiber
  stack.
@@ -168,4 +188,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentFutureTask_WaitNode *new_JavaUtilConcurrentF
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentFutureTask_WaitNode)
 
-#endif // _JavaUtilConcurrentFutureTask_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentFutureTask_INCLUDE_ALL")

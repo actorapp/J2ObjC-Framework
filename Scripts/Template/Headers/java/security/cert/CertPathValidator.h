@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CertPathValidator.java
 //
 
-#ifndef _JavaSecurityCertCertPathValidator_H_
-#define _JavaSecurityCertCertPathValidator_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCertPathValidator_INCLUDE_ALL")
+#ifdef JavaSecurityCertCertPathValidator_RESTRICT
+#define JavaSecurityCertCertPathValidator_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCertPathValidator_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCertPathValidator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCertPathValidator_) && (JavaSecurityCertCertPathValidator_INCLUDE_ALL || defined(JavaSecurityCertCertPathValidator_INCLUDE))
+#define JavaSecurityCertCertPathValidator_
 
 @class JavaSecurityCertCertPath;
 @class JavaSecurityCertCertPathValidatorSpi;
@@ -111,6 +122,7 @@
  @throws InvalidAlgorithmParameterException
  if the specified algorithm parameters cannot be used with
  this algorithm.
+ - seealso: CertPathValidatorResult
  */
 - (id<JavaSecurityCertCertPathValidatorResult>)validateWithJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
                                              withJavaSecurityCertCertPathParameters:(id<JavaSecurityCertCertPathParameters>)params;
@@ -148,4 +160,8 @@ FOUNDATION_EXPORT NSString *JavaSecurityCertCertPathValidator_getDefaultType();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidator)
 
-#endif // _JavaSecurityCertCertPathValidator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCertPathValidator_INCLUDE_ALL")

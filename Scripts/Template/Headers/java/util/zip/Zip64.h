@@ -3,21 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/Zip64.java
 //
 
-#ifndef _JavaUtilZipZip64_H_
-#define _JavaUtilZipZip64_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipZip64_INCLUDE_ALL")
+#ifdef JavaUtilZipZip64_RESTRICT
+#define JavaUtilZipZip64_INCLUDE_ALL 0
+#else
+#define JavaUtilZipZip64_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipZip64_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipZip64_) && (JavaUtilZipZip64_INCLUDE_ALL || defined(JavaUtilZipZip64_INCLUDE))
+#define JavaUtilZipZip64_
 
 @class JavaIoByteArrayOutputStream;
 @class JavaIoRandomAccessFile;
 @class JavaUtilZipZipEntry;
 @class JavaUtilZipZipFile_EocdRecord;
 
-#define JavaUtilZipZip64_MAX_ZIP_ENTRY_AND_ARCHIVE_SIZE 4294967295LL
-
 /*!
  */
 @interface JavaUtilZipZip64 : NSObject
+
++ (jlong)MAX_ZIP_ENTRY_AND_ARCHIVE_SIZE;
 
 #pragma mark Public
 
@@ -75,7 +86,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilZipZip64)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZip64, MAX_ZIP_ENTRY_AND_ARCHIVE_SIZE, jlong)
+/*!
+ @brief The maximum supported entry / archive size for standard (non zip64) entries and archives.
+ */
+inline jlong JavaUtilZipZip64_get_MAX_ZIP_ENTRY_AND_ARCHIVE_SIZE();
+#define JavaUtilZipZip64_MAX_ZIP_ENTRY_AND_ARCHIVE_SIZE 4294967295LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZip64, MAX_ZIP_ENTRY_AND_ARCHIVE_SIZE, jlong)
 
 FOUNDATION_EXPORT jlong JavaUtilZipZip64_parseZip64EocdRecordLocatorWithJavaIoRandomAccessFile_withLong_(JavaIoRandomAccessFile *raf, jlong eocdOffset);
 
@@ -91,4 +107,8 @@ FOUNDATION_EXPORT void JavaUtilZipZip64_writeZip64EocdRecordAndLocatorWithJavaIo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZip64)
 
-#endif // _JavaUtilZipZip64_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipZip64_INCLUDE_ALL")

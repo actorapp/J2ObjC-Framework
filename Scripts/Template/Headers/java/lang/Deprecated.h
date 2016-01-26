@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Deprecated.java
 //
 
-#ifndef _JavaLangDeprecated_H_
-#define _JavaLangDeprecated_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangDeprecated_INCLUDE_ALL")
+#ifdef JavaLangDeprecated_RESTRICT
+#define JavaLangDeprecated_INCLUDE_ALL 0
+#else
+#define JavaLangDeprecated_INCLUDE_ALL 1
+#endif
+#undef JavaLangDeprecated_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangDeprecated_) && (JavaLangDeprecated_INCLUDE_ALL || defined(JavaLangDeprecated_INCLUDE))
+#define JavaLangDeprecated_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../java/lang/annotation/Annotation.h"
 
 /*!
@@ -28,4 +42,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangDeprecated)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangDeprecated)
 
-#endif // _JavaLangDeprecated_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangDeprecated_INCLUDE_ALL")

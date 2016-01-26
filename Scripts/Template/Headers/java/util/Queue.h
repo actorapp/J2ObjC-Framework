@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/Queue.java
 //
 
-#ifndef _JavaUtilQueue_H_
-#define _JavaUtilQueue_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilQueue_INCLUDE_ALL")
+#ifdef JavaUtilQueue_RESTRICT
+#define JavaUtilQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilQueue_) && (JavaUtilQueue_INCLUDE_ALL || defined(JavaUtilQueue_INCLUDE))
+#define JavaUtilQueue_
+
+#define JavaUtilCollection_RESTRICT 1
+#define JavaUtilCollection_INCLUDE 1
 #include "../../java/util/Collection.h"
 
 /*!
@@ -49,7 +63,7 @@
  comparator, or the elements' natural ordering, and LIFO queues (or
  stacks) which order the elements LIFO (last-in-first-out).
  Whatever the ordering used, the <em>head</em> of the queue is that
- element which would be removed by a call to <code></code> or
+ element which would be removed by a call to <code>remove()</code> or
  <code>poll()</code>.  In a FIFO queue, all new elements are inserted at
  the <em> tail</em> of the queue. Other kinds of queues may use
  different placement rules.  Every <tt>Queue</tt> implementation
@@ -89,6 +103,14 @@
  from class <tt>Object</tt>, because element-based equality is not
  always well-defined for queues with the same elements but different
  ordering properties.
+ - seealso: java.util.Collection
+ - seealso: LinkedList
+ - seealso: PriorityQueue
+ - seealso: java.util.concurrent.LinkedBlockingQueue
+ - seealso: java.util.concurrent.BlockingQueue
+ - seealso: java.util.concurrent.ArrayBlockingQueue
+ - seealso: java.util.concurrent.LinkedBlockingQueue
+ - seealso: java.util.concurrent.PriorityBlockingQueue
  @since 1.5
  @author Doug Lea
  */
@@ -170,4 +192,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilQueue)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilQueue)
 
-#endif // _JavaUtilQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilQueue_INCLUDE_ALL")

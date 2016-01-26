@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/AlgorithmParameters.java
 //
 
-#ifndef _JavaSecurityAlgorithmParameters_H_
-#define _JavaSecurityAlgorithmParameters_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityAlgorithmParameters_INCLUDE_ALL")
+#ifdef JavaSecurityAlgorithmParameters_RESTRICT
+#define JavaSecurityAlgorithmParameters_INCLUDE_ALL 0
+#else
+#define JavaSecurityAlgorithmParameters_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityAlgorithmParameters_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityAlgorithmParameters_) && (JavaSecurityAlgorithmParameters_INCLUDE_ALL || defined(JavaSecurityAlgorithmParameters_INCLUDE))
+#define JavaSecurityAlgorithmParameters_
 
 @class IOSByteArray;
 @class IOSClass;
@@ -204,4 +215,8 @@ FOUNDATION_EXPORT JavaSecurityAlgorithmParameters *JavaSecurityAlgorithmParamete
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAlgorithmParameters)
 
-#endif // _JavaSecurityAlgorithmParameters_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityAlgorithmParameters_INCLUDE_ALL")

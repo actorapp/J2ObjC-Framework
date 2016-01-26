@@ -3,18 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/TimeZone.java
 //
 
-#ifndef _JavaUtilTimeZone_H_
-#define _JavaUtilTimeZone_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilTimeZone_INCLUDE_ALL")
+#ifdef JavaUtilTimeZone_RESTRICT
+#define JavaUtilTimeZone_INCLUDE_ALL 0
+#else
+#define JavaUtilTimeZone_INCLUDE_ALL 1
+#endif
+#undef JavaUtilTimeZone_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilTimeZone_) && (JavaUtilTimeZone_INCLUDE_ALL || defined(JavaUtilTimeZone_INCLUDE))
+#define JavaUtilTimeZone_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilDate;
 @class JavaUtilLocale;
-
-#define JavaUtilTimeZone_SHORT 0
-#define JavaUtilTimeZone_LONG 1
 
 /*!
  @brief <code>TimeZone</code> represents a time zone, primarily used for configuring a <code>Calendar</code> or
@@ -43,8 +54,15 @@
  <p>Note the type returned by the factory methods <code>getDefault</code> and <code>getTimeZone</code> is
  implementation dependent. This may introduce serialization incompatibility issues between
  different implementations, or different versions of Android.
+ - seealso: Calendar
+ - seealso: GregorianCalendar
+ - seealso: SimpleDateFormat
  */
 @interface JavaUtilTimeZone : NSObject < JavaIoSerializable, NSCopying >
+
++ (jint)SHORT;
+
++ (jint)LONG;
 
 #pragma mark Public
 
@@ -259,9 +277,22 @@
 
 J2OBJC_STATIC_INIT(JavaUtilTimeZone)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilTimeZone, SHORT, jint)
+/*!
+ @brief The short display name style, such as <code>PDT</code>.
+ Requests for this
+ style may yield GMT offsets like <code>GMT-08:00</code>.
+ */
+inline jint JavaUtilTimeZone_get_SHORT();
+#define JavaUtilTimeZone_SHORT 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilTimeZone, SHORT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilTimeZone, LONG, jint)
+/*!
+ @brief The long display name style, such as <code>Pacific Daylight Time</code>.
+ Requests for this style may yield GMT offsets like <code>GMT-08:00</code>.
+ */
+inline jint JavaUtilTimeZone_get_LONG();
+#define JavaUtilTimeZone_LONG 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilTimeZone, LONG, jint)
 
 FOUNDATION_EXPORT void JavaUtilTimeZone_init(JavaUtilTimeZone *self);
 
@@ -279,4 +310,8 @@ FOUNDATION_EXPORT void JavaUtilTimeZone_setDefaultWithJavaUtilTimeZone_(JavaUtil
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimeZone)
 
-#endif // _JavaUtilTimeZone_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilTimeZone_INCLUDE_ALL")

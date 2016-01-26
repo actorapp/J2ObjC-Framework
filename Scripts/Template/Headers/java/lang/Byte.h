@@ -3,23 +3,41 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Byte.java
 //
 
-#ifndef _JavaLangByte_H_
-#define _JavaLangByte_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangByte_INCLUDE_ALL")
+#ifdef JavaLangByte_RESTRICT
+#define JavaLangByte_INCLUDE_ALL 0
+#else
+#define JavaLangByte_INCLUDE_ALL 1
+#endif
+#undef JavaLangByte_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangByte_) && (JavaLangByte_INCLUDE_ALL || defined(JavaLangByte_INCLUDE))
+#define JavaLangByte_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
-
-#define JavaLangByte_MAX_VALUE 127
-#define JavaLangByte_MIN_VALUE -128
-#define JavaLangByte_SIZE 8
 
 /*!
  @brief The wrapper for the primitive type <code>byte</code>.
  @since 1.1
  */
 @interface JavaLangByte : NSNumber < JavaLangComparable >
+
++ (jbyte)MAX_VALUE;
+
++ (jbyte)MIN_VALUE;
+
++ (jint)SIZE;
+
++ (IOSClass *)TYPE;
 
 #pragma mark Public
 
@@ -36,6 +54,7 @@
  the string representation of a single byte value.
  @throws NumberFormatException
  if <code>string</code> cannot be parsed as a byte value.
+ - seealso: #parseByte(String)
  */
 - (instancetype)initWithNSString:(NSString *)string;
 
@@ -62,6 +81,7 @@
  of <code>object</code>; 0 if the value of this byte and the value of
  <code>object</code> are equal; a positive value if the value of this
  byte is greater than the value of <code>object</code>.
+ - seealso: java.lang.Comparable
  @since 1.2
  */
 - (jint)compareToWithId:(JavaLangByte *)object;
@@ -175,6 +195,7 @@
  <code>string</code>.
  @throws NumberFormatException
  if <code>string</code> can not be parsed as a byte value.
+ - seealso: #parseByte(String)
  */
 + (JavaLangByte *)valueOfWithNSString:(NSString *)string;
 
@@ -192,25 +213,47 @@
  <code>radix < Character.MIN_RADIX ||
  radix > Character.MAX_RADIX</code>
  .
+ - seealso: #parseByte(String,int)
  */
 + (JavaLangByte *)valueOfWithNSString:(NSString *)string
                               withInt:(jint)radix;
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaLangByte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangByte, MAX_VALUE, jbyte)
+/*!
+ @brief The maximum <code>Byte</code> value, 2<sup>7</sup>-1.
+ */
+inline jbyte JavaLangByte_get_MAX_VALUE();
+#define JavaLangByte_MAX_VALUE 127
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangByte, MAX_VALUE, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangByte, MIN_VALUE, jbyte)
+/*!
+ @brief The minimum <code>Byte</code> value, -2<sup>7</sup>.
+ */
+inline jbyte JavaLangByte_get_MIN_VALUE();
+#define JavaLangByte_MIN_VALUE -128
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangByte, MIN_VALUE, jbyte)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangByte, SIZE, jint)
+/*!
+ @brief The number of bits needed to represent a <code>Byte</code> value in two's
+ complement form.
+ @since 1.5
+ */
+inline jint JavaLangByte_get_SIZE();
+#define JavaLangByte_SIZE 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangByte, SIZE, jint)
 
-FOUNDATION_EXPORT IOSClass *JavaLangByte_TYPE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangByte, TYPE_, IOSClass *)
+/*!
+ @brief The <code>Class</code> object that represents the primitive type <code>byte</code>.
+ */
+inline IOSClass *JavaLangByte_get_TYPE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaLangByte_TYPE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangByte, TYPE, IOSClass *)
 
 FOUNDATION_EXPORT void JavaLangByte_initWithByte_(JavaLangByte *self, jbyte value);
 
@@ -242,4 +285,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangByte)
 
 BOXED_INC_AND_DEC(Byte, charValue, JavaLangByte)
 
-#endif // _JavaLangByte_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangByte_INCLUDE_ALL")

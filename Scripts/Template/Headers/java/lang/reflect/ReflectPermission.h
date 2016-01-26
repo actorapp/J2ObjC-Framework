@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/ReflectPermission.java
 //
 
-#ifndef _JavaLangReflectReflectPermission_H_
-#define _JavaLangReflectReflectPermission_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectReflectPermission_INCLUDE_ALL")
+#ifdef JavaLangReflectReflectPermission_RESTRICT
+#define JavaLangReflectReflectPermission_INCLUDE_ALL 0
+#else
+#define JavaLangReflectReflectPermission_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectReflectPermission_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectReflectPermission_) && (JavaLangReflectReflectPermission_INCLUDE_ALL || defined(JavaLangReflectReflectPermission_INCLUDE))
+#define JavaLangReflectReflectPermission_
+
+#define JavaSecurityBasicPermission_RESTRICT 1
+#define JavaSecurityBasicPermission_INCLUDE 1
 #include "../../../java/security/BasicPermission.h"
 
 @class JavaSecurityPermission;
@@ -41,4 +55,8 @@ FOUNDATION_EXPORT JavaLangReflectReflectPermission *new_JavaLangReflectReflectPe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectReflectPermission)
 
-#endif // _JavaLangReflectReflectPermission_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectReflectPermission_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/Signature.java
 //
 
-#ifndef _JavaSecuritySignature_H_
-#define _JavaSecuritySignature_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySignature_INCLUDE_ALL")
+#ifdef JavaSecuritySignature_RESTRICT
+#define JavaSecuritySignature_INCLUDE_ALL 0
+#else
+#define JavaSecuritySignature_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySignature_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySignature_) && (JavaSecuritySignature_INCLUDE_ALL || defined(JavaSecuritySignature_INCLUDE))
+#define JavaSecuritySignature_
+
+#define JavaSecuritySignatureSpi_RESTRICT 1
+#define JavaSecuritySignatureSpi_INCLUDE 1
 #include "../../java/security/SignatureSpi.h"
 
 @class IOSByteArray;
@@ -19,14 +33,11 @@
 @protocol JavaSecurityPublicKey;
 @protocol JavaSecuritySpecAlgorithmParameterSpec;
 
-#define JavaSecuritySignature_UNINITIALIZED 0
-#define JavaSecuritySignature_SIGN 2
-#define JavaSecuritySignature_VERIFY 3
-
 /*!
  @brief <code>Signature</code> is an engine class which is capable of creating and
  verifying digital signatures, using different algorithms that have been
  registered with the <code>Security</code> class.
+ - seealso: SignatureSpi
  */
 @interface JavaSecuritySignature : JavaSecuritySignatureSpi {
  @public
@@ -40,6 +51,12 @@
    */
   jint state_;
 }
+
++ (jint)UNINITIALIZED;
+
++ (jint)SIGN;
+
++ (jint)VERIFY;
 
 #pragma mark Public
 
@@ -113,7 +130,7 @@
  if <code>param</code> is not a valid parameter for this <code>Signature</code>
   or an other error occurs.
  */
-- (id)getParameterWithNSString:(NSString *)param;
+- (id)getParameterWithNSString:(NSString *)param __attribute__((deprecated));
 
 /*!
  @brief Returns the <code>AlgorithmParameters</code> of this <code>Signature</code>
@@ -201,7 +218,7 @@
  be changed.
  */
 - (void)setParameterWithNSString:(NSString *)param
-                          withId:(id)value;
+                          withId:(id)value __attribute__((deprecated));
 
 /*!
  @brief Generates and returns the signature of all updated data.
@@ -367,11 +384,29 @@ J2OBJC_STATIC_INIT(JavaSecuritySignature)
 J2OBJC_FIELD_SETTER(JavaSecuritySignature, provider_, JavaSecurityProvider *)
 J2OBJC_FIELD_SETTER(JavaSecuritySignature, algorithm_, NSString *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySignature, UNINITIALIZED, jint)
+/*!
+ @brief Constant that indicates that this <code>Signature</code> instance has not yet
+ been initialized.
+ */
+inline jint JavaSecuritySignature_get_UNINITIALIZED();
+#define JavaSecuritySignature_UNINITIALIZED 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSecuritySignature, UNINITIALIZED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySignature, SIGN, jint)
+/*!
+ @brief Constant that indicates that this <code>Signature</code> instance has been
+ initialized for signing.
+ */
+inline jint JavaSecuritySignature_get_SIGN();
+#define JavaSecuritySignature_SIGN 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSecuritySignature, SIGN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySignature, VERIFY, jint)
+/*!
+ @brief Constant that indicates that this <code>Signature</code> instance has been
+ initialized for verification.
+ */
+inline jint JavaSecuritySignature_get_VERIFY();
+#define JavaSecuritySignature_VERIFY 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSecuritySignature, VERIFY, jint)
 
 FOUNDATION_EXPORT void JavaSecuritySignature_initWithNSString_(JavaSecuritySignature *self, NSString *algorithm);
 
@@ -383,4 +418,8 @@ FOUNDATION_EXPORT JavaSecuritySignature *JavaSecuritySignature_getInstanceWithNS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySignature)
 
-#endif // _JavaSecuritySignature_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySignature_INCLUDE_ALL")

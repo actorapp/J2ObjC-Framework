@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/SAXNotSupportedException.java
 //
 
-#ifndef _OrgXmlSaxSAXNotSupportedException_H_
-#define _OrgXmlSaxSAXNotSupportedException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxSAXNotSupportedException_INCLUDE_ALL")
+#ifdef OrgXmlSaxSAXNotSupportedException_RESTRICT
+#define OrgXmlSaxSAXNotSupportedException_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxSAXNotSupportedException_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxSAXNotSupportedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxSAXNotSupportedException_) && (OrgXmlSaxSAXNotSupportedException_INCLUDE_ALL || defined(OrgXmlSaxSAXNotSupportedException_INCLUDE))
+#define OrgXmlSaxSAXNotSupportedException_
+
+#define OrgXmlSaxSAXException_RESTRICT 1
+#define OrgXmlSaxSAXException_INCLUDE 1
 #include "../../../org/xml/sax/SAXException.h"
 
 /*!
@@ -24,6 +38,7 @@
  @since SAX 2.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.SAXNotRecognizedException
  */
 @interface OrgXmlSaxSAXNotSupportedException : OrgXmlSaxSAXException
 
@@ -54,4 +69,8 @@ FOUNDATION_EXPORT OrgXmlSaxSAXNotSupportedException *new_OrgXmlSaxSAXNotSupporte
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXNotSupportedException)
 
-#endif // _OrgXmlSaxSAXNotSupportedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxSAXNotSupportedException_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/CodingErrorAction.java
 //
 
-#ifndef _JavaNioCharsetCodingErrorAction_H_
-#define _JavaNioCharsetCodingErrorAction_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioCharsetCodingErrorAction_INCLUDE_ALL")
+#ifdef JavaNioCharsetCodingErrorAction_RESTRICT
+#define JavaNioCharsetCodingErrorAction_INCLUDE_ALL 0
+#else
+#define JavaNioCharsetCodingErrorAction_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharsetCodingErrorAction_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharsetCodingErrorAction_) && (JavaNioCharsetCodingErrorAction_INCLUDE_ALL || defined(JavaNioCharsetCodingErrorAction_INCLUDE))
+#define JavaNioCharsetCodingErrorAction_
 
 /*!
  @brief Used to indicate what kind of actions to take in case of encoding/decoding
@@ -15,6 +26,12 @@
  and <code>REPORT</code>.
  */
 @interface JavaNioCharsetCodingErrorAction : NSObject
+
++ (JavaNioCharsetCodingErrorAction *)IGNORE;
+
++ (JavaNioCharsetCodingErrorAction *)REPLACE;
+
++ (JavaNioCharsetCodingErrorAction *)REPORT;
 
 #pragma mark Public
 
@@ -28,15 +45,37 @@
 
 J2OBJC_STATIC_INIT(JavaNioCharsetCodingErrorAction)
 
-FOUNDATION_EXPORT JavaNioCharsetCodingErrorAction *JavaNioCharsetCodingErrorAction_IGNORE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetCodingErrorAction, IGNORE_, JavaNioCharsetCodingErrorAction *)
+/*!
+ @brief Denotes the action to ignore any errors.
+ */
+inline JavaNioCharsetCodingErrorAction *JavaNioCharsetCodingErrorAction_get_IGNORE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCodingErrorAction *JavaNioCharsetCodingErrorAction_IGNORE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetCodingErrorAction, IGNORE, JavaNioCharsetCodingErrorAction *)
 
-FOUNDATION_EXPORT JavaNioCharsetCodingErrorAction *JavaNioCharsetCodingErrorAction_REPLACE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetCodingErrorAction, REPLACE_, JavaNioCharsetCodingErrorAction *)
+/*!
+ @brief Denotes the action to fill in the output with a replacement character
+ when malformed input or an unmappable character is encountered.
+ */
+inline JavaNioCharsetCodingErrorAction *JavaNioCharsetCodingErrorAction_get_REPLACE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCodingErrorAction *JavaNioCharsetCodingErrorAction_REPLACE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetCodingErrorAction, REPLACE, JavaNioCharsetCodingErrorAction *)
 
-FOUNDATION_EXPORT JavaNioCharsetCodingErrorAction *JavaNioCharsetCodingErrorAction_REPORT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetCodingErrorAction, REPORT_, JavaNioCharsetCodingErrorAction *)
+/*!
+ @brief Denotes the action to report the encountered error in an appropriate
+ manner, for example to throw an exception or return an informative
+ result.
+ */
+inline JavaNioCharsetCodingErrorAction *JavaNioCharsetCodingErrorAction_get_REPORT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCodingErrorAction *JavaNioCharsetCodingErrorAction_REPORT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetCodingErrorAction, REPORT, JavaNioCharsetCodingErrorAction *)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCodingErrorAction)
 
-#endif // _JavaNioCharsetCodingErrorAction_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharsetCodingErrorAction_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/util/Pair.java
 //
 
-#ifndef _AndroidUtilPair_H_
-#define _AndroidUtilPair_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidUtilPair_INCLUDE_ALL")
+#ifdef AndroidUtilPair_RESTRICT
+#define AndroidUtilPair_INCLUDE_ALL 0
+#else
+#define AndroidUtilPair_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilPair_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilPair_) && (AndroidUtilPair_INCLUDE_ALL || defined(AndroidUtilPair_INCLUDE))
+#define AndroidUtilPair_
 
 /*!
  @brief Container to ease passing around a tuple of two objects.
@@ -69,4 +80,8 @@ FOUNDATION_EXPORT AndroidUtilPair *AndroidUtilPair_createWithId_withId_(id a, id
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilPair)
 
-#endif // _AndroidUtilPair_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilPair_INCLUDE_ALL")

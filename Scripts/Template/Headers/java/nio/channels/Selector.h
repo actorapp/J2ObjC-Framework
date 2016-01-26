@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/Selector.java
 //
 
-#ifndef _JavaNioChannelsSelector_H_
-#define _JavaNioChannelsSelector_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsSelector_INCLUDE_ALL")
+#ifdef JavaNioChannelsSelector_RESTRICT
+#define JavaNioChannelsSelector_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsSelector_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsSelector_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsSelector_) && (JavaNioChannelsSelector_INCLUDE_ALL || defined(JavaNioChannelsSelector_INCLUDE))
+#define JavaNioChannelsSelector_
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
 #include "../../../java/io/Closeable.h"
 
 @class JavaNioChannelsSpiSelectorProvider;
@@ -164,4 +178,8 @@ FOUNDATION_EXPORT void JavaNioChannelsSelector_init(JavaNioChannelsSelector *sel
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSelector)
 
-#endif // _JavaNioChannelsSelector_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsSelector_INCLUDE_ALL")

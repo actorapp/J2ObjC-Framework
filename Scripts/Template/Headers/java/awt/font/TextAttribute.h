@@ -3,20 +3,34 @@
 //  source: android/libcore/luni/src/main/java/java/awt/font/TextAttribute.java
 //
 
-#ifndef _JavaAwtFontTextAttribute_H_
-#define _JavaAwtFontTextAttribute_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/text/AttributedCharacterIterator.h"
 
-@class JavaLangBoolean;
-@class JavaLangFloat;
-@class JavaLangInteger;
+#pragma push_macro("JavaAwtFontTextAttribute_INCLUDE_ALL")
+#ifdef JavaAwtFontTextAttribute_RESTRICT
+#define JavaAwtFontTextAttribute_INCLUDE_ALL 0
+#else
+#define JavaAwtFontTextAttribute_INCLUDE_ALL 1
+#endif
+#undef JavaAwtFontTextAttribute_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 /*!
  @author Ilya S. Okomin
  @version $Revision$
  */
+
+#if !defined (JavaAwtFontTextAttribute_) && (JavaAwtFontTextAttribute_INCLUDE_ALL || defined(JavaAwtFontTextAttribute_INCLUDE))
+#define JavaAwtFontTextAttribute_
+
+#define JavaTextAttributedCharacterIterator_RESTRICT 1
+#define JavaTextAttributedCharacterIterator_Attribute_INCLUDE 1
+#include "../../../java/text/AttributedCharacterIterator.h"
+
+@class JavaLangBoolean;
+@class JavaLangFloat;
+@class JavaLangInteger;
 
 /*!
  @brief The TextAttribute class defines attribute keys and attribute values
@@ -33,6 +47,124 @@
  */
 @interface JavaAwtFontTextAttribute : JavaTextAttributedCharacterIterator_Attribute
 
++ (JavaAwtFontTextAttribute *)BACKGROUND;
+
++ (JavaAwtFontTextAttribute *)BIDI_EMBEDDING;
+
++ (JavaAwtFontTextAttribute *)CHAR_REPLACEMENT;
+
++ (JavaAwtFontTextAttribute *)FAMILY;
+
++ (JavaAwtFontTextAttribute *)FONT;
+
++ (JavaAwtFontTextAttribute *)FOREGROUND;
+
++ (JavaAwtFontTextAttribute *)INPUT_METHOD_HIGHLIGHT;
+
++ (JavaAwtFontTextAttribute *)INPUT_METHOD_UNDERLINE;
+
++ (JavaAwtFontTextAttribute *)JUSTIFICATION;
+
++ (JavaLangFloat *)JUSTIFICATION_FULL;
+
++ (JavaLangFloat *)JUSTIFICATION_NONE;
+
++ (JavaAwtFontTextAttribute *)KERNING;
+
++ (JavaLangInteger *)KERNING_ON;
+
++ (JavaAwtFontTextAttribute *)LIGATURES;
+
++ (JavaLangInteger *)LIGATURES_ON;
+
++ (JavaAwtFontTextAttribute *)NUMERIC_SHAPING;
+
++ (JavaAwtFontTextAttribute *)POSTURE;
+
++ (JavaLangFloat *)POSTURE_REGULAR;
+
++ (JavaLangFloat *)POSTURE_OBLIQUE;
+
++ (JavaAwtFontTextAttribute *)RUN_DIRECTION;
+
++ (JavaLangBoolean *)RUN_DIRECTION_LTR;
+
++ (JavaLangBoolean *)RUN_DIRECTION_RTL;
+
++ (JavaAwtFontTextAttribute *)SIZE;
+
++ (JavaAwtFontTextAttribute *)STRIKETHROUGH;
+
++ (JavaLangBoolean *)STRIKETHROUGH_ON;
+
++ (JavaAwtFontTextAttribute *)SUPERSCRIPT;
+
++ (JavaLangInteger *)SUPERSCRIPT_SUB;
+
++ (JavaLangInteger *)SUPERSCRIPT_SUPER;
+
++ (JavaAwtFontTextAttribute *)SWAP_COLORS;
+
++ (JavaLangBoolean *)SWAP_COLORS_ON;
+
++ (JavaAwtFontTextAttribute *)TRACKING;
+
++ (JavaLangFloat *)TRACKING_LOOSE;
+
++ (JavaLangFloat *)TRACKING_TIGHT;
+
++ (JavaAwtFontTextAttribute *)TRANSFORM;
+
++ (JavaAwtFontTextAttribute *)UNDERLINE;
+
++ (JavaLangInteger *)UNDERLINE_ON;
+
++ (JavaLangInteger *)UNDERLINE_LOW_ONE_PIXEL;
+
++ (JavaLangInteger *)UNDERLINE_LOW_TWO_PIXEL;
+
++ (JavaLangInteger *)UNDERLINE_LOW_DOTTED;
+
++ (JavaLangInteger *)UNDERLINE_LOW_GRAY;
+
++ (JavaLangInteger *)UNDERLINE_LOW_DASHED;
+
++ (JavaAwtFontTextAttribute *)WEIGHT;
+
++ (JavaLangFloat *)WEIGHT_EXTRA_LIGHT;
+
++ (JavaLangFloat *)WEIGHT_LIGHT;
+
++ (JavaLangFloat *)WEIGHT_DEMILIGHT;
+
++ (JavaLangFloat *)WEIGHT_REGULAR;
+
++ (JavaLangFloat *)WEIGHT_SEMIBOLD;
+
++ (JavaLangFloat *)WEIGHT_MEDIUM;
+
++ (JavaLangFloat *)WEIGHT_DEMIBOLD;
+
++ (JavaLangFloat *)WEIGHT_BOLD;
+
++ (JavaLangFloat *)WEIGHT_HEAVY;
+
++ (JavaLangFloat *)WEIGHT_EXTRABOLD;
+
++ (JavaLangFloat *)WEIGHT_ULTRABOLD;
+
++ (JavaAwtFontTextAttribute *)WIDTH;
+
++ (JavaLangFloat *)WIDTH_CONDENSED;
+
++ (JavaLangFloat *)WIDTH_SEMI_CONDENSED;
+
++ (JavaLangFloat *)WIDTH_REGULAR;
+
++ (JavaLangFloat *)WIDTH_SEMI_EXTENDED;
+
++ (JavaLangFloat *)WIDTH_EXTENDED;
+
 #pragma mark Protected
 
 /*!
@@ -45,182 +177,498 @@
 
 J2OBJC_STATIC_INIT(JavaAwtFontTextAttribute)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_BACKGROUND_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, BACKGROUND_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The BACKGROUND text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_BACKGROUND();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_BACKGROUND;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, BACKGROUND, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_BIDI_EMBEDDING_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, BIDI_EMBEDDING_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The BIDI_EMBEDDING text attribute key.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_BIDI_EMBEDDING();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_BIDI_EMBEDDING;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, BIDI_EMBEDDING, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_CHAR_REPLACEMENT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, CHAR_REPLACEMENT_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The CHAR_REPLACEMENT text attribute key.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_CHAR_REPLACEMENT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_CHAR_REPLACEMENT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, CHAR_REPLACEMENT, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_FAMILY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, FAMILY_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The FAMILY text attribute key.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_FAMILY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_FAMILY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, FAMILY, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_FONT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, FONT_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The FONT text attribute key.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_FONT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_FONT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, FONT, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_FOREGROUND_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, FOREGROUND_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The FOREGROUND text attribute key.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_FOREGROUND();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_FOREGROUND;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, FOREGROUND, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_INPUT_METHOD_HIGHLIGHT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, INPUT_METHOD_HIGHLIGHT_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The INPUT_METHOD_HIGHLIGHT text attribute key.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_INPUT_METHOD_HIGHLIGHT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_INPUT_METHOD_HIGHLIGHT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, INPUT_METHOD_HIGHLIGHT, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_INPUT_METHOD_UNDERLINE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, INPUT_METHOD_UNDERLINE_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The INPUT_METHOD_UNDERLINE text attribute key.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_INPUT_METHOD_UNDERLINE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_INPUT_METHOD_UNDERLINE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, INPUT_METHOD_UNDERLINE, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_JUSTIFICATION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, JUSTIFICATION_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The JUSTIFICATION text attribute key.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_JUSTIFICATION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_JUSTIFICATION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, JUSTIFICATION, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_JUSTIFICATION_FULL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, JUSTIFICATION_FULL_, JavaLangFloat *)
+/*!
+ @brief The Constant JUSTIFICATION_indicates the full requested width.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_JUSTIFICATION_FULL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_JUSTIFICATION_FULL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, JUSTIFICATION_FULL, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_JUSTIFICATION_NONE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, JUSTIFICATION_NONE_, JavaLangFloat *)
+/*!
+ @brief The Constant JUSTIFICATION_NONE indicates that line is not
+ allowed for justification.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_JUSTIFICATION_NONE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_JUSTIFICATION_NONE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, JUSTIFICATION_NONE, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_KERNING_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, KERNING_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The KERNING text attribute key.
+ @since 1.6
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_KERNING();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_KERNING;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, KERNING, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_KERNING_ON_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, KERNING_ON_, JavaLangInteger *)
+/*!
+ @since 1.6
+ */
+inline JavaLangInteger *JavaAwtFontTextAttribute_get_KERNING_ON();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_KERNING_ON;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, KERNING_ON, JavaLangInteger *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_LIGATURES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, LIGATURES_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The LIGATURES text attribute key.
+ @since 1.6
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_LIGATURES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_LIGATURES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, LIGATURES, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_LIGATURES_ON_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, LIGATURES_ON_, JavaLangInteger *)
+/*!
+ @since 1.6
+ */
+inline JavaLangInteger *JavaAwtFontTextAttribute_get_LIGATURES_ON();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_LIGATURES_ON;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, LIGATURES_ON, JavaLangInteger *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_NUMERIC_SHAPING_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, NUMERIC_SHAPING_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The NUMERIC_SHAPING text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_NUMERIC_SHAPING();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_NUMERIC_SHAPING;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, NUMERIC_SHAPING, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_POSTURE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, POSTURE_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The POSTURE text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_POSTURE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_POSTURE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, POSTURE, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_POSTURE_REGULAR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, POSTURE_REGULAR_, JavaLangFloat *)
+/*!
+ @brief The Constant POSTURE_REGULAR indicates regular posture.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_POSTURE_REGULAR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_POSTURE_REGULAR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, POSTURE_REGULAR, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_POSTURE_OBLIQUE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, POSTURE_OBLIQUE_, JavaLangFloat *)
+/*!
+ @brief The Constant POSTURE_OBLIQUE indicates italic posture.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_POSTURE_OBLIQUE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_POSTURE_OBLIQUE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, POSTURE_OBLIQUE, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_RUN_DIRECTION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, RUN_DIRECTION_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The RUN_DIRECTION text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_RUN_DIRECTION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_RUN_DIRECTION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, RUN_DIRECTION, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangBoolean *JavaAwtFontTextAttribute_RUN_DIRECTION_LTR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, RUN_DIRECTION_LTR_, JavaLangBoolean *)
+/*!
+ @brief The Constant RUN_DIRECTION_LTR indicates left-to-right run
+ direction.
+ */
+inline JavaLangBoolean *JavaAwtFontTextAttribute_get_RUN_DIRECTION_LTR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangBoolean *JavaAwtFontTextAttribute_RUN_DIRECTION_LTR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, RUN_DIRECTION_LTR, JavaLangBoolean *)
 
-FOUNDATION_EXPORT JavaLangBoolean *JavaAwtFontTextAttribute_RUN_DIRECTION_RTL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, RUN_DIRECTION_RTL_, JavaLangBoolean *)
+/*!
+ @brief The Constant RUN_DIRECTION_RTL indicates right-to-left run
+ direction.
+ */
+inline JavaLangBoolean *JavaAwtFontTextAttribute_get_RUN_DIRECTION_RTL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangBoolean *JavaAwtFontTextAttribute_RUN_DIRECTION_RTL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, RUN_DIRECTION_RTL, JavaLangBoolean *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_SIZE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, SIZE_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The SIZE text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_SIZE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_SIZE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, SIZE, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_STRIKETHROUGH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, STRIKETHROUGH_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The STRIKETHROUGH text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_STRIKETHROUGH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_STRIKETHROUGH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, STRIKETHROUGH, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangBoolean *JavaAwtFontTextAttribute_STRIKETHROUGH_ON_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, STRIKETHROUGH_ON_, JavaLangBoolean *)
+/*!
+ @brief The Constant STRIKETHROUGH_ON indicates a single strikethrough.
+ */
+inline JavaLangBoolean *JavaAwtFontTextAttribute_get_STRIKETHROUGH_ON();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangBoolean *JavaAwtFontTextAttribute_STRIKETHROUGH_ON;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, STRIKETHROUGH_ON, JavaLangBoolean *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_SUPERSCRIPT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, SUPERSCRIPT_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The SUPERSCRIPT text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_SUPERSCRIPT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_SUPERSCRIPT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, SUPERSCRIPT, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_SUPERSCRIPT_SUB_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, SUPERSCRIPT_SUB_, JavaLangInteger *)
+/*!
+ @brief The Constant SUPERSCRIPT_SUB indicates a standard subscript.
+ */
+inline JavaLangInteger *JavaAwtFontTextAttribute_get_SUPERSCRIPT_SUB();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_SUPERSCRIPT_SUB;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, SUPERSCRIPT_SUB, JavaLangInteger *)
 
-FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_SUPERSCRIPT_SUPER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, SUPERSCRIPT_SUPER_, JavaLangInteger *)
+/*!
+ @brief The Constant SUPERSCRIPT_SUPER indicates a standard superscript.
+ */
+inline JavaLangInteger *JavaAwtFontTextAttribute_get_SUPERSCRIPT_SUPER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_SUPERSCRIPT_SUPER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, SUPERSCRIPT_SUPER, JavaLangInteger *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_SWAP_COLORS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, SWAP_COLORS_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The SWAP_COLORS text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_SWAP_COLORS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_SWAP_COLORS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, SWAP_COLORS, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangBoolean *JavaAwtFontTextAttribute_SWAP_COLORS_ON_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, SWAP_COLORS_ON_, JavaLangBoolean *)
+/*!
+ @brief The Constant SWAP_COLORS_ON indicates a swap of foreground
+ and background.
+ */
+inline JavaLangBoolean *JavaAwtFontTextAttribute_get_SWAP_COLORS_ON();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangBoolean *JavaAwtFontTextAttribute_SWAP_COLORS_ON;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, SWAP_COLORS_ON, JavaLangBoolean *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_TRACKING_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, TRACKING_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The TRACKING text attribute key.
+ @since 1.6
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_TRACKING();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_TRACKING;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, TRACKING, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_TRACKING_LOOSE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, TRACKING_LOOSE_, JavaLangFloat *)
+/*!
+ @since 1.6
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_TRACKING_LOOSE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_TRACKING_LOOSE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, TRACKING_LOOSE, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_TRACKING_TIGHT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, TRACKING_TIGHT_, JavaLangFloat *)
+/*!
+ @since 1.6
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_TRACKING_TIGHT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_TRACKING_TIGHT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, TRACKING_TIGHT, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_TRANSFORM_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, TRANSFORM_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The TRANSFORM text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_TRANSFORM();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_TRANSFORM;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, TRANSFORM, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_UNDERLINE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, UNDERLINE_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The Constant UNDERLINE text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_UNDERLINE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_UNDERLINE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, UNDERLINE, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_ON_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, UNDERLINE_ON_, JavaLangInteger *)
+/*!
+ @brief The Constant UNDERLINE_ON indicates a standard underline
+ at the roman baseline for roman text.
+ */
+inline JavaLangInteger *JavaAwtFontTextAttribute_get_UNDERLINE_ON();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_ON;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, UNDERLINE_ON, JavaLangInteger *)
 
-FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_LOW_ONE_PIXEL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, UNDERLINE_LOW_ONE_PIXEL_, JavaLangInteger *)
+/*!
+ @brief The Constant UNDERLINE_LOW_ONE_PIXEL indicates a single
+ pixel solid low underline.
+ */
+inline JavaLangInteger *JavaAwtFontTextAttribute_get_UNDERLINE_LOW_ONE_PIXEL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_LOW_ONE_PIXEL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, UNDERLINE_LOW_ONE_PIXEL, JavaLangInteger *)
 
-FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_LOW_TWO_PIXEL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, UNDERLINE_LOW_TWO_PIXEL_, JavaLangInteger *)
+/*!
+ @brief The Constant UNDERLINE_LOW_TWO_PIXEL indicates a double
+ pixel solid low underline.
+ */
+inline JavaLangInteger *JavaAwtFontTextAttribute_get_UNDERLINE_LOW_TWO_PIXEL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_LOW_TWO_PIXEL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, UNDERLINE_LOW_TWO_PIXEL, JavaLangInteger *)
 
-FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_LOW_DOTTED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, UNDERLINE_LOW_DOTTED_, JavaLangInteger *)
+/*!
+ @brief The Constant UNDERLINE_LOW_DOTTED indicates a
+ single pixel dotted low underline.
+ */
+inline JavaLangInteger *JavaAwtFontTextAttribute_get_UNDERLINE_LOW_DOTTED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_LOW_DOTTED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, UNDERLINE_LOW_DOTTED, JavaLangInteger *)
 
-FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_LOW_GRAY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, UNDERLINE_LOW_GRAY_, JavaLangInteger *)
+/*!
+ @brief The Constant UNDERLINE_LOW_GRAY indicates double pixel
+ gray low underline.
+ */
+inline JavaLangInteger *JavaAwtFontTextAttribute_get_UNDERLINE_LOW_GRAY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_LOW_GRAY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, UNDERLINE_LOW_GRAY, JavaLangInteger *)
 
-FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_LOW_DASHED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, UNDERLINE_LOW_DASHED_, JavaLangInteger *)
+/*!
+ @brief The Constant UNDERLINE_LOW_DASHED indicates single pixel dashed
+ low underline.
+ */
+inline JavaLangInteger *JavaAwtFontTextAttribute_get_UNDERLINE_LOW_DASHED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangInteger *JavaAwtFontTextAttribute_UNDERLINE_LOW_DASHED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, UNDERLINE_LOW_DASHED, JavaLangInteger *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_WEIGHT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The WEIGHT text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_WEIGHT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_WEIGHT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_EXTRA_LIGHT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_EXTRA_LIGHT_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_EXTRA_LIGHT indicates the lightest
+ predefined weight.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_EXTRA_LIGHT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_EXTRA_LIGHT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_EXTRA_LIGHT, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_LIGHT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_LIGHT_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_LIGHT indicates the standard light weight.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_LIGHT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_LIGHT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_LIGHT, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_DEMILIGHT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_DEMILIGHT_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_DEMILIGHT indicates an intermediate weight
+ between LIGHT and STANDARD.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_DEMILIGHT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_DEMILIGHT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_DEMILIGHT, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_REGULAR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_REGULAR_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_REGULAR indicates the standart weight.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_REGULAR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_REGULAR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_REGULAR, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_SEMIBOLD_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_SEMIBOLD_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_SEMIBOLD indicates a semi weight
+ of REGULAR.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_SEMIBOLD();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_SEMIBOLD;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_SEMIBOLD, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_MEDIUM_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_MEDIUM_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_MEDIUM indicates average weight
+ between the REGULAR and BOLD.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_MEDIUM();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_MEDIUM;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_MEDIUM, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_DEMIBOLD_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_DEMIBOLD_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_DEMIBOLD indicates
+ a lighter weight than BOLD.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_DEMIBOLD();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_DEMIBOLD;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_DEMIBOLD, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_BOLD_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_BOLD_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_BOLD indicates the standard bold weight.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_BOLD();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_BOLD;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_BOLD, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_HEAVY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_HEAVY_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_HEAVY indicates a heavier weight than BOLD.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_HEAVY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_HEAVY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_HEAVY, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_EXTRABOLD_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_EXTRABOLD_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_EXTRABOLD indicates an extra heavy weight.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_EXTRABOLD();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_EXTRABOLD;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_EXTRABOLD, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_ULTRABOLD_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WEIGHT_ULTRABOLD_, JavaLangFloat *)
+/*!
+ @brief The Constant WEIGHT_ULTRABOLD indicates the heaviest predefined
+ weight.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WEIGHT_ULTRABOLD();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WEIGHT_ULTRABOLD;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WEIGHT_ULTRABOLD, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_WIDTH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WIDTH_, JavaAwtFontTextAttribute *)
+/*!
+ @brief The WIDTH text attribute.
+ */
+inline JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_get_WIDTH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *JavaAwtFontTextAttribute_WIDTH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WIDTH, JavaAwtFontTextAttribute *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WIDTH_CONDENSED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WIDTH_CONDENSED_, JavaLangFloat *)
+/*!
+ @brief The Constant WIDTH_CONDENSED indicates the most condensed
+ predefined width.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WIDTH_CONDENSED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WIDTH_CONDENSED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WIDTH_CONDENSED, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WIDTH_SEMI_CONDENSED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WIDTH_SEMI_CONDENSED_, JavaLangFloat *)
+/*!
+ @brief The Constant WIDTH_SEMI_CONDENSED indicates
+ a semi condensed width.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WIDTH_SEMI_CONDENSED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WIDTH_SEMI_CONDENSED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WIDTH_SEMI_CONDENSED, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WIDTH_REGULAR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WIDTH_REGULAR_, JavaLangFloat *)
+/*!
+ @brief The Constant WIDTH_REGULAR indicates the standard width.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WIDTH_REGULAR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WIDTH_REGULAR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WIDTH_REGULAR, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WIDTH_SEMI_EXTENDED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WIDTH_SEMI_EXTENDED_, JavaLangFloat *)
+/*!
+ @brief The Constant WIDTH_SEMI_EXTENDED indicates semi extended width.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WIDTH_SEMI_EXTENDED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WIDTH_SEMI_EXTENDED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WIDTH_SEMI_EXTENDED, JavaLangFloat *)
 
-FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WIDTH_EXTENDED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontTextAttribute, WIDTH_EXTENDED_, JavaLangFloat *)
+/*!
+ @brief The Constant WIDTH_EXTENDED indicates extended width.
+ */
+inline JavaLangFloat *JavaAwtFontTextAttribute_get_WIDTH_EXTENDED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangFloat *JavaAwtFontTextAttribute_WIDTH_EXTENDED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaAwtFontTextAttribute, WIDTH_EXTENDED, JavaLangFloat *)
 
 FOUNDATION_EXPORT void JavaAwtFontTextAttribute_initWithNSString_(JavaAwtFontTextAttribute *self, NSString *name);
 
@@ -228,4 +676,8 @@ FOUNDATION_EXPORT JavaAwtFontTextAttribute *new_JavaAwtFontTextAttribute_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaAwtFontTextAttribute)
 
-#endif // _JavaAwtFontTextAttribute_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaAwtFontTextAttribute_INCLUDE_ALL")

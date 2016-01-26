@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/NullPointerException.java
 //
 
-#ifndef _JavaLangNullPointerException_H_
-#define _JavaLangNullPointerException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangNullPointerException_INCLUDE_ALL")
+#ifdef JavaLangNullPointerException_RESTRICT
+#define JavaLangNullPointerException_INCLUDE_ALL 0
+#else
+#define JavaLangNullPointerException_INCLUDE_ALL 1
+#endif
+#undef JavaLangNullPointerException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangNullPointerException_) && (JavaLangNullPointerException_INCLUDE_ALL || defined(JavaLangNullPointerException_INCLUDE))
+#define JavaLangNullPointerException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -49,4 +63,8 @@ FOUNDATION_EXPORT JavaLangNullPointerException *new_JavaLangNullPointerException
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNullPointerException)
 
-#endif // _JavaLangNullPointerException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangNullPointerException_INCLUDE_ALL")

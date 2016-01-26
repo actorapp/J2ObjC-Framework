@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/SortedMap.java
 //
 
-#ifndef _JavaUtilSortedMap_H_
-#define _JavaUtilSortedMap_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilSortedMap_INCLUDE_ALL")
+#ifdef JavaUtilSortedMap_RESTRICT
+#define JavaUtilSortedMap_INCLUDE_ALL 0
+#else
+#define JavaUtilSortedMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilSortedMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilSortedMap_) && (JavaUtilSortedMap_INCLUDE_ALL || defined(JavaUtilSortedMap_INCLUDE))
+#define JavaUtilSortedMap_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_INCLUDE 1
 #include "../../java/util/Map.h"
 
 @protocol JavaUtilComparator;
@@ -119,4 +133,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilSortedMap)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSortedMap)
 
-#endif // _JavaUtilSortedMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilSortedMap_INCLUDE_ALL")

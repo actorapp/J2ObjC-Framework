@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/StreamCorruptedException.java
 //
 
-#ifndef _JavaIoStreamCorruptedException_H_
-#define _JavaIoStreamCorruptedException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoStreamCorruptedException_INCLUDE_ALL")
+#ifdef JavaIoStreamCorruptedException_RESTRICT
+#define JavaIoStreamCorruptedException_INCLUDE_ALL 0
+#else
+#define JavaIoStreamCorruptedException_INCLUDE_ALL 1
+#endif
+#undef JavaIoStreamCorruptedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoStreamCorruptedException_) && (JavaIoStreamCorruptedException_INCLUDE_ALL || defined(JavaIoStreamCorruptedException_INCLUDE))
+#define JavaIoStreamCorruptedException_
+
+#define JavaIoObjectStreamException_RESTRICT 1
+#define JavaIoObjectStreamException_INCLUDE 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
@@ -14,6 +28,8 @@
  read an object due to missing information (for example, a cyclic reference
  that doesn't match a previous instance, or a missing class descriptor for the
  object to be loaded).
+ - seealso: ObjectInputStream
+ - seealso: OptionalDataException
  */
 @interface JavaIoStreamCorruptedException : JavaIoObjectStreamException
 
@@ -47,4 +63,8 @@ FOUNDATION_EXPORT JavaIoStreamCorruptedException *new_JavaIoStreamCorruptedExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoStreamCorruptedException)
 
-#endif // _JavaIoStreamCorruptedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoStreamCorruptedException_INCLUDE_ALL")

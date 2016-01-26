@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/util/MissingFormatArgumentException.java
 //
 
-#ifndef _JavaUtilMissingFormatArgumentException_H_
-#define _JavaUtilMissingFormatArgumentException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilMissingFormatArgumentException_INCLUDE_ALL")
+#ifdef JavaUtilMissingFormatArgumentException_RESTRICT
+#define JavaUtilMissingFormatArgumentException_INCLUDE_ALL 0
+#else
+#define JavaUtilMissingFormatArgumentException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilMissingFormatArgumentException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilMissingFormatArgumentException_) && (JavaUtilMissingFormatArgumentException_INCLUDE_ALL || defined(JavaUtilMissingFormatArgumentException_INCLUDE))
+#define JavaUtilMissingFormatArgumentException_
+
+#define JavaUtilIllegalFormatException_RESTRICT 1
+#define JavaUtilIllegalFormatException_INCLUDE 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief A <code>MissingFormatArgumentException</code> will be thrown if there is no
  corresponding argument with the specified conversion or an argument index
  that refers to a missing argument.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilMissingFormatArgumentException : JavaUtilIllegalFormatException
 
@@ -44,4 +59,8 @@ FOUNDATION_EXPORT JavaUtilMissingFormatArgumentException *new_JavaUtilMissingFor
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMissingFormatArgumentException)
 
-#endif // _JavaUtilMissingFormatArgumentException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilMissingFormatArgumentException_INCLUDE_ALL")

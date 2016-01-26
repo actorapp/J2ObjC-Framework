@@ -3,16 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/lang/annotation/RetentionPolicy.java
 //
 
-#ifndef _JavaLangAnnotationRetentionPolicy_H_
-#define _JavaLangAnnotationRetentionPolicy_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangAnnotationRetentionPolicy_INCLUDE_ALL")
+#ifdef JavaLangAnnotationRetentionPolicy_RESTRICT
+#define JavaLangAnnotationRetentionPolicy_INCLUDE_ALL 0
+#else
+#define JavaLangAnnotationRetentionPolicy_INCLUDE_ALL 1
+#endif
+#undef JavaLangAnnotationRetentionPolicy_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangAnnotationRetentionPolicy_) && (JavaLangAnnotationRetentionPolicy_INCLUDE_ALL || defined(JavaLangAnnotationRetentionPolicy_INCLUDE))
+#define JavaLangAnnotationRetentionPolicy_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
 #include "../../../java/lang/Enum.h"
 
-typedef NS_ENUM(NSUInteger, JavaLangAnnotationRetentionPolicy) {
-  JavaLangAnnotationRetentionPolicy_SOURCE = 0,
-  JavaLangAnnotationRetentionPolicy_CLASS = 1,
-  JavaLangAnnotationRetentionPolicy_RUNTIME = 2,
+typedef NS_ENUM(NSUInteger, JavaLangAnnotationRetentionPolicy_Enum) {
+  JavaLangAnnotationRetentionPolicy_Enum_SOURCE = 0,
+  JavaLangAnnotationRetentionPolicy_Enum_CLASS = 1,
+  JavaLangAnnotationRetentionPolicy_Enum_RUNTIME = 2,
 };
 
 /*!
@@ -22,33 +36,61 @@ typedef NS_ENUM(NSUInteger, JavaLangAnnotationRetentionPolicy) {
  in the overall development life cycle.
  @since 1.5
  */
-@interface JavaLangAnnotationRetentionPolicyEnum : JavaLangEnum < NSCopying >
+@interface JavaLangAnnotationRetentionPolicy : JavaLangEnum < NSCopying >
+
++ (JavaLangAnnotationRetentionPolicy *)SOURCE;
+
++ (JavaLangAnnotationRetentionPolicy *)CLASS;
+
++ (JavaLangAnnotationRetentionPolicy *)RUNTIME;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaLangAnnotationRetentionPolicyEnum_values();
 
-+ (JavaLangAnnotationRetentionPolicyEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaLangAnnotationRetentionPolicyEnum *JavaLangAnnotationRetentionPolicyEnum_valueOfWithNSString_(NSString *name);
++ (JavaLangAnnotationRetentionPolicy *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaLangAnnotationRetentionPolicy_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaLangAnnotationRetentionPolicyEnum)
+J2OBJC_STATIC_INIT(JavaLangAnnotationRetentionPolicy)
 
-FOUNDATION_EXPORT JavaLangAnnotationRetentionPolicyEnum *JavaLangAnnotationRetentionPolicyEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaLangAnnotationRetentionPolicy *JavaLangAnnotationRetentionPolicy_values_[];
 
-#define JavaLangAnnotationRetentionPolicyEnum_SOURCE JavaLangAnnotationRetentionPolicyEnum_values_[JavaLangAnnotationRetentionPolicy_SOURCE]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaLangAnnotationRetentionPolicyEnum, SOURCE)
+/*!
+ @brief Annotation is only available in the source code.
+ */
+inline JavaLangAnnotationRetentionPolicy *JavaLangAnnotationRetentionPolicy_get_SOURCE();
+J2OBJC_ENUM_CONSTANT(JavaLangAnnotationRetentionPolicy, SOURCE)
 
-#define JavaLangAnnotationRetentionPolicyEnum_CLASS JavaLangAnnotationRetentionPolicyEnum_values_[JavaLangAnnotationRetentionPolicy_CLASS]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaLangAnnotationRetentionPolicyEnum, CLASS)
+/*!
+ @brief Annotation is available in the source code and in the class file, but not
+ at runtime.
+ This is the default policy.
+ */
+inline JavaLangAnnotationRetentionPolicy *JavaLangAnnotationRetentionPolicy_get_CLASS();
+J2OBJC_ENUM_CONSTANT(JavaLangAnnotationRetentionPolicy, CLASS)
 
-#define JavaLangAnnotationRetentionPolicyEnum_RUNTIME JavaLangAnnotationRetentionPolicyEnum_values_[JavaLangAnnotationRetentionPolicy_RUNTIME]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaLangAnnotationRetentionPolicyEnum, RUNTIME)
+/*!
+ @brief Annotation is available in the source code, the class file and is
+ available at runtime.
+ */
+inline JavaLangAnnotationRetentionPolicy *JavaLangAnnotationRetentionPolicy_get_RUNTIME();
+J2OBJC_ENUM_CONSTANT(JavaLangAnnotationRetentionPolicy, RUNTIME)
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationRetentionPolicyEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaLangAnnotationRetentionPolicy_values();
 
-#endif // _JavaLangAnnotationRetentionPolicy_H_
+FOUNDATION_EXPORT JavaLangAnnotationRetentionPolicy *JavaLangAnnotationRetentionPolicy_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaLangAnnotationRetentionPolicy *JavaLangAnnotationRetentionPolicy_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationRetentionPolicy)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangAnnotationRetentionPolicy_INCLUDE_ALL")

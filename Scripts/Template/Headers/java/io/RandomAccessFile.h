@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/io/RandomAccessFile.java
 //
 
-#ifndef _JavaIoRandomAccessFile_H_
-#define _JavaIoRandomAccessFile_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Closeable.h"
+
+#pragma push_macro("JavaIoRandomAccessFile_INCLUDE_ALL")
+#ifdef JavaIoRandomAccessFile_RESTRICT
+#define JavaIoRandomAccessFile_INCLUDE_ALL 0
+#else
+#define JavaIoRandomAccessFile_INCLUDE_ALL 1
+#endif
+#undef JavaIoRandomAccessFile_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoRandomAccessFile_) && (JavaIoRandomAccessFile_INCLUDE_ALL || defined(JavaIoRandomAccessFile_INCLUDE))
+#define JavaIoRandomAccessFile_
+
+#define JavaIoDataInput_RESTRICT 1
+#define JavaIoDataInput_INCLUDE 1
 #include "../../java/io/DataInput.h"
+
+#define JavaIoDataOutput_RESTRICT 1
+#define JavaIoDataOutput_INCLUDE 1
 #include "../../java/io/DataOutput.h"
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
+#include "../../java/io/Closeable.h"
 
 @class IOSByteArray;
 @class JavaIoFile;
@@ -192,6 +212,7 @@
  if the end of this file is detected.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #writeBoolean(boolean)
  */
 - (jboolean)readBoolean;
 
@@ -205,6 +226,7 @@
  if the end of this file is detected.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #writeBoolean(boolean)
  */
 - (jbyte)readByte;
 
@@ -218,6 +240,7 @@
  if the end of this file is detected.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #writeChar(int)
  */
 - (jchar)readChar;
 
@@ -231,6 +254,7 @@
  if the end of this file is detected.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #writeDouble(double)
  */
 - (jdouble)readDouble;
 
@@ -244,6 +268,7 @@
  if the end of this file is detected.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #writeFloat(float)
  */
 - (jfloat)readFloat;
 
@@ -292,6 +317,7 @@
  if the end of this file is detected.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #writeInt(int)
  */
 - (jint)readInt;
 
@@ -321,6 +347,7 @@
  if the end of this file is detected.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #writeLong(long)
  */
 - (jlong)readLong;
 
@@ -334,6 +361,7 @@
  if the end of this file is detected.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #writeShort(int)
  */
 - (jshort)readShort;
 
@@ -347,6 +375,7 @@
  if the end of this file is detected.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #writeByte(int)
  */
 - (jint)readUnsignedByte;
 
@@ -360,6 +389,7 @@
  if the end of this file is detected.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #writeShort(int)
  */
 - (jint)readUnsignedShort;
 
@@ -378,6 +408,7 @@
  if this file is closed or another I/O error occurs.
  @throws UTFDataFormatException
  if the bytes read cannot be decoded into a character string.
+ - seealso: #writeUTF(String)
  */
 - (NSString *)readUTF;
 
@@ -459,6 +490,7 @@
  the byte to write to this file.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #read()
  */
 - (void)writeWithInt:(jint)oneByte;
 
@@ -469,6 +501,7 @@
  the boolean to write to this file.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #readBoolean()
  */
 - (void)writeBooleanWithBoolean:(jboolean)val;
 
@@ -479,6 +512,8 @@
  the byte to write to this file.
  @throws IOException
  if this file is closed or another I/O error occurs.
+ - seealso: #readByte()
+ - seealso: #readUnsignedByte()
  */
 - (void)writeByteWithInt:(jint)val;
 
@@ -501,6 +536,7 @@
  the char to write to this file.
  @throws IOException
  if an I/O error occurs while writing to this file.
+ - seealso: #readChar()
  */
 - (void)writeCharWithInt:(jint)val;
 
@@ -511,6 +547,7 @@
  the string to write to this file.
  @throws IOException
  if an I/O error occurs while writing to this file.
+ - seealso: #readChar()
  */
 - (void)writeCharsWithNSString:(NSString *)str;
 
@@ -523,6 +560,7 @@
  the double to write to this file.
  @throws IOException
  if an I/O error occurs while writing to this file.
+ - seealso: #readDouble()
  */
 - (void)writeDoubleWithDouble:(jdouble)val;
 
@@ -534,6 +572,7 @@
  the float to write to this file.
  @throws IOException
  if an I/O error occurs while writing to this file.
+ - seealso: #readFloat()
  */
 - (void)writeFloatWithFloat:(jfloat)val;
 
@@ -544,6 +583,7 @@
  the int to write to this file.
  @throws IOException
  if an I/O error occurs while writing to this file.
+ - seealso: #readInt()
  */
 - (void)writeIntWithInt:(jint)val;
 
@@ -554,6 +594,7 @@
  the long to write to this file.
  @throws IOException
  if an I/O error occurs while writing to this file.
+ - seealso: #readLong()
  */
 - (void)writeLongWithLong:(jlong)val;
 
@@ -566,6 +607,8 @@
  the short to write to this file.
  @throws IOException
  if an I/O error occurs while writing to this file.
+ - seealso: #readShort()
+ - seealso: DataInput#readUnsignedShort()
  */
 - (void)writeShortWithInt:(jint)val;
 
@@ -579,6 +622,7 @@
  if an I/O error occurs while writing to this file.
  @throws UTFDataFormatException
  if the encoded string is longer than 65535 bytes.
+ - seealso: #readUTF()
  */
 - (void)writeUTFWithNSString:(NSString *)str;
 
@@ -600,4 +644,8 @@ FOUNDATION_EXPORT JavaIoRandomAccessFile *new_JavaIoRandomAccessFile_initWithNSS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoRandomAccessFile)
 
-#endif // _JavaIoRandomAccessFile_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoRandomAccessFile_INCLUDE_ALL")

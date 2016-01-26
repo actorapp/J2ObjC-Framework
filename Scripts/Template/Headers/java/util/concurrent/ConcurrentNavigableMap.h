@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ConcurrentNavigableMap.java
 //
 
-#ifndef _JavaUtilConcurrentConcurrentNavigableMap_H_
-#define _JavaUtilConcurrentConcurrentNavigableMap_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/util/NavigableMap.h"
+
+#pragma push_macro("JavaUtilConcurrentConcurrentNavigableMap_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentConcurrentNavigableMap_RESTRICT
+#define JavaUtilConcurrentConcurrentNavigableMap_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentConcurrentNavigableMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentConcurrentNavigableMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentConcurrentNavigableMap_) && (JavaUtilConcurrentConcurrentNavigableMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentNavigableMap_INCLUDE))
+#define JavaUtilConcurrentConcurrentNavigableMap_
+
+#define JavaUtilConcurrentConcurrentMap_RESTRICT 1
+#define JavaUtilConcurrentConcurrentMap_INCLUDE 1
 #include "../../../java/util/concurrent/ConcurrentMap.h"
+
+#define JavaUtilNavigableMap_RESTRICT 1
+#define JavaUtilNavigableMap_INCLUDE 1
+#include "../../../java/util/NavigableMap.h"
 
 @protocol JavaUtilNavigableSet;
 
@@ -144,4 +161,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentConcurrentNavigableMap)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentNavigableMap)
 
-#endif // _JavaUtilConcurrentConcurrentNavigableMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentConcurrentNavigableMap_INCLUDE_ALL")

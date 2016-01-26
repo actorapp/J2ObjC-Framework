@@ -3,17 +3,36 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/PriorityBlockingQueue.java
 //
 
-#ifndef _JavaUtilConcurrentPriorityBlockingQueue_H_
-#define _JavaUtilConcurrentPriorityBlockingQueue_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentPriorityBlockingQueue_RESTRICT
+#define JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentPriorityBlockingQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentPriorityBlockingQueue_) && (JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL || defined(JavaUtilConcurrentPriorityBlockingQueue_INCLUDE))
+#define JavaUtilConcurrentPriorityBlockingQueue_
+
+#define JavaUtilAbstractQueue_RESTRICT 1
+#define JavaUtilAbstractQueue_INCLUDE 1
 #include "../../../java/util/AbstractQueue.h"
-#include "../../../java/util/Iterator.h"
+
+#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
+#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
 
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
 @class IOSObjectArray;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilCollection;
 @protocol JavaUtilComparator;
 @protocol JavaUtilIterator;
@@ -215,14 +234,14 @@
  */
 - (jboolean)offerWithId:(id)e
                withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id)peek;
 
 - (id)poll;
 
 - (id)pollWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Inserts the specified element into this priority queue.
@@ -314,7 +333,6 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  */
 - (void)removeEQWithId:(id)o;
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentPriorityBlockingQueue)
@@ -336,6 +354,18 @@ FOUNDATION_EXPORT void JavaUtilConcurrentPriorityBlockingQueue_initWithJavaUtilC
 FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue *new_JavaUtilConcurrentPriorityBlockingQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPriorityBlockingQueue)
+
+#endif
+
+#if !defined (JavaUtilConcurrentPriorityBlockingQueue_Itr_) && (JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL || defined(JavaUtilConcurrentPriorityBlockingQueue_Itr_INCLUDE))
+#define JavaUtilConcurrentPriorityBlockingQueue_Itr_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
+#include "../../../java/util/Iterator.h"
+
+@class IOSObjectArray;
+@class JavaUtilConcurrentPriorityBlockingQueue;
 
 /*!
  @brief Snapshot iterator that works off copy of underlying q array.
@@ -372,4 +402,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue_Itr *new_JavaUtilConcu
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPriorityBlockingQueue_Itr)
 
-#endif // _JavaUtilConcurrentPriorityBlockingQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL")

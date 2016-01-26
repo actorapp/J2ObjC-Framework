@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/AbstractList.java
 //
 
-#ifndef _JavaUtilAbstractList_H_
-#define _JavaUtilAbstractList_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilAbstractList_INCLUDE_ALL")
+#ifdef JavaUtilAbstractList_RESTRICT
+#define JavaUtilAbstractList_INCLUDE_ALL 0
+#else
+#define JavaUtilAbstractList_INCLUDE_ALL 1
+#endif
+#undef JavaUtilAbstractList_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilAbstractList_) && (JavaUtilAbstractList_INCLUDE_ALL || defined(JavaUtilAbstractList_INCLUDE))
+#define JavaUtilAbstractList_
+
+#define JavaUtilAbstractCollection_RESTRICT 1
+#define JavaUtilAbstractCollection_INCLUDE 1
 #include "../../java/util/AbstractCollection.h"
+
+#define JavaUtilList_RESTRICT 1
+#define JavaUtilList_INCLUDE 1
 #include "../../java/util/List.h"
 
 @protocol JavaUtilCollection;
@@ -100,6 +117,8 @@
  @brief Removes all elements from this list, leaving it empty.
  @throws UnsupportedOperationException
  if removing from this list is not supported.
+ - seealso: List#isEmpty
+ - seealso: List#size
  */
 - (void)clear;
 
@@ -112,6 +131,7 @@
  the object to compare to this object.
  @return <code>true</code> if the specified object is equal to this list,
  <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -130,6 +150,8 @@
  The hash code is calculated by taking
  each element's hashcode into account.
  @return the hash code.
+ - seealso: #equals
+ - seealso: List#hashCode()
  */
 - (NSUInteger)hash;
 
@@ -148,6 +170,7 @@
  The elements are
  iterated in the same order as they occur in the list.
  @return an iterator on the elements of this list.
+ - seealso: Iterator
  */
 - (id<JavaUtilIterator>)iterator;
 
@@ -166,6 +189,7 @@
  The elements are
  iterated in the same order that they occur in the list.
  @return a ListIterator on the elements of this list
+ - seealso: ListIterator
  */
 - (id<JavaUtilListIterator>)listIterator;
 
@@ -179,6 +203,7 @@
  @return a ListIterator on the elements of this list.
  @throws IndexOutOfBoundsException
  if <code>location < 0 || location > size()</code>
+ - seealso: ListIterator
  */
 - (id<JavaUtilListIterator>)listIteratorWithInt:(jint)location;
 
@@ -285,7 +310,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilAbstractList)
@@ -294,4 +318,8 @@ FOUNDATION_EXPORT void JavaUtilAbstractList_init(JavaUtilAbstractList *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractList)
 
-#endif // _JavaUtilAbstractList_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilAbstractList_INCLUDE_ALL")

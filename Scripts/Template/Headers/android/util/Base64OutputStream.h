@@ -3,10 +3,24 @@
 //  source: android/frameworks/base/core/java/android/util/Base64OutputStream.java
 //
 
-#ifndef _AndroidUtilBase64OutputStream_H_
-#define _AndroidUtilBase64OutputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidUtilBase64OutputStream_INCLUDE_ALL")
+#ifdef AndroidUtilBase64OutputStream_RESTRICT
+#define AndroidUtilBase64OutputStream_INCLUDE_ALL 0
+#else
+#define AndroidUtilBase64OutputStream_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilBase64OutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilBase64OutputStream_) && (AndroidUtilBase64OutputStream_INCLUDE_ALL || defined(AndroidUtilBase64OutputStream_INCLUDE))
+#define AndroidUtilBase64OutputStream_
+
+#define JavaIoFilterOutputStream_RESTRICT 1
+#define JavaIoFilterOutputStream_INCLUDE 1
 #include "../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
@@ -65,4 +79,8 @@ FOUNDATION_EXPORT AndroidUtilBase64OutputStream *new_AndroidUtilBase64OutputStre
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64OutputStream)
 
-#endif // _AndroidUtilBase64OutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilBase64OutputStream_INCLUDE_ALL")

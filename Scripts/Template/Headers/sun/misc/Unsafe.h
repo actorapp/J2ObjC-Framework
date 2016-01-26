@@ -3,10 +3,21 @@
 //  source: Classes/sun/misc/Unsafe.java
 //
 
-#ifndef _SunMiscUnsafe_H_
-#define _SunMiscUnsafe_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("SunMiscUnsafe_INCLUDE_ALL")
+#ifdef SunMiscUnsafe_RESTRICT
+#define SunMiscUnsafe_INCLUDE_ALL 0
+#else
+#define SunMiscUnsafe_INCLUDE_ALL 1
+#endif
+#undef SunMiscUnsafe_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (SunMiscUnsafe_) && (SunMiscUnsafe_INCLUDE_ALL || defined(SunMiscUnsafe_INCLUDE))
+#define SunMiscUnsafe_
 
 @class IOSClass;
 @class JavaLangReflectField;
@@ -274,7 +285,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(SunMiscUnsafe)
@@ -283,4 +293,8 @@ FOUNDATION_EXPORT SunMiscUnsafe *SunMiscUnsafe_getUnsafe();
 
 J2OBJC_TYPE_LITERAL_HEADER(SunMiscUnsafe)
 
-#endif // _SunMiscUnsafe_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("SunMiscUnsafe_INCLUDE_ALL")

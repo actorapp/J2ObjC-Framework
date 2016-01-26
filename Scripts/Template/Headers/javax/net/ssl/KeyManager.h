@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/KeyManager.java
 //
 
-#ifndef _JavaxNetSslKeyManager_H_
-#define _JavaxNetSslKeyManager_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslKeyManager_INCLUDE_ALL")
+#ifdef JavaxNetSslKeyManager_RESTRICT
+#define JavaxNetSslKeyManager_INCLUDE_ALL 0
+#else
+#define JavaxNetSslKeyManager_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslKeyManager_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslKeyManager_) && (JavaxNetSslKeyManager_INCLUDE_ALL || defined(JavaxNetSslKeyManager_INCLUDE))
+#define JavaxNetSslKeyManager_
 
 /*!
  @brief This is the interface to implement in order to mark a class as a JSSE key
@@ -23,4 +34,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxNetSslKeyManager)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslKeyManager)
 
-#endif // _JavaxNetSslKeyManager_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslKeyManager_INCLUDE_ALL")

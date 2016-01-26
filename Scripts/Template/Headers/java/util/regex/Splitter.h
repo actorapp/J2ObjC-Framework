@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/regex/Splitter.java
 //
 
-#ifndef _JavaUtilRegexSplitter_H_
-#define _JavaUtilRegexSplitter_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilRegexSplitter_INCLUDE_ALL")
+#ifdef JavaUtilRegexSplitter_RESTRICT
+#define JavaUtilRegexSplitter_INCLUDE_ALL 0
+#else
+#define JavaUtilRegexSplitter_INCLUDE_ALL 1
+#endif
+#undef JavaUtilRegexSplitter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilRegexSplitter_) && (JavaUtilRegexSplitter_INCLUDE_ALL || defined(JavaUtilRegexSplitter_INCLUDE))
+#define JavaUtilRegexSplitter_
 
 @class IOSObjectArray;
 @class JavaUtilRegexPattern;
@@ -42,4 +53,8 @@ FOUNDATION_EXPORT IOSObjectArray *JavaUtilRegexSplitter_splitWithJavaUtilRegexPa
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexSplitter)
 
-#endif // _JavaUtilRegexSplitter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilRegexSplitter_INCLUDE_ALL")

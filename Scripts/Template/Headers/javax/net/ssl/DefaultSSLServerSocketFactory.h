@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/DefaultSSLServerSocketFactory.java
 //
 
-#ifndef _JavaxNetSslDefaultSSLServerSocketFactory_H_
-#define _JavaxNetSslDefaultSSLServerSocketFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE_ALL")
+#ifdef JavaxNetSslDefaultSSLServerSocketFactory_RESTRICT
+#define JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE_ALL 0
+#else
+#define JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslDefaultSSLServerSocketFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslDefaultSSLServerSocketFactory_) && (JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE_ALL || defined(JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE))
+#define JavaxNetSslDefaultSSLServerSocketFactory_
+
+#define JavaxNetSslSSLServerSocketFactory_RESTRICT 1
+#define JavaxNetSslSSLServerSocketFactory_INCLUDE 1
 #include "../../../javax/net/ssl/SSLServerSocketFactory.h"
 
 @class IOSObjectArray;
@@ -47,4 +61,8 @@ FOUNDATION_EXPORT JavaxNetSslDefaultSSLServerSocketFactory *new_JavaxNetSslDefau
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslDefaultSSLServerSocketFactory)
 
-#endif // _JavaxNetSslDefaultSSLServerSocketFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE_ALL")

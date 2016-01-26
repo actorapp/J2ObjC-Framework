@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/EntityResolver.java
 //
 
-#ifndef _OrgXmlSaxEntityResolver_H_
-#define _OrgXmlSaxEntityResolver_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxEntityResolver_INCLUDE_ALL")
+#ifdef OrgXmlSaxEntityResolver_RESTRICT
+#define OrgXmlSaxEntityResolver_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxEntityResolver_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxEntityResolver_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxEntityResolver_) && (OrgXmlSaxEntityResolver_INCLUDE_ALL || defined(OrgXmlSaxEntityResolver_INCLUDE))
+#define OrgXmlSaxEntityResolver_
 
 @class OrgXmlSaxInputSource;
 
@@ -58,6 +69,8 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.XMLReader#setEntityResolver
+ - seealso: org.xml.sax.InputSource
  */
 @protocol OrgXmlSaxEntityResolver < NSObject, JavaObject >
 
@@ -96,6 +109,7 @@
  @exception java.io.IOException A Java-specific IO exception,
  possibly the result of creating a new InputStream
  or Reader for the InputSource.
+ - seealso: org.xml.sax.InputSource
  */
 - (OrgXmlSaxInputSource *)resolveEntityWithNSString:(NSString *)publicId
                                        withNSString:(NSString *)systemId;
@@ -106,4 +120,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxEntityResolver)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxEntityResolver)
 
-#endif // _OrgXmlSaxEntityResolver_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxEntityResolver_INCLUDE_ALL")

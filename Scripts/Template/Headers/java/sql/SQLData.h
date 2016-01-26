@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLData.java
 //
 
-#ifndef _JavaSqlSQLData_H_
-#define _JavaSqlSQLData_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLData_INCLUDE_ALL")
+#ifdef JavaSqlSQLData_RESTRICT
+#define JavaSqlSQLData_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLData_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLData_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLData_) && (JavaSqlSQLData_INCLUDE_ALL || defined(JavaSqlSQLData_INCLUDE))
+#define JavaSqlSQLData_
 
 @protocol JavaSqlSQLInput;
 @protocol JavaSqlSQLOutput;
@@ -80,6 +91,7 @@
  the SQL type name for the type which is being mapped.
  @throws SQLException
  if a database error occurs.
+ - seealso: SQLInput
  */
 - (void)readSQLWithJavaSqlSQLInput:(id<JavaSqlSQLInput>)stream
                       withNSString:(NSString *)typeName;
@@ -102,6 +114,7 @@
  the custom mapping.
  @throws SQLException
  if a database error occurs.
+ - seealso: SQLOutput
  */
 - (void)writeSQLWithJavaSqlSQLOutput:(id<JavaSqlSQLOutput>)stream;
 
@@ -111,4 +124,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLData)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLData)
 
-#endif // _JavaSqlSQLData_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLData_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/SequenceInputStream.java
 //
 
-#ifndef _JavaIoSequenceInputStream_H_
-#define _JavaIoSequenceInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoSequenceInputStream_INCLUDE_ALL")
+#ifdef JavaIoSequenceInputStream_RESTRICT
+#define JavaIoSequenceInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoSequenceInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoSequenceInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoSequenceInputStream_) && (JavaIoSequenceInputStream_INCLUDE_ALL || defined(JavaIoSequenceInputStream_INCLUDE))
+#define JavaIoSequenceInputStream_
+
+#define JavaIoInputStream_RESTRICT 1
+#define JavaIoInputStream_INCLUDE 1
 #include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
@@ -124,4 +138,8 @@ FOUNDATION_EXPORT JavaIoSequenceInputStream *new_JavaIoSequenceInputStream_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoSequenceInputStream)
 
-#endif // _JavaIoSequenceInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoSequenceInputStream_INCLUDE_ALL")

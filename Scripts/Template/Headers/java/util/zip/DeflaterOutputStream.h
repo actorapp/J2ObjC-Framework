@@ -3,23 +3,36 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/DeflaterOutputStream.java
 //
 
-#ifndef _JavaUtilZipDeflaterOutputStream_H_
-#define _JavaUtilZipDeflaterOutputStream_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipDeflaterOutputStream_INCLUDE_ALL")
+#ifdef JavaUtilZipDeflaterOutputStream_RESTRICT
+#define JavaUtilZipDeflaterOutputStream_INCLUDE_ALL 0
+#else
+#define JavaUtilZipDeflaterOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipDeflaterOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipDeflaterOutputStream_) && (JavaUtilZipDeflaterOutputStream_INCLUDE_ALL || defined(JavaUtilZipDeflaterOutputStream_INCLUDE))
+#define JavaUtilZipDeflaterOutputStream_
+
+#define JavaIoFilterOutputStream_RESTRICT 1
+#define JavaIoFilterOutputStream_INCLUDE 1
 #include "../../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;
 @class JavaUtilZipDeflater;
 
-#define JavaUtilZipDeflaterOutputStream_BUF_SIZE 512
-
 /*!
  @brief This class provides an implementation of <code>FilterOutputStream</code> that
  compresses data using the <i>DEFLATE</i> algorithm.
  Basically it wraps the
  <code>Deflater</code> class and takes care of the buffering.
+ - seealso: Deflater
  */
 @interface JavaUtilZipDeflaterOutputStream : JavaIoFilterOutputStream {
  @public
@@ -33,6 +46,8 @@
   JavaUtilZipDeflater *def_;
   jboolean done_;
 }
+
++ (jint)BUF_SIZE;
 
 #pragma mark Public
 
@@ -139,7 +154,9 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilZipDeflaterOutputStream)
 J2OBJC_FIELD_SETTER(JavaUtilZipDeflaterOutputStream, buf_, IOSByteArray *)
 J2OBJC_FIELD_SETTER(JavaUtilZipDeflaterOutputStream, def_, JavaUtilZipDeflater *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflaterOutputStream, BUF_SIZE, jint)
+inline jint JavaUtilZipDeflaterOutputStream_get_BUF_SIZE();
+#define JavaUtilZipDeflaterOutputStream_BUF_SIZE 512
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflaterOutputStream, BUF_SIZE, jint)
 
 FOUNDATION_EXPORT void JavaUtilZipDeflaterOutputStream_initWithJavaIoOutputStream_(JavaUtilZipDeflaterOutputStream *self, JavaIoOutputStream *os);
 
@@ -167,4 +184,8 @@ FOUNDATION_EXPORT JavaUtilZipDeflaterOutputStream *new_JavaUtilZipDeflaterOutput
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDeflaterOutputStream)
 
-#endif // _JavaUtilZipDeflaterOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipDeflaterOutputStream_INCLUDE_ALL")

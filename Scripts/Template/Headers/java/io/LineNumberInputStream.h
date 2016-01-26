@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/LineNumberInputStream.java
 //
 
-#ifndef _JavaIoLineNumberInputStream_H_
-#define _JavaIoLineNumberInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoLineNumberInputStream_INCLUDE_ALL")
+#ifdef JavaIoLineNumberInputStream_RESTRICT
+#define JavaIoLineNumberInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoLineNumberInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoLineNumberInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoLineNumberInputStream_) && (JavaIoLineNumberInputStream_INCLUDE_ALL || defined(JavaIoLineNumberInputStream_INCLUDE))
+#define JavaIoLineNumberInputStream_
+
+#define JavaIoFilterInputStream_RESTRICT 1
+#define JavaIoFilterInputStream_INCLUDE 1
 #include "../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
@@ -20,6 +34,7 @@
  When using <code>read</code>, line terminator sequences are always translated into
  <code>'\n'</code>.
  */
+__attribute__((deprecated))
 @interface JavaIoLineNumberInputStream : JavaIoFilterInputStream
 
 #pragma mark Public
@@ -65,6 +80,8 @@
  @param readlimit
  the number of bytes that can be read from this stream before
  the mark is invalidated.
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (void)markWithInt:(jint)readlimit;
 
@@ -113,6 +130,8 @@
  if this stream is already closed, no mark has been set or the
  mark is no longer valid because more than <code>readlimit</code>
  bytes have been read since setting the mark.
+ - seealso: #mark(int)
+ - seealso: #markSupported()
  */
 - (void)reset;
 
@@ -123,6 +142,8 @@
  line number associated with the last marked position.
  @param lineNumber
  the new lineNumber value.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (void)setLineNumberWithInt:(jint)lineNumber;
 
@@ -138,6 +159,9 @@
  @return the number of bytes actually skipped.
  @throws IOException
  if this stream is closed or another IOException occurs.
+ - seealso: #mark(int)
+ - seealso: #read()
+ - seealso: #reset()
  */
 - (jlong)skipWithLong:(jlong)byteCount;
 
@@ -151,4 +175,8 @@ FOUNDATION_EXPORT JavaIoLineNumberInputStream *new_JavaIoLineNumberInputStream_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoLineNumberInputStream)
 
-#endif // _JavaIoLineNumberInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoLineNumberInputStream_INCLUDE_ALL")

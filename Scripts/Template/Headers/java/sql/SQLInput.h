@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLInput.java
 //
 
-#ifndef _JavaSqlSQLInput_H_
-#define _JavaSqlSQLInput_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLInput_INCLUDE_ALL")
+#ifdef JavaSqlSQLInput_RESTRICT
+#define JavaSqlSQLInput_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLInput_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLInput_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLInput_) && (JavaSqlSQLInput_INCLUDE_ALL || defined(JavaSqlSQLInput_INCLUDE))
+#define JavaSqlSQLInput_
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -42,6 +53,7 @@
  the attributes of the UDT. The <code>SQLInput</code> stream is passed to the
  <code>SQLData.readSQL</code> method which then calls the <code>SQLInput</code> reader
  methods to read the attributes.
+ - seealso: SQLData
  */
 @protocol JavaSqlSQLInput < NSObject, JavaObject >
 
@@ -124,6 +136,7 @@
  the read returns SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: java.math.BigDecimal
  */
 - (JavaMathBigDecimal *)readBigDecimal;
 
@@ -143,6 +156,7 @@
  the value is SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: Date
  */
 - (JavaSqlDate *)readDate;
 
@@ -153,6 +167,7 @@
  read returns SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: Time
  */
 - (JavaSqlTime *)readTime;
 
@@ -163,6 +178,7 @@
  the read returns SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: Timestamp
  */
 - (JavaSqlTimestamp *)readTimestamp;
 
@@ -173,6 +189,7 @@
  the value is SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: java.io.Reader
  */
 - (JavaIoReader *)readCharacterStream;
 
@@ -183,6 +200,7 @@
  if the value is SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: java.io.InputStream
  */
 - (JavaIoInputStream *)readAsciiStream;
 
@@ -193,6 +211,7 @@
  if the value is SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: java.io.InputStream
  */
 - (JavaIoInputStream *)readBinaryStream;
 
@@ -224,6 +243,7 @@
  value is SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: Ref
  */
 - (id<JavaSqlRef>)readRef;
 
@@ -244,6 +264,7 @@
  the value is SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: Clob
  */
 - (id<JavaSqlClob>)readClob;
 
@@ -254,6 +275,7 @@
  is SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: Array
  */
 - (id<JavaSqlArray>)readArray;
 
@@ -273,6 +295,7 @@
  value is SQL <code>NULL</code>.
  @throws SQLException
  if there is a database error.
+ - seealso: java.net.URL
  */
 - (JavaNetURL *)readURL;
 
@@ -325,4 +348,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLInput)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLInput)
 
-#endif // _JavaSqlSQLInput_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLInput_INCLUDE_ALL")

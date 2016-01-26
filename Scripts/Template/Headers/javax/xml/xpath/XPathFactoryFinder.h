@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/xpath/XPathFactoryFinder.java
 //
 
-#ifndef _JavaxXmlXpathXPathFactoryFinder_H_
-#define _JavaxXmlXpathXPathFactoryFinder_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlXpathXPathFactoryFinder_INCLUDE_ALL")
+#ifdef JavaxXmlXpathXPathFactoryFinder_RESTRICT
+#define JavaxXmlXpathXPathFactoryFinder_INCLUDE_ALL 0
+#else
+#define JavaxXmlXpathXPathFactoryFinder_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlXpathXPathFactoryFinder_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlXpathXPathFactoryFinder_) && (JavaxXmlXpathXPathFactoryFinder_INCLUDE_ALL || defined(JavaxXmlXpathXPathFactoryFinder_INCLUDE))
+#define JavaxXmlXpathXPathFactoryFinder_
 
 @class JavaLangClassLoader;
 @class JavaxXmlXpathXPathFactory;
@@ -68,4 +79,8 @@ FOUNDATION_EXPORT JavaxXmlXpathXPathFactoryFinder *new_JavaxXmlXpathXPathFactory
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFactoryFinder)
 
-#endif // _JavaxXmlXpathXPathFactoryFinder_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlXpathXPathFactoryFinder_INCLUDE_ALL")

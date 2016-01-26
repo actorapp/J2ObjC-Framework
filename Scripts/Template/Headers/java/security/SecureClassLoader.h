@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/SecureClassLoader.java
 //
 
-#ifndef _JavaSecuritySecureClassLoader_H_
-#define _JavaSecuritySecureClassLoader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySecureClassLoader_INCLUDE_ALL")
+#ifdef JavaSecuritySecureClassLoader_RESTRICT
+#define JavaSecuritySecureClassLoader_INCLUDE_ALL 0
+#else
+#define JavaSecuritySecureClassLoader_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySecureClassLoader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySecureClassLoader_) && (JavaSecuritySecureClassLoader_INCLUDE_ALL || defined(JavaSecuritySecureClassLoader_INCLUDE))
+#define JavaSecuritySecureClassLoader_
+
+#define JavaLangClassLoader_RESTRICT 1
+#define JavaLangClassLoader_INCLUDE 1
 #include "../../java/lang/ClassLoader.h"
 
 @class IOSByteArray;
@@ -114,4 +128,8 @@ FOUNDATION_EXPORT JavaSecuritySecureClassLoader *new_JavaSecuritySecureClassLoad
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureClassLoader)
 
-#endif // _JavaSecuritySecureClassLoader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySecureClassLoader_INCLUDE_ALL")

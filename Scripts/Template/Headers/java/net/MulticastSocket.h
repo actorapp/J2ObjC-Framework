@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/MulticastSocket.java
 //
 
-#ifndef _JavaNetMulticastSocket_H_
-#define _JavaNetMulticastSocket_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetMulticastSocket_INCLUDE_ALL")
+#ifdef JavaNetMulticastSocket_RESTRICT
+#define JavaNetMulticastSocket_INCLUDE_ALL 0
+#else
+#define JavaNetMulticastSocket_INCLUDE_ALL 1
+#endif
+#undef JavaNetMulticastSocket_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetMulticastSocket_) && (JavaNetMulticastSocket_INCLUDE_ALL || defined(JavaNetMulticastSocket_INCLUDE))
+#define JavaNetMulticastSocket_
+
+#define JavaNetDatagramSocket_RESTRICT 1
+#define JavaNetDatagramSocket_INCLUDE 1
 #include "../../java/net/DatagramSocket.h"
 
 @class JavaNetDatagramPacket;
@@ -17,6 +31,7 @@
 /*!
  @brief This class implements a multicast socket for sending and receiving IP
  multicast datagram packets.
+ - seealso: DatagramSocket
  */
 @interface JavaNetMulticastSocket : JavaNetDatagramSocket
 
@@ -77,7 +92,7 @@
  @brief Returns the time-to-live (TTL) for multicast packets sent on this socket.
  @throws IOException if an error occurs.
  */
-- (jbyte)getTTL;
+- (jbyte)getTTL __attribute__((deprecated));
 
 /*!
  @brief Adds this socket to the specified multicast group.
@@ -141,7 +156,7 @@
  @throws IOException if an error occurs.
  */
 - (void)sendWithJavaNetDatagramPacket:(JavaNetDatagramPacket *)packet
-                             withByte:(jbyte)ttl;
+                             withByte:(jbyte)ttl __attribute__((deprecated));
 
 /*!
  @brief Sets the outgoing network interface used by this socket.
@@ -180,7 +195,7 @@
  Valid TTL values are between 0 and 255 inclusive.
  @throws IOException if an error occurs.
  */
-- (void)setTTLWithByte:(jbyte)ttl;
+- (void)setTTLWithByte:(jbyte)ttl __attribute__((deprecated));
 
 #pragma mark Package-Private
 
@@ -205,4 +220,8 @@ FOUNDATION_EXPORT JavaNetMulticastSocket *new_JavaNetMulticastSocket_initWithJav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetMulticastSocket)
 
-#endif // _JavaNetMulticastSocket_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetMulticastSocket_INCLUDE_ALL")

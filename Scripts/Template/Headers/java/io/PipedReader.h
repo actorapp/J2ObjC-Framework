@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/PipedReader.java
 //
 
-#ifndef _JavaIoPipedReader_H_
-#define _JavaIoPipedReader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoPipedReader_INCLUDE_ALL")
+#ifdef JavaIoPipedReader_RESTRICT
+#define JavaIoPipedReader_INCLUDE_ALL 0
+#else
+#define JavaIoPipedReader_INCLUDE_ALL 1
+#endif
+#undef JavaIoPipedReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoPipedReader_) && (JavaIoPipedReader_INCLUDE_ALL || defined(JavaIoPipedReader_INCLUDE))
+#define JavaIoPipedReader_
+
+#define JavaIoReader_RESTRICT 1
+#define JavaIoReader_INCLUDE 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -17,6 +31,7 @@
  When two threads want to pass
  data back and forth, one creates a piped writer and the other creates a piped
  reader.
+ - seealso: PipedWriter
  */
 @interface JavaIoPipedReader : JavaIoReader {
  @public
@@ -155,6 +170,8 @@
  @throws IOException
  if this reader is closed or not connected, or if some other
  I/O error occurs.
+ - seealso: #read()
+ - seealso: #read(char[],int,int)
  */
 - (jboolean)ready;
 
@@ -221,4 +238,8 @@ FOUNDATION_EXPORT JavaIoPipedReader *new_JavaIoPipedReader_initWithJavaIoPipedWr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedReader)
 
-#endif // _JavaIoPipedReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoPipedReader_INCLUDE_ALL")

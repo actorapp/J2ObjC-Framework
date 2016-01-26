@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/parsers/SAXParser.java
 //
 
-#ifndef _JavaxXmlParsersSAXParser_H_
-#define _JavaxXmlParsersSAXParser_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlParsersSAXParser_INCLUDE_ALL")
+#ifdef JavaxXmlParsersSAXParser_RESTRICT
+#define JavaxXmlParsersSAXParser_INCLUDE_ALL 0
+#else
+#define JavaxXmlParsersSAXParser_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlParsersSAXParser_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlParsersSAXParser_) && (JavaxXmlParsersSAXParser_INCLUDE_ALL || defined(JavaxXmlParsersSAXParser_INCLUDE))
+#define JavaxXmlParsersSAXParser_
 
 @class JavaIoFile;
 @class JavaIoInputStream;
@@ -71,6 +82,7 @@
  not recognize the property name.
  @throws SAXNotSupportedException When the underlying XMLReader
  recognizes the property name but doesn't support the property.
+ - seealso: org.xml.sax.XMLReader#getProperty
  */
 - (id)getPropertyWithNSString:(NSString *)name;
 
@@ -125,6 +137,7 @@
  earlier versions of JAXP is used, this exception will be
  thrown.
  @since 1.5
+ - seealso: SAXParserFactory#setXIncludeAware(boolean)
  */
 - (jboolean)isXIncludeAware;
 
@@ -136,6 +149,7 @@
  @throws IllegalArgumentException If the File object is null.
  @throws IOException If any IO errors occur.
  @throws SAXException If any SAX errors occur during processing.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (void)parseWithJavaIoFile:(JavaIoFile *)f
 withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
@@ -150,6 +164,7 @@ withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
  @throws IllegalArgumentException If the File object is null.
  @throws IOException If any IO errors occur.
  @throws SAXException If any SAX errors occur during processing.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (void)parseWithJavaIoFile:(JavaIoFile *)f
    withOrgXmlSaxHandlerBase:(OrgXmlSaxHandlerBase *)hb;
@@ -164,6 +179,7 @@ withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
  is <code>null</code>.
  @throws IOException If any IO errors occur.
  @throws SAXException If any SAX errors occur during processing.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (void)parseWithOrgXmlSaxInputSource:(OrgXmlSaxInputSource *)is
    withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
@@ -180,6 +196,7 @@ withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
  is <code>null</code>.
  @throws IOException If any IO errors occur.
  @throws SAXException If any SAX errors occur during processing.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (void)parseWithOrgXmlSaxInputSource:(OrgXmlSaxInputSource *)is
              withOrgXmlSaxHandlerBase:(OrgXmlSaxHandlerBase *)hb;
@@ -193,6 +210,7 @@ withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
  @throws IllegalArgumentException If the given InputStream is null.
  @throws IOException If any IO errors occur.
  @throws SAXException If any SAX errors occur during processing.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (void)parseWithJavaIoInputStream:(JavaIoInputStream *)is
 withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
@@ -207,6 +225,7 @@ withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
  @throws IllegalArgumentException If the given InputStream is null.
  @throws IOException If any IO errors occur.
  @throws SAXException If any SAX errors occur during processing.
+ - seealso: org.xml.sax.DocumentHandler version of this method instead.
  */
 - (void)parseWithJavaIoInputStream:(JavaIoInputStream *)is
 withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh
@@ -223,6 +242,7 @@ withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh
  @throws SAXException If parse produces a SAX error.
  @throws IOException If an IO error occurs interacting with the
  <code>InputStream</code>.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (void)parseWithJavaIoInputStream:(JavaIoInputStream *)is
           withOrgXmlSaxHandlerBase:(OrgXmlSaxHandlerBase *)hb;
@@ -240,6 +260,7 @@ withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh
  @throws IOException If any IO error occurs interacting with the
  <code>InputStream</code>.
  @throws SAXException If any SAX errors occur during processing.
+ - seealso: org.xml.sax.DocumentHandler version of this method instead.
  */
 - (void)parseWithJavaIoInputStream:(JavaIoInputStream *)is
           withOrgXmlSaxHandlerBase:(OrgXmlSaxHandlerBase *)hb
@@ -254,6 +275,7 @@ withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh
  @throws IllegalArgumentException If the uri is null.
  @throws IOException If any IO errors occur.
  @throws SAXException If any SAX errors occur during processing.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (void)parseWithNSString:(NSString *)uri
 withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
@@ -269,6 +291,7 @@ withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
  @throws IllegalArgumentException If the uri is null.
  @throws IOException If any IO errors occur.
  @throws SAXException If any SAX errors occur during processing.
+ - seealso: org.xml.sax.DocumentHandler
  */
 - (void)parseWithNSString:(NSString *)uri
  withOrgXmlSaxHandlerBase:(OrgXmlSaxHandlerBase *)hb;
@@ -299,6 +322,7 @@ withOrgXmlSaxHelpersDefaultHandler:(OrgXmlSaxHelpersDefaultHandler *)dh;
  not recognize the property name.
  @throws SAXNotSupportedException When the underlying XMLReader
  recognizes the property name but doesn't support the property.
+ - seealso: org.xml.sax.XMLReader#setProperty
  */
 - (void)setPropertyWithNSString:(NSString *)name
                          withId:(id)value;
@@ -319,4 +343,8 @@ FOUNDATION_EXPORT void JavaxXmlParsersSAXParser_init(JavaxXmlParsersSAXParser *s
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersSAXParser)
 
-#endif // _JavaxXmlParsersSAXParser_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlParsersSAXParser_INCLUDE_ALL")

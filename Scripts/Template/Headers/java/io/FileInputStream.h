@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/FileInputStream.java
 //
 
-#ifndef _JavaIoFileInputStream_H_
-#define _JavaIoFileInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFileInputStream_INCLUDE_ALL")
+#ifdef JavaIoFileInputStream_RESTRICT
+#define JavaIoFileInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoFileInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoFileInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFileInputStream_) && (JavaIoFileInputStream_INCLUDE_ALL || defined(JavaIoFileInputStream_INCLUDE))
+#define JavaIoFileInputStream_
+
+#define JavaIoInputStream_RESTRICT 1
+#define JavaIoInputStream_INCLUDE 1
 #include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
@@ -33,6 +47,8 @@
  this stream with a <code>BufferedInputStream</code>.
  <p>Use <code>FileReader</code> to read characters, as opposed to bytes, from a
  file.
+ - seealso: BufferedInputStream
+ - seealso: FileOutputStream
  */
 @interface JavaIoFileInputStream : JavaIoInputStream
 
@@ -112,4 +128,8 @@ FOUNDATION_EXPORT JavaIoFileInputStream *new_JavaIoFileInputStream_initWithNSStr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileInputStream)
 
-#endif // _JavaIoFileInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFileInputStream_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/ProviderException.java
 //
 
-#ifndef _JavaSecurityProviderException_H_
-#define _JavaSecurityProviderException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityProviderException_INCLUDE_ALL")
+#ifdef JavaSecurityProviderException_RESTRICT
+#define JavaSecurityProviderException_INCLUDE_ALL 0
+#else
+#define JavaSecurityProviderException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityProviderException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityProviderException_) && (JavaSecurityProviderException_INCLUDE_ALL || defined(JavaSecurityProviderException_INCLUDE))
+#define JavaSecurityProviderException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 @class JavaLangThrowable;
@@ -14,6 +28,7 @@
 /*!
  @brief <code>ProviderException</code> is a general exception, thrown by security <code>Providers</code>
  .
+ - seealso: Provider
  */
 @interface JavaSecurityProviderException : JavaLangRuntimeException
 
@@ -72,4 +87,8 @@ FOUNDATION_EXPORT JavaSecurityProviderException *new_JavaSecurityProviderExcepti
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProviderException)
 
-#endif // _JavaSecurityProviderException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityProviderException_INCLUDE_ALL")

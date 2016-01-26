@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/ServiceLoader.java
 //
 
-#ifndef _JavaUtilServiceLoader_H_
-#define _JavaUtilServiceLoader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilServiceLoader_INCLUDE_ALL")
+#ifdef JavaUtilServiceLoader_RESTRICT
+#define JavaUtilServiceLoader_INCLUDE_ALL 0
+#else
+#define JavaUtilServiceLoader_INCLUDE_ALL 1
+#endif
+#undef JavaUtilServiceLoader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilServiceLoader_) && (JavaUtilServiceLoader_INCLUDE_ALL || defined(JavaUtilServiceLoader_INCLUDE))
+#define JavaUtilServiceLoader_
+
+#define JavaLangIterable_RESTRICT 1
+#define JavaLangIterable_INCLUDE 1
 #include "../../java/lang/Iterable.h"
 
 @class IOSClass;
@@ -115,7 +129,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilServiceLoader)
@@ -130,4 +143,8 @@ FOUNDATION_EXPORT id JavaUtilServiceLoader_loadFromSystemPropertyWithIOSClass_(I
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilServiceLoader)
 
-#endif // _JavaUtilServiceLoader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilServiceLoader_INCLUDE_ALL")

@@ -3,12 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/Future.java
 //
 
-#ifndef _JavaUtilConcurrentFuture_H_
-#define _JavaUtilConcurrentFuture_H_
-
 #include "../../../J2ObjC_header.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+#pragma push_macro("JavaUtilConcurrentFuture_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentFuture_RESTRICT
+#define JavaUtilConcurrentFuture_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentFuture_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentFuture_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentFuture_) && (JavaUtilConcurrentFuture_INCLUDE_ALL || defined(JavaUtilConcurrentFuture_INCLUDE))
+#define JavaUtilConcurrentFuture_
+
+@class JavaUtilConcurrentTimeUnit;
 
 /*!
  @brief A <code>Future</code> represents the result of an asynchronous
@@ -62,6 +73,8 @@
  <p>Memory consistency effects: Actions taken by the asynchronous computation
  <a href="package-summary.html#MemoryVisibility"> <i>happen-before</i></a>
  actions following the corresponding <code>Future.get()</code> in another thread.
+ - seealso: FutureTask
+ - seealso: Executor
  @since 1.5
  @author Doug Lea
  */
@@ -131,7 +144,7 @@
  @throws TimeoutException if the wait timed out
  */
 - (id)getWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 @end
 
@@ -139,4 +152,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentFuture)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentFuture)
 
-#endif // _JavaUtilConcurrentFuture_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentFuture_INCLUDE_ALL")

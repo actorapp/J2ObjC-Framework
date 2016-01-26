@@ -3,16 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/Observer.java
 //
 
-#ifndef _JavaUtilObserver_H_
-#define _JavaUtilObserver_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilObserver_INCLUDE_ALL")
+#ifdef JavaUtilObserver_RESTRICT
+#define JavaUtilObserver_INCLUDE_ALL 0
+#else
+#define JavaUtilObserver_INCLUDE_ALL 1
+#endif
+#undef JavaUtilObserver_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilObserver_) && (JavaUtilObserver_INCLUDE_ALL || defined(JavaUtilObserver_INCLUDE))
+#define JavaUtilObserver_
 
 @class JavaUtilObservable;
 
 /*!
  @brief <code>Observer</code> is the interface to be implemented by objects that
  receive notification of updates on an <code>Observable</code> object.
+ - seealso: Observable
  */
 @protocol JavaUtilObserver < NSObject, JavaObject >
 
@@ -34,4 +46,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilObserver)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilObserver)
 
-#endif // _JavaUtilObserver_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilObserver_INCLUDE_ALL")

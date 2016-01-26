@@ -3,19 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/ZipOutputStream.java
 //
 
-#ifndef _JavaUtilZipZipOutputStream_H_
-#define _JavaUtilZipZipOutputStream_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipZipOutputStream_INCLUDE_ALL")
+#ifdef JavaUtilZipZipOutputStream_RESTRICT
+#define JavaUtilZipZipOutputStream_INCLUDE_ALL 0
+#else
+#define JavaUtilZipZipOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipZipOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipZipOutputStream_) && (JavaUtilZipZipOutputStream_INCLUDE_ALL || defined(JavaUtilZipZipOutputStream_INCLUDE))
+#define JavaUtilZipZipOutputStream_
+
+#define JavaUtilZipDeflaterOutputStream_RESTRICT 1
+#define JavaUtilZipDeflaterOutputStream_INCLUDE 1
 #include "../../../java/util/zip/DeflaterOutputStream.h"
+
+#define JavaUtilZipZipConstants_RESTRICT 1
+#define JavaUtilZipZipConstants_INCLUDE 1
 #include "../../../java/util/zip/ZipConstants.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;
 @class JavaUtilZipZipEntry;
-
-#define JavaUtilZipZipOutputStream_DEFLATED 8
-#define JavaUtilZipZipOutputStream_STORED 0
 
 /*!
  @brief Used to write (compress) data into zip files.
@@ -49,6 +63,10 @@
 @endcode
  */
 @interface JavaUtilZipZipOutputStream : JavaUtilZipDeflaterOutputStream < JavaUtilZipZipConstants >
+
++ (jint)DEFLATED;
+
++ (jint)STORED;
 
 #pragma mark Public
 
@@ -102,6 +120,7 @@
  the <code>ZipEntry</code> to store.
  @throws IOException
  If an error occurs storing the entry.
+ - seealso: #write
  */
 - (void)putNextEntryWithJavaUtilZipZipEntry:(JavaUtilZipZipEntry *)ze;
 
@@ -149,9 +168,19 @@
 
 J2OBJC_STATIC_INIT(JavaUtilZipZipOutputStream)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipOutputStream, DEFLATED, jint)
+/*!
+ @brief Indicates deflated entries.
+ */
+inline jint JavaUtilZipZipOutputStream_get_DEFLATED();
+#define JavaUtilZipZipOutputStream_DEFLATED 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipOutputStream, DEFLATED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipOutputStream, STORED, jint)
+/*!
+ @brief Indicates uncompressed entries.
+ */
+inline jint JavaUtilZipZipOutputStream_get_STORED();
+#define JavaUtilZipZipOutputStream_STORED 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipOutputStream, STORED, jint)
 
 FOUNDATION_EXPORT void JavaUtilZipZipOutputStream_initWithJavaIoOutputStream_(JavaUtilZipZipOutputStream *self, JavaIoOutputStream *os);
 
@@ -169,4 +198,8 @@ FOUNDATION_EXPORT jint JavaUtilZipZipOutputStream_writeIntAsUint16WithJavaIoOutp
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipOutputStream)
 
-#endif // _JavaUtilZipZipOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipZipOutputStream_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/SecurityManager.java
 //
 
-#ifndef _JavaLangSecurityManager_H_
-#define _JavaLangSecurityManager_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangSecurityManager_INCLUDE_ALL")
+#ifdef JavaLangSecurityManager_RESTRICT
+#define JavaLangSecurityManager_INCLUDE_ALL 0
+#else
+#define JavaLangSecurityManager_INCLUDE_ALL 1
+#endif
+#undef JavaLangSecurityManager_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangSecurityManager_) && (JavaLangSecurityManager_INCLUDE_ALL || defined(JavaLangSecurityManager_INCLUDE))
+#define JavaLangSecurityManager_
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -100,7 +111,7 @@
 
 /*!
  */
-- (jboolean)getInCheck;
+- (jboolean)getInCheck __attribute__((deprecated));
 
 - (id)getSecurityContext;
 
@@ -113,29 +124,29 @@
 
 /*!
  */
-- (jint)classDepthWithNSString:(NSString *)name;
+- (jint)classDepthWithNSString:(NSString *)name __attribute__((deprecated));
 
 /*!
  */
-- (jint)classLoaderDepth;
+- (jint)classLoaderDepth __attribute__((deprecated));
 
 /*!
  */
-- (JavaLangClassLoader *)currentClassLoader;
+- (JavaLangClassLoader *)currentClassLoader __attribute__((deprecated));
 
 /*!
  */
-- (IOSClass *)currentLoadedClass;
+- (IOSClass *)currentLoadedClass __attribute__((deprecated));
 
 - (IOSObjectArray *)getClassContext;
 
 /*!
  */
-- (jboolean)inClassWithNSString:(NSString *)name;
+- (jboolean)inClassWithNSString:(NSString *)name __attribute__((deprecated));
 
 /*!
  */
-- (jboolean)inClassLoader;
+- (jboolean)inClassLoader __attribute__((deprecated));
 
 @end
 
@@ -147,4 +158,8 @@ FOUNDATION_EXPORT JavaLangSecurityManager *new_JavaLangSecurityManager_init() NS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangSecurityManager)
 
-#endif // _JavaLangSecurityManager_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangSecurityManager_INCLUDE_ALL")

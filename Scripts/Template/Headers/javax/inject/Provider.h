@@ -3,13 +3,58 @@
 //  source: /Users/tball/tmp/j2objc/inject/javax_inject/build_result/java/javax/inject/Provider.java
 //
 
-#ifndef _JavaxInjectProvider_H_
-#define _JavaxInjectProvider_H_
-
 #include "../../J2ObjC_header.h"
 
+#pragma push_macro("JavaxInjectProvider_INCLUDE_ALL")
+#ifdef JavaxInjectProvider_RESTRICT
+#define JavaxInjectProvider_INCLUDE_ALL 0
+#else
+#define JavaxInjectProvider_INCLUDE_ALL 1
+#endif
+#undef JavaxInjectProvider_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxInjectProvider_) && (JavaxInjectProvider_INCLUDE_ALL || defined(JavaxInjectProvider_INCLUDE))
+#define JavaxInjectProvider_
+
+/*!
+ @brief Provides instances of <code>T</code>.
+ Typically implemented by an injector. For
+ any type <code>T</code> that can be injected, you can also inject
+ <code>Provider<T></code>. Compared to injecting <code>T</code> directly, injecting
+ <code>Provider<T></code> enables:
+ <ul>
+ <li>retrieving multiple instances.</li>
+ <li>lazy or optional retrieval of an instance.</li>
+ <li>breaking circular dependencies.</li>
+ <li>abstracting scope so you can look up an instance in a smaller scope
+ from an instance in a containing scope.</li>
+ </ul>
+ <p>For example:
+ @code
+
+   class Car {
+     &#064;Inject Car(Provider&lt;Seat> seatProvider) {
+       Seat driver = seatProvider.get();
+       Seat passenger = seatProvider.get();
+       ...
+     }
+   
+@endcode
+ */
 @protocol JavaxInjectProvider < NSObject, JavaObject >
 
+/*!
+ @brief Provides a fully-constructed and injected instance of <code>T</code>.
+ @throws RuntimeException if the injector encounters an error while
+ providing an instance. For example, if an injectable member on
+ <code>T</code> throws an exception, the injector may wrap the exception
+ and throw it to the caller of <code>get()</code>. Callers should not try
+ to handle such exceptions as the behavior may vary across injector
+ implementations and even different configurations of the same injector.
+ */
 - (id)get;
 
 @end
@@ -18,4 +63,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxInjectProvider)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxInjectProvider)
 
-#endif // _JavaxInjectProvider_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxInjectProvider_INCLUDE_ALL")

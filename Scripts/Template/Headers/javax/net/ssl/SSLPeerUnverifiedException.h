@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLPeerUnverifiedException.java
 //
 
-#ifndef _JavaxNetSslSSLPeerUnverifiedException_H_
-#define _JavaxNetSslSSLPeerUnverifiedException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLPeerUnverifiedException_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLPeerUnverifiedException_RESTRICT
+#define JavaxNetSslSSLPeerUnverifiedException_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLPeerUnverifiedException_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLPeerUnverifiedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLPeerUnverifiedException_) && (JavaxNetSslSSLPeerUnverifiedException_INCLUDE_ALL || defined(JavaxNetSslSSLPeerUnverifiedException_INCLUDE))
+#define JavaxNetSslSSLPeerUnverifiedException_
+
+#define JavaxNetSslSSLException_RESTRICT 1
+#define JavaxNetSslSSLException_INCLUDE 1
 #include "../../../javax/net/ssl/SSLException.h"
 
 /*!
@@ -35,4 +49,8 @@ FOUNDATION_EXPORT JavaxNetSslSSLPeerUnverifiedException *new_JavaxNetSslSSLPeerU
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLPeerUnverifiedException)
 
-#endif // _JavaxNetSslSSLPeerUnverifiedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLPeerUnverifiedException_INCLUDE_ALL")

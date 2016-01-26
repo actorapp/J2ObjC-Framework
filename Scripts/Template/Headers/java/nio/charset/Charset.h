@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/Charset.java
 //
 
-#ifndef _JavaNioCharsetCharset_H_
-#define _JavaNioCharsetCharset_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioCharsetCharset_INCLUDE_ALL")
+#ifdef JavaNioCharsetCharset_RESTRICT
+#define JavaNioCharsetCharset_INCLUDE_ALL 0
+#else
+#define JavaNioCharsetCharset_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharsetCharset_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharsetCharset_) && (JavaNioCharsetCharset_INCLUDE_ALL || defined(JavaNioCharsetCharset_INCLUDE))
+#define JavaNioCharsetCharset_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../../java/lang/Comparable.h"
 
 @class IOSObjectArray;
@@ -342,4 +356,8 @@ FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetCharset_defaultCharset();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCharset)
 
-#endif // _JavaNioCharsetCharset_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharsetCharset_INCLUDE_ALL")

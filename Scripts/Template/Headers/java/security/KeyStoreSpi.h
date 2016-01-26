@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/KeyStoreSpi.java
 //
 
-#ifndef _JavaSecurityKeyStoreSpi_H_
-#define _JavaSecurityKeyStoreSpi_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityKeyStoreSpi_INCLUDE_ALL")
+#ifdef JavaSecurityKeyStoreSpi_RESTRICT
+#define JavaSecurityKeyStoreSpi_INCLUDE_ALL 0
+#else
+#define JavaSecurityKeyStoreSpi_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityKeyStoreSpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityKeyStoreSpi_) && (JavaSecurityKeyStoreSpi_INCLUDE_ALL || defined(JavaSecurityKeyStoreSpi_INCLUDE))
+#define JavaSecurityKeyStoreSpi_
 
 @class IOSByteArray;
 @class IOSCharArray;
@@ -25,6 +36,7 @@
 /*!
  @brief <code>KeyStoreSpi</code> is the Service Provider Interface (SPI) definition for
  <code>KeyStore</code>.
+ - seealso: KeyStore
  */
 @interface JavaSecurityKeyStoreSpi : NSObject
 
@@ -340,4 +352,8 @@ FOUNDATION_EXPORT void JavaSecurityKeyStoreSpi_init(JavaSecurityKeyStoreSpi *sel
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStoreSpi)
 
-#endif // _JavaSecurityKeyStoreSpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityKeyStoreSpi_INCLUDE_ALL")

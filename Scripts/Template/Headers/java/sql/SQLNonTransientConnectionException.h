@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLNonTransientConnectionException.java
 //
 
-#ifndef _JavaSqlSQLNonTransientConnectionException_H_
-#define _JavaSqlSQLNonTransientConnectionException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLNonTransientConnectionException_INCLUDE_ALL")
+#ifdef JavaSqlSQLNonTransientConnectionException_RESTRICT
+#define JavaSqlSQLNonTransientConnectionException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLNonTransientConnectionException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLNonTransientConnectionException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLNonTransientConnectionException_) && (JavaSqlSQLNonTransientConnectionException_INCLUDE_ALL || defined(JavaSqlSQLNonTransientConnectionException_INCLUDE))
+#define JavaSqlSQLNonTransientConnectionException_
+
+#define JavaSqlSQLNonTransientException_RESTRICT 1
+#define JavaSqlSQLNonTransientException_INCLUDE 1
 #include "../../java/sql/SQLNonTransientException.h"
 
 @class JavaLangThrowable;
@@ -136,7 +150,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLNonTransientConnectionException)
@@ -175,4 +188,8 @@ FOUNDATION_EXPORT JavaSqlSQLNonTransientConnectionException *new_JavaSqlSQLNonTr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLNonTransientConnectionException)
 
-#endif // _JavaSqlSQLNonTransientConnectionException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLNonTransientConnectionException_INCLUDE_ALL")

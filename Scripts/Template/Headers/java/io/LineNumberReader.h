@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/LineNumberReader.java
 //
 
-#ifndef _JavaIoLineNumberReader_H_
-#define _JavaIoLineNumberReader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoLineNumberReader_INCLUDE_ALL")
+#ifdef JavaIoLineNumberReader_RESTRICT
+#define JavaIoLineNumberReader_INCLUDE_ALL 0
+#else
+#define JavaIoLineNumberReader_INCLUDE_ALL 1
+#endif
+#undef JavaIoLineNumberReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoLineNumberReader_) && (JavaIoLineNumberReader_INCLUDE_ALL || defined(JavaIoLineNumberReader_INCLUDE))
+#define JavaIoLineNumberReader_
+
+#define JavaIoBufferedReader_RESTRICT 1
+#define JavaIoBufferedReader_INCLUDE 1
 #include "../../java/io/BufferedReader.h"
 
 @class IOSCharArray;
@@ -66,6 +80,8 @@
  before the mark is invalidated.
  @throws IOException
  if an error occurs while setting the mark in this reader.
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (void)markWithInt:(jint)readlimit;
 
@@ -133,6 +149,8 @@
  if this reader is already closed, no mark has been set or the
  mark is no longer valid because more than <code>readlimit</code>
  bytes have been read since setting the mark.
+ - seealso: #mark(int)
+ - seealso: #markSupported()
  */
 - (void)reset;
 
@@ -142,6 +160,8 @@
  the last marked position.
  @param lineNumber
  the new line number value.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (void)setLineNumberWithInt:(jint)lineNumber;
 
@@ -157,6 +177,9 @@
  if <code>charCount < 0</code>.
  @throws IOException
  if this reader is closed or another IOException occurs.
+ - seealso: #mark(int)
+ - seealso: #read()
+ - seealso: #reset()
  */
 - (jlong)skipWithLong:(jlong)charCount;
 
@@ -174,4 +197,8 @@ FOUNDATION_EXPORT JavaIoLineNumberReader *new_JavaIoLineNumberReader_initWithJav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoLineNumberReader)
 
-#endif // _JavaIoLineNumberReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoLineNumberReader_INCLUDE_ALL")

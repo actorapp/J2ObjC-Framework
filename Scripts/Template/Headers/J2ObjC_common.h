@@ -15,6 +15,8 @@
 #ifndef _J2OBJC_COMMON_H_
 #define _J2OBJC_COMMON_H_
 
+#pragma clang system_header
+
 #import <Foundation/Foundation.h>
 
 #import "J2ObjC_types.h"
@@ -62,37 +64,39 @@
  #define J2OBJC_DISABLE_ARRAY_TYPE_CHECKS 1
 #endif
 
+#ifdef __cplusplus
+#define J2_STATIC_CAST(T,E) static_cast<T>(E)
+#else
+#define J2_STATIC_CAST(T,E) ((T)(E))
+#endif
+
 CF_EXTERN_C_BEGIN
 
 void JreThrowNullPointerException() __attribute__((noreturn));
 void JreThrowClassCastException() __attribute__((noreturn));
 
-#ifdef J2OBJC_COUNT_NIL_CHK
-int j2objc_nil_chk_count;
-#endif
-
-void JrePrintNilChkCount();
-void JrePrintNilChkCountAtExit();
-
 id JreStrongAssign(__strong id *pIvar, id value);
 id JreStrongAssignAndConsume(__strong id *pIvar, NS_RELEASES_ARGUMENT id value);
 
+id JreLoadVolatileId(volatile_id *pVar);
+id JreAssignVolatileId(volatile_id *pVar, id value);
 id JreVolatileStrongAssign(volatile_id *pIvar, id value);
 id JreVolatileStrongAssignAndConsume(volatile_id *pIvar, NS_RELEASES_ARGUMENT id value);
-
-id JreRetainVolatile(volatile_id *pVar);
+jboolean JreCompareAndSwapVolatileStrongId(volatile_id *pVar, id expected, id newValue);
+id JreExchangeVolatileStrongId(volatile_id *pVar, id newValue);
+void JreCloneVolatile(volatile_id *pVar, volatile_id *pOther);
+void JreCloneVolatileStrong(volatile_id *pVar, volatile_id *pOther);
 void JreReleaseVolatile(volatile_id *pVar);
 
 NSString *JreStrcat(const char *types, ...);
 
-CF_EXTERN_C_END
+#if defined(J2OBJC_COUNT_NIL_CHK) && !defined(J2OBJC_DISABLE_NIL_CHECKS)
+id nil_chk(id __unsafe_unretained p);
+void JrePrintNilChkCount();
+void JrePrintNilChkCountAtExit();
 
-// Marked as unused to avoid a clang warning when this file is included
-// but NIL_CHK isn't used.
-__attribute__ ((unused)) static inline id nil_chk(id __unsafe_unretained p) {
-#ifdef J2OBJC_COUNT_NIL_CHK
-  j2objc_nil_chk_count++;
-#endif
+#else
+__attribute__((always_inline)) inline id nil_chk(id __unsafe_unretained p) {
 #if !defined(J2OBJC_DISABLE_NIL_CHECKS)
   if (__builtin_expect(!p, 0)) {
     JreThrowNullPointerException();
@@ -101,24 +105,19 @@ __attribute__ ((unused)) static inline id nil_chk(id __unsafe_unretained p) {
   return p;
 }
 
-// Separate methods for class and protocol cast checks are used to reduce
-// overhead, since the difference is statically known.
-__attribute__ ((unused)) static inline id check_class_cast(id __unsafe_unretained p, Class clazz) {
-#if !defined(J2OBJC_DISABLE_CAST_CHECKS)
-  if (__builtin_expect(p && ![p isKindOfClass:clazz], 0)) {
-    JreThrowClassCastException();
-  }
+__attribute__((always_inline)) inline void JrePrintNilChkCount() {}
+__attribute__((always_inline)) inline void JrePrintNilChkCountAtExit() {}
 #endif
-  return p;
-}
 
-__attribute__((always_inline)) inline id JreLoadVolatileId(volatile_id *pVar) {
-  return (__bridge id)__c11_atomic_load(pVar, __ATOMIC_SEQ_CST);
+CF_EXTERN_C_END
+
+#if !__has_feature(objc_arc)
+__attribute__((always_inline)) inline id JreAutoreleasedAssign(
+    id *pIvar, NS_RELEASES_ARGUMENT id value) {
+  [*pIvar autorelease];
+  return *pIvar = value;
 }
-__attribute__((always_inline)) inline id JreAssignVolatileId(volatile_id *pVar, id value) {
-  __c11_atomic_store(pVar, (__bridge void *)value, __ATOMIC_SEQ_CST);
-  return value;
-}
+#endif
 
 #define J2OBJC_VOLATILE_ACCESS_DEFN(NAME, TYPE) \
   __attribute__((always_inline)) inline TYPE JreLoadVolatile##NAME(volatile_##TYPE *pVar) { \
@@ -139,17 +138,6 @@ J2OBJC_VOLATILE_ACCESS_DEFN(Long, jlong)
 J2OBJC_VOLATILE_ACCESS_DEFN(Float, jfloat)
 J2OBJC_VOLATILE_ACCESS_DEFN(Double, jdouble)
 #undef J2OBJC_VOLATILE_ACCESS_DEFN
-
-/*!
- * Macros that simplify the syntax for loading of static fields.
- *
- * @define JreLoadStatic
- * @define JreLoadStaticRef
- * @param CLASS The Objective-C class name of the containing class.
- * @param FIELD The name of the static field.
- */
-#define JreLoadStatic(CLASS, FIELD) (CLASS##_initialize(), CLASS##_##FIELD)
-#define JreLoadStaticRef(CLASS, FIELD) (CLASS##_initialize(), &CLASS##_##FIELD)
 
 /*!
  * Defines the initialized flag for a class.
@@ -256,106 +244,6 @@ J2OBJC_VOLATILE_ACCESS_DEFN(Double, jdouble)
 #define J2OBJC_VOLATILE_FIELD_SETTER(CLASS, FIELD, TYPE) \
   __attribute__((unused)) static inline TYPE CLASS##_set_##FIELD(CLASS *instance, TYPE value) { \
     return JreVolatileStrongAssign(&instance->FIELD, value); \
-  }
-
-/*!
- * Defines the getter for a static variable. For class "Foo" and field "bar_"
- * with type "int" the getter will have the following signature:
- *   inline int Foo_get_bar_();
- *
- * @define J2OBJC_STATIC_FIELD_GETTER
- * @define J2OBJC_STATIC_VOLATILE_FIELD_GETTER
- * @define J2OBJC_STATIC_VOLATILE_OBJ_FIELD_GETTER
- * @param CLASS The class containing the static variable.
- * @param FIELD The name of the static variable.
- * @param TYPE The type of the static variable.
- */
-#define J2OBJC_STATIC_FIELD_GETTER(CLASS, FIELD, TYPE) \
-  __attribute__((always_inline)) inline TYPE CLASS##_get_##FIELD() { \
-    CLASS##_initialize(); \
-    return CLASS##_##FIELD; \
-  }
-#define J2OBJC_STATIC_VOLATILE_FIELD_GETTER(CLASS, FIELD, TYPE) \
-  __attribute__((always_inline)) inline TYPE CLASS##_get_##FIELD() { \
-    CLASS##_initialize(); \
-    return __c11_atomic_load(&CLASS##_##FIELD, __ATOMIC_SEQ_CST); \
-  }
-#define J2OBJC_STATIC_VOLATILE_OBJ_FIELD_GETTER(CLASS, FIELD, TYPE) \
-  __attribute__((always_inline)) inline TYPE CLASS##_get_##FIELD() { \
-    CLASS##_initialize(); \
-    return (__bridge TYPE)__c11_atomic_load(&CLASS##_##FIELD, __ATOMIC_SEQ_CST); \
-  }
-
-/*!
- * Defines the reference getter for a static variable. For class "Foo" and field
- * "bar_" with type "int" the getter will have the following signature:
- *   inline int *Foo_getRef_bar_();
- *
- * @define J2OBJC_STATIC_FIELD_REF_GETTER
- * @param CLASS The class containing the static variable.
- * @param FIELD The name of the static variable.
- * @param TYPE The type of the static variable.
- */
-#define J2OBJC_STATIC_FIELD_REF_GETTER(CLASS, FIELD, TYPE) \
-  __attribute__((always_inline)) inline TYPE *CLASS##_getRef_##FIELD() { \
-    CLASS##_initialize(); \
-    return &CLASS##_##FIELD; \
-  }
-
-/*!
- * Defines the setter for a static variable with an object type. For class "Foo"
- * and field "bar_" with type "NSString *" the getter will have the following
- * signature:
- *   inline NSString *Foo_set_bar_(NSString *value);
- *
- * @define J2OBJC_STATIC_FIELD_SETTER
- * @param CLASS The class containing the static variable.
- * @param FIELD The name of the static variable.
- * @param TYPE The type of the static variable.
- */
-#if __has_feature(objc_arc)
-#define J2OBJC_STATIC_FIELD_SETTER(CLASS, FIELD, TYPE) \
-  __attribute__((always_inline)) inline TYPE CLASS##_set_##FIELD(TYPE value) { \
-    CLASS##_initialize(); \
-    return CLASS##_##FIELD = value; \
-  }
-#else
-#define J2OBJC_STATIC_FIELD_SETTER(CLASS, FIELD, TYPE) \
-  __attribute__((always_inline)) inline TYPE CLASS##_set_##FIELD(TYPE value) { \
-    CLASS##_initialize(); \
-    return JreStrongAssign(&CLASS##_##FIELD, value); \
-  } \
-  __attribute__((always_inline)) inline TYPE CLASS##_setAndConsume_##FIELD(TYPE value) { \
-    CLASS##_initialize(); \
-    return JreStrongAssignAndConsume(&CLASS##_##FIELD, value); \
-  }
-#endif
-
-#define J2OBJC_STATIC_VOLATILE_FIELD_SETTER(CLASS, FIELD, TYPE) \
-  __attribute__((always_inline)) inline TYPE CLASS##_set_##FIELD(TYPE value) { \
-    CLASS##_initialize(); \
-    __c11_atomic_store(&CLASS##_##FIELD, value, __ATOMIC_SEQ_CST); \
-    return value; \
-  }
-#define J2OBJC_STATIC_VOLATILE_OBJ_FIELD_SETTER(CLASS, FIELD, TYPE) \
-  __attribute__((always_inline)) inline TYPE CLASS##_set_##FIELD(TYPE value) { \
-    CLASS##_initialize(); \
-    return JreVolatileStrongAssign(&CLASS##_##FIELD, value); \
-  }
-
-/*!
- * Defines the getter for an enum constant. For enum class "FooEnum" and constant "BAR"
- * the getter will have the following signature:
- *   inline Foo *FooEnum_BAR();
- *
- * @define J2OBJC_ENUM_CONSTANT_GETTER
- * @param CLASS The enum class (must end in "Enum").
- * @param CONSTANT The name of the enum constant.
- */
-#define J2OBJC_ENUM_CONSTANT_GETTER(CLASS, CONSTANT) \
-  __attribute__((always_inline)) inline CLASS *CLASS##_get_##CONSTANT() { \
-    CLASS##_initialize(); \
-    return CLASS##_##CONSTANT; \
   }
 
 /*!

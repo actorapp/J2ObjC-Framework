@@ -3,12 +3,55 @@
 //  source: /Users/tball/tmp/j2objc/inject/javax_inject/build_result/java/javax/inject/Qualifier.java
 //
 
-#ifndef _JavaxInjectQualifier_H_
-#define _JavaxInjectQualifier_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxInjectQualifier_INCLUDE_ALL")
+#ifdef JavaxInjectQualifier_RESTRICT
+#define JavaxInjectQualifier_INCLUDE_ALL 0
+#else
+#define JavaxInjectQualifier_INCLUDE_ALL 1
+#endif
+#undef JavaxInjectQualifier_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxInjectQualifier_) && (JavaxInjectQualifier_INCLUDE_ALL || defined(JavaxInjectQualifier_INCLUDE))
+#define JavaxInjectQualifier_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../java/lang/annotation/Annotation.h"
 
+/*!
+ @brief Identifies qualifier annotations.
+ Anyone can define a new qualifier. A
+ qualifier annotation:
+ <ul>
+ <li>is annotated with <code>@@Qualifier</code>, <code>@@Retention(RUNTIME)</code>,
+ and typically <code>@@Documented</code>.</li>
+ <li>can have attributes.</li>
+ <li>may be part of the public API, much like the dependency type, but
+ unlike implementation types which needn't be part of the public
+ API.</li>
+ <li>may have restricted usage if annotated with <code>@@Target</code>. While
+ this specification covers applying qualifiers to fields and
+ parameters only, some injector configurations might use qualifier
+ annotations in other places (on methods or classes for example).</li>
+ </ul>
+ <p>For example:
+ @code
+
+   &#064;java.lang.annotation.Documented
+   &#064;java.lang.annotation.Retention(RUNTIME)
+   &#064;javax.inject.Qualifier
+   public @@interface Leather {
+     Color color() default Color.TAN;
+     public enum Color { RED, BLACK, TAN }
+   
+@endcode
+ - seealso: javax.inject.Named @@Named
+ */
 @protocol JavaxInjectQualifier < JavaLangAnnotationAnnotation >
 
 @end
@@ -21,4 +64,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxInjectQualifier)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxInjectQualifier)
 
-#endif // _JavaxInjectQualifier_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxInjectQualifier_INCLUDE_ALL")

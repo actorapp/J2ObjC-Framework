@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/AccessController.java
 //
 
-#ifndef _JavaSecurityAccessController_H_
-#define _JavaSecurityAccessController_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityAccessController_INCLUDE_ALL")
+#ifdef JavaSecurityAccessController_RESTRICT
+#define JavaSecurityAccessController_INCLUDE_ALL 0
+#else
+#define JavaSecurityAccessController_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityAccessController_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityAccessController_) && (JavaSecurityAccessController_INCLUDE_ALL || defined(JavaSecurityAccessController_INCLUDE))
+#define JavaSecurityAccessController_
 
 @class JavaSecurityAccessControlContext;
 @class JavaSecurityPermission;
@@ -78,4 +89,8 @@ FOUNDATION_EXPORT JavaSecurityAccessControlContext *JavaSecurityAccessController
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAccessController)
 
-#endif // _JavaSecurityAccessController_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityAccessController_INCLUDE_ALL")

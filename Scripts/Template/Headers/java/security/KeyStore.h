@@ -3,17 +3,41 @@
 //  source: android/libcore/luni/src/main/java/java/security/KeyStore.java
 //
 
-#ifndef _JavaSecurityKeyStore_H_
-#define _JavaSecurityKeyStore_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../javax/security/auth/Destroyable.h"
+
+#pragma push_macro("JavaSecurityKeyStore_INCLUDE_ALL")
+#ifdef JavaSecurityKeyStore_RESTRICT
+#define JavaSecurityKeyStore_INCLUDE_ALL 0
+#else
+#define JavaSecurityKeyStore_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityKeyStore_RESTRICT
+#ifdef JavaSecurityKeyStore_TrustedCertificateEntry_INCLUDE
+#define JavaSecurityKeyStore_Entry_INCLUDE 1
+#endif
+#ifdef JavaSecurityKeyStore_SecretKeyEntry_INCLUDE
+#define JavaSecurityKeyStore_Entry_INCLUDE 1
+#endif
+#ifdef JavaSecurityKeyStore_PrivateKeyEntry_INCLUDE
+#define JavaSecurityKeyStore_Entry_INCLUDE 1
+#endif
+#ifdef JavaSecurityKeyStore_PasswordProtection_INCLUDE
+#define JavaSecurityKeyStore_ProtectionParameter_INCLUDE 1
+#endif
+#ifdef JavaSecurityKeyStore_CallbackHandlerProtection_INCLUDE
+#define JavaSecurityKeyStore_ProtectionParameter_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityKeyStore_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_INCLUDE))
+#define JavaSecurityKeyStore_
 
 @class IOSByteArray;
 @class IOSCharArray;
 @class IOSClass;
 @class IOSObjectArray;
-@class JavaIoFile;
 @class JavaIoInputStream;
 @class JavaIoOutputStream;
 @class JavaSecurityCertCertificate;
@@ -24,10 +48,7 @@
 @protocol JavaSecurityKeyStore_Entry;
 @protocol JavaSecurityKeyStore_LoadStoreParameter;
 @protocol JavaSecurityKeyStore_ProtectionParameter;
-@protocol JavaSecurityPrivateKey;
 @protocol JavaUtilEnumeration;
-@protocol JavaxCryptoSecretKey;
-@protocol JavaxSecurityAuthCallbackCallbackHandler;
 
 /*!
  @brief <code>KeyStore</code> is responsible for maintaining cryptographic keys and their
@@ -36,6 +57,8 @@
  The type of the system key store can be changed by setting the <code>'keystore.type'</code>
   property in the file named <code>JAVA_HOME/lib/security/java.security</code>
  .
+ - seealso: Certificate
+ - seealso: PrivateKey
  */
 @interface JavaSecurityKeyStore : NSObject
 
@@ -172,6 +195,7 @@
  if an error occurred during the creation of the new <code>KeyStore</code>
  .
  @throws NullPointerException if <code>type == null</code>
+ - seealso: #getDefaultType
  */
 + (JavaSecurityKeyStore *)getInstanceWithNSString:(NSString *)type;
 
@@ -193,6 +217,7 @@
  if <code>provider</code> is <code>null</code> or the empty string.
  @throws NullPointerException if <code>type == null</code> (instead of
  NoSuchAlgorithmException) as in 1.4 release
+ - seealso: #getDefaultType
  */
 + (JavaSecurityKeyStore *)getInstanceWithNSString:(NSString *)type
                          withJavaSecurityProvider:(JavaSecurityProvider *)provider;
@@ -215,6 +240,7 @@
  @throws NullPointerException
  if <code>type</code> is <code>null</code> (instead of
  NoSuchAlgorithmException) as in 1.4 release
+ - seealso: #getDefaultType
  */
 + (JavaSecurityKeyStore *)getInstanceWithNSString:(NSString *)type
                                      withNSString:(NSString *)provider;
@@ -489,6 +515,16 @@ FOUNDATION_EXPORT NSString *JavaSecurityKeyStore_getDefaultType();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore)
 
+#endif
+
+#if !defined (JavaSecurityKeyStore_Builder_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_Builder_INCLUDE))
+#define JavaSecurityKeyStore_Builder_
+
+@class JavaIoFile;
+@class JavaSecurityKeyStore;
+@class JavaSecurityProvider;
+@protocol JavaSecurityKeyStore_ProtectionParameter;
+
 /*!
  @brief <code>Builder</code> is used to construct new instances of <code>KeyStore</code>.
  */
@@ -628,9 +664,18 @@ FOUNDATION_EXPORT JavaSecurityKeyStore_Builder *JavaSecurityKeyStore_Builder_new
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_Builder)
 
+#endif
+
+#if !defined (JavaSecurityKeyStore_LoadStoreParameter_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_LoadStoreParameter_INCLUDE))
+#define JavaSecurityKeyStore_LoadStoreParameter_
+
+@protocol JavaSecurityKeyStore_ProtectionParameter;
+
 /*!
  @brief <code>LoadStoreParameter</code> represents a parameter that specifies how a
  <code>KeyStore</code> can be loaded and stored.
+ - seealso: KeyStore#load(LoadStoreParameter)
+ - seealso: KeyStore#store(LoadStoreParameter)
  */
 @protocol JavaSecurityKeyStore_LoadStoreParameter < NSObject, JavaObject >
 
@@ -648,6 +693,11 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecurityKeyStore_LoadStoreParameter)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_LoadStoreParameter)
 
+#endif
+
+#if !defined (JavaSecurityKeyStore_ProtectionParameter_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_ProtectionParameter_INCLUDE))
+#define JavaSecurityKeyStore_ProtectionParameter_
+
 /*!
  @brief <code>ProtectionParameter</code> is a marker interface for protection
  parameters.
@@ -661,6 +711,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_LoadStoreParameter)
 J2OBJC_EMPTY_STATIC_INIT(JavaSecurityKeyStore_ProtectionParameter)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_ProtectionParameter)
+
+#endif
+
+#if !defined (JavaSecurityKeyStore_CallbackHandlerProtection_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_CallbackHandlerProtection_INCLUDE))
+#define JavaSecurityKeyStore_CallbackHandlerProtection_
+
+@protocol JavaxSecurityAuthCallbackCallbackHandler;
 
 /*!
  @brief <code>CallbackHandlerProtection</code> is a <code>ProtectionParameter</code> that
@@ -696,6 +753,11 @@ FOUNDATION_EXPORT JavaSecurityKeyStore_CallbackHandlerProtection *new_JavaSecuri
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_CallbackHandlerProtection)
 
+#endif
+
+#if !defined (JavaSecurityKeyStore_Entry_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_Entry_INCLUDE))
+#define JavaSecurityKeyStore_Entry_
+
 /*!
  @brief <code>Entry</code> is the common marker interface for a <code>KeyStore</code>
  entry.
@@ -707,6 +769,17 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_CallbackHandlerProtection)
 J2OBJC_EMPTY_STATIC_INIT(JavaSecurityKeyStore_Entry)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_Entry)
+
+#endif
+
+#if !defined (JavaSecurityKeyStore_PasswordProtection_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_PasswordProtection_INCLUDE))
+#define JavaSecurityKeyStore_PasswordProtection_
+
+#define JavaxSecurityAuthDestroyable_RESTRICT 1
+#define JavaxSecurityAuthDestroyable_INCLUDE 1
+#include "../../javax/security/auth/Destroyable.h"
+
+@class IOSCharArray;
 
 /*!
  @brief <code>PasswordProtection</code> is a <code>ProtectionParameter</code> that protects
@@ -757,6 +830,15 @@ FOUNDATION_EXPORT void JavaSecurityKeyStore_PasswordProtection_initWithCharArray
 FOUNDATION_EXPORT JavaSecurityKeyStore_PasswordProtection *new_JavaSecurityKeyStore_PasswordProtection_initWithCharArray_(IOSCharArray *password) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_PasswordProtection)
+
+#endif
+
+#if !defined (JavaSecurityKeyStore_PrivateKeyEntry_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_PrivateKeyEntry_INCLUDE))
+#define JavaSecurityKeyStore_PrivateKeyEntry_
+
+@class IOSObjectArray;
+@class JavaSecurityCertCertificate;
+@protocol JavaSecurityPrivateKey;
 
 /*!
  @brief <code>PrivateKeyEntry</code> represents a <code>KeyStore</code> entry that
@@ -820,6 +902,13 @@ FOUNDATION_EXPORT JavaSecurityKeyStore_PrivateKeyEntry *new_JavaSecurityKeyStore
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_PrivateKeyEntry)
 
+#endif
+
+#if !defined (JavaSecurityKeyStore_SecretKeyEntry_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_SecretKeyEntry_INCLUDE))
+#define JavaSecurityKeyStore_SecretKeyEntry_
+
+@protocol JavaxCryptoSecretKey;
+
 /*!
  @brief <code>SecretKeyEntry</code> represents a <code>KeyStore</code> entry that
  holds a secret key.
@@ -861,6 +950,13 @@ FOUNDATION_EXPORT void JavaSecurityKeyStore_SecretKeyEntry_initWithJavaxCryptoSe
 FOUNDATION_EXPORT JavaSecurityKeyStore_SecretKeyEntry *new_JavaSecurityKeyStore_SecretKeyEntry_initWithJavaxCryptoSecretKey_(id<JavaxCryptoSecretKey> secretKey) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_SecretKeyEntry)
+
+#endif
+
+#if !defined (JavaSecurityKeyStore_TrustedCertificateEntry_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_TrustedCertificateEntry_INCLUDE))
+#define JavaSecurityKeyStore_TrustedCertificateEntry_
+
+@class JavaSecurityCertCertificate;
 
 /*!
  @brief <code>TrustedCertificateEntry</code> represents a <code>KeyStore</code> entry that
@@ -904,4 +1000,8 @@ FOUNDATION_EXPORT JavaSecurityKeyStore_TrustedCertificateEntry *new_JavaSecurity
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_TrustedCertificateEntry)
 
-#endif // _JavaSecurityKeyStore_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityKeyStore_INCLUDE_ALL")

@@ -3,52 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/net/HttpURLConnection.java
 //
 
-#ifndef _JavaNetHttpURLConnection_H_
-#define _JavaNetHttpURLConnection_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetHttpURLConnection_INCLUDE_ALL")
+#ifdef JavaNetHttpURLConnection_RESTRICT
+#define JavaNetHttpURLConnection_INCLUDE_ALL 0
+#else
+#define JavaNetHttpURLConnection_INCLUDE_ALL 1
+#endif
+#undef JavaNetHttpURLConnection_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetHttpURLConnection_) && (JavaNetHttpURLConnection_INCLUDE_ALL || defined(JavaNetHttpURLConnection_INCLUDE))
+#define JavaNetHttpURLConnection_
+
+#define JavaNetURLConnection_RESTRICT 1
+#define JavaNetURLConnection_INCLUDE 1
 #include "../../java/net/URLConnection.h"
 
 @class JavaIoInputStream;
 @class JavaNetURL;
 @class JavaSecurityPermission;
-
-#define JavaNetHttpURLConnection_HTTP_ACCEPTED 202
-#define JavaNetHttpURLConnection_HTTP_BAD_GATEWAY 502
-#define JavaNetHttpURLConnection_HTTP_BAD_METHOD 405
-#define JavaNetHttpURLConnection_HTTP_BAD_REQUEST 400
-#define JavaNetHttpURLConnection_HTTP_CLIENT_TIMEOUT 408
-#define JavaNetHttpURLConnection_HTTP_CONFLICT 409
-#define JavaNetHttpURLConnection_HTTP_CREATED 201
-#define JavaNetHttpURLConnection_HTTP_ENTITY_TOO_LARGE 413
-#define JavaNetHttpURLConnection_HTTP_FORBIDDEN 403
-#define JavaNetHttpURLConnection_HTTP_GATEWAY_TIMEOUT 504
-#define JavaNetHttpURLConnection_HTTP_GONE 410
-#define JavaNetHttpURLConnection_HTTP_INTERNAL_ERROR 500
-#define JavaNetHttpURLConnection_HTTP_LENGTH_REQUIRED 411
-#define JavaNetHttpURLConnection_HTTP_MOVED_PERM 301
-#define JavaNetHttpURLConnection_HTTP_MOVED_TEMP 302
-#define JavaNetHttpURLConnection_HTTP_MULT_CHOICE 300
-#define JavaNetHttpURLConnection_HTTP_NO_CONTENT 204
-#define JavaNetHttpURLConnection_HTTP_NOT_ACCEPTABLE 406
-#define JavaNetHttpURLConnection_HTTP_NOT_AUTHORITATIVE 203
-#define JavaNetHttpURLConnection_HTTP_NOT_FOUND 404
-#define JavaNetHttpURLConnection_HTTP_NOT_IMPLEMENTED 501
-#define JavaNetHttpURLConnection_HTTP_NOT_MODIFIED 304
-#define JavaNetHttpURLConnection_HTTP_OK 200
-#define JavaNetHttpURLConnection_HTTP_PARTIAL 206
-#define JavaNetHttpURLConnection_HTTP_PAYMENT_REQUIRED 402
-#define JavaNetHttpURLConnection_HTTP_PRECON_FAILED 412
-#define JavaNetHttpURLConnection_HTTP_PROXY_AUTH 407
-#define JavaNetHttpURLConnection_HTTP_REQ_TOO_LONG 414
-#define JavaNetHttpURLConnection_HTTP_RESET 205
-#define JavaNetHttpURLConnection_HTTP_SEE_OTHER 303
-#define JavaNetHttpURLConnection_HTTP_SERVER_ERROR 500
-#define JavaNetHttpURLConnection_HTTP_USE_PROXY 305
-#define JavaNetHttpURLConnection_HTTP_UNAUTHORIZED 401
-#define JavaNetHttpURLConnection_HTTP_UNSUPPORTED_TYPE 415
-#define JavaNetHttpURLConnection_HTTP_UNAVAILABLE 503
-#define JavaNetHttpURLConnection_HTTP_VERSION 505
 
 /*!
  @brief An <code>URLConnection</code> for HTTP (<a
@@ -326,6 +303,78 @@
   jlong fixedContentLengthLong_;
 }
 
++ (jint)HTTP_ACCEPTED;
+
++ (jint)HTTP_BAD_GATEWAY;
+
++ (jint)HTTP_BAD_METHOD;
+
++ (jint)HTTP_BAD_REQUEST;
+
++ (jint)HTTP_CLIENT_TIMEOUT;
+
++ (jint)HTTP_CONFLICT;
+
++ (jint)HTTP_CREATED;
+
++ (jint)HTTP_ENTITY_TOO_LARGE;
+
++ (jint)HTTP_FORBIDDEN;
+
++ (jint)HTTP_GATEWAY_TIMEOUT;
+
++ (jint)HTTP_GONE;
+
++ (jint)HTTP_INTERNAL_ERROR;
+
++ (jint)HTTP_LENGTH_REQUIRED;
+
++ (jint)HTTP_MOVED_PERM;
+
++ (jint)HTTP_MOVED_TEMP;
+
++ (jint)HTTP_MULT_CHOICE;
+
++ (jint)HTTP_NO_CONTENT;
+
++ (jint)HTTP_NOT_ACCEPTABLE;
+
++ (jint)HTTP_NOT_AUTHORITATIVE;
+
++ (jint)HTTP_NOT_FOUND;
+
++ (jint)HTTP_NOT_IMPLEMENTED;
+
++ (jint)HTTP_NOT_MODIFIED;
+
++ (jint)HTTP_OK;
+
++ (jint)HTTP_PARTIAL;
+
++ (jint)HTTP_PAYMENT_REQUIRED;
+
++ (jint)HTTP_PRECON_FAILED;
+
++ (jint)HTTP_PROXY_AUTH;
+
++ (jint)HTTP_REQ_TOO_LONG;
+
++ (jint)HTTP_RESET;
+
++ (jint)HTTP_SEE_OTHER;
+
++ (jint)HTTP_SERVER_ERROR;
+
++ (jint)HTTP_USE_PROXY;
+
++ (jint)HTTP_UNAUTHORIZED;
+
++ (jint)HTTP_UNSUPPORTED_TYPE;
+
++ (jint)HTTP_UNAVAILABLE;
+
++ (jint)HTTP_VERSION;
+
 #pragma mark Public
 
 /*!
@@ -362,6 +411,7 @@
  It is
  enabled by default.
  @return the value of the flag.
+ - seealso: #setFollowRedirects
  */
 + (jboolean)getFollowRedirects;
 
@@ -407,6 +457,8 @@
  All possible methods of this HTTP implementation is
  listed in the class definition.
  @return the request method string.
+ - seealso: #method
+ - seealso: #setRequestMethod
  */
 - (NSString *)getRequestMethod;
 
@@ -415,6 +467,7 @@
  @return the response code, -1 if no valid response code.
  @throws IOException
  if there is an IO error during the retrieval.
+ - seealso: #getResponseMessage
  */
 - (jint)getResponseCode;
 
@@ -423,6 +476,7 @@
  @return the response message. <code>null</code> if no such response exists.
  @throws IOException
  if there is an error during the retrieval.
+ - seealso: #getResponseCode()
  */
 - (NSString *)getResponseMessage;
 
@@ -439,6 +493,7 @@
  treated as a hint: chunks sent to the server may actually be larger or
  smaller. To force a chunk to be sent to the server call
  <code>java.io.OutputStream.flush()</code>.
+ - seealso: #setFixedLengthStreamingMode
  @param chunkLength the length to use, or <code>0</code> for the default chunk
  length.
  @throws IllegalStateException if already connected or another mode
@@ -455,6 +510,7 @@
 /*!
  @brief Configures this connection to stream the request body with the known
  fixed byte count of <code>contentLength</code>.
+ - seealso: #setChunkedStreamingMode
  @param contentLength
  the fixed length of the HTTP request body.
  @throws IllegalStateException
@@ -489,6 +545,8 @@
  @throws ProtocolException
  if this is called after connected, or the method is not
  supported by this HTTP implementation.
+ - seealso: #getRequestMethod()
+ - seealso: #method
  */
 - (void)setRequestMethodWithNSString:(NSString *)method;
 
@@ -506,6 +564,8 @@
  resource specified by the <code>url</code>.
  @param url
  the URL of this connection.
+ - seealso: URL
+ - seealso: URLConnection
  */
 - (instancetype)initWithJavaNetURL:(JavaNetURL *)url;
 
@@ -516,77 +576,260 @@ J2OBJC_STATIC_INIT(JavaNetHttpURLConnection)
 J2OBJC_FIELD_SETTER(JavaNetHttpURLConnection, method_, NSString *)
 J2OBJC_FIELD_SETTER(JavaNetHttpURLConnection, responseMessage_, NSString *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_ACCEPTED, jint)
+/*!
+ @brief Numeric status code, 202: Accepted
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_ACCEPTED();
+#define JavaNetHttpURLConnection_HTTP_ACCEPTED 202
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_ACCEPTED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_BAD_GATEWAY, jint)
+/*!
+ @brief Numeric status code, 502: Bad Gateway
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_BAD_GATEWAY();
+#define JavaNetHttpURLConnection_HTTP_BAD_GATEWAY 502
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_BAD_GATEWAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_BAD_METHOD, jint)
+/*!
+ @brief Numeric status code, 405: Bad Method
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_BAD_METHOD();
+#define JavaNetHttpURLConnection_HTTP_BAD_METHOD 405
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_BAD_METHOD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_BAD_REQUEST, jint)
+/*!
+ @brief Numeric status code, 400: Bad Request
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_BAD_REQUEST();
+#define JavaNetHttpURLConnection_HTTP_BAD_REQUEST 400
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_BAD_REQUEST, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_CLIENT_TIMEOUT, jint)
+/*!
+ @brief Numeric status code, 408: Client Timeout
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_CLIENT_TIMEOUT();
+#define JavaNetHttpURLConnection_HTTP_CLIENT_TIMEOUT 408
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_CLIENT_TIMEOUT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_CONFLICT, jint)
+/*!
+ @brief Numeric status code, 409: Conflict
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_CONFLICT();
+#define JavaNetHttpURLConnection_HTTP_CONFLICT 409
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_CONFLICT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_CREATED, jint)
+/*!
+ @brief Numeric status code, 201: Created
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_CREATED();
+#define JavaNetHttpURLConnection_HTTP_CREATED 201
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_CREATED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_ENTITY_TOO_LARGE, jint)
+/*!
+ @brief Numeric status code, 413: Entity too large
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_ENTITY_TOO_LARGE();
+#define JavaNetHttpURLConnection_HTTP_ENTITY_TOO_LARGE 413
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_ENTITY_TOO_LARGE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_FORBIDDEN, jint)
+/*!
+ @brief Numeric status code, 403: Forbidden
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_FORBIDDEN();
+#define JavaNetHttpURLConnection_HTTP_FORBIDDEN 403
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_FORBIDDEN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_GATEWAY_TIMEOUT, jint)
+/*!
+ @brief Numeric status code, 504: Gateway timeout
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_GATEWAY_TIMEOUT();
+#define JavaNetHttpURLConnection_HTTP_GATEWAY_TIMEOUT 504
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_GATEWAY_TIMEOUT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_GONE, jint)
+/*!
+ @brief Numeric status code, 410: Gone
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_GONE();
+#define JavaNetHttpURLConnection_HTTP_GONE 410
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_GONE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_INTERNAL_ERROR, jint)
+/*!
+ @brief Numeric status code, 500: Internal error
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_INTERNAL_ERROR();
+#define JavaNetHttpURLConnection_HTTP_INTERNAL_ERROR 500
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_INTERNAL_ERROR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_LENGTH_REQUIRED, jint)
+/*!
+ @brief Numeric status code, 411: Length required
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_LENGTH_REQUIRED();
+#define JavaNetHttpURLConnection_HTTP_LENGTH_REQUIRED 411
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_LENGTH_REQUIRED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_MOVED_PERM, jint)
+/*!
+ @brief Numeric status code, 301 Moved permanently
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_MOVED_PERM();
+#define JavaNetHttpURLConnection_HTTP_MOVED_PERM 301
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_MOVED_PERM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_MOVED_TEMP, jint)
+/*!
+ @brief Numeric status code, 302: Moved temporarily
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_MOVED_TEMP();
+#define JavaNetHttpURLConnection_HTTP_MOVED_TEMP 302
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_MOVED_TEMP, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_MULT_CHOICE, jint)
+/*!
+ @brief Numeric status code, 300: Multiple choices
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_MULT_CHOICE();
+#define JavaNetHttpURLConnection_HTTP_MULT_CHOICE 300
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_MULT_CHOICE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_NO_CONTENT, jint)
+/*!
+ @brief Numeric status code, 204: No content
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_NO_CONTENT();
+#define JavaNetHttpURLConnection_HTTP_NO_CONTENT 204
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_NO_CONTENT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_NOT_ACCEPTABLE, jint)
+/*!
+ @brief Numeric status code, 406: Not acceptable
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_NOT_ACCEPTABLE();
+#define JavaNetHttpURLConnection_HTTP_NOT_ACCEPTABLE 406
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_NOT_ACCEPTABLE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_NOT_AUTHORITATIVE, jint)
+/*!
+ @brief Numeric status code, 203: Not authoritative
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_NOT_AUTHORITATIVE();
+#define JavaNetHttpURLConnection_HTTP_NOT_AUTHORITATIVE 203
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_NOT_AUTHORITATIVE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_NOT_FOUND, jint)
+/*!
+ @brief Numeric status code, 404: Not found
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_NOT_FOUND();
+#define JavaNetHttpURLConnection_HTTP_NOT_FOUND 404
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_NOT_FOUND, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_NOT_IMPLEMENTED, jint)
+/*!
+ @brief Numeric status code, 501: Not implemented
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_NOT_IMPLEMENTED();
+#define JavaNetHttpURLConnection_HTTP_NOT_IMPLEMENTED 501
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_NOT_IMPLEMENTED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_NOT_MODIFIED, jint)
+/*!
+ @brief Numeric status code, 304: Not modified
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_NOT_MODIFIED();
+#define JavaNetHttpURLConnection_HTTP_NOT_MODIFIED 304
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_NOT_MODIFIED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_OK, jint)
+/*!
+ @brief Numeric status code, 200: OK
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_OK();
+#define JavaNetHttpURLConnection_HTTP_OK 200
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_OK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_PARTIAL, jint)
+/*!
+ @brief Numeric status code, 206: Partial
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_PARTIAL();
+#define JavaNetHttpURLConnection_HTTP_PARTIAL 206
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_PARTIAL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_PAYMENT_REQUIRED, jint)
+/*!
+ @brief Numeric status code, 402: Payment required
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_PAYMENT_REQUIRED();
+#define JavaNetHttpURLConnection_HTTP_PAYMENT_REQUIRED 402
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_PAYMENT_REQUIRED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_PRECON_FAILED, jint)
+/*!
+ @brief Numeric status code, 412: Precondition failed
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_PRECON_FAILED();
+#define JavaNetHttpURLConnection_HTTP_PRECON_FAILED 412
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_PRECON_FAILED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_PROXY_AUTH, jint)
+/*!
+ @brief Numeric status code, 407: Proxy authentication required
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_PROXY_AUTH();
+#define JavaNetHttpURLConnection_HTTP_PROXY_AUTH 407
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_PROXY_AUTH, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_REQ_TOO_LONG, jint)
+/*!
+ @brief Numeric status code, 414: Request too long
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_REQ_TOO_LONG();
+#define JavaNetHttpURLConnection_HTTP_REQ_TOO_LONG 414
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_REQ_TOO_LONG, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_RESET, jint)
+/*!
+ @brief Numeric status code, 205: Reset
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_RESET();
+#define JavaNetHttpURLConnection_HTTP_RESET 205
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_RESET, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_SEE_OTHER, jint)
+/*!
+ @brief Numeric status code, 303: See other
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_SEE_OTHER();
+#define JavaNetHttpURLConnection_HTTP_SEE_OTHER 303
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_SEE_OTHER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_SERVER_ERROR, jint)
+/*!
+ @brief Numeric status code, 500: Internal error
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_SERVER_ERROR();
+#define JavaNetHttpURLConnection_HTTP_SERVER_ERROR 500
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_SERVER_ERROR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_USE_PROXY, jint)
+/*!
+ @brief Numeric status code, 305: Use proxy.
+ <p>Like Firefox and Chrome, this class doesn't honor this response code.
+ Other implementations respond to this status code by retrying the request
+ using the HTTP proxy named by the response's Location header field.
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_USE_PROXY();
+#define JavaNetHttpURLConnection_HTTP_USE_PROXY 305
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_USE_PROXY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_UNAUTHORIZED, jint)
+/*!
+ @brief Numeric status code, 401: Unauthorized
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_UNAUTHORIZED();
+#define JavaNetHttpURLConnection_HTTP_UNAUTHORIZED 401
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_UNAUTHORIZED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_UNSUPPORTED_TYPE, jint)
+/*!
+ @brief Numeric status code, 415: Unsupported type
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_UNSUPPORTED_TYPE();
+#define JavaNetHttpURLConnection_HTTP_UNSUPPORTED_TYPE 415
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_UNSUPPORTED_TYPE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_UNAVAILABLE, jint)
+/*!
+ @brief Numeric status code, 503: Unavailable
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_UNAVAILABLE();
+#define JavaNetHttpURLConnection_HTTP_UNAVAILABLE 503
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_UNAVAILABLE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetHttpURLConnection, HTTP_VERSION, jint)
+/*!
+ @brief Numeric status code, 505: Version not supported
+ */
+inline jint JavaNetHttpURLConnection_get_HTTP_VERSION();
+#define JavaNetHttpURLConnection_HTTP_VERSION 505
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetHttpURLConnection, HTTP_VERSION, jint)
 
 FOUNDATION_EXPORT void JavaNetHttpURLConnection_initWithJavaNetURL_(JavaNetHttpURLConnection *self, JavaNetURL *url);
 
@@ -596,4 +839,8 @@ FOUNDATION_EXPORT void JavaNetHttpURLConnection_setFollowRedirectsWithBoolean_(j
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpURLConnection)
 
-#endif // _JavaNetHttpURLConnection_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetHttpURLConnection_INCLUDE_ALL")

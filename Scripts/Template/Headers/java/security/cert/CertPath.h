@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CertPath.java
 //
 
-#ifndef _JavaSecurityCertCertPath_H_
-#define _JavaSecurityCertCertPath_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCertPath_INCLUDE_ALL")
+#ifdef JavaSecurityCertCertPath_RESTRICT
+#define JavaSecurityCertCertPath_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCertPath_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCertPath_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCertPath_) && (JavaSecurityCertCertPath_INCLUDE_ALL || defined(JavaSecurityCertCertPath_INCLUDE))
+#define JavaSecurityCertCertPath_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -24,6 +38,7 @@
  When a <code>List</code> of the certificates is obtained it must be immutable.
  <p>
  A <code>CertPath</code> must be thread-safe without requiring coordinated access.
+ - seealso: Certificate
  */
 @interface JavaSecurityCertCertPath : NSObject < JavaIoSerializable >
 
@@ -123,6 +138,17 @@ FOUNDATION_EXPORT void JavaSecurityCertCertPath_initWithNSString_(JavaSecurityCe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPath)
 
+#endif
+
+#if !defined (JavaSecurityCertCertPath_CertPathRep_) && (JavaSecurityCertCertPath_INCLUDE_ALL || defined(JavaSecurityCertCertPath_CertPathRep_INCLUDE))
+#define JavaSecurityCertCertPath_CertPathRep_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
+@class IOSByteArray;
+
 /*!
  @brief The alternate <code>Serializable</code> class to be used for serialization and
  deserialization on <code>CertPath</code> objects.
@@ -161,4 +187,8 @@ FOUNDATION_EXPORT JavaSecurityCertCertPath_CertPathRep *new_JavaSecurityCertCert
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPath_CertPathRep)
 
-#endif // _JavaSecurityCertCertPath_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCertPath_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/XMLFormatter.java
 //
 
-#ifndef _JavaUtilLoggingXMLFormatter_H_
-#define _JavaUtilLoggingXMLFormatter_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLoggingXMLFormatter_INCLUDE_ALL")
+#ifdef JavaUtilLoggingXMLFormatter_RESTRICT
+#define JavaUtilLoggingXMLFormatter_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingXMLFormatter_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingXMLFormatter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingXMLFormatter_) && (JavaUtilLoggingXMLFormatter_INCLUDE_ALL || defined(JavaUtilLoggingXMLFormatter_INCLUDE))
+#define JavaUtilLoggingXMLFormatter_
+
+#define JavaUtilLoggingFormatter_RESTRICT 1
+#define JavaUtilLoggingFormatter_INCLUDE 1
 #include "../../../java/util/logging/Formatter.h"
 
 @class JavaUtilLoggingHandler;
@@ -66,4 +80,8 @@ FOUNDATION_EXPORT JavaUtilLoggingXMLFormatter *new_JavaUtilLoggingXMLFormatter_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingXMLFormatter)
 
-#endif // _JavaUtilLoggingXMLFormatter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingXMLFormatter_INCLUDE_ALL")

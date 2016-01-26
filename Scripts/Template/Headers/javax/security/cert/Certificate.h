@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/security/cert/Certificate.java
 //
 
-#ifndef _JavaxSecurityCertCertificate_H_
-#define _JavaxSecurityCertCertificate_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxSecurityCertCertificate_INCLUDE_ALL")
+#ifdef JavaxSecurityCertCertificate_RESTRICT
+#define JavaxSecurityCertCertificate_INCLUDE_ALL 0
+#else
+#define JavaxSecurityCertCertificate_INCLUDE_ALL 1
+#endif
+#undef JavaxSecurityCertCertificate_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxSecurityCertCertificate_) && (JavaxSecurityCertCertificate_INCLUDE_ALL || defined(JavaxSecurityCertCertificate_INCLUDE))
+#define JavaxSecurityCertCertificate_
 
 @class IOSByteArray;
 @protocol JavaSecurityPublicKey;
@@ -40,6 +51,7 @@
  the <code>Certificate</code> to compare with this object
  @return <code>true</code> if <code>obj</code> is the same as this
  <code>Certificate</code>, <code>false</code> otherwise
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)obj;
 
@@ -63,6 +75,7 @@
  return <code>true</code> when passed to <code>equals</code> must answer
  the same value for this method.
  @return the receiver's hash
+ - seealso: #equals
  */
 - (NSUInteger)hash;
 
@@ -120,4 +133,8 @@ FOUNDATION_EXPORT void JavaxSecurityCertCertificate_init(JavaxSecurityCertCertif
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificate)
 
-#endif // _JavaxSecurityCertCertificate_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxSecurityCertCertificate_INCLUDE_ALL")

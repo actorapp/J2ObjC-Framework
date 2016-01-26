@@ -3,15 +3,41 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/DatagramChannel.java
 //
 
-#ifndef _JavaNioChannelsDatagramChannel_H_
-#define _JavaNioChannelsDatagramChannel_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/nio/channels/ByteChannel.h"
-#include "../../../java/nio/channels/GatheringByteChannel.h"
-#include "../../../java/nio/channels/NetworkChannel.h"
-#include "../../../java/nio/channels/ScatteringByteChannel.h"
+
+#pragma push_macro("JavaNioChannelsDatagramChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsDatagramChannel_RESTRICT
+#define JavaNioChannelsDatagramChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsDatagramChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsDatagramChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsDatagramChannel_) && (JavaNioChannelsDatagramChannel_INCLUDE_ALL || defined(JavaNioChannelsDatagramChannel_INCLUDE))
+#define JavaNioChannelsDatagramChannel_
+
+#define JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT 1
+#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE 1
 #include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
+
+#define JavaNioChannelsByteChannel_RESTRICT 1
+#define JavaNioChannelsByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/ByteChannel.h"
+
+#define JavaNioChannelsScatteringByteChannel_RESTRICT 1
+#define JavaNioChannelsScatteringByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/ScatteringByteChannel.h"
+
+#define JavaNioChannelsGatheringByteChannel_RESTRICT 1
+#define JavaNioChannelsGatheringByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/GatheringByteChannel.h"
+
+#define JavaNioChannelsNetworkChannel_RESTRICT 1
+#define JavaNioChannelsNetworkChannel_INCLUDE 1
+#include "../../../java/nio/channels/NetworkChannel.h"
 
 @class IOSObjectArray;
 @class JavaNetDatagramSocket;
@@ -125,6 +151,7 @@
  not fit in the buffer is discarded. Otherwise, this method has the same
  behavior as the <code>read</code> method in the <code>ReadableByteChannel</code>
  interface.
+ - seealso: java.nio.channels.ReadableByteChannel#read(java.nio.ByteBuffer)
  @param target
  the byte buffer to store the received datagram.
  @return a non-negative number as the number of bytes read, or -1 as the
@@ -154,6 +181,7 @@
  datagram that does not fit in the buffers is discarded. Otherwise, this
  method has the same behavior as the <code>read</code> method in the
  <code>ScatteringByteChannel</code> interface.
+ - seealso: java.nio.channels.ScatteringByteChannel#read(java.nio.ByteBuffer[])
  @param targets
  the byte buffers to store the received datagram.
  @return a non-negative number as the number of bytes read, or -1 if the
@@ -183,6 +211,7 @@
  datagram that does not fit in the buffers is discarded. Otherwise, this
  method has the same behavior as the <code>read</code> method in the
  <code>ScatteringByteChannel</code> interface.
+ - seealso: java.nio.channels.ScatteringByteChannel#read(java.nio.ByteBuffer[],int,int)
  @param targets
  the byte buffers to store the received datagram.
  @param offset
@@ -311,6 +340,7 @@
  Datagram channels support read
  and write operations, so this method returns (
  <code>SelectionKey.OP_READ</code> | <code>SelectionKey.OP_WRITE</code> ).
+ - seealso: java.nio.channels.SelectableChannel#validOps()
  @return valid operations in bit-set.
  */
 - (jint)validOps;
@@ -322,6 +352,7 @@
  and the datagram is sent to the connected address. Otherwise, this method
  has the same behavior as the <code>write</code> method in the
  <code>WritableByteChannel</code> interface.
+ - seealso: java.nio.channels.WritableByteChannel#write(java.nio.ByteBuffer)
  @param source
  the byte buffer as the source of the datagram.
  @return a non-negative number of bytes written.
@@ -348,6 +379,7 @@
  and the datagram is sent to the connected address. Otherwise, this method
  has the same behavior as the write method in the
  <code>GatheringByteChannel</code> interface.
+ - seealso: java.nio.channels.GatheringByteChannel#write(java.nio.ByteBuffer[])
  @param sources
  the byte buffers as the source of the datagram.
  @return the number of bytes written. If this method is called, it returns
@@ -377,6 +409,7 @@
  and the datagram is sent to the connected address. Otherwise, this method
  has the same behavior as the <code>write</code> method in the
  <code>GatheringByteChannel</code> interface.
+ - seealso: java.nio.channels.GatheringByteChannel#write(java.nio.ByteBuffer[],int,int)
  @param sources
  the byte buffers as the source of the datagram.
  @param offset
@@ -428,4 +461,8 @@ FOUNDATION_EXPORT JavaNioChannelsDatagramChannel *JavaNioChannelsDatagramChannel
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsDatagramChannel)
 
-#endif // _JavaNioChannelsDatagramChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsDatagramChannel_INCLUDE_ALL")

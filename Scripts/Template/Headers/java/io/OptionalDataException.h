@@ -3,16 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/io/OptionalDataException.java
 //
 
-#ifndef _JavaIoOptionalDataException_H_
-#define _JavaIoOptionalDataException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoOptionalDataException_INCLUDE_ALL")
+#ifdef JavaIoOptionalDataException_RESTRICT
+#define JavaIoOptionalDataException_INCLUDE_ALL 0
+#else
+#define JavaIoOptionalDataException_INCLUDE_ALL 1
+#endif
+#undef JavaIoOptionalDataException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoOptionalDataException_) && (JavaIoOptionalDataException_INCLUDE_ALL || defined(JavaIoOptionalDataException_INCLUDE))
+#define JavaIoOptionalDataException_
+
+#define JavaIoObjectStreamException_RESTRICT 1
+#define JavaIoObjectStreamException_INCLUDE 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
  @brief Signals that the <code>ObjectInputStream</code> class encountered a primitive type
  (<code>int</code>, <code>char</code> etc.) instead of an object instance in the input
  stream.
+ - seealso: ObjectInputStream#available()
+ - seealso: ObjectInputStream#readObject()
+ - seealso: ObjectInputStream#skipBytes(int)
  */
 @interface JavaIoOptionalDataException : JavaIoObjectStreamException {
  @public
@@ -57,4 +74,8 @@ FOUNDATION_EXPORT JavaIoOptionalDataException *new_JavaIoOptionalDataException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoOptionalDataException)
 
-#endif // _JavaIoOptionalDataException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoOptionalDataException_INCLUDE_ALL")

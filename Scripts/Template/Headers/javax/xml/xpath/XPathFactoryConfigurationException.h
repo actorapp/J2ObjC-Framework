@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/xpath/XPathFactoryConfigurationException.java
 //
 
-#ifndef _JavaxXmlXpathXPathFactoryConfigurationException_H_
-#define _JavaxXmlXpathXPathFactoryConfigurationException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE_ALL")
+#ifdef JavaxXmlXpathXPathFactoryConfigurationException_RESTRICT
+#define JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE_ALL 0
+#else
+#define JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlXpathXPathFactoryConfigurationException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlXpathXPathFactoryConfigurationException_) && (JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE_ALL || defined(JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE))
+#define JavaxXmlXpathXPathFactoryConfigurationException_
+
+#define JavaxXmlXpathXPathException_RESTRICT 1
+#define JavaxXmlXpathXPathException_INCLUDE 1
 #include "../../../javax/xml/xpath/XPathException.h"
 
 @class JavaLangThrowable;
@@ -55,4 +69,8 @@ FOUNDATION_EXPORT JavaxXmlXpathXPathFactoryConfigurationException *new_JavaxXmlX
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFactoryConfigurationException)
 
-#endif // _JavaxXmlXpathXPathFactoryConfigurationException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE_ALL")

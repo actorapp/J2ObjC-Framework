@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/DeflaterInputStream.java
 //
 
-#ifndef _JavaUtilZipDeflaterInputStream_H_
-#define _JavaUtilZipDeflaterInputStream_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipDeflaterInputStream_INCLUDE_ALL")
+#ifdef JavaUtilZipDeflaterInputStream_RESTRICT
+#define JavaUtilZipDeflaterInputStream_INCLUDE_ALL 0
+#else
+#define JavaUtilZipDeflaterInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipDeflaterInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipDeflaterInputStream_) && (JavaUtilZipDeflaterInputStream_INCLUDE_ALL || defined(JavaUtilZipDeflaterInputStream_INCLUDE))
+#define JavaUtilZipDeflaterInputStream_
+
+#define JavaIoFilterInputStream_RESTRICT 1
+#define JavaIoFilterInputStream_INCLUDE 1
 #include "../../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
@@ -145,4 +159,8 @@ FOUNDATION_EXPORT JavaUtilZipDeflaterInputStream *new_JavaUtilZipDeflaterInputSt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDeflaterInputStream)
 
-#endif // _JavaUtilZipDeflaterInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipDeflaterInputStream_INCLUDE_ALL")

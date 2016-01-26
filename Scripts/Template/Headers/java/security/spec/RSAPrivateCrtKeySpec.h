@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/RSAPrivateCrtKeySpec.java
 //
 
-#ifndef _JavaSecuritySpecRSAPrivateCrtKeySpec_H_
-#define _JavaSecuritySpecRSAPrivateCrtKeySpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecRSAPrivateCrtKeySpec_RESTRICT
+#define JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecRSAPrivateCrtKeySpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecRSAPrivateCrtKeySpec_) && (JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE))
+#define JavaSecuritySpecRSAPrivateCrtKeySpec_
+
+#define JavaSecuritySpecRSAPrivateKeySpec_RESTRICT 1
+#define JavaSecuritySpecRSAPrivateKeySpec_INCLUDE 1
 #include "../../../java/security/spec/RSAPrivateKeySpec.h"
 
 @class JavaMathBigInteger;
@@ -99,4 +113,8 @@ FOUNDATION_EXPORT JavaSecuritySpecRSAPrivateCrtKeySpec *new_JavaSecuritySpecRSAP
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAPrivateCrtKeySpec)
 
-#endif // _JavaSecuritySpecRSAPrivateCrtKeySpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE_ALL")

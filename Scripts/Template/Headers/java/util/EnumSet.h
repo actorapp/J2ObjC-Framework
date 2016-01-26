@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/EnumSet.java
 //
 
-#ifndef _JavaUtilEnumSet_H_
-#define _JavaUtilEnumSet_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilEnumSet_INCLUDE_ALL")
+#ifdef JavaUtilEnumSet_RESTRICT
+#define JavaUtilEnumSet_INCLUDE_ALL 0
+#else
+#define JavaUtilEnumSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilEnumSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilEnumSet_) && (JavaUtilEnumSet_INCLUDE_ALL || defined(JavaUtilEnumSet_INCLUDE))
+#define JavaUtilEnumSet_
+
+#define JavaUtilAbstractSet_RESTRICT 1
+#define JavaUtilAbstractSet_INCLUDE 1
 #include "../../java/util/AbstractSet.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -246,7 +263,6 @@
 
 - (id)writeReplace;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilEnumSet)
@@ -281,4 +297,8 @@ FOUNDATION_EXPORT JavaUtilEnumSet *JavaUtilEnumSet_rangeWithJavaLangEnum_withJav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEnumSet)
 
-#endif // _JavaUtilEnumSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilEnumSet_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/sax/SAXTransformerFactory.java
 //
 
-#ifndef _JavaxXmlTransformSaxSAXTransformerFactory_H_
-#define _JavaxXmlTransformSaxSAXTransformerFactory_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE_ALL")
+#ifdef JavaxXmlTransformSaxSAXTransformerFactory_RESTRICT
+#define JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformSaxSAXTransformerFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformSaxSAXTransformerFactory_) && (JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE_ALL || defined(JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE))
+#define JavaxXmlTransformSaxSAXTransformerFactory_
+
+#define JavaxXmlTransformTransformerFactory_RESTRICT 1
+#define JavaxXmlTransformTransformerFactory_INCLUDE 1
 #include "../../../../javax/xml/transform/TransformerFactory.h"
 
 @protocol JavaxXmlTransformSaxTemplatesHandler;
@@ -27,6 +41,10 @@
  the XMLReader.</p>
  */
 @interface JavaxXmlTransformSaxSAXTransformerFactory : JavaxXmlTransformTransformerFactory
+
++ (NSString *)FEATURE;
+
++ (NSString *)FEATURE_XMLFILTER;
 
 #pragma mark Public
 
@@ -104,14 +122,35 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformSaxSAXTransformerFactory)
 
-FOUNDATION_EXPORT NSString *JavaxXmlTransformSaxSAXTransformerFactory_FEATURE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlTransformSaxSAXTransformerFactory, FEATURE_, NSString *)
+/*!
+ @brief If <code>javax.xml.transform.TransformerFactory.getFeature</code>
+ returns true when passed this value as an argument,
+ the TransformerFactory returned from
+ <code>javax.xml.transform.TransformerFactory.newInstance</code> may
+ be safely cast to a SAXTransformerFactory.
+ */
+inline NSString *JavaxXmlTransformSaxSAXTransformerFactory_get_FEATURE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlTransformSaxSAXTransformerFactory_FEATURE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlTransformSaxSAXTransformerFactory, FEATURE, NSString *)
 
-FOUNDATION_EXPORT NSString *JavaxXmlTransformSaxSAXTransformerFactory_FEATURE_XMLFILTER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlTransformSaxSAXTransformerFactory, FEATURE_XMLFILTER_, NSString *)
+/*!
+ @brief If <code>javax.xml.transform.TransformerFactory.getFeature</code>
+ returns true when passed this value as an argument,
+ the <code>src)</code>
+ and <code>templates)</code> methods are supported.
+ */
+inline NSString *JavaxXmlTransformSaxSAXTransformerFactory_get_FEATURE_XMLFILTER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlTransformSaxSAXTransformerFactory_FEATURE_XMLFILTER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlTransformSaxSAXTransformerFactory, FEATURE_XMLFILTER, NSString *)
 
 FOUNDATION_EXPORT void JavaxXmlTransformSaxSAXTransformerFactory_init(JavaxXmlTransformSaxSAXTransformerFactory *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxSAXTransformerFactory)
 
-#endif // _JavaxXmlTransformSaxSAXTransformerFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE_ALL")

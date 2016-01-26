@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/OverlappingFileLockException.java
 //
 
-#ifndef _JavaNioChannelsOverlappingFileLockException_H_
-#define _JavaNioChannelsOverlappingFileLockException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsOverlappingFileLockException_INCLUDE_ALL")
+#ifdef JavaNioChannelsOverlappingFileLockException_RESTRICT
+#define JavaNioChannelsOverlappingFileLockException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsOverlappingFileLockException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsOverlappingFileLockException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsOverlappingFileLockException_) && (JavaNioChannelsOverlappingFileLockException_INCLUDE_ALL || defined(JavaNioChannelsOverlappingFileLockException_INCLUDE))
+#define JavaNioChannelsOverlappingFileLockException_
+
+#define JavaLangIllegalStateException_RESTRICT 1
+#define JavaLangIllegalStateException_INCLUDE 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioChannelsOverlappingFileLockException *new_JavaNioChanne
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsOverlappingFileLockException)
 
-#endif // _JavaNioChannelsOverlappingFileLockException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsOverlappingFileLockException_INCLUDE_ALL")

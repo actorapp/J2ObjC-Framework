@@ -27,15 +27,28 @@
 #import "NSString+JavaString.h"
 #import "jni.h"
 
+#pragma clang system_header
+
 // "I" is defined in complex.h, which results in errors if that file is also
 // included.
 #pragma push_macro("I")
 #undef I
 
-__attribute__((always_inline)) inline id check_protocol_cast(
-    id __unsafe_unretained p, IOSClass *protocol) {
+__attribute__ ((unused)) static inline id cast_chk(id __unsafe_unretained p, Class clazz) {
 #if !defined(J2OBJC_DISABLE_CAST_CHECKS)
-  if (__builtin_expect(p && ![protocol isInstance:p], 0)) {
+  if (__builtin_expect(p && ![p isKindOfClass:clazz], 0)) {
+    JreThrowClassCastException();
+  }
+#endif
+  return p;
+}
+
+// Similar to above, but with an IOSClass parameter instead of a Class
+// parameter. This check is necessary for interface and array types and is
+// faster than a conformsToProtocol check for interfaces.
+__attribute__((always_inline)) inline id cast_check(id __unsafe_unretained p, IOSClass *cls) {
+#if !defined(J2OBJC_DISABLE_CAST_CHECKS)
+  if (__builtin_expect(p && ![cls isInstance:p], 0)) {
     JreThrowClassCastException();
   }
 #endif
@@ -54,6 +67,32 @@ FOUNDATION_EXPORT void JreThrowAssertionError(id __unsafe_unretained msg);
 #if __has_feature(objc_arc)
 FOUNDATION_EXPORT void JreRelease(id obj);
 #endif
+
+/*!
+ * Macros that simplify the syntax for loading of static fields.
+ *
+ * @define JreLoadStatic
+ * @define JreLoadStaticRef
+ * @param CLASS The Objective-C class name of the containing class.
+ * @param FIELD The name of the static field.
+ */
+#define JreLoadStatic(CLASS, FIELD) (CLASS##_initialize(), CLASS##_##FIELD)
+#define JreLoadStaticRef(CLASS, FIELD) (CLASS##_initialize(), &CLASS##_##FIELD)
+
+/*!
+ * Macros for loading enum values.
+ * JreEnum provides direct access to the enum value and should only be used
+ * internal to the enum class.
+ * JreLoadEnum provides the enum value while ensuring the enum class is
+ * initialized.
+ *
+ * @define JreEnum
+ * @define JreLoadEnum
+ * @param CLASS The enum class name.
+ * @param VALUE The enum value name.
+ */
+#define JreEnum(CLASS, VALUE) CLASS##_values_[CLASS##_Enum_##VALUE]
+#define JreLoadEnum(CLASS, VALUE) (CLASS##_initialize(), CLASS##_values_[CLASS##_Enum_##VALUE])
 
 // Defined in JreEmulation.m
 FOUNDATION_EXPORT id GetNonCapturingLambda(Protocol *protocol,

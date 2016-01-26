@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/NotSerializableException.java
 //
 
-#ifndef _JavaIoNotSerializableException_H_
-#define _JavaIoNotSerializableException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoNotSerializableException_INCLUDE_ALL")
+#ifdef JavaIoNotSerializableException_RESTRICT
+#define JavaIoNotSerializableException_INCLUDE_ALL 0
+#else
+#define JavaIoNotSerializableException_INCLUDE_ALL 1
+#endif
+#undef JavaIoNotSerializableException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoNotSerializableException_) && (JavaIoNotSerializableException_INCLUDE_ALL || defined(JavaIoNotSerializableException_INCLUDE))
+#define JavaIoNotSerializableException_
+
+#define JavaIoObjectStreamException_RESTRICT 1
+#define JavaIoObjectStreamException_INCLUDE 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
@@ -16,6 +30,8 @@
  does not implement <code>Serializable</code> or <code>Externalizable</code>, or if it
  is serializable but it overrides <code>writeObject(ObjectOutputStream)</code> and
  explicitly prevents serialization by throwing this type of exception.
+ - seealso: ObjectOutput#writeObject(Object)
+ - seealso: ObjectOutputStream#writeObject(Object)
  */
 @interface JavaIoNotSerializableException : JavaIoObjectStreamException
 
@@ -49,4 +65,8 @@ FOUNDATION_EXPORT JavaIoNotSerializableException *new_JavaIoNotSerializableExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoNotSerializableException)
 
-#endif // _JavaIoNotSerializableException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoNotSerializableException_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/ECField.java
 //
 
-#ifndef _JavaSecuritySpecECField_H_
-#define _JavaSecuritySpecECField_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecECField_INCLUDE_ALL")
+#ifdef JavaSecuritySpecECField_RESTRICT
+#define JavaSecuritySpecECField_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecECField_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecECField_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecECField_) && (JavaSecuritySpecECField_INCLUDE_ALL || defined(JavaSecuritySpecECField_INCLUDE))
+#define JavaSecuritySpecECField_
 
 /*!
  @brief The base interface for a Finite Field of an Elliptic Curve.
@@ -25,4 +36,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecuritySpecECField)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECField)
 
-#endif // _JavaSecuritySpecECField_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecECField_INCLUDE_ALL")

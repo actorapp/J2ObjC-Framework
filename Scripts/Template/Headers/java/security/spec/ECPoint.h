@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/ECPoint.java
 //
 
-#ifndef _JavaSecuritySpecECPoint_H_
-#define _JavaSecuritySpecECPoint_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecECPoint_INCLUDE_ALL")
+#ifdef JavaSecuritySpecECPoint_RESTRICT
+#define JavaSecuritySpecECPoint_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecECPoint_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecECPoint_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecECPoint_) && (JavaSecuritySpecECPoint_INCLUDE_ALL || defined(JavaSecuritySpecECPoint_INCLUDE))
+#define JavaSecuritySpecECPoint_
 
 @class JavaMathBigInteger;
 
@@ -14,6 +25,8 @@
  @brief A Point on an Elliptic Curve in barycentric (or affine) coordinates.
  */
 @interface JavaSecuritySpecECPoint : NSObject
+
++ (JavaSecuritySpecECPoint *)POINT_INFINITY;
 
 #pragma mark Public
 
@@ -59,8 +72,13 @@
 
 J2OBJC_STATIC_INIT(JavaSecuritySpecECPoint)
 
-FOUNDATION_EXPORT JavaSecuritySpecECPoint *JavaSecuritySpecECPoint_POINT_INFINITY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySpecECPoint, POINT_INFINITY_, JavaSecuritySpecECPoint *)
+/*!
+ @brief The point on an Elliptic Curve at infinity.
+ */
+inline JavaSecuritySpecECPoint *JavaSecuritySpecECPoint_get_POINT_INFINITY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaSecuritySpecECPoint *JavaSecuritySpecECPoint_POINT_INFINITY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaSecuritySpecECPoint, POINT_INFINITY, JavaSecuritySpecECPoint *)
 
 FOUNDATION_EXPORT void JavaSecuritySpecECPoint_initWithJavaMathBigInteger_withJavaMathBigInteger_(JavaSecuritySpecECPoint *self, JavaMathBigInteger *affineX, JavaMathBigInteger *affineY);
 
@@ -68,4 +86,8 @@ FOUNDATION_EXPORT JavaSecuritySpecECPoint *new_JavaSecuritySpecECPoint_initWithJ
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECPoint)
 
-#endif // _JavaSecuritySpecECPoint_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecECPoint_INCLUDE_ALL")

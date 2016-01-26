@@ -3,15 +3,41 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/helpers/XMLFilterImpl.java
 //
 
-#ifndef _OrgXmlSaxHelpersXMLFilterImpl_H_
-#define _OrgXmlSaxHelpersXMLFilterImpl_H_
-
 #include "../../../../J2ObjC_header.h"
-#include "../../../../org/xml/sax/ContentHandler.h"
-#include "../../../../org/xml/sax/DTDHandler.h"
-#include "../../../../org/xml/sax/EntityResolver.h"
-#include "../../../../org/xml/sax/ErrorHandler.h"
+
+#pragma push_macro("OrgXmlSaxHelpersXMLFilterImpl_INCLUDE_ALL")
+#ifdef OrgXmlSaxHelpersXMLFilterImpl_RESTRICT
+#define OrgXmlSaxHelpersXMLFilterImpl_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHelpersXMLFilterImpl_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHelpersXMLFilterImpl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHelpersXMLFilterImpl_) && (OrgXmlSaxHelpersXMLFilterImpl_INCLUDE_ALL || defined(OrgXmlSaxHelpersXMLFilterImpl_INCLUDE))
+#define OrgXmlSaxHelpersXMLFilterImpl_
+
+#define OrgXmlSaxXMLFilter_RESTRICT 1
+#define OrgXmlSaxXMLFilter_INCLUDE 1
 #include "../../../../org/xml/sax/XMLFilter.h"
+
+#define OrgXmlSaxEntityResolver_RESTRICT 1
+#define OrgXmlSaxEntityResolver_INCLUDE 1
+#include "../../../../org/xml/sax/EntityResolver.h"
+
+#define OrgXmlSaxDTDHandler_RESTRICT 1
+#define OrgXmlSaxDTDHandler_INCLUDE 1
+#include "../../../../org/xml/sax/DTDHandler.h"
+
+#define OrgXmlSaxContentHandler_RESTRICT 1
+#define OrgXmlSaxContentHandler_INCLUDE 1
+#include "../../../../org/xml/sax/ContentHandler.h"
+
+#define OrgXmlSaxErrorHandler_RESTRICT 1
+#define OrgXmlSaxErrorHandler_INCLUDE 1
+#include "../../../../org/xml/sax/ErrorHandler.h"
 
 @class IOSCharArray;
 @class OrgXmlSaxInputSource;
@@ -37,6 +63,12 @@
  @since SAX 2.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.XMLFilter
+ - seealso: org.xml.sax.XMLReader
+ - seealso: org.xml.sax.EntityResolver
+ - seealso: org.xml.sax.DTDHandler
+ - seealso: org.xml.sax.ContentHandler
+ - seealso: org.xml.sax.ErrorHandler
  */
 @interface OrgXmlSaxHelpersXMLFilterImpl : NSObject < OrgXmlSaxXMLFilter, OrgXmlSaxEntityResolver, OrgXmlSaxDTDHandler, OrgXmlSaxContentHandler, OrgXmlSaxErrorHandler >
 
@@ -48,12 +80,17 @@
  before you start a parse or do any configuration with
  setFeature or setProperty, unless you use this as a pure event
  consumer rather than as an <code>XMLReader</code>.</p>
+ - seealso: org.xml.sax.XMLReader#setFeature
+ - seealso: org.xml.sax.XMLReader#setProperty
+ - seealso: #setParent
  */
 - (instancetype)init;
 
 /*!
  @brief Construct an XML filter with the specified parent.
  @param parent the XML reader from which this filter receives its events.
+ - seealso: #setParent
+ - seealso: #getParent
  */
 - (instancetype)initWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)parent;
 
@@ -153,6 +190,7 @@
 /*!
  @brief Get the parent reader.
  @return The parent XML reader, or null if none is set.
+ - seealso: #setParent
  */
 - (id<OrgXmlSaxXMLReader>)getParent;
 
@@ -290,6 +328,7 @@
  <p>If there is no parent reader set, any attempt to parse
  or to set or get a feature or property will fail.</p>
  @param parent The parent XML reader.
+ - seealso: #getParent
  */
 - (void)setParentWithOrgXmlSaxXMLReader:(id<OrgXmlSaxXMLReader>)parent;
 
@@ -383,4 +422,8 @@ FOUNDATION_EXPORT OrgXmlSaxHelpersXMLFilterImpl *new_OrgXmlSaxHelpersXMLFilterIm
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLFilterImpl)
 
-#endif // _OrgXmlSaxHelpersXMLFilterImpl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHelpersXMLFilterImpl_INCLUDE_ALL")

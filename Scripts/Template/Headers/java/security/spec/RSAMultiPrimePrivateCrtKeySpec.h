@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/RSAMultiPrimePrivateCrtKeySpec.java
 //
 
-#ifndef _JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_H_
-#define _JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_RESTRICT
+#define JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_) && (JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE))
+#define JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_
+
+#define JavaSecuritySpecRSAPrivateKeySpec_RESTRICT 1
+#define JavaSecuritySpecRSAPrivateKeySpec_INCLUDE 1
 #include "../../../java/security/spec/RSAPrivateKeySpec.h"
 
 @class IOSObjectArray;
@@ -113,4 +127,8 @@ FOUNDATION_EXPORT JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec *new_JavaSecuri
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec)
 
-#endif // _JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE_ALL")

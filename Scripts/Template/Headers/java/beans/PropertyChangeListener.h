@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/beans/PropertyChangeListener.java
 //
 
-#ifndef _JavaBeansPropertyChangeListener_H_
-#define _JavaBeansPropertyChangeListener_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaBeansPropertyChangeListener_INCLUDE_ALL")
+#ifdef JavaBeansPropertyChangeListener_RESTRICT
+#define JavaBeansPropertyChangeListener_INCLUDE_ALL 0
+#else
+#define JavaBeansPropertyChangeListener_INCLUDE_ALL 1
+#endif
+#undef JavaBeansPropertyChangeListener_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaBeansPropertyChangeListener_) && (JavaBeansPropertyChangeListener_INCLUDE_ALL || defined(JavaBeansPropertyChangeListener_INCLUDE))
+#define JavaBeansPropertyChangeListener_
+
+#define JavaUtilEventListener_RESTRICT 1
+#define JavaUtilEventListener_INCLUDE 1
 #include "../../java/util/EventListener.h"
 
 @class JavaBeansPropertyChangeEvent;
@@ -32,4 +46,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaBeansPropertyChangeListener)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyChangeListener)
 
-#endif // _JavaBeansPropertyChangeListener_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaBeansPropertyChangeListener_INCLUDE_ALL")

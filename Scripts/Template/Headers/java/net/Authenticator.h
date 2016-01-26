@@ -3,13 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/net/Authenticator.java
 //
 
-#ifndef _JavaNetAuthenticator_H_
-#define _JavaNetAuthenticator_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Enum.h"
 
-@class JavaNetAuthenticator_RequestorTypeEnum;
+#pragma push_macro("JavaNetAuthenticator_INCLUDE_ALL")
+#ifdef JavaNetAuthenticator_RESTRICT
+#define JavaNetAuthenticator_INCLUDE_ALL 0
+#else
+#define JavaNetAuthenticator_INCLUDE_ALL 1
+#endif
+#undef JavaNetAuthenticator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetAuthenticator_) && (JavaNetAuthenticator_INCLUDE_ALL || defined(JavaNetAuthenticator_INCLUDE))
+#define JavaNetAuthenticator_
+
+@class JavaNetAuthenticator_RequestorType;
 @class JavaNetInetAddress;
 @class JavaNetPasswordAuthentication;
 @class JavaNetURL;
@@ -22,6 +32,8 @@
  . Then it should override <code>getPasswordAuthentication()</code>
   which dictates how the authentication info is
  obtained. Usually, it prompts the user for the required input.
+ - seealso: #setDefault
+ - seealso: #getPasswordAuthentication
  */
 @interface JavaNetAuthenticator : NSObject
 
@@ -105,7 +117,7 @@
                                                                 withNSString:(NSString *)rPrompt
                                                                 withNSString:(NSString *)rScheme
                                                               withJavaNetURL:(JavaNetURL *)rURL
-                                  withJavaNetAuthenticator_RequestorTypeEnum:(JavaNetAuthenticator_RequestorTypeEnum *)reqType;
+                                      withJavaNetAuthenticator_RequestorType:(JavaNetAuthenticator_RequestorType *)reqType;
 
 /*!
  @brief Sets <code>a</code> as the default authenticator.
@@ -179,7 +191,7 @@
  @brief Returns the type of this request, it can be <code>PROXY</code> or <code>SERVER</code>.
  @return RequestorType of the authentication request.
  */
-- (JavaNetAuthenticator_RequestorTypeEnum *)getRequestorType;
+- (JavaNetAuthenticator_RequestorType *)getRequestorType;
 
 @end
 
@@ -191,44 +203,73 @@ FOUNDATION_EXPORT void JavaNetAuthenticator_setDefaultWithJavaNetAuthenticator_(
 
 FOUNDATION_EXPORT JavaNetPasswordAuthentication *JavaNetAuthenticator_requestPasswordAuthenticationWithNSString_withJavaNetInetAddress_withInt_withNSString_withNSString_withNSString_(NSString *rHost, JavaNetInetAddress *rAddr, jint rPort, NSString *rProtocol, NSString *rPrompt, NSString *rScheme);
 
-FOUNDATION_EXPORT JavaNetPasswordAuthentication *JavaNetAuthenticator_requestPasswordAuthenticationWithNSString_withJavaNetInetAddress_withInt_withNSString_withNSString_withNSString_withJavaNetURL_withJavaNetAuthenticator_RequestorTypeEnum_(NSString *rHost, JavaNetInetAddress *rAddr, jint rPort, NSString *rProtocol, NSString *rPrompt, NSString *rScheme, JavaNetURL *rURL, JavaNetAuthenticator_RequestorTypeEnum *reqType);
+FOUNDATION_EXPORT JavaNetPasswordAuthentication *JavaNetAuthenticator_requestPasswordAuthenticationWithNSString_withJavaNetInetAddress_withInt_withNSString_withNSString_withNSString_withJavaNetURL_withJavaNetAuthenticator_RequestorType_(NSString *rHost, JavaNetInetAddress *rAddr, jint rPort, NSString *rProtocol, NSString *rPrompt, NSString *rScheme, JavaNetURL *rURL, JavaNetAuthenticator_RequestorType *reqType);
 
 FOUNDATION_EXPORT void JavaNetAuthenticator_init(JavaNetAuthenticator *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetAuthenticator)
 
-typedef NS_ENUM(NSUInteger, JavaNetAuthenticator_RequestorType) {
-  JavaNetAuthenticator_RequestorType_PROXY = 0,
-  JavaNetAuthenticator_RequestorType_SERVER = 1,
+#endif
+
+#if !defined (JavaNetAuthenticator_RequestorType_) && (JavaNetAuthenticator_INCLUDE_ALL || defined(JavaNetAuthenticator_RequestorType_INCLUDE))
+#define JavaNetAuthenticator_RequestorType_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
+#include "../../java/lang/Enum.h"
+
+typedef NS_ENUM(NSUInteger, JavaNetAuthenticator_RequestorType_Enum) {
+  JavaNetAuthenticator_RequestorType_Enum_PROXY = 0,
+  JavaNetAuthenticator_RequestorType_Enum_SERVER = 1,
 };
 
 /*!
  @brief Enumeration class for the origin of the authentication request.
  */
-@interface JavaNetAuthenticator_RequestorTypeEnum : JavaLangEnum < NSCopying >
+@interface JavaNetAuthenticator_RequestorType : JavaLangEnum < NSCopying >
+
++ (JavaNetAuthenticator_RequestorType *)PROXY;
+
++ (JavaNetAuthenticator_RequestorType *)SERVER;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaNetAuthenticator_RequestorTypeEnum_values();
 
-+ (JavaNetAuthenticator_RequestorTypeEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaNetAuthenticator_RequestorTypeEnum *JavaNetAuthenticator_RequestorTypeEnum_valueOfWithNSString_(NSString *name);
++ (JavaNetAuthenticator_RequestorType *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaNetAuthenticator_RequestorType_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaNetAuthenticator_RequestorTypeEnum)
+J2OBJC_STATIC_INIT(JavaNetAuthenticator_RequestorType)
 
-FOUNDATION_EXPORT JavaNetAuthenticator_RequestorTypeEnum *JavaNetAuthenticator_RequestorTypeEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaNetAuthenticator_RequestorType *JavaNetAuthenticator_RequestorType_values_[];
 
-#define JavaNetAuthenticator_RequestorTypeEnum_PROXY JavaNetAuthenticator_RequestorTypeEnum_values_[JavaNetAuthenticator_RequestorType_PROXY]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaNetAuthenticator_RequestorTypeEnum, PROXY)
+/*!
+ @brief Type of proxy server
+ */
+inline JavaNetAuthenticator_RequestorType *JavaNetAuthenticator_RequestorType_get_PROXY();
+J2OBJC_ENUM_CONSTANT(JavaNetAuthenticator_RequestorType, PROXY)
 
-#define JavaNetAuthenticator_RequestorTypeEnum_SERVER JavaNetAuthenticator_RequestorTypeEnum_values_[JavaNetAuthenticator_RequestorType_SERVER]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaNetAuthenticator_RequestorTypeEnum, SERVER)
+/*!
+ @brief Type of origin server
+ */
+inline JavaNetAuthenticator_RequestorType *JavaNetAuthenticator_RequestorType_get_SERVER();
+J2OBJC_ENUM_CONSTANT(JavaNetAuthenticator_RequestorType, SERVER)
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaNetAuthenticator_RequestorTypeEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaNetAuthenticator_RequestorType_values();
 
-#endif // _JavaNetAuthenticator_H_
+FOUNDATION_EXPORT JavaNetAuthenticator_RequestorType *JavaNetAuthenticator_RequestorType_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaNetAuthenticator_RequestorType *JavaNetAuthenticator_RequestorType_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaNetAuthenticator_RequestorType)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetAuthenticator_INCLUDE_ALL")

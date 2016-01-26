@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/Observable.java
 //
 
-#ifndef _JavaUtilObservable_H_
-#define _JavaUtilObservable_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilObservable_INCLUDE_ALL")
+#ifdef JavaUtilObservable_RESTRICT
+#define JavaUtilObservable_INCLUDE_ALL 0
+#else
+#define JavaUtilObservable_INCLUDE_ALL 1
+#endif
+#undef JavaUtilObservable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilObservable_) && (JavaUtilObservable_INCLUDE_ALL || defined(JavaUtilObservable_INCLUDE))
+#define JavaUtilObservable_
 
 @protocol JavaUtilList;
 @protocol JavaUtilObserver;
@@ -20,6 +31,7 @@
  Observers. The order of invocation is not specified. This implementation will
  call the Observers in the order they registered. Subclasses are completely
  free in what order they call the update methods.
+ - seealso: Observer
  */
 @interface JavaUtilObservable : NSObject {
  @public
@@ -118,4 +130,8 @@ FOUNDATION_EXPORT JavaUtilObservable *new_JavaUtilObservable_init() NS_RETURNS_R
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilObservable)
 
-#endif // _JavaUtilObservable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilObservable_INCLUDE_ALL")

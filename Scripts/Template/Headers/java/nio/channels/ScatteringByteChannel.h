@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/ScatteringByteChannel.java
 //
 
-#ifndef _JavaNioChannelsScatteringByteChannel_H_
-#define _JavaNioChannelsScatteringByteChannel_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsScatteringByteChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsScatteringByteChannel_RESTRICT
+#define JavaNioChannelsScatteringByteChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsScatteringByteChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsScatteringByteChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsScatteringByteChannel_) && (JavaNioChannelsScatteringByteChannel_INCLUDE_ALL || defined(JavaNioChannelsScatteringByteChannel_INCLUDE))
+#define JavaNioChannelsScatteringByteChannel_
+
+#define JavaNioChannelsReadableByteChannel_RESTRICT 1
+#define JavaNioChannelsReadableByteChannel_INCLUDE 1
 #include "../../../java/nio/channels/ReadableByteChannel.h"
 
 @class IOSObjectArray;
@@ -87,4 +101,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNioChannelsScatteringByteChannel)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsScatteringByteChannel)
 
-#endif // _JavaNioChannelsScatteringByteChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsScatteringByteChannel_INCLUDE_ALL")

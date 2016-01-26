@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/TimSort.java
 //
 
-#ifndef _JavaUtilTimSort_H_
-#define _JavaUtilTimSort_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilTimSort_INCLUDE_ALL")
+#ifdef JavaUtilTimSort_RESTRICT
+#define JavaUtilTimSort_INCLUDE_ALL 0
+#else
+#define JavaUtilTimSort_INCLUDE_ALL 1
+#endif
+#undef JavaUtilTimSort_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilTimSort_) && (JavaUtilTimSort_INCLUDE_ALL || defined(JavaUtilTimSort_INCLUDE))
+#define JavaUtilTimSort_
 
 @class IOSObjectArray;
 @protocol JavaUtilComparator;
@@ -58,4 +69,8 @@ FOUNDATION_EXPORT void JavaUtilTimSort_sortWithNSObjectArray_withInt_withInt_wit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimSort)
 
-#endif // _JavaUtilTimSort_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilTimSort_INCLUDE_ALL")

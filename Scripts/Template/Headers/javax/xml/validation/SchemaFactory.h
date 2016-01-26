@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/validation/SchemaFactory.java
 //
 
-#ifndef _JavaxXmlValidationSchemaFactory_H_
-#define _JavaxXmlValidationSchemaFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlValidationSchemaFactory_INCLUDE_ALL")
+#ifdef JavaxXmlValidationSchemaFactory_RESTRICT
+#define JavaxXmlValidationSchemaFactory_INCLUDE_ALL 0
+#else
+#define JavaxXmlValidationSchemaFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlValidationSchemaFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlValidationSchemaFactory_) && (JavaxXmlValidationSchemaFactory_INCLUDE_ALL || defined(JavaxXmlValidationSchemaFactory_INCLUDE))
+#define JavaxXmlValidationSchemaFactory_
 
 @class IOSObjectArray;
 @class JavaIoFile;
@@ -89,6 +100,7 @@
  the <code>setErrorHandler(ErrorHandler)</code> method, or null
  if that method has never been called since this <code>SchemaFactory</code>
  has created.
+ - seealso: #setErrorHandler(ErrorHandler)
  */
 - (id<OrgXmlSaxErrorHandler>)getErrorHandler;
 
@@ -108,6 +120,7 @@
  cannot determine its value at this time.
  @exception NullPointerException
  if the name parameter is null.
+ - seealso: #setFeature(String,boolean)
  */
 - (jboolean)getFeatureWithNSString:(NSString *)name;
 
@@ -129,6 +142,7 @@
  cannot determine its value at this time.
  @exception NullPointerException
  if the name parameter is null.
+ - seealso: #setProperty(String,Object)
  */
 - (id)getPropertyWithNSString:(NSString *)name;
 
@@ -138,6 +152,7 @@
  the <code>setResourceResolver(LSResourceResolver)</code> method, or null
  if that method has never been called since this <code>SchemaFactory</code>
  has created.
+ - seealso: #setErrorHandler(ErrorHandler)
  */
 - (id<OrgW3cDomLsLSResourceResolver>)getResourceResolver;
 
@@ -437,6 +452,7 @@
  cannot set the requested value.
  @exception NullPointerException
  if the name parameter is null.
+ - seealso: #getFeature(String)
  */
 - (void)setFeatureWithNSString:(NSString *)name
                    withBoolean:(jboolean)value;
@@ -527,4 +543,8 @@ FOUNDATION_EXPORT JavaxXmlValidationSchemaFactory *JavaxXmlValidationSchemaFacto
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationSchemaFactory)
 
-#endif // _JavaxXmlValidationSchemaFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlValidationSchemaFactory_INCLUDE_ALL")

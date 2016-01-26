@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/text/CollationKey.java
 //
 
-#ifndef _JavaTextCollationKey_H_
-#define _JavaTextCollationKey_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextCollationKey_INCLUDE_ALL")
+#ifdef JavaTextCollationKey_RESTRICT
+#define JavaTextCollationKey_INCLUDE_ALL 0
+#else
+#define JavaTextCollationKey_INCLUDE_ALL 1
+#endif
+#undef JavaTextCollationKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextCollationKey_) && (JavaTextCollationKey_INCLUDE_ALL || defined(JavaTextCollationKey_INCLUDE))
+#define JavaTextCollationKey_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSByteArray;
@@ -68,6 +82,7 @@
   
 @endcode
  </blockquote>
+ - seealso: Collator
  */
 @interface JavaTextCollationKey : NSObject < JavaLangComparable >
 
@@ -105,4 +120,8 @@ FOUNDATION_EXPORT void JavaTextCollationKey_initWithNSString_(JavaTextCollationK
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextCollationKey)
 
-#endif // _JavaTextCollationKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextCollationKey_INCLUDE_ALL")

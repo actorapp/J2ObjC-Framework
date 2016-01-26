@@ -3,13 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/lang/annotation/Retention.java
 //
 
-#ifndef _JavaLangAnnotationRetention_H_
-#define _JavaLangAnnotationRetention_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangAnnotationRetention_INCLUDE_ALL")
+#ifdef JavaLangAnnotationRetention_RESTRICT
+#define JavaLangAnnotationRetention_INCLUDE_ALL 0
+#else
+#define JavaLangAnnotationRetention_INCLUDE_ALL 1
+#endif
+#undef JavaLangAnnotationRetention_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangAnnotationRetention_) && (JavaLangAnnotationRetention_INCLUDE_ALL || defined(JavaLangAnnotationRetention_INCLUDE))
+#define JavaLangAnnotationRetention_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../../java/lang/annotation/Annotation.h"
 
-@class JavaLangAnnotationRetentionPolicyEnum;
+@class JavaLangAnnotationRetentionPolicy;
 
 /*!
  @brief Defines a meta-annotation for determining the scope of retention for an
@@ -20,16 +34,16 @@
  */
 @protocol JavaLangAnnotationRetention < JavaLangAnnotationAnnotation >
 
-@property (readonly) JavaLangAnnotationRetentionPolicyEnum *value;
+@property (readonly) JavaLangAnnotationRetentionPolicy *value;
 
 @end
 
 @interface JavaLangAnnotationRetention : NSObject < JavaLangAnnotationRetention > {
  @private
-  JavaLangAnnotationRetentionPolicyEnum *value_;
+  JavaLangAnnotationRetentionPolicy *value_;
 }
 
-- (instancetype)initWithValue:(JavaLangAnnotationRetentionPolicyEnum *)value__;
+- (instancetype)initWithValue:(JavaLangAnnotationRetentionPolicy *)value__;
 
 @end
 
@@ -37,4 +51,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangAnnotationRetention)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAnnotationRetention)
 
-#endif // _JavaLangAnnotationRetention_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangAnnotationRetention_INCLUDE_ALL")

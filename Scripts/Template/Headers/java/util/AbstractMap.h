@@ -3,11 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/AbstractMap.java
 //
 
-#ifndef _JavaUtilAbstractMap_H_
-#define _JavaUtilAbstractMap_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilAbstractMap_INCLUDE_ALL")
+#ifdef JavaUtilAbstractMap_RESTRICT
+#define JavaUtilAbstractMap_INCLUDE_ALL 0
+#else
+#define JavaUtilAbstractMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilAbstractMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilAbstractMap_) && (JavaUtilAbstractMap_INCLUDE_ALL || defined(JavaUtilAbstractMap_INCLUDE))
+#define JavaUtilAbstractMap_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_INCLUDE 1
 #include "../../java/util/Map.h"
 
 @protocol JavaUtilCollection;
@@ -153,6 +166,19 @@ FOUNDATION_EXPORT void JavaUtilAbstractMap_init(JavaUtilAbstractMap *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap)
 
+#endif
+
+#if !defined (JavaUtilAbstractMap_SimpleImmutableEntry_) && (JavaUtilAbstractMap_INCLUDE_ALL || defined(JavaUtilAbstractMap_SimpleImmutableEntry_INCLUDE))
+#define JavaUtilAbstractMap_SimpleImmutableEntry_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_Entry_INCLUDE 1
+#include "../../java/util/Map.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
+
 /*!
  @brief An immutable key-value mapping.
  Despite the name, this class is non-final
@@ -201,6 +227,19 @@ FOUNDATION_EXPORT JavaUtilAbstractMap_SimpleImmutableEntry *new_JavaUtilAbstract
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap_SimpleImmutableEntry)
 
+#endif
+
+#if !defined (JavaUtilAbstractMap_SimpleEntry_) && (JavaUtilAbstractMap_INCLUDE_ALL || defined(JavaUtilAbstractMap_SimpleEntry_INCLUDE))
+#define JavaUtilAbstractMap_SimpleEntry_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_Entry_INCLUDE 1
+#include "../../java/util/Map.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
+
 /*!
  @brief A key-value mapping with mutable values.
  @since 1.6
@@ -243,4 +282,8 @@ FOUNDATION_EXPORT JavaUtilAbstractMap_SimpleEntry *new_JavaUtilAbstractMap_Simpl
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap_SimpleEntry)
 
-#endif // _JavaUtilAbstractMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilAbstractMap_INCLUDE_ALL")

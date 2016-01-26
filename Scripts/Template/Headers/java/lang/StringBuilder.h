@@ -3,14 +3,37 @@
 //  source: android/libcore/luni/src/main/java/java/lang/StringBuilder.java
 //
 
-#ifndef _JavaLangStringBuilder_H_
-#define _JavaLangStringBuilder_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaLangStringBuilder_INCLUDE_ALL")
+#ifdef JavaLangStringBuilder_RESTRICT
+#define JavaLangStringBuilder_INCLUDE_ALL 0
+#else
+#define JavaLangStringBuilder_INCLUDE_ALL 1
+#endif
+#undef JavaLangStringBuilder_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangStringBuilder_) && (JavaLangStringBuilder_INCLUDE_ALL || defined(JavaLangStringBuilder_INCLUDE))
+#define JavaLangStringBuilder_
+
+#define JavaLangAbstractStringBuilder_RESTRICT 1
+#define JavaLangAbstractStringBuilder_INCLUDE 1
 #include "../../java/lang/AbstractStringBuilder.h"
+
+#define JavaLangAppendable_RESTRICT 1
+#define JavaLangAppendable_INCLUDE 1
 #include "../../java/lang/Appendable.h"
+
+#define JavaLangCharSequence_RESTRICT 1
+#define JavaLangCharSequence_INCLUDE 1
 #include "../../java/lang/CharSequence.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSCharArray;
 @class JavaLangStringBuffer;
@@ -25,6 +48,11 @@
  <p>The majority of the modification methods on this class return <code>this</code>
   so that method calls can be chained together. For example:
  <code>new StringBuilder("a").append("b").append("c").toString()</code>.
+ - seealso: CharSequence
+ - seealso: Appendable
+ - seealso: StringBuffer
+ - seealso: String
+ - seealso: String#format
  @since 1.5
  */
 @interface JavaLangStringBuilder : JavaLangAbstractStringBuilder < JavaLangAppendable, JavaLangCharSequence, JavaIoSerializable >
@@ -33,6 +61,7 @@
 
 /*!
  @brief Constructs an instance with an initial capacity of <code>16</code>.
+ - seealso: #capacity()
  */
 - (instancetype)init;
 
@@ -54,6 +83,7 @@
  the initial capacity to use.
  @throws NegativeArraySizeException
  if the specified <code>capacity</code> is negative.
+ - seealso: #capacity()
  */
 - (instancetype)initWithInt:(jint)capacity;
 
@@ -76,6 +106,7 @@
  @param b
  the <code>boolean</code> value to append.
  @return this builder.
+ - seealso: String#valueOf(boolean)
  */
 - (JavaLangStringBuilder *)appendWithBoolean:(jboolean)b;
 
@@ -86,6 +117,7 @@
  @param c
  the <code>char</code> value to append.
  @return this builder.
+ - seealso: String#valueOf(char)
  */
 - (JavaLangStringBuilder *)appendWithChar:(jchar)c;
 
@@ -96,6 +128,7 @@
  @param chars
  the <code>char[]</code> to append..
  @return this builder.
+ - seealso: String#valueOf(char[])
  */
 - (JavaLangStringBuilder *)appendWithCharArray:(IOSCharArray *)chars;
 
@@ -114,6 +147,7 @@
  @throws ArrayIndexOutOfBoundsException
  if <code>offset</code> and <code>len</code> do not specify a valid
  subsequence.
+ - seealso: String#valueOf(char[],int,int)
  */
 - (JavaLangStringBuilder *)appendWithCharArray:(IOSCharArray *)str
                                        withInt:(jint)offset
@@ -157,6 +191,7 @@
  @param d
  the <code>double</code> value to append.
  @return this builder.
+ - seealso: String#valueOf(double)
  */
 - (JavaLangStringBuilder *)appendWithDouble:(jdouble)d;
 
@@ -167,6 +202,7 @@
  @param f
  the <code>float</code> value to append.
  @return this builder.
+ - seealso: String#valueOf(float)
  */
 - (JavaLangStringBuilder *)appendWithFloat:(jfloat)f;
 
@@ -178,6 +214,7 @@
  @param i
  the <code>int</code> value to append.
  @return this builder.
+ - seealso: String#valueOf(int)
  */
 - (JavaLangStringBuilder *)appendWithInt:(jint)i;
 
@@ -188,6 +225,7 @@
  @param l
  the <code>long</code> value.
  @return this builder.
+ - seealso: String#valueOf(long)
  */
 - (JavaLangStringBuilder *)appendWithLong:(jlong)l;
 
@@ -198,6 +236,7 @@
  @param obj
  the <code>Object</code> to append.
  @return this builder.
+ - seealso: String#valueOf(Object)
  */
 - (JavaLangStringBuilder *)appendWithId:(id)obj;
 
@@ -229,6 +268,7 @@
  @param codePoint
  the Unicode code point to encode and append.
  @return this builder.
+ - seealso: Character#toChars(int)
  */
 - (JavaLangStringBuilder *)appendCodePointWithInt:(jint)codePoint;
 
@@ -274,6 +314,7 @@
  @throws StringIndexOutOfBoundsException
  if <code>offset</code> is negative or greater than the current
  <code>length</code>.
+ - seealso: String#valueOf(boolean)
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                              withBoolean:(jboolean)b;
@@ -291,6 +332,7 @@
  @throws IndexOutOfBoundsException
  if <code>offset</code> is negative or greater than the current
  <code>length()</code>.
+ - seealso: String#valueOf(char)
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                                 withChar:(jchar)c;
@@ -308,6 +350,7 @@
  @throws StringIndexOutOfBoundsException
  if <code>offset</code> is negative or greater than the current
  <code>length()</code>.
+ - seealso: String#valueOf(char[])
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                            withCharArray:(IOSCharArray *)ch;
@@ -331,6 +374,7 @@
  if <code>offset</code> is negative or greater than the current
  <code>length()</code>, or <code>strOffset</code> and <code>strLen</code> do
  not specify a valid subsequence.
+ - seealso: String#valueOf(char[],int,int)
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                            withCharArray:(IOSCharArray *)str
@@ -351,6 +395,7 @@
  @throws IndexOutOfBoundsException
  if <code>offset</code> is negative or greater than the current
  <code>length()</code>.
+ - seealso: CharSequence#toString()
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                 withJavaLangCharSequence:(id<JavaLangCharSequence>)s;
@@ -376,6 +421,7 @@
  if <code>offset</code> is negative or greater than the current
  <code>length()</code>, or <code>start</code> and <code>end</code> do not
  specify a valid subsequence.
+ - seealso: CharSequence#subSequence(int,int)
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                 withJavaLangCharSequence:(id<JavaLangCharSequence>)s
@@ -396,6 +442,7 @@
  @throws StringIndexOutOfBoundsException
  if <code>offset</code> is negative or greater than the current
  <code>length()</code>.
+ - seealso: String#valueOf(double)
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                               withDouble:(jdouble)d;
@@ -413,6 +460,7 @@
  @throws StringIndexOutOfBoundsException
  if <code>offset</code> is negative or greater than the current
  <code>length()</code>.
+ - seealso: String#valueOf(float)
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                                withFloat:(jfloat)f;
@@ -430,6 +478,7 @@
  @throws StringIndexOutOfBoundsException
  if <code>offset</code> is negative or greater than the current
  <code>length()</code>.
+ - seealso: String#valueOf(int)
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                                  withInt:(jint)i;
@@ -447,6 +496,7 @@
  @throws StringIndexOutOfBoundsException
  if <code>offset</code> is negative or greater than the current
  {code length()}.
+ - seealso: String#valueOf(long)
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                                 withLong:(jlong)l;
@@ -464,6 +514,7 @@
  @throws StringIndexOutOfBoundsException
  if <code>offset</code> is negative or greater than the current
  <code>length()</code>.
+ - seealso: String#valueOf(Object)
  */
 - (JavaLangStringBuilder *)insertWithInt:(jint)offset
                                   withId:(id)obj;
@@ -543,4 +594,8 @@ FOUNDATION_EXPORT JavaLangStringBuilder *new_JavaLangStringBuilder_initWithNSStr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangStringBuilder)
 
-#endif // _JavaLangStringBuilder_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangStringBuilder_INCLUDE_ALL")

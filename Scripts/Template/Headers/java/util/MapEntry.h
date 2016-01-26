@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/MapEntry.java
 //
 
-#ifndef _JavaUtilMapEntry_H_
-#define _JavaUtilMapEntry_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilMapEntry_INCLUDE_ALL")
+#ifdef JavaUtilMapEntry_RESTRICT
+#define JavaUtilMapEntry_INCLUDE_ALL 0
+#else
+#define JavaUtilMapEntry_INCLUDE_ALL 1
+#endif
+#undef JavaUtilMapEntry_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilMapEntry_) && (JavaUtilMapEntry_INCLUDE_ALL || defined(JavaUtilMapEntry_INCLUDE))
+#define JavaUtilMapEntry_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_Entry_INCLUDE 1
 #include "../../java/util/Map.h"
 
 /*!
@@ -58,6 +72,13 @@ FOUNDATION_EXPORT JavaUtilMapEntry *new_JavaUtilMapEntry_initWithId_withId_(id t
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMapEntry)
 
+#endif
+
+#if !defined (JavaUtilMapEntry_Type_) && (JavaUtilMapEntry_INCLUDE_ALL || defined(JavaUtilMapEntry_Type_INCLUDE))
+#define JavaUtilMapEntry_Type_
+
+@class JavaUtilMapEntry;
+
 @protocol JavaUtilMapEntry_Type < NSObject, JavaObject >
 
 - (id)getWithJavaUtilMapEntry:(JavaUtilMapEntry *)entry_;
@@ -68,4 +89,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilMapEntry_Type)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMapEntry_Type)
 
-#endif // _JavaUtilMapEntry_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilMapEntry_INCLUDE_ALL")

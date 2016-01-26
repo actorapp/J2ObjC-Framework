@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/GeneralSecurityException.java
 //
 
-#ifndef _JavaSecurityGeneralSecurityException_H_
-#define _JavaSecurityGeneralSecurityException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityGeneralSecurityException_INCLUDE_ALL")
+#ifdef JavaSecurityGeneralSecurityException_RESTRICT
+#define JavaSecurityGeneralSecurityException_INCLUDE_ALL 0
+#else
+#define JavaSecurityGeneralSecurityException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityGeneralSecurityException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityGeneralSecurityException_) && (JavaSecurityGeneralSecurityException_INCLUDE_ALL || defined(JavaSecurityGeneralSecurityException_INCLUDE))
+#define JavaSecurityGeneralSecurityException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
@@ -73,4 +87,8 @@ FOUNDATION_EXPORT JavaSecurityGeneralSecurityException *new_JavaSecurityGeneralS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityGeneralSecurityException)
 
-#endif // _JavaSecurityGeneralSecurityException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityGeneralSecurityException_INCLUDE_ALL")

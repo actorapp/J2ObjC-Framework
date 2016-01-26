@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/ClosedSelectorException.java
 //
 
-#ifndef _JavaNioChannelsClosedSelectorException_H_
-#define _JavaNioChannelsClosedSelectorException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsClosedSelectorException_INCLUDE_ALL")
+#ifdef JavaNioChannelsClosedSelectorException_RESTRICT
+#define JavaNioChannelsClosedSelectorException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsClosedSelectorException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsClosedSelectorException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsClosedSelectorException_) && (JavaNioChannelsClosedSelectorException_INCLUDE_ALL || defined(JavaNioChannelsClosedSelectorException_INCLUDE))
+#define JavaNioChannelsClosedSelectorException_
+
+#define JavaLangIllegalStateException_RESTRICT 1
+#define JavaLangIllegalStateException_INCLUDE 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioChannelsClosedSelectorException *new_JavaNioChannelsClo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsClosedSelectorException)
 
-#endif // _JavaNioChannelsClosedSelectorException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsClosedSelectorException_INCLUDE_ALL")

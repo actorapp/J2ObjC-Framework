@@ -3,29 +3,23 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/traversal/NodeFilter.java
 //
 
-#ifndef _OrgW3cDomTraversalNodeFilter_H_
-#define _OrgW3cDomTraversalNodeFilter_H_
-
 #include "../../../../J2ObjC_header.h"
 
-@protocol OrgW3cDomNode;
+#pragma push_macro("OrgW3cDomTraversalNodeFilter_INCLUDE_ALL")
+#ifdef OrgW3cDomTraversalNodeFilter_RESTRICT
+#define OrgW3cDomTraversalNodeFilter_INCLUDE_ALL 0
+#else
+#define OrgW3cDomTraversalNodeFilter_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomTraversalNodeFilter_RESTRICT
 
-#define OrgW3cDomTraversalNodeFilter_FILTER_ACCEPT 1
-#define OrgW3cDomTraversalNodeFilter_FILTER_REJECT 2
-#define OrgW3cDomTraversalNodeFilter_FILTER_SKIP 3
-#define OrgW3cDomTraversalNodeFilter_SHOW_ALL -1
-#define OrgW3cDomTraversalNodeFilter_SHOW_ELEMENT 1
-#define OrgW3cDomTraversalNodeFilter_SHOW_ATTRIBUTE 2
-#define OrgW3cDomTraversalNodeFilter_SHOW_TEXT 4
-#define OrgW3cDomTraversalNodeFilter_SHOW_CDATA_SECTION 8
-#define OrgW3cDomTraversalNodeFilter_SHOW_ENTITY_REFERENCE 16
-#define OrgW3cDomTraversalNodeFilter_SHOW_ENTITY 32
-#define OrgW3cDomTraversalNodeFilter_SHOW_PROCESSING_INSTRUCTION 64
-#define OrgW3cDomTraversalNodeFilter_SHOW_COMMENT 128
-#define OrgW3cDomTraversalNodeFilter_SHOW_DOCUMENT 256
-#define OrgW3cDomTraversalNodeFilter_SHOW_DOCUMENT_TYPE 512
-#define OrgW3cDomTraversalNodeFilter_SHOW_DOCUMENT_FRAGMENT 1024
-#define OrgW3cDomTraversalNodeFilter_SHOW_NOTATION 2048
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomTraversalNodeFilter_) && (OrgW3cDomTraversalNodeFilter_INCLUDE_ALL || defined(OrgW3cDomTraversalNodeFilter_INCLUDE))
+#define OrgW3cDomTraversalNodeFilter_
+
+@protocol OrgW3cDomNode;
 
 /*!
  @brief Filters are objects that know how to "filter out" nodes.
@@ -64,40 +58,193 @@
 
 @end
 
+@interface OrgW3cDomTraversalNodeFilter : NSObject
+
++ (jshort)FILTER_ACCEPT;
+
++ (jshort)FILTER_REJECT;
+
++ (jshort)FILTER_SKIP;
+
++ (jint)SHOW_ALL;
+
++ (jint)SHOW_ELEMENT;
+
++ (jint)SHOW_ATTRIBUTE;
+
++ (jint)SHOW_TEXT;
+
++ (jint)SHOW_CDATA_SECTION;
+
++ (jint)SHOW_ENTITY_REFERENCE;
+
++ (jint)SHOW_ENTITY;
+
++ (jint)SHOW_PROCESSING_INSTRUCTION;
+
++ (jint)SHOW_COMMENT;
+
++ (jint)SHOW_DOCUMENT;
+
++ (jint)SHOW_DOCUMENT_TYPE;
+
++ (jint)SHOW_DOCUMENT_FRAGMENT;
+
++ (jint)SHOW_NOTATION;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomTraversalNodeFilter)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, FILTER_ACCEPT, jshort)
+/*!
+ @brief Accept the node.
+ Navigation methods defined for
+ <code>NodeIterator</code> or <code>TreeWalker</code> will return this
+ node.
+ */
+inline jshort OrgW3cDomTraversalNodeFilter_get_FILTER_ACCEPT();
+#define OrgW3cDomTraversalNodeFilter_FILTER_ACCEPT 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, FILTER_ACCEPT, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, FILTER_REJECT, jshort)
+/*!
+ @brief Reject the node.
+ Navigation methods defined for
+ <code>NodeIterator</code> or <code>TreeWalker</code> will not return
+ this node. For <code>TreeWalker</code>, the children of this node
+ will also be rejected. <code>NodeIterators</code> treat this as a
+ synonym for <code>FILTER_SKIP</code>.
+ */
+inline jshort OrgW3cDomTraversalNodeFilter_get_FILTER_REJECT();
+#define OrgW3cDomTraversalNodeFilter_FILTER_REJECT 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, FILTER_REJECT, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, FILTER_SKIP, jshort)
+/*!
+ @brief Skip this single node.
+ Navigation methods defined for
+ <code>NodeIterator</code> or <code>TreeWalker</code> will not return
+ this node. For both <code>NodeIterator</code> and
+ <code>TreeWalker</code>, the children of this node will still be
+ considered.
+ */
+inline jshort OrgW3cDomTraversalNodeFilter_get_FILTER_SKIP();
+#define OrgW3cDomTraversalNodeFilter_FILTER_SKIP 3
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, FILTER_SKIP, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_ALL, jint)
+/*!
+ @brief Show all <code>Nodes</code>.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_ALL();
+#define OrgW3cDomTraversalNodeFilter_SHOW_ALL -1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_ALL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_ELEMENT, jint)
+/*!
+ @brief Show <code>Element</code> nodes.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_ELEMENT();
+#define OrgW3cDomTraversalNodeFilter_SHOW_ELEMENT 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_ELEMENT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_ATTRIBUTE, jint)
+/*!
+ @brief Show <code>Attr</code> nodes.
+ This is meaningful only when creating an
+ <code>NodeIterator</code> or <code>TreeWalker</code> with an
+ attribute node as its <code>root</code>; in this case, it means that
+ the attribute node will appear in the first position of the iteration
+ or traversal. Since attributes are never children of other nodes,
+ they do not appear when traversing over the document tree.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_ATTRIBUTE();
+#define OrgW3cDomTraversalNodeFilter_SHOW_ATTRIBUTE 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_ATTRIBUTE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_TEXT, jint)
+/*!
+ @brief Show <code>Text</code> nodes.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_TEXT();
+#define OrgW3cDomTraversalNodeFilter_SHOW_TEXT 4
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_TEXT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_CDATA_SECTION, jint)
+/*!
+ @brief Show <code>CDATASection</code> nodes.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_CDATA_SECTION();
+#define OrgW3cDomTraversalNodeFilter_SHOW_CDATA_SECTION 8
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_CDATA_SECTION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_ENTITY_REFERENCE, jint)
+/*!
+ @brief Show <code>EntityReference</code> nodes.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_ENTITY_REFERENCE();
+#define OrgW3cDomTraversalNodeFilter_SHOW_ENTITY_REFERENCE 16
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_ENTITY_REFERENCE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_ENTITY, jint)
+/*!
+ @brief Show <code>Entity</code> nodes.
+ This is meaningful only when creating
+ an <code>NodeIterator</code> or <code>TreeWalker</code> with an
+ <code>Entity</code> node as its <code>root</code>; in this case, it
+ means that the <code>Entity</code> node will appear in the first
+ position of the traversal. Since entities are not part of the
+ document tree, they do not appear when traversing over the document
+ tree.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_ENTITY();
+#define OrgW3cDomTraversalNodeFilter_SHOW_ENTITY 32
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_ENTITY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_PROCESSING_INSTRUCTION, jint)
+/*!
+ @brief Show <code>ProcessingInstruction</code> nodes.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_PROCESSING_INSTRUCTION();
+#define OrgW3cDomTraversalNodeFilter_SHOW_PROCESSING_INSTRUCTION 64
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_PROCESSING_INSTRUCTION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_COMMENT, jint)
+/*!
+ @brief Show <code>Comment</code> nodes.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_COMMENT();
+#define OrgW3cDomTraversalNodeFilter_SHOW_COMMENT 128
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_COMMENT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_DOCUMENT, jint)
+/*!
+ @brief Show <code>Document</code> nodes.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_DOCUMENT();
+#define OrgW3cDomTraversalNodeFilter_SHOW_DOCUMENT 256
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_DOCUMENT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_DOCUMENT_TYPE, jint)
+/*!
+ @brief Show <code>DocumentType</code> nodes.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_DOCUMENT_TYPE();
+#define OrgW3cDomTraversalNodeFilter_SHOW_DOCUMENT_TYPE 512
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_DOCUMENT_TYPE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_DOCUMENT_FRAGMENT, jint)
+/*!
+ @brief Show <code>DocumentFragment</code> nodes.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_DOCUMENT_FRAGMENT();
+#define OrgW3cDomTraversalNodeFilter_SHOW_DOCUMENT_FRAGMENT 1024
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_DOCUMENT_FRAGMENT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTraversalNodeFilter, SHOW_NOTATION, jint)
+/*!
+ @brief Show <code>Notation</code> nodes.
+ This is meaningful only when creating
+ an <code>NodeIterator</code> or <code>TreeWalker</code> with a
+ <code>Notation</code> node as its <code>root</code>; in this case, it
+ means that the <code>Notation</code> node will appear in the first
+ position of the traversal. Since notations are not part of the
+ document tree, they do not appear when traversing over the document
+ tree.
+ */
+inline jint OrgW3cDomTraversalNodeFilter_get_SHOW_NOTATION();
+#define OrgW3cDomTraversalNodeFilter_SHOW_NOTATION 2048
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTraversalNodeFilter, SHOW_NOTATION, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomTraversalNodeFilter)
 
-#endif // _OrgW3cDomTraversalNodeFilter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomTraversalNodeFilter_INCLUDE_ALL")

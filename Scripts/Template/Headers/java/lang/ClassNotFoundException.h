@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ClassNotFoundException.java
 //
 
-#ifndef _JavaLangClassNotFoundException_H_
-#define _JavaLangClassNotFoundException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangClassNotFoundException_INCLUDE_ALL")
+#ifdef JavaLangClassNotFoundException_RESTRICT
+#define JavaLangClassNotFoundException_INCLUDE_ALL 0
+#else
+#define JavaLangClassNotFoundException_INCLUDE_ALL 1
+#endif
+#undef JavaLangClassNotFoundException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangClassNotFoundException_) && (JavaLangClassNotFoundException_INCLUDE_ALL || defined(JavaLangClassNotFoundException_INCLUDE))
+#define JavaLangClassNotFoundException_
+
+#define JavaLangReflectiveOperationException_RESTRICT 1
+#define JavaLangReflectiveOperationException_INCLUDE 1
 #include "../../java/lang/ReflectiveOperationException.h"
 
 @class JavaLangThrowable;
@@ -75,4 +89,8 @@ FOUNDATION_EXPORT JavaLangClassNotFoundException *new_JavaLangClassNotFoundExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassNotFoundException)
 
-#endif // _JavaLangClassNotFoundException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangClassNotFoundException_INCLUDE_ALL")

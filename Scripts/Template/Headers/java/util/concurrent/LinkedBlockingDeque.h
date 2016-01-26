@@ -3,18 +3,38 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/LinkedBlockingDeque.java
 //
 
-#ifndef _JavaUtilConcurrentLinkedBlockingDeque_H_
-#define _JavaUtilConcurrentLinkedBlockingDeque_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentLinkedBlockingDeque_RESTRICT
+#define JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentLinkedBlockingDeque_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentLinkedBlockingDeque_) && (JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedBlockingDeque_INCLUDE))
+#define JavaUtilConcurrentLinkedBlockingDeque_
+
+#define JavaUtilAbstractQueue_RESTRICT 1
+#define JavaUtilAbstractQueue_INCLUDE 1
 #include "../../../java/util/AbstractQueue.h"
+
+#define JavaUtilConcurrentBlockingDeque_RESTRICT 1
+#define JavaUtilConcurrentBlockingDeque_INCLUDE 1
 #include "../../../java/util/concurrent/BlockingDeque.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentLinkedBlockingDeque_Node;
 @class JavaUtilConcurrentLocksReentrantLock;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilCollection;
 @protocol JavaUtilIterator;
 
@@ -200,7 +220,7 @@
  */
 - (jboolean)offerWithId:(id)e
                withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @throws NullPointerException
@@ -213,7 +233,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  */
 - (jboolean)offerFirstWithId:(id)e
                     withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @throws NullPointerException
@@ -226,7 +246,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  */
 - (jboolean)offerLastWithId:(id)e
                    withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id)peek;
 
@@ -237,17 +257,17 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
 - (id)poll;
 
 - (id)pollWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id)pollFirst;
 
 - (id)pollFirstWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id)pollLast;
 
 - (id)pollLastWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @throws NoSuchElementException
@@ -396,7 +416,6 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  */
 - (void)unlinkWithJavaUtilConcurrentLinkedBlockingDeque_Node:(JavaUtilConcurrentLinkedBlockingDeque_Node *)x;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentLinkedBlockingDeque)
@@ -418,6 +437,11 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLinkedBlockingDeque_initWithJavaUtilCol
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingDeque *new_JavaUtilConcurrentLinkedBlockingDeque_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque)
+
+#endif
+
+#if !defined (JavaUtilConcurrentLinkedBlockingDeque_Node_) && (JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedBlockingDeque_Node_INCLUDE))
+#define JavaUtilConcurrentLinkedBlockingDeque_Node_
 
 /*!
  @brief Doubly-linked list node class
@@ -462,4 +486,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingDeque_Node *new_JavaUtilConcur
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque_Node)
 
-#endif // _JavaUtilConcurrentLinkedBlockingDeque_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL")

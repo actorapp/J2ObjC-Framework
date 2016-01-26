@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/net/FileNameMap.java
 //
 
-#ifndef _JavaNetFileNameMap_H_
-#define _JavaNetFileNameMap_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetFileNameMap_INCLUDE_ALL")
+#ifdef JavaNetFileNameMap_RESTRICT
+#define JavaNetFileNameMap_INCLUDE_ALL 0
+#else
+#define JavaNetFileNameMap_INCLUDE_ALL 1
+#endif
+#undef JavaNetFileNameMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetFileNameMap_) && (JavaNetFileNameMap_INCLUDE_ALL || defined(JavaNetFileNameMap_INCLUDE))
+#define JavaNetFileNameMap_
 
 /*!
  @brief Defines a scheme for mapping a filename type to a MIME content type.
  Mainly
  used by <code>URLStreamHandler</code> for determining the right content handler to
  handle the resource.
+ - seealso: ContentHandler
+ - seealso: URLConnection#getFileNameMap()
+ - seealso: URLConnection#guessContentTypeFromName(String)
+ - seealso: URLStreamHandler
  */
 @protocol JavaNetFileNameMap < NSObject, JavaObject >
 
@@ -27,4 +42,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNetFileNameMap)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetFileNameMap)
 
-#endif // _JavaNetFileNameMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetFileNameMap_INCLUDE_ALL")

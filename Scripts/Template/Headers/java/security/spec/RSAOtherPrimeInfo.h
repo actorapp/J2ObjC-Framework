@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/RSAOtherPrimeInfo.java
 //
 
-#ifndef _JavaSecuritySpecRSAOtherPrimeInfo_H_
-#define _JavaSecuritySpecRSAOtherPrimeInfo_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE_ALL")
+#ifdef JavaSecuritySpecRSAOtherPrimeInfo_RESTRICT
+#define JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecRSAOtherPrimeInfo_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecRSAOtherPrimeInfo_) && (JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE_ALL || defined(JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE))
+#define JavaSecuritySpecRSAOtherPrimeInfo_
 
 @class JavaMathBigInteger;
 
@@ -64,4 +75,8 @@ FOUNDATION_EXPORT JavaSecuritySpecRSAOtherPrimeInfo *new_JavaSecuritySpecRSAOthe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAOtherPrimeInfo)
 
-#endif // _JavaSecuritySpecRSAOtherPrimeInfo_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE_ALL")

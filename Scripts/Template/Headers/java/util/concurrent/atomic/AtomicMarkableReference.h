@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicMarkableReference.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicAtomicMarkableReference_H_
-#define _JavaUtilConcurrentAtomicAtomicMarkableReference_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicAtomicMarkableReference_RESTRICT
+#define JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicAtomicMarkableReference_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicAtomicMarkableReference_) && (JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE))
+#define JavaUtilConcurrentAtomicAtomicMarkableReference_
 
 @class IOSBooleanArray;
 
@@ -122,4 +133,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicMarkableReference *new_JavaUtilC
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicMarkableReference)
 
-#endif // _JavaUtilConcurrentAtomicAtomicMarkableReference_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE_ALL")

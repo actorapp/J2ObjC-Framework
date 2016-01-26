@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLDataException.java
 //
 
-#ifndef _JavaSqlSQLDataException_H_
-#define _JavaSqlSQLDataException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLDataException_INCLUDE_ALL")
+#ifdef JavaSqlSQLDataException_RESTRICT
+#define JavaSqlSQLDataException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLDataException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLDataException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLDataException_) && (JavaSqlSQLDataException_INCLUDE_ALL || defined(JavaSqlSQLDataException_INCLUDE))
+#define JavaSqlSQLDataException_
+
+#define JavaSqlSQLNonTransientException_RESTRICT 1
+#define JavaSqlSQLNonTransientException_INCLUDE 1
 #include "../../java/sql/SQLNonTransientException.h"
 
 @class JavaLangThrowable;
@@ -133,7 +147,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLDataException)
@@ -172,4 +185,8 @@ FOUNDATION_EXPORT JavaSqlSQLDataException *new_JavaSqlSQLDataException_initWithN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLDataException)
 
-#endif // _JavaSqlSQLDataException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLDataException_INCLUDE_ALL")

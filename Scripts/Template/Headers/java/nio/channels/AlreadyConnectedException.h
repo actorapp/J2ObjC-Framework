@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/AlreadyConnectedException.java
 //
 
-#ifndef _JavaNioChannelsAlreadyConnectedException_H_
-#define _JavaNioChannelsAlreadyConnectedException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsAlreadyConnectedException_INCLUDE_ALL")
+#ifdef JavaNioChannelsAlreadyConnectedException_RESTRICT
+#define JavaNioChannelsAlreadyConnectedException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsAlreadyConnectedException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsAlreadyConnectedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsAlreadyConnectedException_) && (JavaNioChannelsAlreadyConnectedException_INCLUDE_ALL || defined(JavaNioChannelsAlreadyConnectedException_INCLUDE))
+#define JavaNioChannelsAlreadyConnectedException_
+
+#define JavaLangIllegalStateException_RESTRICT 1
+#define JavaLangIllegalStateException_INCLUDE 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioChannelsAlreadyConnectedException *new_JavaNioChannelsA
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsAlreadyConnectedException)
 
-#endif // _JavaNioChannelsAlreadyConnectedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsAlreadyConnectedException_INCLUDE_ALL")

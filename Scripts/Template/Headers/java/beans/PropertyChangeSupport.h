@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/beans/PropertyChangeSupport.java
 //
 
-#ifndef _JavaBeansPropertyChangeSupport_H_
-#define _JavaBeansPropertyChangeSupport_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaBeansPropertyChangeSupport_INCLUDE_ALL")
+#ifdef JavaBeansPropertyChangeSupport_RESTRICT
+#define JavaBeansPropertyChangeSupport_INCLUDE_ALL 0
+#else
+#define JavaBeansPropertyChangeSupport_INCLUDE_ALL 1
+#endif
+#undef JavaBeansPropertyChangeSupport_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaBeansPropertyChangeSupport_) && (JavaBeansPropertyChangeSupport_INCLUDE_ALL || defined(JavaBeansPropertyChangeSupport_INCLUDE))
+#define JavaBeansPropertyChangeSupport_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -219,4 +233,8 @@ FOUNDATION_EXPORT JavaBeansPropertyChangeSupport *new_JavaBeansPropertyChangeSup
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyChangeSupport)
 
-#endif // _JavaBeansPropertyChangeSupport_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaBeansPropertyChangeSupport_INCLUDE_ALL")

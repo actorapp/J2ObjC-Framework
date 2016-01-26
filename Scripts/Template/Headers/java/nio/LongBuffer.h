@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/nio/LongBuffer.java
 //
 
-#ifndef _JavaNioLongBuffer_H_
-#define _JavaNioLongBuffer_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Comparable.h"
+
+#pragma push_macro("JavaNioLongBuffer_INCLUDE_ALL")
+#ifdef JavaNioLongBuffer_RESTRICT
+#define JavaNioLongBuffer_INCLUDE_ALL 0
+#else
+#define JavaNioLongBuffer_INCLUDE_ALL 1
+#endif
+#undef JavaNioLongBuffer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioLongBuffer_) && (JavaNioLongBuffer_INCLUDE_ALL || defined(JavaNioLongBuffer_INCLUDE))
+#define JavaNioLongBuffer_
+
+#define JavaNioBuffer_RESTRICT 1
+#define JavaNioBuffer_INCLUDE 1
 #include "../../java/nio/Buffer.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
+#include "../../java/lang/Comparable.h"
 
 @class IOSLongArray;
 @class JavaNioByteOrder;
@@ -366,4 +383,8 @@ FOUNDATION_EXPORT void JavaNioLongBuffer_initWithInt_withLong_(JavaNioLongBuffer
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioLongBuffer)
 
-#endif // _JavaNioLongBuffer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioLongBuffer_INCLUDE_ALL")

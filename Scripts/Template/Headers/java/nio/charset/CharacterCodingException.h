@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/CharacterCodingException.java
 //
 
-#ifndef _JavaNioCharsetCharacterCodingException_H_
-#define _JavaNioCharsetCharacterCodingException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioCharsetCharacterCodingException_INCLUDE_ALL")
+#ifdef JavaNioCharsetCharacterCodingException_RESTRICT
+#define JavaNioCharsetCharacterCodingException_INCLUDE_ALL 0
+#else
+#define JavaNioCharsetCharacterCodingException_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharsetCharacterCodingException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharsetCharacterCodingException_) && (JavaNioCharsetCharacterCodingException_INCLUDE_ALL || defined(JavaNioCharsetCharacterCodingException_INCLUDE))
+#define JavaNioCharsetCharacterCodingException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../../java/io/IOException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioCharsetCharacterCodingException *new_JavaNioCharsetChar
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCharacterCodingException)
 
-#endif // _JavaNioCharsetCharacterCodingException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharsetCharacterCodingException_INCLUDE_ALL")

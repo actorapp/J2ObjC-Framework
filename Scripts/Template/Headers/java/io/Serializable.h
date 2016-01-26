@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/io/Serializable.java
 //
 
-#ifndef _JavaIoSerializable_H_
-#define _JavaIoSerializable_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoSerializable_INCLUDE_ALL")
+#ifdef JavaIoSerializable_RESTRICT
+#define JavaIoSerializable_INCLUDE_ALL 0
+#else
+#define JavaIoSerializable_INCLUDE_ALL 1
+#endif
+#undef JavaIoSerializable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoSerializable_) && (JavaIoSerializable_INCLUDE_ALL || defined(JavaIoSerializable_INCLUDE))
+#define JavaIoSerializable_
 
 /*!
  @brief Marks classes that can be serialized by <code>ObjectOutputStream</code> and
@@ -86,4 +97,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoSerializable)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoSerializable)
 
-#endif // _JavaIoSerializable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoSerializable_INCLUDE_ALL")

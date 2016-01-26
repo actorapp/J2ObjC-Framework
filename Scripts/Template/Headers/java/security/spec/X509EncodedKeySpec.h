@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/X509EncodedKeySpec.java
 //
 
-#ifndef _JavaSecuritySpecX509EncodedKeySpec_H_
-#define _JavaSecuritySpecX509EncodedKeySpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecX509EncodedKeySpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecX509EncodedKeySpec_RESTRICT
+#define JavaSecuritySpecX509EncodedKeySpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecX509EncodedKeySpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecX509EncodedKeySpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecX509EncodedKeySpec_) && (JavaSecuritySpecX509EncodedKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecX509EncodedKeySpec_INCLUDE))
+#define JavaSecuritySpecX509EncodedKeySpec_
+
+#define JavaSecuritySpecEncodedKeySpec_RESTRICT 1
+#define JavaSecuritySpecEncodedKeySpec_INCLUDE 1
 #include "../../../java/security/spec/EncodedKeySpec.h"
 
 @class IOSByteArray;
@@ -49,4 +63,8 @@ FOUNDATION_EXPORT JavaSecuritySpecX509EncodedKeySpec *new_JavaSecuritySpecX509En
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecX509EncodedKeySpec)
 
-#endif // _JavaSecuritySpecX509EncodedKeySpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecX509EncodedKeySpec_INCLUDE_ALL")

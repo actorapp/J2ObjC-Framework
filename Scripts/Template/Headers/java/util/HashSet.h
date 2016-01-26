@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/HashSet.java
 //
 
-#ifndef _JavaUtilHashSet_H_
-#define _JavaUtilHashSet_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilHashSet_INCLUDE_ALL")
+#ifdef JavaUtilHashSet_RESTRICT
+#define JavaUtilHashSet_INCLUDE_ALL 0
+#else
+#define JavaUtilHashSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilHashSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilHashSet_) && (JavaUtilHashSet_INCLUDE_ALL || defined(JavaUtilHashSet_INCLUDE))
+#define JavaUtilHashSet_
+
+#define JavaUtilAbstractSet_RESTRICT 1
+#define JavaUtilAbstractSet_INCLUDE 1
 #include "../../java/util/AbstractSet.h"
+
+#define JavaUtilSet_RESTRICT 1
+#define JavaUtilSet_INCLUDE 1
 #include "../../java/util/Set.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class JavaUtilHashMap;
 @protocol JavaUtilCollection;
@@ -69,6 +89,8 @@
 
 /*!
  @brief Removes all elements from this <code>HashSet</code>, leaving it empty.
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -76,6 +98,7 @@
  @brief Returns a new <code>HashSet</code> with the same elements and size as this
  <code>HashSet</code>.
  @return a shallow copy of this <code>HashSet</code>.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -92,12 +115,14 @@
  @brief Returns true if this <code>HashSet</code> has no elements, false otherwise.
  @return <code>true</code> if this <code>HashSet</code> has no elements,
  <code>false</code> otherwise.
+ - seealso: #size
  */
 - (jboolean)isEmpty;
 
 /*!
  @brief Returns an Iterator on the elements of this <code>HashSet</code>.
  @return an Iterator on the elements of this <code>HashSet</code>.
+ - seealso: Iterator
  */
 - (id<JavaUtilIterator>)iterator;
 
@@ -121,7 +146,6 @@
 
 - (JavaUtilHashMap *)createBackingMapWithInt:(jint)capacity
                                    withFloat:(jfloat)loadFactor;
-
 
 @end
 
@@ -151,4 +175,8 @@ FOUNDATION_EXPORT JavaUtilHashSet *new_JavaUtilHashSet_initWithJavaUtilHashMap_(
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashSet)
 
-#endif // _JavaUtilHashSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilHashSet_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/namespace/QName.java
 //
 
-#ifndef _JavaxXmlNamespaceQName_H_
-#define _JavaxXmlNamespaceQName_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlNamespaceQName_INCLUDE_ALL")
+#ifdef JavaxXmlNamespaceQName_RESTRICT
+#define JavaxXmlNamespaceQName_INCLUDE_ALL 0
+#else
+#define JavaxXmlNamespaceQName_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlNamespaceQName_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlNamespaceQName_) && (JavaxXmlNamespaceQName_INCLUDE_ALL || defined(JavaxXmlNamespaceQName_INCLUDE))
+#define JavaxXmlNamespaceQName_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../java/io/Serializable.h"
 
 /*!
@@ -36,6 +50,9 @@
  <p><code>QName</code> is immutable.</p>
  @author <a href="mailto:Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  @version $Revision: 754581 $, $Date: 2009-03-14 18:32:39 -0700 (Sat, 14 Mar 2009) $
+ - seealso: <a href="http://www.w3.org/TR/xmlschema-2/#QName">XML Schema Part2: Datatypes specification</a>
+ - seealso: <a href="http://www.w3.org/TR/REC-xml-names/#ns-qualnames">Namespaces in XML</a>
+ - seealso: <a href="http://www.w3.org/XML/xml-names-19990114-errata">Namespaces in XML Errata</a>
  @since 1.5
  */
 @interface JavaxXmlNamespaceQName : NSObject < JavaIoSerializable >
@@ -66,6 +83,11 @@
  as specified in <a href="http://www.w3.org/TR/REC-xml-names/">Namespaces
  in XML</a>.</p>
  @param localPart local part of the <code>QName</code>
+ - seealso: #QName(String namespaceURI,String localPart) QName(String
+ namespaceURI, String localPart)
+ - seealso: #QName(String namespaceURI,String localPart,String prefix)
+  QName(String namespaceURI, String localPart, String
+ prefix)
  */
 - (instancetype)initWithNSString:(NSString *)localPart;
 
@@ -96,6 +118,9 @@
  in XML</a>.</p>
  @param namespaceURI Namespace URI of the <code>QName</code>
  @param localPart    local part of the <code>QName</code>
+ - seealso: #QName(String namespaceURI,String localPart,String prefix)
+  QName(String namespaceURI, String localPart, String
+ prefix)
  */
 - (instancetype)initWithNSString:(NSString *)namespaceURI
                     withNSString:(NSString *)localPart;
@@ -248,6 +273,7 @@
  @param qNameAsString <code>String</code> representation
  of the <code>QName</code>
  @return <code>QName</code> corresponding to the given <code>String</code>
+ - seealso: #toString() QName.toString()
  */
 + (JavaxXmlNamespaceQName *)valueOfWithNSString:(NSString *)qNameAsString;
 
@@ -271,4 +297,8 @@ FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlNamespaceQName_valueOfWithNSSt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlNamespaceQName)
 
-#endif // _JavaxXmlNamespaceQName_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlNamespaceQName_INCLUDE_ALL")

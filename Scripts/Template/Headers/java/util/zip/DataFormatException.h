@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/DataFormatException.java
 //
 
-#ifndef _JavaUtilZipDataFormatException_H_
-#define _JavaUtilZipDataFormatException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipDataFormatException_INCLUDE_ALL")
+#ifdef JavaUtilZipDataFormatException_RESTRICT
+#define JavaUtilZipDataFormatException_INCLUDE_ALL 0
+#else
+#define JavaUtilZipDataFormatException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipDataFormatException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipDataFormatException_) && (JavaUtilZipDataFormatException_INCLUDE_ALL || defined(JavaUtilZipDataFormatException_INCLUDE))
+#define JavaUtilZipDataFormatException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -44,4 +58,8 @@ FOUNDATION_EXPORT JavaUtilZipDataFormatException *new_JavaUtilZipDataFormatExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDataFormatException)
 
-#endif // _JavaUtilZipDataFormatException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipDataFormatException_INCLUDE_ALL")

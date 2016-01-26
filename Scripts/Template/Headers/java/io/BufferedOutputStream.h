@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/BufferedOutputStream.java
 //
 
-#ifndef _JavaIoBufferedOutputStream_H_
-#define _JavaIoBufferedOutputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoBufferedOutputStream_INCLUDE_ALL")
+#ifdef JavaIoBufferedOutputStream_RESTRICT
+#define JavaIoBufferedOutputStream_INCLUDE_ALL 0
+#else
+#define JavaIoBufferedOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoBufferedOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoBufferedOutputStream_) && (JavaIoBufferedOutputStream_INCLUDE_ALL || defined(JavaIoBufferedOutputStream_INCLUDE))
+#define JavaIoBufferedOutputStream_
+
+#define JavaIoFilterOutputStream_RESTRICT 1
+#define JavaIoFilterOutputStream_INCLUDE 1
 #include "../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
@@ -25,6 +39,7 @@
   BufferedOutputStream buf = new BufferedOutputStream(new FileOutputStream(&quot;file.java&quot;));
   
 @endcode
+ - seealso: BufferedInputStream
  */
 @interface JavaIoBufferedOutputStream : JavaIoFilterOutputStream {
  @public
@@ -127,4 +142,8 @@ FOUNDATION_EXPORT JavaIoBufferedOutputStream *new_JavaIoBufferedOutputStream_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedOutputStream)
 
-#endif // _JavaIoBufferedOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoBufferedOutputStream_INCLUDE_ALL")

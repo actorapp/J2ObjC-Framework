@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/TooManyListenersException.java
 //
 
-#ifndef _JavaUtilTooManyListenersException_H_
-#define _JavaUtilTooManyListenersException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilTooManyListenersException_INCLUDE_ALL")
+#ifdef JavaUtilTooManyListenersException_RESTRICT
+#define JavaUtilTooManyListenersException_INCLUDE_ALL 0
+#else
+#define JavaUtilTooManyListenersException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilTooManyListenersException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilTooManyListenersException_) && (JavaUtilTooManyListenersException_INCLUDE_ALL || defined(JavaUtilTooManyListenersException_INCLUDE))
+#define JavaUtilTooManyListenersException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -47,4 +61,8 @@ FOUNDATION_EXPORT JavaUtilTooManyListenersException *new_JavaUtilTooManyListener
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTooManyListenersException)
 
-#endif // _JavaUtilTooManyListenersException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilTooManyListenersException_INCLUDE_ALL")

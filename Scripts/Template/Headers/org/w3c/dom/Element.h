@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/Element.java
 //
 
-#ifndef _OrgW3cDomElement_H_
-#define _OrgW3cDomElement_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomElement_INCLUDE_ALL")
+#ifdef OrgW3cDomElement_RESTRICT
+#define OrgW3cDomElement_INCLUDE_ALL 0
+#else
+#define OrgW3cDomElement_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomElement_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomElement_) && (OrgW3cDomElement_INCLUDE_ALL || defined(OrgW3cDomElement_INCLUDE))
+#define OrgW3cDomElement_
+
+#define OrgW3cDomNode_RESTRICT 1
+#define OrgW3cDomNode_INCLUDE 1
 #include "../../../org/w3c/dom/Node.h"
 
 @protocol OrgW3cDomAttr;
@@ -444,4 +458,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomElement)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomElement)
 
-#endif // _OrgW3cDomElement_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomElement_INCLUDE_ALL")

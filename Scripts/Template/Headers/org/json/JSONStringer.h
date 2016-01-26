@@ -3,14 +3,24 @@
 //  source: android/libcore/json/src/main/java/org/json/JSONStringer.java
 //
 
-#ifndef _OrgJsonJSONStringer_H_
-#define _OrgJsonJSONStringer_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Enum.h"
+
+#pragma push_macro("OrgJsonJSONStringer_INCLUDE_ALL")
+#ifdef OrgJsonJSONStringer_RESTRICT
+#define OrgJsonJSONStringer_INCLUDE_ALL 0
+#else
+#define OrgJsonJSONStringer_INCLUDE_ALL 1
+#endif
+#undef OrgJsonJSONStringer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgJsonJSONStringer_) && (OrgJsonJSONStringer_INCLUDE_ALL || defined(OrgJsonJSONStringer_INCLUDE))
+#define OrgJsonJSONStringer_
 
 @class JavaLangStringBuilder;
-@class OrgJsonJSONStringer_ScopeEnum;
+@class OrgJsonJSONStringer_Scope;
 
 /*!
  @brief Implements <code>JSONObject.toString</code> and <code>JSONArray.toString</code>.
@@ -142,16 +152,16 @@
  @brief Closes the current scope by appending any necessary whitespace and the
  given bracket.
  */
-- (OrgJsonJSONStringer *)closeWithOrgJsonJSONStringer_ScopeEnum:(OrgJsonJSONStringer_ScopeEnum *)empty
-                              withOrgJsonJSONStringer_ScopeEnum:(OrgJsonJSONStringer_ScopeEnum *)nonempty
-                                                   withNSString:(NSString *)closeBracket;
+- (OrgJsonJSONStringer *)closeWithOrgJsonJSONStringer_Scope:(OrgJsonJSONStringer_Scope *)empty
+                              withOrgJsonJSONStringer_Scope:(OrgJsonJSONStringer_Scope *)nonempty
+                                               withNSString:(NSString *)closeBracket;
 
 /*!
  @brief Enters a new scope by appending any necessary whitespace and the given
  bracket.
  */
-- (OrgJsonJSONStringer *)openWithOrgJsonJSONStringer_ScopeEnum:(OrgJsonJSONStringer_ScopeEnum *)empty
-                                                  withNSString:(NSString *)openBracket;
+- (OrgJsonJSONStringer *)openWithOrgJsonJSONStringer_Scope:(OrgJsonJSONStringer_Scope *)empty
+                                              withNSString:(NSString *)openBracket;
 
 @end
 
@@ -169,13 +179,22 @@ FOUNDATION_EXPORT OrgJsonJSONStringer *new_OrgJsonJSONStringer_initWithInt_(jint
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONStringer)
 
-typedef NS_ENUM(NSUInteger, OrgJsonJSONStringer_Scope) {
-  OrgJsonJSONStringer_Scope_EMPTY_ARRAY = 0,
-  OrgJsonJSONStringer_Scope_NONEMPTY_ARRAY = 1,
-  OrgJsonJSONStringer_Scope_EMPTY_OBJECT = 2,
-  OrgJsonJSONStringer_Scope_DANGLING_KEY = 3,
-  OrgJsonJSONStringer_Scope_NONEMPTY_OBJECT = 4,
-  OrgJsonJSONStringer_Scope_NULL = 5,
+#endif
+
+#if !defined (OrgJsonJSONStringer_Scope_) && (OrgJsonJSONStringer_INCLUDE_ALL || defined(OrgJsonJSONStringer_Scope_INCLUDE))
+#define OrgJsonJSONStringer_Scope_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
+#include "../../java/lang/Enum.h"
+
+typedef NS_ENUM(NSUInteger, OrgJsonJSONStringer_Scope_Enum) {
+  OrgJsonJSONStringer_Scope_Enum_EMPTY_ARRAY = 0,
+  OrgJsonJSONStringer_Scope_Enum_NONEMPTY_ARRAY = 1,
+  OrgJsonJSONStringer_Scope_Enum_EMPTY_OBJECT = 2,
+  OrgJsonJSONStringer_Scope_Enum_DANGLING_KEY = 3,
+  OrgJsonJSONStringer_Scope_Enum_NONEMPTY_OBJECT = 4,
+  OrgJsonJSONStringer_Scope_Enum_NULL = 5,
 };
 
 /*!
@@ -183,42 +202,90 @@ typedef NS_ENUM(NSUInteger, OrgJsonJSONStringer_Scope) {
  appropriate separator characters (ie. commas and colons) and to detect
  nesting errors.
  */
-@interface OrgJsonJSONStringer_ScopeEnum : JavaLangEnum < NSCopying >
+@interface OrgJsonJSONStringer_Scope : JavaLangEnum < NSCopying >
+
++ (OrgJsonJSONStringer_Scope *)EMPTY_ARRAY;
+
++ (OrgJsonJSONStringer_Scope *)NONEMPTY_ARRAY;
+
++ (OrgJsonJSONStringer_Scope *)EMPTY_OBJECT;
+
++ (OrgJsonJSONStringer_Scope *)DANGLING_KEY;
+
++ (OrgJsonJSONStringer_Scope *)NONEMPTY_OBJECT;
+
++ (OrgJsonJSONStringer_Scope *)NULL_;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *OrgJsonJSONStringer_ScopeEnum_values();
 
-+ (OrgJsonJSONStringer_ScopeEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT OrgJsonJSONStringer_ScopeEnum *OrgJsonJSONStringer_ScopeEnum_valueOfWithNSString_(NSString *name);
++ (OrgJsonJSONStringer_Scope *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (OrgJsonJSONStringer_Scope_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(OrgJsonJSONStringer_ScopeEnum)
+J2OBJC_STATIC_INIT(OrgJsonJSONStringer_Scope)
 
-FOUNDATION_EXPORT OrgJsonJSONStringer_ScopeEnum *OrgJsonJSONStringer_ScopeEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT OrgJsonJSONStringer_Scope *OrgJsonJSONStringer_Scope_values_[];
 
-#define OrgJsonJSONStringer_ScopeEnum_EMPTY_ARRAY OrgJsonJSONStringer_ScopeEnum_values_[OrgJsonJSONStringer_Scope_EMPTY_ARRAY]
-J2OBJC_ENUM_CONSTANT_GETTER(OrgJsonJSONStringer_ScopeEnum, EMPTY_ARRAY)
+/*!
+ @brief An array with no elements requires no separators or newlines before
+ it is closed.
+ */
+inline OrgJsonJSONStringer_Scope *OrgJsonJSONStringer_Scope_get_EMPTY_ARRAY();
+J2OBJC_ENUM_CONSTANT(OrgJsonJSONStringer_Scope, EMPTY_ARRAY)
 
-#define OrgJsonJSONStringer_ScopeEnum_NONEMPTY_ARRAY OrgJsonJSONStringer_ScopeEnum_values_[OrgJsonJSONStringer_Scope_NONEMPTY_ARRAY]
-J2OBJC_ENUM_CONSTANT_GETTER(OrgJsonJSONStringer_ScopeEnum, NONEMPTY_ARRAY)
+/*!
+ @brief A array with at least one value requires a comma and newline before
+ the next element.
+ */
+inline OrgJsonJSONStringer_Scope *OrgJsonJSONStringer_Scope_get_NONEMPTY_ARRAY();
+J2OBJC_ENUM_CONSTANT(OrgJsonJSONStringer_Scope, NONEMPTY_ARRAY)
 
-#define OrgJsonJSONStringer_ScopeEnum_EMPTY_OBJECT OrgJsonJSONStringer_ScopeEnum_values_[OrgJsonJSONStringer_Scope_EMPTY_OBJECT]
-J2OBJC_ENUM_CONSTANT_GETTER(OrgJsonJSONStringer_ScopeEnum, EMPTY_OBJECT)
+/*!
+ @brief An object with no keys or values requires no separators or newlines
+ before it is closed.
+ */
+inline OrgJsonJSONStringer_Scope *OrgJsonJSONStringer_Scope_get_EMPTY_OBJECT();
+J2OBJC_ENUM_CONSTANT(OrgJsonJSONStringer_Scope, EMPTY_OBJECT)
 
-#define OrgJsonJSONStringer_ScopeEnum_DANGLING_KEY OrgJsonJSONStringer_ScopeEnum_values_[OrgJsonJSONStringer_Scope_DANGLING_KEY]
-J2OBJC_ENUM_CONSTANT_GETTER(OrgJsonJSONStringer_ScopeEnum, DANGLING_KEY)
+/*!
+ @brief An object whose most recent element is a key.
+ The next element must
+ be a value.
+ */
+inline OrgJsonJSONStringer_Scope *OrgJsonJSONStringer_Scope_get_DANGLING_KEY();
+J2OBJC_ENUM_CONSTANT(OrgJsonJSONStringer_Scope, DANGLING_KEY)
 
-#define OrgJsonJSONStringer_ScopeEnum_NONEMPTY_OBJECT OrgJsonJSONStringer_ScopeEnum_values_[OrgJsonJSONStringer_Scope_NONEMPTY_OBJECT]
-J2OBJC_ENUM_CONSTANT_GETTER(OrgJsonJSONStringer_ScopeEnum, NONEMPTY_OBJECT)
+/*!
+ @brief An object with at least one name/value pair requires a comma and
+ newline before the next element.
+ */
+inline OrgJsonJSONStringer_Scope *OrgJsonJSONStringer_Scope_get_NONEMPTY_OBJECT();
+J2OBJC_ENUM_CONSTANT(OrgJsonJSONStringer_Scope, NONEMPTY_OBJECT)
 
-#define OrgJsonJSONStringer_ScopeEnum_NULL OrgJsonJSONStringer_ScopeEnum_values_[OrgJsonJSONStringer_Scope_NULL]
-J2OBJC_ENUM_CONSTANT_GETTER(OrgJsonJSONStringer_ScopeEnum, NULL)
+/*!
+ @brief A special bracketless array needed by JSONStringer.join() and
+ JSONObject.quote() only.
+ Not used for JSON encoding.
+ */
+inline OrgJsonJSONStringer_Scope *OrgJsonJSONStringer_Scope_get_NULL();
+J2OBJC_ENUM_CONSTANT(OrgJsonJSONStringer_Scope, NULL)
 
-J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONStringer_ScopeEnum)
+FOUNDATION_EXPORT IOSObjectArray *OrgJsonJSONStringer_Scope_values();
 
-#endif // _OrgJsonJSONStringer_H_
+FOUNDATION_EXPORT OrgJsonJSONStringer_Scope *OrgJsonJSONStringer_Scope_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT OrgJsonJSONStringer_Scope *OrgJsonJSONStringer_Scope_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONStringer_Scope)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgJsonJSONStringer_INCLUDE_ALL")

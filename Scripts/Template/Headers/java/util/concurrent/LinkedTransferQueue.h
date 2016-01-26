@@ -3,22 +3,38 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/LinkedTransferQueue.java
 //
 
-#ifndef _JavaUtilConcurrentLinkedTransferQueue_H_
-#define _JavaUtilConcurrentLinkedTransferQueue_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentLinkedTransferQueue_RESTRICT
+#define JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentLinkedTransferQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentLinkedTransferQueue_) && (JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedTransferQueue_INCLUDE))
+#define JavaUtilConcurrentLinkedTransferQueue_
+
+#define JavaUtilAbstractQueue_RESTRICT 1
+#define JavaUtilAbstractQueue_INCLUDE 1
 #include "../../../java/util/AbstractQueue.h"
-#include "../../../java/util/Iterator.h"
+
+#define JavaUtilConcurrentTransferQueue_RESTRICT 1
+#define JavaUtilConcurrentTransferQueue_INCLUDE 1
 #include "../../../java/util/concurrent/TransferQueue.h"
 
-@class JavaLangThread;
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
 @class JavaUtilConcurrentLinkedTransferQueue_Node;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilCollection;
 @protocol JavaUtilIterator;
-
-#define JavaUtilConcurrentLinkedTransferQueue_SWEEP_THRESHOLD 32
 
 /*!
  @brief An unbounded <code>TransferQueue</code> based on linked nodes.
@@ -57,6 +73,8 @@
    */
   volatile_id head_;
 }
+
++ (jint)SWEEP_THRESHOLD;
 
 #pragma mark Public
 
@@ -148,14 +166,14 @@
  */
 - (jboolean)offerWithId:(id)e
                withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id)peek;
 
 - (id)poll;
 
 - (id)pollWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Inserts the specified element at the tail of this queue.
@@ -236,7 +254,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  */
 - (jboolean)tryTransferWithId:(id)e
                      withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 #pragma mark Package-Private
 
@@ -259,14 +277,23 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
 - (void)unspliceWithJavaUtilConcurrentLinkedTransferQueue_Node:(JavaUtilConcurrentLinkedTransferQueue_Node *)pred
                 withJavaUtilConcurrentLinkedTransferQueue_Node:(JavaUtilConcurrentLinkedTransferQueue_Node *)s;
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentLinkedTransferQueue)
 
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentLinkedTransferQueue, head_, JavaUtilConcurrentLinkedTransferQueue_Node *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentLinkedTransferQueue, SWEEP_THRESHOLD, jint)
+/*!
+ @brief The maximum number of estimated removal failures (sweepVotes)
+ to tolerate before sweeping through the queue unlinking
+ cancelled nodes that were not unlinked upon initial
+ removal.
+ See above for explanation. The value must be at least
+ two to avoid useless sweeps when removing trailing nodes.
+ */
+inline jint JavaUtilConcurrentLinkedTransferQueue_get_SWEEP_THRESHOLD();
+#define JavaUtilConcurrentLinkedTransferQueue_SWEEP_THRESHOLD 32
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentLinkedTransferQueue, SWEEP_THRESHOLD, jint)
 
 FOUNDATION_EXPORT id JavaUtilConcurrentLinkedTransferQueue_castWithId_(id item);
 
@@ -279,6 +306,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLinkedTransferQueue_initWithJavaUtilCol
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue *new_JavaUtilConcurrentLinkedTransferQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue)
+
+#endif
+
+#if !defined (JavaUtilConcurrentLinkedTransferQueue_Node_) && (JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedTransferQueue_Node_INCLUDE))
+#define JavaUtilConcurrentLinkedTransferQueue_Node_
+
+@class JavaLangThread;
 
 /*!
  @brief Queue nodes.
@@ -367,6 +401,17 @@ FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue_Node *new_JavaUtilConcur
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue_Node)
 
+#endif
+
+#if !defined (JavaUtilConcurrentLinkedTransferQueue_Itr_) && (JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedTransferQueue_Itr_INCLUDE))
+#define JavaUtilConcurrentLinkedTransferQueue_Itr_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
+#include "../../../java/util/Iterator.h"
+
+@class JavaUtilConcurrentLinkedTransferQueue;
+
 @interface JavaUtilConcurrentLinkedTransferQueue_Itr : NSObject < JavaUtilIterator >
 
 #pragma mark Public
@@ -391,4 +436,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue_Itr *new_JavaUtilConcurr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue_Itr)
 
-#endif // _JavaUtilConcurrentLinkedTransferQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL")

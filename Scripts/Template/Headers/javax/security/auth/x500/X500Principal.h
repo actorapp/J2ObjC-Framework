@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/javax/security/auth/x500/X500Principal.java
 //
 
-#ifndef _JavaxSecurityAuthX500X500Principal_H_
-#define _JavaxSecurityAuthX500X500Principal_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxSecurityAuthX500X500Principal_INCLUDE_ALL")
+#ifdef JavaxSecurityAuthX500X500Principal_RESTRICT
+#define JavaxSecurityAuthX500X500Principal_INCLUDE_ALL 0
+#else
+#define JavaxSecurityAuthX500X500Principal_INCLUDE_ALL 1
+#endif
+#undef JavaxSecurityAuthX500X500Principal_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxSecurityAuthX500X500Principal_) && (JavaxSecurityAuthX500X500Principal_INCLUDE_ALL || defined(JavaxSecurityAuthX500X500Principal_INCLUDE))
+#define JavaxSecurityAuthX500X500Principal_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../../java/io/Serializable.h"
+
+#define JavaSecurityPrincipal_RESTRICT 1
+#define JavaSecurityPrincipal_INCLUDE 1
 #include "../../../../java/security/Principal.h"
 
 @class IOSByteArray;
@@ -25,6 +42,12 @@
  RFC 2253, RFC 1779, or RFC2459.
  */
 @interface JavaxSecurityAuthX500X500Principal : NSObject < JavaIoSerializable, JavaSecurityPrincipal >
+
++ (NSString *)CANONICAL;
+
++ (NSString *)RFC1779;
+
++ (NSString *)RFC2253;
 
 #pragma mark Public
 
@@ -109,14 +132,32 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxSecurityAuthX500X500Principal)
 
-FOUNDATION_EXPORT NSString *JavaxSecurityAuthX500X500Principal_CANONICAL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxSecurityAuthX500X500Principal, CANONICAL_, NSString *)
+/*!
+ @brief Defines a constant for the canonical string format of distinguished
+ names.
+ */
+inline NSString *JavaxSecurityAuthX500X500Principal_get_CANONICAL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxSecurityAuthX500X500Principal_CANONICAL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxSecurityAuthX500X500Principal, CANONICAL, NSString *)
 
-FOUNDATION_EXPORT NSString *JavaxSecurityAuthX500X500Principal_RFC1779_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxSecurityAuthX500X500Principal, RFC1779_, NSString *)
+/*!
+ @brief Defines a constant for the RFC 1779 string format of distinguished
+ names.
+ */
+inline NSString *JavaxSecurityAuthX500X500Principal_get_RFC1779();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxSecurityAuthX500X500Principal_RFC1779;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxSecurityAuthX500X500Principal, RFC1779, NSString *)
 
-FOUNDATION_EXPORT NSString *JavaxSecurityAuthX500X500Principal_RFC2253_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxSecurityAuthX500X500Principal, RFC2253_, NSString *)
+/*!
+ @brief Defines a constant for the RFC 2253 string format of distinguished
+ names.
+ */
+inline NSString *JavaxSecurityAuthX500X500Principal_get_RFC2253();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxSecurityAuthX500X500Principal_RFC2253;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxSecurityAuthX500X500Principal, RFC2253, NSString *)
 
 FOUNDATION_EXPORT void JavaxSecurityAuthX500X500Principal_initWithByteArray_(JavaxSecurityAuthX500X500Principal *self, IOSByteArray *name);
 
@@ -136,4 +177,8 @@ FOUNDATION_EXPORT JavaxSecurityAuthX500X500Principal *new_JavaxSecurityAuthX500X
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthX500X500Principal)
 
-#endif // _JavaxSecurityAuthX500X500Principal_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxSecurityAuthX500X500Principal_INCLUDE_ALL")

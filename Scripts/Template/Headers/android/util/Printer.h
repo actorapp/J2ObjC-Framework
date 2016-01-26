@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/util/Printer.java
 //
 
-#ifndef _AndroidUtilPrinter_H_
-#define _AndroidUtilPrinter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidUtilPrinter_INCLUDE_ALL")
+#ifdef AndroidUtilPrinter_RESTRICT
+#define AndroidUtilPrinter_INCLUDE_ALL 0
+#else
+#define AndroidUtilPrinter_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilPrinter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilPrinter_) && (AndroidUtilPrinter_INCLUDE_ALL || defined(AndroidUtilPrinter_INCLUDE))
+#define AndroidUtilPrinter_
 
 /*!
  @brief Simple interface for printing text, allowing redirection to various
@@ -27,4 +38,8 @@ J2OBJC_EMPTY_STATIC_INIT(AndroidUtilPrinter)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilPrinter)
 
-#endif // _AndroidUtilPrinter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilPrinter_INCLUDE_ALL")

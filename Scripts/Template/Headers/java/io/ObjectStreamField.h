@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectStreamField.java
 //
 
-#ifndef _JavaIoObjectStreamField_H_
-#define _JavaIoObjectStreamField_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoObjectStreamField_INCLUDE_ALL")
+#ifdef JavaIoObjectStreamField_RESTRICT
+#define JavaIoObjectStreamField_INCLUDE_ALL 0
+#else
+#define JavaIoObjectStreamField_INCLUDE_ALL 1
+#endif
+#undef JavaIoObjectStreamField_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoObjectStreamField_) && (JavaIoObjectStreamField_INCLUDE_ALL || defined(JavaIoObjectStreamField_INCLUDE))
+#define JavaIoObjectStreamField_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -18,6 +32,8 @@
  Classes can define the
  collection of fields that are serialized, which may be different from the set
  of all declared fields.
+ - seealso: ObjectOutputStream#writeFields()
+ - seealso: ObjectInputStream#readFields()
  */
 @interface JavaIoObjectStreamField : NSObject < JavaLangComparable > {
  @public
@@ -50,6 +66,7 @@
  <code>false</code> otherwise.
  @throws NullPointerException
  if <code>name</code> or <code>cl</code> is <code>null</code>.
+ - seealso: ObjectOutputStream#writeUnshared(Object)
  */
 - (instancetype)initWithNSString:(NSString *)name
                     withIOSClass:(IOSClass *)cl
@@ -190,4 +207,8 @@ FOUNDATION_EXPORT JavaIoObjectStreamField *new_JavaIoObjectStreamField_initWithN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamField)
 
-#endif // _JavaIoObjectStreamField_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoObjectStreamField_INCLUDE_ALL")

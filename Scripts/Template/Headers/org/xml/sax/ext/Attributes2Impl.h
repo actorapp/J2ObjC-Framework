@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/ext/Attributes2Impl.java
 //
 
-#ifndef _OrgXmlSaxExtAttributes2Impl_H_
-#define _OrgXmlSaxExtAttributes2Impl_H_
-
 #include "../../../../J2ObjC_header.h"
-#include "../../../../org/xml/sax/ext/Attributes2.h"
+
+#pragma push_macro("OrgXmlSaxExtAttributes2Impl_INCLUDE_ALL")
+#ifdef OrgXmlSaxExtAttributes2Impl_RESTRICT
+#define OrgXmlSaxExtAttributes2Impl_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxExtAttributes2Impl_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxExtAttributes2Impl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxExtAttributes2Impl_) && (OrgXmlSaxExtAttributes2Impl_INCLUDE_ALL || defined(OrgXmlSaxExtAttributes2Impl_INCLUDE))
+#define OrgXmlSaxExtAttributes2Impl_
+
+#define OrgXmlSaxHelpersAttributesImpl_RESTRICT 1
+#define OrgXmlSaxHelpersAttributesImpl_INCLUDE 1
 #include "../../../../org/xml/sax/helpers/AttributesImpl.h"
+
+#define OrgXmlSaxExtAttributes2_RESTRICT 1
+#define OrgXmlSaxExtAttributes2_INCLUDE 1
+#include "../../../../org/xml/sax/ext/Attributes2.h"
 
 @protocol OrgXmlSaxAttributes;
 
@@ -74,6 +91,7 @@
  if qualified names are not available.
  @param type The attribute type as a string.
  @param value The attribute value.
+ - seealso: AttributesImpl#addAttribute
  */
 - (void)addAttributeWithNSString:(NSString *)uri
                     withNSString:(NSString *)localName
@@ -128,6 +146,7 @@
  unless the object is an Attributes2 object.
  In that case those flag values are all copied.
  @param atts The attributes to copy.
+ - seealso: AttributesImpl#setAttributes
  */
 - (void)setAttributesWithOrgXmlSaxAttributes:(id<OrgXmlSaxAttributes>)atts;
 
@@ -139,6 +158,7 @@
  @param value The desired flag value.
  @exception java.lang.ArrayIndexOutOfBoundsException When the
  supplied index does not identify an attribute.
+ - seealso: #setType
  */
 - (void)setDeclaredWithInt:(jint)index
                withBoolean:(jboolean)value;
@@ -169,4 +189,8 @@ FOUNDATION_EXPORT OrgXmlSaxExtAttributes2Impl *new_OrgXmlSaxExtAttributes2Impl_i
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtAttributes2Impl)
 
-#endif // _OrgXmlSaxExtAttributes2Impl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxExtAttributes2Impl_INCLUDE_ALL")

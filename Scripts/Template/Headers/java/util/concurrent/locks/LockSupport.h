@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/locks/LockSupport.java
 //
 
-#ifndef _JavaUtilConcurrentLocksLockSupport_H_
-#define _JavaUtilConcurrentLocksLockSupport_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentLocksLockSupport_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentLocksLockSupport_RESTRICT
+#define JavaUtilConcurrentLocksLockSupport_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentLocksLockSupport_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentLocksLockSupport_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentLocksLockSupport_) && (JavaUtilConcurrentLocksLockSupport_INCLUDE_ALL || defined(JavaUtilConcurrentLocksLockSupport_INCLUDE))
+#define JavaUtilConcurrentLocksLockSupport_
 
 @class JavaLangThread;
 
@@ -288,4 +299,8 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksLockSupport_parkUntilWithLong_(jlo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksLockSupport)
 
-#endif // _JavaUtilConcurrentLocksLockSupport_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentLocksLockSupport_INCLUDE_ALL")

@@ -3,15 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/security/interfaces/RSAPrivateCrtKey.java
 //
 
-#ifndef _JavaSecurityInterfacesRSAPrivateCrtKey_H_
-#define _JavaSecurityInterfacesRSAPrivateCrtKey_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE_ALL")
+#ifdef JavaSecurityInterfacesRSAPrivateCrtKey_RESTRICT
+#define JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE_ALL 0
+#else
+#define JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityInterfacesRSAPrivateCrtKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityInterfacesRSAPrivateCrtKey_) && (JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE_ALL || defined(JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE))
+#define JavaSecurityInterfacesRSAPrivateCrtKey_
+
+#define JavaSecurityInterfacesRSAPrivateKey_RESTRICT 1
+#define JavaSecurityInterfacesRSAPrivateKey_INCLUDE 1
 #include "../../../java/security/interfaces/RSAPrivateKey.h"
 
 @class JavaMathBigInteger;
-
-#define JavaSecurityInterfacesRSAPrivateCrtKey_serialVersionUID -5682214253527700368LL
 
 /*!
  @brief The interface for a PKCS#1 RSA private key using CRT information values.
@@ -56,10 +68,25 @@
 
 @end
 
+@interface JavaSecurityInterfacesRSAPrivateCrtKey : NSObject
+
++ (jlong)serialVersionUID;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSecurityInterfacesRSAPrivateCrtKey)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSecurityInterfacesRSAPrivateCrtKey, serialVersionUID, jlong)
+/*!
+ @brief The serial version identifier.
+ */
+inline jlong JavaSecurityInterfacesRSAPrivateCrtKey_get_serialVersionUID();
+#define JavaSecurityInterfacesRSAPrivateCrtKey_serialVersionUID -5682214253527700368LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSecurityInterfacesRSAPrivateCrtKey, serialVersionUID, jlong)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesRSAPrivateCrtKey)
 
-#endif // _JavaSecurityInterfacesRSAPrivateCrtKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE_ALL")

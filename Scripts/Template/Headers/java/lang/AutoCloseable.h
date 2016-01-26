@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/AutoCloseable.java
 //
 
-#ifndef _JavaLangAutoCloseable_H_
-#define _JavaLangAutoCloseable_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangAutoCloseable_INCLUDE_ALL")
+#ifdef JavaLangAutoCloseable_RESTRICT
+#define JavaLangAutoCloseable_INCLUDE_ALL 0
+#else
+#define JavaLangAutoCloseable_INCLUDE_ALL 1
+#endif
+#undef JavaLangAutoCloseable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangAutoCloseable_) && (JavaLangAutoCloseable_INCLUDE_ALL || defined(JavaLangAutoCloseable_INCLUDE))
+#define JavaLangAutoCloseable_
 
 /*!
  @brief Defines an interface for classes that can (or need to) be closed once they
@@ -41,4 +52,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangAutoCloseable)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAutoCloseable)
 
-#endif // _JavaLangAutoCloseable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangAutoCloseable_INCLUDE_ALL")

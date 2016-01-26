@@ -3,13 +3,36 @@
 //  source: android/libcore/luni/src/main/java/java/lang/StringBuffer.java
 //
 
-#ifndef _JavaLangStringBuffer_H_
-#define _JavaLangStringBuffer_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaLangStringBuffer_INCLUDE_ALL")
+#ifdef JavaLangStringBuffer_RESTRICT
+#define JavaLangStringBuffer_INCLUDE_ALL 0
+#else
+#define JavaLangStringBuffer_INCLUDE_ALL 1
+#endif
+#undef JavaLangStringBuffer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangStringBuffer_) && (JavaLangStringBuffer_INCLUDE_ALL || defined(JavaLangStringBuffer_INCLUDE))
+#define JavaLangStringBuffer_
+
+#define JavaLangAbstractStringBuilder_RESTRICT 1
+#define JavaLangAbstractStringBuilder_INCLUDE 1
 #include "../../java/lang/AbstractStringBuilder.h"
+
+#define JavaLangAppendable_RESTRICT 1
+#define JavaLangAppendable_INCLUDE 1
 #include "../../java/lang/Appendable.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
+
+#define JavaLangCharSequence_RESTRICT 1
+#define JavaLangCharSequence_INCLUDE 1
 #include "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
@@ -24,6 +47,11 @@
  <p>The majority of the modification methods on this class return <code>this</code>
   so that method calls can be chained together. For example:
  <code>new StringBuffer("a").append("b").append("c").toString()</code>.
+ - seealso: CharSequence
+ - seealso: Appendable
+ - seealso: StringBuilder
+ - seealso: String
+ - seealso: String#format
  @since 1.0
  */
 @interface JavaLangStringBuffer : JavaLangAbstractStringBuilder < JavaLangAppendable, JavaIoSerializable, JavaLangCharSequence >
@@ -76,6 +104,7 @@
  @param b
  the boolean to append.
  @return this StringBuffer.
+ - seealso: String#valueOf(boolean)
  */
 - (JavaLangStringBuffer *)appendWithBoolean:(jboolean)b;
 
@@ -84,6 +113,7 @@
  @param ch
  the character to append.
  @return this StringBuffer.
+ - seealso: String#valueOf(char)
  */
 - (JavaLangStringBuffer *)appendWithChar:(jchar)ch;
 
@@ -158,6 +188,7 @@
  @param d
  the double to append.
  @return this StringBuffer.
+ - seealso: String#valueOf(double)
  */
 - (JavaLangStringBuffer *)appendWithDouble:(jdouble)d;
 
@@ -167,6 +198,7 @@
  @param f
  the float to append.
  @return this StringBuffer.
+ - seealso: String#valueOf(float)
  */
 - (JavaLangStringBuffer *)appendWithFloat:(jfloat)f;
 
@@ -176,6 +208,7 @@
  @param i
  the integer to append.
  @return this StringBuffer.
+ - seealso: String#valueOf(int)
  */
 - (JavaLangStringBuffer *)appendWithInt:(jint)i;
 
@@ -185,6 +218,7 @@
  @param l
  the long to append.
  @return this StringBuffer.
+ - seealso: String#valueOf(long)
  */
 - (JavaLangStringBuffer *)appendWithLong:(jlong)l;
 
@@ -198,6 +232,7 @@
  @param obj
  the object to append (may be null).
  @return this StringBuffer.
+ - seealso: String#valueOf(Object)
  */
 - (JavaLangStringBuffer *)appendWithId:(id)obj;
 
@@ -234,6 +269,7 @@
  @param codePoint
  the Unicode code point to encode and append.
  @return this StringBuffer.
+ - seealso: Character#toChars(int)
  @since 1.5
  */
 - (JavaLangStringBuffer *)appendCodePointWithInt:(jint)codePoint;
@@ -573,4 +609,8 @@ FOUNDATION_EXPORT JavaLangStringBuffer *new_JavaLangStringBuffer_initWithJavaLan
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangStringBuffer)
 
-#endif // _JavaLangStringBuffer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangStringBuffer_INCLUDE_ALL")

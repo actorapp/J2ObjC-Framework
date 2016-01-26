@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Date.java
 //
 
-#ifndef _JavaSqlDate_H_
-#define _JavaSqlDate_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlDate_INCLUDE_ALL")
+#ifdef JavaSqlDate_RESTRICT
+#define JavaSqlDate_INCLUDE_ALL 0
+#else
+#define JavaSqlDate_INCLUDE_ALL 1
+#endif
+#undef JavaSqlDate_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlDate_) && (JavaSqlDate_INCLUDE_ALL || defined(JavaSqlDate_INCLUDE))
+#define JavaSqlDate_
+
+#define JavaUtilDate_RESTRICT 1
+#define JavaUtilDate_INCLUDE 1
 #include "../../java/util/Date.h"
 
 /*!
@@ -42,7 +56,7 @@
  */
 - (instancetype)initWithInt:(jint)theYear
                     withInt:(jint)theMonth
-                    withInt:(jint)theDay;
+                    withInt:(jint)theDay __attribute__((deprecated));
 
 /*!
  @brief Creates a date which corresponds to the day determined by the supplied
@@ -61,21 +75,21 @@
  @throws IllegalArgumentException
  if this method is called.
  */
-- (jint)getHours;
+- (jint)getHours __attribute__((deprecated));
 
 /*!
  @return does not return anything.
  @throws IllegalArgumentException
  if this method is called.
  */
-- (jint)getMinutes;
+- (jint)getMinutes __attribute__((deprecated));
 
 /*!
  @return does not return anything.
  @throws IllegalArgumentException
  if this method is called.
  */
-- (jint)getSeconds;
+- (jint)getSeconds __attribute__((deprecated));
 
 /*!
  @param theHours
@@ -83,7 +97,7 @@
  @throws IllegalArgumentException
  if this method is called.
  */
-- (void)setHoursWithInt:(jint)theHours;
+- (void)setHoursWithInt:(jint)theHours __attribute__((deprecated));
 
 /*!
  @param theMinutes
@@ -91,7 +105,7 @@
  @throws IllegalArgumentException
  if this method is called.
  */
-- (void)setMinutesWithInt:(jint)theMinutes;
+- (void)setMinutesWithInt:(jint)theMinutes __attribute__((deprecated));
 
 /*!
  @param theSeconds
@@ -99,7 +113,7 @@
  @throws IllegalArgumentException
  if this method is called.
  */
-- (void)setSecondsWithInt:(jint)theSeconds;
+- (void)setSecondsWithInt:(jint)theSeconds __attribute__((deprecated));
 
 /*!
  @brief Sets this date to a date supplied as a milliseconds value.
@@ -144,4 +158,8 @@ FOUNDATION_EXPORT JavaSqlDate *JavaSqlDate_valueOfWithNSString_(NSString *dateSt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDate)
 
-#endif // _JavaSqlDate_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlDate_INCLUDE_ALL")

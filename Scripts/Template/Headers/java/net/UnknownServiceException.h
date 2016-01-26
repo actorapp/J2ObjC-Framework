@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/UnknownServiceException.java
 //
 
-#ifndef _JavaNetUnknownServiceException_H_
-#define _JavaNetUnknownServiceException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetUnknownServiceException_INCLUDE_ALL")
+#ifdef JavaNetUnknownServiceException_RESTRICT
+#define JavaNetUnknownServiceException_INCLUDE_ALL 0
+#else
+#define JavaNetUnknownServiceException_INCLUDE_ALL 1
+#endif
+#undef JavaNetUnknownServiceException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetUnknownServiceException_) && (JavaNetUnknownServiceException_INCLUDE_ALL || defined(JavaNetUnknownServiceException_INCLUDE))
+#define JavaNetUnknownServiceException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 @class JavaLangThrowable;
@@ -57,4 +71,8 @@ FOUNDATION_EXPORT JavaNetUnknownServiceException *new_JavaNetUnknownServiceExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetUnknownServiceException)
 
-#endif // _JavaNetUnknownServiceException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetUnknownServiceException_INCLUDE_ALL")

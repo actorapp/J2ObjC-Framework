@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/helpers/ParserFactory.java
 //
 
-#ifndef _OrgXmlSaxHelpersParserFactory_H_
-#define _OrgXmlSaxHelpersParserFactory_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxHelpersParserFactory_INCLUDE_ALL")
+#ifdef OrgXmlSaxHelpersParserFactory_RESTRICT
+#define OrgXmlSaxHelpersParserFactory_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHelpersParserFactory_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHelpersParserFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHelpersParserFactory_) && (OrgXmlSaxHelpersParserFactory_INCLUDE_ALL || defined(OrgXmlSaxHelpersParserFactory_INCLUDE))
+#define OrgXmlSaxHelpersParserFactory_
 
 @protocol OrgXmlSaxParser;
 
@@ -34,6 +45,7 @@
  @author David Megginson
  @version 2.0.1 (sax2r2)
  */
+__attribute__((deprecated))
 @interface OrgXmlSaxHelpersParserFactory : NSObject
 
 #pragma mark Public
@@ -55,6 +67,8 @@
  @exception java.lang.ClassCastException The SAX parser class
  was found and instantiated, but does not implement
  org.xml.sax.Parser.
+ - seealso: #makeParser(java.lang.String)
+ - seealso: org.xml.sax.Parser
  */
 + (id<OrgXmlSaxParser>)makeParser;
 
@@ -75,6 +89,8 @@
  @exception java.lang.ClassCastException The SAX parser class
  was found and instantiated, but does not implement
  org.xml.sax.Parser.
+ - seealso: #makeParser()
+ - seealso: org.xml.sax.Parser
  */
 + (id<OrgXmlSaxParser>)makeParserWithNSString:(NSString *)className_;
 
@@ -88,4 +104,8 @@ FOUNDATION_EXPORT id<OrgXmlSaxParser> OrgXmlSaxHelpersParserFactory_makeParserWi
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserFactory)
 
-#endif // _OrgXmlSaxHelpersParserFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHelpersParserFactory_INCLUDE_ALL")

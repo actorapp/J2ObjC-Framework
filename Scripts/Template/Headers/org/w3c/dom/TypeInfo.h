@@ -3,15 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/TypeInfo.java
 //
 
-#ifndef _OrgW3cDomTypeInfo_H_
-#define _OrgW3cDomTypeInfo_H_
-
 #include "../../../J2ObjC_header.h"
 
-#define OrgW3cDomTypeInfo_DERIVATION_RESTRICTION 1
-#define OrgW3cDomTypeInfo_DERIVATION_EXTENSION 2
-#define OrgW3cDomTypeInfo_DERIVATION_UNION 4
-#define OrgW3cDomTypeInfo_DERIVATION_LIST 8
+#pragma push_macro("OrgW3cDomTypeInfo_INCLUDE_ALL")
+#ifdef OrgW3cDomTypeInfo_RESTRICT
+#define OrgW3cDomTypeInfo_INCLUDE_ALL 0
+#else
+#define OrgW3cDomTypeInfo_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomTypeInfo_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomTypeInfo_) && (OrgW3cDomTypeInfo_INCLUDE_ALL || defined(OrgW3cDomTypeInfo_INCLUDE))
+#define OrgW3cDomTypeInfo_
 
 /*!
  @brief The <code>TypeInfo</code> interface represents a type referenced from
@@ -136,16 +142,85 @@
 
 @end
 
+@interface OrgW3cDomTypeInfo : NSObject
+
++ (jint)DERIVATION_RESTRICTION;
+
++ (jint)DERIVATION_EXTENSION;
+
++ (jint)DERIVATION_UNION;
+
++ (jint)DERIVATION_LIST;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomTypeInfo)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTypeInfo, DERIVATION_RESTRICTION, jint)
+/*!
+ @brief If the document's schema is an XML Schema [<a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/'>XML Schema Part 1</a>]
+ , this constant represents the derivation by <a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/#key-typeRestriction'>
+ restriction</a> if complex types are involved, or a <a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/#element-restriction'>
+ restriction</a> if simple types are involved.
+ <br>  The reference type definition is derived by restriction from the
+ other type definition if the other type definition is the same as the
+ reference type definition, or if the other type definition can be
+ reached recursively following the {base type definition} property
+ from the reference type definition, and all the <em>derivation methods</em> involved are restriction.
+ */
+inline jint OrgW3cDomTypeInfo_get_DERIVATION_RESTRICTION();
+#define OrgW3cDomTypeInfo_DERIVATION_RESTRICTION 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTypeInfo, DERIVATION_RESTRICTION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTypeInfo, DERIVATION_EXTENSION, jint)
+/*!
+ @brief If the document's schema is an XML Schema [<a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/'>XML Schema Part 1</a>]
+ , this constant represents the derivation by <a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/#key-typeExtension'>
+ extension</a>.
+ <br>  The reference type definition is derived by extension from the
+ other type definition if the other type definition can be reached
+ recursively following the {base type definition} property from the
+ reference type definition, and at least one of the <em>derivation methods</em> involved is an extension.
+ */
+inline jint OrgW3cDomTypeInfo_get_DERIVATION_EXTENSION();
+#define OrgW3cDomTypeInfo_DERIVATION_EXTENSION 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTypeInfo, DERIVATION_EXTENSION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTypeInfo, DERIVATION_UNION, jint)
+/*!
+ @brief If the document's schema is an XML Schema [<a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/'>XML Schema Part 1</a>]
+ , this constant represents the <a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/#element-union'>
+ union</a> if simple types are involved.
+ <br> The reference type definition is derived by union from the other
+ type definition if there exists two type definitions T1 and T2 such
+ as the reference type definition is derived from T1 by
+ <code>DERIVATION_RESTRICTION</code> or
+ <code>DERIVATION_EXTENSION</code>, T2 is derived from the other type
+ definition by <code>DERIVATION_RESTRICTION</code>, T1 has {variety} <em>union</em>, and one of the {member type definitions} is T2. Note that T1 could be
+ the same as the reference type definition, and T2 could be the same
+ as the other type definition.
+ */
+inline jint OrgW3cDomTypeInfo_get_DERIVATION_UNION();
+#define OrgW3cDomTypeInfo_DERIVATION_UNION 4
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTypeInfo, DERIVATION_UNION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomTypeInfo, DERIVATION_LIST, jint)
+/*!
+ @brief If the document's schema is an XML Schema [<a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/'>XML Schema Part 1</a>]
+ , this constant represents the <a href='http://www.w3.org/TR/2001/REC-xmlschema-1-20010502/#element-list'>list</a>.
+ <br> The reference type definition is derived by list from the other
+ type definition if there exists two type definitions T1 and T2 such
+ as the reference type definition is derived from T1 by
+ <code>DERIVATION_RESTRICTION</code> or
+ <code>DERIVATION_EXTENSION</code>, T2 is derived from the other type
+ definition by <code>DERIVATION_RESTRICTION</code>, T1 has {variety} <em>list</em>, and T2 is the {item type definition}. Note that T1 could be the same as
+ the reference type definition, and T2 could be the same as the other
+ type definition.
+ */
+inline jint OrgW3cDomTypeInfo_get_DERIVATION_LIST();
+#define OrgW3cDomTypeInfo_DERIVATION_LIST 8
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomTypeInfo, DERIVATION_LIST, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomTypeInfo)
 
-#endif // _OrgW3cDomTypeInfo_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomTypeInfo_INCLUDE_ALL")

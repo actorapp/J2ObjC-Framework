@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/RuntimePermission.java
 //
 
-#ifndef _JavaLangRuntimePermission_H_
-#define _JavaLangRuntimePermission_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangRuntimePermission_INCLUDE_ALL")
+#ifdef JavaLangRuntimePermission_RESTRICT
+#define JavaLangRuntimePermission_INCLUDE_ALL 0
+#else
+#define JavaLangRuntimePermission_INCLUDE_ALL 1
+#endif
+#undef JavaLangRuntimePermission_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangRuntimePermission_) && (JavaLangRuntimePermission_INCLUDE_ALL || defined(JavaLangRuntimePermission_INCLUDE))
+#define JavaLangRuntimePermission_
+
+#define JavaSecurityBasicPermission_RESTRICT 1
+#define JavaSecurityBasicPermission_INCLUDE 1
 #include "../../java/security/BasicPermission.h"
 
 @class JavaSecurityPermission;
@@ -41,4 +55,8 @@ FOUNDATION_EXPORT JavaLangRuntimePermission *new_JavaLangRuntimePermission_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRuntimePermission)
 
-#endif // _JavaLangRuntimePermission_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangRuntimePermission_INCLUDE_ALL")

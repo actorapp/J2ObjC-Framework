@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/security/auth/callback/CallbackHandler.java
 //
 
-#ifndef _JavaxSecurityAuthCallbackCallbackHandler_H_
-#define _JavaxSecurityAuthCallbackCallbackHandler_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxSecurityAuthCallbackCallbackHandler_INCLUDE_ALL")
+#ifdef JavaxSecurityAuthCallbackCallbackHandler_RESTRICT
+#define JavaxSecurityAuthCallbackCallbackHandler_INCLUDE_ALL 0
+#else
+#define JavaxSecurityAuthCallbackCallbackHandler_INCLUDE_ALL 1
+#endif
+#undef JavaxSecurityAuthCallbackCallbackHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxSecurityAuthCallbackCallbackHandler_) && (JavaxSecurityAuthCallbackCallbackHandler_INCLUDE_ALL || defined(JavaxSecurityAuthCallbackCallbackHandler_INCLUDE))
+#define JavaxSecurityAuthCallbackCallbackHandler_
 
 @class IOSObjectArray;
 
@@ -49,4 +60,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxSecurityAuthCallbackCallbackHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthCallbackCallbackHandler)
 
-#endif // _JavaxSecurityAuthCallbackCallbackHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxSecurityAuthCallbackCallbackHandler_INCLUDE_ALL")

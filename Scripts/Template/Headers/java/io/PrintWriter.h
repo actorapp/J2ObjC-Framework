@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/PrintWriter.java
 //
 
-#ifndef _JavaIoPrintWriter_H_
-#define _JavaIoPrintWriter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoPrintWriter_INCLUDE_ALL")
+#ifdef JavaIoPrintWriter_RESTRICT
+#define JavaIoPrintWriter_INCLUDE_ALL 0
+#else
+#define JavaIoPrintWriter_INCLUDE_ALL 1
+#endif
+#undef JavaIoPrintWriter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoPrintWriter_) && (JavaIoPrintWriter_INCLUDE_ALL || defined(JavaIoPrintWriter_INCLUDE))
+#define JavaIoPrintWriter_
+
+#define JavaIoWriter_RESTRICT 1
+#define JavaIoWriter_INCLUDE 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -214,6 +228,7 @@
  @return <code>true</code> if either an <code>IOException</code> has been thrown
  previously or if <code>setError()</code> has been called;
  <code>false</code> otherwise.
+ - seealso: #setError()
  */
 - (jboolean)checkError;
 
@@ -281,6 +296,7 @@
  @brief Prints the string representation of the specified boolean to the target.
  @param bool_
  the boolean value to print the target.
+ - seealso: #print(String)
  */
 - (void)printWithBoolean:(jboolean)bool_;
 
@@ -289,6 +305,7 @@
  target.
  @param ch
  the character to print to the target.
+ - seealso: #print(String)
  */
 - (void)printWithChar:(jchar)ch;
 
@@ -297,6 +314,7 @@
  to the target.
  @param charArray
  the character array to print to the target.
+ - seealso: #print(String)
  */
 - (void)printWithCharArray:(IOSCharArray *)charArray;
 
@@ -304,6 +322,7 @@
  @brief Prints the string representation of the specified double to the target.
  @param dnum
  the double value to print to the target.
+ - seealso: #print(String)
  */
 - (void)printWithDouble:(jdouble)dnum;
 
@@ -311,6 +330,7 @@
  @brief Prints the string representation of the specified float to the target.
  @param fnum
  the float value to print to the target.
+ - seealso: #print(String)
  */
 - (void)printWithFloat:(jfloat)fnum;
 
@@ -318,6 +338,7 @@
  @brief Prints the string representation of the specified integer to the target.
  @param inum
  the integer value to print to the target.
+ - seealso: #print(String)
  */
 - (void)printWithInt:(jint)inum;
 
@@ -325,6 +346,7 @@
  @brief Prints the string representation of the specified long to the target.
  @param lnum
  the long value to print to the target.
+ - seealso: #print(String)
  */
 - (void)printWithLong:(jlong)lnum;
 
@@ -332,6 +354,7 @@
  @brief Prints the string representation of the specified object to the target.
  @param obj
  the object to print to the target.
+ - seealso: #print(String)
  */
 - (void)printWithId:(id)obj;
 
@@ -344,6 +367,7 @@
  If an I/O error occurs, this writer's error flag is set to <code>true</code>.
  @param str
  the string to print to the target.
+ - seealso: #write(int)
  */
 - (void)printWithNSString:(NSString *)str;
 
@@ -573,4 +597,8 @@ FOUNDATION_EXPORT JavaIoPrintWriter *new_JavaIoPrintWriter_initWithNSString_with
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPrintWriter)
 
-#endif // _JavaIoPrintWriter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoPrintWriter_INCLUDE_ALL")

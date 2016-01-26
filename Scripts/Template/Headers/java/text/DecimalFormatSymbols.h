@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/text/DecimalFormatSymbols.java
 //
 
-#ifndef _JavaTextDecimalFormatSymbols_H_
-#define _JavaTextDecimalFormatSymbols_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextDecimalFormatSymbols_INCLUDE_ALL")
+#ifdef JavaTextDecimalFormatSymbols_RESTRICT
+#define JavaTextDecimalFormatSymbols_INCLUDE_ALL 0
+#else
+#define JavaTextDecimalFormatSymbols_INCLUDE_ALL 1
+#endif
+#undef JavaTextDecimalFormatSymbols_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextDecimalFormatSymbols_) && (JavaTextDecimalFormatSymbols_INCLUDE_ALL || defined(JavaTextDecimalFormatSymbols_INCLUDE))
+#define JavaTextDecimalFormatSymbols_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -20,6 +34,8 @@
  <code>DecimalFormatSymbols</code> from its locale data. If you need to change any
  of these symbols, you can get the <code>DecimalFormatSymbols</code> object from
  your <code>DecimalFormat</code> and modify it.
+ - seealso: java.util.Locale
+ - seealso: DecimalFormat
  */
 @interface JavaTextDecimalFormatSymbols : NSObject < NSCopying, JavaIoSerializable >
 
@@ -58,6 +74,7 @@
  the object to compare with this object.
  @return <code>true</code> if the specified object is equal to this
  <code>DecimalFormatSymbols</code>; <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -79,6 +96,8 @@
  @return the currency that was set in the constructor or by calling
  <code>setCurrency()</code> or <code>setInternationalCurrencySymbol()</code>,
  or <code>null</code> if an invalid currency was set.
+ - seealso: #setCurrency(Currency)
+ - seealso: #setInternationalCurrencySymbol(String)
  */
 - (JavaUtilCurrency *)getCurrency;
 
@@ -324,4 +343,8 @@ FOUNDATION_EXPORT IOSObjectArray *JavaTextDecimalFormatSymbols_getAvailableLocal
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextDecimalFormatSymbols)
 
-#endif // _JavaTextDecimalFormatSymbols_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextDecimalFormatSymbols_INCLUDE_ALL")

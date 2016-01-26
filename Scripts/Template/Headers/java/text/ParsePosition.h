@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/text/ParsePosition.java
 //
 
-#ifndef _JavaTextParsePosition_H_
-#define _JavaTextParsePosition_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextParsePosition_INCLUDE_ALL")
+#ifdef JavaTextParsePosition_RESTRICT
+#define JavaTextParsePosition_INCLUDE_ALL 0
+#else
+#define JavaTextParsePosition_INCLUDE_ALL 1
+#endif
+#undef JavaTextParsePosition_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextParsePosition_) && (JavaTextParsePosition_INCLUDE_ALL || defined(JavaTextParsePosition_INCLUDE))
+#define JavaTextParsePosition_
 
 /*!
  @brief Tracks the current position in a parsed string.
@@ -35,6 +46,7 @@
  the object to compare with this object.
  @return <code>true</code> if the specified object is equal to this
  <code>ParsePosition</code>; <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -82,4 +94,8 @@ FOUNDATION_EXPORT JavaTextParsePosition *new_JavaTextParsePosition_initWithInt_(
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextParsePosition)
 
-#endif // _JavaTextParsePosition_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextParsePosition_INCLUDE_ALL")

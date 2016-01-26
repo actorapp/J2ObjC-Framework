@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/SafeVarargs.java
 //
 
-#ifndef _JavaLangSafeVarargs_H_
-#define _JavaLangSafeVarargs_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangSafeVarargs_INCLUDE_ALL")
+#ifdef JavaLangSafeVarargs_RESTRICT
+#define JavaLangSafeVarargs_INCLUDE_ALL 0
+#else
+#define JavaLangSafeVarargs_INCLUDE_ALL 1
+#endif
+#undef JavaLangSafeVarargs_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangSafeVarargs_) && (JavaLangSafeVarargs_INCLUDE_ALL || defined(JavaLangSafeVarargs_INCLUDE))
+#define JavaLangSafeVarargs_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../java/lang/annotation/Annotation.h"
 
 /*!
@@ -26,4 +40,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangSafeVarargs)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangSafeVarargs)
 
-#endif // _JavaLangSafeVarargs_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangSafeVarargs_INCLUDE_ALL")

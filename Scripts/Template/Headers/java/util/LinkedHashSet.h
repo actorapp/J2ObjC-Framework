@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/LinkedHashSet.java
 //
 
-#ifndef _JavaUtilLinkedHashSet_H_
-#define _JavaUtilLinkedHashSet_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilLinkedHashSet_INCLUDE_ALL")
+#ifdef JavaUtilLinkedHashSet_RESTRICT
+#define JavaUtilLinkedHashSet_INCLUDE_ALL 0
+#else
+#define JavaUtilLinkedHashSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLinkedHashSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLinkedHashSet_) && (JavaUtilLinkedHashSet_INCLUDE_ALL || defined(JavaUtilLinkedHashSet_INCLUDE))
+#define JavaUtilLinkedHashSet_
+
+#define JavaUtilHashSet_RESTRICT 1
+#define JavaUtilHashSet_INCLUDE 1
 #include "../../java/util/HashSet.h"
+
+#define JavaUtilSet_RESTRICT 1
+#define JavaUtilSet_INCLUDE 1
 #include "../../java/util/Set.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class JavaUtilHashMap;
 @protocol JavaUtilCollection;
@@ -68,7 +88,6 @@
 - (JavaUtilHashMap *)createBackingMapWithInt:(jint)capacity
                                    withFloat:(jfloat)loadFactor;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilLinkedHashSet)
@@ -91,4 +110,8 @@ FOUNDATION_EXPORT JavaUtilLinkedHashSet *new_JavaUtilLinkedHashSet_initWithJavaU
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashSet)
 
-#endif // _JavaUtilLinkedHashSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLinkedHashSet_INCLUDE_ALL")

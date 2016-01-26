@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/TypeNotPresentException.java
 //
 
-#ifndef _JavaLangTypeNotPresentException_H_
-#define _JavaLangTypeNotPresentException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangTypeNotPresentException_INCLUDE_ALL")
+#ifdef JavaLangTypeNotPresentException_RESTRICT
+#define JavaLangTypeNotPresentException_INCLUDE_ALL 0
+#else
+#define JavaLangTypeNotPresentException_INCLUDE_ALL 1
+#endif
+#undef JavaLangTypeNotPresentException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangTypeNotPresentException_) && (JavaLangTypeNotPresentException_INCLUDE_ALL || defined(JavaLangTypeNotPresentException_INCLUDE))
+#define JavaLangTypeNotPresentException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 @class JavaLangThrowable;
@@ -51,4 +65,8 @@ FOUNDATION_EXPORT JavaLangTypeNotPresentException *new_JavaLangTypeNotPresentExc
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangTypeNotPresentException)
 
-#endif // _JavaLangTypeNotPresentException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangTypeNotPresentException_INCLUDE_ALL")

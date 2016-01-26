@@ -3,18 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/StreamTokenizer.java
 //
 
-#ifndef _JavaIoStreamTokenizer_H_
-#define _JavaIoStreamTokenizer_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoStreamTokenizer_INCLUDE_ALL")
+#ifdef JavaIoStreamTokenizer_RESTRICT
+#define JavaIoStreamTokenizer_INCLUDE_ALL 0
+#else
+#define JavaIoStreamTokenizer_INCLUDE_ALL 1
+#endif
+#undef JavaIoStreamTokenizer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoStreamTokenizer_) && (JavaIoStreamTokenizer_INCLUDE_ALL || defined(JavaIoStreamTokenizer_INCLUDE))
+#define JavaIoStreamTokenizer_
 
 @class JavaIoInputStream;
 @class JavaIoReader;
-
-#define JavaIoStreamTokenizer_TT_EOF -1
-#define JavaIoStreamTokenizer_TT_EOL 10
-#define JavaIoStreamTokenizer_TT_NUMBER -2
-#define JavaIoStreamTokenizer_TT_WORD -3
 
 /*!
  @brief Parses a stream into a set of defined tokens, one at a time.
@@ -54,6 +60,14 @@
   jint ttype_;
 }
 
++ (jint)TT_EOF;
+
++ (jint)TT_EOL;
+
++ (jint)TT_NUMBER;
+
++ (jint)TT_WORD;
+
 #pragma mark Public
 
 /*!
@@ -66,7 +80,7 @@
  @throws NullPointerException
  if <code>is</code> is <code>null</code>.
  */
-- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)is;
+- (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)is __attribute__((deprecated));
 
 /*!
  @brief Constructs a new <code>StreamTokenizer</code> with <code>r</code> as source reader.
@@ -234,13 +248,33 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoStreamTokenizer)
 
 J2OBJC_FIELD_SETTER(JavaIoStreamTokenizer, sval_, NSString *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoStreamTokenizer, TT_EOF, jint)
+/*!
+ @brief The constant representing the end of the stream.
+ */
+inline jint JavaIoStreamTokenizer_get_TT_EOF();
+#define JavaIoStreamTokenizer_TT_EOF -1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoStreamTokenizer, TT_EOF, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoStreamTokenizer, TT_EOL, jint)
+/*!
+ @brief The constant representing the end of the line.
+ */
+inline jint JavaIoStreamTokenizer_get_TT_EOL();
+#define JavaIoStreamTokenizer_TT_EOL 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoStreamTokenizer, TT_EOL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoStreamTokenizer, TT_NUMBER, jint)
+/*!
+ @brief The constant representing a number token.
+ */
+inline jint JavaIoStreamTokenizer_get_TT_NUMBER();
+#define JavaIoStreamTokenizer_TT_NUMBER -2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoStreamTokenizer, TT_NUMBER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoStreamTokenizer, TT_WORD, jint)
+/*!
+ @brief The constant representing a word token.
+ */
+inline jint JavaIoStreamTokenizer_get_TT_WORD();
+#define JavaIoStreamTokenizer_TT_WORD -3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoStreamTokenizer, TT_WORD, jint)
 
 FOUNDATION_EXPORT void JavaIoStreamTokenizer_initWithJavaIoInputStream_(JavaIoStreamTokenizer *self, JavaIoInputStream *is);
 
@@ -252,4 +286,8 @@ FOUNDATION_EXPORT JavaIoStreamTokenizer *new_JavaIoStreamTokenizer_initWithJavaI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoStreamTokenizer)
 
-#endif // _JavaIoStreamTokenizer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoStreamTokenizer_INCLUDE_ALL")

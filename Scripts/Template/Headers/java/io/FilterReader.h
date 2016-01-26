@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/FilterReader.java
 //
 
-#ifndef _JavaIoFilterReader_H_
-#define _JavaIoFilterReader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFilterReader_INCLUDE_ALL")
+#ifdef JavaIoFilterReader_RESTRICT
+#define JavaIoFilterReader_INCLUDE_ALL 0
+#else
+#define JavaIoFilterReader_INCLUDE_ALL 1
+#endif
+#undef JavaIoFilterReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFilterReader_) && (JavaIoFilterReader_INCLUDE_ALL || defined(JavaIoFilterReader_INCLUDE))
+#define JavaIoFilterReader_
+
+#define JavaIoReader_RESTRICT 1
+#define JavaIoReader_INCLUDE 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -19,6 +33,7 @@
  decompression of the underlying reader. Readers that wrap another reader and
  provide some additional functionality on top of it usually inherit from this
  class.
+ - seealso: FilterWriter
  */
 @interface JavaIoFilterReader : JavaIoReader {
  @public
@@ -51,6 +66,8 @@
  the mark is invalidated.
  @throws IOException
  if an error occurs while marking this reader.
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (void)markWithInt:(jint)readlimit;
 
@@ -59,6 +76,9 @@
  This implementation returns whether the filtered reader supports marking.
  @return <code>true</code> if <code>mark()</code> and <code>reset()</code> are supported
  by the filtered reader, <code>false</code> otherwise.
+ - seealso: #mark(int)
+ - seealso: #reset()
+ - seealso: #skip(long)
  */
 - (jboolean)markSupported;
 
@@ -110,6 +130,8 @@
  @throws IOException
  if a problem occurred or the filtered reader does not support
  <code>mark()</code> and <code>reset()</code>.
+ - seealso: #mark(int)
+ - seealso: #markSupported()
  */
 - (void)reset;
 
@@ -122,6 +144,9 @@
  @throws IOException
  if the filtered reader is closed or some other I/O error
  occurs.
+ - seealso: #mark(int)
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (jlong)skipWithLong:(jlong)charCount;
 
@@ -144,4 +169,8 @@ FOUNDATION_EXPORT void JavaIoFilterReader_initWithJavaIoReader_(JavaIoFilterRead
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterReader)
 
-#endif // _JavaIoFilterReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFilterReader_INCLUDE_ALL")

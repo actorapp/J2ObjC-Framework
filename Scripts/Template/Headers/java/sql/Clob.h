@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Clob.java
 //
 
-#ifndef _JavaSqlClob_H_
-#define _JavaSqlClob_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlClob_INCLUDE_ALL")
+#ifdef JavaSqlClob_RESTRICT
+#define JavaSqlClob_INCLUDE_ALL 0
+#else
+#define JavaSqlClob_INCLUDE_ALL 1
+#endif
+#undef JavaSqlClob_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlClob_) && (JavaSqlClob_INCLUDE_ALL || defined(JavaSqlClob_INCLUDE))
+#define JavaSqlClob_
 
 @class JavaIoInputStream;
 @class JavaIoOutputStream;
@@ -185,4 +196,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlClob)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlClob)
 
-#endif // _JavaSqlClob_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlClob_INCLUDE_ALL")

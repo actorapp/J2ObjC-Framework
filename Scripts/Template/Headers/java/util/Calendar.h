@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/Calendar.java
 //
 
-#ifndef _JavaUtilCalendar_H_
-#define _JavaUtilCalendar_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilCalendar_INCLUDE_ALL")
+#ifdef JavaUtilCalendar_RESTRICT
+#define JavaUtilCalendar_INCLUDE_ALL 0
+#else
+#define JavaUtilCalendar_INCLUDE_ALL 1
+#endif
+#undef JavaUtilCalendar_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilCalendar_) && (JavaUtilCalendar_INCLUDE_ALL || defined(JavaUtilCalendar_INCLUDE))
+#define JavaUtilCalendar_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSBooleanArray;
@@ -17,51 +34,6 @@
 @class JavaUtilLocale;
 @class JavaUtilTimeZone;
 @protocol JavaUtilMap;
-
-#define JavaUtilCalendar_JANUARY 0
-#define JavaUtilCalendar_FEBRUARY 1
-#define JavaUtilCalendar_MARCH 2
-#define JavaUtilCalendar_APRIL 3
-#define JavaUtilCalendar_MAY 4
-#define JavaUtilCalendar_JUNE 5
-#define JavaUtilCalendar_JULY 6
-#define JavaUtilCalendar_AUGUST 7
-#define JavaUtilCalendar_SEPTEMBER 8
-#define JavaUtilCalendar_OCTOBER 9
-#define JavaUtilCalendar_NOVEMBER 10
-#define JavaUtilCalendar_DECEMBER 11
-#define JavaUtilCalendar_UNDECIMBER 12
-#define JavaUtilCalendar_SUNDAY 1
-#define JavaUtilCalendar_MONDAY 2
-#define JavaUtilCalendar_TUESDAY 3
-#define JavaUtilCalendar_WEDNESDAY 4
-#define JavaUtilCalendar_THURSDAY 5
-#define JavaUtilCalendar_FRIDAY 6
-#define JavaUtilCalendar_SATURDAY 7
-#define JavaUtilCalendar_ERA 0
-#define JavaUtilCalendar_YEAR 1
-#define JavaUtilCalendar_MONTH 2
-#define JavaUtilCalendar_WEEK_OF_YEAR 3
-#define JavaUtilCalendar_WEEK_OF_MONTH 4
-#define JavaUtilCalendar_DATE 5
-#define JavaUtilCalendar_DAY_OF_MONTH 5
-#define JavaUtilCalendar_DAY_OF_YEAR 6
-#define JavaUtilCalendar_DAY_OF_WEEK 7
-#define JavaUtilCalendar_DAY_OF_WEEK_IN_MONTH 8
-#define JavaUtilCalendar_AM_PM 9
-#define JavaUtilCalendar_HOUR 10
-#define JavaUtilCalendar_HOUR_OF_DAY 11
-#define JavaUtilCalendar_MINUTE 12
-#define JavaUtilCalendar_SECOND 13
-#define JavaUtilCalendar_MILLISECOND 14
-#define JavaUtilCalendar_ZONE_OFFSET 15
-#define JavaUtilCalendar_DST_OFFSET 16
-#define JavaUtilCalendar_FIELD_COUNT 17
-#define JavaUtilCalendar_AM 0
-#define JavaUtilCalendar_PM 1
-#define JavaUtilCalendar_ALL_STYLES 0
-#define JavaUtilCalendar_SHORT 1
-#define JavaUtilCalendar_LONG 2
 
 /*!
  @brief <code>Calendar</code> is an abstract base class for converting between a
@@ -289,6 +261,9 @@ Calendar rightNow = Calendar.getInstance()
  during non-leap years. The subclasses' <tt>add</tt> and <tt>roll</tt>
  methods will take this into account, while simple arithmetic manipulations
  may give invalid results.
+ - seealso: Date
+ - seealso: GregorianCalendar
+ - seealso: TimeZone
  */
 @interface JavaUtilCalendar : NSObject < JavaIoSerializable, NSCopying, JavaLangComparable > {
  @public
@@ -335,6 +310,94 @@ Calendar rightNow = Calendar.getInstance()
   jint lastTimeFieldSet_;
   jint lastDateFieldSet_;
 }
+
++ (jint)JANUARY;
+
++ (jint)FEBRUARY;
+
++ (jint)MARCH;
+
++ (jint)APRIL;
+
++ (jint)MAY;
+
++ (jint)JUNE;
+
++ (jint)JULY;
+
++ (jint)AUGUST;
+
++ (jint)SEPTEMBER;
+
++ (jint)OCTOBER;
+
++ (jint)NOVEMBER;
+
++ (jint)DECEMBER;
+
++ (jint)UNDECIMBER;
+
++ (jint)SUNDAY;
+
++ (jint)MONDAY;
+
++ (jint)TUESDAY;
+
++ (jint)WEDNESDAY;
+
++ (jint)THURSDAY;
+
++ (jint)FRIDAY;
+
++ (jint)SATURDAY;
+
++ (jint)ERA;
+
++ (jint)YEAR;
+
++ (jint)MONTH;
+
++ (jint)WEEK_OF_YEAR;
+
++ (jint)WEEK_OF_MONTH;
+
++ (jint)DATE;
+
++ (jint)DAY_OF_MONTH;
+
++ (jint)DAY_OF_YEAR;
+
++ (jint)DAY_OF_WEEK;
+
++ (jint)DAY_OF_WEEK_IN_MONTH;
+
++ (jint)AM_PM;
+
++ (jint)HOUR;
+
++ (jint)HOUR_OF_DAY;
+
++ (jint)MINUTE;
+
++ (jint)SECOND;
+
++ (jint)MILLISECOND;
+
++ (jint)ZONE_OFFSET;
+
++ (jint)DST_OFFSET;
+
++ (jint)FIELD_COUNT;
+
++ (jint)AM;
+
++ (jint)PM;
+
++ (jint)ALL_STYLES;
+
++ (jint)SHORT;
+
++ (jint)LONG;
 
 #pragma mark Public
 
@@ -748,93 +811,446 @@ J2OBJC_STATIC_INIT(JavaUtilCalendar)
 J2OBJC_FIELD_SETTER(JavaUtilCalendar, fields_, IOSIntArray *)
 J2OBJC_FIELD_SETTER(JavaUtilCalendar, isSet_, IOSBooleanArray *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, JANUARY, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the first month of the
+ year.
+ */
+inline jint JavaUtilCalendar_get_JANUARY();
+#define JavaUtilCalendar_JANUARY 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, JANUARY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, FEBRUARY, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the second month of
+ the year.
+ */
+inline jint JavaUtilCalendar_get_FEBRUARY();
+#define JavaUtilCalendar_FEBRUARY 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, FEBRUARY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, MARCH, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the third month of the
+ year.
+ */
+inline jint JavaUtilCalendar_get_MARCH();
+#define JavaUtilCalendar_MARCH 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, MARCH, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, APRIL, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the fourth month of
+ the year.
+ */
+inline jint JavaUtilCalendar_get_APRIL();
+#define JavaUtilCalendar_APRIL 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, APRIL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, MAY, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the fifth month of the
+ year.
+ */
+inline jint JavaUtilCalendar_get_MAY();
+#define JavaUtilCalendar_MAY 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, MAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, JUNE, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the sixth month of the
+ year.
+ */
+inline jint JavaUtilCalendar_get_JUNE();
+#define JavaUtilCalendar_JUNE 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, JUNE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, JULY, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the seventh month of
+ the year.
+ */
+inline jint JavaUtilCalendar_get_JULY();
+#define JavaUtilCalendar_JULY 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, JULY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, AUGUST, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the eighth month of
+ the year.
+ */
+inline jint JavaUtilCalendar_get_AUGUST();
+#define JavaUtilCalendar_AUGUST 7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, AUGUST, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, SEPTEMBER, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the ninth month of the
+ year.
+ */
+inline jint JavaUtilCalendar_get_SEPTEMBER();
+#define JavaUtilCalendar_SEPTEMBER 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, SEPTEMBER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, OCTOBER, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the tenth month of the
+ year.
+ */
+inline jint JavaUtilCalendar_get_OCTOBER();
+#define JavaUtilCalendar_OCTOBER 9
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, OCTOBER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, NOVEMBER, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the eleventh month of
+ the year.
+ */
+inline jint JavaUtilCalendar_get_NOVEMBER();
+#define JavaUtilCalendar_NOVEMBER 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, NOVEMBER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, DECEMBER, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the twelfth month of
+ the year.
+ */
+inline jint JavaUtilCalendar_get_DECEMBER();
+#define JavaUtilCalendar_DECEMBER 11
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, DECEMBER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, UNDECIMBER, jint)
+/*!
+ @brief Value of the <code>MONTH</code> field indicating the thirteenth month
+ of the year.
+ Although <code>GregorianCalendar</code> does not use this
+ value, lunar calendars do.
+ */
+inline jint JavaUtilCalendar_get_UNDECIMBER();
+#define JavaUtilCalendar_UNDECIMBER 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, UNDECIMBER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, SUNDAY, jint)
+/*!
+ @brief Value of the <code>DAY_OF_WEEK</code> field indicating Sunday.
+ */
+inline jint JavaUtilCalendar_get_SUNDAY();
+#define JavaUtilCalendar_SUNDAY 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, SUNDAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, MONDAY, jint)
+/*!
+ @brief Value of the <code>DAY_OF_WEEK</code> field indicating Monday.
+ */
+inline jint JavaUtilCalendar_get_MONDAY();
+#define JavaUtilCalendar_MONDAY 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, MONDAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, TUESDAY, jint)
+/*!
+ @brief Value of the <code>DAY_OF_WEEK</code> field indicating Tuesday.
+ */
+inline jint JavaUtilCalendar_get_TUESDAY();
+#define JavaUtilCalendar_TUESDAY 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, TUESDAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, WEDNESDAY, jint)
+/*!
+ @brief Value of the <code>DAY_OF_WEEK</code> field indicating Wednesday.
+ */
+inline jint JavaUtilCalendar_get_WEDNESDAY();
+#define JavaUtilCalendar_WEDNESDAY 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, WEDNESDAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, THURSDAY, jint)
+/*!
+ @brief Value of the <code>DAY_OF_WEEK</code> field indicating Thursday.
+ */
+inline jint JavaUtilCalendar_get_THURSDAY();
+#define JavaUtilCalendar_THURSDAY 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, THURSDAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, FRIDAY, jint)
+/*!
+ @brief Value of the <code>DAY_OF_WEEK</code> field indicating Friday.
+ */
+inline jint JavaUtilCalendar_get_FRIDAY();
+#define JavaUtilCalendar_FRIDAY 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, FRIDAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, SATURDAY, jint)
+/*!
+ @brief Value of the <code>DAY_OF_WEEK</code> field indicating Saturday.
+ */
+inline jint JavaUtilCalendar_get_SATURDAY();
+#define JavaUtilCalendar_SATURDAY 7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, SATURDAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, ERA, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ era, e.g., AD or BC in the Julian calendar.
+ This is a calendar-specific
+ value; see subclass documentation.
+ - seealso: GregorianCalendar#AD
+ - seealso: GregorianCalendar#BC
+ */
+inline jint JavaUtilCalendar_get_ERA();
+#define JavaUtilCalendar_ERA 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, ERA, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, YEAR, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ year.
+ This is a calendar-specific value; see subclass documentation.
+ */
+inline jint JavaUtilCalendar_get_YEAR();
+#define JavaUtilCalendar_YEAR 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, YEAR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, MONTH, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ month.
+ This is a calendar-specific value. The first month of the year is
+ <code>JANUARY</code>; the last depends on the number of months in a
+ year.
+ - seealso: #JANUARY
+ - seealso: #FEBRUARY
+ - seealso: #MARCH
+ - seealso: #APRIL
+ - seealso: #MAY
+ - seealso: #JUNE
+ - seealso: #JULY
+ - seealso: #AUGUST
+ - seealso: #SEPTEMBER
+ - seealso: #OCTOBER
+ - seealso: #NOVEMBER
+ - seealso: #DECEMBER
+ - seealso: #UNDECIMBER
+ */
+inline jint JavaUtilCalendar_get_MONTH();
+#define JavaUtilCalendar_MONTH 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, MONTH, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, WEEK_OF_YEAR, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ week number within the current year.
+ The first week of the year, as
+ defined by <code>getFirstDayOfWeek()</code> and
+ <code>getMinimalDaysInFirstWeek()</code>, has value 1. Subclasses
+ define the value of <code>WEEK_OF_YEAR</code> for days before the first
+ week of the year.
+ - seealso: #getFirstDayOfWeek
+ - seealso: #getMinimalDaysInFirstWeek
+ */
+inline jint JavaUtilCalendar_get_WEEK_OF_YEAR();
+#define JavaUtilCalendar_WEEK_OF_YEAR 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, WEEK_OF_YEAR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, WEEK_OF_MONTH, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ week number within the current month.
+ The first week of the month, as
+ defined by <code>getFirstDayOfWeek()</code> and
+ <code>getMinimalDaysInFirstWeek()</code>, has value 1. Subclasses
+ define the value of <code>WEEK_OF_MONTH</code> for days before the
+ first week of the month.
+ - seealso: #getFirstDayOfWeek
+ - seealso: #getMinimalDaysInFirstWeek
+ */
+inline jint JavaUtilCalendar_get_WEEK_OF_MONTH();
+#define JavaUtilCalendar_WEEK_OF_MONTH 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, WEEK_OF_MONTH, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, DATE, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ day of the month.
+ This is a synonym for <code>DAY_OF_MONTH</code>. The
+ first day of the month has value 1.
+ - seealso: #DAY_OF_MONTH
+ */
+inline jint JavaUtilCalendar_get_DATE();
+#define JavaUtilCalendar_DATE 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, DATE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, DAY_OF_MONTH, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ day of the month.
+ This is a synonym for <code>DATE</code>. The first
+ day of the month has value 1.
+ - seealso: #DATE
+ */
+inline jint JavaUtilCalendar_get_DAY_OF_MONTH();
+#define JavaUtilCalendar_DAY_OF_MONTH 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, DAY_OF_MONTH, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, DAY_OF_YEAR, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ day number within the current year.
+ The first day of the year has value
+ 1.
+ */
+inline jint JavaUtilCalendar_get_DAY_OF_YEAR();
+#define JavaUtilCalendar_DAY_OF_YEAR 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, DAY_OF_YEAR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, DAY_OF_WEEK, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ day of the week.
+ This field takes values <code>SUNDAY</code>,
+ <code>MONDAY</code>, <code>TUESDAY</code>, <code>WEDNESDAY</code>,
+ <code>THURSDAY</code>, <code>FRIDAY</code>, and
+ <code>SATURDAY</code>.
+ - seealso: #SUNDAY
+ - seealso: #MONDAY
+ - seealso: #TUESDAY
+ - seealso: #WEDNESDAY
+ - seealso: #THURSDAY
+ - seealso: #FRIDAY
+ - seealso: #SATURDAY
+ */
+inline jint JavaUtilCalendar_get_DAY_OF_WEEK();
+#define JavaUtilCalendar_DAY_OF_WEEK 7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, DAY_OF_WEEK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, DAY_OF_WEEK_IN_MONTH, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ ordinal number of the day of the week within the current month.
+ Together
+ with the <code>DAY_OF_WEEK</code> field, this uniquely specifies a day
+ within a month. Unlike <code>WEEK_OF_MONTH</code> and
+ <code>WEEK_OF_YEAR</code>, this field's value does <em>not</em>
+ depend on <code>getFirstDayOfWeek()</code> or
+ <code>getMinimalDaysInFirstWeek()</code>. <code>DAY_OF_MONTH 1</code>
+ through <code>7</code> always correspond to <code>DAY_OF_WEEK_IN_MONTH
+ 1</code>;
+ <code>8</code> through <code>15</code> correspond to
+ <code>DAY_OF_WEEK_IN_MONTH 2</code>, and so on.
+ <code>DAY_OF_WEEK_IN_MONTH 0</code> indicates the week before
+ <code>DAY_OF_WEEK_IN_MONTH 1</code>. Negative values count back from
+ the end of the month, so the last Sunday of a month is specified as
+ <code>DAY_OF_WEEK = SUNDAY, DAY_OF_WEEK_IN_MONTH = -1</code>. Because
+ negative values count backward they will usually be aligned differently
+ within the month than positive values. For example, if a month has 31
+ days, <code>DAY_OF_WEEK_IN_MONTH -1</code> will overlap
+ <code>DAY_OF_WEEK_IN_MONTH 5</code> and the end of <code>4</code>.
+ - seealso: #DAY_OF_WEEK
+ - seealso: #WEEK_OF_MONTH
+ */
+inline jint JavaUtilCalendar_get_DAY_OF_WEEK_IN_MONTH();
+#define JavaUtilCalendar_DAY_OF_WEEK_IN_MONTH 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, DAY_OF_WEEK_IN_MONTH, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, AM_PM, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating
+ whether the <code>HOUR</code> is before or after noon.
+ E.g., at
+ 10:04:15.250 PM the <code>AM_PM</code> is <code>PM</code>.
+ - seealso: #AM
+ - seealso: #PM
+ - seealso: #HOUR
+ */
+inline jint JavaUtilCalendar_get_AM_PM();
+#define JavaUtilCalendar_AM_PM 9
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, AM_PM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, HOUR, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ hour of the morning or afternoon.
+ <code>HOUR</code> is used for the
+ 12-hour clock. E.g., at 10:04:15.250 PM the <code>HOUR</code> is 10.
+ - seealso: #AM_PM
+ - seealso: #HOUR_OF_DAY
+ */
+inline jint JavaUtilCalendar_get_HOUR();
+#define JavaUtilCalendar_HOUR 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, HOUR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, HOUR_OF_DAY, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ hour of the day.
+ <code>HOUR_OF_DAY</code> is used for the 24-hour
+ clock. E.g., at 10:04:15.250 PM the <code>HOUR_OF_DAY</code> is 22.
+ - seealso: #HOUR
+ */
+inline jint JavaUtilCalendar_get_HOUR_OF_DAY();
+#define JavaUtilCalendar_HOUR_OF_DAY 11
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, HOUR_OF_DAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, MINUTE, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ minute within the hour.
+ E.g., at 10:04:15.250 PM the <code>MINUTE</code>
+ is 4.
+ */
+inline jint JavaUtilCalendar_get_MINUTE();
+#define JavaUtilCalendar_MINUTE 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, MINUTE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, SECOND, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ second within the minute.
+ E.g., at 10:04:15.250 PM the
+ <code>SECOND</code> is 15.
+ */
+inline jint JavaUtilCalendar_get_SECOND();
+#define JavaUtilCalendar_SECOND 13
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, SECOND, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, MILLISECOND, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ millisecond within the second.
+ E.g., at 10:04:15.250 PM the
+ <code>MILLISECOND</code> is 250.
+ */
+inline jint JavaUtilCalendar_get_MILLISECOND();
+#define JavaUtilCalendar_MILLISECOND 14
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, MILLISECOND, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, ZONE_OFFSET, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ raw offset from GMT in milliseconds.
+ */
+inline jint JavaUtilCalendar_get_ZONE_OFFSET();
+#define JavaUtilCalendar_ZONE_OFFSET 15
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, ZONE_OFFSET, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, DST_OFFSET, jint)
+/*!
+ @brief Field number for <code>get</code> and <code>set</code> indicating the
+ daylight savings offset in milliseconds.
+ */
+inline jint JavaUtilCalendar_get_DST_OFFSET();
+#define JavaUtilCalendar_DST_OFFSET 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, DST_OFFSET, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, FIELD_COUNT, jint)
+/*!
+ @brief This is the total number of fields in this calendar.
+ */
+inline jint JavaUtilCalendar_get_FIELD_COUNT();
+#define JavaUtilCalendar_FIELD_COUNT 17
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, FIELD_COUNT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, AM, jint)
+/*!
+ @brief Value of the <code>AM_PM</code> field indicating the period of the day
+ from midnight to just before noon.
+ */
+inline jint JavaUtilCalendar_get_AM();
+#define JavaUtilCalendar_AM 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, AM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, PM, jint)
+/*!
+ @brief Value of the <code>AM_PM</code> field indicating the period of the day
+ from noon to just before midnight.
+ */
+inline jint JavaUtilCalendar_get_PM();
+#define JavaUtilCalendar_PM 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, PM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, ALL_STYLES, jint)
+/*!
+ @brief Requests both <code>SHORT</code> and <code>LONG</code> styles in the map returned by
+ <code>getDisplayNames</code>.
+ @since 1.6
+ */
+inline jint JavaUtilCalendar_get_ALL_STYLES();
+#define JavaUtilCalendar_ALL_STYLES 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, ALL_STYLES, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, SHORT, jint)
+/*!
+ @brief Requests short names (such as "Jan") from
+ <code>getDisplayName</code> or <code>getDisplayNames</code>.
+ @since 1.6
+ */
+inline jint JavaUtilCalendar_get_SHORT();
+#define JavaUtilCalendar_SHORT 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, SHORT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCalendar, LONG, jint)
+/*!
+ @brief Requests long names (such as "January") from
+ <code>getDisplayName</code> or <code>getDisplayNames</code>.
+ @since 1.6
+ */
+inline jint JavaUtilCalendar_get_LONG();
+#define JavaUtilCalendar_LONG 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilCalendar, LONG, jint)
 
 FOUNDATION_EXPORT void JavaUtilCalendar_init(JavaUtilCalendar *self);
 
@@ -854,4 +1270,8 @@ FOUNDATION_EXPORT JavaUtilCalendar *JavaUtilCalendar_getInstanceWithJavaUtilTime
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCalendar)
 
-#endif // _JavaUtilCalendar_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilCalendar_INCLUDE_ALL")

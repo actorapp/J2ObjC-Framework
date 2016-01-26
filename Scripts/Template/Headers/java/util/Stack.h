@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/Stack.java
 //
 
-#ifndef _JavaUtilStack_H_
-#define _JavaUtilStack_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilStack_INCLUDE_ALL")
+#ifdef JavaUtilStack_RESTRICT
+#define JavaUtilStack_INCLUDE_ALL 0
+#else
+#define JavaUtilStack_INCLUDE_ALL 1
+#endif
+#undef JavaUtilStack_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilStack_) && (JavaUtilStack_INCLUDE_ALL || defined(JavaUtilStack_INCLUDE))
+#define JavaUtilStack_
+
+#define JavaUtilVector_RESTRICT 1
+#define JavaUtilVector_INCLUDE 1
 #include "../../java/util/Vector.h"
 
 /*!
@@ -35,6 +49,7 @@
  @return the element at the top of the stack.
  @throws EmptyStackException
  if the stack is empty.
+ - seealso: #pop
  */
 - (id)peek;
 
@@ -43,6 +58,8 @@
  @return the element at the top of the stack.
  @throws EmptyStackException
  if the stack is empty.
+ - seealso: #peek
+ - seealso: #push
  */
 - (id)pop;
 
@@ -51,6 +68,8 @@
  @param object
  The object to be added on top of the stack.
  @return the object argument.
+ - seealso: #peek
+ - seealso: #pop
  */
 - (id)pushWithId:(id)object;
 
@@ -66,7 +85,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilStack)
@@ -77,4 +95,8 @@ FOUNDATION_EXPORT JavaUtilStack *new_JavaUtilStack_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStack)
 
-#endif // _JavaUtilStack_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilStack_INCLUDE_ALL")

@@ -3,15 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/lang/CloneNotSupportedException.java
 //
 
-#ifndef _JavaLangCloneNotSupportedException_H_
-#define _JavaLangCloneNotSupportedException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangCloneNotSupportedException_INCLUDE_ALL")
+#ifdef JavaLangCloneNotSupportedException_RESTRICT
+#define JavaLangCloneNotSupportedException_INCLUDE_ALL 0
+#else
+#define JavaLangCloneNotSupportedException_INCLUDE_ALL 1
+#endif
+#undef JavaLangCloneNotSupportedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangCloneNotSupportedException_) && (JavaLangCloneNotSupportedException_INCLUDE_ALL || defined(JavaLangCloneNotSupportedException_INCLUDE))
+#define JavaLangCloneNotSupportedException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
 
 /*!
  @brief Thrown when a program attempts to clone an object which does not support the
  <code>Cloneable</code> interface.
+ - seealso: Cloneable
  */
 @interface JavaLangCloneNotSupportedException : JavaLangException
 
@@ -45,4 +60,8 @@ FOUNDATION_EXPORT JavaLangCloneNotSupportedException *new_JavaLangCloneNotSuppor
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangCloneNotSupportedException)
 
-#endif // _JavaLangCloneNotSupportedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangCloneNotSupportedException_INCLUDE_ALL")

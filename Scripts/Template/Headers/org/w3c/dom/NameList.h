@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/NameList.java
 //
 
-#ifndef _OrgW3cDomNameList_H_
-#define _OrgW3cDomNameList_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomNameList_INCLUDE_ALL")
+#ifdef OrgW3cDomNameList_RESTRICT
+#define OrgW3cDomNameList_INCLUDE_ALL 0
+#else
+#define OrgW3cDomNameList_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomNameList_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomNameList_) && (OrgW3cDomNameList_INCLUDE_ALL || defined(OrgW3cDomNameList_INCLUDE))
+#define OrgW3cDomNameList_
 
 /*!
  @brief The <code>NameList</code> interface provides the abstraction of an ordered
@@ -70,4 +81,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomNameList)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomNameList)
 
-#endif // _OrgW3cDomNameList_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomNameList_INCLUDE_ALL")

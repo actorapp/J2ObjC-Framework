@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/Inet6Address.java
 //
 
-#ifndef _JavaNetInet6Address_H_
-#define _JavaNetInet6Address_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetInet6Address_INCLUDE_ALL")
+#ifdef JavaNetInet6Address_RESTRICT
+#define JavaNetInet6Address_INCLUDE_ALL 0
+#else
+#define JavaNetInet6Address_INCLUDE_ALL 1
+#endif
+#undef JavaNetInet6Address_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetInet6Address_) && (JavaNetInet6Address_INCLUDE_ALL || defined(JavaNetInet6Address_INCLUDE))
+#define JavaNetInet6Address_
+
+#define JavaNetInetAddress_RESTRICT 1
+#define JavaNetInetAddress_INCLUDE 1
 #include "../../java/net/InetAddress.h"
 
 @class IOSByteArray;
@@ -17,6 +31,10 @@
  See <code>InetAddress</code>.
  */
 @interface JavaNetInet6Address : JavaNetInetAddress
+
++ (JavaNetInetAddress *)ANY;
+
++ (JavaNetInetAddress *)LOOPBACK;
 
 #pragma mark Public
 
@@ -119,11 +137,19 @@
 
 J2OBJC_STATIC_INIT(JavaNetInet6Address)
 
-FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInet6Address_ANY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetInet6Address, ANY_, JavaNetInetAddress *)
+/*!
+ */
+inline JavaNetInetAddress *JavaNetInet6Address_get_ANY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInet6Address_ANY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetInet6Address, ANY, JavaNetInetAddress *)
 
-FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInet6Address_LOOPBACK_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetInet6Address, LOOPBACK_, JavaNetInetAddress *)
+/*!
+ */
+inline JavaNetInetAddress *JavaNetInet6Address_get_LOOPBACK();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInet6Address_LOOPBACK;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetInet6Address, LOOPBACK, JavaNetInetAddress *)
 
 FOUNDATION_EXPORT void JavaNetInet6Address_initWithByteArray_withNSString_withInt_(JavaNetInet6Address *self, IOSByteArray *ipaddress, NSString *hostName, jint scope_id);
 
@@ -135,4 +161,8 @@ FOUNDATION_EXPORT JavaNetInet6Address *JavaNetInet6Address_getByAddressWithNSStr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetInet6Address)
 
-#endif // _JavaNetInet6Address_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetInet6Address_INCLUDE_ALL")

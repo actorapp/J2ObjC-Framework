@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/RejectedExecutionHandler.java
 //
 
-#ifndef _JavaUtilConcurrentRejectedExecutionHandler_H_
-#define _JavaUtilConcurrentRejectedExecutionHandler_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentRejectedExecutionHandler_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentRejectedExecutionHandler_RESTRICT
+#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentRejectedExecutionHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentRejectedExecutionHandler_) && (JavaUtilConcurrentRejectedExecutionHandler_INCLUDE_ALL || defined(JavaUtilConcurrentRejectedExecutionHandler_INCLUDE))
+#define JavaUtilConcurrentRejectedExecutionHandler_
 
 @class JavaUtilConcurrentThreadPoolExecutor;
 @protocol JavaLangRunnable;
@@ -41,4 +52,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentRejectedExecutionHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRejectedExecutionHandler)
 
-#endif // _JavaUtilConcurrentRejectedExecutionHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentRejectedExecutionHandler_INCLUDE_ALL")

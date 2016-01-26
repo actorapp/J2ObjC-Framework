@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/text/util/Rfc822Tokenizer.java
 //
 
-#ifndef _AndroidTextUtilRfc822Tokenizer_H_
-#define _AndroidTextUtilRfc822Tokenizer_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextUtilRfc822Tokenizer_INCLUDE_ALL")
+#ifdef AndroidTextUtilRfc822Tokenizer_RESTRICT
+#define AndroidTextUtilRfc822Tokenizer_INCLUDE_ALL 0
+#else
+#define AndroidTextUtilRfc822Tokenizer_INCLUDE_ALL 1
+#endif
+#undef AndroidTextUtilRfc822Tokenizer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextUtilRfc822Tokenizer_) && (AndroidTextUtilRfc822Tokenizer_INCLUDE_ALL || defined(AndroidTextUtilRfc822Tokenizer_INCLUDE))
+#define AndroidTextUtilRfc822Tokenizer_
 
 @class IOSObjectArray;
 @protocol JavaLangCharSequence;
@@ -84,4 +95,8 @@ FOUNDATION_EXPORT AndroidTextUtilRfc822Tokenizer *new_AndroidTextUtilRfc822Token
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextUtilRfc822Tokenizer)
 
-#endif // _AndroidTextUtilRfc822Tokenizer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextUtilRfc822Tokenizer_INCLUDE_ALL")

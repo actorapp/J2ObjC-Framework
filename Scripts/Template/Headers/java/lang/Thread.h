@@ -3,25 +3,33 @@
 //  source: Classes/java/lang/Thread.java
 //
 
-#ifndef _JavaLangThread_H_
-#define _JavaLangThread_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Enum.h"
+
+#pragma push_macro("JavaLangThread_INCLUDE_ALL")
+#ifdef JavaLangThread_RESTRICT
+#define JavaLangThread_INCLUDE_ALL 0
+#else
+#define JavaLangThread_INCLUDE_ALL 1
+#endif
+#undef JavaLangThread_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangThread_) && (JavaLangThread_INCLUDE_ALL || defined(JavaLangThread_INCLUDE))
+#define JavaLangThread_
+
+#define JavaLangRunnable_RESTRICT 1
+#define JavaLangRunnable_INCLUDE 1
 #include "../../java/lang/Runnable.h"
 
 @class IOSObjectArray;
 @class JavaLangClassLoader;
 @class JavaLangThreadGroup;
 @class JavaLangThreadLocal_Values;
-@class JavaLangThread_StateEnum;
-@class JavaLangThrowable;
+@class JavaLangThread_State;
 @protocol JavaLangThread_UncaughtExceptionHandler;
 @protocol JavaUtilMap;
-
-#define JavaLangThread_MAX_PRIORITY 10
-#define JavaLangThread_MIN_PRIORITY 1
-#define JavaLangThread_NORM_PRIORITY 5
 
 /*!
  @brief Simplified iOS version of java.lang.Thread, based on Apache Harmony source
@@ -43,6 +51,12 @@
   id blocker_;
 }
 
++ (jint)MAX_PRIORITY;
+
++ (jint)MIN_PRIORITY;
+
++ (jint)NORM_PRIORITY;
+
 #pragma mark Public
 
 /*!
@@ -50,6 +64,7 @@
  name.
  The new Thread will belong to the same ThreadGroup as the Thread
  calling this constructor.
+ - seealso: java.lang.ThreadGroup
  */
 - (instancetype)init;
 
@@ -60,6 +75,8 @@
  calling this constructor.
  @param runnable a java.lang.Runnable whose method <code>run</code> will
  be executed by the new Thread
+ - seealso: java.lang.ThreadGroup
+ - seealso: java.lang.Runnable
  */
 - (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable;
 
@@ -71,6 +88,8 @@
  @param runnable a java.lang.Runnable whose method <code>run</code> will
  be executed by the new Thread
  @param threadName Name for the Thread being created
+ - seealso: java.lang.ThreadGroup
+ - seealso: java.lang.Runnable
  */
 - (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable
                             withNSString:(NSString *)threadName;
@@ -80,6 +99,8 @@
  The new Thread will belong to the same ThreadGroup as the Thread calling
  this constructor.
  @param threadName Name for the Thread being created
+ - seealso: java.lang.ThreadGroup
+ - seealso: java.lang.Runnable
  */
 - (instancetype)initWithNSString:(NSString *)threadName;
 
@@ -94,6 +115,10 @@
  with a SecurityException
  @throws IllegalThreadStateException if <code>group.destroy()</code> has
  already been done
+ - seealso: java.lang.ThreadGroup
+ - seealso: java.lang.Runnable
+ - seealso: java.lang.SecurityException
+ - seealso: java.lang.SecurityManager
  */
 - (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
                        withJavaLangRunnable:(id<JavaLangRunnable>)runnable;
@@ -109,6 +134,10 @@
  with a SecurityException
  @throws IllegalThreadStateException if <code>group.destroy()</code> has
  already been done
+ - seealso: java.lang.ThreadGroup
+ - seealso: java.lang.Runnable
+ - seealso: java.lang.SecurityException
+ - seealso: java.lang.SecurityManager
  */
 - (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
                        withJavaLangRunnable:(id<JavaLangRunnable>)runnable
@@ -126,6 +155,10 @@
  with a SecurityException
  @throws IllegalThreadStateException if <code>group.destroy()</code> has
  already been done
+ - seealso: java.lang.ThreadGroup
+ - seealso: java.lang.Runnable
+ - seealso: java.lang.SecurityException
+ - seealso: java.lang.SecurityManager
  */
 - (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
                        withJavaLangRunnable:(id<JavaLangRunnable>)runnable
@@ -141,6 +174,9 @@
  with a SecurityException
  @throws IllegalThreadStateException if <code>group.destroy()</code> has
  already been done
+ - seealso: java.lang.ThreadGroup
+ - seealso: java.lang.SecurityException
+ - seealso: java.lang.SecurityManager
  */
 - (instancetype)initWithJavaLangThreadGroup:(JavaLangThreadGroup *)group
                                withNSString:(NSString *)threadName;
@@ -149,13 +185,14 @@
 
 - (void)checkAccess;
 
-- (jint)countStackFrames;
+- (jint)countStackFrames __attribute__((deprecated));
 
 + (JavaLangThread *)currentThread;
 
 /*!
  @brief Prints to the standard error stream a text representation of the current
  stack for this Thread.
+ - seealso: Throwable#printStackTrace()
  */
 + (void)dumpStack;
 
@@ -169,6 +206,7 @@
 /*!
  @brief Returns the context ClassLoader for this Thread.
  @return ClassLoader The context ClassLoader
+ - seealso: java.lang.ClassLoader
  */
 - (JavaLangClassLoader *)getContextClassLoader;
 
@@ -188,7 +226,7 @@
 
 - (IOSObjectArray *)getStackTrace;
 
-- (JavaLangThread_StateEnum *)getState;
+- (JavaLangThread_State *)getState;
 
 - (JavaLangThreadGroup *)getThreadGroup;
 
@@ -236,6 +274,10 @@
  <ul>
  @throws SecurityException
  if <code>checkAccess()</code> fails with a SecurityException
+ - seealso: java.lang.SecurityException
+ - seealso: java.lang.SecurityManager
+ - seealso: Thread#interrupted
+ - seealso: Thread#isInterrupted
  */
 - (void)interrupt;
 
@@ -246,6 +288,9 @@
  It also has the side-effect of
  clearing the flag.
  @return a <code>boolean</code> indicating the interrupt status
+ - seealso: Thread#currentThread
+ - seealso: Thread#interrupt
+ - seealso: Thread#isInterrupted
  */
 + (jboolean)interrupted;
 
@@ -258,6 +303,8 @@
  pending interrupt request (<code>true</code>) or not (
  <code>false</code>)
  @return a <code>boolean</code> indicating the interrupt status
+ - seealso: Thread#interrupt
+ - seealso: Thread#interrupted
  */
 - (jboolean)isInterrupted;
 
@@ -266,6 +313,8 @@
  the receiver finishes its execution and dies.
  @throws InterruptedException if <code>interrupt()</code> was called for
  the receiver while it was in the <code>join()</code> call
+ - seealso: Object#notifyAll
+ - seealso: java.lang.ThreadDeath
  */
 - (void)join;
 
@@ -276,6 +325,8 @@
  @param millis The maximum time to wait (in milliseconds).
  @throws InterruptedException if <code>interrupt()</code> was called for
  the receiver while it was in the <code>join()</code> call
+ - seealso: Object#notifyAll
+ - seealso: java.lang.ThreadDeath
  */
 - (void)joinWithLong:(jlong)millis;
 
@@ -287,6 +338,8 @@
  @param nanos Extra nanosecond precision
  @throws InterruptedException if <code>interrupt()</code> was called for
  the receiver while it was in the <code>join()</code> call
+ - seealso: Object#notifyAll
+ - seealso: java.lang.ThreadDeath
  */
 - (void)joinWithLong:(jlong)millis
              withInt:(jint)nanos;
@@ -409,11 +462,32 @@ J2OBJC_FIELD_SETTER(JavaLangThread, localValues_, JavaLangThreadLocal_Values *)
 J2OBJC_FIELD_SETTER(JavaLangThread, inheritableValues_, JavaLangThreadLocal_Values *)
 J2OBJC_FIELD_SETTER(JavaLangThread, blocker_, id)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangThread, MAX_PRIORITY, jint)
+/*!
+ @brief <p>
+ The maximum priority value allowed for a thread.
+ </p>
+ */
+inline jint JavaLangThread_get_MAX_PRIORITY();
+#define JavaLangThread_MAX_PRIORITY 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangThread, MAX_PRIORITY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangThread, MIN_PRIORITY, jint)
+/*!
+ @brief <p>
+ The minimum priority value allowed for a thread.
+ </p>
+ */
+inline jint JavaLangThread_get_MIN_PRIORITY();
+#define JavaLangThread_MIN_PRIORITY 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangThread, MIN_PRIORITY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangThread, NORM_PRIORITY, jint)
+/*!
+ @brief <p>
+ The normal (default) priority value assigned to threads.
+ </p>
+ */
+inline jint JavaLangThread_get_NORM_PRIORITY();
+#define JavaLangThread_NORM_PRIORITY 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangThread, NORM_PRIORITY, jint)
 
 FOUNDATION_EXPORT void JavaLangThread_init(JavaLangThread *self);
 
@@ -473,13 +547,22 @@ FOUNDATION_EXPORT id<JavaUtilMap> JavaLangThread_getAllStackTraces();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangThread)
 
-typedef NS_ENUM(NSUInteger, JavaLangThread_State) {
-  JavaLangThread_State_NEW = 0,
-  JavaLangThread_State_RUNNABLE = 1,
-  JavaLangThread_State_BLOCKED = 2,
-  JavaLangThread_State_WAITING = 3,
-  JavaLangThread_State_TIMED_WAITING = 4,
-  JavaLangThread_State_TERMINATED = 5,
+#endif
+
+#if !defined (JavaLangThread_State_) && (JavaLangThread_INCLUDE_ALL || defined(JavaLangThread_State_INCLUDE))
+#define JavaLangThread_State_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
+#include "../../java/lang/Enum.h"
+
+typedef NS_ENUM(NSUInteger, JavaLangThread_State_Enum) {
+  JavaLangThread_State_Enum_NEW = 0,
+  JavaLangThread_State_Enum_RUNNABLE = 1,
+  JavaLangThread_State_Enum_BLOCKED = 2,
+  JavaLangThread_State_Enum_WAITING = 3,
+  JavaLangThread_State_Enum_TIMED_WAITING = 4,
+  JavaLangThread_State_Enum_TERMINATED = 5,
 };
 
 /*!
@@ -487,43 +570,87 @@ typedef NS_ENUM(NSUInteger, JavaLangThread_State) {
  A given thread may only be in one
  state at a time.
  */
-@interface JavaLangThread_StateEnum : JavaLangEnum < NSCopying >
+@interface JavaLangThread_State : JavaLangEnum < NSCopying >
+
++ (JavaLangThread_State *)NEW;
+
++ (JavaLangThread_State *)RUNNABLE;
+
++ (JavaLangThread_State *)BLOCKED;
+
++ (JavaLangThread_State *)WAITING;
+
++ (JavaLangThread_State *)TIMED_WAITING;
+
++ (JavaLangThread_State *)TERMINATED;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaLangThread_StateEnum_values();
 
-+ (JavaLangThread_StateEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaLangThread_StateEnum *JavaLangThread_StateEnum_valueOfWithNSString_(NSString *name);
++ (JavaLangThread_State *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaLangThread_State_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaLangThread_StateEnum)
+J2OBJC_STATIC_INIT(JavaLangThread_State)
 
-FOUNDATION_EXPORT JavaLangThread_StateEnum *JavaLangThread_StateEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaLangThread_State *JavaLangThread_State_values_[];
 
-#define JavaLangThread_StateEnum_NEW JavaLangThread_StateEnum_values_[JavaLangThread_State_NEW]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaLangThread_StateEnum, NEW)
+/*!
+ @brief The thread has been created, but has never been started.
+ */
+inline JavaLangThread_State *JavaLangThread_State_get_NEW();
+J2OBJC_ENUM_CONSTANT(JavaLangThread_State, NEW)
 
-#define JavaLangThread_StateEnum_RUNNABLE JavaLangThread_StateEnum_values_[JavaLangThread_State_RUNNABLE]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaLangThread_StateEnum, RUNNABLE)
+/*!
+ @brief The thread may be run.
+ */
+inline JavaLangThread_State *JavaLangThread_State_get_RUNNABLE();
+J2OBJC_ENUM_CONSTANT(JavaLangThread_State, RUNNABLE)
 
-#define JavaLangThread_StateEnum_BLOCKED JavaLangThread_StateEnum_values_[JavaLangThread_State_BLOCKED]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaLangThread_StateEnum, BLOCKED)
+/*!
+ @brief The thread is blocked and waiting for a lock.
+ */
+inline JavaLangThread_State *JavaLangThread_State_get_BLOCKED();
+J2OBJC_ENUM_CONSTANT(JavaLangThread_State, BLOCKED)
 
-#define JavaLangThread_StateEnum_WAITING JavaLangThread_StateEnum_values_[JavaLangThread_State_WAITING]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaLangThread_StateEnum, WAITING)
+/*!
+ @brief The thread is waiting.
+ */
+inline JavaLangThread_State *JavaLangThread_State_get_WAITING();
+J2OBJC_ENUM_CONSTANT(JavaLangThread_State, WAITING)
 
-#define JavaLangThread_StateEnum_TIMED_WAITING JavaLangThread_StateEnum_values_[JavaLangThread_State_TIMED_WAITING]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaLangThread_StateEnum, TIMED_WAITING)
+/*!
+ @brief The thread is waiting for a specified amount of time.
+ */
+inline JavaLangThread_State *JavaLangThread_State_get_TIMED_WAITING();
+J2OBJC_ENUM_CONSTANT(JavaLangThread_State, TIMED_WAITING)
 
-#define JavaLangThread_StateEnum_TERMINATED JavaLangThread_StateEnum_values_[JavaLangThread_State_TERMINATED]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaLangThread_StateEnum, TERMINATED)
+/*!
+ @brief The thread has been terminated.
+ */
+inline JavaLangThread_State *JavaLangThread_State_get_TERMINATED();
+J2OBJC_ENUM_CONSTANT(JavaLangThread_State, TERMINATED)
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaLangThread_StateEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaLangThread_State_values();
+
+FOUNDATION_EXPORT JavaLangThread_State *JavaLangThread_State_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaLangThread_State *JavaLangThread_State_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaLangThread_State)
+
+#endif
+
+#if !defined (JavaLangThread_UncaughtExceptionHandler_) && (JavaLangThread_INCLUDE_ALL || defined(JavaLangThread_UncaughtExceptionHandler_INCLUDE))
+#define JavaLangThread_UncaughtExceptionHandler_
+
+@class JavaLangThread;
+@class JavaLangThrowable;
 
 @protocol JavaLangThread_UncaughtExceptionHandler < NSObject, JavaObject >
 
@@ -536,4 +663,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangThread_UncaughtExceptionHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangThread_UncaughtExceptionHandler)
 
-#endif // _JavaLangThread_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangThread_INCLUDE_ALL")

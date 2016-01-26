@@ -3,13 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/Locale.java
 //
 
-#ifndef _JavaUtilLocale_H_
-#define _JavaUtilLocale_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLocale_INCLUDE_ALL")
+#ifdef JavaUtilLocale_RESTRICT
+#define JavaUtilLocale_INCLUDE_ALL 0
+#else
+#define JavaUtilLocale_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLocale_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLocale_) && (JavaUtilLocale_INCLUDE_ALL || defined(JavaUtilLocale_INCLUDE))
+#define JavaUtilLocale_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
+@protocol JavaUtilMap;
+@protocol JavaUtilSet;
 
 /*!
  @brief <code>Locale</code> represents a language/country/variant combination.
@@ -25,7 +41,7 @@
  code is rewritten as "iw", Indonesian ("id") as "in", and Yiddish ("yi") as "ji". This
  rewriting happens even if you construct your own <code>Locale</code> object, not just for
  instances returned by the various lookup methods.
- <a name="available_locales"><h3>Available locales</h3></a>
+ <a name="available_locales"></a><h3>Available locales</h3>
  <p>This class' constructors do no error checking. You can create a <code>Locale</code> for languages
  and countries that don't exist, and you can create instances for combinations that don't
  exist (such as "de_US" for "German as spoken in the US").
@@ -40,20 +56,46 @@
  <p>You can use <code>Locale.getDefault</code> to get an appropriate locale for the <i>user</i> of the
  device you're running on, or <code>Locale.getAvailableLocales</code> to get a list of all the locales
  available on the device you're running on.
- <a name="locale_data"><h3>Locale data</h3></a>
+ <a name="locale_data"></a><h3>Locale data</h3>
  <p>Note that locale data comes solely from ICU. User-supplied locale service providers (using
  the <code>java.text.spi</code> or <code>java.util.spi</code> mechanisms) are not supported.
  <p>Here are the versions of ICU (and the corresponding CLDR and Unicode versions) used in
  various Android releases:
  <table BORDER="1" WIDTH="100%" CELLPADDING="3" CELLSPACING="0" SUMMARY="">
- <tr><td>cupcake/donut/eclair</td> <td>ICU 3.8</td> <td><a href="http://cldr.unicode.org/index/downloads/cldr-1-5">CLDR 1.5</a></td>  <td><a href="http://www.unicode.org/versions/Unicode5.0.0/">Unicode 5.0</a></td></tr>
- <tr><td>froyo</td>                <td>ICU 4.2</td> <td><a href="http://cldr.unicode.org/index/downloads/cldr-1-7">CLDR 1.7</a></td>  <td><a href="http://www.unicode.org/versions/Unicode5.1.0/">Unicode 5.1</a></td></tr>
- <tr><td>gingerbread/honeycomb</td><td>ICU 4.4</td> <td><a href="http://cldr.unicode.org/index/downloads/cldr-1-8">CLDR 1.8</a></td>  <td><a href="http://www.unicode.org/versions/Unicode5.2.0/">Unicode 5.2</a></td></tr>
- <tr><td>ice cream sandwich</td>   <td>ICU 4.6</td> <td><a href="http://cldr.unicode.org/index/downloads/cldr-1-9">CLDR 1.9</a></td>  <td><a href="http://www.unicode.org/versions/Unicode6.0.0/">Unicode 6.0</a></td></tr>
- <tr><td>jelly bean</td>           <td>ICU 4.8</td> <td><a href="http://cldr.unicode.org/index/downloads/cldr-2-0">CLDR 2.0</a></td>  <td><a href="http://www.unicode.org/versions/Unicode6.0.0/">Unicode 6.0</a></td></tr>
- <tr><td>later</td>                <td>ICU 49</td>  <td><a href="http://cldr.unicode.org/index/downloads/cldr-21">CLDR 21.0</a></td> <td><a href="http://www.unicode.org/versions/Unicode6.1.0/">Unicode 6.1</a></td></tr>
+ <tr><td>Android 1.5 (Cupcake)/Android 1.6 (Donut)/Android 2.0 (Eclair)</td>
+ <td>ICU 3.8</td>
+ <td><a href="http://cldr.unicode.org/index/downloads/cldr-1-5">CLDR 1.5</a></td>
+ <td><a href="http://www.unicode.org/versions/Unicode5.0.0/">Unicode 5.0</a></td></tr>
+ <tr><td>Android 2.2 (Froyo)</td>
+ <td>ICU 4.2</td>
+ <td><a href="http://cldr.unicode.org/index/downloads/cldr-1-7">CLDR 1.7</a></td>
+ <td><a href="http://www.unicode.org/versions/Unicode5.1.0/">Unicode 5.1</a></td></tr>
+ <tr><td>Android 2.3 (Gingerbread)/Android 3.0 (Honeycomb)</td>
+ <td>ICU 4.4</td>
+ <td><a href="http://cldr.unicode.org/index/downloads/cldr-1-8">CLDR 1.8</a></td>
+ <td><a href="http://www.unicode.org/versions/Unicode5.2.0/">Unicode 5.2</a></td></tr>
+ <tr><td>Android 4.0 (Ice Cream Sandwich)</td>
+ <td><a href="http://site.icu-project.org/download/46">ICU 4.6</a></td>
+ <td><a href="http://cldr.unicode.org/index/downloads/cldr-1-9">CLDR 1.9</a></td>
+ <td><a href="http://www.unicode.org/versions/Unicode6.0.0/">Unicode 6.0</a></td></tr>
+ <tr><td>Android 4.1 (Jelly Bean)</td>
+ <td><a href="http://site.icu-project.org/download/48">ICU 4.8</a></td>
+ <td><a href="http://cldr.unicode.org/index/downloads/cldr-2-0">CLDR 2.0</a></td>
+ <td><a href="http://www.unicode.org/versions/Unicode6.0.0/">Unicode 6.0</a></td></tr>
+ <tr><td>Android 4.3 (Jelly Bean MR2)</td>
+ <td><a href="http://site.icu-project.org/download/50">ICU 50</a></td>
+ <td><a href="http://cldr.unicode.org/index/downloads/cldr-22-1">CLDR 22.1</a></td>
+ <td><a href="http://www.unicode.org/versions/Unicode6.2.0/">Unicode 6.2</a></td></tr>
+ <tr><td>Android 4.4 (KitKat)</td>
+ <td><a href="http://site.icu-project.org/download/51">ICU 51</a></td>
+ <td><a href="http://cldr.unicode.org/index/downloads/cldr-23">CLDR 23</a></td>
+ <td><a href="http://www.unicode.org/versions/Unicode6.2.0/">Unicode 6.2</a></td></tr>
+ <tr><td>Android 5.0 (Lollipop)</td>
+ <td><a href="http://site.icu-project.org/download/53">ICU 53</a></td>
+ <td><a href="http://cldr.unicode.org/index/downloads/cldr-25">CLDR 25</a></td>
+ <td><a href="http://www.unicode.org/versions/Unicode6.3.0/">Unicode 6.3</a></td></tr>
  </table>
- <a name="default_locale"><h3>Be wary of the default locale</h3></a>
+ <a name="default_locale"></a><h3>Be wary of the default locale</h3>
  <p>Note that there are many convenience methods that automatically use the default locale, but
  using them may lead to subtle bugs.
  <p>The default locale is appropriate for tasks that involve presenting data to the user. In
@@ -80,6 +122,54 @@
  */
 @interface JavaUtilLocale : NSObject < NSCopying, JavaIoSerializable >
 
++ (JavaUtilLocale *)CANADA;
+
++ (JavaUtilLocale *)CANADA_FRENCH;
+
++ (JavaUtilLocale *)CHINA;
+
++ (JavaUtilLocale *)CHINESE;
+
++ (JavaUtilLocale *)ENGLISH;
+
++ (JavaUtilLocale *)FRANCE;
+
++ (JavaUtilLocale *)FRENCH;
+
++ (JavaUtilLocale *)GERMAN;
+
++ (JavaUtilLocale *)GERMANY;
+
++ (JavaUtilLocale *)ITALIAN;
+
++ (JavaUtilLocale *)ITALY;
+
++ (JavaUtilLocale *)JAPAN;
+
++ (JavaUtilLocale *)JAPANESE;
+
++ (JavaUtilLocale *)KOREA;
+
++ (JavaUtilLocale *)KOREAN;
+
++ (JavaUtilLocale *)PRC;
+
++ (JavaUtilLocale *)ROOT;
+
++ (JavaUtilLocale *)SIMPLIFIED_CHINESE;
+
++ (JavaUtilLocale *)TAIWAN;
+
++ (JavaUtilLocale *)TRADITIONAL_CHINESE;
+
++ (JavaUtilLocale *)UK;
+
++ (JavaUtilLocale *)US;
+
++ (jchar)PRIVATE_USE_EXTENSION;
+
++ (jchar)UNICODE_LOCALE_EXTENSION;
+
 #pragma mark Public
 
 /*!
@@ -101,6 +191,23 @@
                     withNSString:(NSString *)country
                     withNSString:(NSString *)variant;
 
+/*!
+ @brief Required by libcore.icu.ICU.
+ */
+- (instancetype)initWithNSString:(NSString *)language
+                    withNSString:(NSString *)country
+                    withNSString:(NSString *)variant
+                    withNSString:(NSString *)scriptCode
+                 withJavaUtilSet:(id<JavaUtilSet>)unicodeAttributes
+                 withJavaUtilMap:(id<JavaUtilMap>)unicodeKeywords
+                 withJavaUtilMap:(id<JavaUtilMap>)extensions
+                     withBoolean:(jboolean)hasValidatedFields;
+
+/*!
+  for internal use only.
+ */
++ (NSString *)adjustLanguageCodeWithNSString:(NSString *)languageCode;
+
 - (id)clone;
 
 /*!
@@ -110,11 +217,29 @@
 - (jboolean)isEqual:(id)object;
 
 /*!
+ @brief Returns a locale for a given BCP-47 language tag.
+ This method is more
+ lenient than <code>Builder.setLanguageTag</code>. For a given language tag, parsing
+ will proceed up to the first malformed subtag. All subsequent tags are discarded.
+ Note that language tags use <code>-</code> rather than <code>_</code>, for example <code>en-US</code>.
+ @throws NullPointerException if <code>languageTag</code> is <code>null</code>.
+ @since 1.7
+ */
++ (JavaUtilLocale *)forLanguageTagWithNSString:(NSString *)languageTag;
+
+/*!
  @brief Returns the system's installed locales.
  This array always includes <code>Locale.US</code>
  , and usually several others. Most locale-sensitive classes
  offer their own <code>getAvailableLocales</code> method, which should be
  preferred over this general purpose method.
+ - seealso: java.text.BreakIterator#getAvailableLocales()
+ - seealso: java.text.Collator#getAvailableLocales()
+ - seealso: java.text.DateFormat#getAvailableLocales()
+ - seealso: java.text.DateFormatSymbols#getAvailableLocales()
+ - seealso: java.text.DecimalFormatSymbols#getAvailableLocales()
+ - seealso: java.text.NumberFormat#getAvailableLocales()
+ - seealso: java.util.Calendar#getAvailableLocales()
  */
 + (IOSObjectArray *)getAvailableLocales;
 
@@ -132,6 +257,12 @@
  Instead, use this method to look it up for each use.
  */
 + (JavaUtilLocale *)getDefault;
+
+/*!
+ @brief Returns the default locale from system properties.
+  visible for testing.
+ */
++ (JavaUtilLocale *)getDefaultLocaleFromSystemProperties;
 
 /*!
  @brief Equivalent to <code>getDisplayCountry(Locale.getDefault())</code>.
@@ -165,12 +296,13 @@
  @brief Returns this locale's language name, country name, and variant, localized
  to <code>locale</code>.
  The exact output form depends on whether this locale
- corresponds to a specific language, country and variant.
+ corresponds to a specific language, script, country and variant.
  <p>For example:
  <ul>
  <li><code>new Locale("en").getDisplayName(Locale.US)</code> -> <code>English</code>
  <li><code>new Locale("en", "US").getDisplayName(Locale.US)</code> -> <code>English (United States)</code>
  <li><code>new Locale("en", "US", "POSIX").getDisplayName(Locale.US)</code> -> <code>English (United States,Computer)</code>
+ <li><code>Locale.fromLanguageTag("zh-Hant-CN").getDisplayName(Locale.US)</code> -> <code>Chinese (Traditional Han,China)</code>
  <li><code>new Locale("en").getDisplayName(Locale.FRANCE)</code> -> <code>anglais</code>
  <li><code>new Locale("en", "US").getDisplayName(Locale.FRANCE)</code> -> <code>anglais (États-Unis)</code>
  <li><code>new Locale("en", "US", "POSIX").getDisplayName(Locale.FRANCE)</code> -> <code>anglais (États-Unis,informatique)</code>.
@@ -179,10 +311,26 @@
 - (NSString *)getDisplayNameWithJavaUtilLocale:(JavaUtilLocale *)locale;
 
 /*!
+ @brief Equivalent to <code>getDisplayScript(Locale.getDefault()))</code>
+ @since 1.7
+ */
+- (NSString *)getDisplayScript;
+
+/*!
+ @brief Returns the name of this locale's script code, localized to <code>Locale</code>.
+ If the
+ script code is unknown, the return value of this method is the same as that of
+ <code>getScript()</code>.
+ @since 1.7
+ */
+- (NSString *)getDisplayScriptWithJavaUtilLocale:(JavaUtilLocale *)locale;
+
+/*!
  @brief Returns the full variant name in the default <code>Locale</code> for the variant code of
  this <code>Locale</code>.
  If there is no matching variant name, the variant code is
  returned.
+ @since 1.7
  */
 - (NSString *)getDisplayVariant;
 
@@ -191,8 +339,27 @@
  of this <code>Locale</code>.
  If there is no matching variant name, the variant code is
  returned.
+ @since 1.7
  */
 - (NSString *)getDisplayVariantWithJavaUtilLocale:(JavaUtilLocale *)locale;
+
+/*!
+ @brief Returns the BCP-47 extension whose key is <code>extensionKey</code>, or <code>null</code>
+ if this locale does not contain the extension.
+ Individual Keywords and attributes for the unicode
+ locale extension can be fetched using <code>getUnicodeLocaleAttributes()</code>,
+ <code>getUnicodeLocaleKeys()</code>  and <code>getUnicodeLocaleType</code>.
+ @since 1.7
+ */
+- (NSString *)getExtensionWithChar:(jchar)extensionKey;
+
+/*!
+ @brief Returns the set of BCP-47 extensions this locale contains.
+ See <a href="https://tools.ietf.org/html/bcp47#section-2.1">
+ the IETF BCP-47 specification</a> (Section 2.2.6) for details.
+ @since 1.7
+ */
+- (id<JavaUtilSet>)getExtensionKeys;
 
 /*!
  @brief Returns the three-letter ISO 3166 country code which corresponds to the country
@@ -227,12 +394,74 @@
 - (NSString *)getLanguage;
 
 /*!
+ @brief Returns the script code for this <code>Locale</code> or an empty <code>String</code> if no script
+ was set.
+ If set, the script code will be a title cased string of length 4, as per the ISO 15924
+ specification.
+ @since 1.7
+ */
+- (NSString *)getScript;
+
+/*!
+ @brief Returns the set of unicode locale extension attributes this locale contains.
+ For more information about attributes, see <code>Builder.addUnicodeLocaleAttribute</code>
+ and <a href="http://www.unicode.org/reports/tr35/#BCP47">Unicode Technical Standard #35</a>
+ @since 1.7
+ */
+- (id<JavaUtilSet>)getUnicodeLocaleAttributes;
+
+/*!
+ @brief Returns the set of unicode locale extension keywords this locale contains.
+ For more information about types and keywords, see <code>Builder.setUnicodeLocaleKeyword</code>
+ and <a href="http://www.unicode.org/reports/tr35/#BCP47">Unicode Technical Standard #35</a>
+ @since 1.7
+ */
+- (id<JavaUtilSet>)getUnicodeLocaleKeys;
+
+/*!
+ @brief Returns the <code>type</code> for the specified unicode locale extension <code>key</code>.
+ For more information about types and keywords, see <code>Builder.setUnicodeLocaleKeyword</code>
+ and <a href="http://www.unicode.org/reports/tr35/#BCP47">Unicode Technical Standard #35</a>
+ @since 1.7
+ */
+- (NSString *)getUnicodeLocaleTypeWithNSString:(NSString *)keyWord;
+
+/*!
  @brief Returns the variant code for this <code>Locale</code> or an empty <code>String</code> if no variant
  was set.
  */
 - (NSString *)getVariant;
 
 - (NSUInteger)hash;
+
+/*!
+ @brief Visible for testing.
+ */
++ (void)parseSerializedExtensionsWithNSString:(NSString *)extString
+                              withJavaUtilMap:(id<JavaUtilMap>)outputMap;
+
+/*!
+ @brief This extension is described by http://www.unicode.org/reports/tr35/#RFC5234
+ unicode_locale_extensions = sep "u" (1*(sep keyword) / 1*(sep attribute) *(sep keyword)).
+ It must contain at least one keyword or attribute and attributes (if any)
+ must appear before keywords. Attributes can't appear after keywords because
+ they will be indistinguishable from a subtag of the keyword type.
+ Visible for testing.
+ */
++ (void)parseUnicodeExtensionWithNSStringArray:(IOSObjectArray *)subtags
+                               withJavaUtilMap:(id<JavaUtilMap>)keywords
+                               withJavaUtilSet:(id<JavaUtilSet>)attributes;
+
+/*!
+ @brief The serialized form for extensions is straightforward.
+ It's simply
+ of the form key1-value1-key2-value2 where each value might in turn contain
+ multiple subtags separated by hyphens. Each key is guaranteed to be a single
+ character in length.
+ This method assumes that <code>extensionsMap</code> is non-empty.
+ Visible for testing.
+ */
++ (NSString *)serializeExtensionsWithJavaUtilMap:(id<JavaUtilMap>)extensionsMap;
 
 /*!
  @brief Overrides the default locale.
@@ -244,6 +473,25 @@
  called.
  */
 + (void)setDefaultWithJavaUtilLocale:(JavaUtilLocale *)locale;
+
+/*!
+ @brief Returns a well formed BCP-47 language tag that identifies this locale.
+ Note that this locale itself might consist of ill formed fields, since the
+ public <code>Locale</code> constructors do not perform validity checks to maintain
+ backwards compatibility. When this is the case, this method will either replace
+ ill formed fields with standard BCP-47 subtags (For eg. "und" (undetermined)
+ for invalid languages) or omit them altogether.
+ Additionally, ill formed variants will result in the remainder of the tag
+ (both variants and extensions) being moved to the private use extension,
+ where they will appear after a subtag whose value is <code>"lvariant"</code>.
+ It's also important to note that the BCP-47 tag is well formed in the sense
+ that it is unambiguously parseable into its specified components. We do not
+ require that any of the components are registered with the applicable registries.
+ For example, we do not require scripts to be a registered ISO 15924 scripts or
+ languages to appear in the ISO-639-2 code list.
+ @since 1.7
+ */
+- (NSString *)toLanguageTag;
 
 /*!
  @brief Returns the string representation of this <code>Locale</code>.
@@ -262,71 +510,207 @@
 
 J2OBJC_STATIC_INIT(JavaUtilLocale)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_CANADA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, CANADA_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for en_CA.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_CANADA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_CANADA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, CANADA, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_CANADA_FRENCH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, CANADA_FRENCH_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for fr_CA.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_CANADA_FRENCH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_CANADA_FRENCH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, CANADA_FRENCH, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_CHINA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, CHINA_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for zh_CN.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_CHINA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_CHINA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, CHINA, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_CHINESE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, CHINESE_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for zh.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_CHINESE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_CHINESE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, CHINESE, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_ENGLISH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, ENGLISH_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for en.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_ENGLISH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_ENGLISH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, ENGLISH, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_FRANCE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, FRANCE_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for fr_FR.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_FRANCE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_FRANCE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, FRANCE, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_FRENCH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, FRENCH_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for fr.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_FRENCH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_FRENCH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, FRENCH, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_GERMAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, GERMAN_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for de.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_GERMAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_GERMAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, GERMAN, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_GERMANY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, GERMANY_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for de_DE.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_GERMANY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_GERMANY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, GERMANY, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_ITALIAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, ITALIAN_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for it.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_ITALIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_ITALIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, ITALIAN, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_ITALY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, ITALY_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for it_IT.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_ITALY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_ITALY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, ITALY, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_JAPAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, JAPAN_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for ja_JP.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_JAPAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_JAPAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, JAPAN, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_JAPANESE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, JAPANESE_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for ja.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_JAPANESE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_JAPANESE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, JAPANESE, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_KOREA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, KOREA_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for ko_KR.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_KOREA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_KOREA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, KOREA, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_KOREAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, KOREAN_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for ko.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_KOREAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_KOREAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, KOREAN, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_PRC_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, PRC_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for zh_CN.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_PRC();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_PRC;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, PRC, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_ROOT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, ROOT_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for the root locale.
+ The root locale has an empty language,
+ country, and variant.
+ @since 1.6
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_ROOT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_ROOT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, ROOT, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_SIMPLIFIED_CHINESE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, SIMPLIFIED_CHINESE_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for zh_CN.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_SIMPLIFIED_CHINESE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_SIMPLIFIED_CHINESE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, SIMPLIFIED_CHINESE, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_TAIWAN_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, TAIWAN_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for zh_TW.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_TAIWAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_TAIWAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, TAIWAN, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_TRADITIONAL_CHINESE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, TRADITIONAL_CHINESE_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for zh_TW.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_TRADITIONAL_CHINESE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_TRADITIONAL_CHINESE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, TRADITIONAL_CHINESE, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_UK_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, UK_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for en_GB.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_UK();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_UK;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, UK, JavaUtilLocale *)
 
-FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_US_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLocale, US_, JavaUtilLocale *)
+/*!
+ @brief Locale constant for en_US.
+ */
+inline JavaUtilLocale *JavaUtilLocale_get_US();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_US;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLocale, US, JavaUtilLocale *)
+
+/*!
+ @brief BCP-47 extension identifier (or "singleton") for the private
+ use extension.
+ See <code>getExtension(char)</code> and <code>Builder.setExtension(char,String)</code>.
+ @since 1.7
+ */
+inline jchar JavaUtilLocale_get_PRIVATE_USE_EXTENSION();
+#define JavaUtilLocale_PRIVATE_USE_EXTENSION 'x'
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilLocale, PRIVATE_USE_EXTENSION, jchar)
+
+/*!
+ @brief BCP-47 extension identifier (or "singleton") for the unicode locale extension.
+ See <code>getExtension(char)</code> and <code>Builder.setExtension(char,String)</code>.
+ @since 1.7
+ */
+inline jchar JavaUtilLocale_get_UNICODE_LOCALE_EXTENSION();
+#define JavaUtilLocale_UNICODE_LOCALE_EXTENSION 'u'
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilLocale, UNICODE_LOCALE_EXTENSION, jchar)
+
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_getDefaultLocaleFromSystemProperties();
+
+FOUNDATION_EXPORT JavaUtilLocale *JavaUtilLocale_forLanguageTagWithNSString_(NSString *languageTag);
 
 FOUNDATION_EXPORT void JavaUtilLocale_initWithNSString_(JavaUtilLocale *self, NSString *language);
 
@@ -335,6 +719,10 @@ FOUNDATION_EXPORT JavaUtilLocale *new_JavaUtilLocale_initWithNSString_(NSString 
 FOUNDATION_EXPORT void JavaUtilLocale_initWithNSString_withNSString_(JavaUtilLocale *self, NSString *language, NSString *country);
 
 FOUNDATION_EXPORT JavaUtilLocale *new_JavaUtilLocale_initWithNSString_withNSString_(NSString *language, NSString *country) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT void JavaUtilLocale_initWithNSString_withNSString_withNSString_withNSString_withJavaUtilSet_withJavaUtilMap_withJavaUtilMap_withBoolean_(JavaUtilLocale *self, NSString *language, NSString *country, NSString *variant, NSString *scriptCode, id<JavaUtilSet> unicodeAttributes, id<JavaUtilMap> unicodeKeywords, id<JavaUtilMap> extensions, jboolean hasValidatedFields);
+
+FOUNDATION_EXPORT JavaUtilLocale *new_JavaUtilLocale_initWithNSString_withNSString_withNSString_withNSString_withJavaUtilSet_withJavaUtilMap_withJavaUtilMap_withBoolean_(NSString *language, NSString *country, NSString *variant, NSString *scriptCode, id<JavaUtilSet> unicodeAttributes, id<JavaUtilMap> unicodeKeywords, id<JavaUtilMap> extensions, jboolean hasValidatedFields) NS_RETURNS_RETAINED;
 
 FOUNDATION_EXPORT void JavaUtilLocale_initWithNSString_withNSString_withNSString_(JavaUtilLocale *self, NSString *language, NSString *country, NSString *variant);
 
@@ -350,6 +738,243 @@ FOUNDATION_EXPORT IOSObjectArray *JavaUtilLocale_getISOLanguages();
 
 FOUNDATION_EXPORT void JavaUtilLocale_setDefaultWithJavaUtilLocale_(JavaUtilLocale *locale);
 
+FOUNDATION_EXPORT NSString *JavaUtilLocale_serializeExtensionsWithJavaUtilMap_(id<JavaUtilMap> extensionsMap);
+
+FOUNDATION_EXPORT void JavaUtilLocale_parseSerializedExtensionsWithNSString_withJavaUtilMap_(NSString *extString, id<JavaUtilMap> outputMap);
+
+FOUNDATION_EXPORT void JavaUtilLocale_parseUnicodeExtensionWithNSStringArray_withJavaUtilMap_withJavaUtilSet_(IOSObjectArray *subtags, id<JavaUtilMap> keywords, id<JavaUtilSet> attributes);
+
+FOUNDATION_EXPORT NSString *JavaUtilLocale_adjustLanguageCodeWithNSString_(NSString *languageCode);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLocale)
 
-#endif // _JavaUtilLocale_H_
+#endif
+
+#if !defined (JavaUtilLocale_Builder_) && (JavaUtilLocale_INCLUDE_ALL || defined(JavaUtilLocale_Builder_INCLUDE))
+#define JavaUtilLocale_Builder_
+
+@class JavaUtilLocale;
+
+/*!
+ @brief A class that helps construct <code>Locale</code> instances.
+ Unlike the public <code>Locale</code> constructors, the methods of this class
+ perform much stricter checks on their input.
+ Validity checks on the <code>language</code>, <code>country</code>, <code>variant</code>
+ and <code>extension</code> values are carried out as per the
+ <a href="https://tools.ietf.org/html/bcp47">BCP-47</a> specification.
+ In addition, we treat the <a href="http://www.unicode.org/reports/tr35/">
+ Unicode locale extension</a> specially and provide methods to manipulate
+ the structured state (keywords and attributes) specified therein.
+ @since 1.7
+ */
+@interface JavaUtilLocale_Builder : NSObject
+
+#pragma mark Public
+
+- (instancetype)init;
+
+/*!
+ @brief Adds the specified attribute to the list of attributes in the unicode
+ locale extension.
+ Attributes must be between 3 and 8 characters in length, and each character
+ must be in the range <code>[a-zA-Z0-9]</code>.
+ Attributes are normalized to lower case values. All added attributes and
+ keywords are combined to form a complete unicode locale extension on
+ <code>Locale</code> objects built by this builder, and accessible via
+ <code>Locale.getExtension(char)</code> with the <code>Locale.UNICODE_LOCALE_EXTENSION</code>
+ key.
+ @throws IllformedLocaleException if <code>attribute</code> is invalid.
+ @throws NullPointerException if <code>attribute</code> is null.
+ */
+- (JavaUtilLocale_Builder *)addUnicodeLocaleAttributeWithNSString:(NSString *)attribute;
+
+/*!
+ @brief Constructs a locale from the existing state of the builder.
+ Note that this
+ method is guaranteed to succeed since field validity checks are performed
+ at the point of setting them.
+ */
+- (JavaUtilLocale *)build;
+
+/*!
+ @brief Clears all existing state from this builder.
+ */
+- (JavaUtilLocale_Builder *)clear;
+
+/*!
+ @brief Clears all extensions from this builder.
+ Note that this also implicitly
+ clears all state related to the unicode locale extension; all attributes
+ and keywords set by <code>addUnicodeLocaleAttribute</code> and
+ <code>setUnicodeLocaleKeyword</code> are cleared.
+ */
+- (JavaUtilLocale_Builder *)clearExtensions;
+
+/*!
+ @brief Removes an attribute from the list of attributes in the unicode locale
+ extension.
+ <code>attribute</code> must be valid as per the rules specified in
+ <code>addUnicodeLocaleAttribute</code>.
+ This method has no effect if <code>attribute</code> hasn't already been
+ added.
+ @throws IllformedLocaleException if <code>attribute</code> is invalid.
+ @throws NullPointerException if <code>attribute</code> is null.
+ */
+- (JavaUtilLocale_Builder *)removeUnicodeLocaleAttributeWithNSString:(NSString *)attribute;
+
+/*!
+ @brief Sets the extension identified by <code>key</code> to <code>value</code>.
+ <code>key</code> must be in the range <code>[a-zA-Z0-9]</code>.
+ If <code>value</code> is <code>null</code> or empty, the extension is removed.
+ In the general case, <code>value</code> must be a series of subtags separated
+ by (<code>"-"</code> or <code>"_"</code>). Each subtag must be between
+ 2 and 8 characters in length, and each character in the subtag must be in
+ the range <code>[a-zA-Z0-9]</code>.
+ <p>
+ There are two special cases :
+ <li>
+ <ul>
+ The unicode locale extension
+ (<code>key == 'u'</code>, <code>Locale.UNICODE_LOCALE_EXTENSION</code>) : Setting
+ the unicode locale extension results in all existing keyword and attribute
+ state being replaced by the parsed result of <code>value</code>. For example,
+ <code>builder.setExtension('u', "baaaz-baaar-fo-baar-ba-baaz")</code>
+ is equivalent to:
+ @code
+
+             builder.addUnicodeLocaleAttribute("baaaz");
+             builder.addUnicodeLocaleAttribute("baaar");
+             builder.setUnicodeLocaleKeyword("fo", "baar");
+             builder.setUnicodeLocaleKeyword("ba", "baaa");
+         
+@endcode
+ </ul>
+ <ul>
+ The private use extension
+ (<code>key == 'x'</code>, <code>Locale.PRIVATE_USE_EXTENSION</code>) : Each subtag in a
+ private use extension can be between 1 and 8 characters in length (in contrast
+ to a minimum length of 2 for all other extensions).
+ </ul>
+ </li>
+ @throws IllformedLocaleException if <code>value</code> is invalid.
+ */
+- (JavaUtilLocale_Builder *)setExtensionWithChar:(jchar)key
+                                    withNSString:(NSString *)value;
+
+/*!
+ @brief Sets the locale language.
+ If <code>language</code> is <code>null</code> or empty, the
+ previous value is cleared.
+ As per BCP-47, the language must be between 2 and 3 ASCII characters
+ in length and must only contain characters in the range <code>[a-zA-Z]</code>.
+ This value is usually an <a href="http://www.loc.gov/standards/iso639-2/">
+ ISO-639-2</a> alpha-2 or alpha-3 code, though no explicit checks are
+ carried out that it's a valid code in that namespace.
+ Values are normalized to lower case.
+ Note that we don't support BCP-47 "extlang" languages because they were
+ only ever used to substitute for a lack of 3 letter language codes.
+ @throws IllformedLocaleException if the language was invalid.
+ */
+- (JavaUtilLocale_Builder *)setLanguageWithNSString:(NSString *)language;
+
+/*!
+ @brief Set the state of this builder to the parsed contents of the BCP-47 language
+ tag <code>languageTag</code>.
+ This method is equivalent to a call to <code>clear</code> if <code>languageTag</code>
+ is <code>null</code> or empty.
+ <b>NOTE:</b> In contrast to <code>Locale.forLanguageTag(String)</code>, which
+ simply ignores malformed input, this method will throw an exception if
+ its input is malformed.
+ @throws IllformedLocaleException if <code>languageTag</code> is not a well formed
+ BCP-47 tag.
+ */
+- (JavaUtilLocale_Builder *)setLanguageTagWithNSString:(NSString *)languageTag;
+
+/*!
+ @brief Sets the state of the builder to the <code>Locale</code> represented by
+ <code>locale</code>.
+ Note that the locale's language, region and variant are validated as per
+ the rules specified in <code>setLanguage</code>, <code>setRegion</code> and
+ <code>setVariant</code>.
+ All existing builder state is discarded.
+ @throws IllformedLocaleException if <code>locale</code> is invalid.
+ @throws NullPointerException if <code>locale</code> is null.
+ */
+- (JavaUtilLocale_Builder *)setLocaleWithJavaUtilLocale:(JavaUtilLocale *)locale;
+
+/*!
+ @brief Sets the locale region.
+ If <code>region</code> is <code>null</code> or empty, the
+ previous value is cleared.
+ As per BCP-47, the region must either be a 2 character ISO-3166-1 code
+ (each character in the range [a-zA-Z]) OR a 3 digit UN M.49 code.
+ Values are normalized to upper case.
+ @throws IllformedLocaleException if <code></code> region is invalid.
+ */
+- (JavaUtilLocale_Builder *)setRegionWithNSString:(NSString *)region;
+
+/*!
+ @brief Sets the locale script.
+ If <code>script</code> is <code>null</code> or empty,
+ the previous value is cleared.
+ As per BCP-47, the script must be 4 characters in length, and
+ each character in the range <code>[a-zA-Z]</code>.
+ A script usually represents a valid ISO 15924 script code, though no
+ other registry or validity checks are performed.
+ Scripts are normalized to title cased values.
+ @throws IllformedLocaleException if <code>script</code> is invalid.
+ */
+- (JavaUtilLocale_Builder *)setScriptWithNSString:(NSString *)script;
+
+/*!
+ @brief Adds a key / type pair to the list of unicode locale extension keys.
+ <code>key</code> must be 2 characters in length, and each character must be
+ in the range <code>[a-zA-Z0-9]</code>.
+ {#code type} can either be empty, or a series of one or more subtags
+ separated by a separator (<code>"-"</code> or <code>"_"</code>). Each subtag must
+ be between 3 and 8 characters in length and each character in the subtag
+ must be in the range <code>[a-zA-Z0-9]</code>.
+ Note that the type is normalized to lower case, and all separators
+ are normalized to <code>"-"</code>. All added attributes and
+ keywords are combined to form a complete unicode locale extension on
+ <code>Locale</code> objects built by this builder, and accessible via
+ <code>Locale.getExtension(char)</code> with the <code>Locale.UNICODE_LOCALE_EXTENSION</code>
+ key.
+ @throws IllformedLocaleException if <code>key</code> or <code>value</code> are
+ invalid.
+ */
+- (JavaUtilLocale_Builder *)setUnicodeLocaleKeywordWithNSString:(NSString *)key
+                                                   withNSString:(NSString *)type;
+
+/*!
+ @brief Sets the locale variant.
+ If <code>variant</code> is <code>null</code> or empty,
+ the previous value is cleared.
+ The input string my consist of one or more variants separated by
+ valid separators ('-' or '_').
+ As per BCP-47, each variant must be between 5 and 8 alphanumeric characters
+ in length (each character in the range <code>[a-zA-Z0-9]</code>) but
+ can be exactly 4 characters in length if the first character is a digit.
+ Note that this is a much stricter interpretation of <code>variant</code>
+ than the public <code>Locale</code> constructors. The latter allowed free form
+ variants.
+ Variants are case sensitive and all separators are normalized to <code>'_'</code>.
+ @throws IllformedLocaleException if <code></code> variant is invalid.
+ */
+- (JavaUtilLocale_Builder *)setVariantWithNSString:(NSString *)variant;
+
+@end
+
+J2OBJC_EMPTY_STATIC_INIT(JavaUtilLocale_Builder)
+
+FOUNDATION_EXPORT void JavaUtilLocale_Builder_init(JavaUtilLocale_Builder *self);
+
+FOUNDATION_EXPORT JavaUtilLocale_Builder *new_JavaUtilLocale_Builder_init() NS_RETURNS_RETAINED;
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLocale_Builder)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLocale_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/GenericArrayType.java
 //
 
-#ifndef _JavaLangReflectGenericArrayType_H_
-#define _JavaLangReflectGenericArrayType_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectGenericArrayType_INCLUDE_ALL")
+#ifdef JavaLangReflectGenericArrayType_RESTRICT
+#define JavaLangReflectGenericArrayType_INCLUDE_ALL 0
+#else
+#define JavaLangReflectGenericArrayType_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectGenericArrayType_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectGenericArrayType_) && (JavaLangReflectGenericArrayType_INCLUDE_ALL || defined(JavaLangReflectGenericArrayType_INCLUDE))
+#define JavaLangReflectGenericArrayType_
+
+#define JavaLangReflectType_RESTRICT 1
+#define JavaLangReflectType_INCLUDE 1
 #include "../../../java/lang/reflect/Type.h"
 
 /*!
@@ -33,4 +47,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangReflectGenericArrayType)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectGenericArrayType)
 
-#endif // _JavaLangReflectGenericArrayType_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectGenericArrayType_INCLUDE_ALL")

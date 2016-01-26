@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/ReadOnlyBufferException.java
 //
 
-#ifndef _JavaNioReadOnlyBufferException_H_
-#define _JavaNioReadOnlyBufferException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioReadOnlyBufferException_INCLUDE_ALL")
+#ifdef JavaNioReadOnlyBufferException_RESTRICT
+#define JavaNioReadOnlyBufferException_INCLUDE_ALL 0
+#else
+#define JavaNioReadOnlyBufferException_INCLUDE_ALL 1
+#endif
+#undef JavaNioReadOnlyBufferException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioReadOnlyBufferException_) && (JavaNioReadOnlyBufferException_INCLUDE_ALL || defined(JavaNioReadOnlyBufferException_INCLUDE))
+#define JavaNioReadOnlyBufferException_
+
+#define JavaLangUnsupportedOperationException_RESTRICT 1
+#define JavaLangUnsupportedOperationException_INCLUDE 1
 #include "../../java/lang/UnsupportedOperationException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioReadOnlyBufferException *new_JavaNioReadOnlyBufferExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioReadOnlyBufferException)
 
-#endif // _JavaNioReadOnlyBufferException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioReadOnlyBufferException_INCLUDE_ALL")

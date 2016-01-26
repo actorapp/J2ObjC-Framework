@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/ResponseCache.java
 //
 
-#ifndef _JavaNetResponseCache_H_
-#define _JavaNetResponseCache_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetResponseCache_INCLUDE_ALL")
+#ifdef JavaNetResponseCache_RESTRICT
+#define JavaNetResponseCache_INCLUDE_ALL 0
+#else
+#define JavaNetResponseCache_INCLUDE_ALL 1
+#endif
+#undef JavaNetResponseCache_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetResponseCache_) && (JavaNetResponseCache_INCLUDE_ALL || defined(JavaNetResponseCache_INCLUDE))
+#define JavaNetResponseCache_
 
 @class JavaNetCacheRequest;
 @class JavaNetCacheResponse;
@@ -91,4 +102,8 @@ FOUNDATION_EXPORT void JavaNetResponseCache_init(JavaNetResponseCache *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetResponseCache)
 
-#endif // _JavaNetResponseCache_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetResponseCache_INCLUDE_ALL")

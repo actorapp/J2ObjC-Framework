@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/EOFException.java
 //
 
-#ifndef _JavaIoEOFException_H_
-#define _JavaIoEOFException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoEOFException_INCLUDE_ALL")
+#ifdef JavaIoEOFException_RESTRICT
+#define JavaIoEOFException_INCLUDE_ALL 0
+#else
+#define JavaIoEOFException_INCLUDE_ALL 1
+#endif
+#undef JavaIoEOFException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoEOFException_) && (JavaIoEOFException_INCLUDE_ALL || defined(JavaIoEOFException_INCLUDE))
+#define JavaIoEOFException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -44,4 +58,8 @@ FOUNDATION_EXPORT JavaIoEOFException *new_JavaIoEOFException_initWithNSString_(N
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoEOFException)
 
-#endif // _JavaIoEOFException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoEOFException_INCLUDE_ALL")

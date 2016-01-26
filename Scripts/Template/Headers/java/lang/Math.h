@@ -3,19 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Math.java
 //
 
-#ifndef _JavaLangMath_H_
-#define _JavaLangMath_H_
-
 #include "../../J2ObjC_header.h"
 
-#define JavaLangMath_E 2.718281828459045
-#define JavaLangMath_PI 3.141592653589793
+#pragma push_macro("JavaLangMath_INCLUDE_ALL")
+#ifdef JavaLangMath_RESTRICT
+#define JavaLangMath_INCLUDE_ALL 0
+#else
+#define JavaLangMath_INCLUDE_ALL 1
+#endif
+#undef JavaLangMath_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangMath_) && (JavaLangMath_INCLUDE_ALL || defined(JavaLangMath_INCLUDE))
+#define JavaLangMath_
 
 /*!
  @brief Class Math provides basic math constants and operations such as trigonometric
  functions, hyperbolic functions, exponential, logarithms, etc.
  */
 @interface JavaLangMath : NSObject
+
++ (jdouble)E;
+
++ (jdouble)PI;
 
 #pragma mark Public
 
@@ -913,9 +925,20 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaLangMath)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangMath, E, jdouble)
+/*!
+ @brief The double value closest to e, the base of the natural logarithm.
+ */
+inline jdouble JavaLangMath_get_E();
+#define JavaLangMath_E 2.718281828459045
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangMath, E, jdouble)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangMath, PI, jdouble)
+/*!
+ @brief The double value closest to pi, the ratio of a circle's circumference to
+ its diameter.
+ */
+inline jdouble JavaLangMath_get_PI();
+#define JavaLangMath_PI 3.141592653589793
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangMath, PI, jdouble)
 
 FOUNDATION_EXPORT jdouble JavaLangMath_absWithDouble_(jdouble d);
 
@@ -1031,4 +1054,8 @@ FOUNDATION_EXPORT jfloat JavaLangMath_scalbWithFloat_withInt_(jfloat d, jint sca
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangMath)
 
-#endif // _JavaLangMath_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangMath_INCLUDE_ALL")

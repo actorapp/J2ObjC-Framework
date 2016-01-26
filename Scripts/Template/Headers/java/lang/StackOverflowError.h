@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/StackOverflowError.java
 //
 
-#ifndef _JavaLangStackOverflowError_H_
-#define _JavaLangStackOverflowError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangStackOverflowError_INCLUDE_ALL")
+#ifdef JavaLangStackOverflowError_RESTRICT
+#define JavaLangStackOverflowError_INCLUDE_ALL 0
+#else
+#define JavaLangStackOverflowError_INCLUDE_ALL 1
+#endif
+#undef JavaLangStackOverflowError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangStackOverflowError_) && (JavaLangStackOverflowError_INCLUDE_ALL || defined(JavaLangStackOverflowError_INCLUDE))
+#define JavaLangStackOverflowError_
+
+#define JavaLangVirtualMachineError_RESTRICT 1
+#define JavaLangVirtualMachineError_INCLUDE 1
 #include "../../java/lang/VirtualMachineError.h"
 
 /*!
@@ -48,4 +62,8 @@ FOUNDATION_EXPORT JavaLangStackOverflowError *new_JavaLangStackOverflowError_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangStackOverflowError)
 
-#endif // _JavaLangStackOverflowError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangStackOverflowError_INCLUDE_ALL")

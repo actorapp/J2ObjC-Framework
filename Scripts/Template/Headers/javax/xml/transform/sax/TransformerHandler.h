@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/sax/TransformerHandler.java
 //
 
-#ifndef _JavaxXmlTransformSaxTransformerHandler_H_
-#define _JavaxXmlTransformSaxTransformerHandler_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformSaxTransformerHandler_INCLUDE_ALL")
+#ifdef JavaxXmlTransformSaxTransformerHandler_RESTRICT
+#define JavaxXmlTransformSaxTransformerHandler_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformSaxTransformerHandler_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformSaxTransformerHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformSaxTransformerHandler_) && (JavaxXmlTransformSaxTransformerHandler_INCLUDE_ALL || defined(JavaxXmlTransformSaxTransformerHandler_INCLUDE))
+#define JavaxXmlTransformSaxTransformerHandler_
+
+#define OrgXmlSaxContentHandler_RESTRICT 1
+#define OrgXmlSaxContentHandler_INCLUDE 1
 #include "../../../../org/xml/sax/ContentHandler.h"
-#include "../../../../org/xml/sax/DTDHandler.h"
+
+#define OrgXmlSaxExtLexicalHandler_RESTRICT 1
+#define OrgXmlSaxExtLexicalHandler_INCLUDE 1
 #include "../../../../org/xml/sax/ext/LexicalHandler.h"
+
+#define OrgXmlSaxDTDHandler_RESTRICT 1
+#define OrgXmlSaxDTDHandler_INCLUDE 1
+#include "../../../../org/xml/sax/DTDHandler.h"
 
 @class JavaxXmlTransformTransformer;
 @protocol JavaxXmlTransformResult;
@@ -60,4 +80,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformSaxTransformerHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxTransformerHandler)
 
-#endif // _JavaxXmlTransformSaxTransformerHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformSaxTransformerHandler_INCLUDE_ALL")

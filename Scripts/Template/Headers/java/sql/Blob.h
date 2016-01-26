@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Blob.java
 //
 
-#ifndef _JavaSqlBlob_H_
-#define _JavaSqlBlob_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlBlob_INCLUDE_ALL")
+#ifdef JavaSqlBlob_RESTRICT
+#define JavaSqlBlob_INCLUDE_ALL 0
+#else
+#define JavaSqlBlob_INCLUDE_ALL 1
+#endif
+#undef JavaSqlBlob_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlBlob_) && (JavaSqlBlob_INCLUDE_ALL || defined(JavaSqlBlob_INCLUDE))
+#define JavaSqlBlob_
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -186,4 +197,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlBlob)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlBlob)
 
-#endif // _JavaSqlBlob_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlBlob_INCLUDE_ALL")

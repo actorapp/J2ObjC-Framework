@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/NotYetBoundException.java
 //
 
-#ifndef _JavaNioChannelsNotYetBoundException_H_
-#define _JavaNioChannelsNotYetBoundException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsNotYetBoundException_INCLUDE_ALL")
+#ifdef JavaNioChannelsNotYetBoundException_RESTRICT
+#define JavaNioChannelsNotYetBoundException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsNotYetBoundException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsNotYetBoundException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsNotYetBoundException_) && (JavaNioChannelsNotYetBoundException_INCLUDE_ALL || defined(JavaNioChannelsNotYetBoundException_INCLUDE))
+#define JavaNioChannelsNotYetBoundException_
+
+#define JavaLangIllegalStateException_RESTRICT 1
+#define JavaLangIllegalStateException_INCLUDE 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioChannelsNotYetBoundException *new_JavaNioChannelsNotYet
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsNotYetBoundException)
 
-#endif // _JavaNioChannelsNotYetBoundException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsNotYetBoundException_INCLUDE_ALL")

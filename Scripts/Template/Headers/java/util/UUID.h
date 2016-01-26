@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/UUID.java
 //
 
-#ifndef _JavaUtilUUID_H_
-#define _JavaUtilUUID_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilUUID_INCLUDE_ALL")
+#ifdef JavaUtilUUID_RESTRICT
+#define JavaUtilUUID_INCLUDE_ALL 0
+#else
+#define JavaUtilUUID_INCLUDE_ALL 1
+#endif
+#undef JavaUtilUUID_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilUUID_) && (JavaUtilUUID_INCLUDE_ALL || defined(JavaUtilUUID_INCLUDE))
+#define JavaUtilUUID_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSByteArray;
@@ -221,4 +238,8 @@ FOUNDATION_EXPORT JavaUtilUUID *JavaUtilUUID_fromStringWithNSString_(NSString *u
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUUID)
 
-#endif // _JavaUtilUUID_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilUUID_INCLUDE_ALL")

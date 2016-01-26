@@ -3,19 +3,41 @@
 //  source: apache_harmony/classlib/modules/math/src/main/java/java/math/MathContext.java
 //
 
-#ifndef _JavaMathMathContext_H_
-#define _JavaMathMathContext_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaMathMathContext_INCLUDE_ALL")
+#ifdef JavaMathMathContext_RESTRICT
+#define JavaMathMathContext_INCLUDE_ALL 0
+#else
+#define JavaMathMathContext_INCLUDE_ALL 1
+#endif
+#undef JavaMathMathContext_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaMathMathContext_) && (JavaMathMathContext_INCLUDE_ALL || defined(JavaMathMathContext_INCLUDE))
+#define JavaMathMathContext_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
-@class JavaMathRoundingModeEnum;
+@class JavaMathRoundingMode;
 
 /*!
  @brief Immutable objects describing settings such as rounding mode and digit
  precision for the numerical operations provided by class <code>BigDecimal</code>.
  */
 @interface JavaMathMathContext : NSObject < JavaIoSerializable >
+
++ (JavaMathMathContext *)DECIMAL128;
+
++ (JavaMathMathContext *)DECIMAL32;
+
++ (JavaMathMathContext *)DECIMAL64;
+
++ (JavaMathMathContext *)UNLIMITED;
 
 #pragma mark Public
 
@@ -48,7 +70,7 @@
  if <code>roundingMode</code> is <code>null</code>.
  */
 - (instancetype)initWithInt:(jint)precision
-withJavaMathRoundingModeEnum:(JavaMathRoundingModeEnum *)roundingMode;
+   withJavaMathRoundingMode:(JavaMathRoundingMode *)roundingMode;
 
 /*!
  @brief Constructs a new <code>MathContext</code> from a string.
@@ -103,7 +125,7 @@ withJavaMathRoundingModeEnum:(JavaMathRoundingModeEnum *)roundingMode;
  <code>RoundingMode.UNNECESSARY</code>.
  @return the rounding mode.
  */
-- (JavaMathRoundingModeEnum *)getRoundingMode;
+- (JavaMathRoundingMode *)getRoundingMode;
 
 /*!
  @brief Returns the hash code for this <code>MathContext</code> instance.
@@ -126,25 +148,52 @@ withJavaMathRoundingModeEnum:(JavaMathRoundingModeEnum *)roundingMode;
 
 J2OBJC_STATIC_INIT(JavaMathMathContext)
 
-FOUNDATION_EXPORT JavaMathMathContext *JavaMathMathContext_DECIMAL128_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathMathContext, DECIMAL128_, JavaMathMathContext *)
+/*!
+ @brief A <code>MathContext</code> which corresponds to the IEEE 754r quadruple
+ decimal precision format: 34 digit precision and
+ <code>RoundingMode.HALF_EVEN</code> rounding.
+ */
+inline JavaMathMathContext *JavaMathMathContext_get_DECIMAL128();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathMathContext *JavaMathMathContext_DECIMAL128;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathMathContext, DECIMAL128, JavaMathMathContext *)
 
-FOUNDATION_EXPORT JavaMathMathContext *JavaMathMathContext_DECIMAL32_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathMathContext, DECIMAL32_, JavaMathMathContext *)
+/*!
+ @brief A <code>MathContext</code> which corresponds to the IEEE 754r single decimal
+ precision format: 7 digit precision and <code>RoundingMode.HALF_EVEN</code>
+ rounding.
+ */
+inline JavaMathMathContext *JavaMathMathContext_get_DECIMAL32();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathMathContext *JavaMathMathContext_DECIMAL32;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathMathContext, DECIMAL32, JavaMathMathContext *)
 
-FOUNDATION_EXPORT JavaMathMathContext *JavaMathMathContext_DECIMAL64_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathMathContext, DECIMAL64_, JavaMathMathContext *)
+/*!
+ @brief A <code>MathContext</code> which corresponds to the IEEE 754r double decimal
+ precision format: 16 digit precision and <code>RoundingMode.HALF_EVEN</code>
+ rounding.
+ */
+inline JavaMathMathContext *JavaMathMathContext_get_DECIMAL64();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathMathContext *JavaMathMathContext_DECIMAL64;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathMathContext, DECIMAL64, JavaMathMathContext *)
 
-FOUNDATION_EXPORT JavaMathMathContext *JavaMathMathContext_UNLIMITED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaMathMathContext, UNLIMITED_, JavaMathMathContext *)
+/*!
+ @brief A <code>MathContext</code> for unlimited precision with
+ <code>RoundingMode.HALF_UP</code> rounding.
+ */
+inline JavaMathMathContext *JavaMathMathContext_get_UNLIMITED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathMathContext *JavaMathMathContext_UNLIMITED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaMathMathContext, UNLIMITED, JavaMathMathContext *)
 
 FOUNDATION_EXPORT void JavaMathMathContext_initWithInt_(JavaMathMathContext *self, jint precision);
 
 FOUNDATION_EXPORT JavaMathMathContext *new_JavaMathMathContext_initWithInt_(jint precision) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaMathMathContext_initWithInt_withJavaMathRoundingModeEnum_(JavaMathMathContext *self, jint precision, JavaMathRoundingModeEnum *roundingMode);
+FOUNDATION_EXPORT void JavaMathMathContext_initWithInt_withJavaMathRoundingMode_(JavaMathMathContext *self, jint precision, JavaMathRoundingMode *roundingMode);
 
-FOUNDATION_EXPORT JavaMathMathContext *new_JavaMathMathContext_initWithInt_withJavaMathRoundingModeEnum_(jint precision, JavaMathRoundingModeEnum *roundingMode) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaMathMathContext *new_JavaMathMathContext_initWithInt_withJavaMathRoundingMode_(jint precision, JavaMathRoundingMode *roundingMode) NS_RETURNS_RETAINED;
 
 FOUNDATION_EXPORT void JavaMathMathContext_initWithNSString_(JavaMathMathContext *self, NSString *val);
 
@@ -152,4 +201,8 @@ FOUNDATION_EXPORT JavaMathMathContext *new_JavaMathMathContext_initWithNSString_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaMathMathContext)
 
-#endif // _JavaMathMathContext_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaMathMathContext_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/AssertionError.java
 //
 
-#ifndef _JavaLangAssertionError_H_
-#define _JavaLangAssertionError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangAssertionError_INCLUDE_ALL")
+#ifdef JavaLangAssertionError_RESTRICT
+#define JavaLangAssertionError_INCLUDE_ALL 0
+#else
+#define JavaLangAssertionError_INCLUDE_ALL 1
+#endif
+#undef JavaLangAssertionError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangAssertionError_) && (JavaLangAssertionError_INCLUDE_ALL || defined(JavaLangAssertionError_INCLUDE))
+#define JavaLangAssertionError_
+
+#define JavaLangError_RESTRICT 1
+#define JavaLangError_INCLUDE 1
 #include "../../java/lang/Error.h"
 
 @class JavaLangThrowable;
@@ -133,4 +147,8 @@ FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_initWithDou
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAssertionError)
 
-#endif // _JavaLangAssertionError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangAssertionError_INCLUDE_ALL")

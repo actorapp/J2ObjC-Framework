@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/nio/DoubleBuffer.java
 //
 
-#ifndef _JavaNioDoubleBuffer_H_
-#define _JavaNioDoubleBuffer_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Comparable.h"
+
+#pragma push_macro("JavaNioDoubleBuffer_INCLUDE_ALL")
+#ifdef JavaNioDoubleBuffer_RESTRICT
+#define JavaNioDoubleBuffer_INCLUDE_ALL 0
+#else
+#define JavaNioDoubleBuffer_INCLUDE_ALL 1
+#endif
+#undef JavaNioDoubleBuffer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioDoubleBuffer_) && (JavaNioDoubleBuffer_INCLUDE_ALL || defined(JavaNioDoubleBuffer_INCLUDE))
+#define JavaNioDoubleBuffer_
+
+#define JavaNioBuffer_RESTRICT 1
+#define JavaNioBuffer_INCLUDE 1
 #include "../../java/nio/Buffer.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
+#include "../../java/lang/Comparable.h"
 
 @class IOSDoubleArray;
 @class JavaNioByteOrder;
@@ -342,16 +359,19 @@
 
 /*!
  @brief Child class implements this method to realize <code>array()</code>.
+ - seealso: #array()
  */
 - (IOSDoubleArray *)protectedArray;
 
 /*!
  @brief Child class implements this method to realize <code>arrayOffset()</code>.
+ - seealso: #arrayOffset()
  */
 - (jint)protectedArrayOffset;
 
 /*!
  @brief Child class implements this method to realize <code>hasArray()</code>.
+ - seealso: #hasArray()
  */
 - (jboolean)protectedHasArray;
 
@@ -369,4 +389,8 @@ FOUNDATION_EXPORT void JavaNioDoubleBuffer_initWithInt_withLong_(JavaNioDoubleBu
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioDoubleBuffer)
 
-#endif // _JavaNioDoubleBuffer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioDoubleBuffer_INCLUDE_ALL")

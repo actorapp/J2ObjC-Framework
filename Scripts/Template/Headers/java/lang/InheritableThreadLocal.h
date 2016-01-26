@@ -3,13 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/lang/InheritableThreadLocal.java
 //
 
-#ifndef _JavaLangInheritableThreadLocal_H_
-#define _JavaLangInheritableThreadLocal_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangInheritableThreadLocal_INCLUDE_ALL")
+#ifdef JavaLangInheritableThreadLocal_RESTRICT
+#define JavaLangInheritableThreadLocal_INCLUDE_ALL 0
+#else
+#define JavaLangInheritableThreadLocal_INCLUDE_ALL 1
+#endif
+#undef JavaLangInheritableThreadLocal_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangInheritableThreadLocal_) && (JavaLangInheritableThreadLocal_INCLUDE_ALL || defined(JavaLangInheritableThreadLocal_INCLUDE))
+#define JavaLangInheritableThreadLocal_
+
+#define JavaLangThreadLocal_RESTRICT 1
+#define JavaLangThreadLocal_INCLUDE 1
 #include "../../java/lang/ThreadLocal.h"
 
 @class JavaLangThread;
+@class JavaLangThreadLocal_Values;
 
 /*!
  @brief A thread-local variable whose value is passed from parent to child thread.
@@ -19,6 +34,8 @@
  creation time. However, subclasses may override {code #childValue(Object)}
  to provide an arbitrary function for passing the value of a parent's
  thread-local variable to the child's thread-local variable.
+ - seealso: java.lang.Thread
+ - seealso: java.lang.ThreadLocal
  */
 @interface JavaLangInheritableThreadLocal : JavaLangThreadLocal
 
@@ -58,4 +75,8 @@ FOUNDATION_EXPORT JavaLangInheritableThreadLocal *new_JavaLangInheritableThreadL
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangInheritableThreadLocal)
 
-#endif // _JavaLangInheritableThreadLocal_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangInheritableThreadLocal_INCLUDE_ALL")

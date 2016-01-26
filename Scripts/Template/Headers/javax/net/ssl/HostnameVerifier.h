@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/HostnameVerifier.java
 //
 
-#ifndef _JavaxNetSslHostnameVerifier_H_
-#define _JavaxNetSslHostnameVerifier_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslHostnameVerifier_INCLUDE_ALL")
+#ifdef JavaxNetSslHostnameVerifier_RESTRICT
+#define JavaxNetSslHostnameVerifier_INCLUDE_ALL 0
+#else
+#define JavaxNetSslHostnameVerifier_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslHostnameVerifier_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslHostnameVerifier_) && (JavaxNetSslHostnameVerifier_INCLUDE_ALL || defined(JavaxNetSslHostnameVerifier_INCLUDE))
+#define JavaxNetSslHostnameVerifier_
 
 @protocol JavaxNetSslSSLSession;
 
@@ -38,4 +49,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxNetSslHostnameVerifier)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHostnameVerifier)
 
-#endif // _JavaxNetSslHostnameVerifier_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslHostnameVerifier_INCLUDE_ALL")

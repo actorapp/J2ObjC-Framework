@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/CharConversionException.java
 //
 
-#ifndef _JavaIoCharConversionException_H_
-#define _JavaIoCharConversionException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoCharConversionException_INCLUDE_ALL")
+#ifdef JavaIoCharConversionException_RESTRICT
+#define JavaIoCharConversionException_INCLUDE_ALL 0
+#else
+#define JavaIoCharConversionException_INCLUDE_ALL 1
+#endif
+#undef JavaIoCharConversionException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoCharConversionException_) && (JavaIoCharConversionException_INCLUDE_ALL || defined(JavaIoCharConversionException_INCLUDE))
+#define JavaIoCharConversionException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -44,4 +58,8 @@ FOUNDATION_EXPORT JavaIoCharConversionException *new_JavaIoCharConversionExcepti
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharConversionException)
 
-#endif // _JavaIoCharConversionException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoCharConversionException_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/CacheRequest.java
 //
 
-#ifndef _JavaNetCacheRequest_H_
-#define _JavaNetCacheRequest_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetCacheRequest_INCLUDE_ALL")
+#ifdef JavaNetCacheRequest_RESTRICT
+#define JavaNetCacheRequest_INCLUDE_ALL 0
+#else
+#define JavaNetCacheRequest_INCLUDE_ALL 1
+#endif
+#undef JavaNetCacheRequest_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetCacheRequest_) && (JavaNetCacheRequest_INCLUDE_ALL || defined(JavaNetCacheRequest_INCLUDE))
+#define JavaNetCacheRequest_
 
 @class JavaIoOutputStream;
 
@@ -19,6 +30,7 @@
  current store operation by calling the method <code>abort</code>. If an <code>IOException</code>
   occurs while reading the response or writing data to the cache,
  the current cache store operation is abandoned.
+ - seealso: ResponseCache
  */
 @interface JavaNetCacheRequest : NSObject
 
@@ -54,4 +66,8 @@ FOUNDATION_EXPORT void JavaNetCacheRequest_init(JavaNetCacheRequest *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetCacheRequest)
 
-#endif // _JavaNetCacheRequest_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetCacheRequest_INCLUDE_ALL")

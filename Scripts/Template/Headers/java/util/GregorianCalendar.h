@@ -3,19 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/util/GregorianCalendar.java
 //
 
-#ifndef _JavaUtilGregorianCalendar_H_
-#define _JavaUtilGregorianCalendar_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilGregorianCalendar_INCLUDE_ALL")
+#ifdef JavaUtilGregorianCalendar_RESTRICT
+#define JavaUtilGregorianCalendar_INCLUDE_ALL 0
+#else
+#define JavaUtilGregorianCalendar_INCLUDE_ALL 1
+#endif
+#undef JavaUtilGregorianCalendar_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilGregorianCalendar_) && (JavaUtilGregorianCalendar_INCLUDE_ALL || defined(JavaUtilGregorianCalendar_INCLUDE))
+#define JavaUtilGregorianCalendar_
+
+#define JavaUtilCalendar_RESTRICT 1
+#define JavaUtilCalendar_INCLUDE 1
 #include "../../java/util/Calendar.h"
 
 @class IOSByteArray;
 @class JavaUtilDate;
 @class JavaUtilLocale;
 @class JavaUtilTimeZone;
-
-#define JavaUtilGregorianCalendar_BC 0
-#define JavaUtilGregorianCalendar_AD 1
 
 /*!
  @brief <code>GregorianCalendar</code> is a concrete subclass of <code>Calendar</code>
@@ -157,8 +168,18 @@
   
 @endcode
  </blockquote>
+ - seealso: Calendar
+ - seealso: TimeZone
  */
 @interface JavaUtilGregorianCalendar : JavaUtilCalendar
+
++ (jint)BC;
+
++ (jint)AD;
+
++ (IOSByteArray *)DaysInMonth;
+
++ (void)setDaysInMonth:(IOSByteArray *)value;
 
 #pragma mark Public
 
@@ -391,13 +412,25 @@
 
 J2OBJC_STATIC_INIT(JavaUtilGregorianCalendar)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilGregorianCalendar, BC, jint)
+/*!
+ @brief Value for the BC era.
+ */
+inline jint JavaUtilGregorianCalendar_get_BC();
+#define JavaUtilGregorianCalendar_BC 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilGregorianCalendar, BC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilGregorianCalendar, AD, jint)
+/*!
+ @brief Value for the AD era.
+ */
+inline jint JavaUtilGregorianCalendar_get_AD();
+#define JavaUtilGregorianCalendar_AD 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilGregorianCalendar, AD, jint)
 
-FOUNDATION_EXPORT IOSByteArray *JavaUtilGregorianCalendar_DaysInMonth_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilGregorianCalendar, DaysInMonth_, IOSByteArray *)
-J2OBJC_STATIC_FIELD_SETTER(JavaUtilGregorianCalendar, DaysInMonth_, IOSByteArray *)
+inline IOSByteArray *JavaUtilGregorianCalendar_get_DaysInMonth();
+inline IOSByteArray *JavaUtilGregorianCalendar_set_DaysInMonth(IOSByteArray *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSByteArray *JavaUtilGregorianCalendar_DaysInMonth;
+J2OBJC_STATIC_FIELD_OBJ(JavaUtilGregorianCalendar, DaysInMonth, IOSByteArray *)
 
 FOUNDATION_EXPORT void JavaUtilGregorianCalendar_init(JavaUtilGregorianCalendar *self);
 
@@ -437,4 +470,8 @@ FOUNDATION_EXPORT JavaUtilGregorianCalendar *new_JavaUtilGregorianCalendar_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilGregorianCalendar)
 
-#endif // _JavaUtilGregorianCalendar_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilGregorianCalendar_INCLUDE_ALL")

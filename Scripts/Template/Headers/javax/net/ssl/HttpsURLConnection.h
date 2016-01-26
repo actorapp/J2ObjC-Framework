@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/HttpsURLConnection.java
 //
 
-#ifndef _JavaxNetSslHttpsURLConnection_H_
-#define _JavaxNetSslHttpsURLConnection_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslHttpsURLConnection_INCLUDE_ALL")
+#ifdef JavaxNetSslHttpsURLConnection_RESTRICT
+#define JavaxNetSslHttpsURLConnection_INCLUDE_ALL 0
+#else
+#define JavaxNetSslHttpsURLConnection_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslHttpsURLConnection_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslHttpsURLConnection_) && (JavaxNetSslHttpsURLConnection_INCLUDE_ALL || defined(JavaxNetSslHttpsURLConnection_INCLUDE))
+#define JavaxNetSslHttpsURLConnection_
+
+#define JavaNetHttpURLConnection_RESTRICT 1
+#define JavaNetHttpURLConnection_INCLUDE 1
 #include "../../../java/net/HttpURLConnection.h"
 
 @class IOSObjectArray;
@@ -220,7 +234,7 @@
 
 @end
 
-J2OBJC_EMPTY_STATIC_INIT(JavaxNetSslHttpsURLConnection)
+J2OBJC_STATIC_INIT(JavaxNetSslHttpsURLConnection)
 
 J2OBJC_FIELD_SETTER(JavaxNetSslHttpsURLConnection, hostnameVerifier_, id<JavaxNetSslHostnameVerifier>)
 
@@ -236,4 +250,8 @@ FOUNDATION_EXPORT void JavaxNetSslHttpsURLConnection_initWithJavaNetURL_(JavaxNe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHttpsURLConnection)
 
-#endif // _JavaxNetSslHttpsURLConnection_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslHttpsURLConnection_INCLUDE_ALL")

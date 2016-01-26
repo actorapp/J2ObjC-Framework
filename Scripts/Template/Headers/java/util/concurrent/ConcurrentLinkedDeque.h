@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ConcurrentLinkedDeque.java
 //
 
-#ifndef _JavaUtilConcurrentConcurrentLinkedDeque_H_
-#define _JavaUtilConcurrentConcurrentLinkedDeque_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentConcurrentLinkedDeque_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentConcurrentLinkedDeque_RESTRICT
+#define JavaUtilConcurrentConcurrentLinkedDeque_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentConcurrentLinkedDeque_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentConcurrentLinkedDeque_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentConcurrentLinkedDeque_) && (JavaUtilConcurrentConcurrentLinkedDeque_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentLinkedDeque_INCLUDE))
+#define JavaUtilConcurrentConcurrentLinkedDeque_
+
+#define JavaUtilAbstractCollection_RESTRICT 1
+#define JavaUtilAbstractCollection_INCLUDE 1
 #include "../../../java/util/AbstractCollection.h"
+
+#define JavaUtilDeque_RESTRICT 1
+#define JavaUtilDeque_INCLUDE 1
 #include "../../../java/util/Deque.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilConcurrentConcurrentLinkedDeque_Node;
@@ -361,7 +381,6 @@
  */
 - (void)unlinkWithJavaUtilConcurrentConcurrentLinkedDeque_Node:(JavaUtilConcurrentConcurrentLinkedDeque_Node *)x;
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentConcurrentLinkedDeque)
@@ -375,6 +394,11 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentLinkedDeque_initWithJavaUtilC
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentLinkedDeque *new_JavaUtilConcurrentConcurrentLinkedDeque_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedDeque)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentLinkedDeque_Node_) && (JavaUtilConcurrentConcurrentLinkedDeque_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentLinkedDeque_Node_INCLUDE))
+#define JavaUtilConcurrentConcurrentLinkedDeque_Node_
 
 @interface JavaUtilConcurrentConcurrentLinkedDeque_Node : NSObject {
  @public
@@ -425,4 +449,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentConcurrentLinkedDeque_Node *new_JavaUtilConc
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedDeque_Node)
 
-#endif // _JavaUtilConcurrentConcurrentLinkedDeque_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentConcurrentLinkedDeque_INCLUDE_ALL")

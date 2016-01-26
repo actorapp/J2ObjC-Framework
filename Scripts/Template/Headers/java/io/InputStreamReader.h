@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/InputStreamReader.java
 //
 
-#ifndef _JavaIoInputStreamReader_H_
-#define _JavaIoInputStreamReader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoInputStreamReader_INCLUDE_ALL")
+#ifdef JavaIoInputStreamReader_RESTRICT
+#define JavaIoInputStreamReader_INCLUDE_ALL 0
+#else
+#define JavaIoInputStreamReader_INCLUDE_ALL 1
+#endif
+#undef JavaIoInputStreamReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoInputStreamReader_) && (JavaIoInputStreamReader_INCLUDE_ALL || defined(JavaIoInputStreamReader_INCLUDE))
+#define JavaIoInputStreamReader_
+
+#define JavaIoReader_RESTRICT 1
+#define JavaIoReader_INCLUDE 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -22,6 +36,7 @@
  "file.encoding" system property. <code>InputStreamReader</code> contains a buffer
  of bytes read from the source stream and converts these into characters as
  needed. The buffer size is 8K.
+ - seealso: OutputStreamWriter
  */
 @interface JavaIoInputStreamReader : JavaIoReader
 
@@ -164,4 +179,8 @@ FOUNDATION_EXPORT JavaIoInputStreamReader *new_JavaIoInputStreamReader_initWithJ
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoInputStreamReader)
 
-#endif // _JavaIoInputStreamReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoInputStreamReader_INCLUDE_ALL")

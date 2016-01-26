@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/ServerSocket.java
 //
 
-#ifndef _JavaNetServerSocket_H_
-#define _JavaNetServerSocket_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetServerSocket_INCLUDE_ALL")
+#ifdef JavaNetServerSocket_RESTRICT
+#define JavaNetServerSocket_INCLUDE_ALL 0
+#else
+#define JavaNetServerSocket_INCLUDE_ALL 1
+#endif
+#undef JavaNetServerSocket_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetServerSocket_) && (JavaNetServerSocket_INCLUDE_ALL || defined(JavaNetServerSocket_INCLUDE))
+#define JavaNetServerSocket_
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
 #include "../../java/io/Closeable.h"
 
 @class JavaNetInetAddress;
@@ -24,6 +38,10 @@
  implemented by an internal <code>SocketImpl</code> instance.
  */
 @interface JavaNetServerSocket : NSObject < JavaIoCloseable >
+
++ (id<JavaNetSocketImplFactory>)factory;
+
++ (void)setFactory:(id<JavaNetSocketImplFactory>)value;
 
 #pragma mark Public
 
@@ -265,9 +283,11 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaNetServerSocket)
 
-FOUNDATION_EXPORT id<JavaNetSocketImplFactory> JavaNetServerSocket_factory_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetServerSocket, factory_, id<JavaNetSocketImplFactory>)
-J2OBJC_STATIC_FIELD_SETTER(JavaNetServerSocket, factory_, id<JavaNetSocketImplFactory>)
+inline id<JavaNetSocketImplFactory> JavaNetServerSocket_get_factory();
+inline id<JavaNetSocketImplFactory> JavaNetServerSocket_set_factory(id<JavaNetSocketImplFactory> value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaNetSocketImplFactory> JavaNetServerSocket_factory;
+J2OBJC_STATIC_FIELD_OBJ(JavaNetServerSocket, factory, id<JavaNetSocketImplFactory>)
 
 FOUNDATION_EXPORT void JavaNetServerSocket_init(JavaNetServerSocket *self);
 
@@ -289,4 +309,8 @@ FOUNDATION_EXPORT void JavaNetServerSocket_setSocketFactoryWithJavaNetSocketImpl
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetServerSocket)
 
-#endif // _JavaNetServerSocket_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetServerSocket_INCLUDE_ALL")

@@ -3,13 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/AbstractExecutorService.java
 //
 
-#ifndef _JavaUtilConcurrentAbstractExecutorService_H_
-#define _JavaUtilConcurrentAbstractExecutorService_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAbstractExecutorService_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAbstractExecutorService_RESTRICT
+#define JavaUtilConcurrentAbstractExecutorService_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAbstractExecutorService_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAbstractExecutorService_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAbstractExecutorService_) && (JavaUtilConcurrentAbstractExecutorService_INCLUDE_ALL || defined(JavaUtilConcurrentAbstractExecutorService_INCLUDE))
+#define JavaUtilConcurrentAbstractExecutorService_
+
+#define JavaUtilConcurrentExecutorService_RESTRICT 1
+#define JavaUtilConcurrentExecutorService_INCLUDE 1
 #include "../../../java/util/concurrent/ExecutorService.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaUtilCollection;
 @protocol JavaUtilConcurrentCallable;
@@ -58,13 +72,13 @@
 
 - (id<JavaUtilList>)invokeAllWithJavaUtilCollection:(id<JavaUtilCollection>)tasks
                                            withLong:(jlong)timeout
-                 withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                     withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id)invokeAnyWithJavaUtilCollection:(id<JavaUtilCollection>)tasks;
 
 - (id)invokeAnyWithJavaUtilCollection:(id<JavaUtilCollection>)tasks
                              withLong:(jlong)timeout
-   withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @throws RejectedExecutionException
@@ -120,4 +134,8 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAbstractExecutorService_init(JavaUtilCo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAbstractExecutorService)
 
-#endif // _JavaUtilConcurrentAbstractExecutorService_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAbstractExecutorService_INCLUDE_ALL")

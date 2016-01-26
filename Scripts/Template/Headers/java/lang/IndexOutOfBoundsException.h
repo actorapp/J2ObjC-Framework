@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/IndexOutOfBoundsException.java
 //
 
-#ifndef _JavaLangIndexOutOfBoundsException_H_
-#define _JavaLangIndexOutOfBoundsException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangIndexOutOfBoundsException_INCLUDE_ALL")
+#ifdef JavaLangIndexOutOfBoundsException_RESTRICT
+#define JavaLangIndexOutOfBoundsException_INCLUDE_ALL 0
+#else
+#define JavaLangIndexOutOfBoundsException_INCLUDE_ALL 1
+#endif
+#undef JavaLangIndexOutOfBoundsException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangIndexOutOfBoundsException_) && (JavaLangIndexOutOfBoundsException_INCLUDE_ALL || defined(JavaLangIndexOutOfBoundsException_INCLUDE))
+#define JavaLangIndexOutOfBoundsException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaLangIndexOutOfBoundsException *new_JavaLangIndexOutOfBound
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIndexOutOfBoundsException)
 
-#endif // _JavaLangIndexOutOfBoundsException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangIndexOutOfBoundsException_INCLUDE_ALL")

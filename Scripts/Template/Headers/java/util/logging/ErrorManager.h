@@ -3,19 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/ErrorManager.java
 //
 
-#ifndef _JavaUtilLoggingErrorManager_H_
-#define _JavaUtilLoggingErrorManager_H_
-
 #include "../../../J2ObjC_header.h"
 
-@class JavaLangException;
+#pragma push_macro("JavaUtilLoggingErrorManager_INCLUDE_ALL")
+#ifdef JavaUtilLoggingErrorManager_RESTRICT
+#define JavaUtilLoggingErrorManager_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingErrorManager_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingErrorManager_RESTRICT
 
-#define JavaUtilLoggingErrorManager_GENERIC_FAILURE 0
-#define JavaUtilLoggingErrorManager_WRITE_FAILURE 1
-#define JavaUtilLoggingErrorManager_FLUSH_FAILURE 2
-#define JavaUtilLoggingErrorManager_CLOSE_FAILURE 3
-#define JavaUtilLoggingErrorManager_OPEN_FAILURE 4
-#define JavaUtilLoggingErrorManager_FORMAT_FAILURE 5
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingErrorManager_) && (JavaUtilLoggingErrorManager_INCLUDE_ALL || defined(JavaUtilLoggingErrorManager_INCLUDE))
+#define JavaUtilLoggingErrorManager_
+
+@class JavaLangException;
 
 /*!
  @brief An error reporting facility for <code>Handler</code> implementations to record any
@@ -25,6 +29,18 @@
  interfere with the log issuer's execution.
  */
 @interface JavaUtilLoggingErrorManager : NSObject
+
++ (jint)GENERIC_FAILURE;
+
++ (jint)WRITE_FAILURE;
+
++ (jint)FLUSH_FAILURE;
+
++ (jint)CLOSE_FAILURE;
+
++ (jint)OPEN_FAILURE;
+
++ (jint)FORMAT_FAILURE;
 
 #pragma mark Public
 
@@ -56,17 +72,48 @@
 
 J2OBJC_STATIC_INIT(JavaUtilLoggingErrorManager)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingErrorManager, GENERIC_FAILURE, jint)
+/*!
+ @brief The error code indicating a failure that does not fit in any of the
+ specific types of failures that follow.
+ */
+inline jint JavaUtilLoggingErrorManager_get_GENERIC_FAILURE();
+#define JavaUtilLoggingErrorManager_GENERIC_FAILURE 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilLoggingErrorManager, GENERIC_FAILURE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingErrorManager, WRITE_FAILURE, jint)
+/*!
+ @brief The error code indicating a failure when writing to an output stream.
+ */
+inline jint JavaUtilLoggingErrorManager_get_WRITE_FAILURE();
+#define JavaUtilLoggingErrorManager_WRITE_FAILURE 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilLoggingErrorManager, WRITE_FAILURE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingErrorManager, FLUSH_FAILURE, jint)
+/*!
+ @brief The error code indicating a failure when flushing an output stream.
+ */
+inline jint JavaUtilLoggingErrorManager_get_FLUSH_FAILURE();
+#define JavaUtilLoggingErrorManager_FLUSH_FAILURE 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilLoggingErrorManager, FLUSH_FAILURE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingErrorManager, CLOSE_FAILURE, jint)
+/*!
+ @brief The error code indicating a failure when closing an output stream.
+ */
+inline jint JavaUtilLoggingErrorManager_get_CLOSE_FAILURE();
+#define JavaUtilLoggingErrorManager_CLOSE_FAILURE 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilLoggingErrorManager, CLOSE_FAILURE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingErrorManager, OPEN_FAILURE, jint)
+/*!
+ @brief The error code indicating a failure when opening an output stream.
+ */
+inline jint JavaUtilLoggingErrorManager_get_OPEN_FAILURE();
+#define JavaUtilLoggingErrorManager_OPEN_FAILURE 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilLoggingErrorManager, OPEN_FAILURE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingErrorManager, FORMAT_FAILURE, jint)
+/*!
+ @brief The error code indicating a failure when formatting the error messages.
+ */
+inline jint JavaUtilLoggingErrorManager_get_FORMAT_FAILURE();
+#define JavaUtilLoggingErrorManager_FORMAT_FAILURE 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilLoggingErrorManager, FORMAT_FAILURE, jint)
 
 FOUNDATION_EXPORT void JavaUtilLoggingErrorManager_init(JavaUtilLoggingErrorManager *self);
 
@@ -74,4 +121,8 @@ FOUNDATION_EXPORT JavaUtilLoggingErrorManager *new_JavaUtilLoggingErrorManager_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingErrorManager)
 
-#endif // _JavaUtilLoggingErrorManager_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingErrorManager_INCLUDE_ALL")

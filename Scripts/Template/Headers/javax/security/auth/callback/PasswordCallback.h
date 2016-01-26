@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/javax/security/auth/callback/PasswordCallback.java
 //
 
-#ifndef _JavaxSecurityAuthCallbackPasswordCallback_H_
-#define _JavaxSecurityAuthCallbackPasswordCallback_H_
-
 #include "../../../../J2ObjC_header.h"
-#include "../../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaxSecurityAuthCallbackPasswordCallback_INCLUDE_ALL")
+#ifdef JavaxSecurityAuthCallbackPasswordCallback_RESTRICT
+#define JavaxSecurityAuthCallbackPasswordCallback_INCLUDE_ALL 0
+#else
+#define JavaxSecurityAuthCallbackPasswordCallback_INCLUDE_ALL 1
+#endif
+#undef JavaxSecurityAuthCallbackPasswordCallback_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxSecurityAuthCallbackPasswordCallback_) && (JavaxSecurityAuthCallbackPasswordCallback_INCLUDE_ALL || defined(JavaxSecurityAuthCallbackPasswordCallback_INCLUDE))
+#define JavaxSecurityAuthCallbackPasswordCallback_
+
+#define JavaxSecurityAuthCallbackCallback_RESTRICT 1
+#define JavaxSecurityAuthCallbackCallback_INCLUDE 1
 #include "../../../../javax/security/auth/callback/Callback.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../../java/io/Serializable.h"
 
 @class IOSCharArray;
 
@@ -83,4 +100,8 @@ FOUNDATION_EXPORT JavaxSecurityAuthCallbackPasswordCallback *new_JavaxSecurityAu
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthCallbackPasswordCallback)
 
-#endif // _JavaxSecurityAuthCallbackPasswordCallback_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxSecurityAuthCallbackPasswordCallback_INCLUDE_ALL")

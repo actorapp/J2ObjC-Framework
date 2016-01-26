@@ -3,16 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/security/interfaces/RSAMultiPrimePrivateCrtKey.java
 //
 
-#ifndef _JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_H_
-#define _JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_INCLUDE_ALL")
+#ifdef JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_RESTRICT
+#define JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_INCLUDE_ALL 0
+#else
+#define JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_) && (JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_INCLUDE_ALL || defined(JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_INCLUDE))
+#define JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_
+
+#define JavaSecurityInterfacesRSAPrivateKey_RESTRICT 1
+#define JavaSecurityInterfacesRSAPrivateKey_INCLUDE 1
 #include "../../../java/security/interfaces/RSAPrivateKey.h"
 
 @class IOSObjectArray;
 @class JavaMathBigInteger;
-
-#define JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_serialVersionUID 618058533534628008LL
 
 /*!
  @brief The interface for a Multi-Prime RSA private key.
@@ -67,10 +79,25 @@
 
 @end
 
+@interface JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey : NSObject
+
++ (jlong)serialVersionUID;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey, serialVersionUID, jlong)
+/*!
+ @brief the serial version identifier.
+ */
+inline jlong JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_get_serialVersionUID();
+#define JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_serialVersionUID 618058533534628008LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey, serialVersionUID, jlong)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey)
 
-#endif // _JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityInterfacesRSAMultiPrimePrivateCrtKey_INCLUDE_ALL")

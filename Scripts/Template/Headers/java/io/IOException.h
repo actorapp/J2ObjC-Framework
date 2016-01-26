@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/IOException.java
 //
 
-#ifndef _JavaIoIOException_H_
-#define _JavaIoIOException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoIOException_INCLUDE_ALL")
+#ifdef JavaIoIOException_RESTRICT
+#define JavaIoIOException_INCLUDE_ALL 0
+#else
+#define JavaIoIOException_INCLUDE_ALL 1
+#endif
+#undef JavaIoIOException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoIOException_) && (JavaIoIOException_INCLUDE_ALL || defined(JavaIoIOException_INCLUDE))
+#define JavaIoIOException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
@@ -77,4 +91,8 @@ FOUNDATION_EXPORT JavaIoIOException *new_JavaIoIOException_initWithJavaLangThrow
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoIOException)
 
-#endif // _JavaIoIOException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoIOException_INCLUDE_ALL")

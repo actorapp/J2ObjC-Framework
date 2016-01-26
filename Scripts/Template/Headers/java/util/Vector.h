@@ -3,14 +3,37 @@
 //  source: android/libcore/luni/src/main/java/java/util/Vector.java
 //
 
-#ifndef _JavaUtilVector_H_
-#define _JavaUtilVector_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilVector_INCLUDE_ALL")
+#ifdef JavaUtilVector_RESTRICT
+#define JavaUtilVector_INCLUDE_ALL 0
+#else
+#define JavaUtilVector_INCLUDE_ALL 1
+#endif
+#undef JavaUtilVector_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilVector_) && (JavaUtilVector_INCLUDE_ALL || defined(JavaUtilVector_INCLUDE))
+#define JavaUtilVector_
+
+#define JavaUtilAbstractList_RESTRICT 1
+#define JavaUtilAbstractList_INCLUDE 1
 #include "../../java/util/AbstractList.h"
+
+#define JavaUtilList_RESTRICT 1
+#define JavaUtilList_INCLUDE 1
 #include "../../java/util/List.h"
+
+#define JavaUtilRandomAccess_RESTRICT 1
+#define JavaUtilRandomAccess_INCLUDE 1
 #include "../../java/util/RandomAccess.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;
@@ -104,6 +127,8 @@
  the object to insert in this vector.
  @throws ArrayIndexOutOfBoundsException
  if <code>location < 0 || location > size()</code>.
+ - seealso: #addElement
+ - seealso: #size
  */
 - (void)addWithInt:(jint)location
             withId:(id)object;
@@ -144,11 +169,15 @@
 /*!
  @brief Returns the number of elements this vector can hold without growing.
  @return the capacity of this vector.
+ - seealso: #ensureCapacity
+ - seealso: #size
  */
 - (jint)capacity;
 
 /*!
  @brief Removes all elements from this vector, leaving it empty.
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -156,6 +185,7 @@
  @brief Returns a new vector with the same elements, size, capacity and capacity
  increment as this vector.
  @return a shallow copy of this vector.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -165,6 +195,9 @@
  the object to look for in this vector.
  @return <code>true</code> if object is an element of this vector,
  <code>false</code> otherwise.
+ - seealso: #indexOf(Object)
+ - seealso: #indexOf(Object,int)
+ - seealso: java.lang.Object#equals
  */
 - (jboolean)containsWithId:(id)object;
 
@@ -185,6 +218,7 @@
  vector are copied.
  @throws IndexOutOfBoundsException
  if <code>elements</code> is not big enough.
+ - seealso: #clone
  */
 - (void)copyIntoWithNSObjectArray:(IOSObjectArray *)elements OBJC_METHOD_FAMILY_NONE;
 
@@ -195,6 +229,7 @@
  @return the element at the specified location.
  @throws ArrayIndexOutOfBoundsException
  if <code>location < 0 || location >= size()</code>.
+ - seealso: #size
  */
 - (id)elementAtWithInt:(jint)location;
 
@@ -203,6 +238,8 @@
  The results of the
  enumeration may be affected if the contents of this vector is modified.
  @return an enumeration of the elements of this vector.
+ - seealso: #elementAt
+ - seealso: Enumeration
  */
 - (id<JavaUtilEnumeration>)elements;
 
@@ -212,6 +249,7 @@
  @param minimumCapacity
  the minimum number of elements that this vector will hold
  before growing.
+ - seealso: #capacity
  */
 - (void)ensureCapacityWithInt:(jint)minimumCapacity;
 
@@ -224,6 +262,7 @@
  the object to compare with this object
  @return <code>true</code> if the specified object is equal to this vector,
  <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -232,6 +271,9 @@
  @return the element at the first position.
  @throws NoSuchElementException
  if this vector is empty.
+ - seealso: #elementAt
+ - seealso: #lastElement
+ - seealso: #size
  */
 - (id)firstElement;
 
@@ -242,6 +284,7 @@
  @return the element at the specified location.
  @throws ArrayIndexOutOfBoundsException
  if <code>location < 0 || location >= size()</code>.
+ - seealso: #size
  */
 - (id)getWithInt:(jint)location;
 
@@ -250,6 +293,7 @@
  Objects which are equal
  return the same value for this method.
  @return the receiver's hash.
+ - seealso: #equals
  */
 - (NSUInteger)hash;
 
@@ -262,6 +306,9 @@
  the object to find in this vector.
  @return the index in this vector of the specified element, -1 if the
  element isn't found.
+ - seealso: #contains
+ - seealso: #lastIndexOf(Object)
+ - seealso: #lastIndexOf(Object,int)
  */
 - (jint)indexOfWithId:(id)object;
 
@@ -278,6 +325,9 @@
  element isn't found.
  @throws ArrayIndexOutOfBoundsException
  if <code>location < 0</code>.
+ - seealso: #contains
+ - seealso: #lastIndexOf(Object)
+ - seealso: #lastIndexOf(Object,int)
  */
 - (jint)indexOfWithId:(id)object
               withInt:(jint)location;
@@ -294,6 +344,8 @@
  the index at which to insert the element.
  @throws ArrayIndexOutOfBoundsException
  if <code>location < 0 || location > size()</code>.
+ - seealso: #addElement
+ - seealso: #size
  */
 - (void)insertElementAtWithId:(id)object
                       withInt:(jint)location;
@@ -302,6 +354,7 @@
  @brief Returns if this vector has no elements, a size of zero.
  @return <code>true</code> if this vector has no elements, <code>false</code>
  otherwise.
+ - seealso: #size
  */
 - (jboolean)isEmpty;
 
@@ -310,6 +363,9 @@
  @return the element at the last position.
  @throws NoSuchElementException
  if this vector is empty.
+ - seealso: #elementAt
+ - seealso: #firstElement
+ - seealso: #size
  */
 - (id)lastElement;
 
@@ -322,6 +378,9 @@
  the object to find in this vector.
  @return the index in this vector of the specified element, -1 if the
  element isn't found.
+ - seealso: #contains
+ - seealso: #indexOf(Object)
+ - seealso: #indexOf(Object,int)
  */
 - (jint)lastIndexOfWithId:(id)object;
 
@@ -338,6 +397,9 @@
  element isn't found.
  @throws ArrayIndexOutOfBoundsException
  if <code>location >= size()</code>.
+ - seealso: #contains
+ - seealso: #indexOf(Object)
+ - seealso: #indexOf(Object,int)
  */
 - (jint)lastIndexOfWithId:(id)object
                   withInt:(jint)location;
@@ -365,6 +427,9 @@
  the object to remove from this vector.
  @return <code>true</code> if the specified object was found, <code>false</code>
  otherwise.
+ - seealso: #removeAllElements
+ - seealso: #removeElementAt
+ - seealso: #size
  */
 - (jboolean)removeWithId:(id)object;
 
@@ -374,12 +439,16 @@
  @param collection
  the collection of objects to remove.
  @return <code>true</code> if this vector is modified, <code>false</code> otherwise.
+ - seealso: #remove(Object)
+ - seealso: #contains(Object)
  */
 - (jboolean)removeAllWithJavaUtilCollection:(id<JavaUtilCollection>)collection;
 
 /*!
  @brief Removes all elements from this vector, leaving the size zero and the
  capacity unchanged.
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)removeAllElements;
 
@@ -393,6 +462,9 @@
  the object to remove from this vector.
  @return <code>true</code> if the specified object was found, <code>false</code>
  otherwise.
+ - seealso: #removeAllElements
+ - seealso: #removeElementAt
+ - seealso: #size
  */
 - (jboolean)removeElementWithId:(id)object;
 
@@ -405,6 +477,9 @@
  the index of the element to remove.
  @throws ArrayIndexOutOfBoundsException
  if <code>location < 0 || location >= size()</code>.
+ - seealso: #removeElement
+ - seealso: #removeAllElements
+ - seealso: #size
  */
 - (void)removeElementAtWithInt:(jint)location;
 
@@ -414,6 +489,7 @@
  @param collection
  the collection of objects to retain.
  @return <code>true</code> if this vector is modified, <code>false</code> otherwise.
+ - seealso: #remove(Object)
  */
 - (jboolean)retainAllWithJavaUtilCollection:(id<JavaUtilCollection>)collection;
 
@@ -427,6 +503,7 @@
  @return the previous element at the location.
  @throws ArrayIndexOutOfBoundsException
  if <code>location < 0 || location >= size()</code>.
+ - seealso: #size
  */
 - (id)setWithInt:(jint)location
           withId:(id)object;
@@ -440,6 +517,7 @@
  the index at which to put the specified object.
  @throws ArrayIndexOutOfBoundsException
  if <code>location < 0 || location >= size()</code>.
+ - seealso: #size
  */
 - (void)setElementAtWithId:(id)object
                    withInt:(jint)location;
@@ -452,12 +530,15 @@
  elements contain null.
  @param length
  the new size of this vector.
+ - seealso: #size
  */
 - (void)setSizeWithInt:(jint)length;
 
 /*!
  @brief Returns the number of elements in this vector.
  @return the number of elements in this vector.
+ - seealso: #elementCount
+ - seealso: #lastElement
  */
 - (jint)size;
 
@@ -504,11 +585,15 @@
 /*!
  @brief Returns the string representation of this vector.
  @return the string representation of this vector.
+ - seealso: #elements
  */
 - (NSString *)description;
 
 /*!
  @brief Sets the capacity of this vector to be the same as the size.
+ - seealso: #capacity
+ - seealso: #ensureCapacity
+ - seealso: #size
  */
 - (void)trimToSize;
 
@@ -531,7 +616,6 @@
                    withInt:(jint)end;
 
 #pragma mark Package-Private
-
 
 @end
 
@@ -557,4 +641,8 @@ FOUNDATION_EXPORT JavaUtilVector *new_JavaUtilVector_initWithJavaUtilCollection_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector)
 
-#endif // _JavaUtilVector_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilVector_INCLUDE_ALL")

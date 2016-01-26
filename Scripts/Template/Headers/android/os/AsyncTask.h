@@ -3,15 +3,25 @@
 //  source: android/frameworks/base/core/java/android/os/AsyncTask.java
 //
 
-#ifndef _AndroidOsAsyncTask_H_
-#define _AndroidOsAsyncTask_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Enum.h"
 
-@class AndroidOsAsyncTask_StatusEnum;
+#pragma push_macro("AndroidOsAsyncTask_INCLUDE_ALL")
+#ifdef AndroidOsAsyncTask_RESTRICT
+#define AndroidOsAsyncTask_INCLUDE_ALL 0
+#else
+#define AndroidOsAsyncTask_INCLUDE_ALL 1
+#endif
+#undef AndroidOsAsyncTask_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidOsAsyncTask_) && (AndroidOsAsyncTask_INCLUDE_ALL || defined(AndroidOsAsyncTask_INCLUDE))
+#define AndroidOsAsyncTask_
+
+@class AndroidOsAsyncTask_Status;
 @class IOSObjectArray;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaUtilConcurrentExecutor;
 
@@ -145,6 +155,10 @@
  */
 @interface AndroidOsAsyncTask : NSObject
 
++ (id<JavaUtilConcurrentExecutor>)THREAD_POOL_EXECUTOR;
+
++ (id<JavaUtilConcurrentExecutor>)SERIAL_EXECUTOR;
+
 #pragma mark Public
 
 /*!
@@ -176,6 +190,8 @@
  @return <tt>false</tt> if the task could not be cancelled,
  typically because it has already completed normally;
  <tt>true</tt> otherwise
+ - seealso: #isCancelled()
+ - seealso: #onCancelled(Object)
  */
 - (jboolean)cancelWithBoolean:(jboolean)mayInterruptIfRunning;
 
@@ -199,6 +215,8 @@
  @return This instance of AsyncTask.
  @throws IllegalStateException If <code>getStatus()</code> returns either
  <code>AsyncTask.Status.RUNNING</code> or <code>AsyncTask.Status.FINISHED</code>.
+ - seealso: #executeOnExecutor(java.util.concurrent.Executor,Object[])
+ - seealso: #execute(Runnable)
  */
 - (AndroidOsAsyncTask *)executeWithNSObjectArray:(IOSObjectArray *)params;
 
@@ -207,6 +225,8 @@
  </code> for use with
  a simple Runnable object. See <code>execute(Object[])</code> for more
  information on the order of execution.
+ - seealso: #execute(Object[])
+ - seealso: #executeOnExecutor(java.util.concurrent.Executor,Object[])
  */
 + (void)executeWithJavaLangRunnable:(id<JavaLangRunnable>)runnable;
 
@@ -235,6 +255,7 @@
  @return This instance of AsyncTask.
  @throws IllegalStateException If <code>getStatus()</code> returns either
  <code>AsyncTask.Status.RUNNING</code> or <code>AsyncTask.Status.FINISHED</code>.
+ - seealso: #execute(Object[])
  */
 - (AndroidOsAsyncTask *)executeOnExecutorWithJavaUtilConcurrentExecutor:(id<JavaUtilConcurrentExecutor>)exec
                                                       withNSObjectArray:(IOSObjectArray *)params;
@@ -263,13 +284,13 @@
  @throws TimeoutException If the wait timed out.
  */
 - (id)getWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Returns the current status of this task.
  @return The current status.
  */
-- (AndroidOsAsyncTask_StatusEnum *)getStatus;
+- (AndroidOsAsyncTask_Status *)getStatus;
 
 /*!
  @brief Returns <tt>true</tt> if this task was cancelled before it completed
@@ -278,6 +299,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  the value returned by this method should be checked periodically from
  <code>doInBackground(Object[])</code> to end the task as soon as possible.
  @return <tt>true</tt> if task was cancelled before it completed
+ - seealso: #cancel(boolean)
  */
 - (jboolean)isCancelled;
 
@@ -297,6 +319,9 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  on the UI thread.
  @param params The parameters of the task.
  @return A result, defined by the subclass of this task.
+ - seealso: #onPreExecute()
+ - seealso: #onPostExecute
+ - seealso: #publishProgress
  */
 - (id)doInBackgroundWithNSObjectArray:(IOSObjectArray *)params;
 
@@ -306,6 +331,9 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  <code>onCancelled(Object)</code>.</p>
  <p>Runs on the UI thread after <code>cancel(boolean)</code> is invoked and
  <code>doInBackground(Object[])</code> has finished.</p>
+ - seealso: #onCancelled(Object)
+ - seealso: #cancel(boolean)
+ - seealso: #isCancelled()
  */
 - (void)onCancelled;
 
@@ -318,6 +346,8 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  <code>super.onCancelled(result)</code>.</p>
  @param result The result, if any, computed in
  <code>doInBackground(Object[])</code>, can be null
+ - seealso: #cancel(boolean)
+ - seealso: #isCancelled()
  */
 - (void)onCancelledWithId:(id)result;
 
@@ -327,11 +357,16 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  specified result is the value returned by <code>doInBackground</code>.</p>
  <p>This method won't be invoked if the task was cancelled.</p>
  @param result The result of the operation computed by <code>doInBackground</code>.
+ - seealso: #onPreExecute
+ - seealso: #doInBackground
+ - seealso: #onCancelled(Object)
  */
 - (void)onPostExecuteWithId:(id)result;
 
 /*!
  @brief Runs on the UI thread before <code>doInBackground</code>.
+ - seealso: #onPostExecute
+ - seealso: #doInBackground
  */
 - (void)onPreExecute;
 
@@ -339,6 +374,8 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  @brief Runs on the UI thread after <code>publishProgress</code> is invoked.
  The specified values are the values passed to <code>publishProgress</code>.
  @param values The values indicating progress.
+ - seealso: #publishProgress
+ - seealso: #doInBackground
  */
 - (void)onProgressUpdateWithNSObjectArray:(IOSObjectArray *)values;
 
@@ -351,6 +388,8 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  <code>onProgressUpdate</code> will not be called if the task has been
  canceled.
  @param values The progress values to update the UI with.
+ - seealso: #onProgressUpdate
+ - seealso: #doInBackground
  */
 - (void)publishProgressWithNSObjectArray:(IOSObjectArray *)values;
 
@@ -358,11 +397,23 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
 
 J2OBJC_STATIC_INIT(AndroidOsAsyncTask)
 
-FOUNDATION_EXPORT id<JavaUtilConcurrentExecutor> AndroidOsAsyncTask_THREAD_POOL_EXECUTOR_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidOsAsyncTask, THREAD_POOL_EXECUTOR_, id<JavaUtilConcurrentExecutor>)
+/*!
+ @brief An <code>Executor</code> that can be used to execute tasks in parallel.
+ */
+inline id<JavaUtilConcurrentExecutor> AndroidOsAsyncTask_get_THREAD_POOL_EXECUTOR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilConcurrentExecutor> AndroidOsAsyncTask_THREAD_POOL_EXECUTOR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(AndroidOsAsyncTask, THREAD_POOL_EXECUTOR, id<JavaUtilConcurrentExecutor>)
 
-FOUNDATION_EXPORT id<JavaUtilConcurrentExecutor> AndroidOsAsyncTask_SERIAL_EXECUTOR_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidOsAsyncTask, SERIAL_EXECUTOR_, id<JavaUtilConcurrentExecutor>)
+/*!
+ @brief An <code>Executor</code> that executes tasks one at a time in serial
+ order.
+ This serialization is global to a particular process.
+ */
+inline id<JavaUtilConcurrentExecutor> AndroidOsAsyncTask_get_SERIAL_EXECUTOR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilConcurrentExecutor> AndroidOsAsyncTask_SERIAL_EXECUTOR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(AndroidOsAsyncTask, SERIAL_EXECUTOR, id<JavaUtilConcurrentExecutor>)
 
 FOUNDATION_EXPORT void AndroidOsAsyncTask_setDefaultExecutorWithJavaUtilConcurrentExecutor_(id<JavaUtilConcurrentExecutor> exec);
 
@@ -372,10 +423,19 @@ FOUNDATION_EXPORT void AndroidOsAsyncTask_executeWithJavaLangRunnable_(id<JavaLa
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidOsAsyncTask)
 
-typedef NS_ENUM(NSUInteger, AndroidOsAsyncTask_Status) {
-  AndroidOsAsyncTask_Status_PENDING = 0,
-  AndroidOsAsyncTask_Status_RUNNING = 1,
-  AndroidOsAsyncTask_Status_FINISHED = 2,
+#endif
+
+#if !defined (AndroidOsAsyncTask_Status_) && (AndroidOsAsyncTask_INCLUDE_ALL || defined(AndroidOsAsyncTask_Status_INCLUDE))
+#define AndroidOsAsyncTask_Status_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
+#include "../../java/lang/Enum.h"
+
+typedef NS_ENUM(NSUInteger, AndroidOsAsyncTask_Status_Enum) {
+  AndroidOsAsyncTask_Status_Enum_PENDING = 0,
+  AndroidOsAsyncTask_Status_Enum_RUNNING = 1,
+  AndroidOsAsyncTask_Status_Enum_FINISHED = 2,
 };
 
 /*!
@@ -383,33 +443,58 @@ typedef NS_ENUM(NSUInteger, AndroidOsAsyncTask_Status) {
  Each status will be set only once
  during the lifetime of a task.
  */
-@interface AndroidOsAsyncTask_StatusEnum : JavaLangEnum < NSCopying >
+@interface AndroidOsAsyncTask_Status : JavaLangEnum < NSCopying >
+
++ (AndroidOsAsyncTask_Status *)PENDING;
+
++ (AndroidOsAsyncTask_Status *)RUNNING;
+
++ (AndroidOsAsyncTask_Status *)FINISHED;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *AndroidOsAsyncTask_StatusEnum_values();
 
-+ (AndroidOsAsyncTask_StatusEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT AndroidOsAsyncTask_StatusEnum *AndroidOsAsyncTask_StatusEnum_valueOfWithNSString_(NSString *name);
++ (AndroidOsAsyncTask_Status *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (AndroidOsAsyncTask_Status_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(AndroidOsAsyncTask_StatusEnum)
+J2OBJC_STATIC_INIT(AndroidOsAsyncTask_Status)
 
-FOUNDATION_EXPORT AndroidOsAsyncTask_StatusEnum *AndroidOsAsyncTask_StatusEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT AndroidOsAsyncTask_Status *AndroidOsAsyncTask_Status_values_[];
 
-#define AndroidOsAsyncTask_StatusEnum_PENDING AndroidOsAsyncTask_StatusEnum_values_[AndroidOsAsyncTask_Status_PENDING]
-J2OBJC_ENUM_CONSTANT_GETTER(AndroidOsAsyncTask_StatusEnum, PENDING)
+/*!
+ @brief Indicates that the task has not been executed yet.
+ */
+inline AndroidOsAsyncTask_Status *AndroidOsAsyncTask_Status_get_PENDING();
+J2OBJC_ENUM_CONSTANT(AndroidOsAsyncTask_Status, PENDING)
 
-#define AndroidOsAsyncTask_StatusEnum_RUNNING AndroidOsAsyncTask_StatusEnum_values_[AndroidOsAsyncTask_Status_RUNNING]
-J2OBJC_ENUM_CONSTANT_GETTER(AndroidOsAsyncTask_StatusEnum, RUNNING)
+/*!
+ @brief Indicates that the task is running.
+ */
+inline AndroidOsAsyncTask_Status *AndroidOsAsyncTask_Status_get_RUNNING();
+J2OBJC_ENUM_CONSTANT(AndroidOsAsyncTask_Status, RUNNING)
 
-#define AndroidOsAsyncTask_StatusEnum_FINISHED AndroidOsAsyncTask_StatusEnum_values_[AndroidOsAsyncTask_Status_FINISHED]
-J2OBJC_ENUM_CONSTANT_GETTER(AndroidOsAsyncTask_StatusEnum, FINISHED)
+/*!
+ @brief Indicates that <code>AsyncTask.onPostExecute</code> has finished.
+ */
+inline AndroidOsAsyncTask_Status *AndroidOsAsyncTask_Status_get_FINISHED();
+J2OBJC_ENUM_CONSTANT(AndroidOsAsyncTask_Status, FINISHED)
 
-J2OBJC_TYPE_LITERAL_HEADER(AndroidOsAsyncTask_StatusEnum)
+FOUNDATION_EXPORT IOSObjectArray *AndroidOsAsyncTask_Status_values();
 
-#endif // _AndroidOsAsyncTask_H_
+FOUNDATION_EXPORT AndroidOsAsyncTask_Status *AndroidOsAsyncTask_Status_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT AndroidOsAsyncTask_Status *AndroidOsAsyncTask_Status_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(AndroidOsAsyncTask_Status)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidOsAsyncTask_INCLUDE_ALL")

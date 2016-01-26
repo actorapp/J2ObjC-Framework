@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/AlgorithmParameterGenerator.java
 //
 
-#ifndef _JavaSecurityAlgorithmParameterGenerator_H_
-#define _JavaSecurityAlgorithmParameterGenerator_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityAlgorithmParameterGenerator_INCLUDE_ALL")
+#ifdef JavaSecurityAlgorithmParameterGenerator_RESTRICT
+#define JavaSecurityAlgorithmParameterGenerator_INCLUDE_ALL 0
+#else
+#define JavaSecurityAlgorithmParameterGenerator_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityAlgorithmParameterGenerator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityAlgorithmParameterGenerator_) && (JavaSecurityAlgorithmParameterGenerator_INCLUDE_ALL || defined(JavaSecurityAlgorithmParameterGenerator_INCLUDE))
+#define JavaSecurityAlgorithmParameterGenerator_
 
 @class JavaSecurityAlgorithmParameterGeneratorSpi;
 @class JavaSecurityAlgorithmParameters;
@@ -177,4 +188,8 @@ FOUNDATION_EXPORT JavaSecurityAlgorithmParameterGenerator *JavaSecurityAlgorithm
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAlgorithmParameterGenerator)
 
-#endif // _JavaSecurityAlgorithmParameterGenerator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityAlgorithmParameterGenerator_INCLUDE_ALL")

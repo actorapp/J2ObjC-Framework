@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/InterruptibleChannel.java
 //
 
-#ifndef _JavaNioChannelsInterruptibleChannel_H_
-#define _JavaNioChannelsInterruptibleChannel_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsInterruptibleChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsInterruptibleChannel_RESTRICT
+#define JavaNioChannelsInterruptibleChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsInterruptibleChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsInterruptibleChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsInterruptibleChannel_) && (JavaNioChannelsInterruptibleChannel_INCLUDE_ALL || defined(JavaNioChannelsInterruptibleChannel_INCLUDE))
+#define JavaNioChannelsInterruptibleChannel_
+
+#define JavaNioChannelsChannel_RESTRICT 1
+#define JavaNioChannelsChannel_INCLUDE 1
 #include "../../../java/nio/channels/Channel.h"
 
 /*!
@@ -45,4 +59,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNioChannelsInterruptibleChannel)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsInterruptibleChannel)
 
-#endif // _JavaNioChannelsInterruptibleChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsInterruptibleChannel_INCLUDE_ALL")

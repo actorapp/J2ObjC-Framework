@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/io/DataOutputStream.java
 //
 
-#ifndef _JavaIoDataOutputStream_H_
-#define _JavaIoDataOutputStream_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/DataOutput.h"
+
+#pragma push_macro("JavaIoDataOutputStream_INCLUDE_ALL")
+#ifdef JavaIoDataOutputStream_RESTRICT
+#define JavaIoDataOutputStream_INCLUDE_ALL 0
+#else
+#define JavaIoDataOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoDataOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoDataOutputStream_) && (JavaIoDataOutputStream_INCLUDE_ALL || defined(JavaIoDataOutputStream_INCLUDE))
+#define JavaIoDataOutputStream_
+
+#define JavaIoFilterOutputStream_RESTRICT 1
+#define JavaIoFilterOutputStream_INCLUDE 1
 #include "../../java/io/FilterOutputStream.h"
+
+#define JavaIoDataOutput_RESTRICT 1
+#define JavaIoDataOutput_INCLUDE 1
+#include "../../java/io/DataOutput.h"
 
 @class IOSByteArray;
 @class JavaIoOutputStream;
@@ -18,6 +35,7 @@
  Typically, this stream can be read in by DataInputStream. Types that can be
  written include byte, 16-bit short, 32-bit int, 32-bit float, 64-bit long,
  64-bit double, byte strings, and <code>MUTF-8</code> encoded strings.
+ - seealso: DataInputStream
  */
 @interface JavaIoDataOutputStream : JavaIoFilterOutputStream < JavaIoDataOutput > {
  @public
@@ -81,6 +99,7 @@
  the byte to write to the target stream.
  @throws IOException
  if an error occurs while writing to the target stream.
+ - seealso: DataInputStream#readByte()
  */
 - (void)writeWithInt:(jint)oneByte;
 
@@ -90,6 +109,7 @@
  the boolean value to write to the target stream.
  @throws IOException
  if an error occurs while writing to the target stream.
+ - seealso: DataInputStream#readBoolean()
  */
 - (void)writeBooleanWithBoolean:(jboolean)val;
 
@@ -101,6 +121,8 @@
  the byte value to write to the target stream.
  @throws IOException
  if an error occurs while writing to the target stream.
+ - seealso: DataInputStream#readByte()
+ - seealso: DataInputStream#readUnsignedByte()
  */
 - (void)writeByteWithInt:(jint)val;
 
@@ -132,4 +154,8 @@ FOUNDATION_EXPORT JavaIoDataOutputStream *new_JavaIoDataOutputStream_initWithJav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataOutputStream)
 
-#endif // _JavaIoDataOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoDataOutputStream_INCLUDE_ALL")

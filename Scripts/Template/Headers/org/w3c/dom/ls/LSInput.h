@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/ls/LSInput.java
 //
 
-#ifndef _OrgW3cDomLsLSInput_H_
-#define _OrgW3cDomLsLSInput_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomLsLSInput_INCLUDE_ALL")
+#ifdef OrgW3cDomLsLSInput_RESTRICT
+#define OrgW3cDomLsLSInput_INCLUDE_ALL 0
+#else
+#define OrgW3cDomLsLSInput_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomLsLSInput_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomLsLSInput_) && (OrgW3cDomLsLSInput_INCLUDE_ALL || defined(OrgW3cDomLsLSInput_INCLUDE))
+#define OrgW3cDomLsLSInput_
 
 @class JavaIoInputStream;
 @class JavaIoReader;
@@ -239,4 +250,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomLsLSInput)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSInput)
 
-#endif // _OrgW3cDomLsLSInput_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomLsLSInput_INCLUDE_ALL")

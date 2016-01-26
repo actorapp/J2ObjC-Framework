@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/PlainDatagramSocketImpl.java
 //
 
-#ifndef _JavaNetPlainDatagramSocketImpl_H_
-#define _JavaNetPlainDatagramSocketImpl_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetPlainDatagramSocketImpl_INCLUDE_ALL")
+#ifdef JavaNetPlainDatagramSocketImpl_RESTRICT
+#define JavaNetPlainDatagramSocketImpl_INCLUDE_ALL 0
+#else
+#define JavaNetPlainDatagramSocketImpl_INCLUDE_ALL 1
+#endif
+#undef JavaNetPlainDatagramSocketImpl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetPlainDatagramSocketImpl_) && (JavaNetPlainDatagramSocketImpl_INCLUDE_ALL || defined(JavaNetPlainDatagramSocketImpl_INCLUDE))
+#define JavaNetPlainDatagramSocketImpl_
+
+#define JavaNetDatagramSocketImpl_RESTRICT 1
+#define JavaNetDatagramSocketImpl_INCLUDE 1
 #include "../../java/net/DatagramSocketImpl.h"
 
 @class JavaIoFileDescriptor;
@@ -88,4 +102,8 @@ FOUNDATION_EXPORT JavaNetPlainDatagramSocketImpl *new_JavaNetPlainDatagramSocket
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetPlainDatagramSocketImpl)
 
-#endif // _JavaNetPlainDatagramSocketImpl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetPlainDatagramSocketImpl_INCLUDE_ALL")

@@ -3,12 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/locks/Lock.java
 //
 
-#ifndef _JavaUtilConcurrentLocksLock_H_
-#define _JavaUtilConcurrentLocksLock_H_
-
 #include "../../../../J2ObjC_header.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+#pragma push_macro("JavaUtilConcurrentLocksLock_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentLocksLock_RESTRICT
+#define JavaUtilConcurrentLocksLock_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentLocksLock_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentLocksLock_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentLocksLock_) && (JavaUtilConcurrentLocksLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksLock_INCLUDE))
+#define JavaUtilConcurrentLocksLock_
+
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilConcurrentLocksCondition;
 
 /*!
@@ -116,6 +127,9 @@
  to an interrupt over normal method return. This is true even if it can be
  shown that the interrupt occurred after another action may have unblocked
  the thread. An implementation should document this behavior.
+ - seealso: ReentrantLock
+ - seealso: Condition
+ - seealso: ReadWriteLock
  @since 1.5
  @author Doug Lea
  */
@@ -249,7 +263,7 @@
  acquisition is supported)
  */
 - (jboolean)tryLockWithLong:(jlong)time
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Releases the lock.
@@ -286,4 +300,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentLocksLock)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksLock)
 
-#endif // _JavaUtilConcurrentLocksLock_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentLocksLock_INCLUDE_ALL")

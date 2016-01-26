@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectStreamClass.java
 //
 
-#ifndef _JavaIoObjectStreamClass_H_
-#define _JavaIoObjectStreamClass_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoObjectStreamClass_INCLUDE_ALL")
+#ifdef JavaIoObjectStreamClass_RESTRICT
+#define JavaIoObjectStreamClass_INCLUDE_ALL 0
+#else
+#define JavaIoObjectStreamClass_INCLUDE_ALL 1
+#endif
+#undef JavaIoObjectStreamClass_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoObjectStreamClass_) && (JavaIoObjectStreamClass_INCLUDE_ALL || defined(JavaIoObjectStreamClass_INCLUDE))
+#define JavaIoObjectStreamClass_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSClass;
@@ -17,16 +31,29 @@
 @class JavaLangReflectMethod;
 @protocol JavaUtilList;
 
-#define JavaIoObjectStreamClass_CONSTRUCTOR_IS_NOT_RESOLVED -1LL
-
 /*!
  @brief Represents a descriptor for identifying a class during serialization and
  deserialization.
  Information contained in the descriptor includes the name
  and SUID of the class as well as field names and types. Information inherited
  from the superclasses is also taken into account.
+ - seealso: ObjectOutputStream
+ - seealso: ObjectInputStream
+ - seealso: java.lang.Class
  */
 @interface JavaIoObjectStreamClass : NSObject < JavaIoSerializable >
+
++ (jlong)CONSTRUCTOR_IS_NOT_RESOLVED;
+
++ (IOSObjectArray *)NO_FIELDS;
+
++ (IOSClass *)ARRAY_OF_FIELDS;
+
++ (IOSClass *)STRINGCLASS;
+
++ (IOSClass *)CLASSCLASS;
+
++ (IOSClass *)OBJECTSTREAMCLASSCLASS;
 
 #pragma mark Public
 
@@ -241,6 +268,7 @@
  @return <code>true</code> if instances of the class are Externalizable
  <code>false</code> if instances of the class are not
  Externalizable
+ - seealso: Object#hashCode
  */
 + (jboolean)isExternalizableWithIOSClass:(IOSClass *)cl;
 
@@ -250,6 +278,7 @@
  @param typecode a char describing the typecode
  @return <code>true</code> if the typecode represents a primitive type
  <code>false</code> if the typecode represents an Object type (including arrays)
+ - seealso: Object#hashCode
  */
 + (jboolean)isPrimitiveTypeWithChar:(jchar)typecode;
 
@@ -265,6 +294,7 @@
  @return <code>true</code> if instances of the class are Serializable
  <code>false</code> if instances of the class are not
  Serializable
+ - seealso: Object#hashCode
  */
 + (jboolean)isSerializableWithIOSClass:(IOSClass *)cl;
 
@@ -352,22 +382,37 @@
 
 J2OBJC_STATIC_INIT(JavaIoObjectStreamClass)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamClass, CONSTRUCTOR_IS_NOT_RESOLVED, jlong)
+inline jlong JavaIoObjectStreamClass_get_CONSTRUCTOR_IS_NOT_RESOLVED();
+#define JavaIoObjectStreamClass_CONSTRUCTOR_IS_NOT_RESOLVED -1LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaIoObjectStreamClass, CONSTRUCTOR_IS_NOT_RESOLVED, jlong)
 
-FOUNDATION_EXPORT IOSObjectArray *JavaIoObjectStreamClass_NO_FIELDS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamClass, NO_FIELDS_, IOSObjectArray *)
+/*!
+ @brief Constant indicating that the class has no Serializable fields.
+ */
+inline IOSObjectArray *JavaIoObjectStreamClass_get_NO_FIELDS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSObjectArray *JavaIoObjectStreamClass_NO_FIELDS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoObjectStreamClass, NO_FIELDS, IOSObjectArray *)
 
-FOUNDATION_EXPORT IOSClass *JavaIoObjectStreamClass_ARRAY_OF_FIELDS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamClass, ARRAY_OF_FIELDS_, IOSClass *)
+inline IOSClass *JavaIoObjectStreamClass_get_ARRAY_OF_FIELDS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaIoObjectStreamClass_ARRAY_OF_FIELDS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoObjectStreamClass, ARRAY_OF_FIELDS, IOSClass *)
 
-FOUNDATION_EXPORT IOSClass *JavaIoObjectStreamClass_STRINGCLASS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamClass, STRINGCLASS_, IOSClass *)
+inline IOSClass *JavaIoObjectStreamClass_get_STRINGCLASS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaIoObjectStreamClass_STRINGCLASS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoObjectStreamClass, STRINGCLASS, IOSClass *)
 
-FOUNDATION_EXPORT IOSClass *JavaIoObjectStreamClass_CLASSCLASS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamClass, CLASSCLASS_, IOSClass *)
+inline IOSClass *JavaIoObjectStreamClass_get_CLASSCLASS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaIoObjectStreamClass_CLASSCLASS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoObjectStreamClass, CLASSCLASS, IOSClass *)
 
-FOUNDATION_EXPORT IOSClass *JavaIoObjectStreamClass_OBJECTSTREAMCLASSCLASS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoObjectStreamClass, OBJECTSTREAMCLASSCLASS_, IOSClass *)
+inline IOSClass *JavaIoObjectStreamClass_get_OBJECTSTREAMCLASSCLASS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaIoObjectStreamClass_OBJECTSTREAMCLASSCLASS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoObjectStreamClass, OBJECTSTREAMCLASSCLASS, IOSClass *)
 
 FOUNDATION_EXPORT void JavaIoObjectStreamClass_init(JavaIoObjectStreamClass *self);
 
@@ -397,4 +442,25 @@ FOUNDATION_EXPORT JavaLangReflectMethod *JavaIoObjectStreamClass_findPrivateMeth
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamClass)
 
-#endif // _JavaIoObjectStreamClass_H_
+#endif
+
+#if !defined (JavaIoObjectStreamClass_Digest_) && (JavaIoObjectStreamClass_INCLUDE_ALL || defined(JavaIoObjectStreamClass_Digest_INCLUDE))
+#define JavaIoObjectStreamClass_Digest_
+
+@class IOSByteArray;
+
+@protocol JavaIoObjectStreamClass_Digest < NSObject, JavaObject >
+
+- (IOSByteArray *)digestWithByteArray:(IOSByteArray *)input;
+
+@end
+
+J2OBJC_EMPTY_STATIC_INIT(JavaIoObjectStreamClass_Digest)
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamClass_Digest)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoObjectStreamClass_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CertificateException.java
 //
 
-#ifndef _JavaSecurityCertCertificateException_H_
-#define _JavaSecurityCertCertificateException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCertificateException_INCLUDE_ALL")
+#ifdef JavaSecurityCertCertificateException_RESTRICT
+#define JavaSecurityCertCertificateException_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCertificateException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCertificateException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCertificateException_) && (JavaSecurityCertCertificateException_INCLUDE_ALL || defined(JavaSecurityCertCertificateException_INCLUDE))
+#define JavaSecurityCertCertificateException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
 #include "../../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
@@ -70,4 +84,8 @@ FOUNDATION_EXPORT JavaSecurityCertCertificateException *new_JavaSecurityCertCert
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificateException)
 
-#endif // _JavaSecurityCertCertificateException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCertificateException_INCLUDE_ALL")

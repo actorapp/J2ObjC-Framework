@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/security/KeyStoreException.java
 //
 
-#ifndef _JavaSecurityKeyStoreException_H_
-#define _JavaSecurityKeyStoreException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityKeyStoreException_INCLUDE_ALL")
+#ifdef JavaSecurityKeyStoreException_RESTRICT
+#define JavaSecurityKeyStoreException_INCLUDE_ALL 0
+#else
+#define JavaSecurityKeyStoreException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityKeyStoreException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityKeyStoreException_) && (JavaSecurityKeyStoreException_INCLUDE_ALL || defined(JavaSecurityKeyStoreException_INCLUDE))
+#define JavaSecurityKeyStoreException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
 #include "../../java/security/GeneralSecurityException.h"
 
 @class JavaLangThrowable;
 
 /*!
  @brief <code>KeyStoreException</code> is a general <code>KeyStore</code> exception.
+ - seealso: KeyStore
  */
 @interface JavaSecurityKeyStoreException : JavaSecurityGeneralSecurityException
 
@@ -72,4 +87,8 @@ FOUNDATION_EXPORT JavaSecurityKeyStoreException *new_JavaSecurityKeyStoreExcepti
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStoreException)
 
-#endif // _JavaSecurityKeyStoreException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityKeyStoreException_INCLUDE_ALL")

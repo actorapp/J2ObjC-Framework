@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/spi/AbstractInterruptibleChannel.java
 //
 
-#ifndef _JavaNioChannelsSpiAbstractInterruptibleChannel_H_
-#define _JavaNioChannelsSpiAbstractInterruptibleChannel_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsSpiAbstractInterruptibleChannel_RESTRICT
+#define JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsSpiAbstractInterruptibleChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsSpiAbstractInterruptibleChannel_) && (JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE_ALL || defined(JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE))
+#define JavaNioChannelsSpiAbstractInterruptibleChannel_
+
+#define JavaNioChannelsChannel_RESTRICT 1
+#define JavaNioChannelsChannel_INCLUDE 1
 #include "../../../../java/nio/channels/Channel.h"
+
+#define JavaNioChannelsInterruptibleChannel_RESTRICT 1
+#define JavaNioChannelsInterruptibleChannel_INCLUDE 1
 #include "../../../../java/nio/channels/InterruptibleChannel.h"
 
 /*!
@@ -41,6 +58,7 @@
  the first one completes.
  @throws IOException
  if a problem occurs while closing this channel.
+ - seealso: java.nio.channels.Channel#close()
  */
 - (void)close;
 
@@ -96,4 +114,8 @@ FOUNDATION_EXPORT void JavaNioChannelsSpiAbstractInterruptibleChannel_init(JavaN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiAbstractInterruptibleChannel)
 
-#endif // _JavaNioChannelsSpiAbstractInterruptibleChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE_ALL")

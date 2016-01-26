@@ -3,13 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/HashMap.java
 //
 
-#ifndef _JavaUtilHashMap_H_
-#define _JavaUtilHashMap_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilHashMap_INCLUDE_ALL")
+#ifdef JavaUtilHashMap_RESTRICT
+#define JavaUtilHashMap_INCLUDE_ALL 0
+#else
+#define JavaUtilHashMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilHashMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilHashMap_) && (JavaUtilHashMap_INCLUDE_ALL || defined(JavaUtilHashMap_INCLUDE))
+#define JavaUtilHashMap_
+
+#define JavaUtilAbstractMap_RESTRICT 1
+#define JavaUtilAbstractMap_INCLUDE 1
 #include "../../java/util/AbstractMap.h"
-#include "../../java/util/Map.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilHashMap_HashMapEntry;
@@ -17,8 +33,6 @@
 @protocol JavaUtilIterator;
 @protocol JavaUtilMap;
 @protocol JavaUtilSet;
-
-#define JavaUtilHashMap_DEFAULT_LOAD_FACTOR 0.75f
 
 /*!
  @brief HashMap is an implementation of <code>Map</code>.
@@ -62,6 +76,8 @@
   jint modCount_;
 }
 
++ (jfloat)DEFAULT_LOAD_FACTOR;
+
 #pragma mark Public
 
 /*!
@@ -102,6 +118,8 @@
 
 /*!
  @brief Removes all mappings from this hash map, leaving it empty.
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -151,6 +169,7 @@
  @brief Returns whether this map is empty.
  @return <code>true</code> if this map has no elements, <code>false</code>
  otherwise.
+ - seealso: #size()
  */
 - (jboolean)isEmpty;
 
@@ -307,7 +326,6 @@
  */
 - (void)preModifyWithJavaUtilHashMap_HashMapEntry:(JavaUtilHashMap_HashMapEntry *)e;
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaUtilHashMap)
@@ -315,7 +333,19 @@ J2OBJC_STATIC_INIT(JavaUtilHashMap)
 J2OBJC_FIELD_SETTER(JavaUtilHashMap, table_, IOSObjectArray *)
 J2OBJC_FIELD_SETTER(JavaUtilHashMap, entryForNullKey_, JavaUtilHashMap_HashMapEntry *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilHashMap, DEFAULT_LOAD_FACTOR, jfloat)
+/*!
+ @brief The default load factor.
+ Note that this implementation ignores the
+ load factor, but cannot do away with it entirely because it's
+ mentioned in the API.
+ <p>Note that this constant has no impact on the behavior of the program,
+ but it is emitted as part of the serialized form. The load factor of
+ .75 is hardwired into the program, which uses cheap shifts in place of
+ expensive division.
+ */
+inline jfloat JavaUtilHashMap_get_DEFAULT_LOAD_FACTOR();
+#define JavaUtilHashMap_DEFAULT_LOAD_FACTOR 0.75f
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilHashMap, DEFAULT_LOAD_FACTOR, jfloat)
 
 FOUNDATION_EXPORT void JavaUtilHashMap_init(JavaUtilHashMap *self);
 
@@ -336,6 +366,15 @@ FOUNDATION_EXPORT JavaUtilHashMap *new_JavaUtilHashMap_initWithJavaUtilMap_(id<J
 FOUNDATION_EXPORT jint JavaUtilHashMap_capacityForInitSizeWithInt_(jint size);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap)
+
+#endif
+
+#if !defined (JavaUtilHashMap_HashMapEntry_) && (JavaUtilHashMap_INCLUDE_ALL || defined(JavaUtilHashMap_HashMapEntry_INCLUDE))
+#define JavaUtilHashMap_HashMapEntry_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_Entry_INCLUDE 1
+#include "../../java/util/Map.h"
 
 @interface JavaUtilHashMap_HashMapEntry : NSObject < JavaUtilMap_Entry > {
  @public
@@ -380,4 +419,8 @@ FOUNDATION_EXPORT JavaUtilHashMap_HashMapEntry *new_JavaUtilHashMap_HashMapEntry
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap_HashMapEntry)
 
-#endif // _JavaUtilHashMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilHashMap_INCLUDE_ALL")

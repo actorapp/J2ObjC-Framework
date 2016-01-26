@@ -3,17 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/util/WeakHashMap.java
 //
 
-#ifndef _JavaUtilWeakHashMap_H_
-#define _JavaUtilWeakHashMap_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/ref/WeakReference.h"
+
+#pragma push_macro("JavaUtilWeakHashMap_INCLUDE_ALL")
+#ifdef JavaUtilWeakHashMap_RESTRICT
+#define JavaUtilWeakHashMap_INCLUDE_ALL 0
+#else
+#define JavaUtilWeakHashMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilWeakHashMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilWeakHashMap_) && (JavaUtilWeakHashMap_INCLUDE_ALL || defined(JavaUtilWeakHashMap_INCLUDE))
+#define JavaUtilWeakHashMap_
+
+#define JavaUtilAbstractMap_RESTRICT 1
+#define JavaUtilAbstractMap_INCLUDE 1
 #include "../../java/util/AbstractMap.h"
-#include "../../java/util/Iterator.h"
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_INCLUDE 1
 #include "../../java/util/Map.h"
 
 @class IOSObjectArray;
-@class JavaLangRefReferenceQueue;
 @class JavaUtilWeakHashMap_Entry;
 @protocol JavaUtilCollection;
 @protocol JavaUtilSet;
@@ -26,6 +40,8 @@
  be any objects. Note that the garbage collector acts similar to a second
  thread on this collection, possibly removing keys.
  @since 1.2
+ - seealso: HashMap
+ - seealso: WeakReference
  */
 @interface JavaUtilWeakHashMap : JavaUtilAbstractMap < JavaUtilMap > {
  @public
@@ -75,6 +91,8 @@
 
 /*!
  @brief Removes all mappings from this map, leaving it empty.
+ - seealso: #isEmpty()
+ - seealso: #size()
  */
 - (void)clear;
 
@@ -222,6 +240,21 @@ FOUNDATION_EXPORT JavaUtilWeakHashMap *new_JavaUtilWeakHashMap_initWithJavaUtilM
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap)
 
+#endif
+
+#if !defined (JavaUtilWeakHashMap_Entry_) && (JavaUtilWeakHashMap_INCLUDE_ALL || defined(JavaUtilWeakHashMap_Entry_INCLUDE))
+#define JavaUtilWeakHashMap_Entry_
+
+#define JavaLangRefWeakReference_RESTRICT 1
+#define JavaLangRefWeakReference_INCLUDE 1
+#include "../../java/lang/ref/WeakReference.h"
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_Entry_INCLUDE 1
+#include "../../java/util/Map.h"
+
+@class JavaLangRefReferenceQueue;
+
 @interface JavaUtilWeakHashMap_Entry : JavaLangRefWeakReference < JavaUtilMap_Entry > {
  @public
   jint hash__;
@@ -263,6 +296,13 @@ FOUNDATION_EXPORT JavaUtilWeakHashMap_Entry *new_JavaUtilWeakHashMap_Entry_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_Entry)
 
+#endif
+
+#if !defined (JavaUtilWeakHashMap_Entry_Type_) && (JavaUtilWeakHashMap_INCLUDE_ALL || defined(JavaUtilWeakHashMap_Entry_Type_INCLUDE))
+#define JavaUtilWeakHashMap_Entry_Type_
+
+@protocol JavaUtilMap_Entry;
+
 @protocol JavaUtilWeakHashMap_Entry_Type < NSObject, JavaObject >
 
 - (id)getWithJavaUtilMap_Entry:(id<JavaUtilMap_Entry>)entry_;
@@ -272,6 +312,18 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_Entry)
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilWeakHashMap_Entry_Type)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_Entry_Type)
+
+#endif
+
+#if !defined (JavaUtilWeakHashMap_HashIterator_) && (JavaUtilWeakHashMap_INCLUDE_ALL || defined(JavaUtilWeakHashMap_HashIterator_INCLUDE))
+#define JavaUtilWeakHashMap_HashIterator_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
+#include "../../java/util/Iterator.h"
+
+@class JavaUtilWeakHashMap;
+@protocol JavaUtilWeakHashMap_Entry_Type;
 
 @interface JavaUtilWeakHashMap_HashIterator : NSObject < JavaUtilIterator > {
  @public
@@ -303,4 +355,8 @@ FOUNDATION_EXPORT JavaUtilWeakHashMap_HashIterator *new_JavaUtilWeakHashMap_Hash
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_HashIterator)
 
-#endif // _JavaUtilWeakHashMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilWeakHashMap_INCLUDE_ALL")

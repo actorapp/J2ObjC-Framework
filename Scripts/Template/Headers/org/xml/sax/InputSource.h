@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/InputSource.java
 //
 
-#ifndef _OrgXmlSaxInputSource_H_
-#define _OrgXmlSaxInputSource_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxInputSource_INCLUDE_ALL")
+#ifdef OrgXmlSaxInputSource_RESTRICT
+#define OrgXmlSaxInputSource_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxInputSource_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxInputSource_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxInputSource_) && (OrgXmlSaxInputSource_INCLUDE_ALL || defined(OrgXmlSaxInputSource_INCLUDE))
+#define OrgXmlSaxInputSource_
 
 @class JavaIoInputStream;
 @class JavaIoReader;
@@ -49,6 +60,10 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.XMLReader#parse(org.xml.sax.InputSource)
+ - seealso: org.xml.sax.EntityResolver#resolveEntity
+ - seealso: java.io.InputStream
+ - seealso: java.io.Reader
  */
 @interface OrgXmlSaxInputSource : NSObject
 
@@ -56,6 +71,11 @@
 
 /*!
  @brief Zero-argument default constructor.
+ - seealso: #setPublicId
+ - seealso: #setSystemId
+ - seealso: #setByteStream
+ - seealso: #setCharacterStream
+ - seealso: #setEncoding
  */
 - (instancetype)init;
 
@@ -66,6 +86,11 @@
  public identifier, and may use setEncoding to specify the object's
  character encoding.</p>
  @param byteStream The raw byte stream containing the document.
+ - seealso: #setPublicId
+ - seealso: #setSystemId
+ - seealso: #setEncoding
+ - seealso: #setByteStream
+ - seealso: #setCharacterStream
  */
 - (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)byteStream;
 
@@ -76,6 +101,10 @@
  public identifier.</p>
  <p>The character stream shall not include a byte order mark.</p>
  @param characterStream The raw character stream containing the document.
+ - seealso: #setPublicId
+ - seealso: #setSystemId
+ - seealso: #setByteStream
+ - seealso: #setCharacterStream
  */
 - (instancetype)initWithJavaIoReader:(JavaIoReader *)characterStream;
 
@@ -87,6 +116,11 @@
  <p>If the system identifier is a URL, it must be fully
  resolved (it may not be a relative URL).</p>
  @param systemId The system identifier (URI).
+ - seealso: #setPublicId
+ - seealso: #setSystemId
+ - seealso: #setByteStream
+ - seealso: #setEncoding
+ - seealso: #setCharacterStream
  */
 - (instancetype)initWithNSString:(NSString *)systemId;
 
@@ -95,12 +129,15 @@
  <p>The getEncoding method will return the character
  encoding for this byte stream, or null if unknown.</p>
  @return The byte stream, or null if none was supplied.
+ - seealso: #getEncoding
+ - seealso: #setByteStream
  */
 - (JavaIoInputStream *)getByteStream;
 
 /*!
  @brief Get the character stream for this input source.
  @return The character stream, or null if none was supplied.
+ - seealso: #setCharacterStream
  */
 - (JavaIoReader *)getCharacterStream;
 
@@ -109,12 +146,16 @@
  This value will be ignored when the application provides a
  character stream.
  @return The encoding, or null if none was supplied.
+ - seealso: #setByteStream
+ - seealso: #getSystemId
+ - seealso: #getByteStream
  */
 - (NSString *)getEncoding;
 
 /*!
  @brief Get the public identifier for this input source.
  @return The public identifier, or null if none was supplied.
+ - seealso: #setPublicId
  */
 - (NSString *)getPublicId;
 
@@ -124,6 +165,8 @@
  of the object pointed to, or null if unknown.</p>
  <p>If the system ID is a URL, it will be fully resolved.</p>
  @return The system identifier, or null if none was supplied.
+ - seealso: #setSystemId
+ - seealso: #getEncoding
  */
 - (NSString *)getSystemId;
 
@@ -136,6 +179,10 @@
  byte stream, it should set it with the setEncoding method.</p>
  @param byteStream A byte stream containing an XML document or
  other entity.
+ - seealso: #setEncoding
+ - seealso: #getByteStream
+ - seealso: #getEncoding
+ - seealso: java.io.InputStream
  */
 - (void)setByteStreamWithJavaIoInputStream:(JavaIoInputStream *)byteStream;
 
@@ -146,6 +193,8 @@
  a URI connection to the system identifier.</p>
  @param characterStream The character stream containing the
  XML document or other entity.
+ - seealso: #getCharacterStream
+ - seealso: java.io.Reader
  */
 - (void)setCharacterStreamWithJavaIoReader:(JavaIoReader *)characterStream;
 
@@ -157,6 +206,9 @@
  <p>This method has no effect when the application provides a
  character stream.</p>
  @param encoding A string describing the character encoding.
+ - seealso: #setSystemId
+ - seealso: #setByteStream
+ - seealso: #getEncoding
  */
 - (void)setEncodingWithNSString:(NSString *)encoding;
 
@@ -166,6 +218,9 @@
  writer includes one, it will be provided as part of the
  location information.</p>
  @param publicId The public identifier as a string.
+ - seealso: #getPublicId
+ - seealso: org.xml.sax.Locator#getPublicId
+ - seealso: org.xml.sax.SAXParseException#getPublicId
  */
 - (void)setPublicIdWithNSString:(NSString *)publicId;
 
@@ -183,6 +238,10 @@
  <p>If the system identifier is a URL, it must be fully
  resolved (it may not be a relative URL).</p>
  @param systemId The system identifier as a string.
+ - seealso: #setEncoding
+ - seealso: #getSystemId
+ - seealso: org.xml.sax.Locator#getSystemId
+ - seealso: org.xml.sax.SAXParseException#getSystemId
  */
 - (void)setSystemIdWithNSString:(NSString *)systemId;
 
@@ -208,4 +267,8 @@ FOUNDATION_EXPORT OrgXmlSaxInputSource *new_OrgXmlSaxInputSource_initWithJavaIoR
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxInputSource)
 
-#endif // _OrgXmlSaxInputSource_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxInputSource_INCLUDE_ALL")

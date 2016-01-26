@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLXML.java
 //
 
-#ifndef _JavaSqlSQLXML_H_
-#define _JavaSqlSQLXML_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLXML_INCLUDE_ALL")
+#ifdef JavaSqlSQLXML_RESTRICT
+#define JavaSqlSQLXML_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLXML_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLXML_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLXML_) && (JavaSqlSQLXML_INCLUDE_ALL || defined(JavaSqlSQLXML_INCLUDE))
+#define JavaSqlSQLXML_
 
 @class IOSClass;
 @class JavaIoInputStream;
@@ -84,4 +95,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLXML)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLXML)
 
-#endif // _JavaSqlSQLXML_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLXML_INCLUDE_ALL")

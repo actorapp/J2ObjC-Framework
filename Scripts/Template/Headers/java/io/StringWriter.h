@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/StringWriter.java
 //
 
-#ifndef _JavaIoStringWriter_H_
-#define _JavaIoStringWriter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoStringWriter_INCLUDE_ALL")
+#ifdef JavaIoStringWriter_RESTRICT
+#define JavaIoStringWriter_INCLUDE_ALL 0
+#else
+#define JavaIoStringWriter_INCLUDE_ALL 1
+#endif
+#undef JavaIoStringWriter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoStringWriter_) && (JavaIoStringWriter_INCLUDE_ALL || defined(JavaIoStringWriter_INCLUDE))
+#define JavaIoStringWriter_
+
+#define JavaIoWriter_RESTRICT 1
+#define JavaIoWriter_INCLUDE 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -19,6 +33,7 @@
  The result can later
  be queried using the <code>StringWriter(int)</code> or <code>toString()</code>
  methods.
+ - seealso: StringReader
  */
 @interface JavaIoStringWriter : JavaIoWriter
 
@@ -184,4 +199,8 @@ FOUNDATION_EXPORT JavaIoStringWriter *new_JavaIoStringWriter_initWithInt_(jint i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoStringWriter)
 
-#endif // _JavaIoStringWriter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoStringWriter_INCLUDE_ALL")

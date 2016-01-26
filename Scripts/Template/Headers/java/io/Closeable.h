@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/Closeable.java
 //
 
-#ifndef _JavaIoCloseable_H_
-#define _JavaIoCloseable_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoCloseable_INCLUDE_ALL")
+#ifdef JavaIoCloseable_RESTRICT
+#define JavaIoCloseable_INCLUDE_ALL 0
+#else
+#define JavaIoCloseable_INCLUDE_ALL 1
+#endif
+#undef JavaIoCloseable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoCloseable_) && (JavaIoCloseable_INCLUDE_ALL || defined(JavaIoCloseable_INCLUDE))
+#define JavaIoCloseable_
+
+#define JavaLangAutoCloseable_RESTRICT 1
+#define JavaLangAutoCloseable_INCLUDE 1
 #include "../../java/lang/AutoCloseable.h"
 
 /*!
@@ -29,4 +43,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoCloseable)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoCloseable)
 
-#endif // _JavaIoCloseable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoCloseable_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/EllipticCurve.java
 //
 
-#ifndef _JavaSecuritySpecEllipticCurve_H_
-#define _JavaSecuritySpecEllipticCurve_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecEllipticCurve_INCLUDE_ALL")
+#ifdef JavaSecuritySpecEllipticCurve_RESTRICT
+#define JavaSecuritySpecEllipticCurve_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecEllipticCurve_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecEllipticCurve_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecEllipticCurve_) && (JavaSecuritySpecEllipticCurve_INCLUDE_ALL || defined(JavaSecuritySpecEllipticCurve_INCLUDE))
+#define JavaSecuritySpecEllipticCurve_
 
 @class IOSByteArray;
 @class JavaMathBigInteger;
@@ -108,4 +119,8 @@ FOUNDATION_EXPORT JavaSecuritySpecEllipticCurve *new_JavaSecuritySpecEllipticCur
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecEllipticCurve)
 
-#endif // _JavaSecuritySpecEllipticCurve_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecEllipticCurve_INCLUDE_ALL")

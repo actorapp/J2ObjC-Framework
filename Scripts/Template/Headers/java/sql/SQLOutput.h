@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLOutput.java
 //
 
-#ifndef _JavaSqlSQLOutput_H_
-#define _JavaSqlSQLOutput_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLOutput_INCLUDE_ALL")
+#ifdef JavaSqlSQLOutput_RESTRICT
+#define JavaSqlSQLOutput_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLOutput_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLOutput_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLOutput_) && (JavaSqlSQLOutput_INCLUDE_ALL || defined(JavaSqlSQLOutput_INCLUDE))
+#define JavaSqlSQLOutput_
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -40,6 +51,7 @@
  the <code>SQLData.writeSQL</code> method, which in turn uses the appropriate
  <code>SQLOutput</code> writer methods to write the data from the <code>SQLData</code>
  object into the stream according to the defined mapping.
+ - seealso: SQLData
  */
 @protocol JavaSqlSQLOutput < NSObject, JavaObject >
 
@@ -139,6 +151,7 @@
  the <code>Date</code> value to write.
  @throws SQLException
  if a database error occurs.
+ - seealso: Date
  */
 - (void)writeDateWithJavaSqlDate:(JavaSqlDate *)theDate;
 
@@ -148,6 +161,7 @@
  the <code>Time</code> value to write.
  @throws SQLException
  if a database error occurs.
+ - seealso: Time
  */
 - (void)writeTimeWithJavaSqlTime:(JavaSqlTime *)theTime;
 
@@ -157,6 +171,7 @@
  the <code>Timestamp</code> value to write.
  @throws SQLException
  if a database error occurs.
+ - seealso: Timestamp
  */
 - (void)writeTimestampWithJavaSqlTimestamp:(JavaSqlTimestamp *)theTimestamp;
 
@@ -204,6 +219,7 @@
  the <code>SQLData</code> object to write.
  @throws SQLException
  if a database error occurs.
+ - seealso: SQLData
  */
 - (void)writeObjectWithJavaSqlSQLData:(id<JavaSqlSQLData>)theObject;
 
@@ -213,6 +229,7 @@
  the <code>java.sql.Ref</code> object to write.
  @throws SQLException
  if a database error occurs.
+ - seealso: Ref
  */
 - (void)writeRefWithJavaSqlRef:(id<JavaSqlRef>)theRef;
 
@@ -222,6 +239,7 @@
  the <code>java.sql.Blob</code> object to write.
  @throws SQLException
  if a database error occurs.
+ - seealso: Blob
  */
 - (void)writeBlobWithJavaSqlBlob:(id<JavaSqlBlob>)theBlob;
 
@@ -231,6 +249,7 @@
  the <code>java.sql.Clob</code> object to write.
  @throws SQLException
  if a database error occurs.
+ - seealso: Clob
  */
 - (void)writeClobWithJavaSqlClob:(id<JavaSqlClob>)theClob;
 
@@ -240,6 +259,7 @@
  the <code>java.sql.Struct</code> object to write.
  @throws SQLException
  if a database error occurs.
+ - seealso: Struct
  */
 - (void)writeStructWithJavaSqlStruct:(id<JavaSqlStruct>)theStruct;
 
@@ -249,6 +269,7 @@
  the <code>java.sql.Array</code> object to write.
  @throws SQLException
  if a database error occurs.
+ - seealso: Array
  */
 - (void)writeArrayWithJavaSqlArray:(id<JavaSqlArray>)theArray;
 
@@ -258,6 +279,7 @@
  the datalink value as a <code>java.net.URL</code> to write.
  @throws SQLException
  if a database error occurs.
+ - seealso: java.net.URL
  */
 - (void)writeURLWithJavaNetURL:(JavaNetURL *)theURL;
 
@@ -304,4 +326,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLOutput)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLOutput)
 
-#endif // _JavaSqlSQLOutput_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLOutput_INCLUDE_ALL")

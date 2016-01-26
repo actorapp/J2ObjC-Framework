@@ -3,19 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ScheduledThreadPoolExecutor.java
 //
 
-#ifndef _JavaUtilConcurrentScheduledThreadPoolExecutor_H_
-#define _JavaUtilConcurrentScheduledThreadPoolExecutor_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/util/AbstractQueue.h"
-#include "../../../java/util/concurrent/BlockingQueue.h"
-#include "../../../java/util/concurrent/ScheduledExecutorService.h"
+
+#pragma push_macro("JavaUtilConcurrentScheduledThreadPoolExecutor_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentScheduledThreadPoolExecutor_RESTRICT
+#define JavaUtilConcurrentScheduledThreadPoolExecutor_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentScheduledThreadPoolExecutor_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentScheduledThreadPoolExecutor_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentScheduledThreadPoolExecutor_) && (JavaUtilConcurrentScheduledThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentScheduledThreadPoolExecutor_INCLUDE))
+#define JavaUtilConcurrentScheduledThreadPoolExecutor_
+
+#define JavaUtilConcurrentThreadPoolExecutor_RESTRICT 1
+#define JavaUtilConcurrentThreadPoolExecutor_INCLUDE 1
 #include "../../../java/util/concurrent/ThreadPoolExecutor.h"
 
-@class IOSObjectArray;
-@class JavaUtilConcurrentTimeUnitEnum;
+#define JavaUtilConcurrentScheduledExecutorService_RESTRICT 1
+#define JavaUtilConcurrentScheduledExecutorService_INCLUDE 1
+#include "../../../java/util/concurrent/ScheduledExecutorService.h"
+
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
-@protocol JavaUtilCollection;
 @protocol JavaUtilConcurrentBlockingQueue;
 @protocol JavaUtilConcurrentCallable;
 @protocol JavaUtilConcurrentFuture;
@@ -23,7 +36,6 @@
 @protocol JavaUtilConcurrentRunnableScheduledFuture;
 @protocol JavaUtilConcurrentScheduledFuture;
 @protocol JavaUtilConcurrentThreadFactory;
-@protocol JavaUtilIterator;
 @protocol JavaUtilList;
 
 /*!
@@ -177,6 +189,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  <code>false</code> when already shutdown.
  This value is by default <code>false</code>.
  @return <code>true</code> if will continue after shutdown
+ - seealso: #setContinueExistingPeriodicTasksAfterShutdownPolicy
  */
 - (jboolean)getContinueExistingPeriodicTasksAfterShutdownPolicy;
 
@@ -188,6 +201,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  <code>false</code> when already shutdown.
  This value is by default <code>true</code>.
  @return <code>true</code> if will execute after shutdown
+ - seealso: #setExecuteExistingDelayedTasksAfterShutdownPolicy
  */
 - (jboolean)getExecuteExistingDelayedTasksAfterShutdownPolicy;
 
@@ -211,6 +225,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  by default <code>false</code>.
  @return <code>true</code> if cancelled tasks are immediately removed
  from the queue
+ - seealso: #setRemoveOnCancelPolicy
  @since 1.7
  */
 - (jboolean)getRemoveOnCancelPolicy;
@@ -221,7 +236,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  */
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)callable
                                                                        withLong:(jlong)delay
-                                             withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                                 withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @throws RejectedExecutionException
@@ -229,7 +244,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  */
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleWithJavaLangRunnable:(id<JavaLangRunnable>)command
                                                              withLong:(jlong)delay
-                                   withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @throws RejectedExecutionException
@@ -239,7 +254,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleAtFixedRateWithJavaLangRunnable:(id<JavaLangRunnable>)command
                                                                         withLong:(jlong)initialDelay
                                                                         withLong:(jlong)period
-                                              withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                                  withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @throws RejectedExecutionException
@@ -249,7 +264,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleWithFixedDelayWithJavaLangRunnable:(id<JavaLangRunnable>)command
                                                                            withLong:(jlong)initialDelay
                                                                            withLong:(jlong)delay
-                                                 withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                                     withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Sets the policy on whether to continue executing existing
@@ -259,6 +274,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  <code>false</code> when already shutdown.
  This value is by default <code>false</code>.
  @param value if <code>true</code>, continue after shutdown, else don't
+ - seealso: #getContinueExistingPeriodicTasksAfterShutdownPolicy
  */
 - (void)setContinueExistingPeriodicTasksAfterShutdownPolicyWithBoolean:(jboolean)value;
 
@@ -270,6 +286,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  <code>false</code> when already shutdown.
  This value is by default <code>true</code>.
  @param value if <code>true</code>, execute after shutdown, else don't
+ - seealso: #getExecuteExistingDelayedTasksAfterShutdownPolicy
  */
 - (void)setExecuteExistingDelayedTasksAfterShutdownPolicyWithBoolean:(jboolean)value;
 
@@ -279,6 +296,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  This value is
  by default <code>false</code>.
  @param value if <code>true</code>, remove on cancellation, else don't
+ - seealso: #getRemoveOnCancelPolicy
  @since 1.7
  */
 - (void)setRemoveOnCancelPolicyWithBoolean:(jboolean)value;
@@ -422,6 +440,26 @@ FOUNDATION_EXPORT JavaUtilConcurrentScheduledThreadPoolExecutor *new_JavaUtilCon
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentScheduledThreadPoolExecutor)
 
+#endif
+
+#if !defined (JavaUtilConcurrentScheduledThreadPoolExecutor_DelayedWorkQueue_) && (JavaUtilConcurrentScheduledThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentScheduledThreadPoolExecutor_DelayedWorkQueue_INCLUDE))
+#define JavaUtilConcurrentScheduledThreadPoolExecutor_DelayedWorkQueue_
+
+#define JavaUtilAbstractQueue_RESTRICT 1
+#define JavaUtilAbstractQueue_INCLUDE 1
+#include "../../../java/util/AbstractQueue.h"
+
+#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
+#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
+#include "../../../java/util/concurrent/BlockingQueue.h"
+
+@class IOSObjectArray;
+@class JavaUtilConcurrentTimeUnit;
+@protocol JavaLangRunnable;
+@protocol JavaUtilCollection;
+@protocol JavaUtilConcurrentRunnableScheduledFuture;
+@protocol JavaUtilIterator;
+
 /*!
  @brief Specialized delay queue.
  To mesh with TPE declarations, this
@@ -451,14 +489,14 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentScheduledThreadPoolExecutor)
 
 - (jboolean)offerWithId:(id<JavaLangRunnable>)e
                withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id<JavaUtilConcurrentRunnableScheduledFuture>)peek;
 
 - (id<JavaUtilConcurrentRunnableScheduledFuture>)poll;
 
 - (id<JavaUtilConcurrentRunnableScheduledFuture>)pollWithLong:(jlong)timeout
-                           withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                               withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (void)putWithId:(id<JavaLangRunnable>)e;
 
@@ -478,7 +516,6 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
 
 - (instancetype)init;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentScheduledThreadPoolExecutor_DelayedWorkQueue)
@@ -489,4 +526,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentScheduledThreadPoolExecutor_DelayedWorkQueue
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentScheduledThreadPoolExecutor_DelayedWorkQueue)
 
-#endif // _JavaUtilConcurrentScheduledThreadPoolExecutor_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentScheduledThreadPoolExecutor_INCLUDE_ALL")

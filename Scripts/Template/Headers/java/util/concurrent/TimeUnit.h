@@ -3,31 +3,36 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/TimeUnit.java
 //
 
-#ifndef _JavaUtilConcurrentTimeUnit_H_
-#define _JavaUtilConcurrentTimeUnit_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentTimeUnit_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentTimeUnit_RESTRICT
+#define JavaUtilConcurrentTimeUnit_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentTimeUnit_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentTimeUnit_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentTimeUnit_) && (JavaUtilConcurrentTimeUnit_INCLUDE_ALL || defined(JavaUtilConcurrentTimeUnit_INCLUDE))
+#define JavaUtilConcurrentTimeUnit_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
 #include "../../../java/lang/Enum.h"
 
 @class JavaLangThread;
 
-#define JavaUtilConcurrentTimeUnitEnum_C0 1LL
-#define JavaUtilConcurrentTimeUnitEnum_C1 1000LL
-#define JavaUtilConcurrentTimeUnitEnum_C2 1000000LL
-#define JavaUtilConcurrentTimeUnitEnum_C3 1000000000LL
-#define JavaUtilConcurrentTimeUnitEnum_C4 60000000000LL
-#define JavaUtilConcurrentTimeUnitEnum_C5 3600000000000LL
-#define JavaUtilConcurrentTimeUnitEnum_C6 86400000000000LL
-#define JavaUtilConcurrentTimeUnitEnum_MAX 9223372036854775807LL
-
-typedef NS_ENUM(NSUInteger, JavaUtilConcurrentTimeUnit) {
-  JavaUtilConcurrentTimeUnit_NANOSECONDS = 0,
-  JavaUtilConcurrentTimeUnit_MICROSECONDS = 1,
-  JavaUtilConcurrentTimeUnit_MILLISECONDS = 2,
-  JavaUtilConcurrentTimeUnit_SECONDS = 3,
-  JavaUtilConcurrentTimeUnit_MINUTES = 4,
-  JavaUtilConcurrentTimeUnit_HOURS = 5,
-  JavaUtilConcurrentTimeUnit_DAYS = 6,
+typedef NS_ENUM(NSUInteger, JavaUtilConcurrentTimeUnit_Enum) {
+  JavaUtilConcurrentTimeUnit_Enum_NANOSECONDS = 0,
+  JavaUtilConcurrentTimeUnit_Enum_MICROSECONDS = 1,
+  JavaUtilConcurrentTimeUnit_Enum_MILLISECONDS = 2,
+  JavaUtilConcurrentTimeUnit_Enum_SECONDS = 3,
+  JavaUtilConcurrentTimeUnit_Enum_MINUTES = 4,
+  JavaUtilConcurrentTimeUnit_Enum_HOURS = 5,
+  JavaUtilConcurrentTimeUnit_Enum_DAYS = 6,
 };
 
 /*!
@@ -63,7 +68,37 @@ typedef NS_ENUM(NSUInteger, JavaUtilConcurrentTimeUnit) {
  @since 1.5
  @author Doug Lea
  */
-@interface JavaUtilConcurrentTimeUnitEnum : JavaLangEnum < NSCopying >
+@interface JavaUtilConcurrentTimeUnit : JavaLangEnum < NSCopying >
+
++ (jlong)C0;
+
++ (jlong)C1;
+
++ (jlong)C2;
+
++ (jlong)C3;
+
++ (jlong)C4;
+
++ (jlong)C5;
+
++ (jlong)C6;
+
++ (jlong)MAX;
+
++ (JavaUtilConcurrentTimeUnit *)NANOSECONDS;
+
++ (JavaUtilConcurrentTimeUnit *)MICROSECONDS;
+
++ (JavaUtilConcurrentTimeUnit *)MILLISECONDS;
+
++ (JavaUtilConcurrentTimeUnit *)SECONDS;
+
++ (JavaUtilConcurrentTimeUnit *)MINUTES;
+
++ (JavaUtilConcurrentTimeUnit *)HOURS;
+
++ (JavaUtilConcurrentTimeUnit *)DAYS;
 
 #pragma mark Public
 
@@ -84,7 +119,7 @@ typedef NS_ENUM(NSUInteger, JavaUtilConcurrentTimeUnit) {
  overflow, or <code>Long.MAX_VALUE</code> if it would positively overflow.
  */
 - (jlong)convertWithLong:(jlong)sourceDuration
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)sourceUnit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)sourceUnit;
 
 /*!
  @brief Performs a <code>Thread.sleep</code> using
@@ -227,58 +262,108 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)sourceUnit;
           withLong:(jlong)over;
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaUtilConcurrentTimeUnitEnum_values();
 
-+ (JavaUtilConcurrentTimeUnitEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaUtilConcurrentTimeUnitEnum *JavaUtilConcurrentTimeUnitEnum_valueOfWithNSString_(NSString *name);
++ (JavaUtilConcurrentTimeUnit *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaUtilConcurrentTimeUnit_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaUtilConcurrentTimeUnitEnum)
+J2OBJC_STATIC_INIT(JavaUtilConcurrentTimeUnit)
 
-FOUNDATION_EXPORT JavaUtilConcurrentTimeUnitEnum *JavaUtilConcurrentTimeUnitEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaUtilConcurrentTimeUnit *JavaUtilConcurrentTimeUnit_values_[];
 
-#define JavaUtilConcurrentTimeUnitEnum_NANOSECONDS JavaUtilConcurrentTimeUnitEnum_values_[JavaUtilConcurrentTimeUnit_NANOSECONDS]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaUtilConcurrentTimeUnitEnum, NANOSECONDS)
+/*!
+ @brief Time unit representing one thousandth of a microsecond
+ */
+inline JavaUtilConcurrentTimeUnit *JavaUtilConcurrentTimeUnit_get_NANOSECONDS();
+J2OBJC_ENUM_CONSTANT(JavaUtilConcurrentTimeUnit, NANOSECONDS)
 
-#define JavaUtilConcurrentTimeUnitEnum_MICROSECONDS JavaUtilConcurrentTimeUnitEnum_values_[JavaUtilConcurrentTimeUnit_MICROSECONDS]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaUtilConcurrentTimeUnitEnum, MICROSECONDS)
+/*!
+ @brief Time unit representing one thousandth of a millisecond
+ */
+inline JavaUtilConcurrentTimeUnit *JavaUtilConcurrentTimeUnit_get_MICROSECONDS();
+J2OBJC_ENUM_CONSTANT(JavaUtilConcurrentTimeUnit, MICROSECONDS)
 
-#define JavaUtilConcurrentTimeUnitEnum_MILLISECONDS JavaUtilConcurrentTimeUnitEnum_values_[JavaUtilConcurrentTimeUnit_MILLISECONDS]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaUtilConcurrentTimeUnitEnum, MILLISECONDS)
+/*!
+ @brief Time unit representing one thousandth of a second
+ */
+inline JavaUtilConcurrentTimeUnit *JavaUtilConcurrentTimeUnit_get_MILLISECONDS();
+J2OBJC_ENUM_CONSTANT(JavaUtilConcurrentTimeUnit, MILLISECONDS)
 
-#define JavaUtilConcurrentTimeUnitEnum_SECONDS JavaUtilConcurrentTimeUnitEnum_values_[JavaUtilConcurrentTimeUnit_SECONDS]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaUtilConcurrentTimeUnitEnum, SECONDS)
+/*!
+ @brief Time unit representing one second
+ */
+inline JavaUtilConcurrentTimeUnit *JavaUtilConcurrentTimeUnit_get_SECONDS();
+J2OBJC_ENUM_CONSTANT(JavaUtilConcurrentTimeUnit, SECONDS)
 
-#define JavaUtilConcurrentTimeUnitEnum_MINUTES JavaUtilConcurrentTimeUnitEnum_values_[JavaUtilConcurrentTimeUnit_MINUTES]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaUtilConcurrentTimeUnitEnum, MINUTES)
+/*!
+ @brief Time unit representing sixty seconds
+ @since 1.6
+ */
+inline JavaUtilConcurrentTimeUnit *JavaUtilConcurrentTimeUnit_get_MINUTES();
+J2OBJC_ENUM_CONSTANT(JavaUtilConcurrentTimeUnit, MINUTES)
 
-#define JavaUtilConcurrentTimeUnitEnum_HOURS JavaUtilConcurrentTimeUnitEnum_values_[JavaUtilConcurrentTimeUnit_HOURS]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaUtilConcurrentTimeUnitEnum, HOURS)
+/*!
+ @brief Time unit representing sixty minutes
+ @since 1.6
+ */
+inline JavaUtilConcurrentTimeUnit *JavaUtilConcurrentTimeUnit_get_HOURS();
+J2OBJC_ENUM_CONSTANT(JavaUtilConcurrentTimeUnit, HOURS)
 
-#define JavaUtilConcurrentTimeUnitEnum_DAYS JavaUtilConcurrentTimeUnitEnum_values_[JavaUtilConcurrentTimeUnit_DAYS]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaUtilConcurrentTimeUnitEnum, DAYS)
+/*!
+ @brief Time unit representing twenty four hours
+ @since 1.6
+ */
+inline JavaUtilConcurrentTimeUnit *JavaUtilConcurrentTimeUnit_get_DAYS();
+J2OBJC_ENUM_CONSTANT(JavaUtilConcurrentTimeUnit, DAYS)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentTimeUnitEnum, C0, jlong)
+inline jlong JavaUtilConcurrentTimeUnit_get_C0();
+#define JavaUtilConcurrentTimeUnit_C0 1LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentTimeUnit, C0, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentTimeUnitEnum, C1, jlong)
+inline jlong JavaUtilConcurrentTimeUnit_get_C1();
+#define JavaUtilConcurrentTimeUnit_C1 1000LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentTimeUnit, C1, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentTimeUnitEnum, C2, jlong)
+inline jlong JavaUtilConcurrentTimeUnit_get_C2();
+#define JavaUtilConcurrentTimeUnit_C2 1000000LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentTimeUnit, C2, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentTimeUnitEnum, C3, jlong)
+inline jlong JavaUtilConcurrentTimeUnit_get_C3();
+#define JavaUtilConcurrentTimeUnit_C3 1000000000LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentTimeUnit, C3, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentTimeUnitEnum, C4, jlong)
+inline jlong JavaUtilConcurrentTimeUnit_get_C4();
+#define JavaUtilConcurrentTimeUnit_C4 60000000000LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentTimeUnit, C4, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentTimeUnitEnum, C5, jlong)
+inline jlong JavaUtilConcurrentTimeUnit_get_C5();
+#define JavaUtilConcurrentTimeUnit_C5 3600000000000LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentTimeUnit, C5, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentTimeUnitEnum, C6, jlong)
+inline jlong JavaUtilConcurrentTimeUnit_get_C6();
+#define JavaUtilConcurrentTimeUnit_C6 86400000000000LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentTimeUnit, C6, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentTimeUnitEnum, MAX, jlong)
+inline jlong JavaUtilConcurrentTimeUnit_get_MAX();
+#define JavaUtilConcurrentTimeUnit_MAX 9223372036854775807LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentTimeUnit, MAX, jlong)
 
-FOUNDATION_EXPORT jlong JavaUtilConcurrentTimeUnitEnum_xWithLong_withLong_withLong_(jlong d, jlong m, jlong over);
+FOUNDATION_EXPORT jlong JavaUtilConcurrentTimeUnit_xWithLong_withLong_withLong_(jlong d, jlong m, jlong over);
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentTimeUnitEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaUtilConcurrentTimeUnit_values();
 
-#endif // _JavaUtilConcurrentTimeUnit_H_
+FOUNDATION_EXPORT JavaUtilConcurrentTimeUnit *JavaUtilConcurrentTimeUnit_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaUtilConcurrentTimeUnit *JavaUtilConcurrentTimeUnit_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentTimeUnit)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentTimeUnit_INCLUDE_ALL")

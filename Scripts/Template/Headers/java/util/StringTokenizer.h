@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/StringTokenizer.java
 //
 
-#ifndef _JavaUtilStringTokenizer_H_
-#define _JavaUtilStringTokenizer_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilStringTokenizer_INCLUDE_ALL")
+#ifdef JavaUtilStringTokenizer_RESTRICT
+#define JavaUtilStringTokenizer_INCLUDE_ALL 0
+#else
+#define JavaUtilStringTokenizer_INCLUDE_ALL 1
+#endif
+#undef JavaUtilStringTokenizer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilStringTokenizer_) && (JavaUtilStringTokenizer_INCLUDE_ALL || defined(JavaUtilStringTokenizer_INCLUDE))
+#define JavaUtilStringTokenizer_
+
+#define JavaUtilEnumeration_RESTRICT 1
+#define JavaUtilEnumeration_INCLUDE 1
 #include "../../java/util/Enumeration.h"
 
 /*!
@@ -144,4 +158,8 @@ FOUNDATION_EXPORT JavaUtilStringTokenizer *new_JavaUtilStringTokenizer_initWithN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStringTokenizer)
 
-#endif // _JavaUtilStringTokenizer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilStringTokenizer_INCLUDE_ALL")

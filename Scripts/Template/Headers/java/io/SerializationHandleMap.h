@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/io/SerializationHandleMap.java
 //
 
-#ifndef _JavaIoSerializationHandleMap_H_
-#define _JavaIoSerializationHandleMap_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoSerializationHandleMap_INCLUDE_ALL")
+#ifdef JavaIoSerializationHandleMap_RESTRICT
+#define JavaIoSerializationHandleMap_INCLUDE_ALL 0
+#else
+#define JavaIoSerializationHandleMap_INCLUDE_ALL 1
+#endif
+#undef JavaIoSerializationHandleMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoSerializationHandleMap_) && (JavaIoSerializationHandleMap_INCLUDE_ALL || defined(JavaIoSerializationHandleMap_INCLUDE))
+#define JavaIoSerializationHandleMap_
 
 /*!
  @brief A specialization of IdentityHashMap<Object, int> for use when serializing objects.
@@ -38,4 +49,8 @@ FOUNDATION_EXPORT JavaIoSerializationHandleMap *new_JavaIoSerializationHandleMap
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoSerializationHandleMap)
 
-#endif // _JavaIoSerializationHandleMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoSerializationHandleMap_INCLUDE_ALL")

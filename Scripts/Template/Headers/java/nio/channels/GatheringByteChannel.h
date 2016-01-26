@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/GatheringByteChannel.java
 //
 
-#ifndef _JavaNioChannelsGatheringByteChannel_H_
-#define _JavaNioChannelsGatheringByteChannel_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsGatheringByteChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsGatheringByteChannel_RESTRICT
+#define JavaNioChannelsGatheringByteChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsGatheringByteChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsGatheringByteChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsGatheringByteChannel_) && (JavaNioChannelsGatheringByteChannel_INCLUDE_ALL || defined(JavaNioChannelsGatheringByteChannel_INCLUDE))
+#define JavaNioChannelsGatheringByteChannel_
+
+#define JavaNioChannelsWritableByteChannel_RESTRICT 1
+#define JavaNioChannelsWritableByteChannel_INCLUDE 1
 #include "../../../java/nio/channels/WritableByteChannel.h"
 
 @class IOSObjectArray;
@@ -92,4 +106,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNioChannelsGatheringByteChannel)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsGatheringByteChannel)
 
-#endif // _JavaNioChannelsGatheringByteChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsGatheringByteChannel_INCLUDE_ALL")

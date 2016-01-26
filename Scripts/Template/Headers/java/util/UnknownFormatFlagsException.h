@@ -3,15 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/util/UnknownFormatFlagsException.java
 //
 
-#ifndef _JavaUtilUnknownFormatFlagsException_H_
-#define _JavaUtilUnknownFormatFlagsException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilUnknownFormatFlagsException_INCLUDE_ALL")
+#ifdef JavaUtilUnknownFormatFlagsException_RESTRICT
+#define JavaUtilUnknownFormatFlagsException_INCLUDE_ALL 0
+#else
+#define JavaUtilUnknownFormatFlagsException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilUnknownFormatFlagsException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilUnknownFormatFlagsException_) && (JavaUtilUnknownFormatFlagsException_INCLUDE_ALL || defined(JavaUtilUnknownFormatFlagsException_INCLUDE))
+#define JavaUtilUnknownFormatFlagsException_
+
+#define JavaUtilIllegalFormatException_RESTRICT 1
+#define JavaUtilIllegalFormatException_INCLUDE 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief An <code>UnknownFormatFlagsException</code> will be thrown if there is
  an unknown flag.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilUnknownFormatFlagsException : JavaUtilIllegalFormatException
 
@@ -43,4 +58,8 @@ FOUNDATION_EXPORT JavaUtilUnknownFormatFlagsException *new_JavaUtilUnknownFormat
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUnknownFormatFlagsException)
 
-#endif // _JavaUtilUnknownFormatFlagsException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilUnknownFormatFlagsException_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/ByteArrayOutputStream.java
 //
 
-#ifndef _JavaIoByteArrayOutputStream_H_
-#define _JavaIoByteArrayOutputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoByteArrayOutputStream_INCLUDE_ALL")
+#ifdef JavaIoByteArrayOutputStream_RESTRICT
+#define JavaIoByteArrayOutputStream_INCLUDE_ALL 0
+#else
+#define JavaIoByteArrayOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoByteArrayOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoByteArrayOutputStream_) && (JavaIoByteArrayOutputStream_INCLUDE_ALL || defined(JavaIoByteArrayOutputStream_INCLUDE))
+#define JavaIoByteArrayOutputStream_
+
+#define JavaIoOutputStream_RESTRICT 1
+#define JavaIoOutputStream_INCLUDE 1
 #include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
@@ -17,6 +31,7 @@
  As bytes are written to this stream, the byte array
  may be expanded to hold more bytes. When the writing is considered to be
  finished, a copy of the byte array can be requested from the class.
+ - seealso: ByteArrayInputStream
  */
 @interface JavaIoByteArrayOutputStream : JavaIoOutputStream {
  @public
@@ -105,7 +120,7 @@
  @return this stream's current contents as a string with the high byte set
  to <code>hibyte</code>.
  */
-- (NSString *)toStringWithInt:(jint)hibyte;
+- (NSString *)toStringWithInt:(jint)hibyte __attribute__((deprecated));
 
 /*!
  @brief Returns the contents of this ByteArrayOutputStream as a string converted
@@ -174,4 +189,8 @@ FOUNDATION_EXPORT JavaIoByteArrayOutputStream *new_JavaIoByteArrayOutputStream_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoByteArrayOutputStream)
 
-#endif // _JavaIoByteArrayOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoByteArrayOutputStream_INCLUDE_ALL")

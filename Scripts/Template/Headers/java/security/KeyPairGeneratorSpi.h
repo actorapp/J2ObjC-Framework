@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/KeyPairGeneratorSpi.java
 //
 
-#ifndef _JavaSecurityKeyPairGeneratorSpi_H_
-#define _JavaSecurityKeyPairGeneratorSpi_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityKeyPairGeneratorSpi_INCLUDE_ALL")
+#ifdef JavaSecurityKeyPairGeneratorSpi_RESTRICT
+#define JavaSecurityKeyPairGeneratorSpi_INCLUDE_ALL 0
+#else
+#define JavaSecurityKeyPairGeneratorSpi_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityKeyPairGeneratorSpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityKeyPairGeneratorSpi_) && (JavaSecurityKeyPairGeneratorSpi_INCLUDE_ALL || defined(JavaSecurityKeyPairGeneratorSpi_INCLUDE))
+#define JavaSecurityKeyPairGeneratorSpi_
 
 @class JavaSecurityKeyPair;
 @class JavaSecuritySecureRandom;
@@ -15,6 +26,7 @@
 /*!
  @brief <code>KeyPairGeneratorSpi</code> is the Service Provider Interface (SPI)
  definition for <code>KeyPairGenerator</code>.
+ - seealso: KeyPairGenerator
  */
 @interface JavaSecurityKeyPairGeneratorSpi : NSObject
 
@@ -65,4 +77,8 @@ FOUNDATION_EXPORT void JavaSecurityKeyPairGeneratorSpi_init(JavaSecurityKeyPairG
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyPairGeneratorSpi)
 
-#endif // _JavaSecurityKeyPairGeneratorSpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityKeyPairGeneratorSpi_INCLUDE_ALL")

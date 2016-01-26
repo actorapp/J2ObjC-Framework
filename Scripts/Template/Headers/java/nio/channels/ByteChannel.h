@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/ByteChannel.java
 //
 
-#ifndef _JavaNioChannelsByteChannel_H_
-#define _JavaNioChannelsByteChannel_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsByteChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsByteChannel_RESTRICT
+#define JavaNioChannelsByteChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsByteChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsByteChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsByteChannel_) && (JavaNioChannelsByteChannel_INCLUDE_ALL || defined(JavaNioChannelsByteChannel_INCLUDE))
+#define JavaNioChannelsByteChannel_
+
+#define JavaNioChannelsReadableByteChannel_RESTRICT 1
+#define JavaNioChannelsReadableByteChannel_INCLUDE 1
 #include "../../../java/nio/channels/ReadableByteChannel.h"
+
+#define JavaNioChannelsWritableByteChannel_RESTRICT 1
+#define JavaNioChannelsWritableByteChannel_INCLUDE 1
 #include "../../../java/nio/channels/WritableByteChannel.h"
 
 /*!
@@ -15,6 +32,8 @@
  <p>
  The methods for the byte channel are precisely those defined by readable and
  writable byte channels.
+ - seealso: ReadableByteChannel
+ - seealso: WritableByteChannel
  */
 @protocol JavaNioChannelsByteChannel < JavaNioChannelsReadableByteChannel, JavaNioChannelsWritableByteChannel, NSObject, JavaObject >
 
@@ -24,4 +43,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNioChannelsByteChannel)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsByteChannel)
 
-#endif // _JavaNioChannelsByteChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsByteChannel_INCLUDE_ALL")

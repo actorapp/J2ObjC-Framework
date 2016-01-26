@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/AbstractSequentialList.java
 //
 
-#ifndef _JavaUtilAbstractSequentialList_H_
-#define _JavaUtilAbstractSequentialList_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilAbstractSequentialList_INCLUDE_ALL")
+#ifdef JavaUtilAbstractSequentialList_RESTRICT
+#define JavaUtilAbstractSequentialList_INCLUDE_ALL 0
+#else
+#define JavaUtilAbstractSequentialList_INCLUDE_ALL 1
+#endif
+#undef JavaUtilAbstractSequentialList_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilAbstractSequentialList_) && (JavaUtilAbstractSequentialList_INCLUDE_ALL || defined(JavaUtilAbstractSequentialList_INCLUDE))
+#define JavaUtilAbstractSequentialList_
+
+#define JavaUtilAbstractList_RESTRICT 1
+#define JavaUtilAbstractList_INCLUDE 1
 #include "../../java/util/AbstractList.h"
 
 @protocol JavaUtilCollection;
@@ -49,7 +63,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilAbstractSequentialList)
@@ -58,4 +71,8 @@ FOUNDATION_EXPORT void JavaUtilAbstractSequentialList_init(JavaUtilAbstractSeque
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractSequentialList)
 
-#endif // _JavaUtilAbstractSequentialList_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilAbstractSequentialList_INCLUDE_ALL")

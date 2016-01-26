@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/crypto/Mac.java
 //
 
-#ifndef _JavaxCryptoMac_H_
-#define _JavaxCryptoMac_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxCryptoMac_INCLUDE_ALL")
+#ifdef JavaxCryptoMac_RESTRICT
+#define JavaxCryptoMac_INCLUDE_ALL 0
+#else
+#define JavaxCryptoMac_INCLUDE_ALL 1
+#endif
+#undef JavaxCryptoMac_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxCryptoMac_) && (JavaxCryptoMac_INCLUDE_ALL || defined(JavaxCryptoMac_INCLUDE))
+#define JavaxCryptoMac_
 
 @class IOSByteArray;
 @class JavaNioByteBuffer;
@@ -277,4 +288,8 @@ FOUNDATION_EXPORT JavaxCryptoMac *JavaxCryptoMac_getInstanceWithNSString_withJav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoMac)
 
-#endif // _JavaxCryptoMac_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxCryptoMac_INCLUDE_ALL")

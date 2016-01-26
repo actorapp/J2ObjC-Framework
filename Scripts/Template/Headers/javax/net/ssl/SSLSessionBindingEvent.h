@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLSessionBindingEvent.java
 //
 
-#ifndef _JavaxNetSslSSLSessionBindingEvent_H_
-#define _JavaxNetSslSSLSessionBindingEvent_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLSessionBindingEvent_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLSessionBindingEvent_RESTRICT
+#define JavaxNetSslSSLSessionBindingEvent_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLSessionBindingEvent_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLSessionBindingEvent_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLSessionBindingEvent_) && (JavaxNetSslSSLSessionBindingEvent_INCLUDE_ALL || defined(JavaxNetSslSSLSessionBindingEvent_INCLUDE))
+#define JavaxNetSslSSLSessionBindingEvent_
+
+#define JavaUtilEventObject_RESTRICT 1
+#define JavaUtilEventObject_INCLUDE 1
 #include "../../../java/util/EventObject.h"
 
 @protocol JavaxNetSslSSLSession;
@@ -55,4 +69,8 @@ FOUNDATION_EXPORT JavaxNetSslSSLSessionBindingEvent *new_JavaxNetSslSSLSessionBi
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLSessionBindingEvent)
 
-#endif // _JavaxNetSslSSLSessionBindingEvent_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLSessionBindingEvent_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/CharArrayWriter.java
 //
 
-#ifndef _JavaIoCharArrayWriter_H_
-#define _JavaIoCharArrayWriter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoCharArrayWriter_INCLUDE_ALL")
+#ifdef JavaIoCharArrayWriter_RESTRICT
+#define JavaIoCharArrayWriter_INCLUDE_ALL 0
+#else
+#define JavaIoCharArrayWriter_INCLUDE_ALL 1
+#endif
+#undef JavaIoCharArrayWriter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoCharArrayWriter_) && (JavaIoCharArrayWriter_INCLUDE_ALL || defined(JavaIoCharArrayWriter_INCLUDE))
+#define JavaIoCharArrayWriter_
+
+#define JavaIoWriter_RESTRICT 1
+#define JavaIoWriter_INCLUDE 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -18,6 +32,7 @@
  As bytes are written to this writer, the char array may be
  expanded to hold more characters. When the writing is considered to be
  finished, a copy of the char array can be requested from the class.
+ - seealso: CharArrayReader
  */
 @interface JavaIoCharArrayWriter : JavaIoWriter {
  @public
@@ -219,4 +234,8 @@ FOUNDATION_EXPORT JavaIoCharArrayWriter *new_JavaIoCharArrayWriter_initWithInt_(
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharArrayWriter)
 
-#endif // _JavaIoCharArrayWriter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoCharArrayWriter_INCLUDE_ALL")

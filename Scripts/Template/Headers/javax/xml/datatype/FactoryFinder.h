@@ -3,14 +3,23 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/datatype/FactoryFinder.java
 //
 
-#ifndef _JavaxXmlDatatypeFactoryFinder_H_
-#define _JavaxXmlDatatypeFactoryFinder_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/lang/Error.h"
+
+#pragma push_macro("JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL")
+#ifdef JavaxXmlDatatypeFactoryFinder_RESTRICT
+#define JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL 0
+#else
+#define JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlDatatypeFactoryFinder_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlDatatypeFactoryFinder_) && (JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL || defined(JavaxXmlDatatypeFactoryFinder_INCLUDE))
+#define JavaxXmlDatatypeFactoryFinder_
 
 @class JavaLangClassLoader;
-@class JavaLangException;
 
 /*!
  @brief <p>Implement pluggable data types.
@@ -59,6 +68,17 @@ FOUNDATION_EXPORT id JavaxXmlDatatypeFactoryFinder_findWithNSString_withNSString
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeFactoryFinder)
 
+#endif
+
+#if !defined (JavaxXmlDatatypeFactoryFinder_ConfigurationError_) && (JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL || defined(JavaxXmlDatatypeFactoryFinder_ConfigurationError_INCLUDE))
+#define JavaxXmlDatatypeFactoryFinder_ConfigurationError_
+
+#define JavaLangError_RESTRICT 1
+#define JavaLangError_INCLUDE 1
+#include "../../../java/lang/Error.h"
+
+@class JavaLangException;
+
 /*!
  @brief <p>Configuration Error.
  </p>
@@ -94,4 +114,8 @@ FOUNDATION_EXPORT JavaxXmlDatatypeFactoryFinder_ConfigurationError *new_JavaxXml
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeFactoryFinder_ConfigurationError)
 
-#endif // _JavaxXmlDatatypeFactoryFinder_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL")

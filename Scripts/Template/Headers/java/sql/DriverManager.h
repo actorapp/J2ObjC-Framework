@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/DriverManager.java
 //
 
-#ifndef _JavaSqlDriverManager_H_
-#define _JavaSqlDriverManager_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlDriverManager_INCLUDE_ALL")
+#ifdef JavaSqlDriverManager_RESTRICT
+#define JavaSqlDriverManager_INCLUDE_ALL 0
+#else
+#define JavaSqlDriverManager_INCLUDE_ALL 1
+#endif
+#undef JavaSqlDriverManager_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlDriverManager_) && (JavaSqlDriverManager_INCLUDE_ALL || defined(JavaSqlDriverManager_INCLUDE))
+#define JavaSqlDriverManager_
 
 @class JavaIoPrintStream;
 @class JavaIoPrintWriter;
@@ -125,7 +136,7 @@
  all the JDBC Drivers.
  @return the <code>PrintStream</code> used for logging activities.
  */
-+ (JavaIoPrintStream *)getLogStream;
++ (JavaIoPrintStream *)getLogStream __attribute__((deprecated));
 
 /*!
  @brief Retrieves the log writer.
@@ -168,7 +179,7 @@
  @param outArg
  the <code>PrintStream</code> to use for logging.
  */
-+ (void)setLogStreamWithJavaIoPrintStream:(JavaIoPrintStream *)outArg;
++ (void)setLogStreamWithJavaIoPrintStream:(JavaIoPrintStream *)outArg __attribute__((deprecated));
 
 /*!
  @brief Sets the <code>PrintWriter</code> that is used by all loaded drivers, and also
@@ -212,4 +223,8 @@ FOUNDATION_EXPORT void JavaSqlDriverManager_setLogWriterWithJavaIoPrintWriter_(J
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDriverManager)
 
-#endif // _JavaSqlDriverManager_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlDriverManager_INCLUDE_ALL")

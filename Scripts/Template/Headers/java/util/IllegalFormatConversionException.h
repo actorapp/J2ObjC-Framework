@@ -3,18 +3,36 @@
 //  source: android/libcore/luni/src/main/java/java/util/IllegalFormatConversionException.java
 //
 
-#ifndef _JavaUtilIllegalFormatConversionException_H_
-#define _JavaUtilIllegalFormatConversionException_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilIllegalFormatConversionException_INCLUDE_ALL")
+#ifdef JavaUtilIllegalFormatConversionException_RESTRICT
+#define JavaUtilIllegalFormatConversionException_INCLUDE_ALL 0
+#else
+#define JavaUtilIllegalFormatConversionException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilIllegalFormatConversionException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilIllegalFormatConversionException_) && (JavaUtilIllegalFormatConversionException_INCLUDE_ALL || defined(JavaUtilIllegalFormatConversionException_INCLUDE))
+#define JavaUtilIllegalFormatConversionException_
+
+#define JavaUtilIllegalFormatException_RESTRICT 1
+#define JavaUtilIllegalFormatException_INCLUDE 1
 #include "../../java/util/IllegalFormatException.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSClass;
 
 /*!
  @brief An <code>IllegalFormatConversionException</code> will be thrown when the parameter
  is incompatible with the corresponding format specifier.
+ - seealso: java.lang.RuntimeException
  @since 1.5
  */
 @interface JavaUtilIllegalFormatConversionException : JavaUtilIllegalFormatException < JavaIoSerializable >
@@ -56,4 +74,8 @@ FOUNDATION_EXPORT JavaUtilIllegalFormatConversionException *new_JavaUtilIllegalF
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatConversionException)
 
-#endif // _JavaUtilIllegalFormatConversionException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilIllegalFormatConversionException_INCLUDE_ALL")

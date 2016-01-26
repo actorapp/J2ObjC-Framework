@@ -3,13 +3,25 @@
 //  source: android/libcore/luni/src/main/java/javax/crypto/SecretKey.java
 //
 
-#ifndef _JavaxCryptoSecretKey_H_
-#define _JavaxCryptoSecretKey_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/security/Key.h"
 
-#define JavaxCryptoSecretKey_serialVersionUID -4795878709595146952LL
+#pragma push_macro("JavaxCryptoSecretKey_INCLUDE_ALL")
+#ifdef JavaxCryptoSecretKey_RESTRICT
+#define JavaxCryptoSecretKey_INCLUDE_ALL 0
+#else
+#define JavaxCryptoSecretKey_INCLUDE_ALL 1
+#endif
+#undef JavaxCryptoSecretKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxCryptoSecretKey_) && (JavaxCryptoSecretKey_INCLUDE_ALL || defined(JavaxCryptoSecretKey_INCLUDE))
+#define JavaxCryptoSecretKey_
+
+#define JavaSecurityKey_RESTRICT 1
+#define JavaSecurityKey_INCLUDE 1
+#include "../../java/security/Key.h"
 
 /*!
  @brief A cryptographic secret (symmetric) key.
@@ -26,10 +38,25 @@
 
 @end
 
+@interface JavaxCryptoSecretKey : NSObject
+
++ (jlong)serialVersionUID;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaxCryptoSecretKey)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxCryptoSecretKey, serialVersionUID, jlong)
+/*!
+ @brief The serialization version identifier.
+ */
+inline jlong JavaxCryptoSecretKey_get_serialVersionUID();
+#define JavaxCryptoSecretKey_serialVersionUID -4795878709595146952LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxCryptoSecretKey, serialVersionUID, jlong)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSecretKey)
 
-#endif // _JavaxCryptoSecretKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxCryptoSecretKey_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/CacheResponse.java
 //
 
-#ifndef _JavaNetCacheResponse_H_
-#define _JavaNetCacheResponse_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetCacheResponse_INCLUDE_ALL")
+#ifdef JavaNetCacheResponse_RESTRICT
+#define JavaNetCacheResponse_INCLUDE_ALL 0
+#else
+#define JavaNetCacheResponse_INCLUDE_ALL 1
+#endif
+#undef JavaNetCacheResponse_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetCacheResponse_) && (JavaNetCacheResponse_INCLUDE_ALL || defined(JavaNetCacheResponse_INCLUDE))
+#define JavaNetCacheResponse_
 
 @class JavaIoInputStream;
 @protocol JavaUtilMap;
@@ -15,6 +26,7 @@
  @brief A response cache entry.
  A <code>CacheResponse</code> object provides an <code>InputStream</code>
   to access the response body and a <code>Map</code> for the response headers.
+ - seealso: ResponseCache
  */
 @interface JavaNetCacheResponse : NSObject
 
@@ -55,4 +67,8 @@ FOUNDATION_EXPORT void JavaNetCacheResponse_init(JavaNetCacheResponse *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetCacheResponse)
 
-#endif // _JavaNetCacheResponse_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetCacheResponse_INCLUDE_ALL")

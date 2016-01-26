@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/ErrorListener.java
 //
 
-#ifndef _JavaxXmlTransformErrorListener_H_
-#define _JavaxXmlTransformErrorListener_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformErrorListener_INCLUDE_ALL")
+#ifdef JavaxXmlTransformErrorListener_RESTRICT
+#define JavaxXmlTransformErrorListener_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformErrorListener_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformErrorListener_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformErrorListener_) && (JavaxXmlTransformErrorListener_INCLUDE_ALL || defined(JavaxXmlTransformErrorListener_INCLUDE))
+#define JavaxXmlTransformErrorListener_
 
 @class JavaxXmlTransformTransformerException;
 
@@ -47,6 +58,7 @@
  transformer exception.
  @throws javax.xml.transform.TransformerException if the application
  chooses to discontinue the transformation.
+ - seealso: javax.xml.transform.TransformerException
  */
 - (void)warningWithJavaxXmlTransformTransformerException:(JavaxXmlTransformTransformerException *)exception;
 
@@ -60,6 +72,7 @@
  transformer exception.
  @throws javax.xml.transform.TransformerException if the application
  chooses to discontinue the transformation.
+ - seealso: javax.xml.transform.TransformerException
  */
 - (void)errorWithJavaxXmlTransformTransformerException:(JavaxXmlTransformTransformerException *)exception;
 
@@ -75,6 +88,7 @@
  <code>TransformerException</code>.
  @throws javax.xml.transform.TransformerException if the application
  chooses to discontinue the transformation.
+ - seealso: javax.xml.transform.TransformerException
  */
 - (void)fatalErrorWithJavaxXmlTransformTransformerException:(JavaxXmlTransformTransformerException *)exception;
 
@@ -84,4 +98,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformErrorListener)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformErrorListener)
 
-#endif // _JavaxXmlTransformErrorListener_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformErrorListener_INCLUDE_ALL")

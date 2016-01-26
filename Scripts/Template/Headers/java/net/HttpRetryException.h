@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/HttpRetryException.java
 //
 
-#ifndef _JavaNetHttpRetryException_H_
-#define _JavaNetHttpRetryException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetHttpRetryException_INCLUDE_ALL")
+#ifdef JavaNetHttpRetryException_RESTRICT
+#define JavaNetHttpRetryException_INCLUDE_ALL 0
+#else
+#define JavaNetHttpRetryException_INCLUDE_ALL 1
+#endif
+#undef JavaNetHttpRetryException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetHttpRetryException_) && (JavaNetHttpRetryException_INCLUDE_ALL || defined(JavaNetHttpRetryException_INCLUDE))
+#define JavaNetHttpRetryException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -75,4 +89,8 @@ FOUNDATION_EXPORT JavaNetHttpRetryException *new_JavaNetHttpRetryException_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpRetryException)
 
-#endif // _JavaNetHttpRetryException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetHttpRetryException_INCLUDE_ALL")

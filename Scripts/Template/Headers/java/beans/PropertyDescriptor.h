@@ -3,10 +3,24 @@
 //  source: apache_harmony/classlib/modules/beans/src/main/java/java/beans/PropertyDescriptor.java
 //
 
-#ifndef _JavaBeansPropertyDescriptor_H_
-#define _JavaBeansPropertyDescriptor_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaBeansPropertyDescriptor_INCLUDE_ALL")
+#ifdef JavaBeansPropertyDescriptor_RESTRICT
+#define JavaBeansPropertyDescriptor_INCLUDE_ALL 0
+#else
+#define JavaBeansPropertyDescriptor_INCLUDE_ALL 1
+#endif
+#undef JavaBeansPropertyDescriptor_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaBeansPropertyDescriptor_) && (JavaBeansPropertyDescriptor_INCLUDE_ALL || defined(JavaBeansPropertyDescriptor_INCLUDE))
+#define JavaBeansPropertyDescriptor_
+
+#define JavaBeansFeatureDescriptor_RESTRICT 1
+#define JavaBeansFeatureDescriptor_INCLUDE 1
 #include "../../java/beans/FeatureDescriptor.h"
 
 @class IOSClass;
@@ -88,4 +102,8 @@ FOUNDATION_EXPORT JavaBeansPropertyDescriptor *new_JavaBeansPropertyDescriptor_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyDescriptor)
 
-#endif // _JavaBeansPropertyDescriptor_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaBeansPropertyDescriptor_INCLUDE_ALL")

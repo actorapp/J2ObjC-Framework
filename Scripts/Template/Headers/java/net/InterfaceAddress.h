@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/InterfaceAddress.java
 //
 
-#ifndef _JavaNetInterfaceAddress_H_
-#define _JavaNetInterfaceAddress_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetInterfaceAddress_INCLUDE_ALL")
+#ifdef JavaNetInterfaceAddress_RESTRICT
+#define JavaNetInterfaceAddress_INCLUDE_ALL 0
+#else
+#define JavaNetInterfaceAddress_INCLUDE_ALL 1
+#endif
+#undef JavaNetInterfaceAddress_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetInterfaceAddress_) && (JavaNetInterfaceAddress_INCLUDE_ALL || defined(JavaNetInterfaceAddress_INCLUDE))
+#define JavaNetInterfaceAddress_
 
 @class JavaNetInet4Address;
 @class JavaNetInet6Address;
@@ -86,4 +97,8 @@ FOUNDATION_EXPORT JavaNetInterfaceAddress *new_JavaNetInterfaceAddress_initWithJ
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetInterfaceAddress)
 
-#endif // _JavaNetInterfaceAddress_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetInterfaceAddress_INCLUDE_ALL")

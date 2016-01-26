@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/URIResolver.java
 //
 
-#ifndef _JavaxXmlTransformURIResolver_H_
-#define _JavaxXmlTransformURIResolver_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformURIResolver_INCLUDE_ALL")
+#ifdef JavaxXmlTransformURIResolver_RESTRICT
+#define JavaxXmlTransformURIResolver_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformURIResolver_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformURIResolver_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformURIResolver_) && (JavaxXmlTransformURIResolver_INCLUDE_ALL || defined(JavaxXmlTransformURIResolver_INCLUDE))
+#define JavaxXmlTransformURIResolver_
 
 @protocol JavaxXmlTransformSource;
 
@@ -36,4 +47,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformURIResolver)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformURIResolver)
 
-#endif // _JavaxXmlTransformURIResolver_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformURIResolver_INCLUDE_ALL")

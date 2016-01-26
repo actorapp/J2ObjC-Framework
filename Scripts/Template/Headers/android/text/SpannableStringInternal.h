@@ -3,10 +3,24 @@
 //  source: android/frameworks/base/core/java/android/text/SpannableStringInternal.java
 //
 
-#ifndef _AndroidTextSpannableStringInternal_H_
-#define _AndroidTextSpannableStringInternal_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextSpannableStringInternal_INCLUDE_ALL")
+#ifdef AndroidTextSpannableStringInternal_RESTRICT
+#define AndroidTextSpannableStringInternal_INCLUDE_ALL 0
+#else
+#define AndroidTextSpannableStringInternal_INCLUDE_ALL 1
+#endif
+#undef AndroidTextSpannableStringInternal_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextSpannableStringInternal_) && (AndroidTextSpannableStringInternal_INCLUDE_ALL || defined(AndroidTextSpannableStringInternal_INCLUDE))
+#define AndroidTextSpannableStringInternal_
+
+#define JavaLangCharSequence_RESTRICT 1
+#define JavaLangCharSequence_INCLUDE 1
 #include "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
@@ -14,6 +28,8 @@
 @class IOSObjectArray;
 
 @interface AndroidTextSpannableStringInternal : NSObject < JavaLangCharSequence >
+
++ (IOSObjectArray *)EMPTY;
 
 #pragma mark Public
 
@@ -63,11 +79,17 @@
 
 J2OBJC_STATIC_INIT(AndroidTextSpannableStringInternal)
 
-FOUNDATION_EXPORT IOSObjectArray *AndroidTextSpannableStringInternal_EMPTY_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextSpannableStringInternal, EMPTY_, IOSObjectArray *)
+inline IOSObjectArray *AndroidTextSpannableStringInternal_get_EMPTY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSObjectArray *AndroidTextSpannableStringInternal_EMPTY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(AndroidTextSpannableStringInternal, EMPTY, IOSObjectArray *)
 
 FOUNDATION_EXPORT void AndroidTextSpannableStringInternal_initWithJavaLangCharSequence_withInt_withInt_(AndroidTextSpannableStringInternal *self, id<JavaLangCharSequence> source, jint start, jint end);
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableStringInternal)
 
-#endif // _AndroidTextSpannableStringInternal_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextSpannableStringInternal_INCLUDE_ALL")

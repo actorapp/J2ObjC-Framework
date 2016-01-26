@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/StringBufferInputStream.java
 //
 
-#ifndef _JavaIoStringBufferInputStream_H_
-#define _JavaIoStringBufferInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoStringBufferInputStream_INCLUDE_ALL")
+#ifdef JavaIoStringBufferInputStream_RESTRICT
+#define JavaIoStringBufferInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoStringBufferInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoStringBufferInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoStringBufferInputStream_) && (JavaIoStringBufferInputStream_INCLUDE_ALL || defined(JavaIoStringBufferInputStream_INCLUDE))
+#define JavaIoStringBufferInputStream_
+
+#define JavaIoInputStream_RESTRICT 1
+#define JavaIoInputStream_INCLUDE 1
 #include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
@@ -15,6 +29,7 @@
  @brief A specialized <code>InputStream</code> that reads bytes from a <code>String</code> in
  a sequential manner.
  */
+__attribute__((deprecated))
 @interface JavaIoStringBufferInputStream : JavaIoInputStream {
  @public
   /*!
@@ -88,4 +103,8 @@ FOUNDATION_EXPORT JavaIoStringBufferInputStream *new_JavaIoStringBufferInputStre
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoStringBufferInputStream)
 
-#endif // _JavaIoStringBufferInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoStringBufferInputStream_INCLUDE_ALL")

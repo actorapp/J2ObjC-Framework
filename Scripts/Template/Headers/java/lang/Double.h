@@ -3,36 +3,70 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Double.java
 //
 
-#ifndef _JavaLangDouble_H_
-#define _JavaLangDouble_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangDouble_INCLUDE_ALL")
+#ifdef JavaLangDouble_RESTRICT
+#define JavaLangDouble_INCLUDE_ALL 0
+#else
+#define JavaLangDouble_INCLUDE_ALL 1
+#endif
+#undef JavaLangDouble_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangDouble_) && (JavaLangDouble_INCLUDE_ALL || defined(JavaLangDouble_INCLUDE))
+#define JavaLangDouble_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
 
-#define JavaLangDouble_EXPONENT_BIAS 1023
-#define JavaLangDouble_EXPONENT_BITS 12
-#define JavaLangDouble_MANTISSA_BITS 52
-#define JavaLangDouble_NON_MANTISSA_BITS 12
-#define JavaLangDouble_SIGN_MASK ((jlong) 0x8000000000000000LL)
-#define JavaLangDouble_EXPONENT_MASK 9218868437227405312LL
-#define JavaLangDouble_MANTISSA_MASK 4503599627370495LL
-#define JavaLangDouble_MAX_VALUE __DBL_MAX__
-#define JavaLangDouble_MIN_VALUE 4.9E-324
-#define JavaLangDouble_NaN NAN
-#define JavaLangDouble_POSITIVE_INFINITY INFINITY
-#define JavaLangDouble_NEGATIVE_INFINITY -INFINITY
-#define JavaLangDouble_MIN_NORMAL __DBL_MIN__
-#define JavaLangDouble_MAX_EXPONENT 1023
-#define JavaLangDouble_MIN_EXPONENT -1022
-#define JavaLangDouble_SIZE 64
-
 /*!
  @brief The wrapper for the primitive type <code>double</code>.
+ - seealso: java.lang.Number
  @since 1.0
  */
 @interface JavaLangDouble : NSNumber < JavaLangComparable >
+
++ (NSString *)FLOATING_POINT_REGEX;
+
++ (jint)EXPONENT_BIAS;
+
++ (jint)EXPONENT_BITS;
+
++ (jint)MANTISSA_BITS;
+
++ (jint)NON_MANTISSA_BITS;
+
++ (jlong)SIGN_MASK;
+
++ (jlong)EXPONENT_MASK;
+
++ (jlong)MANTISSA_MASK;
+
++ (jdouble)MAX_VALUE;
+
++ (jdouble)MIN_VALUE;
+
++ (jdouble)NaN;
+
++ (jdouble)POSITIVE_INFINITY;
+
++ (jdouble)NEGATIVE_INFINITY;
+
++ (jdouble)MIN_NORMAL;
+
++ (jint)MAX_EXPONENT;
+
++ (jint)MIN_EXPONENT;
+
++ (IOSClass *)TYPE;
+
++ (jint)SIZE;
 
 #pragma mark Public
 
@@ -50,6 +84,7 @@
  the string representation of a double value.
  @throws NumberFormatException
  if <code>string</code> cannot be parsed as a double value.
+ - seealso: #parseDouble(String)
  */
 - (instancetype)initWithNSString:(NSString *)string;
 
@@ -91,6 +126,7 @@
  of this double is greater than the value of <code>object</code>.
  @throws NullPointerException
  if <code>object</code> is <code>null</code>.
+ - seealso: java.lang.Comparable
  @since 1.2
  */
 - (jint)compareToWithId:(JavaLangDouble *)object;
@@ -228,53 +264,129 @@
  by <code>string</code>.
  @throws NumberFormatException
  if <code>string</code> cannot be parsed as a double value.
+ - seealso: #parseDouble(String)
  */
 + (JavaLangDouble *)valueOfWithNSString:(NSString *)string;
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaLangDouble)
 
-FOUNDATION_EXPORT NSString *JavaLangDouble_FLOATING_POINT_REGEX_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, FLOATING_POINT_REGEX_, NSString *)
+inline NSString *JavaLangDouble_get_FLOATING_POINT_REGEX();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaLangDouble_FLOATING_POINT_REGEX;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangDouble, FLOATING_POINT_REGEX, NSString *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, EXPONENT_BIAS, jint)
+inline jint JavaLangDouble_get_EXPONENT_BIAS();
+#define JavaLangDouble_EXPONENT_BIAS 1023
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, EXPONENT_BIAS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, EXPONENT_BITS, jint)
+inline jint JavaLangDouble_get_EXPONENT_BITS();
+#define JavaLangDouble_EXPONENT_BITS 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, EXPONENT_BITS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, MANTISSA_BITS, jint)
+inline jint JavaLangDouble_get_MANTISSA_BITS();
+#define JavaLangDouble_MANTISSA_BITS 52
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, MANTISSA_BITS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, NON_MANTISSA_BITS, jint)
+inline jint JavaLangDouble_get_NON_MANTISSA_BITS();
+#define JavaLangDouble_NON_MANTISSA_BITS 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, NON_MANTISSA_BITS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, SIGN_MASK, jlong)
+inline jlong JavaLangDouble_get_SIGN_MASK();
+#define JavaLangDouble_SIGN_MASK ((jlong) 0x8000000000000000LL)
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, SIGN_MASK, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, EXPONENT_MASK, jlong)
+inline jlong JavaLangDouble_get_EXPONENT_MASK();
+#define JavaLangDouble_EXPONENT_MASK 9218868437227405312LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, EXPONENT_MASK, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, MANTISSA_MASK, jlong)
+inline jlong JavaLangDouble_get_MANTISSA_MASK();
+#define JavaLangDouble_MANTISSA_MASK 4503599627370495LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, MANTISSA_MASK, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, MAX_VALUE, jdouble)
+/*!
+ @brief Constant for the maximum <code>double</code> value, (2 - 2<sup>-52</sup>) 
+ 2<sup>1023</sup>.
+ */
+inline jdouble JavaLangDouble_get_MAX_VALUE();
+#define JavaLangDouble_MAX_VALUE __DBL_MAX__
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, MAX_VALUE, jdouble)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, MIN_VALUE, jdouble)
+/*!
+ @brief Constant for the minimum <code>double</code> value, 2<sup>-1074</sup>.
+ */
+inline jdouble JavaLangDouble_get_MIN_VALUE();
+#define JavaLangDouble_MIN_VALUE 4.9E-324
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, MIN_VALUE, jdouble)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, NaN, jdouble)
+/*!
+ @brief Constant for the Not-a-Number (NaN) value of the <code>double</code> type.
+ */
+inline jdouble JavaLangDouble_get_NaN();
+#define JavaLangDouble_NaN NAN
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, NaN, jdouble)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, POSITIVE_INFINITY, jdouble)
+/*!
+ @brief Constant for the positive infinity value of the <code>double</code> type.
+ */
+inline jdouble JavaLangDouble_get_POSITIVE_INFINITY();
+#define JavaLangDouble_POSITIVE_INFINITY INFINITY
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, POSITIVE_INFINITY, jdouble)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, NEGATIVE_INFINITY, jdouble)
+/*!
+ @brief Constant for the negative infinity value of the <code>double</code> type.
+ */
+inline jdouble JavaLangDouble_get_NEGATIVE_INFINITY();
+#define JavaLangDouble_NEGATIVE_INFINITY -INFINITY
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, NEGATIVE_INFINITY, jdouble)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, MIN_NORMAL, jdouble)
+/*!
+ @brief Constant for the smallest positive normal value of the <code>double</code> type.
+ @since 1.6
+ */
+inline jdouble JavaLangDouble_get_MIN_NORMAL();
+#define JavaLangDouble_MIN_NORMAL __DBL_MIN__
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, MIN_NORMAL, jdouble)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, MAX_EXPONENT, jint)
+/*!
+ @brief Maximum base-2 exponent that a finite value of the <code>double</code> type may have.
+ Equal to <code>Math.getExponent(Double.MAX_VALUE)</code>.
+ @since 1.6
+ */
+inline jint JavaLangDouble_get_MAX_EXPONENT();
+#define JavaLangDouble_MAX_EXPONENT 1023
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, MAX_EXPONENT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, MIN_EXPONENT, jint)
+/*!
+ @brief Minimum base-2 exponent that a normal value of the <code>double</code> type may have.
+ Equal to <code>Math.getExponent(Double.MIN_NORMAL)</code>.
+ @since 1.6
+ */
+inline jint JavaLangDouble_get_MIN_EXPONENT();
+#define JavaLangDouble_MIN_EXPONENT -1022
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, MIN_EXPONENT, jint)
 
-FOUNDATION_EXPORT IOSClass *JavaLangDouble_TYPE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, TYPE_, IOSClass *)
+/*!
+ @brief The <code>Class</code> object that represents the primitive type <code>double</code>
+ .
+ @since 1.1
+ */
+inline IOSClass *JavaLangDouble_get_TYPE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaLangDouble_TYPE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangDouble, TYPE, IOSClass *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangDouble, SIZE, jint)
+/*!
+ @brief Constant for the number of bits needed to represent a <code>double</code> in
+ two's complement form.
+ @since 1.5
+ */
+inline jint JavaLangDouble_get_SIZE();
+#define JavaLangDouble_SIZE 64
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangDouble, SIZE, jint)
 
 FOUNDATION_EXPORT void JavaLangDouble_initWithDouble_(JavaLangDouble *self, jdouble value);
 
@@ -312,4 +424,8 @@ BOXED_INC_AND_DEC(Double, doubleValue, JavaLangDouble)
 BOXED_COMPOUND_ASSIGN_ARITHMETIC(Double, doubleValue, jdouble, JavaLangDouble)
 BOXED_COMPOUND_ASSIGN_FPMOD(Double, doubleValue, jdouble, JavaLangDouble)
 
-#endif // _JavaLangDouble_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangDouble_INCLUDE_ALL")

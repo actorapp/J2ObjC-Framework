@@ -3,10 +3,24 @@
 //  source: Classes/javax/annotation/PreDestroy.java
 //
 
-#ifndef _JavaxAnnotationPreDestroy_H_
-#define _JavaxAnnotationPreDestroy_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxAnnotationPreDestroy_INCLUDE_ALL")
+#ifdef JavaxAnnotationPreDestroy_RESTRICT
+#define JavaxAnnotationPreDestroy_INCLUDE_ALL 0
+#else
+#define JavaxAnnotationPreDestroy_INCLUDE_ALL 1
+#endif
+#undef JavaxAnnotationPreDestroy_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxAnnotationPreDestroy_) && (JavaxAnnotationPreDestroy_INCLUDE_ALL || defined(JavaxAnnotationPreDestroy_INCLUDE))
+#define JavaxAnnotationPreDestroy_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../java/lang/annotation/Annotation.h"
 
 /*!
@@ -26,4 +40,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxAnnotationPreDestroy)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxAnnotationPreDestroy)
 
-#endif // _JavaxAnnotationPreDestroy_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxAnnotationPreDestroy_INCLUDE_ALL")

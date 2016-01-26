@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/CoderMalfunctionError.java
 //
 
-#ifndef _JavaNioCharsetCoderMalfunctionError_H_
-#define _JavaNioCharsetCoderMalfunctionError_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioCharsetCoderMalfunctionError_INCLUDE_ALL")
+#ifdef JavaNioCharsetCoderMalfunctionError_RESTRICT
+#define JavaNioCharsetCoderMalfunctionError_INCLUDE_ALL 0
+#else
+#define JavaNioCharsetCoderMalfunctionError_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharsetCoderMalfunctionError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharsetCoderMalfunctionError_) && (JavaNioCharsetCoderMalfunctionError_INCLUDE_ALL || defined(JavaNioCharsetCoderMalfunctionError_INCLUDE))
+#define JavaNioCharsetCoderMalfunctionError_
+
+#define JavaLangError_RESTRICT 1
+#define JavaLangError_INCLUDE 1
 #include "../../../java/lang/Error.h"
 
 @class JavaLangException;
@@ -36,4 +50,8 @@ FOUNDATION_EXPORT JavaNioCharsetCoderMalfunctionError *new_JavaNioCharsetCoderMa
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCoderMalfunctionError)
 
-#endif // _JavaNioCharsetCoderMalfunctionError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharsetCoderMalfunctionError_INCLUDE_ALL")

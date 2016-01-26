@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/SecureRandomSpi.java
 //
 
-#ifndef _JavaSecuritySecureRandomSpi_H_
-#define _JavaSecuritySecureRandomSpi_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySecureRandomSpi_INCLUDE_ALL")
+#ifdef JavaSecuritySecureRandomSpi_RESTRICT
+#define JavaSecuritySecureRandomSpi_INCLUDE_ALL 0
+#else
+#define JavaSecuritySecureRandomSpi_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySecureRandomSpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySecureRandomSpi_) && (JavaSecuritySecureRandomSpi_INCLUDE_ALL || defined(JavaSecuritySecureRandomSpi_INCLUDE))
+#define JavaSecuritySecureRandomSpi_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -14,6 +28,7 @@
 /*!
  @brief <code>SecureRandomSpi</code> is the <i>Service Provider Interface</i> (<b>SPI</b>) definition
  for <code>SecureRandom</code>.
+ - seealso: SecureRandom
  */
 @interface JavaSecuritySecureRandomSpi : NSObject < JavaIoSerializable >
 
@@ -58,4 +73,8 @@ FOUNDATION_EXPORT void JavaSecuritySecureRandomSpi_init(JavaSecuritySecureRandom
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureRandomSpi)
 
-#endif // _JavaSecuritySecureRandomSpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySecureRandomSpi_INCLUDE_ALL")

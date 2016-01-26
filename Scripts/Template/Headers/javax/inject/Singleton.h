@@ -3,12 +3,31 @@
 //  source: /Users/tball/tmp/j2objc/inject/javax_inject/build_result/java/javax/inject/Singleton.java
 //
 
-#ifndef _JavaxInjectSingleton_H_
-#define _JavaxInjectSingleton_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxInjectSingleton_INCLUDE_ALL")
+#ifdef JavaxInjectSingleton_RESTRICT
+#define JavaxInjectSingleton_INCLUDE_ALL 0
+#else
+#define JavaxInjectSingleton_INCLUDE_ALL 1
+#endif
+#undef JavaxInjectSingleton_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxInjectSingleton_) && (JavaxInjectSingleton_INCLUDE_ALL || defined(JavaxInjectSingleton_INCLUDE))
+#define JavaxInjectSingleton_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../java/lang/annotation/Annotation.h"
 
+/*!
+ @brief Identifies a type that the injector only instantiates once.
+ Not inherited.
+ - seealso: javax.inject.Scope @@Scope
+ */
 @protocol JavaxInjectSingleton < JavaLangAnnotationAnnotation >
 
 @end
@@ -21,4 +40,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxInjectSingleton)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxInjectSingleton)
 
-#endif // _JavaxInjectSingleton_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxInjectSingleton_INCLUDE_ALL")

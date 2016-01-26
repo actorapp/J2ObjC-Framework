@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ref/SoftReference.java
 //
 
-#ifndef _JavaLangRefSoftReference_H_
-#define _JavaLangRefSoftReference_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangRefSoftReference_INCLUDE_ALL")
+#ifdef JavaLangRefSoftReference_RESTRICT
+#define JavaLangRefSoftReference_INCLUDE_ALL 0
+#else
+#define JavaLangRefSoftReference_INCLUDE_ALL 1
+#endif
+#undef JavaLangRefSoftReference_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangRefSoftReference_) && (JavaLangRefSoftReference_INCLUDE_ALL || defined(JavaLangRefSoftReference_INCLUDE))
+#define JavaLangRefSoftReference_
+
+#define JavaLangRefReference_RESTRICT 1
+#define JavaLangRefReference_INCLUDE 1
 #include "../../../java/lang/ref/Reference.h"
 
 @class JavaLangRefReferenceQueue;
@@ -87,4 +101,8 @@ FOUNDATION_EXPORT JavaLangRefSoftReference *new_JavaLangRefSoftReference_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefSoftReference)
 
-#endif // _JavaLangRefSoftReference_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangRefSoftReference_INCLUDE_ALL")

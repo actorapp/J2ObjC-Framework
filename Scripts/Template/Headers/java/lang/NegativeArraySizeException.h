@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/NegativeArraySizeException.java
 //
 
-#ifndef _JavaLangNegativeArraySizeException_H_
-#define _JavaLangNegativeArraySizeException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangNegativeArraySizeException_INCLUDE_ALL")
+#ifdef JavaLangNegativeArraySizeException_RESTRICT
+#define JavaLangNegativeArraySizeException_INCLUDE_ALL 0
+#else
+#define JavaLangNegativeArraySizeException_INCLUDE_ALL 1
+#endif
+#undef JavaLangNegativeArraySizeException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangNegativeArraySizeException_) && (JavaLangNegativeArraySizeException_INCLUDE_ALL || defined(JavaLangNegativeArraySizeException_INCLUDE))
+#define JavaLangNegativeArraySizeException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaLangNegativeArraySizeException *new_JavaLangNegativeArrayS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNegativeArraySizeException)
 
-#endif // _JavaLangNegativeArraySizeException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangNegativeArraySizeException_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicInteger.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicAtomicInteger_H_
-#define _JavaUtilConcurrentAtomicAtomicInteger_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicAtomicInteger_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicAtomicInteger_RESTRICT
+#define JavaUtilConcurrentAtomicAtomicInteger_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicAtomicInteger_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicAtomicInteger_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicAtomicInteger_) && (JavaUtilConcurrentAtomicAtomicInteger_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicInteger_INCLUDE))
+#define JavaUtilConcurrentAtomicAtomicInteger_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../../java/io/Serializable.h"
 
 /*!
@@ -168,4 +182,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicInteger *new_JavaUtilConcurrentA
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicInteger)
 
-#endif // _JavaUtilConcurrentAtomicAtomicInteger_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicAtomicInteger_INCLUDE_ALL")

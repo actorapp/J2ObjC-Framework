@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/InterruptedException.java
 //
 
-#ifndef _JavaLangInterruptedException_H_
-#define _JavaLangInterruptedException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangInterruptedException_INCLUDE_ALL")
+#ifdef JavaLangInterruptedException_RESTRICT
+#define JavaLangInterruptedException_INCLUDE_ALL 0
+#else
+#define JavaLangInterruptedException_INCLUDE_ALL 1
+#endif
+#undef JavaLangInterruptedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangInterruptedException_) && (JavaLangInterruptedException_INCLUDE_ALL || defined(JavaLangInterruptedException_INCLUDE))
+#define JavaLangInterruptedException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaLangInterruptedException *new_JavaLangInterruptedException
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangInterruptedException)
 
-#endif // _JavaLangInterruptedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangInterruptedException_INCLUDE_ALL")

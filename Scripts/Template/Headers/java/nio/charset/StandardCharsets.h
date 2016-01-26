@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/StandardCharsets.java
 //
 
-#ifndef _JavaNioCharsetStandardCharsets_H_
-#define _JavaNioCharsetStandardCharsets_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioCharsetStandardCharsets_INCLUDE_ALL")
+#ifdef JavaNioCharsetStandardCharsets_RESTRICT
+#define JavaNioCharsetStandardCharsets_INCLUDE_ALL 0
+#else
+#define JavaNioCharsetStandardCharsets_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharsetStandardCharsets_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharsetStandardCharsets_) && (JavaNioCharsetStandardCharsets_INCLUDE_ALL || defined(JavaNioCharsetStandardCharsets_INCLUDE))
+#define JavaNioCharsetStandardCharsets_
 
 @class JavaNioCharsetCharset;
 
@@ -16,28 +27,56 @@
  */
 @interface JavaNioCharsetStandardCharsets : NSObject
 
++ (JavaNioCharsetCharset *)ISO_8859_1;
+
++ (JavaNioCharsetCharset *)US_ASCII;
+
++ (JavaNioCharsetCharset *)UTF_16;
+
++ (JavaNioCharsetCharset *)UTF_16BE;
+
++ (JavaNioCharsetCharset *)UTF_16LE;
+
++ (JavaNioCharsetCharset *)UTF_8;
+
 @end
 
 J2OBJC_STATIC_INIT(JavaNioCharsetStandardCharsets)
 
-FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_ISO_8859_1_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetStandardCharsets, ISO_8859_1_, JavaNioCharsetCharset *)
+inline JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_get_ISO_8859_1();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_ISO_8859_1;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetStandardCharsets, ISO_8859_1, JavaNioCharsetCharset *)
 
-FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_US_ASCII_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetStandardCharsets, US_ASCII_, JavaNioCharsetCharset *)
+inline JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_get_US_ASCII();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_US_ASCII;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetStandardCharsets, US_ASCII, JavaNioCharsetCharset *)
 
-FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_UTF_16_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetStandardCharsets, UTF_16_, JavaNioCharsetCharset *)
+inline JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_get_UTF_16();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_UTF_16;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetStandardCharsets, UTF_16, JavaNioCharsetCharset *)
 
-FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_UTF_16BE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetStandardCharsets, UTF_16BE_, JavaNioCharsetCharset *)
+inline JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_get_UTF_16BE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_UTF_16BE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetStandardCharsets, UTF_16BE, JavaNioCharsetCharset *)
 
-FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_UTF_16LE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetStandardCharsets, UTF_16LE_, JavaNioCharsetCharset *)
+inline JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_get_UTF_16LE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_UTF_16LE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetStandardCharsets, UTF_16LE, JavaNioCharsetCharset *)
 
-FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_UTF_8_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioCharsetStandardCharsets, UTF_8_, JavaNioCharsetCharset *)
+inline JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_get_UTF_8();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioCharsetCharset *JavaNioCharsetStandardCharsets_UTF_8;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioCharsetStandardCharsets, UTF_8, JavaNioCharsetCharset *)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetStandardCharsets)
 
-#endif // _JavaNioCharsetStandardCharsets_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharsetStandardCharsets_INCLUDE_ALL")

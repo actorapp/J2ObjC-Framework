@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLTransientException.java
 //
 
-#ifndef _JavaSqlSQLTransientException_H_
-#define _JavaSqlSQLTransientException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLTransientException_INCLUDE_ALL")
+#ifdef JavaSqlSQLTransientException_RESTRICT
+#define JavaSqlSQLTransientException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLTransientException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLTransientException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLTransientException_) && (JavaSqlSQLTransientException_INCLUDE_ALL || defined(JavaSqlSQLTransientException_INCLUDE))
+#define JavaSqlSQLTransientException_
+
+#define JavaSqlSQLException_RESTRICT 1
+#define JavaSqlSQLException_INCLUDE 1
 #include "../../java/sql/SQLException.h"
 
 @class JavaLangThrowable;
@@ -127,7 +141,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLTransientException)
@@ -166,4 +179,8 @@ FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLTransientException)
 
-#endif // _JavaSqlSQLTransientException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLTransientException_INCLUDE_ALL")

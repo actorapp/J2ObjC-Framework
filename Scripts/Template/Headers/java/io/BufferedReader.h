@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/BufferedReader.java
 //
 
-#ifndef _JavaIoBufferedReader_H_
-#define _JavaIoBufferedReader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoBufferedReader_INCLUDE_ALL")
+#ifdef JavaIoBufferedReader_RESTRICT
+#define JavaIoBufferedReader_INCLUDE_ALL 0
+#else
+#define JavaIoBufferedReader_INCLUDE_ALL 1
+#endif
+#undef JavaIoBufferedReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoBufferedReader_) && (JavaIoBufferedReader_INCLUDE_ALL || defined(JavaIoBufferedReader_INCLUDE))
+#define JavaIoBufferedReader_
+
+#define JavaIoReader_RESTRICT 1
+#define JavaIoReader_INCLUDE 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -25,6 +39,7 @@
   BufferedReader buf = new BufferedReader(new FileReader(&quot;file.java&quot;));
   
 @endcode
+ - seealso: BufferedWriter
  @since 1.1
  */
 @interface JavaIoBufferedReader : JavaIoReader
@@ -71,6 +86,8 @@
  if <code>markLimit < 0</code>.
  @throws IOException
  if an error occurs while setting a mark in this reader.
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (void)markWithInt:(jint)markLimit;
 
@@ -79,6 +96,8 @@
  <code>reset()</code> methods.
  This implementation returns <code>true</code>.
  @return <code>true</code> for <code>BufferedReader</code>.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (jboolean)markSupported;
 
@@ -133,6 +152,9 @@
  called, <code>false</code> if unknown or blocking will occur.
  @throws IOException
  if this reader is closed or some other I/O error occurs.
+ - seealso: #read()
+ - seealso: #read(char[],int,int)
+ - seealso: #readLine()
  */
 - (jboolean)ready;
 
@@ -142,6 +164,8 @@
  location.
  @throws IOException
  if this reader is closed or no mark has been set.
+ - seealso: #mark(int)
+ - seealso: #markSupported()
  */
 - (void)reset;
 
@@ -182,4 +206,8 @@ FOUNDATION_EXPORT JavaIoBufferedReader *new_JavaIoBufferedReader_initWithJavaIoR
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedReader)
 
-#endif // _JavaIoBufferedReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoBufferedReader_INCLUDE_ALL")

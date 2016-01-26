@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/OutputStreamWriter.java
 //
 
-#ifndef _JavaIoOutputStreamWriter_H_
-#define _JavaIoOutputStreamWriter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoOutputStreamWriter_INCLUDE_ALL")
+#ifdef JavaIoOutputStreamWriter_RESTRICT
+#define JavaIoOutputStreamWriter_INCLUDE_ALL 0
+#else
+#define JavaIoOutputStreamWriter_INCLUDE_ALL 1
+#endif
+#undef JavaIoOutputStreamWriter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoOutputStreamWriter_) && (JavaIoOutputStreamWriter_INCLUDE_ALL || defined(JavaIoOutputStreamWriter_INCLUDE))
+#define JavaIoOutputStreamWriter_
+
+#define JavaIoWriter_RESTRICT 1
+#define JavaIoWriter_INCLUDE 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -22,6 +36,7 @@
  "file.encoding" system property. <code>OutputStreamWriter</code> contains a buffer
  of bytes to be written to target stream and converts these into characters as
  needed. The buffer size is 8K.
+ - seealso: InputStreamReader
  */
 @interface JavaIoOutputStreamWriter : JavaIoWriter
 
@@ -197,4 +212,8 @@ FOUNDATION_EXPORT JavaIoOutputStreamWriter *new_JavaIoOutputStreamWriter_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoOutputStreamWriter)
 
-#endif // _JavaIoOutputStreamWriter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoOutputStreamWriter_INCLUDE_ALL")

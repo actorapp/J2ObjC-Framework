@@ -3,17 +3,26 @@
 //  source: android/libcore/luni/src/main/java/java/text/AttributedString.java
 //
 
-#ifndef _JavaTextAttributedString_H_
-#define _JavaTextAttributedString_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/text/AttributedCharacterIterator.h"
+
+#pragma push_macro("JavaTextAttributedString_INCLUDE_ALL")
+#ifdef JavaTextAttributedString_RESTRICT
+#define JavaTextAttributedString_INCLUDE_ALL 0
+#else
+#define JavaTextAttributedString_INCLUDE_ALL 1
+#endif
+#undef JavaTextAttributedString_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextAttributedString_) && (JavaTextAttributedString_INCLUDE_ALL || defined(JavaTextAttributedString_INCLUDE))
+#define JavaTextAttributedString_
 
 @class IOSObjectArray;
 @class JavaTextAttributedCharacterIterator_Attribute;
 @protocol JavaTextAttributedCharacterIterator;
 @protocol JavaUtilMap;
-@protocol JavaUtilSet;
 
 /*!
  @brief Holds a string with attributes describing the characters of
@@ -230,6 +239,11 @@ FOUNDATION_EXPORT JavaTextAttributedString *new_JavaTextAttributedString_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedString)
 
+#endif
+
+#if !defined (JavaTextAttributedString_Range_) && (JavaTextAttributedString_INCLUDE_ALL || defined(JavaTextAttributedString_Range_INCLUDE))
+#define JavaTextAttributedString_Range_
+
 @interface JavaTextAttributedString_Range : NSObject {
  @public
   jint start_;
@@ -255,6 +269,21 @@ FOUNDATION_EXPORT JavaTextAttributedString_Range *new_JavaTextAttributedString_R
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedString_Range)
 
+#endif
+
+#if !defined (JavaTextAttributedString_AttributedIterator_) && (JavaTextAttributedString_INCLUDE_ALL || defined(JavaTextAttributedString_AttributedIterator_INCLUDE))
+#define JavaTextAttributedString_AttributedIterator_
+
+#define JavaTextAttributedCharacterIterator_RESTRICT 1
+#define JavaTextAttributedCharacterIterator_INCLUDE 1
+#include "../../java/text/AttributedCharacterIterator.h"
+
+@class IOSObjectArray;
+@class JavaTextAttributedCharacterIterator_Attribute;
+@class JavaTextAttributedString;
+@protocol JavaUtilMap;
+@protocol JavaUtilSet;
+
 @interface JavaTextAttributedString_AttributedIterator : NSObject < JavaTextAttributedCharacterIterator >
 
 #pragma mark Public
@@ -263,6 +292,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedString_Range)
  @brief Returns a new <code>AttributedIterator</code> with the same source string,
  begin, end, and current index as this attributed iterator.
  @return a shallow copy of this attributed iterator.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -342,4 +372,8 @@ FOUNDATION_EXPORT JavaTextAttributedString_AttributedIterator *new_JavaTextAttri
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedString_AttributedIterator)
 
-#endif // _JavaTextAttributedString_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextAttributedString_INCLUDE_ALL")

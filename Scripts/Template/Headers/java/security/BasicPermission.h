@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/security/BasicPermission.java
 //
 
-#ifndef _JavaSecurityBasicPermission_H_
-#define _JavaSecurityBasicPermission_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaSecurityBasicPermission_INCLUDE_ALL")
+#ifdef JavaSecurityBasicPermission_RESTRICT
+#define JavaSecurityBasicPermission_INCLUDE_ALL 0
+#else
+#define JavaSecurityBasicPermission_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityBasicPermission_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityBasicPermission_) && (JavaSecurityBasicPermission_INCLUDE_ALL || defined(JavaSecurityBasicPermission_INCLUDE))
+#define JavaSecurityBasicPermission_
+
+#define JavaSecurityPermission_RESTRICT 1
+#define JavaSecurityPermission_INCLUDE 1
 #include "../../java/security/Permission.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief Legacy security code; do not use.
@@ -36,4 +53,8 @@ FOUNDATION_EXPORT void JavaSecurityBasicPermission_initWithNSString_withNSString
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityBasicPermission)
 
-#endif // _JavaSecurityBasicPermission_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityBasicPermission_INCLUDE_ALL")

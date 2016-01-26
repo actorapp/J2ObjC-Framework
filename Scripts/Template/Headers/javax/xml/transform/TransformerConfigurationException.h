@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/TransformerConfigurationException.java
 //
 
-#ifndef _JavaxXmlTransformTransformerConfigurationException_H_
-#define _JavaxXmlTransformTransformerConfigurationException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformTransformerConfigurationException_INCLUDE_ALL")
+#ifdef JavaxXmlTransformTransformerConfigurationException_RESTRICT
+#define JavaxXmlTransformTransformerConfigurationException_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformTransformerConfigurationException_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformTransformerConfigurationException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformTransformerConfigurationException_) && (JavaxXmlTransformTransformerConfigurationException_INCLUDE_ALL || defined(JavaxXmlTransformTransformerConfigurationException_INCLUDE))
+#define JavaxXmlTransformTransformerConfigurationException_
+
+#define JavaxXmlTransformTransformerException_RESTRICT 1
+#define JavaxXmlTransformTransformerException_INCLUDE 1
 #include "../../../javax/xml/transform/TransformerException.h"
 
 @class JavaLangThrowable;
@@ -102,4 +116,8 @@ FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *new_JavaxX
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformerConfigurationException)
 
-#endif // _JavaxXmlTransformTransformerConfigurationException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformTransformerConfigurationException_INCLUDE_ALL")

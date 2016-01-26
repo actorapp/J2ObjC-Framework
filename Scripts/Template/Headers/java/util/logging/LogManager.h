@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/LogManager.java
 //
 
-#ifndef _JavaUtilLoggingLogManager_H_
-#define _JavaUtilLoggingLogManager_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLoggingLogManager_INCLUDE_ALL")
+#ifdef JavaUtilLoggingLogManager_RESTRICT
+#define JavaUtilLoggingLogManager_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingLogManager_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingLogManager_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingLogManager_) && (JavaUtilLoggingLogManager_INCLUDE_ALL || defined(JavaUtilLoggingLogManager_INCLUDE))
+#define JavaUtilLoggingLogManager_
 
 @class JavaIoInputStream;
 @class JavaUtilLoggingLevel;
@@ -99,6 +110,12 @@
  <code>LogManager</code> while synchronized on a <code>Logger</code>.
  */
 @interface JavaUtilLoggingLogManager : NSObject
+
++ (JavaUtilLoggingLogManager *)manager;
+
++ (void)setManager:(JavaUtilLoggingLogManager *)value;
+
++ (NSString *)LOGGING_MXBEAN_NAME;
 
 #pragma mark Public
 
@@ -259,12 +276,22 @@
 
 J2OBJC_STATIC_INIT(JavaUtilLoggingLogManager)
 
-FOUNDATION_EXPORT JavaUtilLoggingLogManager *JavaUtilLoggingLogManager_manager_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLogManager, manager_, JavaUtilLoggingLogManager *)
-J2OBJC_STATIC_FIELD_SETTER(JavaUtilLoggingLogManager, manager_, JavaUtilLoggingLogManager *)
+/*!
+ @brief The singleton instance.
+ */
+inline JavaUtilLoggingLogManager *JavaUtilLoggingLogManager_get_manager();
+inline JavaUtilLoggingLogManager *JavaUtilLoggingLogManager_set_manager(JavaUtilLoggingLogManager *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLogManager *JavaUtilLoggingLogManager_manager;
+J2OBJC_STATIC_FIELD_OBJ(JavaUtilLoggingLogManager, manager, JavaUtilLoggingLogManager *)
 
-FOUNDATION_EXPORT NSString *JavaUtilLoggingLogManager_LOGGING_MXBEAN_NAME_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLogManager, LOGGING_MXBEAN_NAME_, NSString *)
+/*!
+ @brief The <code>String</code> value of the <code>LoggingMXBean</code>'s ObjectName.
+ */
+inline NSString *JavaUtilLoggingLogManager_get_LOGGING_MXBEAN_NAME();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaUtilLoggingLogManager_LOGGING_MXBEAN_NAME;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLogManager, LOGGING_MXBEAN_NAME, NSString *)
 
 FOUNDATION_EXPORT id<JavaUtilLoggingLoggingMXBean> JavaUtilLoggingLogManager_getLoggingMXBean();
 
@@ -278,4 +305,8 @@ FOUNDATION_EXPORT id JavaUtilLoggingLogManager_getInstanceByClassWithNSString_(N
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogManager)
 
-#endif // _JavaUtilLoggingLogManager_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingLogManager_INCLUDE_ALL")

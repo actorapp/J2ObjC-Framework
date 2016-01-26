@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/util/LruCache.java
 //
 
-#ifndef _AndroidUtilLruCache_H_
-#define _AndroidUtilLruCache_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidUtilLruCache_INCLUDE_ALL")
+#ifdef AndroidUtilLruCache_RESTRICT
+#define AndroidUtilLruCache_INCLUDE_ALL 0
+#else
+#define AndroidUtilLruCache_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilLruCache_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilLruCache_) && (AndroidUtilLruCache_INCLUDE_ALL || defined(AndroidUtilLruCache_INCLUDE))
+#define AndroidUtilLruCache_
 
 @protocol JavaUtilMap;
 
@@ -210,4 +221,8 @@ FOUNDATION_EXPORT AndroidUtilLruCache *new_AndroidUtilLruCache_initWithInt_(jint
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilLruCache)
 
-#endif // _AndroidUtilLruCache_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilLruCache_INCLUDE_ALL")

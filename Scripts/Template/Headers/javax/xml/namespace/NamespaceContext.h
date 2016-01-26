@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/namespace/NamespaceContext.java
 //
 
-#ifndef _JavaxXmlNamespaceNamespaceContext_H_
-#define _JavaxXmlNamespaceNamespaceContext_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlNamespaceNamespaceContext_INCLUDE_ALL")
+#ifdef JavaxXmlNamespaceNamespaceContext_RESTRICT
+#define JavaxXmlNamespaceNamespaceContext_INCLUDE_ALL 0
+#else
+#define JavaxXmlNamespaceNamespaceContext_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlNamespaceNamespaceContext_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlNamespaceNamespaceContext_) && (JavaxXmlNamespaceNamespaceContext_INCLUDE_ALL || defined(JavaxXmlNamespaceNamespaceContext_INCLUDE))
+#define JavaxXmlNamespaceNamespaceContext_
 
 @protocol JavaUtilIterator;
 
@@ -51,6 +62,10 @@
  Namespace URI in the current scope.</p>
  @author <a href="mailto:Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  @version $Revision: 446598 $, $Date: 2006-09-15 05:55:40 -0700 (Fri, 15 Sep 2006) $
+ - seealso: javax.xml.XMLConstants javax.XMLConstants for declarations of common XML values
+ - seealso: <a href="http://www.w3.org/TR/xmlschema-2/#QName">XML Schema Part2: Datatypes</a>
+ - seealso: <a href="http://www.w3.org/TR/REC-xml-names/#ns-qualnames">Namespaces in XML</a>
+ - seealso: <a href="http://www.w3.org/XML/xml-names-19990114-errata">Namespaces in XML Errata</a>
  @since 1.5
  */
 @protocol JavaxXmlNamespaceNamespaceContext < NSObject, JavaObject >
@@ -235,4 +250,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlNamespaceNamespaceContext)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlNamespaceNamespaceContext)
 
-#endif // _JavaxXmlNamespaceNamespaceContext_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlNamespaceNamespaceContext_INCLUDE_ALL")

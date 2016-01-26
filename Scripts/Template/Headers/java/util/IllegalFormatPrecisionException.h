@@ -3,15 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/util/IllegalFormatPrecisionException.java
 //
 
-#ifndef _JavaUtilIllegalFormatPrecisionException_H_
-#define _JavaUtilIllegalFormatPrecisionException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilIllegalFormatPrecisionException_INCLUDE_ALL")
+#ifdef JavaUtilIllegalFormatPrecisionException_RESTRICT
+#define JavaUtilIllegalFormatPrecisionException_INCLUDE_ALL 0
+#else
+#define JavaUtilIllegalFormatPrecisionException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilIllegalFormatPrecisionException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilIllegalFormatPrecisionException_) && (JavaUtilIllegalFormatPrecisionException_INCLUDE_ALL || defined(JavaUtilIllegalFormatPrecisionException_INCLUDE))
+#define JavaUtilIllegalFormatPrecisionException_
+
+#define JavaUtilIllegalFormatException_RESTRICT 1
+#define JavaUtilIllegalFormatException_INCLUDE 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief An <code>IllegalFormatPrecisionException</code> will be thrown if the precision is
  a negative other than -1 or in other cases where precision is not supported.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilIllegalFormatPrecisionException : JavaUtilIllegalFormatException
 
@@ -43,4 +58,8 @@ FOUNDATION_EXPORT JavaUtilIllegalFormatPrecisionException *new_JavaUtilIllegalFo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatPrecisionException)
 
-#endif // _JavaUtilIllegalFormatPrecisionException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilIllegalFormatPrecisionException_INCLUDE_ALL")

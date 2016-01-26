@@ -3,18 +3,36 @@
 //  source: android/libcore/luni/src/main/java/java/util/Collections.java
 //
 
-#ifndef _JavaUtilCollections_H_
-#define _JavaUtilCollections_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
-#include "../../java/util/Collection.h"
-#include "../../java/util/List.h"
-#include "../../java/util/Map.h"
-#include "../../java/util/RandomAccess.h"
-#include "../../java/util/Set.h"
-#include "../../java/util/SortedMap.h"
-#include "../../java/util/SortedSet.h"
+
+#pragma push_macro("JavaUtilCollections_INCLUDE_ALL")
+#ifdef JavaUtilCollections_RESTRICT
+#define JavaUtilCollections_INCLUDE_ALL 0
+#else
+#define JavaUtilCollections_INCLUDE_ALL 1
+#endif
+#undef JavaUtilCollections_RESTRICT
+#ifdef JavaUtilCollections_SynchronizedSortedSet_INCLUDE
+#define JavaUtilCollections_SynchronizedSet_INCLUDE 1
+#endif
+#ifdef JavaUtilCollections_SynchronizedSortedMap_INCLUDE
+#define JavaUtilCollections_SynchronizedMap_INCLUDE 1
+#endif
+#ifdef JavaUtilCollections_SynchronizedSet_INCLUDE
+#define JavaUtilCollections_SynchronizedCollection_INCLUDE 1
+#endif
+#ifdef JavaUtilCollections_SynchronizedRandomAccessList_INCLUDE
+#define JavaUtilCollections_SynchronizedList_INCLUDE 1
+#endif
+#ifdef JavaUtilCollections_SynchronizedList_INCLUDE
+#define JavaUtilCollections_SynchronizedCollection_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilCollections_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_INCLUDE))
+#define JavaUtilCollections_
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -40,6 +58,12 @@
  @since 1.2
  */
 @interface JavaUtilCollections : NSObject
+
++ (id<JavaUtilList>)EMPTY_LIST;
+
++ (id<JavaUtilSet>)EMPTY_SET;
+
++ (id<JavaUtilMap>)EMPTY_MAP;
 
 #pragma mark Public
 
@@ -258,6 +282,7 @@
  @brief Returns a type-safe empty, immutable <code>List</code>.
  @return an empty <code>List</code>.
  @since 1.5
+ - seealso: #EMPTY_LIST
  */
 + (id<JavaUtilList>)emptyList;
 
@@ -271,6 +296,7 @@
  @brief Returns a type-safe empty, immutable <code>Map</code>.
  @return an empty <code>Map</code>.
  @since 1.5
+ - seealso: #EMPTY_MAP
  */
 + (id<JavaUtilMap>)emptyMap;
 
@@ -278,6 +304,7 @@
  @brief Returns a type-safe empty, immutable <code>Set</code>.
  @return an empty <code>Set</code>.
  @since 1.5
+ - seealso: #EMPTY_SET
  */
 + (id<JavaUtilSet>)emptySet;
 
@@ -588,28 +615,20 @@
                                withId:(id)value;
 
 /*!
- @brief Sorts the specified list in ascending natural order.
+ @brief Sorts the given list in ascending natural order.
  The algorithm is
  stable which means equal elements don't get reordered.
- @param list
- the list to be sorted.
- @throws ClassCastException
- when an element in the List does not implement Comparable or
- elements cannot be compared to each other.
+ @throws ClassCastException if any element does not implement <code>Comparable</code>,
+ or if <code>compareTo</code> throws for any pair of elements.
  */
 + (void)sortWithJavaUtilList:(id<JavaUtilList>)list;
 
 /*!
- @brief Sorts the specified list using the specified comparator.
+ @brief Sorts the given list using the given comparator.
  The algorithm is
  stable which means equal elements don't get reordered.
- @param list
- the list to be sorted.
- @param comparator
- the comparator.
- @throws ClassCastException
- when elements in the list cannot be compared to each other
- using the comparator.
+ @throws ClassCastException if any element does not implement <code>Comparable</code>,
+ or if <code>compareTo</code> throws for any pair of elements.
  */
 + (void)sortWithJavaUtilList:(id<JavaUtilList>)list
       withJavaUtilComparator:(id<JavaUtilComparator>)comparator;
@@ -765,14 +784,29 @@
 
 J2OBJC_STATIC_INIT(JavaUtilCollections)
 
-FOUNDATION_EXPORT id<JavaUtilList> JavaUtilCollections_EMPTY_LIST_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCollections, EMPTY_LIST_, id<JavaUtilList>)
+/*!
+ @brief An empty immutable instance of <code>List</code>.
+ */
+inline id<JavaUtilList> JavaUtilCollections_get_EMPTY_LIST();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilList> JavaUtilCollections_EMPTY_LIST;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilCollections, EMPTY_LIST, id<JavaUtilList>)
 
-FOUNDATION_EXPORT id<JavaUtilSet> JavaUtilCollections_EMPTY_SET_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCollections, EMPTY_SET_, id<JavaUtilSet>)
+/*!
+ @brief An empty immutable instance of <code>Set</code>.
+ */
+inline id<JavaUtilSet> JavaUtilCollections_get_EMPTY_SET();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilSet> JavaUtilCollections_EMPTY_SET;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilCollections, EMPTY_SET, id<JavaUtilSet>)
 
-FOUNDATION_EXPORT id<JavaUtilMap> JavaUtilCollections_EMPTY_MAP_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilCollections, EMPTY_MAP_, id<JavaUtilMap>)
+/*!
+ @brief An empty immutable instance of <code>Map</code>.
+ */
+inline id<JavaUtilMap> JavaUtilCollections_get_EMPTY_MAP();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilMap> JavaUtilCollections_EMPTY_MAP;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilCollections, EMPTY_MAP, id<JavaUtilMap>)
 
 FOUNDATION_EXPORT jint JavaUtilCollections_binarySearchWithJavaUtilList_withId_(id<JavaUtilList> list, id object);
 
@@ -894,6 +928,22 @@ FOUNDATION_EXPORT jint JavaUtilCollections_roundUpToPowerOfTwoWithInt_(jint i);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections)
 
+#endif
+
+#if !defined (JavaUtilCollections_SynchronizedCollection_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedCollection_INCLUDE))
+#define JavaUtilCollections_SynchronizedCollection_
+
+#define JavaUtilCollection_RESTRICT 1
+#define JavaUtilCollection_INCLUDE 1
+#include "../../java/util/Collection.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
+
+@class IOSObjectArray;
+@protocol JavaUtilIterator;
+
 @interface JavaUtilCollections_SynchronizedCollection : NSObject < JavaUtilCollection, JavaIoSerializable > {
  @public
   id<JavaUtilCollection> c_;
@@ -937,7 +987,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections)
 - (instancetype)initWithJavaUtilCollection:(id<JavaUtilCollection>)collection
                                     withId:(id)mutex;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilCollections_SynchronizedCollection)
@@ -954,6 +1003,18 @@ FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedCollection_initWithJavaUt
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedCollection *new_JavaUtilCollections_SynchronizedCollection_initWithJavaUtilCollection_withId_(id<JavaUtilCollection> collection, id mutex) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedCollection)
+
+#endif
+
+#if !defined (JavaUtilCollections_SynchronizedList_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedList_INCLUDE))
+#define JavaUtilCollections_SynchronizedList_
+
+#define JavaUtilList_RESTRICT 1
+#define JavaUtilList_INCLUDE 1
+#include "../../java/util/List.h"
+
+@protocol JavaUtilCollection;
+@protocol JavaUtilListIterator;
 
 @interface JavaUtilCollections_SynchronizedList : JavaUtilCollections_SynchronizedCollection < JavaUtilList > {
  @public
@@ -997,7 +1058,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedCollection)
 - (instancetype)initWithJavaUtilList:(id<JavaUtilList>)l
                               withId:(id)mutex;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilCollections_SynchronizedList)
@@ -1014,6 +1074,17 @@ FOUNDATION_EXPORT JavaUtilCollections_SynchronizedList *new_JavaUtilCollections_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedList)
 
+#endif
+
+#if !defined (JavaUtilCollections_SynchronizedRandomAccessList_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedRandomAccessList_INCLUDE))
+#define JavaUtilCollections_SynchronizedRandomAccessList_
+
+#define JavaUtilRandomAccess_RESTRICT 1
+#define JavaUtilRandomAccess_INCLUDE 1
+#include "../../java/util/RandomAccess.h"
+
+@protocol JavaUtilList;
+
 @interface JavaUtilCollections_SynchronizedRandomAccessList : JavaUtilCollections_SynchronizedList < JavaUtilRandomAccess >
 
 #pragma mark Public
@@ -1028,7 +1099,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedList)
 - (instancetype)initWithJavaUtilList:(id<JavaUtilList>)l
                               withId:(id)mutex;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilCollections_SynchronizedRandomAccessList)
@@ -1042,6 +1112,22 @@ FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedRandomAccessList_initWith
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedRandomAccessList *new_JavaUtilCollections_SynchronizedRandomAccessList_initWithJavaUtilList_withId_(id<JavaUtilList> l, id mutex) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedRandomAccessList)
+
+#endif
+
+#if !defined (JavaUtilCollections_SynchronizedMap_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedMap_INCLUDE))
+#define JavaUtilCollections_SynchronizedMap_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_INCLUDE 1
+#include "../../java/util/Map.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
+
+@protocol JavaUtilCollection;
+@protocol JavaUtilSet;
 
 @interface JavaUtilCollections_SynchronizedMap : NSObject < JavaUtilMap, JavaIoSerializable > {
  @public
@@ -1104,6 +1190,15 @@ FOUNDATION_EXPORT JavaUtilCollections_SynchronizedMap *new_JavaUtilCollections_S
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedMap)
 
+#endif
+
+#if !defined (JavaUtilCollections_SynchronizedSet_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedSet_INCLUDE))
+#define JavaUtilCollections_SynchronizedSet_
+
+#define JavaUtilSet_RESTRICT 1
+#define JavaUtilSet_INCLUDE 1
+#include "../../java/util/Set.h"
+
 @interface JavaUtilCollections_SynchronizedSet : JavaUtilCollections_SynchronizedCollection < JavaUtilSet >
 
 #pragma mark Public
@@ -1119,7 +1214,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedMap)
 - (instancetype)initWithJavaUtilSet:(id<JavaUtilSet>)set
                              withId:(id)mutex;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilCollections_SynchronizedSet)
@@ -1133,6 +1227,17 @@ FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedSet_initWithJavaUtilSet_w
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSet *new_JavaUtilCollections_SynchronizedSet_initWithJavaUtilSet_withId_(id<JavaUtilSet> set, id mutex) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSet)
+
+#endif
+
+#if !defined (JavaUtilCollections_SynchronizedSortedMap_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedSortedMap_INCLUDE))
+#define JavaUtilCollections_SynchronizedSortedMap_
+
+#define JavaUtilSortedMap_RESTRICT 1
+#define JavaUtilSortedMap_INCLUDE 1
+#include "../../java/util/SortedMap.h"
+
+@protocol JavaUtilComparator;
 
 @interface JavaUtilCollections_SynchronizedSortedMap : JavaUtilCollections_SynchronizedMap < JavaUtilSortedMap >
 
@@ -1172,6 +1277,17 @@ FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSortedMap *new_JavaUtilCollect
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedMap)
 
+#endif
+
+#if !defined (JavaUtilCollections_SynchronizedSortedSet_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedSortedSet_INCLUDE))
+#define JavaUtilCollections_SynchronizedSortedSet_
+
+#define JavaUtilSortedSet_RESTRICT 1
+#define JavaUtilSortedSet_INCLUDE 1
+#include "../../java/util/SortedSet.h"
+
+@protocol JavaUtilComparator;
+
 @interface JavaUtilCollections_SynchronizedSortedSet : JavaUtilCollections_SynchronizedSet < JavaUtilSortedSet >
 
 #pragma mark Public
@@ -1196,7 +1312,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedMap)
 - (instancetype)initWithJavaUtilSortedSet:(id<JavaUtilSortedSet>)set
                                    withId:(id)mutex;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilCollections_SynchronizedSortedSet)
@@ -1211,4 +1326,8 @@ FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSortedSet *new_JavaUtilCollect
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedSet)
 
-#endif // _JavaUtilCollections_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilCollections_INCLUDE_ALL")

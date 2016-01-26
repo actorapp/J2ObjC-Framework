@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ForkJoinWorkerThread.java
 //
 
-#ifndef _JavaUtilConcurrentForkJoinWorkerThread_H_
-#define _JavaUtilConcurrentForkJoinWorkerThread_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentForkJoinWorkerThread_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentForkJoinWorkerThread_RESTRICT
+#define JavaUtilConcurrentForkJoinWorkerThread_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentForkJoinWorkerThread_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentForkJoinWorkerThread_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentForkJoinWorkerThread_) && (JavaUtilConcurrentForkJoinWorkerThread_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinWorkerThread_INCLUDE))
+#define JavaUtilConcurrentForkJoinWorkerThread_
+
+#define JavaLangThread_RESTRICT 1
+#define JavaLangThread_INCLUDE 1
 #include "../../../java/lang/Thread.h"
 
 @class JavaLangThrowable;
@@ -102,4 +116,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentForkJoinWorkerThread *new_JavaUtilConcurrent
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinWorkerThread)
 
-#endif // _JavaUtilConcurrentForkJoinWorkerThread_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentForkJoinWorkerThread_INCLUDE_ALL")

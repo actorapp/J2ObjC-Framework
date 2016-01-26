@@ -3,51 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/ZipConstants.java
 //
 
-#ifndef _JavaUtilZipZipConstants_H_
-#define _JavaUtilZipZipConstants_H_
-
 #include "../../../J2ObjC_header.h"
 
-#define JavaUtilZipZipConstants_LOCSIG 67324752LL
-#define JavaUtilZipZipConstants_EXTSIG 134695760LL
-#define JavaUtilZipZipConstants_CENSIG 33639248LL
-#define JavaUtilZipZipConstants_ENDSIG 101010256LL
-#define JavaUtilZipZipConstants_LOCHDR 30
-#define JavaUtilZipZipConstants_EXTHDR 16
-#define JavaUtilZipZipConstants_CENHDR 46
-#define JavaUtilZipZipConstants_ENDHDR 22
-#define JavaUtilZipZipConstants_LOCVER 4
-#define JavaUtilZipZipConstants_LOCFLG 6
-#define JavaUtilZipZipConstants_LOCHOW 8
-#define JavaUtilZipZipConstants_LOCTIM 10
-#define JavaUtilZipZipConstants_LOCCRC 14
-#define JavaUtilZipZipConstants_LOCSIZ 18
-#define JavaUtilZipZipConstants_LOCLEN 22
-#define JavaUtilZipZipConstants_LOCNAM 26
-#define JavaUtilZipZipConstants_LOCEXT 28
-#define JavaUtilZipZipConstants_EXTCRC 4
-#define JavaUtilZipZipConstants_EXTSIZ 8
-#define JavaUtilZipZipConstants_EXTLEN 12
-#define JavaUtilZipZipConstants_CENVEM 4
-#define JavaUtilZipZipConstants_CENVER 6
-#define JavaUtilZipZipConstants_CENFLG 8
-#define JavaUtilZipZipConstants_CENHOW 10
-#define JavaUtilZipZipConstants_CENTIM 12
-#define JavaUtilZipZipConstants_CENCRC 16
-#define JavaUtilZipZipConstants_CENSIZ 20
-#define JavaUtilZipZipConstants_CENLEN 24
-#define JavaUtilZipZipConstants_CENNAM 28
-#define JavaUtilZipZipConstants_CENEXT 30
-#define JavaUtilZipZipConstants_CENCOM 32
-#define JavaUtilZipZipConstants_CENDSK 34
-#define JavaUtilZipZipConstants_CENATT 36
-#define JavaUtilZipZipConstants_CENATX 38
-#define JavaUtilZipZipConstants_CENOFF 42
-#define JavaUtilZipZipConstants_ENDSUB 8
-#define JavaUtilZipZipConstants_ENDTOT 10
-#define JavaUtilZipZipConstants_ENDSIZ 12
-#define JavaUtilZipZipConstants_ENDOFF 16
-#define JavaUtilZipZipConstants_ENDCOM 20
+#pragma push_macro("JavaUtilZipZipConstants_INCLUDE_ALL")
+#ifdef JavaUtilZipZipConstants_RESTRICT
+#define JavaUtilZipZipConstants_INCLUDE_ALL 0
+#else
+#define JavaUtilZipZipConstants_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipZipConstants_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipZipConstants_) && (JavaUtilZipZipConstants_INCLUDE_ALL || defined(JavaUtilZipZipConstants_INCLUDE))
+#define JavaUtilZipZipConstants_
 
 /*!
  @brief Do not add constants to this interface!
@@ -59,88 +29,256 @@
 
 @end
 
+@interface JavaUtilZipZipConstants : NSObject
+
++ (jlong)LOCSIG;
+
++ (jlong)EXTSIG;
+
++ (jlong)CENSIG;
+
++ (jlong)ENDSIG;
+
++ (jint)LOCHDR;
+
++ (jint)EXTHDR;
+
++ (jint)CENHDR;
+
++ (jint)ENDHDR;
+
++ (jint)LOCVER;
+
++ (jint)LOCFLG;
+
++ (jint)LOCHOW;
+
++ (jint)LOCTIM;
+
++ (jint)LOCCRC;
+
++ (jint)LOCSIZ;
+
++ (jint)LOCLEN;
+
++ (jint)LOCNAM;
+
++ (jint)LOCEXT;
+
++ (jint)EXTCRC;
+
++ (jint)EXTSIZ;
+
++ (jint)EXTLEN;
+
++ (jint)CENVEM;
+
++ (jint)CENVER;
+
++ (jint)CENFLG;
+
++ (jint)CENHOW;
+
++ (jint)CENTIM;
+
++ (jint)CENCRC;
+
++ (jint)CENSIZ;
+
++ (jint)CENLEN;
+
++ (jint)CENNAM;
+
++ (jint)CENEXT;
+
++ (jint)CENCOM;
+
++ (jint)CENDSK;
+
++ (jint)CENATT;
+
++ (jint)CENATX;
+
++ (jint)CENOFF;
+
++ (jint)ENDSUB;
+
++ (jint)ENDTOT;
+
++ (jint)ENDSIZ;
+
++ (jint)ENDOFF;
+
++ (jint)ENDCOM;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilZipZipConstants)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCSIG, jlong)
+inline jlong JavaUtilZipZipConstants_get_LOCSIG();
+#define JavaUtilZipZipConstants_LOCSIG 67324752LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCSIG, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, EXTSIG, jlong)
+inline jlong JavaUtilZipZipConstants_get_EXTSIG();
+#define JavaUtilZipZipConstants_EXTSIG 134695760LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, EXTSIG, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENSIG, jlong)
+inline jlong JavaUtilZipZipConstants_get_CENSIG();
+#define JavaUtilZipZipConstants_CENSIG 33639248LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENSIG, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, ENDSIG, jlong)
+inline jlong JavaUtilZipZipConstants_get_ENDSIG();
+#define JavaUtilZipZipConstants_ENDSIG 101010256LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, ENDSIG, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCHDR, jint)
+inline jint JavaUtilZipZipConstants_get_LOCHDR();
+#define JavaUtilZipZipConstants_LOCHDR 30
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCHDR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, EXTHDR, jint)
+inline jint JavaUtilZipZipConstants_get_EXTHDR();
+#define JavaUtilZipZipConstants_EXTHDR 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, EXTHDR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENHDR, jint)
+inline jint JavaUtilZipZipConstants_get_CENHDR();
+#define JavaUtilZipZipConstants_CENHDR 46
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENHDR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, ENDHDR, jint)
+inline jint JavaUtilZipZipConstants_get_ENDHDR();
+#define JavaUtilZipZipConstants_ENDHDR 22
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, ENDHDR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCVER, jint)
+inline jint JavaUtilZipZipConstants_get_LOCVER();
+#define JavaUtilZipZipConstants_LOCVER 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCVER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCFLG, jint)
+inline jint JavaUtilZipZipConstants_get_LOCFLG();
+#define JavaUtilZipZipConstants_LOCFLG 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCFLG, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCHOW, jint)
+inline jint JavaUtilZipZipConstants_get_LOCHOW();
+#define JavaUtilZipZipConstants_LOCHOW 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCHOW, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCTIM, jint)
+inline jint JavaUtilZipZipConstants_get_LOCTIM();
+#define JavaUtilZipZipConstants_LOCTIM 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCTIM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCCRC, jint)
+inline jint JavaUtilZipZipConstants_get_LOCCRC();
+#define JavaUtilZipZipConstants_LOCCRC 14
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCCRC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCSIZ, jint)
+inline jint JavaUtilZipZipConstants_get_LOCSIZ();
+#define JavaUtilZipZipConstants_LOCSIZ 18
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCSIZ, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCLEN, jint)
+inline jint JavaUtilZipZipConstants_get_LOCLEN();
+#define JavaUtilZipZipConstants_LOCLEN 22
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCLEN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCNAM, jint)
+inline jint JavaUtilZipZipConstants_get_LOCNAM();
+#define JavaUtilZipZipConstants_LOCNAM 26
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCNAM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, LOCEXT, jint)
+inline jint JavaUtilZipZipConstants_get_LOCEXT();
+#define JavaUtilZipZipConstants_LOCEXT 28
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, LOCEXT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, EXTCRC, jint)
+inline jint JavaUtilZipZipConstants_get_EXTCRC();
+#define JavaUtilZipZipConstants_EXTCRC 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, EXTCRC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, EXTSIZ, jint)
+inline jint JavaUtilZipZipConstants_get_EXTSIZ();
+#define JavaUtilZipZipConstants_EXTSIZ 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, EXTSIZ, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, EXTLEN, jint)
+inline jint JavaUtilZipZipConstants_get_EXTLEN();
+#define JavaUtilZipZipConstants_EXTLEN 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, EXTLEN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENVEM, jint)
+inline jint JavaUtilZipZipConstants_get_CENVEM();
+#define JavaUtilZipZipConstants_CENVEM 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENVEM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENVER, jint)
+inline jint JavaUtilZipZipConstants_get_CENVER();
+#define JavaUtilZipZipConstants_CENVER 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENVER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENFLG, jint)
+inline jint JavaUtilZipZipConstants_get_CENFLG();
+#define JavaUtilZipZipConstants_CENFLG 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENFLG, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENHOW, jint)
+inline jint JavaUtilZipZipConstants_get_CENHOW();
+#define JavaUtilZipZipConstants_CENHOW 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENHOW, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENTIM, jint)
+inline jint JavaUtilZipZipConstants_get_CENTIM();
+#define JavaUtilZipZipConstants_CENTIM 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENTIM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENCRC, jint)
+inline jint JavaUtilZipZipConstants_get_CENCRC();
+#define JavaUtilZipZipConstants_CENCRC 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENCRC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENSIZ, jint)
+inline jint JavaUtilZipZipConstants_get_CENSIZ();
+#define JavaUtilZipZipConstants_CENSIZ 20
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENSIZ, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENLEN, jint)
+inline jint JavaUtilZipZipConstants_get_CENLEN();
+#define JavaUtilZipZipConstants_CENLEN 24
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENLEN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENNAM, jint)
+inline jint JavaUtilZipZipConstants_get_CENNAM();
+#define JavaUtilZipZipConstants_CENNAM 28
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENNAM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENEXT, jint)
+inline jint JavaUtilZipZipConstants_get_CENEXT();
+#define JavaUtilZipZipConstants_CENEXT 30
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENEXT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENCOM, jint)
+inline jint JavaUtilZipZipConstants_get_CENCOM();
+#define JavaUtilZipZipConstants_CENCOM 32
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENCOM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENDSK, jint)
+inline jint JavaUtilZipZipConstants_get_CENDSK();
+#define JavaUtilZipZipConstants_CENDSK 34
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENDSK, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENATT, jint)
+inline jint JavaUtilZipZipConstants_get_CENATT();
+#define JavaUtilZipZipConstants_CENATT 36
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENATT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENATX, jint)
+inline jint JavaUtilZipZipConstants_get_CENATX();
+#define JavaUtilZipZipConstants_CENATX 38
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENATX, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, CENOFF, jint)
+inline jint JavaUtilZipZipConstants_get_CENOFF();
+#define JavaUtilZipZipConstants_CENOFF 42
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, CENOFF, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, ENDSUB, jint)
+inline jint JavaUtilZipZipConstants_get_ENDSUB();
+#define JavaUtilZipZipConstants_ENDSUB 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, ENDSUB, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, ENDTOT, jint)
+inline jint JavaUtilZipZipConstants_get_ENDTOT();
+#define JavaUtilZipZipConstants_ENDTOT 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, ENDTOT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, ENDSIZ, jint)
+inline jint JavaUtilZipZipConstants_get_ENDSIZ();
+#define JavaUtilZipZipConstants_ENDSIZ 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, ENDSIZ, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, ENDOFF, jint)
+inline jint JavaUtilZipZipConstants_get_ENDOFF();
+#define JavaUtilZipZipConstants_ENDOFF 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, ENDOFF, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipConstants, ENDCOM, jint)
+inline jint JavaUtilZipZipConstants_get_ENDCOM();
+#define JavaUtilZipZipConstants_ENDCOM 20
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipConstants, ENDCOM, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipConstants)
 
-#endif // _JavaUtilZipZipConstants_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipZipConstants_INCLUDE_ALL")

@@ -3,16 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/InvocationHandler.java
 //
 
-#ifndef _JavaLangReflectInvocationHandler_H_
-#define _JavaLangReflectInvocationHandler_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectInvocationHandler_INCLUDE_ALL")
+#ifdef JavaLangReflectInvocationHandler_RESTRICT
+#define JavaLangReflectInvocationHandler_INCLUDE_ALL 0
+#else
+#define JavaLangReflectInvocationHandler_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectInvocationHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectInvocationHandler_) && (JavaLangReflectInvocationHandler_INCLUDE_ALL || defined(JavaLangReflectInvocationHandler_INCLUDE))
+#define JavaLangReflectInvocationHandler_
 
 @class IOSObjectArray;
 @class JavaLangReflectMethod;
 
 /*!
  @brief Implementors of this interface dispatch methods invoked on proxy instances.
+ - seealso: Proxy
  */
 @protocol JavaLangReflectInvocationHandler < NSObject, JavaObject >
 
@@ -55,4 +67,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangReflectInvocationHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectInvocationHandler)
 
-#endif // _JavaLangReflectInvocationHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectInvocationHandler_INCLUDE_ALL")

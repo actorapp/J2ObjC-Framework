@@ -3,12 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/locks/Condition.java
 //
 
-#ifndef _JavaUtilConcurrentLocksCondition_H_
-#define _JavaUtilConcurrentLocksCondition_H_
-
 #include "../../../../J2ObjC_header.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+#pragma push_macro("JavaUtilConcurrentLocksCondition_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentLocksCondition_RESTRICT
+#define JavaUtilConcurrentLocksCondition_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentLocksCondition_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentLocksCondition_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentLocksCondition_) && (JavaUtilConcurrentLocksCondition_INCLUDE_ALL || defined(JavaUtilConcurrentLocksCondition_INCLUDE))
+#define JavaUtilConcurrentLocksCondition_
+
+@class JavaUtilConcurrentTimeUnit;
 @class JavaUtilDate;
 
 /*!
@@ -312,7 +323,7 @@
  (and interruption of thread suspension is supported)
  */
 - (jboolean)awaitWithLong:(jlong)time
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Causes the current thread to wait until it is signalled or interrupted,
@@ -419,4 +430,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentLocksCondition)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksCondition)
 
-#endif // _JavaUtilConcurrentLocksCondition_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentLocksCondition_INCLUDE_ALL")

@@ -3,33 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/datatype/DatatypeConstants.java
 //
 
-#ifndef _JavaxXmlDatatypeDatatypeConstants_H_
-#define _JavaxXmlDatatypeDatatypeConstants_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL")
+#ifdef JavaxXmlDatatypeDatatypeConstants_RESTRICT
+#define JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL 0
+#else
+#define JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlDatatypeDatatypeConstants_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlDatatypeDatatypeConstants_) && (JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL || defined(JavaxXmlDatatypeDatatypeConstants_INCLUDE))
+#define JavaxXmlDatatypeDatatypeConstants_
 
 @class JavaxXmlDatatypeDatatypeConstants_Field;
 @class JavaxXmlNamespaceQName;
-
-#define JavaxXmlDatatypeDatatypeConstants_JANUARY 1
-#define JavaxXmlDatatypeDatatypeConstants_FEBRUARY 2
-#define JavaxXmlDatatypeDatatypeConstants_MARCH 3
-#define JavaxXmlDatatypeDatatypeConstants_APRIL 4
-#define JavaxXmlDatatypeDatatypeConstants_MAY 5
-#define JavaxXmlDatatypeDatatypeConstants_JUNE 6
-#define JavaxXmlDatatypeDatatypeConstants_JULY 7
-#define JavaxXmlDatatypeDatatypeConstants_AUGUST 8
-#define JavaxXmlDatatypeDatatypeConstants_SEPTEMBER 9
-#define JavaxXmlDatatypeDatatypeConstants_OCTOBER 10
-#define JavaxXmlDatatypeDatatypeConstants_NOVEMBER 11
-#define JavaxXmlDatatypeDatatypeConstants_DECEMBER 12
-#define JavaxXmlDatatypeDatatypeConstants_LESSER -1
-#define JavaxXmlDatatypeDatatypeConstants_EQUAL 0
-#define JavaxXmlDatatypeDatatypeConstants_GREATER 1
-#define JavaxXmlDatatypeDatatypeConstants_INDETERMINATE 2
-#define JavaxXmlDatatypeDatatypeConstants_FIELD_UNDEFINED ((jint) 0x80000000)
-#define JavaxXmlDatatypeDatatypeConstants_MAX_TIMEZONE_OFFSET -840
-#define JavaxXmlDatatypeDatatypeConstants_MIN_TIMEZONE_OFFSET 840
 
 /*!
  @brief <p>Utility class to contain basic Datatype values as constants.
@@ -40,100 +31,380 @@
  */
 @interface JavaxXmlDatatypeDatatypeConstants : NSObject
 
++ (jint)JANUARY;
+
++ (jint)FEBRUARY;
+
++ (jint)MARCH;
+
++ (jint)APRIL;
+
++ (jint)MAY;
+
++ (jint)JUNE;
+
++ (jint)JULY;
+
++ (jint)AUGUST;
+
++ (jint)SEPTEMBER;
+
++ (jint)OCTOBER;
+
++ (jint)NOVEMBER;
+
++ (jint)DECEMBER;
+
++ (jint)LESSER;
+
++ (jint)EQUAL;
+
++ (jint)GREATER;
+
++ (jint)INDETERMINATE;
+
++ (jint)FIELD_UNDEFINED;
+
++ (JavaxXmlDatatypeDatatypeConstants_Field *)YEARS;
+
++ (JavaxXmlDatatypeDatatypeConstants_Field *)MONTHS;
+
++ (JavaxXmlDatatypeDatatypeConstants_Field *)DAYS;
+
++ (JavaxXmlDatatypeDatatypeConstants_Field *)HOURS;
+
++ (JavaxXmlDatatypeDatatypeConstants_Field *)MINUTES;
+
++ (JavaxXmlDatatypeDatatypeConstants_Field *)SECONDS;
+
++ (JavaxXmlNamespaceQName *)DATETIME;
+
++ (JavaxXmlNamespaceQName *)TIME;
+
++ (JavaxXmlNamespaceQName *)DATE;
+
++ (JavaxXmlNamespaceQName *)GYEARMONTH;
+
++ (JavaxXmlNamespaceQName *)GMONTHDAY;
+
++ (JavaxXmlNamespaceQName *)GYEAR;
+
++ (JavaxXmlNamespaceQName *)GMONTH;
+
++ (JavaxXmlNamespaceQName *)GDAY;
+
++ (JavaxXmlNamespaceQName *)DURATION;
+
++ (JavaxXmlNamespaceQName *)DURATION_DAYTIME;
+
++ (JavaxXmlNamespaceQName *)DURATION_YEARMONTH;
+
++ (jint)MAX_TIMEZONE_OFFSET;
+
++ (jint)MIN_TIMEZONE_OFFSET;
+
 @end
 
 J2OBJC_STATIC_INIT(JavaxXmlDatatypeDatatypeConstants)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, JANUARY, jint)
+/*!
+ @brief Value for first month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_JANUARY();
+#define JavaxXmlDatatypeDatatypeConstants_JANUARY 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, JANUARY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, FEBRUARY, jint)
+/*!
+ @brief Value for second month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_FEBRUARY();
+#define JavaxXmlDatatypeDatatypeConstants_FEBRUARY 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, FEBRUARY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, MARCH, jint)
+/*!
+ @brief Value for third month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_MARCH();
+#define JavaxXmlDatatypeDatatypeConstants_MARCH 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, MARCH, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, APRIL, jint)
+/*!
+ @brief Value for fourth month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_APRIL();
+#define JavaxXmlDatatypeDatatypeConstants_APRIL 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, APRIL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, MAY, jint)
+/*!
+ @brief Value for fifth month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_MAY();
+#define JavaxXmlDatatypeDatatypeConstants_MAY 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, MAY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, JUNE, jint)
+/*!
+ @brief Value for sixth month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_JUNE();
+#define JavaxXmlDatatypeDatatypeConstants_JUNE 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, JUNE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, JULY, jint)
+/*!
+ @brief Value for seventh month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_JULY();
+#define JavaxXmlDatatypeDatatypeConstants_JULY 7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, JULY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, AUGUST, jint)
+/*!
+ @brief Value for eighth month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_AUGUST();
+#define JavaxXmlDatatypeDatatypeConstants_AUGUST 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, AUGUST, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, SEPTEMBER, jint)
+/*!
+ @brief Value for ninth month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_SEPTEMBER();
+#define JavaxXmlDatatypeDatatypeConstants_SEPTEMBER 9
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, SEPTEMBER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, OCTOBER, jint)
+/*!
+ @brief Value for tenth month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_OCTOBER();
+#define JavaxXmlDatatypeDatatypeConstants_OCTOBER 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, OCTOBER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, NOVEMBER, jint)
+/*!
+ @brief Value for eleven month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_NOVEMBER();
+#define JavaxXmlDatatypeDatatypeConstants_NOVEMBER 11
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, NOVEMBER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, DECEMBER, jint)
+/*!
+ @brief Value for twelve month of year.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_DECEMBER();
+#define JavaxXmlDatatypeDatatypeConstants_DECEMBER 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, DECEMBER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, LESSER, jint)
+/*!
+ @brief <p>Comparison result.
+ </p>
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_LESSER();
+#define JavaxXmlDatatypeDatatypeConstants_LESSER -1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, LESSER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, EQUAL, jint)
+/*!
+ @brief <p>Comparison result.
+ </p>
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_EQUAL();
+#define JavaxXmlDatatypeDatatypeConstants_EQUAL 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, EQUAL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, GREATER, jint)
+/*!
+ @brief <p>Comparison result.
+ </p>
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_GREATER();
+#define JavaxXmlDatatypeDatatypeConstants_GREATER 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, GREATER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, INDETERMINATE, jint)
+/*!
+ @brief <p>Comparison result.
+ </p>
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_INDETERMINATE();
+#define JavaxXmlDatatypeDatatypeConstants_INDETERMINATE 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, INDETERMINATE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, FIELD_UNDEFINED, jint)
+/*!
+ @brief Designation that an "int" field is not set.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_FIELD_UNDEFINED();
+#define JavaxXmlDatatypeDatatypeConstants_FIELD_UNDEFINED ((jint) 0x80000000)
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, FIELD_UNDEFINED, jint)
 
-FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_YEARS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, YEARS_, JavaxXmlDatatypeDatatypeConstants_Field *)
+/*!
+ @brief <p>A constant that represents the years field.
+ </p>
+ */
+inline JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_get_YEARS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_YEARS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, YEARS, JavaxXmlDatatypeDatatypeConstants_Field *)
 
-FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_MONTHS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, MONTHS_, JavaxXmlDatatypeDatatypeConstants_Field *)
+/*!
+ @brief <p>A constant that represents the months field.
+ </p>
+ */
+inline JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_get_MONTHS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_MONTHS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, MONTHS, JavaxXmlDatatypeDatatypeConstants_Field *)
 
-FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_DAYS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, DAYS_, JavaxXmlDatatypeDatatypeConstants_Field *)
+/*!
+ @brief <p>A constant that represents the days field.
+ </p>
+ */
+inline JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_get_DAYS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_DAYS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, DAYS, JavaxXmlDatatypeDatatypeConstants_Field *)
 
-FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_HOURS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, HOURS_, JavaxXmlDatatypeDatatypeConstants_Field *)
+/*!
+ @brief <p>A constant that represents the hours field.
+ </p>
+ */
+inline JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_get_HOURS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_HOURS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, HOURS, JavaxXmlDatatypeDatatypeConstants_Field *)
 
-FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_MINUTES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, MINUTES_, JavaxXmlDatatypeDatatypeConstants_Field *)
+/*!
+ @brief <p>A constant that represents the minutes field.
+ </p>
+ */
+inline JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_get_MINUTES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_MINUTES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, MINUTES, JavaxXmlDatatypeDatatypeConstants_Field *)
 
-FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_SECONDS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, SECONDS_, JavaxXmlDatatypeDatatypeConstants_Field *)
+/*!
+ @brief <p>A constant that represents the seconds field.
+ </p>
+ */
+inline JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_get_SECONDS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConstants_Field *JavaxXmlDatatypeDatatypeConstants_SECONDS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, SECONDS, JavaxXmlDatatypeDatatypeConstants_Field *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_DATETIME_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, DATETIME_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for W3C XML Schema 1.0 datatype <code>dateTime</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_DATETIME();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_DATETIME;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, DATETIME, JavaxXmlNamespaceQName *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_TIME_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, TIME_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for W3C XML Schema 1.0 datatype <code>time</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_TIME();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_TIME;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, TIME, JavaxXmlNamespaceQName *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_DATE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, DATE_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for W3C XML Schema 1.0 datatype <code>date</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_DATE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_DATE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, DATE, JavaxXmlNamespaceQName *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_GYEARMONTH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, GYEARMONTH_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for W3C XML Schema 1.0 datatype <code>gYearMonth</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_GYEARMONTH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_GYEARMONTH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, GYEARMONTH, JavaxXmlNamespaceQName *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_GMONTHDAY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, GMONTHDAY_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for W3C XML Schema 1.0 datatype <code>gMonthDay</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_GMONTHDAY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_GMONTHDAY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, GMONTHDAY, JavaxXmlNamespaceQName *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_GYEAR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, GYEAR_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for W3C XML Schema 1.0 datatype <code>gYear</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_GYEAR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_GYEAR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, GYEAR, JavaxXmlNamespaceQName *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_GMONTH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, GMONTH_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for W3C XML Schema 1.0 datatype <code>gMonth</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_GMONTH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_GMONTH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, GMONTH, JavaxXmlNamespaceQName *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_GDAY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, GDAY_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for W3C XML Schema 1.0 datatype <code>gDay</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_GDAY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_GDAY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, GDAY, JavaxXmlNamespaceQName *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_DURATION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, DURATION_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for W3C XML Schema datatype <code>duration</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_DURATION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_DURATION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, DURATION, JavaxXmlNamespaceQName *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_DURATION_DAYTIME_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, DURATION_DAYTIME_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for XQuery 1.0 and XPath 2.0 datatype <code>dayTimeDuration</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_DURATION_DAYTIME();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_DURATION_DAYTIME;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, DURATION_DAYTIME, JavaxXmlNamespaceQName *)
 
-FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_DURATION_YEARMONTH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, DURATION_YEARMONTH_, JavaxXmlNamespaceQName *)
+/*!
+ @brief <p>Fully qualified name for XQuery 1.0 and XPath 2.0 datatype <code>yearMonthDuration</code>.
+ </p>
+ */
+inline JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_get_DURATION_YEARMONTH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlDatatypeDatatypeConstants_DURATION_YEARMONTH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeConstants, DURATION_YEARMONTH, JavaxXmlNamespaceQName *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, MAX_TIMEZONE_OFFSET, jint)
+/*!
+ @brief W3C XML Schema max timezone offset is -14:00.
+ Zone offset is in minutes.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_MAX_TIMEZONE_OFFSET();
+#define JavaxXmlDatatypeDatatypeConstants_MAX_TIMEZONE_OFFSET -840
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, MAX_TIMEZONE_OFFSET, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeConstants, MIN_TIMEZONE_OFFSET, jint)
+/*!
+ @brief W3C XML Schema min timezone offset is +14:00.
+ Zone offset is in minutes.
+ */
+inline jint JavaxXmlDatatypeDatatypeConstants_get_MIN_TIMEZONE_OFFSET();
+#define JavaxXmlDatatypeDatatypeConstants_MIN_TIMEZONE_OFFSET 840
+J2OBJC_STATIC_FIELD_CONSTANT(JavaxXmlDatatypeDatatypeConstants, MIN_TIMEZONE_OFFSET, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDatatypeConstants)
+
+#endif
+
+#if !defined (JavaxXmlDatatypeDatatypeConstants_Field_) && (JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL || defined(JavaxXmlDatatypeDatatypeConstants_Field_INCLUDE))
+#define JavaxXmlDatatypeDatatypeConstants_Field_
 
 /*!
  @brief Type-safe enum class that represents six fields
@@ -165,4 +436,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlDatatypeDatatypeConstants_Field)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDatatypeConstants_Field)
 
-#endif // _JavaxXmlDatatypeDatatypeConstants_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL")

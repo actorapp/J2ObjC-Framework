@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/FileLock.java
 //
 
-#ifndef _JavaNioChannelsFileLock_H_
-#define _JavaNioChannelsFileLock_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsFileLock_INCLUDE_ALL")
+#ifdef JavaNioChannelsFileLock_RESTRICT
+#define JavaNioChannelsFileLock_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsFileLock_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsFileLock_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsFileLock_) && (JavaNioChannelsFileLock_INCLUDE_ALL || defined(JavaNioChannelsFileLock_INCLUDE))
+#define JavaNioChannelsFileLock_
+
+#define JavaLangAutoCloseable_RESTRICT 1
+#define JavaLangAutoCloseable_INCLUDE 1
 #include "../../../java/lang/AutoCloseable.h"
 
 @class JavaNioChannelsFileChannel;
@@ -163,4 +177,8 @@ FOUNDATION_EXPORT void JavaNioChannelsFileLock_initWithJavaNioChannelsFileChanne
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileLock)
 
-#endif // _JavaNioChannelsFileLock_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsFileLock_INCLUDE_ALL")

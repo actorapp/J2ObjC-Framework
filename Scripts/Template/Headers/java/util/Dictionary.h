@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/Dictionary.java
 //
 
-#ifndef _JavaUtilDictionary_H_
-#define _JavaUtilDictionary_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilDictionary_INCLUDE_ALL")
+#ifdef JavaUtilDictionary_RESTRICT
+#define JavaUtilDictionary_INCLUDE_ALL 0
+#else
+#define JavaUtilDictionary_INCLUDE_ALL 1
+#endif
+#undef JavaUtilDictionary_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilDictionary_) && (JavaUtilDictionary_INCLUDE_ALL || defined(JavaUtilDictionary_INCLUDE))
+#define JavaUtilDictionary_
 
 @protocol JavaUtilEnumeration;
 
@@ -17,6 +28,7 @@
  <p>
  Dictionary is an abstract class which is the superclass of all classes that
  associate keys with values, such as <code>Hashtable</code>.
+ - seealso: Hashtable
  @since 1.0
  */
 @interface JavaUtilDictionary : NSObject
@@ -31,6 +43,9 @@
 /*!
  @brief Returns an enumeration on the elements of this dictionary.
  @return an enumeration of the values of this dictionary.
+ - seealso: #keys
+ - seealso: #size
+ - seealso: Enumeration
  */
 - (id<JavaUtilEnumeration>)elements;
 
@@ -40,6 +55,7 @@
  the key of the value returned.
  @return the value associated with <code>key</code>, or <code>null</code> if the
  specified key does not exist.
+ - seealso: #put
  */
 - (id)getWithId:(id)key;
 
@@ -47,12 +63,16 @@
  @brief Returns true if this dictionary has no key/value pairs.
  @return <code>true</code> if this dictionary has no key/value pairs,
  <code>false</code> otherwise.
+ - seealso: #size
  */
 - (jboolean)isEmpty;
 
 /*!
  @brief Returns an enumeration on the keys of this dictionary.
  @return an enumeration of the keys of this dictionary.
+ - seealso: #elements
+ - seealso: #size
+ - seealso: Enumeration
  */
 - (id<JavaUtilEnumeration>)keys;
 
@@ -67,6 +87,9 @@
  the value to add.
  @return the old value previously associated with <code>key</code> or <code>null</code>
   if <code>key</code> is new to the dictionary.
+ - seealso: #elements
+ - seealso: #get
+ - seealso: #keys
  */
 - (id)putWithId:(id)key
          withId:(id)value;
@@ -78,12 +101,16 @@
  the key to remove.
  @return the associated value before the deletion or <code>null</code> if
  <code>key</code> was not known to this dictionary.
+ - seealso: #get
+ - seealso: #put
  */
 - (id)removeWithId:(id)key;
 
 /*!
  @brief Returns the number of key/value pairs in this dictionary.
  @return the number of key/value pairs in this dictionary.
+ - seealso: #elements
+ - seealso: #keys
  */
 - (jint)size;
 
@@ -95,4 +122,8 @@ FOUNDATION_EXPORT void JavaUtilDictionary_init(JavaUtilDictionary *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDictionary)
 
-#endif // _JavaUtilDictionary_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilDictionary_INCLUDE_ALL")

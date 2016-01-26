@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/SAXException.java
 //
 
-#ifndef _OrgXmlSaxSAXException_H_
-#define _OrgXmlSaxSAXException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxSAXException_INCLUDE_ALL")
+#ifdef OrgXmlSaxSAXException_RESTRICT
+#define OrgXmlSaxSAXException_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxSAXException_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxSAXException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxSAXException_) && (OrgXmlSaxSAXException_INCLUDE_ALL || defined(OrgXmlSaxSAXException_INCLUDE))
+#define OrgXmlSaxSAXException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -31,6 +45,7 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.SAXParseException
  */
 @interface OrgXmlSaxSAXException : JavaLangException
 
@@ -109,4 +124,8 @@ FOUNDATION_EXPORT OrgXmlSaxSAXException *new_OrgXmlSaxSAXException_initWithNSStr
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXException)
 
-#endif // _OrgXmlSaxSAXException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxSAXException_INCLUDE_ALL")

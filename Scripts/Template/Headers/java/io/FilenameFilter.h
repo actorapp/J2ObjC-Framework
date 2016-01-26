@@ -3,16 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/io/FilenameFilter.java
 //
 
-#ifndef _JavaIoFilenameFilter_H_
-#define _JavaIoFilenameFilter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFilenameFilter_INCLUDE_ALL")
+#ifdef JavaIoFilenameFilter_RESTRICT
+#define JavaIoFilenameFilter_INCLUDE_ALL 0
+#else
+#define JavaIoFilenameFilter_INCLUDE_ALL 1
+#endif
+#undef JavaIoFilenameFilter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFilenameFilter_) && (JavaIoFilenameFilter_INCLUDE_ALL || defined(JavaIoFilenameFilter_INCLUDE))
+#define JavaIoFilenameFilter_
 
 @class JavaIoFile;
 
 /*!
  @brief An interface for filtering <code>File</code> objects based on their names
  or the directory they reside in.
+ - seealso: File
+ - seealso: File#list(FilenameFilter)
  */
 @protocol JavaIoFilenameFilter < NSObject, JavaObject >
 
@@ -35,4 +48,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoFilenameFilter)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilenameFilter)
 
-#endif // _JavaIoFilenameFilter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFilenameFilter_INCLUDE_ALL")

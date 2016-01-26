@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/OutOfMemoryError.java
 //
 
-#ifndef _JavaLangOutOfMemoryError_H_
-#define _JavaLangOutOfMemoryError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangOutOfMemoryError_INCLUDE_ALL")
+#ifdef JavaLangOutOfMemoryError_RESTRICT
+#define JavaLangOutOfMemoryError_INCLUDE_ALL 0
+#else
+#define JavaLangOutOfMemoryError_INCLUDE_ALL 1
+#endif
+#undef JavaLangOutOfMemoryError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangOutOfMemoryError_) && (JavaLangOutOfMemoryError_INCLUDE_ALL || defined(JavaLangOutOfMemoryError_INCLUDE))
+#define JavaLangOutOfMemoryError_
+
+#define JavaLangVirtualMachineError_RESTRICT 1
+#define JavaLangVirtualMachineError_INCLUDE 1
 #include "../../java/lang/VirtualMachineError.h"
 
 /*!
@@ -47,4 +61,8 @@ FOUNDATION_EXPORT JavaLangOutOfMemoryError *new_JavaLangOutOfMemoryError_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangOutOfMemoryError)
 
-#endif // _JavaLangOutOfMemoryError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangOutOfMemoryError_INCLUDE_ALL")

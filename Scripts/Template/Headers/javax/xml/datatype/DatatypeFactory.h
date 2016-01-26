@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/datatype/DatatypeFactory.java
 //
 
-#ifndef _JavaxXmlDatatypeDatatypeFactory_H_
-#define _JavaxXmlDatatypeDatatypeFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlDatatypeDatatypeFactory_INCLUDE_ALL")
+#ifdef JavaxXmlDatatypeDatatypeFactory_RESTRICT
+#define JavaxXmlDatatypeDatatypeFactory_INCLUDE_ALL 0
+#else
+#define JavaxXmlDatatypeDatatypeFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlDatatypeDatatypeFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlDatatypeDatatypeFactory_) && (JavaxXmlDatatypeDatatypeFactory_INCLUDE_ALL || defined(JavaxXmlDatatypeDatatypeFactory_INCLUDE))
+#define JavaxXmlDatatypeDatatypeFactory_
 
 @class JavaLangClassLoader;
 @class JavaMathBigDecimal;
@@ -48,6 +59,10 @@
  @since 1.5
  */
 @interface JavaxXmlDatatypeDatatypeFactory : NSObject
+
++ (NSString *)DATATYPEFACTORY_PROPERTY;
+
++ (NSString *)DATATYPEFACTORY_IMPLEMENTATION_CLASS;
 
 #pragma mark Public
 
@@ -95,6 +110,7 @@
  @param seconds of this <code>Duration</code>
  @return New <code>Duration</code> created from the specified values.
  @throws IllegalArgumentException If values are not a valid representation of a <code>Duration</code>.
+ - seealso: #newDuration(boolean isPositive,BigInteger years,BigInteger months,BigInteger days,BigInteger hours,BigInteger minutes,BigDecimal seconds)
  */
 - (JavaxXmlDatatypeDuration *)newDurationWithBoolean:(jboolean)isPositive
                                              withInt:(jint)years
@@ -249,6 +265,8 @@
  <p>Any remaining milliseconds after determining the day, hour, minute and second are discarded.</p>
  @param durationInMilliseconds Milliseconds of <code>Duration</code> to create.
  @return New <code>Duration</code> created with the specified <code>durationInMilliseconds</code>.
+ - seealso: <a href="http://www.w3.org/TR/xpath-datamodel#dt-dayTimeDuration">
+     *   XQuery 1.0 and XPath 2.0 Data Model, xdt:dayTimeDuration</a>
  */
 - (JavaxXmlDatatypeDuration *)newDurationDayTimeWithLong:(jlong)durationInMilliseconds OBJC_METHOD_FAMILY_NONE;
 
@@ -554,6 +572,7 @@
  @param day of <code>XMLGregorianCalendar</code> to be created.
  @param timezone offset in minutes. <code>DatatypeConstants.FIELD_UNDEFINED</code> indicates optional field is not set.
  @return <code>XMLGregorianCalendar</code> created from parameter values.
+ - seealso: DatatypeConstants#FIELD_UNDEFINED
  @throws IllegalArgumentException If any individual parameter's value is outside the maximum value constraint for the field
  as determined by the Date/Time Data Mapping table in <code>XMLGregorianCalendar</code>
  or if the composite values constitute an invalid <code>XMLGregorianCalendar</code> instance
@@ -575,6 +594,7 @@
  @param fractionalSecond value of <code>null</code> indicates that this optional field is not set.
  @param timezone offset in minutes. <code>DatatypeConstants.FIELD_UNDEFINED</code> indicates optional field is not set.
  @return <code>XMLGregorianCalendar</code> created from parameter values.
+ - seealso: DatatypeConstants#FIELD_UNDEFINED
  @throws IllegalArgumentException If any individual parameter's value is outside the maximum value constraint for the field
  as determined by the Date/Time Data Mapping table in <code>XMLGregorianCalendar</code>
  or if the composite values constitute an invalid <code>XMLGregorianCalendar</code> instance
@@ -599,6 +619,7 @@
  as determined by the Date/Time Data Mapping table in <code>XMLGregorianCalendar</code>
  or if the composite values constitute an invalid <code>XMLGregorianCalendar</code> instance
  as determined by <code>XMLGregorianCalendar.isValid()</code>.
+ - seealso: DatatypeConstants#FIELD_UNDEFINED
  */
 - (JavaxXmlDatatypeXMLGregorianCalendar *)newXMLGregorianCalendarTimeWithInt:(jint)hours
                                                                      withInt:(jint)minutes
@@ -615,6 +636,7 @@
  @param milliseconds number of milliseconds
  @param timezone offset in minutes. <code>DatatypeConstants.FIELD_UNDEFINED</code> indicates optional field is not set.
  @return <code>XMLGregorianCalendar</code> created from parameter values.
+ - seealso: DatatypeConstants#FIELD_UNDEFINED
  @throws IllegalArgumentException If any individual parameter's value is outside the maximum value constraint for the field
  as determined by the Date/Time Data Mapping table in <code>XMLGregorianCalendar</code>
  or if the composite values constitute an invalid <code>XMLGregorianCalendar</code> instance
@@ -639,11 +661,25 @@
 
 J2OBJC_STATIC_INIT(JavaxXmlDatatypeDatatypeFactory)
 
-FOUNDATION_EXPORT NSString *JavaxXmlDatatypeDatatypeFactory_DATATYPEFACTORY_PROPERTY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeFactory, DATATYPEFACTORY_PROPERTY_, NSString *)
+/*!
+ @brief <p>Default property name as defined in JSR 206: Java(TM) API for XML Processing (JAXP) 1.3.
+ </p>
+ <p>Default value is <code>javax.xml.datatype.DatatypeFactory</code>.</p>
+ */
+inline NSString *JavaxXmlDatatypeDatatypeFactory_get_DATATYPEFACTORY_PROPERTY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlDatatypeDatatypeFactory_DATATYPEFACTORY_PROPERTY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeFactory, DATATYPEFACTORY_PROPERTY, NSString *)
 
-FOUNDATION_EXPORT NSString *JavaxXmlDatatypeDatatypeFactory_DATATYPEFACTORY_IMPLEMENTATION_CLASS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlDatatypeDatatypeFactory, DATATYPEFACTORY_IMPLEMENTATION_CLASS_, NSString *)
+/*!
+ @brief <p>Default implementation class name as defined in JSR 206: Java(TM) API for XML Processing (JAXP) 1.3.
+ </p>
+ <p>Default value is <code>org.apache.xerces.jaxp.datatype.DatatypeFactoryImpl</code>.</p>
+ */
+inline NSString *JavaxXmlDatatypeDatatypeFactory_get_DATATYPEFACTORY_IMPLEMENTATION_CLASS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlDatatypeDatatypeFactory_DATATYPEFACTORY_IMPLEMENTATION_CLASS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlDatatypeDatatypeFactory, DATATYPEFACTORY_IMPLEMENTATION_CLASS, NSString *)
 
 FOUNDATION_EXPORT void JavaxXmlDatatypeDatatypeFactory_init(JavaxXmlDatatypeDatatypeFactory *self);
 
@@ -653,4 +689,8 @@ FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeFactory *JavaxXmlDatatypeDatatypeFacto
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDatatypeFactory)
 
-#endif // _JavaxXmlDatatypeDatatypeFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlDatatypeDatatypeFactory_INCLUDE_ALL")

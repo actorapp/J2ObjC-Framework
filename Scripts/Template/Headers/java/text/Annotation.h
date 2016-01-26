@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/text/Annotation.java
 //
 
-#ifndef _JavaTextAnnotation_H_
-#define _JavaTextAnnotation_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextAnnotation_INCLUDE_ALL")
+#ifdef JavaTextAnnotation_RESTRICT
+#define JavaTextAnnotation_INCLUDE_ALL 0
+#else
+#define JavaTextAnnotation_INCLUDE_ALL 1
+#endif
+#undef JavaTextAnnotation_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextAnnotation_) && (JavaTextAnnotation_INCLUDE_ALL || defined(JavaTextAnnotation_INCLUDE))
+#define JavaTextAnnotation_
 
 /*!
  @brief Wrapper for a text attribute value which represents an annotation.
@@ -60,4 +71,8 @@ FOUNDATION_EXPORT JavaTextAnnotation *new_JavaTextAnnotation_initWithId_(id attr
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextAnnotation)
 
-#endif // _JavaTextAnnotation_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextAnnotation_INCLUDE_ALL")

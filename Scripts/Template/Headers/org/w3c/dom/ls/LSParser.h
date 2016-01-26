@@ -3,22 +3,27 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/ls/LSParser.java
 //
 
-#ifndef _OrgW3cDomLsLSParser_H_
-#define _OrgW3cDomLsLSParser_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomLsLSParser_INCLUDE_ALL")
+#ifdef OrgW3cDomLsLSParser_RESTRICT
+#define OrgW3cDomLsLSParser_INCLUDE_ALL 0
+#else
+#define OrgW3cDomLsLSParser_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomLsLSParser_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomLsLSParser_) && (OrgW3cDomLsLSParser_INCLUDE_ALL || defined(OrgW3cDomLsLSParser_INCLUDE))
+#define OrgW3cDomLsLSParser_
 
 @protocol OrgW3cDomDOMConfiguration;
 @protocol OrgW3cDomDocument;
 @protocol OrgW3cDomLsLSInput;
 @protocol OrgW3cDomLsLSParserFilter;
 @protocol OrgW3cDomNode;
-
-#define OrgW3cDomLsLSParser_ACTION_APPEND_AS_CHILDREN 1
-#define OrgW3cDomLsLSParser_ACTION_REPLACE_CHILDREN 2
-#define OrgW3cDomLsLSParser_ACTION_INSERT_BEFORE 3
-#define OrgW3cDomLsLSParser_ACTION_INSERT_AFTER 4
-#define OrgW3cDomLsLSParser_ACTION_REPLACE 5
 
 /*!
  @brief An interface to an object that is able to build, or augment, a DOM tree
@@ -441,18 +446,80 @@
 
 @end
 
+@interface OrgW3cDomLsLSParser : NSObject
+
++ (jshort)ACTION_APPEND_AS_CHILDREN;
+
++ (jshort)ACTION_REPLACE_CHILDREN;
+
++ (jshort)ACTION_INSERT_BEFORE;
+
++ (jshort)ACTION_INSERT_AFTER;
+
++ (jshort)ACTION_REPLACE;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomLsLSParser)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSParser, ACTION_APPEND_AS_CHILDREN, jshort)
+/*!
+ @brief Append the result of the parse operation as children of the context
+ node.
+ For this action to work, the context node must be an
+ <code>Element</code> or a <code>DocumentFragment</code>.
+ */
+inline jshort OrgW3cDomLsLSParser_get_ACTION_APPEND_AS_CHILDREN();
+#define OrgW3cDomLsLSParser_ACTION_APPEND_AS_CHILDREN 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSParser, ACTION_APPEND_AS_CHILDREN, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSParser, ACTION_REPLACE_CHILDREN, jshort)
+/*!
+ @brief Replace all the children of the context node with the result of the
+ parse operation.
+ For this action to work, the context node must be an
+ <code>Element</code>, a <code>Document</code>, or a
+ <code>DocumentFragment</code>.
+ */
+inline jshort OrgW3cDomLsLSParser_get_ACTION_REPLACE_CHILDREN();
+#define OrgW3cDomLsLSParser_ACTION_REPLACE_CHILDREN 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSParser, ACTION_REPLACE_CHILDREN, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSParser, ACTION_INSERT_BEFORE, jshort)
+/*!
+ @brief Insert the result of the parse operation as the immediately preceding
+ sibling of the context node.
+ For this action to work the context
+ node's parent must be an <code>Element</code> or a
+ <code>DocumentFragment</code>.
+ */
+inline jshort OrgW3cDomLsLSParser_get_ACTION_INSERT_BEFORE();
+#define OrgW3cDomLsLSParser_ACTION_INSERT_BEFORE 3
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSParser, ACTION_INSERT_BEFORE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSParser, ACTION_INSERT_AFTER, jshort)
+/*!
+ @brief Insert the result of the parse operation as the immediately following
+ sibling of the context node.
+ For this action to work the context
+ node's parent must be an <code>Element</code> or a
+ <code>DocumentFragment</code>.
+ */
+inline jshort OrgW3cDomLsLSParser_get_ACTION_INSERT_AFTER();
+#define OrgW3cDomLsLSParser_ACTION_INSERT_AFTER 4
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSParser, ACTION_INSERT_AFTER, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSParser, ACTION_REPLACE, jshort)
+/*!
+ @brief Replace the context node with the result of the parse operation.
+ For
+ this action to work, the context node must have a parent, and the
+ parent must be an <code>Element</code> or a
+ <code>DocumentFragment</code>.
+ */
+inline jshort OrgW3cDomLsLSParser_get_ACTION_REPLACE();
+#define OrgW3cDomLsLSParser_ACTION_REPLACE 5
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSParser, ACTION_REPLACE, jshort)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSParser)
 
-#endif // _OrgW3cDomLsLSParser_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomLsLSParser_INCLUDE_ALL")

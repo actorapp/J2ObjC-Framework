@@ -3,15 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/util/MissingFormatWidthException.java
 //
 
-#ifndef _JavaUtilMissingFormatWidthException_H_
-#define _JavaUtilMissingFormatWidthException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilMissingFormatWidthException_INCLUDE_ALL")
+#ifdef JavaUtilMissingFormatWidthException_RESTRICT
+#define JavaUtilMissingFormatWidthException_INCLUDE_ALL 0
+#else
+#define JavaUtilMissingFormatWidthException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilMissingFormatWidthException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilMissingFormatWidthException_) && (JavaUtilMissingFormatWidthException_INCLUDE_ALL || defined(JavaUtilMissingFormatWidthException_INCLUDE))
+#define JavaUtilMissingFormatWidthException_
+
+#define JavaUtilIllegalFormatException_RESTRICT 1
+#define JavaUtilIllegalFormatException_INCLUDE 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief A <code>MissingFormatWidthException</code> will be thrown if the format width is
  missing but is required.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilMissingFormatWidthException : JavaUtilIllegalFormatException
 
@@ -43,4 +58,8 @@ FOUNDATION_EXPORT JavaUtilMissingFormatWidthException *new_JavaUtilMissingFormat
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMissingFormatWidthException)
 
-#endif // _JavaUtilMissingFormatWidthException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilMissingFormatWidthException_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Wrapper.java
 //
 
-#ifndef _JavaSqlWrapper_H_
-#define _JavaSqlWrapper_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlWrapper_INCLUDE_ALL")
+#ifdef JavaSqlWrapper_RESTRICT
+#define JavaSqlWrapper_INCLUDE_ALL 0
+#else
+#define JavaSqlWrapper_INCLUDE_ALL 1
+#endif
+#undef JavaSqlWrapper_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlWrapper_) && (JavaSqlWrapper_INCLUDE_ALL || defined(JavaSqlWrapper_INCLUDE))
+#define JavaSqlWrapper_
 
 @class IOSClass;
 
@@ -47,4 +58,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlWrapper)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlWrapper)
 
-#endif // _JavaSqlWrapper_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlWrapper_INCLUDE_ALL")

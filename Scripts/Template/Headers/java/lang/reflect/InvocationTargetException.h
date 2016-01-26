@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/InvocationTargetException.java
 //
 
-#ifndef _JavaLangReflectInvocationTargetException_H_
-#define _JavaLangReflectInvocationTargetException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectInvocationTargetException_INCLUDE_ALL")
+#ifdef JavaLangReflectInvocationTargetException_RESTRICT
+#define JavaLangReflectInvocationTargetException_INCLUDE_ALL 0
+#else
+#define JavaLangReflectInvocationTargetException_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectInvocationTargetException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectInvocationTargetException_) && (JavaLangReflectInvocationTargetException_INCLUDE_ALL || defined(JavaLangReflectInvocationTargetException_INCLUDE))
+#define JavaLangReflectInvocationTargetException_
+
+#define JavaLangReflectiveOperationException_RESTRICT 1
+#define JavaLangReflectiveOperationException_INCLUDE 1
 #include "../../../java/lang/ReflectiveOperationException.h"
 
 @class JavaLangThrowable;
@@ -14,6 +28,8 @@
 /*!
  @brief This class provides a wrapper for an exception thrown by a <code>Method</code> or
  <code>Constructor</code> invocation.
+ - seealso: Method#invoke
+ - seealso: Constructor#newInstance
  */
 @interface JavaLangReflectInvocationTargetException : JavaLangReflectiveOperationException
 
@@ -78,4 +94,8 @@ FOUNDATION_EXPORT JavaLangReflectInvocationTargetException *new_JavaLangReflectI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectInvocationTargetException)
 
-#endif // _JavaLangReflectInvocationTargetException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectInvocationTargetException_INCLUDE_ALL")

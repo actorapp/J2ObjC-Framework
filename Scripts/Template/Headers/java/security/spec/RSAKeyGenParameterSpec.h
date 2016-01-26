@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/RSAKeyGenParameterSpec.java
 //
 
-#ifndef _JavaSecuritySpecRSAKeyGenParameterSpec_H_
-#define _JavaSecuritySpecRSAKeyGenParameterSpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecRSAKeyGenParameterSpec_RESTRICT
+#define JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecRSAKeyGenParameterSpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecRSAKeyGenParameterSpec_) && (JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE))
+#define JavaSecuritySpecRSAKeyGenParameterSpec_
+
+#define JavaSecuritySpecAlgorithmParameterSpec_RESTRICT 1
+#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE 1
 #include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 @class JavaMathBigInteger;
@@ -15,6 +29,10 @@
  @brief The parameter specification for generating an RSA key pair.
  */
 @interface JavaSecuritySpecRSAKeyGenParameterSpec : NSObject < JavaSecuritySpecAlgorithmParameterSpec >
+
++ (JavaMathBigInteger *)F0;
+
++ (JavaMathBigInteger *)F4;
 
 #pragma mark Public
 
@@ -45,11 +63,21 @@
 
 J2OBJC_STATIC_INIT(JavaSecuritySpecRSAKeyGenParameterSpec)
 
-FOUNDATION_EXPORT JavaMathBigInteger *JavaSecuritySpecRSAKeyGenParameterSpec_F0_;
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySpecRSAKeyGenParameterSpec, F0_, JavaMathBigInteger *)
+/*!
+ @brief The value of the public exponent <code>F0</code> = 3.
+ */
+inline JavaMathBigInteger *JavaSecuritySpecRSAKeyGenParameterSpec_get_F0();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathBigInteger *JavaSecuritySpecRSAKeyGenParameterSpec_F0;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaSecuritySpecRSAKeyGenParameterSpec, F0, JavaMathBigInteger *)
 
-FOUNDATION_EXPORT JavaMathBigInteger *JavaSecuritySpecRSAKeyGenParameterSpec_F4_;
-J2OBJC_STATIC_FIELD_GETTER(JavaSecuritySpecRSAKeyGenParameterSpec, F4_, JavaMathBigInteger *)
+/*!
+ @brief The value of the public exponent <code>F4</code> = 65537.
+ */
+inline JavaMathBigInteger *JavaSecuritySpecRSAKeyGenParameterSpec_get_F4();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaMathBigInteger *JavaSecuritySpecRSAKeyGenParameterSpec_F4;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaSecuritySpecRSAKeyGenParameterSpec, F4, JavaMathBigInteger *)
 
 FOUNDATION_EXPORT void JavaSecuritySpecRSAKeyGenParameterSpec_initWithInt_withJavaMathBigInteger_(JavaSecuritySpecRSAKeyGenParameterSpec *self, jint keysize, JavaMathBigInteger *publicExponent);
 
@@ -57,4 +85,8 @@ FOUNDATION_EXPORT JavaSecuritySpecRSAKeyGenParameterSpec *new_JavaSecuritySpecRS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAKeyGenParameterSpec)
 
-#endif // _JavaSecuritySpecRSAKeyGenParameterSpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE_ALL")

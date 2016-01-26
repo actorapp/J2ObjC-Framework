@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/CountedCompleter.java
 //
 
-#ifndef _JavaUtilConcurrentCountedCompleter_H_
-#define _JavaUtilConcurrentCountedCompleter_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentCountedCompleter_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentCountedCompleter_RESTRICT
+#define JavaUtilConcurrentCountedCompleter_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentCountedCompleter_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentCountedCompleter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentCountedCompleter_) && (JavaUtilConcurrentCountedCompleter_INCLUDE_ALL || defined(JavaUtilConcurrentCountedCompleter_INCLUDE))
+#define JavaUtilConcurrentCountedCompleter_
+
+#define JavaUtilConcurrentForkJoinTask_RESTRICT 1
+#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
 #include "../../../java/util/concurrent/ForkJoinTask.h"
 
 @class JavaLangThrowable;
@@ -615,4 +629,8 @@ FOUNDATION_EXPORT void JavaUtilConcurrentCountedCompleter_init(JavaUtilConcurren
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCountedCompleter)
 
-#endif // _JavaUtilConcurrentCountedCompleter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentCountedCompleter_INCLUDE_ALL")

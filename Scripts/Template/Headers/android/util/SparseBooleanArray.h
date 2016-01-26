@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/util/SparseBooleanArray.java
 //
 
-#ifndef _AndroidUtilSparseBooleanArray_H_
-#define _AndroidUtilSparseBooleanArray_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidUtilSparseBooleanArray_INCLUDE_ALL")
+#ifdef AndroidUtilSparseBooleanArray_RESTRICT
+#define AndroidUtilSparseBooleanArray_INCLUDE_ALL 0
+#else
+#define AndroidUtilSparseBooleanArray_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilSparseBooleanArray_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilSparseBooleanArray_) && (AndroidUtilSparseBooleanArray_INCLUDE_ALL || defined(AndroidUtilSparseBooleanArray_INCLUDE))
+#define AndroidUtilSparseBooleanArray_
 
 /*!
  @brief SparseBooleanArrays map integers to booleans.
@@ -153,4 +164,8 @@ FOUNDATION_EXPORT AndroidUtilSparseBooleanArray *new_AndroidUtilSparseBooleanArr
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilSparseBooleanArray)
 
-#endif // _AndroidUtilSparseBooleanArray_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilSparseBooleanArray_INCLUDE_ALL")

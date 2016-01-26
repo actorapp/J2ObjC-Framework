@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/xpath/XPath.java
 //
 
-#ifndef _JavaxXmlXpathXPath_H_
-#define _JavaxXmlXpathXPath_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlXpathXPath_INCLUDE_ALL")
+#ifdef JavaxXmlXpathXPath_RESTRICT
+#define JavaxXmlXpathXPath_INCLUDE_ALL 0
+#else
+#define JavaxXmlXpathXPath_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlXpathXPath_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlXpathXPath_) && (JavaxXmlXpathXPath_INCLUDE_ALL || defined(JavaxXmlXpathXPath_INCLUDE))
+#define JavaxXmlXpathXPath_
 
 @class JavaxXmlNamespaceQName;
 @class OrgXmlSaxInputSource;
@@ -72,6 +83,7 @@
  @author <a href="Norman.Walsh@@Sun.com">Norman Walsh</a>
  @author <a href="Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  @version $Revision: 569998 $, $Date: 2007-08-26 21:40:02 -0700 (Sun, 26 Aug 2007) $
+ - seealso: <a href="http://www.w3.org/TR/xpath">XML Path Language (XPath) Version 1.0</a>
  @since 1.5
  */
 @protocol JavaxXmlXpathXPath < NSObject, JavaObject >
@@ -257,4 +269,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlXpathXPath)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPath)
 
-#endif // _JavaxXmlXpathXPath_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlXpathXPath_INCLUDE_ALL")

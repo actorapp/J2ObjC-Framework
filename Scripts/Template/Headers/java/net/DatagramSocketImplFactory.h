@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/DatagramSocketImplFactory.java
 //
 
-#ifndef _JavaNetDatagramSocketImplFactory_H_
-#define _JavaNetDatagramSocketImplFactory_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetDatagramSocketImplFactory_INCLUDE_ALL")
+#ifdef JavaNetDatagramSocketImplFactory_RESTRICT
+#define JavaNetDatagramSocketImplFactory_INCLUDE_ALL 0
+#else
+#define JavaNetDatagramSocketImplFactory_INCLUDE_ALL 1
+#endif
+#undef JavaNetDatagramSocketImplFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetDatagramSocketImplFactory_) && (JavaNetDatagramSocketImplFactory_INCLUDE_ALL || defined(JavaNetDatagramSocketImplFactory_INCLUDE))
+#define JavaNetDatagramSocketImplFactory_
 
 @class JavaNetDatagramSocketImpl;
 
@@ -15,6 +26,7 @@
  It is
  used by the class <code>DatagramSocket</code> to create a new datagram socket
  implementation.
+ - seealso: DatagramSocket
  */
 @protocol JavaNetDatagramSocketImplFactory < NSObject, JavaObject >
 
@@ -30,4 +42,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNetDatagramSocketImplFactory)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramSocketImplFactory)
 
-#endif // _JavaNetDatagramSocketImplFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetDatagramSocketImplFactory_INCLUDE_ALL")

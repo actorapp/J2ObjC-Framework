@@ -3,23 +3,69 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ConcurrentHashMap.java
 //
 
-#ifndef _JavaUtilConcurrentConcurrentHashMap_H_
-#define _JavaUtilConcurrentConcurrentHashMap_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentConcurrentHashMap_RESTRICT
+#define JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentConcurrentHashMap_RESTRICT
+#ifdef JavaUtilConcurrentConcurrentHashMap_EntrySetView_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_CollectionView_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentConcurrentHashMap_ValuesView_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_CollectionView_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentConcurrentHashMap_KeySetView_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_CollectionView_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentConcurrentHashMap_EntryIterator_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_BaseIterator_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentConcurrentHashMap_ValueIterator_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_BaseIterator_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentConcurrentHashMap_KeyIterator_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_BaseIterator_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentConcurrentHashMap_BaseIterator_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_Traverser_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentConcurrentHashMap_TreeBin_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_Node_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentConcurrentHashMap_TreeNode_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_Node_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentConcurrentHashMap_ReservationNode_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_Node_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentConcurrentHashMap_ForwardingNode_INCLUDE
+#define JavaUtilConcurrentConcurrentHashMap_Node_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_
+
+#define JavaUtilAbstractMap_RESTRICT 1
+#define JavaUtilAbstractMap_INCLUDE 1
 #include "../../../java/util/AbstractMap.h"
-#include "../../../java/util/Collection.h"
-#include "../../../java/util/Enumeration.h"
-#include "../../../java/util/Iterator.h"
-#include "../../../java/util/Map.h"
-#include "../../../java/util/Set.h"
+
+#define JavaUtilConcurrentConcurrentMap_RESTRICT 1
+#define JavaUtilConcurrentConcurrentMap_INCLUDE 1
 #include "../../../java/util/concurrent/ConcurrentMap.h"
-#include "../../../java/util/concurrent/locks/ReentrantLock.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
 
 @class IOSClass;
 @class IOSObjectArray;
-@class JavaLangThread;
 @class JavaLangThreadLocal;
 @class JavaUtilConcurrentAtomicAtomicInteger;
 @class JavaUtilConcurrentConcurrentHashMap_KeySetView;
@@ -28,16 +74,6 @@
 @protocol JavaUtilEnumeration;
 @protocol JavaUtilMap;
 @protocol JavaUtilSet;
-
-#define JavaUtilConcurrentConcurrentHashMap_MAX_ARRAY_SIZE 2147483639
-#define JavaUtilConcurrentConcurrentHashMap_TREEIFY_THRESHOLD 8
-#define JavaUtilConcurrentConcurrentHashMap_UNTREEIFY_THRESHOLD 6
-#define JavaUtilConcurrentConcurrentHashMap_MIN_TREEIFY_CAPACITY 64
-#define JavaUtilConcurrentConcurrentHashMap_MOVED -1879048193
-#define JavaUtilConcurrentConcurrentHashMap_TREEBIN ((jint) 0x80000000)
-#define JavaUtilConcurrentConcurrentHashMap_RESERVED -2147483647
-#define JavaUtilConcurrentConcurrentHashMap_HASH_BITS 2147483647
-#define JavaUtilConcurrentConcurrentHashMap_SEED_INCREMENT 1640531527
 
 /*!
  @brief A hash table supporting full concurrency of retrievals and
@@ -109,6 +145,30 @@
    */
   volatile_id table_;
 }
+
++ (jint)MAX_ARRAY_SIZE;
+
++ (jint)TREEIFY_THRESHOLD;
+
++ (jint)UNTREEIFY_THRESHOLD;
+
++ (jint)MIN_TREEIFY_CAPACITY;
+
++ (jint)MOVED;
+
++ (jint)TREEBIN;
+
++ (jint)RESERVED;
+
++ (jint)HASH_BITS;
+
++ (jint)NCPU;
+
++ (JavaUtilConcurrentAtomicAtomicInteger *)counterHashCodeGenerator;
+
++ (jint)SEED_INCREMENT;
+
++ (JavaLangThreadLocal *)threadCounterHashCode;
 
 #pragma mark Public
 
@@ -218,6 +278,7 @@
 /*!
  @brief Returns an enumeration of the values in this table.
  @return an enumeration of the values in this table
+ - seealso: #values()
  */
 - (id<JavaUtilEnumeration>)elements;
 
@@ -276,6 +337,7 @@
 /*!
  @brief Returns an enumeration of the keys in this table.
  @return an enumeration of the keys in this table
+ - seealso: #keySet()
  */
 - (id<JavaUtilEnumeration>)keys;
 
@@ -531,32 +593,96 @@ J2OBJC_STATIC_INIT(JavaUtilConcurrentConcurrentHashMap)
 
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentConcurrentHashMap, table_, IOSObjectArray *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, MAX_ARRAY_SIZE, jint)
+/*!
+ @brief The largest possible (non-power of two) array size.
+ Needed by toArray and related methods.
+ */
+inline jint JavaUtilConcurrentConcurrentHashMap_get_MAX_ARRAY_SIZE();
+#define JavaUtilConcurrentConcurrentHashMap_MAX_ARRAY_SIZE 2147483639
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap, MAX_ARRAY_SIZE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, TREEIFY_THRESHOLD, jint)
+/*!
+ @brief The bin count threshold for using a tree rather than list for a
+ bin.
+ Bins are converted to trees when adding an element to a
+ bin with at least this many nodes. The value must be greater
+ than 2, and should be at least 8 to mesh with assumptions in
+ tree removal about conversion back to plain bins upon
+ shrinkage.
+ */
+inline jint JavaUtilConcurrentConcurrentHashMap_get_TREEIFY_THRESHOLD();
+#define JavaUtilConcurrentConcurrentHashMap_TREEIFY_THRESHOLD 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap, TREEIFY_THRESHOLD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, UNTREEIFY_THRESHOLD, jint)
+/*!
+ @brief The bin count threshold for untreeifying a (split) bin during a
+ resize operation.
+ Should be less than TREEIFY_THRESHOLD, and at
+ most 6 to mesh with shrinkage detection under removal.
+ */
+inline jint JavaUtilConcurrentConcurrentHashMap_get_UNTREEIFY_THRESHOLD();
+#define JavaUtilConcurrentConcurrentHashMap_UNTREEIFY_THRESHOLD 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap, UNTREEIFY_THRESHOLD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, MIN_TREEIFY_CAPACITY, jint)
+/*!
+ @brief The smallest table capacity for which bins may be treeified.
+ (Otherwise the table is resized if too many nodes in a bin.)
+ The value should be at least 4 * TREEIFY_THRESHOLD to avoid
+ conflicts between resizing and treeification thresholds.
+ */
+inline jint JavaUtilConcurrentConcurrentHashMap_get_MIN_TREEIFY_CAPACITY();
+#define JavaUtilConcurrentConcurrentHashMap_MIN_TREEIFY_CAPACITY 64
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap, MIN_TREEIFY_CAPACITY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, MOVED, jint)
+inline jint JavaUtilConcurrentConcurrentHashMap_get_MOVED();
+#define JavaUtilConcurrentConcurrentHashMap_MOVED -1879048193
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap, MOVED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, TREEBIN, jint)
+inline jint JavaUtilConcurrentConcurrentHashMap_get_TREEBIN();
+#define JavaUtilConcurrentConcurrentHashMap_TREEBIN ((jint) 0x80000000)
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap, TREEBIN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, RESERVED, jint)
+inline jint JavaUtilConcurrentConcurrentHashMap_get_RESERVED();
+#define JavaUtilConcurrentConcurrentHashMap_RESERVED -2147483647
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap, RESERVED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, HASH_BITS, jint)
+inline jint JavaUtilConcurrentConcurrentHashMap_get_HASH_BITS();
+#define JavaUtilConcurrentConcurrentHashMap_HASH_BITS 2147483647
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap, HASH_BITS, jint)
 
-FOUNDATION_EXPORT jint JavaUtilConcurrentConcurrentHashMap_NCPU_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, NCPU_, jint)
+/*!
+ @brief Number of CPUS, to place bounds on some sizings
+ */
+inline jint JavaUtilConcurrentConcurrentHashMap_get_NCPU();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint JavaUtilConcurrentConcurrentHashMap_NCPU;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaUtilConcurrentConcurrentHashMap, NCPU, jint)
 
-FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicInteger *JavaUtilConcurrentConcurrentHashMap_counterHashCodeGenerator_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, counterHashCodeGenerator_, JavaUtilConcurrentAtomicAtomicInteger *)
+/*!
+ @brief Generates initial value for per-thread CounterHashCodes.
+ */
+inline JavaUtilConcurrentAtomicAtomicInteger *JavaUtilConcurrentConcurrentHashMap_get_counterHashCodeGenerator();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicInteger *JavaUtilConcurrentConcurrentHashMap_counterHashCodeGenerator;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilConcurrentConcurrentHashMap, counterHashCodeGenerator, JavaUtilConcurrentAtomicAtomicInteger *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, SEED_INCREMENT, jint)
+/*!
+ @brief Increment for counterHashCodeGenerator.
+ See class ThreadLocal
+ for explanation.
+ */
+inline jint JavaUtilConcurrentConcurrentHashMap_get_SEED_INCREMENT();
+#define JavaUtilConcurrentConcurrentHashMap_SEED_INCREMENT 1640531527
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap, SEED_INCREMENT, jint)
 
-FOUNDATION_EXPORT JavaLangThreadLocal *JavaUtilConcurrentConcurrentHashMap_threadCounterHashCode_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap, threadCounterHashCode_, JavaLangThreadLocal *)
+/*!
+ @brief Per-thread counter hash codes.
+ Shared across all instances.
+ */
+inline JavaLangThreadLocal *JavaUtilConcurrentConcurrentHashMap_get_threadCounterHashCode();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangThreadLocal *JavaUtilConcurrentConcurrentHashMap_threadCounterHashCode;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilConcurrentConcurrentHashMap, threadCounterHashCode, JavaLangThreadLocal *)
 
 FOUNDATION_EXPORT jint JavaUtilConcurrentConcurrentHashMap_spreadWithInt_(jint h);
 
@@ -599,6 +725,15 @@ FOUNDATION_EXPORT jint JavaUtilConcurrentConcurrentHashMap_resizeStampWithInt_(j
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_Node *JavaUtilConcurrentConcurrentHashMap_untreeifyWithJavaUtilConcurrentConcurrentHashMap_Node_(JavaUtilConcurrentConcurrentHashMap_Node *b);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_Node_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_Node_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_Node_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_Entry_INCLUDE 1
+#include "../../../java/util/Map.h"
 
 /*!
  @brief Key-value entry.
@@ -658,6 +793,19 @@ FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_Node *new_JavaUtilConcurre
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_Node)
 
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_Segment_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_Segment_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_Segment_
+
+#define JavaUtilConcurrentLocksReentrantLock_RESTRICT 1
+#define JavaUtilConcurrentLocksReentrantLock_INCLUDE 1
+#include "../../../java/util/concurrent/locks/ReentrantLock.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
 /*!
  @brief Stripped-down version of helper class used in previous version,
  declared for the sake of serialization compatibility
@@ -680,6 +828,14 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_Segment_initWithFloat
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_Segment *new_JavaUtilConcurrentConcurrentHashMap_Segment_initWithFloat_(jfloat lf) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_Segment)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_ForwardingNode_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_ForwardingNode_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_ForwardingNode_
+
+@class IOSObjectArray;
+@class JavaUtilConcurrentConcurrentHashMap_Node;
 
 /*!
  @brief A node inserted at head of bins during transfer operations.
@@ -708,6 +864,13 @@ FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ForwardingNode *new_JavaUt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ForwardingNode)
 
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_ReservationNode_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_ReservationNode_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_ReservationNode_
+
+@class JavaUtilConcurrentConcurrentHashMap_Node;
+
 /*!
  @brief A place-holder node used in computeIfAbsent and compute
  */
@@ -729,6 +892,14 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_ReservationNode_init(
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ReservationNode *new_JavaUtilConcurrentConcurrentHashMap_ReservationNode_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ReservationNode)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_TreeNode_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_TreeNode_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_TreeNode_
+
+@class IOSClass;
+@class JavaUtilConcurrentConcurrentHashMap_Node;
 
 /*!
  @brief Nodes for use in TreeBins
@@ -776,9 +947,14 @@ FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TreeNode *new_JavaUtilConc
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TreeNode)
 
-#define JavaUtilConcurrentConcurrentHashMap_TreeBin_WRITER 1
-#define JavaUtilConcurrentConcurrentHashMap_TreeBin_WAITER 2
-#define JavaUtilConcurrentConcurrentHashMap_TreeBin_READER 4
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_TreeBin_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_TreeBin_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_TreeBin_
+
+@class JavaLangThread;
+@class JavaUtilConcurrentConcurrentHashMap_Node;
+@class JavaUtilConcurrentConcurrentHashMap_TreeNode;
 
 /*!
  @brief TreeNodes used at the heads of bins.
@@ -795,6 +971,12 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TreeNode)
   volatile_id waiter_;
   volatile_jint lockState_;
 }
+
++ (jint)WRITER;
+
++ (jint)WAITER;
+
++ (jint)READER;
 
 #pragma mark Package-Private
 
@@ -868,11 +1050,17 @@ J2OBJC_FIELD_SETTER(JavaUtilConcurrentConcurrentHashMap_TreeBin, root_, JavaUtil
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentConcurrentHashMap_TreeBin, first_, JavaUtilConcurrentConcurrentHashMap_TreeNode *)
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentConcurrentHashMap_TreeBin, waiter_, JavaLangThread *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap_TreeBin, WRITER, jint)
+inline jint JavaUtilConcurrentConcurrentHashMap_TreeBin_get_WRITER();
+#define JavaUtilConcurrentConcurrentHashMap_TreeBin_WRITER 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap_TreeBin, WRITER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap_TreeBin, WAITER, jint)
+inline jint JavaUtilConcurrentConcurrentHashMap_TreeBin_get_WAITER();
+#define JavaUtilConcurrentConcurrentHashMap_TreeBin_WAITER 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap_TreeBin, WAITER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentConcurrentHashMap_TreeBin, READER, jint)
+inline jint JavaUtilConcurrentConcurrentHashMap_TreeBin_get_READER();
+#define JavaUtilConcurrentConcurrentHashMap_TreeBin_READER 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentConcurrentHashMap_TreeBin, READER, jint)
 
 FOUNDATION_EXPORT jint JavaUtilConcurrentConcurrentHashMap_TreeBin_tieBreakOrderWithId_withId_(id a, id b);
 
@@ -891,6 +1079,13 @@ FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TreeNode *JavaUtilConcurre
 FOUNDATION_EXPORT jboolean JavaUtilConcurrentConcurrentHashMap_TreeBin_checkInvariantsWithJavaUtilConcurrentConcurrentHashMap_TreeNode_(JavaUtilConcurrentConcurrentHashMap_TreeNode *t);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TreeBin)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_TableStack_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_TableStack_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_TableStack_
+
+@class IOSObjectArray;
 
 /*!
  @brief Records the table, its length, and current traversal index for a
@@ -921,6 +1116,15 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_TableStack_init(JavaU
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TableStack *new_JavaUtilConcurrentConcurrentHashMap_TableStack_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TableStack)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_Traverser_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_Traverser_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_Traverser_
+
+@class IOSObjectArray;
+@class JavaUtilConcurrentConcurrentHashMap_Node;
+@class JavaUtilConcurrentConcurrentHashMap_TableStack;
 
 /*!
  @brief Encapsulates traversal for methods such as containsValue; also
@@ -979,6 +1183,15 @@ FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_Traverser *new_JavaUtilCon
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_Traverser)
 
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_BaseIterator_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_BaseIterator_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_BaseIterator_
+
+@class IOSObjectArray;
+@class JavaUtilConcurrentConcurrentHashMap;
+@class JavaUtilConcurrentConcurrentHashMap_Node;
+
 /*!
  @brief Base of key, value, and entry Iterators.
  Adds fields to
@@ -1019,6 +1232,22 @@ FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_BaseIterator *new_JavaUtil
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_BaseIterator)
 
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_KeyIterator_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_KeyIterator_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_KeyIterator_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
+#include "../../../java/util/Iterator.h"
+
+#define JavaUtilEnumeration_RESTRICT 1
+#define JavaUtilEnumeration_INCLUDE 1
+#include "../../../java/util/Enumeration.h"
+
+@class IOSObjectArray;
+@class JavaUtilConcurrentConcurrentHashMap;
+
 @interface JavaUtilConcurrentConcurrentHashMap_KeyIterator : JavaUtilConcurrentConcurrentHashMap_BaseIterator < JavaUtilIterator, JavaUtilEnumeration >
 
 #pragma mark Public
@@ -1044,6 +1273,22 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_KeyIterator_initWithJ
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_KeyIterator *new_JavaUtilConcurrentConcurrentHashMap_KeyIterator_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_withJavaUtilConcurrentConcurrentHashMap_(IOSObjectArray *tab, jint index, jint size, jint limit, JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeyIterator)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_ValueIterator_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_ValueIterator_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_ValueIterator_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
+#include "../../../java/util/Iterator.h"
+
+#define JavaUtilEnumeration_RESTRICT 1
+#define JavaUtilEnumeration_INCLUDE 1
+#include "../../../java/util/Enumeration.h"
+
+@class IOSObjectArray;
+@class JavaUtilConcurrentConcurrentHashMap;
 
 @interface JavaUtilConcurrentConcurrentHashMap_ValueIterator : JavaUtilConcurrentConcurrentHashMap_BaseIterator < JavaUtilIterator, JavaUtilEnumeration >
 
@@ -1071,6 +1316,19 @@ FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ValueIterator *new_JavaUti
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValueIterator)
 
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_EntryIterator_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_EntryIterator_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_EntryIterator_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
+#include "../../../java/util/Iterator.h"
+
+@class IOSObjectArray;
+@class JavaUtilConcurrentConcurrentHashMap;
+@protocol JavaUtilMap_Entry;
+
 @interface JavaUtilConcurrentConcurrentHashMap_EntryIterator : JavaUtilConcurrentConcurrentHashMap_BaseIterator < JavaUtilIterator >
 
 #pragma mark Public
@@ -1094,6 +1352,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_EntryIterator_initWit
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_EntryIterator *new_JavaUtilConcurrentConcurrentHashMap_EntryIterator_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_withJavaUtilConcurrentConcurrentHashMap_(IOSObjectArray *tab, jint index, jint size, jint limit, JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_EntryIterator)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_MapEntry_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_MapEntry_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_MapEntry_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_Entry_INCLUDE 1
+#include "../../../java/util/Map.h"
+
+@class JavaUtilConcurrentConcurrentHashMap;
 
 /*!
  @brief Exported Entry for EntryIterator
@@ -1147,6 +1416,23 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_MapEntry_initWithId_w
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_MapEntry *new_JavaUtilConcurrentConcurrentHashMap_MapEntry_initWithId_withId_withJavaUtilConcurrentConcurrentHashMap_(id key, id val, JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapEntry)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_CollectionView_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_CollectionView_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_CollectionView_
+
+#define JavaUtilCollection_RESTRICT 1
+#define JavaUtilCollection_INCLUDE 1
+#include "../../../java/util/Collection.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
+@class IOSObjectArray;
+@class JavaUtilConcurrentConcurrentHashMap;
+@protocol JavaUtilIterator;
 
 /*!
  @brief Base class for views.
@@ -1214,7 +1500,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapEntry)
 
 - (instancetype)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentConcurrentHashMap_CollectionView)
@@ -1222,6 +1507,23 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentConcurrentHashMap_CollectionView)
 FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_CollectionView_initWithJavaUtilConcurrentConcurrentHashMap_(JavaUtilConcurrentConcurrentHashMap_CollectionView *self, JavaUtilConcurrentConcurrentHashMap *map);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_CollectionView)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_KeySetView_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_KeySetView_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_KeySetView_
+
+#define JavaUtilSet_RESTRICT 1
+#define JavaUtilSet_INCLUDE 1
+#include "../../../java/util/Set.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
+@class JavaUtilConcurrentConcurrentHashMap;
+@protocol JavaUtilCollection;
+@protocol JavaUtilIterator;
 
 /*!
  @brief A view of a ConcurrentHashMap as a <code>Set</code> of keys, in
@@ -1298,7 +1600,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_CollectionView)
 - (instancetype)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map
                                                      withId:(id)value;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentConcurrentHashMap_KeySetView)
@@ -1308,6 +1609,22 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_KeySetView_initWithJa
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_KeySetView *new_JavaUtilConcurrentConcurrentHashMap_KeySetView_initWithJavaUtilConcurrentConcurrentHashMap_withId_(JavaUtilConcurrentConcurrentHashMap *map, id value) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeySetView)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_ValuesView_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_ValuesView_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_ValuesView_
+
+#define JavaUtilCollection_RESTRICT 1
+#define JavaUtilCollection_INCLUDE 1
+#include "../../../java/util/Collection.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
+@class JavaUtilConcurrentConcurrentHashMap;
+@protocol JavaUtilIterator;
 
 /*!
  @brief A view of a ConcurrentHashMap as a <code>Collection</code> of
@@ -1333,7 +1650,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeySetView)
 
 - (instancetype)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentConcurrentHashMap_ValuesView)
@@ -1343,6 +1659,24 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_ValuesView_initWithJa
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ValuesView *new_JavaUtilConcurrentConcurrentHashMap_ValuesView_initWithJavaUtilConcurrentConcurrentHashMap_(JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValuesView)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_EntrySetView_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_EntrySetView_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_EntrySetView_
+
+#define JavaUtilSet_RESTRICT 1
+#define JavaUtilSet_INCLUDE 1
+#include "../../../java/util/Set.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
+@class JavaUtilConcurrentConcurrentHashMap;
+@protocol JavaUtilCollection;
+@protocol JavaUtilIterator;
+@protocol JavaUtilMap_Entry;
 
 /*!
  @brief A view of a ConcurrentHashMap as a <code>Set</code> of (key, value)
@@ -1375,7 +1709,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValuesView)
 
 - (instancetype)initWithJavaUtilConcurrentConcurrentHashMap:(JavaUtilConcurrentConcurrentHashMap *)map;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentConcurrentHashMap_EntrySetView)
@@ -1385,6 +1718,11 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_EntrySetView_initWith
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_EntrySetView *new_JavaUtilConcurrentConcurrentHashMap_EntrySetView_initWithJavaUtilConcurrentConcurrentHashMap_(JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_EntrySetView)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_CounterCell_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_CounterCell_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_CounterCell_
 
 @interface JavaUtilConcurrentConcurrentHashMap_CounterCell : NSObject {
  @public
@@ -1406,6 +1744,11 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_CounterCell_initWithL
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_CounterCell *new_JavaUtilConcurrentConcurrentHashMap_CounterCell_initWithLong_(jlong x) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_CounterCell)
+
+#endif
+
+#if !defined (JavaUtilConcurrentConcurrentHashMap_CounterHashCode_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_CounterHashCode_INCLUDE))
+#define JavaUtilConcurrentConcurrentHashMap_CounterHashCode_
 
 /*!
  @brief Holder for the thread-local hash code determining which
@@ -1432,4 +1775,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_CounterHashCode *new_JavaU
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_CounterHashCode)
 
-#endif // _JavaUtilConcurrentConcurrentHashMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL")

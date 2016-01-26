@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/FileWriter.java
 //
 
-#ifndef _JavaIoFileWriter_H_
-#define _JavaIoFileWriter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFileWriter_INCLUDE_ALL")
+#ifdef JavaIoFileWriter_RESTRICT
+#define JavaIoFileWriter_INCLUDE_ALL 0
+#else
+#define JavaIoFileWriter_INCLUDE_ALL 1
+#endif
+#undef JavaIoFileWriter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFileWriter_) && (JavaIoFileWriter_INCLUDE_ALL || defined(JavaIoFileWriter_INCLUDE))
+#define JavaIoFileWriter_
+
+#define JavaIoOutputStreamWriter_RESTRICT 1
+#define JavaIoOutputStreamWriter_INCLUDE 1
 #include "../../java/io/OutputStreamWriter.h"
 
 @class JavaIoFile;
@@ -19,6 +33,8 @@
  Since this may induce some performance penalty, in particular if many small
  write requests are made, a FileWriter is often wrapped by a
  BufferedWriter.
+ - seealso: BufferedWriter
+ - seealso: FileReader
  */
 @interface JavaIoFileWriter : JavaIoOutputStreamWriter
 
@@ -105,4 +121,8 @@ FOUNDATION_EXPORT JavaIoFileWriter *new_JavaIoFileWriter_initWithNSString_withBo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileWriter)
 
-#endif // _JavaIoFileWriter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFileWriter_INCLUDE_ALL")

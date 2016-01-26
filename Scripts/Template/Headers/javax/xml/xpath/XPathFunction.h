@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/xpath/XPathFunction.java
 //
 
-#ifndef _JavaxXmlXpathXPathFunction_H_
-#define _JavaxXmlXpathXPathFunction_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlXpathXPathFunction_INCLUDE_ALL")
+#ifdef JavaxXmlXpathXPathFunction_RESTRICT
+#define JavaxXmlXpathXPathFunction_INCLUDE_ALL 0
+#else
+#define JavaxXmlXpathXPathFunction_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlXpathXPathFunction_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlXpathXPathFunction_) && (JavaxXmlXpathXPathFunction_INCLUDE_ALL || defined(JavaxXmlXpathXPathFunction_INCLUDE))
+#define JavaxXmlXpathXPathFunction_
 
 @protocol JavaUtilList;
 
@@ -40,4 +51,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlXpathXPathFunction)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFunction)
 
-#endif // _JavaxXmlXpathXPathFunction_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlXpathXPathFunction_INCLUDE_ALL")

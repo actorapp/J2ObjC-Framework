@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/Text.java
 //
 
-#ifndef _OrgW3cDomText_H_
-#define _OrgW3cDomText_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomText_INCLUDE_ALL")
+#ifdef OrgW3cDomText_RESTRICT
+#define OrgW3cDomText_INCLUDE_ALL 0
+#else
+#define OrgW3cDomText_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomText_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomText_) && (OrgW3cDomText_INCLUDE_ALL || defined(OrgW3cDomText_INCLUDE))
+#define OrgW3cDomText_
+
+#define OrgW3cDomCharacterData_RESTRICT 1
+#define OrgW3cDomCharacterData_INCLUDE 1
 #include "../../../org/w3c/dom/CharacterData.h"
 
 /*!
@@ -129,4 +143,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomText)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomText)
 
-#endif // _OrgW3cDomText_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomText_INCLUDE_ALL")

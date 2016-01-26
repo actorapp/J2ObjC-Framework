@@ -3,13 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/IDN.java
 //
 
-#ifndef _JavaNetIDN_H_
-#define _JavaNetIDN_H_
-
 #include "../../J2ObjC_header.h"
 
-#define JavaNetIDN_ALLOW_UNASSIGNED 1
-#define JavaNetIDN_USE_STD3_ASCII_RULES 2
+#pragma push_macro("JavaNetIDN_INCLUDE_ALL")
+#ifdef JavaNetIDN_RESTRICT
+#define JavaNetIDN_INCLUDE_ALL 0
+#else
+#define JavaNetIDN_INCLUDE_ALL 1
+#endif
+#undef JavaNetIDN_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetIDN_) && (JavaNetIDN_INCLUDE_ALL || defined(JavaNetIDN_INCLUDE))
+#define JavaNetIDN_
 
 /*!
  @brief Converts internationalized domain names between Unicode and the ASCII Compatible Encoding
@@ -18,6 +26,10 @@
  @since 1.6
  */
 @interface JavaNetIDN : NSObject
+
++ (jint)ALLOW_UNASSIGNED;
+
++ (jint)USE_STD3_ASCII_RULES;
 
 #pragma mark Public
 
@@ -73,9 +85,21 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaNetIDN)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetIDN, ALLOW_UNASSIGNED, jint)
+/*!
+ @brief When set, allows IDN to process unassigned unicode points.
+ */
+inline jint JavaNetIDN_get_ALLOW_UNASSIGNED();
+#define JavaNetIDN_ALLOW_UNASSIGNED 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetIDN, ALLOW_UNASSIGNED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNetIDN, USE_STD3_ASCII_RULES, jint)
+/*!
+ @brief When set, ASCII strings are checked against
+ <a href="http://www.ietf.org/rfc/rfc1122.txt">RFC 1122</a> and
+ <a href="http://www.ietf.org/rfc/rfc1123.txt">RFC 1123</a>.
+ */
+inline jint JavaNetIDN_get_USE_STD3_ASCII_RULES();
+#define JavaNetIDN_USE_STD3_ASCII_RULES 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNetIDN, USE_STD3_ASCII_RULES, jint)
 
 FOUNDATION_EXPORT NSString *JavaNetIDN_toASCIIWithNSString_withInt_(NSString *input, jint flags);
 
@@ -87,4 +111,8 @@ FOUNDATION_EXPORT NSString *JavaNetIDN_toUnicodeWithNSString_(NSString *input);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetIDN)
 
-#endif // _JavaNetIDN_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetIDN_INCLUDE_ALL")

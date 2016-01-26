@@ -3,24 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/regex/Pattern.java
 //
 
-#ifndef _JavaUtilRegexPattern_H_
-#define _JavaUtilRegexPattern_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilRegexPattern_INCLUDE_ALL")
+#ifdef JavaUtilRegexPattern_RESTRICT
+#define JavaUtilRegexPattern_INCLUDE_ALL 0
+#else
+#define JavaUtilRegexPattern_INCLUDE_ALL 1
+#endif
+#undef JavaUtilRegexPattern_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilRegexPattern_) && (JavaUtilRegexPattern_INCLUDE_ALL || defined(JavaUtilRegexPattern_INCLUDE))
+#define JavaUtilRegexPattern_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaUtilRegexMatcher;
 @protocol JavaLangCharSequence;
-
-#define JavaUtilRegexPattern_UNIX_LINES 1
-#define JavaUtilRegexPattern_CASE_INSENSITIVE 2
-#define JavaUtilRegexPattern_COMMENTS 4
-#define JavaUtilRegexPattern_MULTILINE 8
-#define JavaUtilRegexPattern_LITERAL 16
-#define JavaUtilRegexPattern_DOTALL 32
-#define JavaUtilRegexPattern_UNICODE_CASE 64
-#define JavaUtilRegexPattern_CANON_EQ 128
 
 /*!
  @brief Patterns are compiled regular expressions.
@@ -206,11 +211,28 @@
  <p>In some cases, Android will recognize that a regular expression is a simple
  special case that can be handled more efficiently. This is true of both the convenience methods
  in <code>String</code> and the methods in <code>Pattern</code>.
+ - seealso: Matcher
  */
 @interface JavaUtilRegexPattern : NSObject < JavaIoSerializable > {
  @public
   jlong address_;
 }
+
++ (jint)UNIX_LINES;
+
++ (jint)CASE_INSENSITIVE;
+
++ (jint)COMMENTS;
+
++ (jint)MULTILINE;
+
++ (jint)LITERAL;
+
++ (jint)DOTALL;
+
++ (jint)UNICODE_CASE;
+
++ (jint)CANON_EQ;
 
 #pragma mark Public
 
@@ -224,6 +246,14 @@
  given <code>flags</code>.
  See the <a href="#flags">flags overview</a> for more on flags.
  @throws PatternSyntaxException if the regular expression is syntactically incorrect.
+ - seealso: #CANON_EQ
+ - seealso: #CASE_INSENSITIVE
+ - seealso: #COMMENTS
+ - seealso: #DOTALL
+ - seealso: #LITERAL
+ - seealso: #MULTILINE
+ - seealso: #UNICODE_CASE
+ - seealso: #UNIX_LINES
  */
 + (JavaUtilRegexPattern *)compileWithNSString:(NSString *)regularExpression
                                       withInt:(jint)flags;
@@ -246,6 +276,8 @@
  Equivalent to <code>Pattern.compile(regularExpression).matcher(input).matches()</code>.
  If the same regular expression is to be used for multiple operations, it may be more
  efficient to reuse a compiled <code>Pattern</code>.
+ - seealso: Pattern#compile(java.lang.String,int)
+ - seealso: Matcher#matches()
  */
 + (jboolean)matchesWithNSString:(NSString *)regularExpression
        withJavaLangCharSequence:(id<JavaLangCharSequence>)input;
@@ -304,25 +336,92 @@
 
 - (void)dealloc;
 
+#pragma mark Package-Private
+
++ (jboolean)matchesWithNSString:(NSString *)regularExpression
+                   withNSString:(NSString *)input;
+
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilRegexPattern)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilRegexPattern, UNIX_LINES, jint)
+/*!
+ @brief This constant specifies that a pattern matches Unix line endings ('\n')
+ only against the '
+ .', '^', and '$' meta characters. Corresponds to <code>(?d)</code>.
+ */
+inline jint JavaUtilRegexPattern_get_UNIX_LINES();
+#define JavaUtilRegexPattern_UNIX_LINES 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilRegexPattern, UNIX_LINES, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilRegexPattern, CASE_INSENSITIVE, jint)
+/*!
+ @brief This constant specifies that a <code>Pattern</code> is matched
+ case-insensitively.
+ That is, the patterns "a+" and "A+" would both match
+ the string "aAaAaA". See <code>UNICODE_CASE</code>. Corresponds to <code>(?i)</code>.
+ */
+inline jint JavaUtilRegexPattern_get_CASE_INSENSITIVE();
+#define JavaUtilRegexPattern_CASE_INSENSITIVE 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilRegexPattern, CASE_INSENSITIVE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilRegexPattern, COMMENTS, jint)
+/*!
+ @brief This constant specifies that a <code>Pattern</code> may contain whitespace or
+ comments.
+ Otherwise comments and whitespace are taken as literal
+ characters. Corresponds to <code>(?x)</code>.
+ */
+inline jint JavaUtilRegexPattern_get_COMMENTS();
+#define JavaUtilRegexPattern_COMMENTS 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilRegexPattern, COMMENTS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilRegexPattern, MULTILINE, jint)
+/*!
+ @brief This constant specifies that the meta characters '^' and '$' match only
+ the beginning and end of an input line, respectively.
+ Normally, they
+ match the beginning and the end of the complete input. Corresponds to <code>(?m)</code>.
+ */
+inline jint JavaUtilRegexPattern_get_MULTILINE();
+#define JavaUtilRegexPattern_MULTILINE 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilRegexPattern, MULTILINE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilRegexPattern, LITERAL, jint)
+/*!
+ @brief This constant specifies that the whole <code>Pattern</code> is to be taken
+ literally, that is, all meta characters lose their meanings.
+ */
+inline jint JavaUtilRegexPattern_get_LITERAL();
+#define JavaUtilRegexPattern_LITERAL 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilRegexPattern, LITERAL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilRegexPattern, DOTALL, jint)
+/*!
+ @brief This constant specifies that the '.' meta character matches arbitrary
+ characters, including line endings, which is normally not the case.
+ Corresponds to <code>(?s)</code>.
+ */
+inline jint JavaUtilRegexPattern_get_DOTALL();
+#define JavaUtilRegexPattern_DOTALL 32
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilRegexPattern, DOTALL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilRegexPattern, UNICODE_CASE, jint)
+/*!
+ @brief This constant specifies that a <code>Pattern</code> that uses case-insensitive matching
+ will use Unicode case folding.
+ On Android, <code>UNICODE_CASE</code> is always on:
+ case-insensitive matching will always be Unicode-aware. If your code is intended to
+ be portable and uses case-insensitive matching on non-ASCII characters, you should
+ use this flag. Corresponds to <code>(?u)</code>.
+ */
+inline jint JavaUtilRegexPattern_get_UNICODE_CASE();
+#define JavaUtilRegexPattern_UNICODE_CASE 64
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilRegexPattern, UNICODE_CASE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilRegexPattern, CANON_EQ, jint)
+/*!
+ @brief This constant specifies that a character in a <code>Pattern</code> and a
+ character in the input string only match if they are canonically
+ equivalent.
+ It is (currently) not supported in Android.
+ */
+inline jint JavaUtilRegexPattern_get_CANON_EQ();
+#define JavaUtilRegexPattern_CANON_EQ 128
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilRegexPattern, CANON_EQ, jint)
 
 FOUNDATION_EXPORT JavaUtilRegexPattern *JavaUtilRegexPattern_compileWithNSString_withInt_(NSString *regularExpression, jint flags);
 
@@ -330,8 +429,14 @@ FOUNDATION_EXPORT JavaUtilRegexPattern *JavaUtilRegexPattern_compileWithNSString
 
 FOUNDATION_EXPORT jboolean JavaUtilRegexPattern_matchesWithNSString_withJavaLangCharSequence_(NSString *regularExpression, id<JavaLangCharSequence> input);
 
+FOUNDATION_EXPORT jboolean JavaUtilRegexPattern_matchesWithNSString_withNSString_(NSString *regularExpression, NSString *input);
+
 FOUNDATION_EXPORT NSString *JavaUtilRegexPattern_quoteWithNSString_(NSString *string);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexPattern)
 
-#endif // _JavaUtilRegexPattern_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilRegexPattern_INCLUDE_ALL")

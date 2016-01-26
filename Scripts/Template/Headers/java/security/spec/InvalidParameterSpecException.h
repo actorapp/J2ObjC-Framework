@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/InvalidParameterSpecException.java
 //
 
-#ifndef _JavaSecuritySpecInvalidParameterSpecException_H_
-#define _JavaSecuritySpecInvalidParameterSpecException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecInvalidParameterSpecException_INCLUDE_ALL")
+#ifdef JavaSecuritySpecInvalidParameterSpecException_RESTRICT
+#define JavaSecuritySpecInvalidParameterSpecException_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecInvalidParameterSpecException_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecInvalidParameterSpecException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecInvalidParameterSpecException_) && (JavaSecuritySpecInvalidParameterSpecException_INCLUDE_ALL || defined(JavaSecuritySpecInvalidParameterSpecException_INCLUDE))
+#define JavaSecuritySpecInvalidParameterSpecException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
 #include "../../../java/security/GeneralSecurityException.h"
 
 /*!
@@ -44,4 +58,8 @@ FOUNDATION_EXPORT JavaSecuritySpecInvalidParameterSpecException *new_JavaSecurit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecInvalidParameterSpecException)
 
-#endif // _JavaSecuritySpecInvalidParameterSpecException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecInvalidParameterSpecException_INCLUDE_ALL")

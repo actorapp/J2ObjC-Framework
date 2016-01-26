@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/Certificate.java
 //
 
-#ifndef _JavaSecurityCertCertificate_H_
-#define _JavaSecurityCertCertificate_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCertificate_INCLUDE_ALL")
+#ifdef JavaSecurityCertCertificate_RESTRICT
+#define JavaSecurityCertCertificate_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCertificate_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCertificate_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCertificate_) && (JavaSecurityCertCertificate_INCLUDE_ALL || defined(JavaSecurityCertCertificate_INCLUDE))
+#define JavaSecurityCertCertificate_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -32,6 +46,7 @@
  the object to compare with this object.
  @return <code>true</code> if the object is the same as this object, <code>false</code>
   if it is different from this object.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)other;
 
@@ -61,6 +76,7 @@
  return <code>true</code> when passed to <code>equals</code> must return the same
  value for this method.
  @return the certificate's hash
+ - seealso: #equals
  */
 - (NSUInteger)hash;
 
@@ -137,6 +153,17 @@ FOUNDATION_EXPORT void JavaSecurityCertCertificate_initWithNSString_(JavaSecurit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificate)
 
+#endif
+
+#if !defined (JavaSecurityCertCertificate_CertificateRep_) && (JavaSecurityCertCertificate_INCLUDE_ALL || defined(JavaSecurityCertCertificate_CertificateRep_INCLUDE))
+#define JavaSecurityCertCertificate_CertificateRep_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
+@class IOSByteArray;
+
 /*!
  @brief The alternate <code>Serializable</code> class to be used for serialization and
  deserialization of <code>Certificate</code> objects.
@@ -175,4 +202,8 @@ FOUNDATION_EXPORT JavaSecurityCertCertificate_CertificateRep *new_JavaSecurityCe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificate_CertificateRep)
 
-#endif // _JavaSecurityCertCertificate_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCertificate_INCLUDE_ALL")

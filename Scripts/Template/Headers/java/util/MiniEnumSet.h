@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/MiniEnumSet.java
 //
 
-#ifndef _JavaUtilMiniEnumSet_H_
-#define _JavaUtilMiniEnumSet_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilMiniEnumSet_INCLUDE_ALL")
+#ifdef JavaUtilMiniEnumSet_RESTRICT
+#define JavaUtilMiniEnumSet_INCLUDE_ALL 0
+#else
+#define JavaUtilMiniEnumSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilMiniEnumSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilMiniEnumSet_) && (JavaUtilMiniEnumSet_INCLUDE_ALL || defined(JavaUtilMiniEnumSet_INCLUDE))
+#define JavaUtilMiniEnumSet_
+
+#define JavaUtilEnumSet_RESTRICT 1
+#define JavaUtilEnumSet_INCLUDE 1
 #include "../../java/util/EnumSet.h"
 
 @class IOSClass;
@@ -60,7 +74,6 @@
 - (void)setRangeWithJavaLangEnum:(JavaLangEnum *)start
                 withJavaLangEnum:(JavaLangEnum *)end;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilMiniEnumSet)
@@ -71,4 +84,8 @@ FOUNDATION_EXPORT JavaUtilMiniEnumSet *new_JavaUtilMiniEnumSet_initWithIOSClass_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMiniEnumSet)
 
-#endif // _JavaUtilMiniEnumSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilMiniEnumSet_INCLUDE_ALL")

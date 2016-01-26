@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/spi/AbstractSelectableChannel.java
 //
 
-#ifndef _JavaNioChannelsSpiAbstractSelectableChannel_H_
-#define _JavaNioChannelsSpiAbstractSelectableChannel_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT
+#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsSpiAbstractSelectableChannel_) && (JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE_ALL || defined(JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE))
+#define JavaNioChannelsSpiAbstractSelectableChannel_
+
+#define JavaNioChannelsSelectableChannel_RESTRICT 1
+#define JavaNioChannelsSelectableChannel_INCLUDE 1
 #include "../../../../java/nio/channels/SelectableChannel.h"
 
 @class JavaNioChannelsSelectionKey;
@@ -39,6 +53,7 @@
  other calls to this method or to <code>register</code> are executing. The
  actual setting of the mode is done by calling
  <code>implConfigureBlocking(boolean)</code>.
+ - seealso: java.nio.channels.SelectableChannel#configureBlocking(boolean)
  @param blockingMode
  <code>true</code> for setting this channel's mode to blocking,
  <code>false</code> to set it to non-blocking.
@@ -78,6 +93,7 @@
 
 /*!
  @brief Returns the selector provider that has created this channel.
+ - seealso: java.nio.channels.SelectableChannel#provider()
  @return this channel's selector provider.
  */
 - (JavaNioChannelsSpiSelectorProvider *)provider;
@@ -162,4 +178,8 @@ FOUNDATION_EXPORT void JavaNioChannelsSpiAbstractSelectableChannel_initWithJavaN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiAbstractSelectableChannel)
 
-#endif // _JavaNioChannelsSpiAbstractSelectableChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE_ALL")

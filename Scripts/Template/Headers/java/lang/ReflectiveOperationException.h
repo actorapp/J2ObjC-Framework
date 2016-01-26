@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ReflectiveOperationException.java
 //
 
-#ifndef _JavaLangReflectiveOperationException_H_
-#define _JavaLangReflectiveOperationException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectiveOperationException_INCLUDE_ALL")
+#ifdef JavaLangReflectiveOperationException_RESTRICT
+#define JavaLangReflectiveOperationException_INCLUDE_ALL 0
+#else
+#define JavaLangReflectiveOperationException_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectiveOperationException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectiveOperationException_) && (JavaLangReflectiveOperationException_INCLUDE_ALL || defined(JavaLangReflectiveOperationException_INCLUDE))
+#define JavaLangReflectiveOperationException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
@@ -62,4 +76,8 @@ FOUNDATION_EXPORT JavaLangReflectiveOperationException *new_JavaLangReflectiveOp
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectiveOperationException)
 
-#endif // _JavaLangReflectiveOperationException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectiveOperationException_INCLUDE_ALL")

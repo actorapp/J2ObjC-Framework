@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/Adler32.java
 //
 
-#ifndef _JavaUtilZipAdler32_H_
-#define _JavaUtilZipAdler32_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipAdler32_INCLUDE_ALL")
+#ifdef JavaUtilZipAdler32_RESTRICT
+#define JavaUtilZipAdler32_INCLUDE_ALL 0
+#else
+#define JavaUtilZipAdler32_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipAdler32_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipAdler32_) && (JavaUtilZipAdler32_INCLUDE_ALL || defined(JavaUtilZipAdler32_INCLUDE))
+#define JavaUtilZipAdler32_
+
+#define JavaUtilZipChecksum_RESTRICT 1
+#define JavaUtilZipChecksum_INCLUDE 1
 #include "../../../java/util/zip/Checksum.h"
 
 @class IOSByteArray;
@@ -67,4 +81,8 @@ FOUNDATION_EXPORT JavaUtilZipAdler32 *new_JavaUtilZipAdler32_init() NS_RETURNS_R
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipAdler32)
 
-#endif // _JavaUtilZipAdler32_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipAdler32_INCLUDE_ALL")

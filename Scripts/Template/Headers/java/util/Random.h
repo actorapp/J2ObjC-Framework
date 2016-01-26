@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/Random.java
 //
 
-#ifndef _JavaUtilRandom_H_
-#define _JavaUtilRandom_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilRandom_INCLUDE_ALL")
+#ifdef JavaUtilRandom_RESTRICT
+#define JavaUtilRandom_INCLUDE_ALL 0
+#else
+#define JavaUtilRandom_INCLUDE_ALL 1
+#endif
+#undef JavaUtilRandom_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilRandom_) && (JavaUtilRandom_INCLUDE_ALL || defined(JavaUtilRandom_INCLUDE))
+#define JavaUtilRandom_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -16,6 +30,7 @@
  <p>It is dangerous to seed <code>Random</code> with the current time because
  that value is more predictable to an attacker than the default seed.
  <p>This class is thread-safe.
+ - seealso: java.security.SecureRandom
  */
 @interface JavaUtilRandom : NSObject < JavaIoSerializable >
 
@@ -118,4 +133,8 @@ FOUNDATION_EXPORT JavaUtilRandom *new_JavaUtilRandom_initWithLong_(jlong seed) N
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandom)
 
-#endif // _JavaUtilRandom_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilRandom_INCLUDE_ALL")

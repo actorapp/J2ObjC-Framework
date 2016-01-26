@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Array.java
 //
 
-#ifndef _JavaSqlArray_H_
-#define _JavaSqlArray_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlArray_INCLUDE_ALL")
+#ifdef JavaSqlArray_RESTRICT
+#define JavaSqlArray_INCLUDE_ALL 0
+#else
+#define JavaSqlArray_INCLUDE_ALL 1
+#endif
+#undef JavaSqlArray_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlArray_) && (JavaSqlArray_INCLUDE_ALL || defined(JavaSqlArray_INCLUDE))
+#define JavaSqlArray_
 
 @protocol JavaSqlResultSet;
 @protocol JavaUtilMap;
@@ -163,4 +174,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlArray)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlArray)
 
-#endif // _JavaSqlArray_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlArray_INCLUDE_ALL")

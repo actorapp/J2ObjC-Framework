@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/text/FieldPosition.java
 //
 
-#ifndef _JavaTextFieldPosition_H_
-#define _JavaTextFieldPosition_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextFieldPosition_INCLUDE_ALL")
+#ifdef JavaTextFieldPosition_RESTRICT
+#define JavaTextFieldPosition_INCLUDE_ALL 0
+#else
+#define JavaTextFieldPosition_INCLUDE_ALL 1
+#endif
+#undef JavaTextFieldPosition_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextFieldPosition_) && (JavaTextFieldPosition_INCLUDE_ALL || defined(JavaTextFieldPosition_INCLUDE))
+#define JavaTextFieldPosition_
 
 @class JavaTextFormat_Field;
 
@@ -104,4 +115,8 @@ FOUNDATION_EXPORT JavaTextFieldPosition *new_JavaTextFieldPosition_initWithJavaT
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextFieldPosition)
 
-#endif // _JavaTextFieldPosition_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextFieldPosition_INCLUDE_ALL")

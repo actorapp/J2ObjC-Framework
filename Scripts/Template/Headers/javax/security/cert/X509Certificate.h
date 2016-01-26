@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/security/cert/X509Certificate.java
 //
 
-#ifndef _JavaxSecurityCertX509Certificate_H_
-#define _JavaxSecurityCertX509Certificate_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxSecurityCertX509Certificate_INCLUDE_ALL")
+#ifdef JavaxSecurityCertX509Certificate_RESTRICT
+#define JavaxSecurityCertX509Certificate_INCLUDE_ALL 0
+#else
+#define JavaxSecurityCertX509Certificate_INCLUDE_ALL 1
+#endif
+#undef JavaxSecurityCertX509Certificate_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxSecurityCertX509Certificate_) && (JavaxSecurityCertX509Certificate_INCLUDE_ALL || defined(JavaxSecurityCertX509Certificate_INCLUDE))
+#define JavaxSecurityCertX509Certificate_
+
+#define JavaxSecurityCertCertificate_RESTRICT 1
+#define JavaxSecurityCertCertificate_INCLUDE 1
 #include "../../../javax/security/cert/Certificate.h"
 
 @class IOSByteArray;
@@ -66,6 +80,7 @@
  if the certificate has expired.
  @throws CertificateNotYetValidException
  if the certificate is not yet valid.
+ - seealso: #checkValidity()
  */
 - (void)checkValidityWithJavaUtilDate:(JavaUtilDate *)date;
 
@@ -209,4 +224,8 @@ FOUNDATION_EXPORT JavaxSecurityCertX509Certificate *JavaxSecurityCertX509Certifi
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertX509Certificate)
 
-#endif // _JavaxSecurityCertX509Certificate_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxSecurityCertX509Certificate_INCLUDE_ALL")

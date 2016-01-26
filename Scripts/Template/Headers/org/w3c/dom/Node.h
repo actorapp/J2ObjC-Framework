@@ -3,34 +3,26 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/Node.java
 //
 
-#ifndef _OrgW3cDomNode_H_
-#define _OrgW3cDomNode_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomNode_INCLUDE_ALL")
+#ifdef OrgW3cDomNode_RESTRICT
+#define OrgW3cDomNode_INCLUDE_ALL 0
+#else
+#define OrgW3cDomNode_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomNode_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomNode_) && (OrgW3cDomNode_INCLUDE_ALL || defined(OrgW3cDomNode_INCLUDE))
+#define OrgW3cDomNode_
 
 @protocol OrgW3cDomDocument;
 @protocol OrgW3cDomNamedNodeMap;
 @protocol OrgW3cDomNodeList;
 @protocol OrgW3cDomUserDataHandler;
-
-#define OrgW3cDomNode_ELEMENT_NODE 1
-#define OrgW3cDomNode_ATTRIBUTE_NODE 2
-#define OrgW3cDomNode_TEXT_NODE 3
-#define OrgW3cDomNode_CDATA_SECTION_NODE 4
-#define OrgW3cDomNode_ENTITY_REFERENCE_NODE 5
-#define OrgW3cDomNode_ENTITY_NODE 6
-#define OrgW3cDomNode_PROCESSING_INSTRUCTION_NODE 7
-#define OrgW3cDomNode_COMMENT_NODE 8
-#define OrgW3cDomNode_DOCUMENT_NODE 9
-#define OrgW3cDomNode_DOCUMENT_TYPE_NODE 10
-#define OrgW3cDomNode_DOCUMENT_FRAGMENT_NODE 11
-#define OrgW3cDomNode_NOTATION_NODE 12
-#define OrgW3cDomNode_DOCUMENT_POSITION_DISCONNECTED 1
-#define OrgW3cDomNode_DOCUMENT_POSITION_PRECEDING 2
-#define OrgW3cDomNode_DOCUMENT_POSITION_FOLLOWING 4
-#define OrgW3cDomNode_DOCUMENT_POSITION_CONTAINS 8
-#define OrgW3cDomNode_DOCUMENT_POSITION_CONTAINED_BY 16
-#define OrgW3cDomNode_DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC 32
 
 /*!
  @brief The <code>Node</code> interface is the primary datatype for the entire
@@ -854,44 +846,185 @@
 
 @end
 
+@interface OrgW3cDomNode : NSObject
+
++ (jshort)ELEMENT_NODE;
+
++ (jshort)ATTRIBUTE_NODE;
+
++ (jshort)TEXT_NODE;
+
++ (jshort)CDATA_SECTION_NODE;
+
++ (jshort)ENTITY_REFERENCE_NODE;
+
++ (jshort)ENTITY_NODE;
+
++ (jshort)PROCESSING_INSTRUCTION_NODE;
+
++ (jshort)COMMENT_NODE;
+
++ (jshort)DOCUMENT_NODE;
+
++ (jshort)DOCUMENT_TYPE_NODE;
+
++ (jshort)DOCUMENT_FRAGMENT_NODE;
+
++ (jshort)NOTATION_NODE;
+
++ (jshort)DOCUMENT_POSITION_DISCONNECTED;
+
++ (jshort)DOCUMENT_POSITION_PRECEDING;
+
++ (jshort)DOCUMENT_POSITION_FOLLOWING;
+
++ (jshort)DOCUMENT_POSITION_CONTAINS;
+
++ (jshort)DOCUMENT_POSITION_CONTAINED_BY;
+
++ (jshort)DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomNode)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, ELEMENT_NODE, jshort)
+/*!
+ @brief The node is an <code>Element</code>.
+ */
+inline jshort OrgW3cDomNode_get_ELEMENT_NODE();
+#define OrgW3cDomNode_ELEMENT_NODE 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, ELEMENT_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, ATTRIBUTE_NODE, jshort)
+/*!
+ @brief The node is an <code>Attr</code>.
+ */
+inline jshort OrgW3cDomNode_get_ATTRIBUTE_NODE();
+#define OrgW3cDomNode_ATTRIBUTE_NODE 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, ATTRIBUTE_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, TEXT_NODE, jshort)
+/*!
+ @brief The node is a <code>Text</code> node.
+ */
+inline jshort OrgW3cDomNode_get_TEXT_NODE();
+#define OrgW3cDomNode_TEXT_NODE 3
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, TEXT_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, CDATA_SECTION_NODE, jshort)
+/*!
+ @brief The node is a <code>CDATASection</code>.
+ */
+inline jshort OrgW3cDomNode_get_CDATA_SECTION_NODE();
+#define OrgW3cDomNode_CDATA_SECTION_NODE 4
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, CDATA_SECTION_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, ENTITY_REFERENCE_NODE, jshort)
+/*!
+ @brief The node is an <code>EntityReference</code>.
+ */
+inline jshort OrgW3cDomNode_get_ENTITY_REFERENCE_NODE();
+#define OrgW3cDomNode_ENTITY_REFERENCE_NODE 5
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, ENTITY_REFERENCE_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, ENTITY_NODE, jshort)
+/*!
+ @brief The node is an <code>Entity</code>.
+ */
+inline jshort OrgW3cDomNode_get_ENTITY_NODE();
+#define OrgW3cDomNode_ENTITY_NODE 6
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, ENTITY_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, PROCESSING_INSTRUCTION_NODE, jshort)
+/*!
+ @brief The node is a <code>ProcessingInstruction</code>.
+ */
+inline jshort OrgW3cDomNode_get_PROCESSING_INSTRUCTION_NODE();
+#define OrgW3cDomNode_PROCESSING_INSTRUCTION_NODE 7
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, PROCESSING_INSTRUCTION_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, COMMENT_NODE, jshort)
+/*!
+ @brief The node is a <code>Comment</code>.
+ */
+inline jshort OrgW3cDomNode_get_COMMENT_NODE();
+#define OrgW3cDomNode_COMMENT_NODE 8
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, COMMENT_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, DOCUMENT_NODE, jshort)
+/*!
+ @brief The node is a <code>Document</code>.
+ */
+inline jshort OrgW3cDomNode_get_DOCUMENT_NODE();
+#define OrgW3cDomNode_DOCUMENT_NODE 9
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, DOCUMENT_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, DOCUMENT_TYPE_NODE, jshort)
+/*!
+ @brief The node is a <code>DocumentType</code>.
+ */
+inline jshort OrgW3cDomNode_get_DOCUMENT_TYPE_NODE();
+#define OrgW3cDomNode_DOCUMENT_TYPE_NODE 10
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, DOCUMENT_TYPE_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, DOCUMENT_FRAGMENT_NODE, jshort)
+/*!
+ @brief The node is a <code>DocumentFragment</code>.
+ */
+inline jshort OrgW3cDomNode_get_DOCUMENT_FRAGMENT_NODE();
+#define OrgW3cDomNode_DOCUMENT_FRAGMENT_NODE 11
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, DOCUMENT_FRAGMENT_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, NOTATION_NODE, jshort)
+/*!
+ @brief The node is a <code>Notation</code>.
+ */
+inline jshort OrgW3cDomNode_get_NOTATION_NODE();
+#define OrgW3cDomNode_NOTATION_NODE 12
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, NOTATION_NODE, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, DOCUMENT_POSITION_DISCONNECTED, jshort)
+/*!
+ @brief The two nodes are disconnected.
+ Order between disconnected nodes is
+ always implementation-specific.
+ */
+inline jshort OrgW3cDomNode_get_DOCUMENT_POSITION_DISCONNECTED();
+#define OrgW3cDomNode_DOCUMENT_POSITION_DISCONNECTED 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, DOCUMENT_POSITION_DISCONNECTED, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, DOCUMENT_POSITION_PRECEDING, jshort)
+/*!
+ @brief The second node precedes the reference node.
+ */
+inline jshort OrgW3cDomNode_get_DOCUMENT_POSITION_PRECEDING();
+#define OrgW3cDomNode_DOCUMENT_POSITION_PRECEDING 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, DOCUMENT_POSITION_PRECEDING, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, DOCUMENT_POSITION_FOLLOWING, jshort)
+/*!
+ @brief The node follows the reference node.
+ */
+inline jshort OrgW3cDomNode_get_DOCUMENT_POSITION_FOLLOWING();
+#define OrgW3cDomNode_DOCUMENT_POSITION_FOLLOWING 4
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, DOCUMENT_POSITION_FOLLOWING, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, DOCUMENT_POSITION_CONTAINS, jshort)
+/*!
+ @brief The node contains the reference node.
+ A node which contains is always
+ preceding, too.
+ */
+inline jshort OrgW3cDomNode_get_DOCUMENT_POSITION_CONTAINS();
+#define OrgW3cDomNode_DOCUMENT_POSITION_CONTAINS 8
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, DOCUMENT_POSITION_CONTAINS, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, DOCUMENT_POSITION_CONTAINED_BY, jshort)
+/*!
+ @brief The node is contained by the reference node.
+ A node which is contained
+ is always following, too.
+ */
+inline jshort OrgW3cDomNode_get_DOCUMENT_POSITION_CONTAINED_BY();
+#define OrgW3cDomNode_DOCUMENT_POSITION_CONTAINED_BY 16
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, DOCUMENT_POSITION_CONTAINED_BY, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomNode, DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC, jshort)
+/*!
+ @brief The determination of preceding versus following is
+ implementation-specific.
+ */
+inline jshort OrgW3cDomNode_get_DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC();
+#define OrgW3cDomNode_DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC 32
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomNode, DOCUMENT_POSITION_IMPLEMENTATION_SPECIFIC, jshort)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomNode)
 
-#endif // _OrgW3cDomNode_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomNode_INCLUDE_ALL")

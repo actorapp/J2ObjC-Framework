@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/Socket.java
 //
 
-#ifndef _JavaNetSocket_H_
-#define _JavaNetSocket_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetSocket_INCLUDE_ALL")
+#ifdef JavaNetSocket_RESTRICT
+#define JavaNetSocket_INCLUDE_ALL 0
+#else
+#define JavaNetSocket_INCLUDE_ALL 1
+#endif
+#undef JavaNetSocket_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetSocket_) && (JavaNetSocket_INCLUDE_ALL || defined(JavaNetSocket_INCLUDE))
+#define JavaNetSocket_
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
 #include "../../java/io/Closeable.h"
 
 @class JavaIoFileDescriptor;
@@ -35,6 +49,8 @@
  When a SocketImplFactory is defined it
  creates the internal socket implementation, otherwise the default socket
  implementation will be used for this socket.
+ - seealso: SocketImplFactory
+ - seealso: SocketImpl
  */
 - (instancetype)init;
 
@@ -70,7 +86,7 @@
  */
 - (instancetype)initWithJavaNetInetAddress:(JavaNetInetAddress *)addr
                                    withInt:(jint)port
-                               withBoolean:(jboolean)streaming;
+                               withBoolean:(jboolean)streaming __attribute__((deprecated));
 
 /*!
  @brief Creates a new streaming socket connected to the target host specified by
@@ -110,6 +126,8 @@
  @throws IllegalArgumentException
  if the argument <code>proxy</code> is <code>null</code> or of an
  invalid type.
+ - seealso: SocketImplFactory
+ - seealso: SocketImpl
  */
 - (instancetype)initWithJavaNetProxy:(JavaNetProxy *)proxy;
 
@@ -155,7 +173,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)hostName
                          withInt:(jint)port
-                     withBoolean:(jboolean)streaming;
+                     withBoolean:(jboolean)streaming __attribute__((deprecated));
 
 /*!
  @brief Creates a new streaming socket connected to the target host specified by
@@ -367,7 +385,7 @@
 - (jboolean)getTcpNoDelay;
 
 /*!
- @brief Returns this socket's  setting.
+ @brief Returns this socket's - seealso: SocketOptions#IP_TOS setting.
  */
 - (jint)getTrafficClass;
 
@@ -561,6 +579,7 @@
 /*!
  @brief Set the appropriate flags for a socket created by <code>ServerSocket.accept()</code>
  .
+ - seealso: ServerSocket#implAccept
  */
 - (void)accepted;
 
@@ -610,4 +629,8 @@ FOUNDATION_EXPORT void JavaNetSocket_setSocketImplFactoryWithJavaNetSocketImplFa
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocket)
 
-#endif // _JavaNetSocket_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetSocket_INCLUDE_ALL")

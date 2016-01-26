@@ -3,18 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/ZipEntry.java
 //
 
-#ifndef _JavaUtilZipZipEntry_H_
-#define _JavaUtilZipZipEntry_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipZipEntry_INCLUDE_ALL")
+#ifdef JavaUtilZipZipEntry_RESTRICT
+#define JavaUtilZipZipEntry_INCLUDE_ALL 0
+#else
+#define JavaUtilZipZipEntry_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipZipEntry_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipZipEntry_) && (JavaUtilZipZipEntry_INCLUDE_ALL || defined(JavaUtilZipZipEntry_INCLUDE))
+#define JavaUtilZipZipEntry_
+
+#define JavaUtilZipZipConstants_RESTRICT 1
+#define JavaUtilZipZipConstants_INCLUDE 1
 #include "../../../java/util/zip/ZipConstants.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
 @class JavaNioCharsetCharset;
-
-#define JavaUtilZipZipEntry_DEFLATED 8
-#define JavaUtilZipZipEntry_STORED 0
 
 /*!
  @brief An entry within a zip file.
@@ -37,6 +48,10 @@
   jlong localHeaderRelOffset_;
   jlong dataOffset_;
 }
+
++ (jint)DEFLATED;
+
++ (jint)STORED;
 
 #pragma mark Public
 
@@ -230,9 +245,19 @@ J2OBJC_FIELD_SETTER(JavaUtilZipZipEntry, name_, NSString *)
 J2OBJC_FIELD_SETTER(JavaUtilZipZipEntry, comment_, NSString *)
 J2OBJC_FIELD_SETTER(JavaUtilZipZipEntry, extra_, IOSByteArray *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipEntry, DEFLATED, jint)
+/*!
+ @brief Zip entry state: Deflated.
+ */
+inline jint JavaUtilZipZipEntry_get_DEFLATED();
+#define JavaUtilZipZipEntry_DEFLATED 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipEntry, DEFLATED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipZipEntry, STORED, jint)
+/*!
+ @brief Zip entry state: Stored.
+ */
+inline jint JavaUtilZipZipEntry_get_STORED();
+#define JavaUtilZipZipEntry_STORED 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipZipEntry, STORED, jint)
 
 FOUNDATION_EXPORT void JavaUtilZipZipEntry_initWithNSString_withNSString_withLong_withLong_withLong_withInt_withInt_withInt_withByteArray_withLong_withLong_(JavaUtilZipZipEntry *self, NSString *name, NSString *comment, jlong crc, jlong compressedSize, jlong size, jint compressionMethod, jint time, jint modDate, IOSByteArray *extra, jlong localHeaderRelOffset, jlong dataOffset);
 
@@ -252,4 +277,8 @@ FOUNDATION_EXPORT JavaUtilZipZipEntry *new_JavaUtilZipZipEntry_initWithByteArray
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipEntry)
 
-#endif // _JavaUtilZipZipEntry_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipZipEntry_INCLUDE_ALL")

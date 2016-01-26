@@ -3,17 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/util/ResourceBundle.java
 //
 
-#ifndef _JavaUtilResourceBundle_H_
-#define _JavaUtilResourceBundle_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilResourceBundle_INCLUDE_ALL")
+#ifdef JavaUtilResourceBundle_RESTRICT
+#define JavaUtilResourceBundle_INCLUDE_ALL 0
+#else
+#define JavaUtilResourceBundle_INCLUDE_ALL 1
+#endif
+#undef JavaUtilResourceBundle_RESTRICT
+#ifdef JavaUtilResourceBundle_MissingBundle_INCLUDE
+#define JavaUtilResourceBundle_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilResourceBundle_) && (JavaUtilResourceBundle_INCLUDE_ALL || defined(JavaUtilResourceBundle_INCLUDE))
+#define JavaUtilResourceBundle_
 
 @class IOSObjectArray;
 @class JavaLangClassLoader;
 @class JavaUtilLocale;
 @class JavaUtilResourceBundle_Control;
 @protocol JavaUtilEnumeration;
-@protocol JavaUtilList;
 @protocol JavaUtilSet;
 
 /*!
@@ -58,6 +71,9 @@
  done by just skipping the country or language abbreviation:
  BaseName_us__POSIX or BaseName__DE_PREEURO. But it's not allowed to
  circumvent both language and country: BaseName___VARIANT is illegal.
+ - seealso: Properties
+ - seealso: PropertyResourceBundle
+ - seealso: ListResourceBundle
  @since 1.1
  */
 @interface JavaUtilResourceBundle : NSObject {
@@ -236,6 +252,7 @@
  if the resource is not found.
  @throws ClassCastException
  if the resource found is not a string.
+ - seealso: #getObject(String)
  */
 - (NSString *)getStringWithNSString:(NSString *)key;
 
@@ -248,6 +265,7 @@
  if the resource is not found.
  @throws ClassCastException
  if the resource found is not an array of strings.
+ - seealso: #getObject(String)
  */
 - (IOSObjectArray *)getStringArrayWithNSString:(NSString *)key;
 
@@ -301,6 +319,13 @@ FOUNDATION_EXPORT void JavaUtilResourceBundle_clearCacheWithJavaLangClassLoader_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle)
 
+#endif
+
+#if !defined (JavaUtilResourceBundle_MissingBundle_) && (JavaUtilResourceBundle_INCLUDE_ALL || defined(JavaUtilResourceBundle_MissingBundle_INCLUDE))
+#define JavaUtilResourceBundle_MissingBundle_
+
+@protocol JavaUtilEnumeration;
+
 @interface JavaUtilResourceBundle_MissingBundle : JavaUtilResourceBundle
 
 #pragma mark Public
@@ -323,8 +348,15 @@ FOUNDATION_EXPORT JavaUtilResourceBundle_MissingBundle *new_JavaUtilResourceBund
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
 
-#define JavaUtilResourceBundle_Control_TTL_DONT_CACHE -1LL
-#define JavaUtilResourceBundle_Control_TTL_NO_EXPIRATION_CONTROL -2LL
+#endif
+
+#if !defined (JavaUtilResourceBundle_Control_) && (JavaUtilResourceBundle_INCLUDE_ALL || defined(JavaUtilResourceBundle_Control_INCLUDE))
+#define JavaUtilResourceBundle_Control_
+
+@class JavaLangClassLoader;
+@class JavaUtilLocale;
+@class JavaUtilResourceBundle;
+@protocol JavaUtilList;
 
 /*!
  @brief ResourceBundle.Control is a static utility class defines ResourceBundle
@@ -336,6 +368,36 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
  @public
   id<JavaUtilList> format_;
 }
+
++ (id<JavaUtilList>)listDefault;
+
++ (void)setListDefault:(id<JavaUtilList>)value;
+
++ (id<JavaUtilList>)listClass;
+
++ (void)setListClass:(id<JavaUtilList>)value;
+
++ (id<JavaUtilList>)listProperties;
+
++ (void)setListProperties:(id<JavaUtilList>)value;
+
++ (NSString *)JAVACLASS;
+
++ (void)setJAVACLASS:(NSString *)value;
+
++ (NSString *)JAVAPROPERTIES;
+
++ (void)setJAVAPROPERTIES:(NSString *)value;
+
++ (id<JavaUtilList>)FORMAT_DEFAULT;
+
++ (id<JavaUtilList>)FORMAT_CLASS;
+
++ (id<JavaUtilList>)FORMAT_PROPERTIES;
+
++ (jlong)TTL_DONT_CACHE;
+
++ (jlong)TTL_NO_EXPIRATION_CONTROL;
 
 #pragma mark Public
 
@@ -463,38 +525,73 @@ J2OBJC_STATIC_INIT(JavaUtilResourceBundle_Control)
 
 J2OBJC_FIELD_SETTER(JavaUtilResourceBundle_Control, format_, id<JavaUtilList>)
 
-FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_listDefault_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilResourceBundle_Control, listDefault_, id<JavaUtilList>)
-J2OBJC_STATIC_FIELD_SETTER(JavaUtilResourceBundle_Control, listDefault_, id<JavaUtilList>)
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_listDefault();
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_set_listDefault(id<JavaUtilList> value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_listDefault;
+J2OBJC_STATIC_FIELD_OBJ(JavaUtilResourceBundle_Control, listDefault, id<JavaUtilList>)
 
-FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_listClass_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilResourceBundle_Control, listClass_, id<JavaUtilList>)
-J2OBJC_STATIC_FIELD_SETTER(JavaUtilResourceBundle_Control, listClass_, id<JavaUtilList>)
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_listClass();
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_set_listClass(id<JavaUtilList> value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_listClass;
+J2OBJC_STATIC_FIELD_OBJ(JavaUtilResourceBundle_Control, listClass, id<JavaUtilList>)
 
-FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_listProperties_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilResourceBundle_Control, listProperties_, id<JavaUtilList>)
-J2OBJC_STATIC_FIELD_SETTER(JavaUtilResourceBundle_Control, listProperties_, id<JavaUtilList>)
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_listProperties();
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_set_listProperties(id<JavaUtilList> value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_listProperties;
+J2OBJC_STATIC_FIELD_OBJ(JavaUtilResourceBundle_Control, listProperties, id<JavaUtilList>)
 
-FOUNDATION_EXPORT NSString *JavaUtilResourceBundle_Control_JAVACLASS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilResourceBundle_Control, JAVACLASS_, NSString *)
-J2OBJC_STATIC_FIELD_SETTER(JavaUtilResourceBundle_Control, JAVACLASS_, NSString *)
+inline NSString *JavaUtilResourceBundle_Control_get_JAVACLASS();
+inline NSString *JavaUtilResourceBundle_Control_set_JAVACLASS(NSString *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaUtilResourceBundle_Control_JAVACLASS;
+J2OBJC_STATIC_FIELD_OBJ(JavaUtilResourceBundle_Control, JAVACLASS, NSString *)
 
-FOUNDATION_EXPORT NSString *JavaUtilResourceBundle_Control_JAVAPROPERTIES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilResourceBundle_Control, JAVAPROPERTIES_, NSString *)
-J2OBJC_STATIC_FIELD_SETTER(JavaUtilResourceBundle_Control, JAVAPROPERTIES_, NSString *)
+inline NSString *JavaUtilResourceBundle_Control_get_JAVAPROPERTIES();
+inline NSString *JavaUtilResourceBundle_Control_set_JAVAPROPERTIES(NSString *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaUtilResourceBundle_Control_JAVAPROPERTIES;
+J2OBJC_STATIC_FIELD_OBJ(JavaUtilResourceBundle_Control, JAVAPROPERTIES, NSString *)
 
-FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_FORMAT_DEFAULT_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilResourceBundle_Control, FORMAT_DEFAULT_, id<JavaUtilList>)
+/*!
+ @brief a list defines default format
+ */
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_FORMAT_DEFAULT();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_FORMAT_DEFAULT;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilResourceBundle_Control, FORMAT_DEFAULT, id<JavaUtilList>)
 
-FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_FORMAT_CLASS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilResourceBundle_Control, FORMAT_CLASS_, id<JavaUtilList>)
+/*!
+ @brief a list defines java class format
+ */
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_FORMAT_CLASS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_FORMAT_CLASS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilResourceBundle_Control, FORMAT_CLASS, id<JavaUtilList>)
 
-FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_FORMAT_PROPERTIES_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilResourceBundle_Control, FORMAT_PROPERTIES_, id<JavaUtilList>)
+/*!
+ @brief a list defines property format
+ */
+inline id<JavaUtilList> JavaUtilResourceBundle_Control_get_FORMAT_PROPERTIES();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilList> JavaUtilResourceBundle_Control_FORMAT_PROPERTIES;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilResourceBundle_Control, FORMAT_PROPERTIES, id<JavaUtilList>)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilResourceBundle_Control, TTL_DONT_CACHE, jlong)
+/*!
+ @brief a constant that indicates cache will not be used.
+ */
+inline jlong JavaUtilResourceBundle_Control_get_TTL_DONT_CACHE();
+#define JavaUtilResourceBundle_Control_TTL_DONT_CACHE -1LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilResourceBundle_Control, TTL_DONT_CACHE, jlong)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilResourceBundle_Control, TTL_NO_EXPIRATION_CONTROL, jlong)
+/*!
+ @brief a constant that indicates cache will not be expired.
+ */
+inline jlong JavaUtilResourceBundle_Control_get_TTL_NO_EXPIRATION_CONTROL();
+#define JavaUtilResourceBundle_Control_TTL_NO_EXPIRATION_CONTROL -2LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilResourceBundle_Control, TTL_NO_EXPIRATION_CONTROL, jlong)
 
 FOUNDATION_EXPORT void JavaUtilResourceBundle_Control_init(JavaUtilResourceBundle_Control *self);
 
@@ -506,4 +603,8 @@ FOUNDATION_EXPORT JavaUtilResourceBundle_Control *JavaUtilResourceBundle_Control
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_Control)
 
-#endif // _JavaUtilResourceBundle_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilResourceBundle_INCLUDE_ALL")

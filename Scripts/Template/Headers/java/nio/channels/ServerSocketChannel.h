@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/ServerSocketChannel.java
 //
 
-#ifndef _JavaNioChannelsServerSocketChannel_H_
-#define _JavaNioChannelsServerSocketChannel_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/nio/channels/NetworkChannel.h"
+
+#pragma push_macro("JavaNioChannelsServerSocketChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsServerSocketChannel_RESTRICT
+#define JavaNioChannelsServerSocketChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsServerSocketChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsServerSocketChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsServerSocketChannel_) && (JavaNioChannelsServerSocketChannel_INCLUDE_ALL || defined(JavaNioChannelsServerSocketChannel_INCLUDE))
+#define JavaNioChannelsServerSocketChannel_
+
+#define JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT 1
+#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE 1
 #include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
+
+#define JavaNioChannelsNetworkChannel_RESTRICT 1
+#define JavaNioChannelsNetworkChannel_INCLUDE 1
+#include "../../../java/nio/channels/NetworkChannel.h"
 
 @class JavaNetServerSocket;
 @class JavaNetSocketAddress;
@@ -137,6 +154,7 @@
  Server-socket channels support
  accepting operation, so this method returns <code>SelectionKey.OP_ACCEPT</code>
  .
+ - seealso: java.nio.channels.SelectableChannel#validOps()
  @return the operations supported by this channel.
  */
 - (jint)validOps;
@@ -160,4 +178,8 @@ FOUNDATION_EXPORT JavaNioChannelsServerSocketChannel *JavaNioChannelsServerSocke
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsServerSocketChannel)
 
-#endif // _JavaNioChannelsServerSocketChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsServerSocketChannel_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/DriverPropertyInfo.java
 //
 
-#ifndef _JavaSqlDriverPropertyInfo_H_
-#define _JavaSqlDriverPropertyInfo_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlDriverPropertyInfo_INCLUDE_ALL")
+#ifdef JavaSqlDriverPropertyInfo_RESTRICT
+#define JavaSqlDriverPropertyInfo_INCLUDE_ALL 0
+#else
+#define JavaSqlDriverPropertyInfo_INCLUDE_ALL 1
+#endif
+#undef JavaSqlDriverPropertyInfo_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlDriverPropertyInfo_) && (JavaSqlDriverPropertyInfo_INCLUDE_ALL || defined(JavaSqlDriverPropertyInfo_INCLUDE))
+#define JavaSqlDriverPropertyInfo_
 
 @class IOSObjectArray;
 
@@ -77,4 +88,8 @@ FOUNDATION_EXPORT JavaSqlDriverPropertyInfo *new_JavaSqlDriverPropertyInfo_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDriverPropertyInfo)
 
-#endif // _JavaSqlDriverPropertyInfo_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlDriverPropertyInfo_INCLUDE_ALL")

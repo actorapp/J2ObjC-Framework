@@ -3,13 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/Hashtable.java
 //
 
-#ifndef _JavaUtilHashtable_H_
-#define _JavaUtilHashtable_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilHashtable_INCLUDE_ALL")
+#ifdef JavaUtilHashtable_RESTRICT
+#define JavaUtilHashtable_INCLUDE_ALL 0
+#else
+#define JavaUtilHashtable_INCLUDE_ALL 1
+#endif
+#undef JavaUtilHashtable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilHashtable_) && (JavaUtilHashtable_INCLUDE_ALL || defined(JavaUtilHashtable_INCLUDE))
+#define JavaUtilHashtable_
+
+#define JavaUtilDictionary_RESTRICT 1
+#define JavaUtilDictionary_INCLUDE 1
 #include "../../java/util/Dictionary.h"
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_INCLUDE 1
 #include "../../java/util/Map.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilEnumeration;
@@ -20,6 +40,7 @@
  All optional operations are supported.
  <p>Neither keys nor values can be null. (Use <code>HashMap</code> or <code>LinkedHashMap</code> if you
  need null keys or values.)
+ - seealso: HashMap
  */
 @interface JavaUtilHashtable : JavaUtilDictionary < JavaUtilMap, NSCopying, JavaIoSerializable >
 
@@ -61,6 +82,8 @@
 /*!
  @brief Removes all key/value pairs from this <code>Hashtable</code>, leaving the
  size zero and the capacity unchanged.
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -68,6 +91,7 @@
  @brief Returns a new <code>Hashtable</code> with the same key/value pairs, capacity
  and load factor.
  @return a shallow copy of this <code>Hashtable</code>.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -78,6 +102,8 @@
  the object to look for as a value in this <code>Hashtable</code>.
  @return <code>true</code> if object is a value in this <code>Hashtable</code>,
  <code>false</code> otherwise.
+ - seealso: #containsKey
+ - seealso: java.lang.Object#equals
  */
 - (jboolean)containsWithId:(id)value;
 
@@ -88,6 +114,8 @@
  the object to look for as a key in this <code>Hashtable</code>.
  @return <code>true</code> if object is a key in this <code>Hashtable</code>,
  <code>false</code> otherwise.
+ - seealso: #contains
+ - seealso: java.lang.Object#equals
  */
 - (jboolean)containsKeyWithId:(id)key;
 
@@ -106,6 +134,9 @@
  results of the Enumeration may be affected if the contents of this
  <code>Hashtable</code> are modified.
  @return an enumeration of the values of this <code>Hashtable</code>.
+ - seealso: #keys
+ - seealso: #size
+ - seealso: Enumeration
  */
 - (id<JavaUtilEnumeration>)elements;
 
@@ -128,6 +159,7 @@
  the object to compare with this object.
  @return <code>true</code> if the specified object is equal to this Map,
  <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -138,6 +170,7 @@
  the key of the value returned.
  @return the value associated with the specified key, or <code>null</code> if
  the specified key does not exist.
+ - seealso: #put
  */
 - (id)getWithId:(id)key;
 
@@ -147,6 +180,7 @@
  @brief Returns true if this <code>Hashtable</code> has no key/value pairs.
  @return <code>true</code> if this <code>Hashtable</code> has no key/value pairs,
  <code>false</code> otherwise.
+ - seealso: #size
  */
 - (jboolean)isEmpty;
 
@@ -155,6 +189,9 @@
  The results of the enumeration may be affected if the contents of this
  <code>Hashtable</code> are modified.
  @return an enumeration of the keys of this <code>Hashtable</code>.
+ - seealso: #elements
+ - seealso: #size
+ - seealso: Enumeration
  */
 - (id<JavaUtilEnumeration>)keys;
 
@@ -178,6 +215,10 @@
  the value to add.
  @return the old value associated with the specified key, or <code>null</code>
  if the key did not exist.
+ - seealso: #elements
+ - seealso: #get
+ - seealso: #keys
+ - seealso: java.lang.Object#equals
  */
 - (id)putWithId:(id)key
          withId:(id)value;
@@ -196,12 +237,16 @@
  the key to remove.
  @return the value associated with the specified key, or <code>null</code> if
  the specified key did not exist.
+ - seealso: #get
+ - seealso: #put
  */
 - (id)removeWithId:(id)key;
 
 /*!
  @brief Returns the number of key/value pairs in this <code>Hashtable</code>.
  @return the number of key/value pairs in this <code>Hashtable</code>.
+ - seealso: #elements
+ - seealso: #keys
  */
 - (jint)size;
 
@@ -250,4 +295,8 @@ FOUNDATION_EXPORT JavaUtilHashtable *new_JavaUtilHashtable_initWithJavaUtilMap_(
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashtable)
 
-#endif // _JavaUtilHashtable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilHashtable_INCLUDE_ALL")

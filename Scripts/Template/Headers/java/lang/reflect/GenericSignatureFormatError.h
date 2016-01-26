@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/GenericSignatureFormatError.java
 //
 
-#ifndef _JavaLangReflectGenericSignatureFormatError_H_
-#define _JavaLangReflectGenericSignatureFormatError_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectGenericSignatureFormatError_INCLUDE_ALL")
+#ifdef JavaLangReflectGenericSignatureFormatError_RESTRICT
+#define JavaLangReflectGenericSignatureFormatError_INCLUDE_ALL 0
+#else
+#define JavaLangReflectGenericSignatureFormatError_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectGenericSignatureFormatError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectGenericSignatureFormatError_) && (JavaLangReflectGenericSignatureFormatError_INCLUDE_ALL || defined(JavaLangReflectGenericSignatureFormatError_INCLUDE))
+#define JavaLangReflectGenericSignatureFormatError_
+
+#define JavaLangClassFormatError_RESTRICT 1
+#define JavaLangClassFormatError_INCLUDE 1
 #include "../../../java/lang/ClassFormatError.h"
 
 /*!
@@ -33,4 +47,8 @@ FOUNDATION_EXPORT JavaLangReflectGenericSignatureFormatError *new_JavaLangReflec
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectGenericSignatureFormatError)
 
-#endif // _JavaLangReflectGenericSignatureFormatError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectGenericSignatureFormatError_INCLUDE_ALL")

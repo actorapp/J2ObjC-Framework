@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/validation/Validator.java
 //
 
-#ifndef _JavaxXmlValidationValidator_H_
-#define _JavaxXmlValidationValidator_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlValidationValidator_INCLUDE_ALL")
+#ifdef JavaxXmlValidationValidator_RESTRICT
+#define JavaxXmlValidationValidator_INCLUDE_ALL 0
+#else
+#define JavaxXmlValidationValidator_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlValidationValidator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlValidationValidator_) && (JavaxXmlValidationValidator_INCLUDE_ALL || defined(JavaxXmlValidationValidator_INCLUDE))
+#define JavaxXmlValidationValidator_
 
 @protocol JavaxXmlTransformResult;
 @protocol JavaxXmlTransformSource;
@@ -41,6 +52,7 @@
  the <code>setErrorHandler(ErrorHandler)</code> method, or null
  if that method has never been called since this <code>Validator</code>
  has created.
+ - seealso: #setErrorHandler(ErrorHandler)
  */
 - (id<OrgXmlSaxErrorHandler>)getErrorHandler;
 
@@ -62,6 +74,7 @@
  cannot determine its value at this time.
  @throws NullPointerException
  When the name parameter is null.
+ - seealso: #setFeature(String,boolean)
  */
 - (jboolean)getFeatureWithNSString:(NSString *)name;
 
@@ -85,6 +98,7 @@
  cannot determine its value at this time.
  @throws NullPointerException
  When the name parameter is null.
+ - seealso: #setProperty(String,Object)
  */
 - (id)getPropertyWithNSString:(NSString *)name;
 
@@ -94,6 +108,7 @@
  the <code>setResourceResolver(LSResourceResolver)</code> method, or null
  if that method has never been called since this <code>Validator</code>
  has created.
+ - seealso: #setErrorHandler(ErrorHandler)
  */
 - (id<OrgW3cDomLsLSResourceResolver>)getResourceResolver;
 
@@ -178,6 +193,7 @@
  cannot set the requested value.
  @throws NullPointerException
  When the name parameter is null.
+ - seealso: #getFeature(String)
  */
 - (void)setFeatureWithNSString:(NSString *)name
                    withBoolean:(jboolean)value;
@@ -249,6 +265,7 @@
   validate(source,null);
   
 @endcode
+ - seealso: #setErrorHandler(ErrorHandler)
  */
 - (void)validateWithJavaxXmlTransformSource:(id<JavaxXmlTransformSource>)source;
 
@@ -339,6 +356,7 @@
  <code>IOException</code>.
  @throws NullPointerException
  If the <tt>source</tt> parameter is null.
+ - seealso: #validate(Source)
  */
 - (void)validateWithJavaxXmlTransformSource:(id<JavaxXmlTransformSource>)source
                 withJavaxXmlTransformResult:(id<JavaxXmlTransformResult>)result;
@@ -364,4 +382,8 @@ FOUNDATION_EXPORT void JavaxXmlValidationValidator_init(JavaxXmlValidationValida
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationValidator)
 
-#endif // _JavaxXmlValidationValidator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlValidationValidator_INCLUDE_ALL")

@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/security/interfaces/RSAPrivateKey.java
 //
 
-#ifndef _JavaSecurityInterfacesRSAPrivateKey_H_
-#define _JavaSecurityInterfacesRSAPrivateKey_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityInterfacesRSAPrivateKey_INCLUDE_ALL")
+#ifdef JavaSecurityInterfacesRSAPrivateKey_RESTRICT
+#define JavaSecurityInterfacesRSAPrivateKey_INCLUDE_ALL 0
+#else
+#define JavaSecurityInterfacesRSAPrivateKey_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityInterfacesRSAPrivateKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityInterfacesRSAPrivateKey_) && (JavaSecurityInterfacesRSAPrivateKey_INCLUDE_ALL || defined(JavaSecurityInterfacesRSAPrivateKey_INCLUDE))
+#define JavaSecurityInterfacesRSAPrivateKey_
+
+#define JavaSecurityPrivateKey_RESTRICT 1
+#define JavaSecurityPrivateKey_INCLUDE 1
 #include "../../../java/security/PrivateKey.h"
+
+#define JavaSecurityInterfacesRSAKey_RESTRICT 1
+#define JavaSecurityInterfacesRSAKey_INCLUDE 1
 #include "../../../java/security/interfaces/RSAKey.h"
 
 @class JavaMathBigInteger;
-
-#define JavaSecurityInterfacesRSAPrivateKey_serialVersionUID 5187144804936595022LL
 
 /*!
  @brief The interface for an PKCS#1 RSA private key.
@@ -27,10 +42,25 @@
 
 @end
 
+@interface JavaSecurityInterfacesRSAPrivateKey : NSObject
+
++ (jlong)serialVersionUID;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSecurityInterfacesRSAPrivateKey)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSecurityInterfacesRSAPrivateKey, serialVersionUID, jlong)
+/*!
+ @brief The serial version identifier.
+ */
+inline jlong JavaSecurityInterfacesRSAPrivateKey_get_serialVersionUID();
+#define JavaSecurityInterfacesRSAPrivateKey_serialVersionUID 5187144804936595022LL
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSecurityInterfacesRSAPrivateKey, serialVersionUID, jlong)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesRSAPrivateKey)
 
-#endif // _JavaSecurityInterfacesRSAPrivateKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityInterfacesRSAPrivateKey_INCLUDE_ALL")

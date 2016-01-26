@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CertPathValidatorSpi.java
 //
 
-#ifndef _JavaSecurityCertCertPathValidatorSpi_H_
-#define _JavaSecurityCertCertPathValidatorSpi_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCertPathValidatorSpi_INCLUDE_ALL")
+#ifdef JavaSecurityCertCertPathValidatorSpi_RESTRICT
+#define JavaSecurityCertCertPathValidatorSpi_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCertPathValidatorSpi_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCertPathValidatorSpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCertPathValidatorSpi_) && (JavaSecurityCertCertPathValidatorSpi_INCLUDE_ALL || defined(JavaSecurityCertCertPathValidatorSpi_INCLUDE))
+#define JavaSecurityCertCertPathValidatorSpi_
 
 @class JavaSecurityCertCertPath;
 @protocol JavaSecurityCertCertPathParameters;
@@ -52,4 +63,8 @@ FOUNDATION_EXPORT void JavaSecurityCertCertPathValidatorSpi_init(JavaSecurityCer
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidatorSpi)
 
-#endif // _JavaSecurityCertCertPathValidatorSpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCertPathValidatorSpi_INCLUDE_ALL")

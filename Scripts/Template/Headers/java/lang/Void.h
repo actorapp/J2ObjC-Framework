@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Void.java
 //
 
-#ifndef _JavaLangVoid_H_
-#define _JavaLangVoid_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangVoid_INCLUDE_ALL")
+#ifdef JavaLangVoid_RESTRICT
+#define JavaLangVoid_INCLUDE_ALL 0
+#else
+#define JavaLangVoid_INCLUDE_ALL 1
+#endif
+#undef JavaLangVoid_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangVoid_) && (JavaLangVoid_INCLUDE_ALL || defined(JavaLangVoid_INCLUDE))
+#define JavaLangVoid_
 
 @class IOSClass;
 
@@ -16,13 +27,24 @@
  */
 @interface JavaLangVoid : NSObject
 
++ (IOSClass *)TYPE;
+
 @end
 
 J2OBJC_STATIC_INIT(JavaLangVoid)
 
-FOUNDATION_EXPORT IOSClass *JavaLangVoid_TYPE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangVoid, TYPE_, IOSClass *)
+/*!
+ @brief The <code>Class</code> object that represents the primitive type <code>void</code>.
+ */
+inline IOSClass *JavaLangVoid_get_TYPE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaLangVoid_TYPE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangVoid, TYPE, IOSClass *)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangVoid)
 
-#endif // _JavaLangVoid_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangVoid_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/Inet4Address.java
 //
 
-#ifndef _JavaNetInet4Address_H_
-#define _JavaNetInet4Address_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetInet4Address_INCLUDE_ALL")
+#ifdef JavaNetInet4Address_RESTRICT
+#define JavaNetInet4Address_INCLUDE_ALL 0
+#else
+#define JavaNetInet4Address_INCLUDE_ALL 1
+#endif
+#undef JavaNetInet4Address_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetInet4Address_) && (JavaNetInet4Address_INCLUDE_ALL || defined(JavaNetInet4Address_INCLUDE))
+#define JavaNetInet4Address_
+
+#define JavaNetInetAddress_RESTRICT 1
+#define JavaNetInetAddress_INCLUDE 1
 #include "../../java/net/InetAddress.h"
 
 @class IOSByteArray;
@@ -16,6 +30,12 @@
  See <code>InetAddress</code>.
  */
 @interface JavaNetInet4Address : JavaNetInetAddress
+
++ (JavaNetInetAddress *)ANY;
+
++ (JavaNetInetAddress *)ALL;
+
++ (JavaNetInetAddress *)LOOPBACK;
 
 #pragma mark Public
 
@@ -48,14 +68,26 @@
 
 J2OBJC_STATIC_INIT(JavaNetInet4Address)
 
-FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInet4Address_ANY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetInet4Address, ANY_, JavaNetInetAddress *)
+/*!
+ */
+inline JavaNetInetAddress *JavaNetInet4Address_get_ANY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInet4Address_ANY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetInet4Address, ANY, JavaNetInetAddress *)
 
-FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInet4Address_ALL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetInet4Address, ALL_, JavaNetInetAddress *)
+/*!
+ */
+inline JavaNetInetAddress *JavaNetInet4Address_get_ALL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInet4Address_ALL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetInet4Address, ALL, JavaNetInetAddress *)
 
-FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInet4Address_LOOPBACK_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetInet4Address, LOOPBACK_, JavaNetInetAddress *)
+/*!
+ */
+inline JavaNetInetAddress *JavaNetInet4Address_get_LOOPBACK();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInet4Address_LOOPBACK;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetInet4Address, LOOPBACK, JavaNetInetAddress *)
 
 FOUNDATION_EXPORT void JavaNetInet4Address_initWithByteArray_withNSString_(JavaNetInet4Address *self, IOSByteArray *ipaddress, NSString *hostName);
 
@@ -63,4 +95,8 @@ FOUNDATION_EXPORT JavaNetInet4Address *new_JavaNetInet4Address_initWithByteArray
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetInet4Address)
 
-#endif // _JavaNetInet4Address_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetInet4Address_INCLUDE_ALL")

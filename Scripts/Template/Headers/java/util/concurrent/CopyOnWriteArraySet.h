@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/CopyOnWriteArraySet.java
 //
 
-#ifndef _JavaUtilConcurrentCopyOnWriteArraySet_H_
-#define _JavaUtilConcurrentCopyOnWriteArraySet_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentCopyOnWriteArraySet_RESTRICT
+#define JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentCopyOnWriteArraySet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentCopyOnWriteArraySet_) && (JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE_ALL || defined(JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE))
+#define JavaUtilConcurrentCopyOnWriteArraySet_
+
+#define JavaUtilAbstractSet_RESTRICT 1
+#define JavaUtilAbstractSet_INCLUDE 1
 #include "../../../java/util/AbstractSet.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;
@@ -52,6 +69,7 @@
    }
   
 @endcode
+ - seealso: CopyOnWriteArrayList
  @since 1.5
  @author Doug Lea
  */
@@ -96,6 +114,7 @@
  @param c collection containing elements to be added to this set
  @return <code>true</code> if this set changed as a result of the call
  @throws NullPointerException if the specified collection is null
+ - seealso: #add(Object)
  */
 - (jboolean)addAllWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
@@ -124,6 +143,7 @@
  @return <code>true</code> if this set contains all of the elements of the
  specified collection
  @throws NullPointerException if the specified collection is null
+ - seealso: #contains(Object)
  */
 - (jboolean)containsAllWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
@@ -187,6 +207,7 @@
  @throws NullPointerException if this set contains a null element and the
  specified collection does not permit null elements (optional),
  or if the specified collection is null
+ - seealso: #remove(Object)
  */
 - (jboolean)removeAllWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
@@ -205,6 +226,7 @@
  @throws NullPointerException if this set contains a null element and the
  specified collection does not permit null elements (optional),
  or if the specified collection is null
+ - seealso: #remove(Object)
  */
 - (jboolean)retainAllWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
@@ -269,7 +291,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentCopyOnWriteArraySet)
@@ -284,4 +305,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArraySet *new_JavaUtilConcurrentC
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArraySet)
 
-#endif // _JavaUtilConcurrentCopyOnWriteArraySet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE_ALL")

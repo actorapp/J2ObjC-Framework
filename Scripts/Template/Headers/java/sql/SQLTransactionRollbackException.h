@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLTransactionRollbackException.java
 //
 
-#ifndef _JavaSqlSQLTransactionRollbackException_H_
-#define _JavaSqlSQLTransactionRollbackException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLTransactionRollbackException_INCLUDE_ALL")
+#ifdef JavaSqlSQLTransactionRollbackException_RESTRICT
+#define JavaSqlSQLTransactionRollbackException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLTransactionRollbackException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLTransactionRollbackException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLTransactionRollbackException_) && (JavaSqlSQLTransactionRollbackException_INCLUDE_ALL || defined(JavaSqlSQLTransactionRollbackException_INCLUDE))
+#define JavaSqlSQLTransactionRollbackException_
+
+#define JavaSqlSQLTransientException_RESTRICT 1
+#define JavaSqlSQLTransientException_INCLUDE 1
 #include "../../java/sql/SQLTransientException.h"
 
 @class JavaLangThrowable;
@@ -129,7 +143,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLTransactionRollbackException)
@@ -168,4 +181,8 @@ FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransact
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLTransactionRollbackException)
 
-#endif // _JavaSqlSQLTransactionRollbackException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLTransactionRollbackException_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLRecoverableException.java
 //
 
-#ifndef _JavaSqlSQLRecoverableException_H_
-#define _JavaSqlSQLRecoverableException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLRecoverableException_INCLUDE_ALL")
+#ifdef JavaSqlSQLRecoverableException_RESTRICT
+#define JavaSqlSQLRecoverableException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLRecoverableException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLRecoverableException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLRecoverableException_) && (JavaSqlSQLRecoverableException_INCLUDE_ALL || defined(JavaSqlSQLRecoverableException_INCLUDE))
+#define JavaSqlSQLRecoverableException_
+
+#define JavaSqlSQLException_RESTRICT 1
+#define JavaSqlSQLException_INCLUDE 1
 #include "../../java/sql/SQLException.h"
 
 @class JavaLangThrowable;
@@ -127,7 +141,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLRecoverableException)
@@ -166,4 +179,8 @@ FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLRecoverableException)
 
-#endif // _JavaSqlSQLRecoverableException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLRecoverableException_INCLUDE_ALL")

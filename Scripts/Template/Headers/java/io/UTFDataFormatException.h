@@ -3,15 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/io/UTFDataFormatException.java
 //
 
-#ifndef _JavaIoUTFDataFormatException_H_
-#define _JavaIoUTFDataFormatException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoUTFDataFormatException_INCLUDE_ALL")
+#ifdef JavaIoUTFDataFormatException_RESTRICT
+#define JavaIoUTFDataFormatException_INCLUDE_ALL 0
+#else
+#define JavaIoUTFDataFormatException_INCLUDE_ALL 1
+#endif
+#undef JavaIoUTFDataFormatException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoUTFDataFormatException_) && (JavaIoUTFDataFormatException_INCLUDE_ALL || defined(JavaIoUTFDataFormatException_INCLUDE))
+#define JavaIoUTFDataFormatException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 /*!
  @brief Signals that an incorrectly encoded UTF-8 string has been encountered, most
  likely while reading some <code>DataInputStream</code>.
+ - seealso: DataInputStream#readUTF()
  */
 @interface JavaIoUTFDataFormatException : JavaIoIOException
 
@@ -45,4 +60,8 @@ FOUNDATION_EXPORT JavaIoUTFDataFormatException *new_JavaIoUTFDataFormatException
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoUTFDataFormatException)
 
-#endif // _JavaIoUTFDataFormatException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoUTFDataFormatException_INCLUDE_ALL")

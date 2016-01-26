@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/Map.java
 //
 
-#ifndef _JavaUtilMap_H_
-#define _JavaUtilMap_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilMap_INCLUDE_ALL")
+#ifdef JavaUtilMap_RESTRICT
+#define JavaUtilMap_INCLUDE_ALL 0
+#else
+#define JavaUtilMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilMap_) && (JavaUtilMap_INCLUDE_ALL || defined(JavaUtilMap_INCLUDE))
+#define JavaUtilMap_
 
 @protocol JavaUtilCollection;
 @protocol JavaUtilSet;
@@ -28,6 +39,8 @@
  @brief Removes all elements from this <code>Map</code>, leaving it empty.
  @throws UnsupportedOperationException
  if removing elements from this <code>Map</code> is not supported.
+ - seealso: #isEmpty()
+ - seealso: #size()
  */
 - (void)clear;
 
@@ -65,6 +78,8 @@
  the <code>Object</code> to compare with this <code>Object</code>.
  @return boolean <code>true</code> if the <code>Object</code> is the same as this <code>Object</code>
  <code>false</code> if it is different from this <code>Object</code>.
+ - seealso: #hashCode()
+ - seealso: #entrySet()
  */
 - (jboolean)isEqual:(id)object;
 
@@ -82,6 +97,7 @@
  <code>Object</code>s which are equal
  return the same value for this method.
  @return the receiver's hash.
+ - seealso: #equals(Object)
  */
 - (NSUInteger)hash;
 
@@ -89,6 +105,7 @@
  @brief Returns whether this map is empty.
  @return <code>true</code> if this map has no elements, <code>false</code>
  otherwise.
+ - seealso: #size()
  */
 - (jboolean)isEmpty;
 
@@ -185,6 +202,11 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilMap)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap)
 
+#endif
+
+#if !defined (JavaUtilMap_Entry_) && (JavaUtilMap_INCLUDE_ALL || defined(JavaUtilMap_Entry_INCLUDE))
+#define JavaUtilMap_Entry_
+
 /*!
  @brief <code>Map.Entry</code> is a key/value mapping contained in a <code>Map</code>.
  */
@@ -199,6 +221,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap)
  the <code>Object</code> to compare with this <code>Object</code>.
  @return <code>true</code> if the specified <code>Object</code> is equal to this
  <code>Map.Entry</code>, <code>false</code> otherwise.
+ - seealso: #hashCode()
  */
 - (jboolean)isEqual:(id)object;
 
@@ -219,6 +242,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap)
  <code>Object</code> which are
  equal return the same value for this method.
  @return the receiver's hash code.
+ - seealso: #equals(Object)
  */
 - (NSUInteger)hash;
 
@@ -237,4 +261,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilMap_Entry)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap_Entry)
 
-#endif // _JavaUtilMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilMap_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/FileNotFoundException.java
 //
 
-#ifndef _JavaIoFileNotFoundException_H_
-#define _JavaIoFileNotFoundException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFileNotFoundException_INCLUDE_ALL")
+#ifdef JavaIoFileNotFoundException_RESTRICT
+#define JavaIoFileNotFoundException_INCLUDE_ALL 0
+#else
+#define JavaIoFileNotFoundException_INCLUDE_ALL 1
+#endif
+#undef JavaIoFileNotFoundException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFileNotFoundException_) && (JavaIoFileNotFoundException_INCLUDE_ALL || defined(JavaIoFileNotFoundException_INCLUDE))
+#define JavaIoFileNotFoundException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -44,4 +58,8 @@ FOUNDATION_EXPORT JavaIoFileNotFoundException *new_JavaIoFileNotFoundException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileNotFoundException)
 
-#endif // _JavaIoFileNotFoundException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFileNotFoundException_INCLUDE_ALL")

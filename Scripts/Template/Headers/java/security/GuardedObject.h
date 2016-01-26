@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/GuardedObject.java
 //
 
-#ifndef _JavaSecurityGuardedObject_H_
-#define _JavaSecurityGuardedObject_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityGuardedObject_INCLUDE_ALL")
+#ifdef JavaSecurityGuardedObject_RESTRICT
+#define JavaSecurityGuardedObject_INCLUDE_ALL 0
+#else
+#define JavaSecurityGuardedObject_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityGuardedObject_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityGuardedObject_) && (JavaSecurityGuardedObject_INCLUDE_ALL || defined(JavaSecurityGuardedObject_INCLUDE))
+#define JavaSecurityGuardedObject_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @protocol JavaSecurityGuard;
@@ -52,4 +66,8 @@ FOUNDATION_EXPORT JavaSecurityGuardedObject *new_JavaSecurityGuardedObject_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityGuardedObject)
 
-#endif // _JavaSecurityGuardedObject_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityGuardedObject_INCLUDE_ALL")

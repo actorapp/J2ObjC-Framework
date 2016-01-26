@@ -3,24 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/Deflater.java
 //
 
-#ifndef _JavaUtilZipDeflater_H_
-#define _JavaUtilZipDeflater_H_
-
 #include "../../../J2ObjC_header.h"
 
-@class IOSByteArray;
+#pragma push_macro("JavaUtilZipDeflater_INCLUDE_ALL")
+#ifdef JavaUtilZipDeflater_RESTRICT
+#define JavaUtilZipDeflater_INCLUDE_ALL 0
+#else
+#define JavaUtilZipDeflater_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipDeflater_RESTRICT
 
-#define JavaUtilZipDeflater_BEST_COMPRESSION 9
-#define JavaUtilZipDeflater_BEST_SPEED 1
-#define JavaUtilZipDeflater_NO_COMPRESSION 0
-#define JavaUtilZipDeflater_DEFAULT_COMPRESSION -1
-#define JavaUtilZipDeflater_DEFAULT_STRATEGY 0
-#define JavaUtilZipDeflater_DEFLATED 8
-#define JavaUtilZipDeflater_FILTERED 1
-#define JavaUtilZipDeflater_HUFFMAN_ONLY 2
-#define JavaUtilZipDeflater_NO_FLUSH 0
-#define JavaUtilZipDeflater_SYNC_FLUSH 2
-#define JavaUtilZipDeflater_FULL_FLUSH 3
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipDeflater_) && (JavaUtilZipDeflater_INCLUDE_ALL || defined(JavaUtilZipDeflater_INCLUDE))
+#define JavaUtilZipDeflater_
+
+@class IOSByteArray;
 
 /*!
  @brief This class compresses data using the <i>DEFLATE</i> algorithm (see <a
@@ -55,6 +54,28 @@
  performs some compression, but with minimal speed overhead.
  */
 @interface JavaUtilZipDeflater : NSObject
+
++ (jint)BEST_COMPRESSION;
+
++ (jint)BEST_SPEED;
+
++ (jint)NO_COMPRESSION;
+
++ (jint)DEFAULT_COMPRESSION;
+
++ (jint)DEFAULT_STRATEGY;
+
++ (jint)DEFLATED;
+
++ (jint)FILTERED;
+
++ (jint)HUFFMAN_ONLY;
+
++ (jint)NO_FLUSH;
+
++ (jint)SYNC_FLUSH;
+
++ (jint)FULL_FLUSH;
 
 #pragma mark Public
 
@@ -131,6 +152,7 @@
 /*!
  @brief Indicates to the <code>Deflater</code> that all uncompressed input has been provided
  to it.
+ - seealso: #finished
  */
 - (void)finish;
 
@@ -253,27 +275,96 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilZipDeflater)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, BEST_COMPRESSION, jint)
+/*!
+ @brief This <a href="#compression_level">compression level</a> gives the best compression,
+ but takes the most time.
+ */
+inline jint JavaUtilZipDeflater_get_BEST_COMPRESSION();
+#define JavaUtilZipDeflater_BEST_COMPRESSION 9
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, BEST_COMPRESSION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, BEST_SPEED, jint)
+/*!
+ @brief This <a href="#compression_level">compression level</a> gives minimal compression,
+ but takes the least time (of any level that actually performs compression;
+ see <code>NO_COMPRESSION</code>).
+ */
+inline jint JavaUtilZipDeflater_get_BEST_SPEED();
+#define JavaUtilZipDeflater_BEST_SPEED 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, BEST_SPEED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, NO_COMPRESSION, jint)
+/*!
+ @brief This <a href="#compression_level">compression level</a> does no compression.
+ It is even faster than <code>BEST_SPEED</code>.
+ */
+inline jint JavaUtilZipDeflater_get_NO_COMPRESSION();
+#define JavaUtilZipDeflater_NO_COMPRESSION 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, NO_COMPRESSION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, DEFAULT_COMPRESSION, jint)
+/*!
+ @brief The default <a href="#compression_level">compression level</a>.
+ This is a trade-off between speed and compression, currently equivalent to level 6.
+ */
+inline jint JavaUtilZipDeflater_get_DEFAULT_COMPRESSION();
+#define JavaUtilZipDeflater_DEFAULT_COMPRESSION -1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, DEFAULT_COMPRESSION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, DEFAULT_STRATEGY, jint)
+/*!
+ @brief The default compression strategy.
+ */
+inline jint JavaUtilZipDeflater_get_DEFAULT_STRATEGY();
+#define JavaUtilZipDeflater_DEFAULT_STRATEGY 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, DEFAULT_STRATEGY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, DEFLATED, jint)
+/*!
+ @brief The default compression method.
+ */
+inline jint JavaUtilZipDeflater_get_DEFLATED();
+#define JavaUtilZipDeflater_DEFLATED 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, DEFLATED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, FILTERED, jint)
+/*!
+ @brief A compression strategy.
+ */
+inline jint JavaUtilZipDeflater_get_FILTERED();
+#define JavaUtilZipDeflater_FILTERED 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, FILTERED, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, HUFFMAN_ONLY, jint)
+/*!
+ @brief A compression strategy.
+ */
+inline jint JavaUtilZipDeflater_get_HUFFMAN_ONLY();
+#define JavaUtilZipDeflater_HUFFMAN_ONLY 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, HUFFMAN_ONLY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, NO_FLUSH, jint)
+/*!
+ @brief Use buffering for best compression.
+ @since 1.7
+ */
+inline jint JavaUtilZipDeflater_get_NO_FLUSH();
+#define JavaUtilZipDeflater_NO_FLUSH 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, NO_FLUSH, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, SYNC_FLUSH, jint)
+/*!
+ @brief Flush buffers so recipients can immediately decode the data sent thus
+ far.
+ This mode may degrade compression.
+ @since 1.7
+ */
+inline jint JavaUtilZipDeflater_get_SYNC_FLUSH();
+#define JavaUtilZipDeflater_SYNC_FLUSH 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, SYNC_FLUSH, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilZipDeflater, FULL_FLUSH, jint)
+/*!
+ @brief Flush buffers so recipients can immediately decode the data sent thus
+ far.
+ The compression state is also reset to permit random access and
+ recovery for clients who have discarded or damaged their own copy. This
+ mode may degrade compression.
+ @since 1.7
+ */
+inline jint JavaUtilZipDeflater_get_FULL_FLUSH();
+#define JavaUtilZipDeflater_FULL_FLUSH 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilZipDeflater, FULL_FLUSH, jint)
 
 FOUNDATION_EXPORT void JavaUtilZipDeflater_init(JavaUtilZipDeflater *self);
 
@@ -289,4 +380,8 @@ FOUNDATION_EXPORT JavaUtilZipDeflater *new_JavaUtilZipDeflater_initWithInt_withB
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDeflater)
 
-#endif // _JavaUtilZipDeflater_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipDeflater_INCLUDE_ALL")

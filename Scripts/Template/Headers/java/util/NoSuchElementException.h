@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/NoSuchElementException.java
 //
 
-#ifndef _JavaUtilNoSuchElementException_H_
-#define _JavaUtilNoSuchElementException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilNoSuchElementException_INCLUDE_ALL")
+#ifdef JavaUtilNoSuchElementException_RESTRICT
+#define JavaUtilNoSuchElementException_INCLUDE_ALL 0
+#else
+#define JavaUtilNoSuchElementException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilNoSuchElementException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilNoSuchElementException_) && (JavaUtilNoSuchElementException_INCLUDE_ALL || defined(JavaUtilNoSuchElementException_INCLUDE))
+#define JavaUtilNoSuchElementException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaUtilNoSuchElementException *new_JavaUtilNoSuchElementExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilNoSuchElementException)
 
-#endif // _JavaUtilNoSuchElementException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilNoSuchElementException_INCLUDE_ALL")

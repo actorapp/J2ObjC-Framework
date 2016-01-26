@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/Scanner.java
 //
 
-#ifndef _JavaUtilScanner_H_
-#define _JavaUtilScanner_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilScanner_INCLUDE_ALL")
+#ifdef JavaUtilScanner_RESTRICT
+#define JavaUtilScanner_INCLUDE_ALL 0
+#else
+#define JavaUtilScanner_INCLUDE_ALL 1
+#endif
+#undef JavaUtilScanner_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilScanner_) && (JavaUtilScanner_INCLUDE_ALL || defined(JavaUtilScanner_INCLUDE))
+#define JavaUtilScanner_
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
 #include "../../java/io/Closeable.h"
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
 #include "../../java/util/Iterator.h"
 
 @class JavaIoFile;
@@ -139,6 +156,7 @@
  If the <code>Scanner</code> has been closed, this method will have
  no effect. Any scanning operation called after calling this method will throw
  an <code>IllegalStateException</code>.
+ - seealso: Closeable
  */
 - (void)close;
 
@@ -177,6 +195,7 @@
  before the next line terminator.
  @throws IllegalStateException
  if the <code>Scanner</code> is closed.
+ - seealso: #findInLine(Pattern)
  */
 - (NSString *)findInLineWithNSString:(NSString *)pattern;
 
@@ -230,6 +249,7 @@
  if the <code>Scanner</code> is closed.
  @throws IllegalArgumentException
  if <code>horizon</code> is less than zero.
+ - seealso: #findWithinHorizon(Pattern,int)
  */
 - (NSString *)findWithinHorizonWithNSString:(NSString *)pattern
                                     withInt:(jint)horizon;
@@ -925,4 +945,8 @@ FOUNDATION_EXPORT JavaUtilScanner *new_JavaUtilScanner_initWithJavaNioChannelsRe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilScanner)
 
-#endif // _JavaUtilScanner_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilScanner_INCLUDE_ALL")

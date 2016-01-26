@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/UnmappableCharacterException.java
 //
 
-#ifndef _JavaNioCharsetUnmappableCharacterException_H_
-#define _JavaNioCharsetUnmappableCharacterException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioCharsetUnmappableCharacterException_INCLUDE_ALL")
+#ifdef JavaNioCharsetUnmappableCharacterException_RESTRICT
+#define JavaNioCharsetUnmappableCharacterException_INCLUDE_ALL 0
+#else
+#define JavaNioCharsetUnmappableCharacterException_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharsetUnmappableCharacterException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharsetUnmappableCharacterException_) && (JavaNioCharsetUnmappableCharacterException_INCLUDE_ALL || defined(JavaNioCharsetUnmappableCharacterException_INCLUDE))
+#define JavaNioCharsetUnmappableCharacterException_
+
+#define JavaNioCharsetCharacterCodingException_RESTRICT 1
+#define JavaNioCharsetCharacterCodingException_INCLUDE 1
 #include "../../../java/nio/charset/CharacterCodingException.h"
 
 /*!
@@ -41,4 +55,8 @@ FOUNDATION_EXPORT JavaNioCharsetUnmappableCharacterException *new_JavaNioCharset
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetUnmappableCharacterException)
 
-#endif // _JavaNioCharsetUnmappableCharacterException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharsetUnmappableCharacterException_INCLUDE_ALL")

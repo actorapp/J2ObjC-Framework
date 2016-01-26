@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/UnsupportedOperationException.java
 //
 
-#ifndef _JavaLangUnsupportedOperationException_H_
-#define _JavaLangUnsupportedOperationException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangUnsupportedOperationException_INCLUDE_ALL")
+#ifdef JavaLangUnsupportedOperationException_RESTRICT
+#define JavaLangUnsupportedOperationException_INCLUDE_ALL 0
+#else
+#define JavaLangUnsupportedOperationException_INCLUDE_ALL 1
+#endif
+#undef JavaLangUnsupportedOperationException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangUnsupportedOperationException_) && (JavaLangUnsupportedOperationException_INCLUDE_ALL || defined(JavaLangUnsupportedOperationException_INCLUDE))
+#define JavaLangUnsupportedOperationException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 @class JavaLangThrowable;
@@ -75,4 +89,8 @@ FOUNDATION_EXPORT JavaLangUnsupportedOperationException *new_JavaLangUnsupported
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangUnsupportedOperationException)
 
-#endif // _JavaLangUnsupportedOperationException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangUnsupportedOperationException_INCLUDE_ALL")

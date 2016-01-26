@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Enum.java
 //
 
-#ifndef _JavaLangEnum_H_
-#define _JavaLangEnum_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangEnum_INCLUDE_ALL")
+#ifdef JavaLangEnum_RESTRICT
+#define JavaLangEnum_INCLUDE_ALL 0
+#else
+#define JavaLangEnum_INCLUDE_ALL 1
+#endif
+#undef JavaLangEnum_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangEnum_) && (JavaLangEnum_INCLUDE_ALL || defined(JavaLangEnum_INCLUDE))
+#define JavaLangEnum_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -35,6 +52,7 @@
  values of this enum constant and <code>o</code> are equal; a positive
  value if the ordinal value of this enum constant is greater than
  the ordinal value of <code>o</code>.
+ - seealso: java.lang.Comparable
  */
 - (jint)compareToWithId:(JavaLangEnum *)o;
 
@@ -70,6 +88,7 @@
  The name is the field as it
  appears in the <code>enum</code> declaration.
  @return the name of this enum constant.
+ - seealso: #toString()
  */
 - (NSString *)name;
 
@@ -137,7 +156,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaLangEnum)
@@ -150,4 +168,8 @@ FOUNDATION_EXPORT IOSObjectArray *JavaLangEnum_getSharedConstantsWithIOSClass_(I
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangEnum)
 
-#endif // _JavaLangEnum_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangEnum_INCLUDE_ALL")

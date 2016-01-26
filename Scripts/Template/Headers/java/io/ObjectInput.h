@@ -3,17 +3,36 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectInput.java
 //
 
-#ifndef _JavaIoObjectInput_H_
-#define _JavaIoObjectInput_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoObjectInput_INCLUDE_ALL")
+#ifdef JavaIoObjectInput_RESTRICT
+#define JavaIoObjectInput_INCLUDE_ALL 0
+#else
+#define JavaIoObjectInput_INCLUDE_ALL 1
+#endif
+#undef JavaIoObjectInput_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoObjectInput_) && (JavaIoObjectInput_INCLUDE_ALL || defined(JavaIoObjectInput_INCLUDE))
+#define JavaIoObjectInput_
+
+#define JavaIoDataInput_RESTRICT 1
+#define JavaIoDataInput_INCLUDE 1
 #include "../../java/io/DataInput.h"
+
+#define JavaLangAutoCloseable_RESTRICT 1
+#define JavaLangAutoCloseable_INCLUDE 1
 #include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
 
 /*!
  @brief Defines an interface for classes that allow reading serialized objects.
+ - seealso: ObjectInputStream
+ - seealso: ObjectOutput
  */
 @protocol JavaIoObjectInput < JavaIoDataInput, JavaLangAutoCloseable, NSObject, JavaObject >
 
@@ -107,4 +126,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoObjectInput)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInput)
 
-#endif // _JavaIoObjectInput_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoObjectInput_INCLUDE_ALL")

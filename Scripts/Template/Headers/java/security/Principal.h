@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/Principal.java
 //
 
-#ifndef _JavaSecurityPrincipal_H_
-#define _JavaSecurityPrincipal_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityPrincipal_INCLUDE_ALL")
+#ifdef JavaSecurityPrincipal_RESTRICT
+#define JavaSecurityPrincipal_INCLUDE_ALL 0
+#else
+#define JavaSecurityPrincipal_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityPrincipal_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityPrincipal_) && (JavaSecurityPrincipal_INCLUDE_ALL || defined(JavaSecurityPrincipal_INCLUDE))
+#define JavaSecurityPrincipal_
 
 /*!
  @brief <code>Principal</code>s are objects which have identities.
@@ -39,6 +50,8 @@
  hash code for <code>Principal</code>s that are equal to each other as
  required by the general contract of <code>Object.hashCode</code>.
  @return the hash code value for this <code>Principal</code>.
+ - seealso: Object#equals(Object)
+ - seealso: Principal#equals(Object)
  */
 - (NSUInteger)hash;
 
@@ -55,4 +68,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecurityPrincipal)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPrincipal)
 
-#endif // _JavaSecurityPrincipal_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityPrincipal_INCLUDE_ALL")

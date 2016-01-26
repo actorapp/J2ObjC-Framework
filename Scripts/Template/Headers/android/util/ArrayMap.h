@@ -3,10 +3,24 @@
 //  source: android/frameworks/base/core/java/android/util/ArrayMap.java
 //
 
-#ifndef _AndroidUtilArrayMap_H_
-#define _AndroidUtilArrayMap_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidUtilArrayMap_INCLUDE_ALL")
+#ifdef AndroidUtilArrayMap_RESTRICT
+#define AndroidUtilArrayMap_INCLUDE_ALL 0
+#else
+#define AndroidUtilArrayMap_INCLUDE_ALL 1
+#endif
+#undef AndroidUtilArrayMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidUtilArrayMap_) && (AndroidUtilArrayMap_INCLUDE_ALL || defined(AndroidUtilArrayMap_INCLUDE))
+#define AndroidUtilArrayMap_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_INCLUDE 1
 #include "../../java/util/Map.h"
 
 @class AndroidUtilMapCollections;
@@ -42,6 +56,26 @@
   jint mSize_;
   AndroidUtilMapCollections *mCollections_;
 }
+
++ (AndroidUtilArrayMap *)EMPTY;
+
++ (IOSObjectArray *)mBaseCache;
+
++ (void)setMBaseCache:(IOSObjectArray *)value;
+
++ (jint)mBaseCacheSize;
+
++ (void)setMBaseCacheSize:(jint)value;
+
++ (IOSObjectArray *)mTwiceBaseCache;
+
++ (void)setMTwiceBaseCache:(IOSObjectArray *)value;
+
++ (jint)mTwiceBaseCacheSize;
+
++ (void)setMTwiceBaseCacheSize:(jint)value;
+
++ (IOSIntArray *)EMPTY_IMMUTABLE_INTS;
 
 #pragma mark Public
 
@@ -274,25 +308,54 @@ J2OBJC_FIELD_SETTER(AndroidUtilArrayMap, mHashes_, IOSIntArray *)
 J2OBJC_FIELD_SETTER(AndroidUtilArrayMap, mArray_, IOSObjectArray *)
 J2OBJC_FIELD_SETTER(AndroidUtilArrayMap, mCollections_, AndroidUtilMapCollections *)
 
-FOUNDATION_EXPORT AndroidUtilArrayMap *AndroidUtilArrayMap_EMPTY_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilArrayMap, EMPTY_, AndroidUtilArrayMap *)
+/*!
+  Special immutable empty ArrayMap.
+ */
+inline AndroidUtilArrayMap *AndroidUtilArrayMap_get_EMPTY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT AndroidUtilArrayMap *AndroidUtilArrayMap_EMPTY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(AndroidUtilArrayMap, EMPTY, AndroidUtilArrayMap *)
 
-FOUNDATION_EXPORT IOSObjectArray *AndroidUtilArrayMap_mBaseCache_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilArrayMap, mBaseCache_, IOSObjectArray *)
-J2OBJC_STATIC_FIELD_SETTER(AndroidUtilArrayMap, mBaseCache_, IOSObjectArray *)
+/*!
+ @brief Caches of small array objects to avoid spamming garbage.
+ The cache
+ Object[] variable is a pointer to a linked list of array objects.
+ The first entry in the array is a pointer to the next array in the
+ list; the second entry is a pointer to the int[] hash code array for it.
+ */
+inline IOSObjectArray *AndroidUtilArrayMap_get_mBaseCache();
+inline IOSObjectArray *AndroidUtilArrayMap_set_mBaseCache(IOSObjectArray *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSObjectArray *AndroidUtilArrayMap_mBaseCache;
+J2OBJC_STATIC_FIELD_OBJ(AndroidUtilArrayMap, mBaseCache, IOSObjectArray *)
 
-FOUNDATION_EXPORT jint AndroidUtilArrayMap_mBaseCacheSize_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilArrayMap, mBaseCacheSize_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(AndroidUtilArrayMap, mBaseCacheSize_, jint)
-FOUNDATION_EXPORT IOSObjectArray *AndroidUtilArrayMap_mTwiceBaseCache_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilArrayMap, mTwiceBaseCache_, IOSObjectArray *)
-J2OBJC_STATIC_FIELD_SETTER(AndroidUtilArrayMap, mTwiceBaseCache_, IOSObjectArray *)
+inline jint AndroidUtilArrayMap_get_mBaseCacheSize();
+inline jint AndroidUtilArrayMap_set_mBaseCacheSize(jint value);
+inline jint *AndroidUtilArrayMap_getRef_mBaseCacheSize();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint AndroidUtilArrayMap_mBaseCacheSize;
+J2OBJC_STATIC_FIELD_PRIMITIVE(AndroidUtilArrayMap, mBaseCacheSize, jint)
 
-FOUNDATION_EXPORT jint AndroidUtilArrayMap_mTwiceBaseCacheSize_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilArrayMap, mTwiceBaseCacheSize_, jint)
-J2OBJC_STATIC_FIELD_REF_GETTER(AndroidUtilArrayMap, mTwiceBaseCacheSize_, jint)
-FOUNDATION_EXPORT IOSIntArray *AndroidUtilArrayMap_EMPTY_IMMUTABLE_INTS_;
-J2OBJC_STATIC_FIELD_GETTER(AndroidUtilArrayMap, EMPTY_IMMUTABLE_INTS_, IOSIntArray *)
+inline IOSObjectArray *AndroidUtilArrayMap_get_mTwiceBaseCache();
+inline IOSObjectArray *AndroidUtilArrayMap_set_mTwiceBaseCache(IOSObjectArray *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSObjectArray *AndroidUtilArrayMap_mTwiceBaseCache;
+J2OBJC_STATIC_FIELD_OBJ(AndroidUtilArrayMap, mTwiceBaseCache, IOSObjectArray *)
+
+inline jint AndroidUtilArrayMap_get_mTwiceBaseCacheSize();
+inline jint AndroidUtilArrayMap_set_mTwiceBaseCacheSize(jint value);
+inline jint *AndroidUtilArrayMap_getRef_mTwiceBaseCacheSize();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint AndroidUtilArrayMap_mTwiceBaseCacheSize;
+J2OBJC_STATIC_FIELD_PRIMITIVE(AndroidUtilArrayMap, mTwiceBaseCacheSize, jint)
+
+/*!
+ @brief Special hash array value that indicates the container is immutable.
+ */
+inline IOSIntArray *AndroidUtilArrayMap_get_EMPTY_IMMUTABLE_INTS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSIntArray *AndroidUtilArrayMap_EMPTY_IMMUTABLE_INTS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(AndroidUtilArrayMap, EMPTY_IMMUTABLE_INTS, IOSIntArray *)
 
 FOUNDATION_EXPORT void AndroidUtilArrayMap_init(AndroidUtilArrayMap *self);
 
@@ -308,4 +371,8 @@ FOUNDATION_EXPORT AndroidUtilArrayMap *new_AndroidUtilArrayMap_initWithAndroidUt
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilArrayMap)
 
-#endif // _AndroidUtilArrayMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidUtilArrayMap_INCLUDE_ALL")

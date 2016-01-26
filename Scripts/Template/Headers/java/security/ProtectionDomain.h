@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/ProtectionDomain.java
 //
 
-#ifndef _JavaSecurityProtectionDomain_H_
-#define _JavaSecurityProtectionDomain_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityProtectionDomain_INCLUDE_ALL")
+#ifdef JavaSecurityProtectionDomain_RESTRICT
+#define JavaSecurityProtectionDomain_INCLUDE_ALL 0
+#else
+#define JavaSecurityProtectionDomain_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityProtectionDomain_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityProtectionDomain_) && (JavaSecurityProtectionDomain_INCLUDE_ALL || defined(JavaSecurityProtectionDomain_INCLUDE))
+#define JavaSecurityProtectionDomain_
 
 @class IOSObjectArray;
 @class JavaLangClassLoader;
@@ -53,4 +64,8 @@ FOUNDATION_EXPORT JavaSecurityProtectionDomain *new_JavaSecurityProtectionDomain
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProtectionDomain)
 
-#endif // _JavaSecurityProtectionDomain_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityProtectionDomain_INCLUDE_ALL")

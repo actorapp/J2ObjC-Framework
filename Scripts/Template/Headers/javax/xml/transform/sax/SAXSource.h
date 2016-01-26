@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/sax/SAXSource.java
 //
 
-#ifndef _JavaxXmlTransformSaxSAXSource_H_
-#define _JavaxXmlTransformSaxSAXSource_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformSaxSAXSource_INCLUDE_ALL")
+#ifdef JavaxXmlTransformSaxSAXSource_RESTRICT
+#define JavaxXmlTransformSaxSAXSource_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformSaxSAXSource_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformSaxSAXSource_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformSaxSAXSource_) && (JavaxXmlTransformSaxSAXSource_INCLUDE_ALL || defined(JavaxXmlTransformSaxSAXSource_INCLUDE))
+#define JavaxXmlTransformSaxSAXSource_
+
+#define JavaxXmlTransformSource_RESTRICT 1
+#define JavaxXmlTransformSource_INCLUDE 1
 #include "../../../../javax/xml/transform/Source.h"
 
 @class OrgXmlSaxInputSource;
@@ -25,6 +39,8 @@
  */
 @interface JavaxXmlTransformSaxSAXSource : NSObject < JavaxXmlTransformSource >
 
++ (NSString *)FEATURE;
+
 #pragma mark Public
 
 /*!
@@ -35,6 +51,7 @@
  <code>Transformer</code> will
  create an empty source <code>org.xml.sax.InputSource</code> using
  <code>new InputSource()</code>.</p>
+ - seealso: javax.xml.transform.Transformer#transform(Source xmlSource,Result outputTarget)
  */
 - (instancetype)init;
 
@@ -124,8 +141,15 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformSaxSAXSource)
 
-FOUNDATION_EXPORT NSString *JavaxXmlTransformSaxSAXSource_FEATURE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlTransformSaxSAXSource, FEATURE_, NSString *)
+/*!
+ @brief If <code>javax.xml.transform.TransformerFactory.getFeature</code>
+ returns true when passed this value as an argument,
+ the Transformer supports Source input of this type.
+ */
+inline NSString *JavaxXmlTransformSaxSAXSource_get_FEATURE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlTransformSaxSAXSource_FEATURE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlTransformSaxSAXSource, FEATURE, NSString *)
 
 FOUNDATION_EXPORT void JavaxXmlTransformSaxSAXSource_init(JavaxXmlTransformSaxSAXSource *self);
 
@@ -143,4 +167,8 @@ FOUNDATION_EXPORT OrgXmlSaxInputSource *JavaxXmlTransformSaxSAXSource_sourceToIn
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxSAXSource)
 
-#endif // _JavaxXmlTransformSaxSAXSource_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformSaxSAXSource_INCLUDE_ALL")

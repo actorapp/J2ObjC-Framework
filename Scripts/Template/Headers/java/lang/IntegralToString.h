@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/IntegralToString.java
 //
 
-#ifndef _JavaLangIntegralToString_H_
-#define _JavaLangIntegralToString_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangIntegralToString_INCLUDE_ALL")
+#ifdef JavaLangIntegralToString_RESTRICT
+#define JavaLangIntegralToString_INCLUDE_ALL 0
+#else
+#define JavaLangIntegralToString_INCLUDE_ALL 1
+#endif
+#undef JavaLangIntegralToString_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangIntegralToString_) && (JavaLangIntegralToString_INCLUDE_ALL || defined(JavaLangIntegralToString_INCLUDE))
+#define JavaLangIntegralToString_
 
 @class IOSByteArray;
 @class JavaLangAbstractStringBuilder;
@@ -124,4 +135,8 @@ FOUNDATION_EXPORT NSString *JavaLangIntegralToString_longToOctalStringWithLong_(
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIntegralToString)
 
-#endif // _JavaLangIntegralToString_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangIntegralToString_INCLUDE_ALL")

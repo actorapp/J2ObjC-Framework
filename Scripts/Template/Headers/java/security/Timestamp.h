@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/Timestamp.java
 //
 
-#ifndef _JavaSecurityTimestamp_H_
-#define _JavaSecurityTimestamp_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityTimestamp_INCLUDE_ALL")
+#ifdef JavaSecurityTimestamp_RESTRICT
+#define JavaSecurityTimestamp_INCLUDE_ALL 0
+#else
+#define JavaSecurityTimestamp_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityTimestamp_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityTimestamp_) && (JavaSecurityTimestamp_INCLUDE_ALL || defined(JavaSecurityTimestamp_INCLUDE))
+#define JavaSecurityTimestamp_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class JavaSecurityCertCertPath;
@@ -47,6 +61,7 @@
  .
  @return <code>true</code> if the specified object is equal to this <code>Timestamp</code>
  , otherwise <code>false</code>.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)obj;
 
@@ -68,6 +83,8 @@
  hash code for <code>Timestamp</code>s that are equal to each other as
  required by the general contract of <code>Object.hashCode</code>.
  @return the hash code value for this <code>Timestamp</code>.
+ - seealso: Object#equals(Object)
+ - seealso: Timestamp#equals(Object)
  */
 - (NSUInteger)hash;
 
@@ -88,4 +105,8 @@ FOUNDATION_EXPORT JavaSecurityTimestamp *new_JavaSecurityTimestamp_initWithJavaU
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityTimestamp)
 
-#endif // _JavaSecurityTimestamp_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityTimestamp_INCLUDE_ALL")

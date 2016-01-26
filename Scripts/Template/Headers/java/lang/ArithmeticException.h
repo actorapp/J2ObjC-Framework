@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ArithmeticException.java
 //
 
-#ifndef _JavaLangArithmeticException_H_
-#define _JavaLangArithmeticException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangArithmeticException_INCLUDE_ALL")
+#ifdef JavaLangArithmeticException_RESTRICT
+#define JavaLangArithmeticException_INCLUDE_ALL 0
+#else
+#define JavaLangArithmeticException_INCLUDE_ALL 1
+#endif
+#undef JavaLangArithmeticException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangArithmeticException_) && (JavaLangArithmeticException_INCLUDE_ALL || defined(JavaLangArithmeticException_INCLUDE))
+#define JavaLangArithmeticException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -44,4 +58,8 @@ FOUNDATION_EXPORT JavaLangArithmeticException *new_JavaLangArithmeticException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangArithmeticException)
 
-#endif // _JavaLangArithmeticException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangArithmeticException_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/nio/charset/CharsetEncoder.java
 //
 
-#ifndef _JavaNioCharsetCharsetEncoder_H_
-#define _JavaNioCharsetCharsetEncoder_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioCharsetCharsetEncoder_INCLUDE_ALL")
+#ifdef JavaNioCharsetCharsetEncoder_RESTRICT
+#define JavaNioCharsetCharsetEncoder_INCLUDE_ALL 0
+#else
+#define JavaNioCharsetCharsetEncoder_INCLUDE_ALL 1
+#endif
+#undef JavaNioCharsetCharsetEncoder_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioCharsetCharsetEncoder_) && (JavaNioCharsetCharsetEncoder_INCLUDE_ALL || defined(JavaNioCharsetCharsetEncoder_INCLUDE))
+#define JavaNioCharsetCharsetEncoder_
 
 @class IOSByteArray;
 @class JavaNioByteBuffer;
@@ -57,6 +68,8 @@
  <code>encodeLoop</code> method for basic
  encoding.
  <p>This class is not thread-safe.
+ - seealso: java.nio.charset.Charset
+ - seealso: java.nio.charset.CharsetDecoder
  */
 @interface JavaNioCharsetCharsetEncoder : NSObject
 
@@ -375,4 +388,8 @@ FOUNDATION_EXPORT void JavaNioCharsetCharsetEncoder_initWithJavaNioCharsetCharse
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCharsetEncoder)
 
-#endif // _JavaNioCharsetCharsetEncoder_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioCharsetCharsetEncoder_INCLUDE_ALL")

@@ -3,14 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/Semaphore.java
 //
 
-#ifndef _JavaUtilConcurrentSemaphore_H_
-#define _JavaUtilConcurrentSemaphore_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
-#include "../../../java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+#pragma push_macro("JavaUtilConcurrentSemaphore_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentSemaphore_RESTRICT
+#define JavaUtilConcurrentSemaphore_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentSemaphore_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentSemaphore_RESTRICT
+#ifdef JavaUtilConcurrentSemaphore_FairSync_INCLUDE
+#define JavaUtilConcurrentSemaphore_Sync_INCLUDE 1
+#endif
+#ifdef JavaUtilConcurrentSemaphore_NonfairSync_INCLUDE
+#define JavaUtilConcurrentSemaphore_Sync_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentSemaphore_) && (JavaUtilConcurrentSemaphore_INCLUDE_ALL || defined(JavaUtilConcurrentSemaphore_INCLUDE))
+#define JavaUtilConcurrentSemaphore_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaUtilCollection;
 
 /*!
@@ -417,7 +436,7 @@
  */
 - (jboolean)tryAcquireWithInt:(jint)permits
                      withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Acquires a permit from this semaphore, if one becomes available
@@ -455,7 +474,7 @@ withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
  @throws InterruptedException if the current thread is interrupted
  */
 - (jboolean)tryAcquireWithLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 #pragma mark Protected
 
@@ -496,6 +515,15 @@ FOUNDATION_EXPORT JavaUtilConcurrentSemaphore *new_JavaUtilConcurrentSemaphore_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore)
 
+#endif
+
+#if !defined (JavaUtilConcurrentSemaphore_Sync_) && (JavaUtilConcurrentSemaphore_INCLUDE_ALL || defined(JavaUtilConcurrentSemaphore_Sync_INCLUDE))
+#define JavaUtilConcurrentSemaphore_Sync_
+
+#define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_RESTRICT 1
+#define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE 1
+#include "../../../java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
+
 /*!
  @brief Synchronization implementation for semaphore.
  Uses AQS state
@@ -528,6 +556,11 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSemaphore_Sync_initWithInt_(JavaUtilCon
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore_Sync)
 
+#endif
+
+#if !defined (JavaUtilConcurrentSemaphore_NonfairSync_) && (JavaUtilConcurrentSemaphore_INCLUDE_ALL || defined(JavaUtilConcurrentSemaphore_NonfairSync_INCLUDE))
+#define JavaUtilConcurrentSemaphore_NonfairSync_
+
 /*!
  @brief NonFair version
  */
@@ -550,6 +583,11 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSemaphore_NonfairSync_initWithInt_(Java
 FOUNDATION_EXPORT JavaUtilConcurrentSemaphore_NonfairSync *new_JavaUtilConcurrentSemaphore_NonfairSync_initWithInt_(jint permits) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore_NonfairSync)
+
+#endif
+
+#if !defined (JavaUtilConcurrentSemaphore_FairSync_) && (JavaUtilConcurrentSemaphore_INCLUDE_ALL || defined(JavaUtilConcurrentSemaphore_FairSync_INCLUDE))
+#define JavaUtilConcurrentSemaphore_FairSync_
 
 /*!
  @brief Fair version
@@ -574,4 +612,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentSemaphore_FairSync *new_JavaUtilConcurrentSe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore_FairSync)
 
-#endif // _JavaUtilConcurrentSemaphore_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentSemaphore_INCLUDE_ALL")

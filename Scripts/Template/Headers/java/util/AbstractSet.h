@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/AbstractSet.java
 //
 
-#ifndef _JavaUtilAbstractSet_H_
-#define _JavaUtilAbstractSet_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilAbstractSet_INCLUDE_ALL")
+#ifdef JavaUtilAbstractSet_RESTRICT
+#define JavaUtilAbstractSet_INCLUDE_ALL 0
+#else
+#define JavaUtilAbstractSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilAbstractSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilAbstractSet_) && (JavaUtilAbstractSet_INCLUDE_ALL || defined(JavaUtilAbstractSet_INCLUDE))
+#define JavaUtilAbstractSet_
+
+#define JavaUtilAbstractCollection_RESTRICT 1
+#define JavaUtilAbstractCollection_INCLUDE 1
 #include "../../java/util/AbstractCollection.h"
+
+#define JavaUtilSet_RESTRICT 1
+#define JavaUtilSet_INCLUDE 1
 #include "../../java/util/Set.h"
 
 @protocol JavaUtilCollection;
@@ -32,6 +49,7 @@
  the object to compare with this set.
  @return <code>true</code> if the specified object is equal to this set,
  <code>false</code> otherwise
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -41,6 +59,7 @@
  the same value. This implementation calculates the hash code by adding
  each element's hash code.
  @return the hash code of this set.
+ - seealso: #equals
  */
 - (NSUInteger)hash;
 
@@ -65,7 +84,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilAbstractSet)
@@ -74,4 +92,8 @@ FOUNDATION_EXPORT void JavaUtilAbstractSet_init(JavaUtilAbstractSet *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractSet)
 
-#endif // _JavaUtilAbstractSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilAbstractSet_INCLUDE_ALL")

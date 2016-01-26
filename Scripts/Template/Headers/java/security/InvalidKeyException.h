@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/InvalidKeyException.java
 //
 
-#ifndef _JavaSecurityInvalidKeyException_H_
-#define _JavaSecurityInvalidKeyException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityInvalidKeyException_INCLUDE_ALL")
+#ifdef JavaSecurityInvalidKeyException_RESTRICT
+#define JavaSecurityInvalidKeyException_INCLUDE_ALL 0
+#else
+#define JavaSecurityInvalidKeyException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityInvalidKeyException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityInvalidKeyException_) && (JavaSecurityInvalidKeyException_INCLUDE_ALL || defined(JavaSecurityInvalidKeyException_INCLUDE))
+#define JavaSecurityInvalidKeyException_
+
+#define JavaSecurityKeyException_RESTRICT 1
+#define JavaSecurityKeyException_INCLUDE 1
 #include "../../java/security/KeyException.h"
 
 @class JavaLangThrowable;
@@ -72,4 +86,8 @@ FOUNDATION_EXPORT JavaSecurityInvalidKeyException *new_JavaSecurityInvalidKeyExc
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInvalidKeyException)
 
-#endif // _JavaSecurityInvalidKeyException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityInvalidKeyException_INCLUDE_ALL")

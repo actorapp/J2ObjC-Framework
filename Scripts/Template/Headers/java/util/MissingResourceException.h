@@ -3,16 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/util/MissingResourceException.java
 //
 
-#ifndef _JavaUtilMissingResourceException_H_
-#define _JavaUtilMissingResourceException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilMissingResourceException_INCLUDE_ALL")
+#ifdef JavaUtilMissingResourceException_RESTRICT
+#define JavaUtilMissingResourceException_INCLUDE_ALL 0
+#else
+#define JavaUtilMissingResourceException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilMissingResourceException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilMissingResourceException_) && (JavaUtilMissingResourceException_INCLUDE_ALL || defined(JavaUtilMissingResourceException_INCLUDE))
+#define JavaUtilMissingResourceException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
  @brief A <code>MissingResourceException</code> is thrown by ResourceBundle when a
  resource bundle cannot be found or a resource is missing from a resource
  bundle.
+ - seealso: ResourceBundle
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilMissingResourceException : JavaLangRuntimeException {
  @public
@@ -64,4 +80,8 @@ FOUNDATION_EXPORT JavaUtilMissingResourceException *new_JavaUtilMissingResourceE
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMissingResourceException)
 
-#endif // _JavaUtilMissingResourceException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilMissingResourceException_INCLUDE_ALL")

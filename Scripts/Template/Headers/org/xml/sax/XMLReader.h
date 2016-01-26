@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/XMLReader.java
 //
 
-#ifndef _OrgXmlSaxXMLReader_H_
-#define _OrgXmlSaxXMLReader_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxXMLReader_INCLUDE_ALL")
+#ifdef OrgXmlSaxXMLReader_RESTRICT
+#define OrgXmlSaxXMLReader_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxXMLReader_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxXMLReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxXMLReader_) && (OrgXmlSaxXMLReader_INCLUDE_ALL || defined(OrgXmlSaxXMLReader_INCLUDE))
+#define OrgXmlSaxXMLReader_
 
 @class OrgXmlSaxInputSource;
 @protocol OrgXmlSaxContentHandler;
@@ -50,6 +61,9 @@
  @since SAX 2.0
  @author David Megginson
  @version 2.0.1+ (sax2r3pre1)
+ - seealso: org.xml.sax.XMLFilter
+ - seealso: org.xml.sax.helpers.ParserAdapter
+ - seealso: org.xml.sax.helpers.XMLReaderAdapter
  */
 @protocol OrgXmlSaxXMLReader < NSObject, JavaObject >
 
@@ -100,6 +114,7 @@
  @exception org.xml.sax.SAXNotSupportedException When the
  XMLReader recognizes the feature name but
  cannot determine its value at this time.
+ - seealso: #setFeature
  */
 - (jboolean)getFeatureWithNSString:(NSString *)name;
 
@@ -121,6 +136,7 @@
  @exception org.xml.sax.SAXNotSupportedException When the
  XMLReader recognizes the feature name but
  cannot set the requested value.
+ - seealso: #getFeature
  */
 - (void)setFeatureWithNSString:(NSString *)name
                    withBoolean:(jboolean)value;
@@ -144,6 +160,7 @@
  @exception org.xml.sax.SAXNotSupportedException When the
  XMLReader recognizes the property name but
  cannot determine its value at this time.
+ - seealso: #setProperty
  */
 - (id)getPropertyWithNSString:(NSString *)name;
 
@@ -179,6 +196,7 @@
  middle of a parse, and the SAX parser must begin using the new
  resolver immediately.</p>
  @param resolver The entity resolver.
+ - seealso: #getEntityResolver
  */
 - (void)setEntityResolverWithOrgXmlSaxEntityResolver:(id<OrgXmlSaxEntityResolver>)resolver;
 
@@ -186,6 +204,7 @@
  @brief Return the current entity resolver.
  @return The current entity resolver, or null if none
  has been registered.
+ - seealso: #setEntityResolver
  */
 - (id<OrgXmlSaxEntityResolver>)getEntityResolver;
 
@@ -197,6 +216,7 @@
  middle of a parse, and the SAX parser must begin using the new
  handler immediately.</p>
  @param handler The DTD handler.
+ - seealso: #getDTDHandler
  */
 - (void)setDTDHandlerWithOrgXmlSaxDTDHandler:(id<OrgXmlSaxDTDHandler>)handler;
 
@@ -204,6 +224,7 @@
  @brief Return the current DTD handler.
  @return The current DTD handler, or null if none
  has been registered.
+ - seealso: #setDTDHandler
  */
 - (id<OrgXmlSaxDTDHandler>)getDTDHandler;
 
@@ -216,6 +237,7 @@
  middle of a parse, and the SAX parser must begin using the new
  handler immediately.</p>
  @param handler The content handler.
+ - seealso: #getContentHandler
  */
 - (void)setContentHandlerWithOrgXmlSaxContentHandler:(id<OrgXmlSaxContentHandler>)handler;
 
@@ -223,6 +245,7 @@
  @brief Return the current content handler.
  @return The current content handler, or null if none
  has been registered.
+ - seealso: #setContentHandler
  */
 - (id<OrgXmlSaxContentHandler>)getContentHandler;
 
@@ -237,6 +260,7 @@
  middle of a parse, and the SAX parser must begin using the new
  handler immediately.</p>
  @param handler The error handler.
+ - seealso: #getErrorHandler
  */
 - (void)setErrorHandlerWithOrgXmlSaxErrorHandler:(id<OrgXmlSaxErrorHandler>)handler;
 
@@ -244,6 +268,7 @@
  @brief Return the current error handler.
  @return The current error handler, or null if none
  has been registered.
+ - seealso: #setErrorHandler
  */
 - (id<OrgXmlSaxErrorHandler>)getErrorHandler;
 
@@ -277,6 +302,12 @@
  @exception java.io.IOException An IO exception from the parser,
  possibly from a byte stream or character stream
  supplied by the application.
+ - seealso: org.xml.sax.InputSource
+ - seealso: #parse(java.lang.String)
+ - seealso: #setEntityResolver
+ - seealso: #setDTDHandler
+ - seealso: #setContentHandler
+ - seealso: #setErrorHandler
  */
 - (void)parseWithOrgXmlSaxInputSource:(OrgXmlSaxInputSource *)input;
 
@@ -298,6 +329,7 @@
  @exception java.io.IOException An IO exception from the parser,
  possibly from a byte stream or character stream
  supplied by the application.
+ - seealso: #parse(org.xml.sax.InputSource)
  */
 - (void)parseWithNSString:(NSString *)systemId;
 
@@ -307,4 +339,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxXMLReader)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxXMLReader)
 
-#endif // _OrgXmlSaxXMLReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxXMLReader_INCLUDE_ALL")

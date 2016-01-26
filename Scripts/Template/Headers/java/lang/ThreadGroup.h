@@ -3,13 +3,28 @@
 //  source: apache_harmony/classlib/modules/luni-kernel/src/main/java/java/lang/ThreadGroup.java
 //
 
-#ifndef _JavaLangThreadGroup_H_
-#define _JavaLangThreadGroup_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangThreadGroup_INCLUDE_ALL")
+#ifdef JavaLangThreadGroup_RESTRICT
+#define JavaLangThreadGroup_INCLUDE_ALL 0
+#else
+#define JavaLangThreadGroup_INCLUDE_ALL 1
+#endif
+#undef JavaLangThreadGroup_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangThreadGroup_) && (JavaLangThreadGroup_INCLUDE_ALL || defined(JavaLangThreadGroup_INCLUDE))
+#define JavaLangThreadGroup_
+
+#define JavaLangThread_RESTRICT 1
+#define JavaLangThread_UncaughtExceptionHandler_INCLUDE 1
 #include "../../java/lang/Thread.h"
 
 @class IOSObjectArray;
+@class JavaLangThread;
 @class JavaLangThrowable;
 
 /*!
@@ -25,6 +40,8 @@
  to the mere housekeeping aspect, is that all <code>Thread</code>s in a <code>ThreadGroup</code>
   can be manipulated together, that is, the <code>ThreadGroup</code>
  has methods that delegate to all its all <code>Thread</code>s.
+ - seealso: Thread
+ - seealso: SecurityManager
  */
 @interface JavaLangThreadGroup : NSObject < JavaLangThread_UncaughtExceptionHandler > {
  @public
@@ -43,6 +60,7 @@
  @param name Name for the ThreadGroup being created
  @throws SecurityException if <code>checkAccess()</code> for the parent
  group fails with a SecurityException
+ - seealso: java.lang.Thread#currentThread
  */
 - (instancetype)initWithNSString:(NSString *)name;
 
@@ -145,6 +163,7 @@
 /*!
  @brief Returns the maximum allowed priority for a Thread in the receiver.
  @return the maximum priority
+ - seealso: #setMaxPriority
  */
 - (jint)getMaxPriority;
 
@@ -165,6 +184,7 @@
 /*!
  @brief Checks whether the receiver has already been destroyed.
  @return true if (and only if) the receiver has already been destroyed
+ - seealso: #destroy
  */
 - (jboolean)isDestroyed;
 
@@ -195,6 +215,7 @@
  SecurityException
  @throws IllegalArgumentException if the new priority is greater than
  Thread.MAX_PRIORITY or less than Thread.MIN_PRIORITY
+ - seealso: #getMaxPriority
  */
 - (void)setMaxPriorityWithInt:(jint)newMax;
 
@@ -214,6 +235,7 @@
  uncaughtException or when it does (ThreadDeath).
  @param t the Thread that terminated with an uncaught exception
  @param e the uncaught exception itself
+ - seealso: ThreadDeath
  */
 - (void)uncaughtExceptionWithJavaLangThread:(JavaLangThread *)t
                       withJavaLangThrowable:(JavaLangThrowable *)e;
@@ -233,6 +255,7 @@
  @param thread Thread to add to the receiver
  @throws IllegalThreadStateException if the receiver has been destroyed
  already
+ - seealso: #remove(java.lang.Thread)
  */
 - (void)addWithJavaLangThread:(JavaLangThread *)thread;
 
@@ -241,6 +264,7 @@
  This should only be visible to class
  java.lang.Thread, and should only be called when a Thread dies.
  @param thread Thread to remove from the receiver
+ - seealso: #add(Thread)
  */
 - (void)removeWithJavaLangThread:(JavaLangThread *)thread;
 
@@ -264,4 +288,8 @@ FOUNDATION_EXPORT JavaLangThreadGroup *new_JavaLangThreadGroup_initWithJavaLangT
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadGroup)
 
-#endif // _JavaLangThreadGroup_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangThreadGroup_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/text/ChoiceFormat.java
 //
 
-#ifndef _JavaTextChoiceFormat_H_
-#define _JavaTextChoiceFormat_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextChoiceFormat_INCLUDE_ALL")
+#ifdef JavaTextChoiceFormat_RESTRICT
+#define JavaTextChoiceFormat_INCLUDE_ALL 0
+#else
+#define JavaTextChoiceFormat_INCLUDE_ALL 1
+#endif
+#undef JavaTextChoiceFormat_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextChoiceFormat_) && (JavaTextChoiceFormat_INCLUDE_ALL || defined(JavaTextChoiceFormat_INCLUDE))
+#define JavaTextChoiceFormat_
+
+#define JavaTextNumberFormat_RESTRICT 1
+#define JavaTextNumberFormat_INCLUDE 1
 #include "../../java/text/NumberFormat.h"
 
 @class IOSDoubleArray;
@@ -110,6 +124,7 @@
  @brief Returns a new instance of <code>ChoiceFormat</code> with the same ranges and
  strings as this <code>ChoiceFormat</code>.
  @return a shallow copy of this <code>ChoiceFormat</code>.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -122,6 +137,7 @@
  the object to compare with this instance.
  @return <code>true</code> if the specified object is equal to this instance;
  <code>false</code> otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -174,6 +190,7 @@
  Objects which are equal
  return the same value for this method.
  @return the receiver's hash.
+ - seealso: #equals
  */
 - (NSUInteger)hash;
 
@@ -292,4 +309,8 @@ FOUNDATION_EXPORT jdouble JavaTextChoiceFormat_previousDoubleWithDouble_(jdouble
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextChoiceFormat)
 
-#endif // _JavaTextChoiceFormat_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextChoiceFormat_INCLUDE_ALL")

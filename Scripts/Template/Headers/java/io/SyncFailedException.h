@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/SyncFailedException.java
 //
 
-#ifndef _JavaIoSyncFailedException_H_
-#define _JavaIoSyncFailedException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoSyncFailedException_INCLUDE_ALL")
+#ifdef JavaIoSyncFailedException_RESTRICT
+#define JavaIoSyncFailedException_INCLUDE_ALL 0
+#else
+#define JavaIoSyncFailedException_INCLUDE_ALL 1
+#endif
+#undef JavaIoSyncFailedException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoSyncFailedException_) && (JavaIoSyncFailedException_INCLUDE_ALL || defined(JavaIoSyncFailedException_INCLUDE))
+#define JavaIoSyncFailedException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -35,4 +49,8 @@ FOUNDATION_EXPORT JavaIoSyncFailedException *new_JavaIoSyncFailedException_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoSyncFailedException)
 
-#endif // _JavaIoSyncFailedException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoSyncFailedException_INCLUDE_ALL")

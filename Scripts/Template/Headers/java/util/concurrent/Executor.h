@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/Executor.java
 //
 
-#ifndef _JavaUtilConcurrentExecutor_H_
-#define _JavaUtilConcurrentExecutor_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentExecutor_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentExecutor_RESTRICT
+#define JavaUtilConcurrentExecutor_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentExecutor_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentExecutor_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentExecutor_) && (JavaUtilConcurrentExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentExecutor_INCLUDE))
+#define JavaUtilConcurrentExecutor_
 
 @protocol JavaLangRunnable;
 
@@ -116,4 +127,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentExecutor)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutor)
 
-#endif // _JavaUtilConcurrentExecutor_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentExecutor_INCLUDE_ALL")

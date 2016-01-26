@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ServerSocketFactory.java
 //
 
-#ifndef _JavaxNetServerSocketFactory_H_
-#define _JavaxNetServerSocketFactory_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetServerSocketFactory_INCLUDE_ALL")
+#ifdef JavaxNetServerSocketFactory_RESTRICT
+#define JavaxNetServerSocketFactory_INCLUDE_ALL 0
+#else
+#define JavaxNetServerSocketFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxNetServerSocketFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetServerSocketFactory_) && (JavaxNetServerSocketFactory_INCLUDE_ALL || defined(JavaxNetServerSocketFactory_INCLUDE))
+#define JavaxNetServerSocketFactory_
 
 @class JavaNetInetAddress;
 @class JavaNetServerSocket;
@@ -92,4 +103,8 @@ FOUNDATION_EXPORT void JavaxNetServerSocketFactory_init(JavaxNetServerSocketFact
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetServerSocketFactory)
 
-#endif // _JavaxNetServerSocketFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetServerSocketFactory_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/SignatureSpi.java
 //
 
-#ifndef _JavaSecuritySignatureSpi_H_
-#define _JavaSecuritySignatureSpi_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySignatureSpi_INCLUDE_ALL")
+#ifdef JavaSecuritySignatureSpi_RESTRICT
+#define JavaSecuritySignatureSpi_INCLUDE_ALL 0
+#else
+#define JavaSecuritySignatureSpi_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySignatureSpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySignatureSpi_) && (JavaSecuritySignatureSpi_INCLUDE_ALL || defined(JavaSecuritySignatureSpi_INCLUDE))
+#define JavaSecuritySignatureSpi_
 
 @class IOSByteArray;
 @class JavaNioByteBuffer;
@@ -19,6 +30,7 @@
 /*!
  @brief <code>SignatureSpi</code> is the <i>Service Provider Interface</i> (<b>SPI</b>)
  definition for <code>Signature</code>.
+ - seealso: Signature
  */
 @interface JavaSecuritySignatureSpi : NSObject {
  @public
@@ -46,7 +58,7 @@
  if <code>param</code> is not a valid parameter for this <code>SignatureSpi</code>
   or an other error occurs.
  */
-- (id)engineGetParameterWithNSString:(NSString *)param;
+- (id)engineGetParameterWithNSString:(NSString *)param __attribute__((deprecated));
 
 /*!
  @brief Returns the <code>AlgorithmParameters</code> of this <code>SignatureSpi</code>
@@ -112,7 +124,7 @@
  be changed.
  */
 - (void)engineSetParameterWithNSString:(NSString *)param
-                                withId:(id)value;
+                                withId:(id)value __attribute__((deprecated));
 
 /*!
  @brief Generates and returns the signature of all updated data.
@@ -247,4 +259,8 @@ FOUNDATION_EXPORT void JavaSecuritySignatureSpi_init(JavaSecuritySignatureSpi *s
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySignatureSpi)
 
-#endif // _JavaSecuritySignatureSpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySignatureSpi_INCLUDE_ALL")

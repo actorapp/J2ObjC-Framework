@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/NodeList.java
 //
 
-#ifndef _OrgW3cDomNodeList_H_
-#define _OrgW3cDomNodeList_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomNodeList_INCLUDE_ALL")
+#ifdef OrgW3cDomNodeList_RESTRICT
+#define OrgW3cDomNodeList_INCLUDE_ALL 0
+#else
+#define OrgW3cDomNodeList_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomNodeList_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomNodeList_) && (OrgW3cDomNodeList_INCLUDE_ALL || defined(OrgW3cDomNodeList_INCLUDE))
+#define OrgW3cDomNodeList_
 
 @protocol OrgW3cDomNode;
 
@@ -46,4 +57,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomNodeList)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomNodeList)
 
-#endif // _OrgW3cDomNodeList_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomNodeList_INCLUDE_ALL")

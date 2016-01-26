@@ -30,6 +30,143 @@ id JreStrAppendArray(JreArrayRef lhs, const char *types, ...);
 
 CF_EXTERN_C_END
 
+/*!
+ * Defines the getter for a static variable. For class "Foo" and field "bar_"
+ * with type "int" the getter will have the following signature:
+ *   inline int Foo_get_bar_();
+ *
+ * @define J2OBJC_STATIC_FIELD_BASIC_GETTER
+ * @define J2OBJC_STATIC_FIELD_PRIMITIVE_REF_GETTER
+ * @define J2OBJC_STATIC_FIELD_PRIMITIVE_VOLATILE_GETTER
+ * @define J2OBJC_STATIC_FIELD_OBJ_VOLATILE_GETTER
+ * @param CLASS The class containing the static variable.
+ * @param FIELD The name of the static variable prefixed with an underscore.
+ * @param TYPE The type of the static variable.
+ */
+#define J2OBJC_STATIC_FIELD_BASIC_GETTER(CLASS, FIELD, TYPE) \
+  __attribute__((always_inline)) inline TYPE CLASS##_get##FIELD() { \
+    CLASS##_initialize(); \
+    return CLASS##FIELD; \
+  }
+#define J2OBJC_STATIC_FIELD_PRIMITIVE_REF_GETTER(CLASS, FIELD, TYPE) \
+  __attribute__((always_inline)) inline TYPE *CLASS##_getRef##FIELD() { \
+    CLASS##_initialize(); \
+    return &CLASS##FIELD; \
+  }
+#define J2OBJC_STATIC_FIELD_PRIMITIVE_VOLATILE_GETTER(CLASS, FIELD, TYPE) \
+  __attribute__((always_inline)) inline TYPE CLASS##_get##FIELD() { \
+    CLASS##_initialize(); \
+    return __c11_atomic_load(&CLASS##FIELD, __ATOMIC_SEQ_CST); \
+  }
+#define J2OBJC_STATIC_FIELD_OBJ_VOLATILE_GETTER(CLASS, FIELD, TYPE) \
+  __attribute__((always_inline)) inline TYPE CLASS##_get##FIELD() { \
+    CLASS##_initialize(); \
+    return JreLoadVolatileId(&CLASS##FIELD); \
+  }
+
+/*!
+ * Defines the setter for a static variable with an object type. For class "Foo"
+ * and field "bar_" with type "NSString *" the getter will have the following
+ * signature:
+ *   inline NSString *Foo_set_bar_(NSString *value);
+ *
+ * @define J2OBJC_STATIC_FIELD_PRIMITIVE_SETTER
+ * @define J2OBJC_STATIC_FIELD_PRIMITIVE_VOLATILE_SETTER
+ * @define J2OBJC_STATIC_FIELD_OBJ_SETTER
+ * @define J2OBJC_STATIC_FIELD_OBJ_VOLATILE_SETTER
+ * @param CLASS The class containing the static variable.
+ * @param FIELD The name of the static variable prefixed with an underscore.
+ * @param TYPE The type of the static variable.
+ */
+#define J2OBJC_STATIC_FIELD_PRIMITIVE_SETTER(CLASS, FIELD, TYPE) \
+  __attribute__((always_inline)) inline TYPE CLASS##_set##FIELD(TYPE value) { \
+    CLASS##_initialize(); \
+    return CLASS##FIELD = value; \
+  }
+#define J2OBJC_STATIC_FIELD_PRIMITIVE_VOLATILE_SETTER(CLASS, FIELD, TYPE) \
+  __attribute__((always_inline)) inline TYPE CLASS##_set##FIELD(TYPE value) { \
+    CLASS##_initialize(); \
+    __c11_atomic_store(&CLASS##FIELD, value, __ATOMIC_SEQ_CST); \
+    return value; \
+  }
+#if __has_feature(objc_arc)
+#define J2OBJC_STATIC_FIELD_OBJ_SETTER(CLASS, FIELD, TYPE) \
+  __attribute__((always_inline)) inline TYPE CLASS##_set##FIELD(TYPE value) { \
+    CLASS##_initialize(); \
+    return CLASS##FIELD = value; \
+  }
+#else
+#define J2OBJC_STATIC_FIELD_OBJ_SETTER(CLASS, FIELD, TYPE) \
+  __attribute__((always_inline)) inline TYPE CLASS##_set##FIELD(TYPE value) { \
+    CLASS##_initialize(); \
+    return JreStrongAssign(&CLASS##FIELD, value); \
+  } \
+  __attribute__((always_inline)) inline TYPE CLASS##_setAndConsume##FIELD(TYPE value) { \
+    CLASS##_initialize(); \
+    return JreStrongAssignAndConsume(&CLASS##FIELD, value); \
+  }
+#endif
+#define J2OBJC_STATIC_FIELD_OBJ_VOLATILE_SETTER(CLASS, FIELD, TYPE) \
+  __attribute__((always_inline)) inline TYPE CLASS##_set##FIELD(TYPE value) { \
+    CLASS##_initialize(); \
+    return JreVolatileStrongAssign(&CLASS##FIELD, value); \
+  }
+
+/*!
+ * These macros aggregate all the accessors for each type of static field.
+ *
+ * An underscore is prepended to the field name before calling further macros
+ * to prevent macro expansion of the field name.
+ *
+ * @define J2OBJC_STATIC_FIELD_CONSTANT
+ * @define J2OBJC_STATIC_FIELD_PRIMITIVE
+ * @define J2OBJC_STATIC_FIELD_PRIMITIVE_VOLATILE
+ * @define J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL
+ * @define J2OBJC_STATIC_FIELD_OBJ
+ * @define J2OBJC_STATIC_FIELD_OBJ_VOLATILE
+ * @define J2OBJC_STATIC_FIELD_OBJ_FINAL
+ * @param CLASS The class containing the static variable.
+ * @param FIELD The name of the static variable.
+ * @param TYPE The type of the static variable.
+ */
+// Java constants do not cause static initialization.
+#define J2OBJC_STATIC_FIELD_CONSTANT(CLASS, FIELD, TYPE) \
+  __attribute__((always_inline)) inline TYPE CLASS##_get_##FIELD() { \
+    return CLASS##_##FIELD; \
+  }
+#define J2OBJC_STATIC_FIELD_PRIMITIVE(CLASS, FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_BASIC_GETTER(CLASS, _##FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_PRIMITIVE_SETTER(CLASS, _##FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_PRIMITIVE_REF_GETTER(CLASS, _##FIELD, TYPE)
+#define J2OBJC_STATIC_FIELD_PRIMITIVE_VOLATILE(CLASS, FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_PRIMITIVE_VOLATILE_GETTER(CLASS, _##FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_PRIMITIVE_VOLATILE_SETTER(CLASS, _##FIELD, TYPE)
+#define J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(CLASS, FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_BASIC_GETTER(CLASS, _##FIELD, TYPE)
+#define J2OBJC_STATIC_FIELD_OBJ(CLASS, FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_BASIC_GETTER(CLASS, _##FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_OBJ_SETTER(CLASS, _##FIELD, TYPE)
+#define J2OBJC_STATIC_FIELD_OBJ_VOLATILE(CLASS, FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_OBJ_VOLATILE_GETTER(CLASS, _##FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_OBJ_VOLATILE_SETTER(CLASS, _##FIELD, TYPE)
+#define J2OBJC_STATIC_FIELD_OBJ_FINAL(CLASS, FIELD, TYPE) \
+  J2OBJC_STATIC_FIELD_BASIC_GETTER(CLASS, _##FIELD, TYPE)
+
+/*!
+ * Defines the getter for an enum constant. For enum class "FooEnum" and constant "BAR"
+ * the getter will have the following signature:
+ *   inline Foo *Color_get_BLUE();
+ *
+ * @define J2OBJC_ENUM_CONSTANT
+ * @param CLASS The enum class.
+ * @param CONSTANT The name of the enum constant.
+ */
+#define J2OBJC_ENUM_CONSTANT(CLASS, CONSTANT) \
+  __attribute__((always_inline)) inline CLASS *CLASS##_get_##CONSTANT() { \
+    CLASS##_initialize(); \
+    return CLASS##_values_[CLASS##_Enum_##CONSTANT]; \
+  }
+
 #define BOXED_INC_AND_DEC_INNER(CNAME, VALUE_METHOD, TYPE, OPNAME, OP) \
   __attribute__((always_inline)) inline TYPE *JreBoxedPre##OPNAME##CNAME(__weak TYPE **value) { \
     nil_chk(*value); \
@@ -42,15 +179,13 @@ CF_EXTERN_C_END
   } \
   __attribute__((always_inline)) inline TYPE *JreBoxedPre##OPNAME##Volatile##CNAME( \
       volatile_id *value) { \
-    TYPE *original = (__bridge TYPE *)__c11_atomic_load(value, __ATOMIC_SEQ_CST); \
+    TYPE *original = JreLoadVolatileId(value); \
     nil_chk(original); \
-    TYPE *result = TYPE##_valueOfWith##CNAME##_([original VALUE_METHOD] OP 1); \
-    __c11_atomic_store(value, (__bridge void *)result, __ATOMIC_SEQ_CST); \
-    return result; \
+    return JreAssignVolatileId(value, TYPE##_valueOfWith##CNAME##_([original VALUE_METHOD] OP 1)); \
   } \
   __attribute__((always_inline)) inline TYPE *JreBoxedPre##OPNAME##VolatileStrong##CNAME( \
       volatile_id *value) { \
-    TYPE *original = (__bridge TYPE *)__c11_atomic_load(value, __ATOMIC_SEQ_CST); \
+    TYPE *original = JreLoadVolatileId(value); \
     nil_chk(original); \
     return JreVolatileStrongAssign(value, \
         TYPE##_valueOfWith##CNAME##_([original VALUE_METHOD] OP 1)); \
@@ -75,15 +210,14 @@ CF_EXTERN_C_END
   } \
   __attribute__((always_inline)) inline TYPE *JreBoxedPost##OPNAME##Volatile##CNAME( \
       volatile_id *value) { \
-    TYPE *original = (__bridge TYPE *)__c11_atomic_load(value, __ATOMIC_SEQ_CST); \
+    TYPE *original = JreLoadVolatileId(value); \
     nil_chk(original); \
-    __c11_atomic_store(value, (__bridge void *)TYPE##_valueOfWith##CNAME##_( \
-        [original VALUE_METHOD] OP 1), __ATOMIC_SEQ_CST); \
+    JreAssignVolatileId(value, TYPE##_valueOfWith##CNAME##_([original VALUE_METHOD] OP 1)); \
     return original; \
   } \
   __attribute__((always_inline)) inline TYPE *JreBoxedPost##OPNAME##VolatileStrong##CNAME( \
       volatile_id *value) { \
-    TYPE *original = (__bridge TYPE *)__c11_atomic_load(value, __ATOMIC_SEQ_CST); \
+    TYPE *original = JreLoadVolatileId(value); \
     nil_chk(original); \
     JreVolatileStrongAssign(value, TYPE##_valueOfWith##CNAME##_([original VALUE_METHOD] OP 1)); \
     return original; \
@@ -152,16 +286,14 @@ CF_EXTERN_C_END
   } \
   __attribute__((always_inline)) inline BOXED_TYPE *JreBoxed##OPNAME##AssignVolatile##CNAME( \
       volatile_id *lhs, RTYPE rhs) { \
-    BOXED_TYPE *lhsValue = (__bridge BOXED_TYPE *)__c11_atomic_load(lhs, __ATOMIC_SEQ_CST); \
+    BOXED_TYPE *lhsValue = JreLoadVolatileId(lhs); \
     nil_chk(lhsValue); \
-    BOXED_TYPE *result = BOXED_TYPE##_valueOfWith##CNAME##_( \
-        (TYPE)(OP((OP_LTYPE)[lhsValue VALUE_METHOD], rhs))); \
-    __c11_atomic_store(lhs, (__bridge void *)result, __ATOMIC_SEQ_CST); \
-    return result; \
+    return JreAssignVolatileId(lhs, \
+        BOXED_TYPE##_valueOfWith##CNAME##_((TYPE)(OP((OP_LTYPE)[lhsValue VALUE_METHOD], rhs)))); \
   } \
   __attribute__((always_inline)) inline BOXED_TYPE *JreBoxed##OPNAME##AssignVolatileStrong##CNAME( \
       volatile_id *lhs, RTYPE rhs) { \
-    BOXED_TYPE *lhsValue = (__bridge BOXED_TYPE *)__c11_atomic_load(lhs, __ATOMIC_SEQ_CST); \
+    BOXED_TYPE *lhsValue = JreLoadVolatileId(lhs); \
     nil_chk(lhsValue); \
     return JreVolatileStrongAssign(lhs, \
         BOXED_TYPE##_valueOfWith##CNAME##_((TYPE)(OP((OP_LTYPE)[lhsValue VALUE_METHOD], rhs)))); \

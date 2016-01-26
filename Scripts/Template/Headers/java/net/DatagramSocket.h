@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/DatagramSocket.java
 //
 
-#ifndef _JavaNetDatagramSocket_H_
-#define _JavaNetDatagramSocket_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetDatagramSocket_INCLUDE_ALL")
+#ifdef JavaNetDatagramSocket_RESTRICT
+#define JavaNetDatagramSocket_INCLUDE_ALL 0
+#else
+#define JavaNetDatagramSocket_INCLUDE_ALL 1
+#endif
+#undef JavaNetDatagramSocket_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetDatagramSocket_) && (JavaNetDatagramSocket_INCLUDE_ALL || defined(JavaNetDatagramSocket_INCLUDE))
+#define JavaNetDatagramSocket_
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
 #include "../../java/io/Closeable.h"
 
 @class JavaIoFileDescriptor;
@@ -23,6 +37,8 @@
  .
  A <code>DatagramSocket</code> object can be used for both
  endpoints of a connection for a packet delivery service.
+ - seealso: DatagramPacket
+ - seealso: DatagramSocketImplFactory
  */
 @interface JavaNetDatagramSocket : NSObject < JavaIoCloseable > {
  @public
@@ -31,6 +47,10 @@
   jint port_;
   jboolean isBound_;
 }
+
++ (id<JavaNetDatagramSocketImplFactory>)factory;
+
++ (void)setFactory:(id<JavaNetDatagramSocketImplFactory>)value;
 
 #pragma mark Public
 
@@ -216,7 +236,7 @@
 - (jint)getSoTimeout;
 
 /*!
- @brief Returns this socket's  setting.
+ @brief Returns this socket's - seealso: SocketOptions#IP_TOS setting.
  @throws SocketException
  if the socket is closed or the option is invalid.
  */
@@ -313,6 +333,7 @@
  the socket factory to use.
  @throws IOException
  if the factory has already been set.
+ - seealso: DatagramSocketImplFactory
  */
 + (void)setDatagramSocketImplFactoryWithJavaNetDatagramSocketImplFactory:(id<JavaNetDatagramSocketImplFactory>)fac;
 
@@ -365,7 +386,7 @@
 - (void)setSoTimeoutWithInt:(jint)timeout;
 
 /*!
- @brief Sets the  value for every packet sent by this socket.
+ @brief Sets the - seealso: SocketOptions#IP_TOS value for every packet sent by this socket.
  @throws SocketException
  if the socket is closed or the option could not be set.
  */
@@ -403,9 +424,11 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNetDatagramSocket)
 J2OBJC_FIELD_SETTER(JavaNetDatagramSocket, impl_, JavaNetDatagramSocketImpl *)
 J2OBJC_FIELD_SETTER(JavaNetDatagramSocket, address_, JavaNetInetAddress *)
 
-FOUNDATION_EXPORT id<JavaNetDatagramSocketImplFactory> JavaNetDatagramSocket_factory_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetDatagramSocket, factory_, id<JavaNetDatagramSocketImplFactory>)
-J2OBJC_STATIC_FIELD_SETTER(JavaNetDatagramSocket, factory_, id<JavaNetDatagramSocketImplFactory>)
+inline id<JavaNetDatagramSocketImplFactory> JavaNetDatagramSocket_get_factory();
+inline id<JavaNetDatagramSocketImplFactory> JavaNetDatagramSocket_set_factory(id<JavaNetDatagramSocketImplFactory> value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaNetDatagramSocketImplFactory> JavaNetDatagramSocket_factory;
+J2OBJC_STATIC_FIELD_OBJ(JavaNetDatagramSocket, factory, id<JavaNetDatagramSocketImplFactory>)
 
 FOUNDATION_EXPORT void JavaNetDatagramSocket_init(JavaNetDatagramSocket *self);
 
@@ -431,4 +454,8 @@ FOUNDATION_EXPORT JavaNetDatagramSocket *new_JavaNetDatagramSocket_initWithJavaN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramSocket)
 
-#endif // _JavaNetDatagramSocket_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetDatagramSocket_INCLUDE_ALL")

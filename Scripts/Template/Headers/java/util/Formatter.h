@@ -3,13 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/util/Formatter.java
 //
 
-#ifndef _JavaUtilFormatter_H_
-#define _JavaUtilFormatter_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilFormatter_INCLUDE_ALL")
+#ifdef JavaUtilFormatter_RESTRICT
+#define JavaUtilFormatter_INCLUDE_ALL 0
+#else
+#define JavaUtilFormatter_INCLUDE_ALL 1
+#endif
+#undef JavaUtilFormatter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilFormatter_) && (JavaUtilFormatter_INCLUDE_ALL || defined(JavaUtilFormatter_INCLUDE))
+#define JavaUtilFormatter_
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
 #include "../../java/io/Closeable.h"
+
+#define JavaIoFlushable_RESTRICT 1
+#define JavaIoFlushable_INCLUDE 1
 #include "../../java/io/Flushable.h"
-#include "../../java/lang/Enum.h"
 
 @class IOSObjectArray;
 @class JavaIoFile;
@@ -530,6 +546,9 @@ D  ,   E
  conversions.
  <p><i>Thread safety</i>. Formatter is not thread-safe.
  @since 1.5
+ - seealso: java.text.DateFormat
+ - seealso: Formattable
+ - seealso: java.text.SimpleDateFormat
  */
 @interface JavaUtilFormatter : NSObject < JavaIoCloseable, JavaIoFlushable >
 
@@ -921,39 +940,68 @@ FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaIoPrintSt
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormatter)
 
-typedef NS_ENUM(NSUInteger, JavaUtilFormatter_BigDecimalLayoutForm) {
-  JavaUtilFormatter_BigDecimalLayoutForm_SCIENTIFIC = 0,
-  JavaUtilFormatter_BigDecimalLayoutForm_DECIMAL_FLOAT = 1,
+#endif
+
+#if !defined (JavaUtilFormatter_BigDecimalLayoutForm_) && (JavaUtilFormatter_INCLUDE_ALL || defined(JavaUtilFormatter_BigDecimalLayoutForm_INCLUDE))
+#define JavaUtilFormatter_BigDecimalLayoutForm_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
+#include "../../java/lang/Enum.h"
+
+typedef NS_ENUM(NSUInteger, JavaUtilFormatter_BigDecimalLayoutForm_Enum) {
+  JavaUtilFormatter_BigDecimalLayoutForm_Enum_SCIENTIFIC = 0,
+  JavaUtilFormatter_BigDecimalLayoutForm_Enum_DECIMAL_FLOAT = 1,
 };
 
 /*!
  @brief The enumeration giving the available styles for formatting very large
  decimal numbers.
  */
-@interface JavaUtilFormatter_BigDecimalLayoutFormEnum : JavaLangEnum < NSCopying >
+@interface JavaUtilFormatter_BigDecimalLayoutForm : JavaLangEnum < NSCopying >
+
++ (JavaUtilFormatter_BigDecimalLayoutForm *)SCIENTIFIC;
+
++ (JavaUtilFormatter_BigDecimalLayoutForm *)DECIMAL_FLOAT;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *JavaUtilFormatter_BigDecimalLayoutFormEnum_values();
 
-+ (JavaUtilFormatter_BigDecimalLayoutFormEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT JavaUtilFormatter_BigDecimalLayoutFormEnum *JavaUtilFormatter_BigDecimalLayoutFormEnum_valueOfWithNSString_(NSString *name);
++ (JavaUtilFormatter_BigDecimalLayoutForm *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (JavaUtilFormatter_BigDecimalLayoutForm_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(JavaUtilFormatter_BigDecimalLayoutFormEnum)
+J2OBJC_STATIC_INIT(JavaUtilFormatter_BigDecimalLayoutForm)
 
-FOUNDATION_EXPORT JavaUtilFormatter_BigDecimalLayoutFormEnum *JavaUtilFormatter_BigDecimalLayoutFormEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT JavaUtilFormatter_BigDecimalLayoutForm *JavaUtilFormatter_BigDecimalLayoutForm_values_[];
 
-#define JavaUtilFormatter_BigDecimalLayoutFormEnum_SCIENTIFIC JavaUtilFormatter_BigDecimalLayoutFormEnum_values_[JavaUtilFormatter_BigDecimalLayoutForm_SCIENTIFIC]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaUtilFormatter_BigDecimalLayoutFormEnum, SCIENTIFIC)
+/*!
+ @brief Use scientific style for BigDecimals.
+ */
+inline JavaUtilFormatter_BigDecimalLayoutForm *JavaUtilFormatter_BigDecimalLayoutForm_get_SCIENTIFIC();
+J2OBJC_ENUM_CONSTANT(JavaUtilFormatter_BigDecimalLayoutForm, SCIENTIFIC)
 
-#define JavaUtilFormatter_BigDecimalLayoutFormEnum_DECIMAL_FLOAT JavaUtilFormatter_BigDecimalLayoutFormEnum_values_[JavaUtilFormatter_BigDecimalLayoutForm_DECIMAL_FLOAT]
-J2OBJC_ENUM_CONSTANT_GETTER(JavaUtilFormatter_BigDecimalLayoutFormEnum, DECIMAL_FLOAT)
+/*!
+ @brief Use normal decimal/float style for BigDecimals.
+ */
+inline JavaUtilFormatter_BigDecimalLayoutForm *JavaUtilFormatter_BigDecimalLayoutForm_get_DECIMAL_FLOAT();
+J2OBJC_ENUM_CONSTANT(JavaUtilFormatter_BigDecimalLayoutForm, DECIMAL_FLOAT)
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormatter_BigDecimalLayoutFormEnum)
+FOUNDATION_EXPORT IOSObjectArray *JavaUtilFormatter_BigDecimalLayoutForm_values();
 
-#endif // _JavaUtilFormatter_H_
+FOUNDATION_EXPORT JavaUtilFormatter_BigDecimalLayoutForm *JavaUtilFormatter_BigDecimalLayoutForm_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT JavaUtilFormatter_BigDecimalLayoutForm *JavaUtilFormatter_BigDecimalLayoutForm_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormatter_BigDecimalLayoutForm)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilFormatter_INCLUDE_ALL")

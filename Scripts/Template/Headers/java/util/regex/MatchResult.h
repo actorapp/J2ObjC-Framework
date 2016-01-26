@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/regex/MatchResult.java
 //
 
-#ifndef _JavaUtilRegexMatchResult_H_
-#define _JavaUtilRegexMatchResult_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilRegexMatchResult_INCLUDE_ALL")
+#ifdef JavaUtilRegexMatchResult_RESTRICT
+#define JavaUtilRegexMatchResult_INCLUDE_ALL 0
+#else
+#define JavaUtilRegexMatchResult_INCLUDE_ALL 1
+#endif
+#undef JavaUtilRegexMatchResult_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilRegexMatchResult_) && (JavaUtilRegexMatchResult_INCLUDE_ALL || defined(JavaUtilRegexMatchResult_INCLUDE))
+#define JavaUtilRegexMatchResult_
 
 /*!
  @brief Holds the results of a successful match of a <code>Pattern</code> against a
@@ -15,6 +26,8 @@
  pair of parentheses in the regular expression and an additional group for
  the whole regular expression. The start, end, and contents of each group
  can be queried.
+ - seealso: Matcher
+ - seealso: Matcher#toMatchResult()
  */
 @protocol JavaUtilRegexMatchResult < NSObject, JavaObject >
 
@@ -80,4 +93,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilRegexMatchResult)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexMatchResult)
 
-#endif // _JavaUtilRegexMatchResult_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilRegexMatchResult_INCLUDE_ALL")

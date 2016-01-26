@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/validation/ValidatorHandler.java
 //
 
-#ifndef _JavaxXmlValidationValidatorHandler_H_
-#define _JavaxXmlValidationValidatorHandler_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlValidationValidatorHandler_INCLUDE_ALL")
+#ifdef JavaxXmlValidationValidatorHandler_RESTRICT
+#define JavaxXmlValidationValidatorHandler_INCLUDE_ALL 0
+#else
+#define JavaxXmlValidationValidatorHandler_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlValidationValidatorHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlValidationValidatorHandler_) && (JavaxXmlValidationValidatorHandler_INCLUDE_ALL || defined(JavaxXmlValidationValidatorHandler_INCLUDE))
+#define JavaxXmlValidationValidatorHandler_
+
+#define OrgXmlSaxContentHandler_RESTRICT 1
+#define OrgXmlSaxContentHandler_INCLUDE 1
 #include "../../../org/xml/sax/ContentHandler.h"
 
 @class JavaxXmlValidationTypeInfoProvider;
@@ -93,6 +107,7 @@
  the <code>getContentHandler()</code> method, or null
  if that method has never been called since this <code>ValidatorHandler</code>
  has created.
+ - seealso: #setContentHandler(ContentHandler)
  */
 - (id<OrgXmlSaxContentHandler>)getContentHandler;
 
@@ -102,6 +117,7 @@
  the <code>setErrorHandler(ErrorHandler)</code> method, or null
  if that method has never been called since this <code>ValidatorHandler</code>
  has created.
+ - seealso: #setErrorHandler(ErrorHandler)
  */
 - (id<OrgXmlSaxErrorHandler>)getErrorHandler;
 
@@ -123,6 +139,7 @@
  cannot determine its value at this time.
  @throws NullPointerException
  When the name parameter is null.
+ - seealso: #setFeature(String,boolean)
  */
 - (jboolean)getFeatureWithNSString:(NSString *)name;
 
@@ -146,6 +163,7 @@
  cannot determine its value at this time.
  @throws NullPointerException
  When the name parameter is null.
+ - seealso: #setProperty(String,Object)
  */
 - (id)getPropertyWithNSString:(NSString *)name;
 
@@ -155,6 +173,7 @@
  the <code>setResourceResolver(LSResourceResolver)</code> method, or null
  if that method has never been called since this <code>ValidatorHandler</code>
  has created.
+ - seealso: #setErrorHandler(ErrorHandler)
  */
 - (id<OrgW3cDomLsLSResourceResolver>)getResourceResolver;
 
@@ -285,6 +304,7 @@
  cannot set the requested value.
  @throws NullPointerException
  When the name parameter is null.
+ - seealso: #getFeature(String)
  */
 - (void)setFeatureWithNSString:(NSString *)name
                    withBoolean:(jboolean)value;
@@ -368,4 +388,8 @@ FOUNDATION_EXPORT void JavaxXmlValidationValidatorHandler_init(JavaxXmlValidatio
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationValidatorHandler)
 
-#endif // _JavaxXmlValidationValidatorHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlValidationValidatorHandler_INCLUDE_ALL")

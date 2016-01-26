@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicReferenceArray.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicAtomicReferenceArray_H_
-#define _JavaUtilConcurrentAtomicAtomicReferenceArray_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicAtomicReferenceArray_RESTRICT
+#define JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicAtomicReferenceArray_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicAtomicReferenceArray_) && (JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE))
+#define JavaUtilConcurrentAtomicAtomicReferenceArray_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -115,7 +129,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentAtomicAtomicReferenceArray)
@@ -130,4 +143,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicReferenceArray *new_JavaUtilConc
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicReferenceArray)
 
-#endif // _JavaUtilConcurrentAtomicAtomicReferenceArray_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE_ALL")

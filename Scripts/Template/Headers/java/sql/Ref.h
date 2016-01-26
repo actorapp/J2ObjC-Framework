@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Ref.java
 //
 
-#ifndef _JavaSqlRef_H_
-#define _JavaSqlRef_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlRef_INCLUDE_ALL")
+#ifdef JavaSqlRef_RESTRICT
+#define JavaSqlRef_INCLUDE_ALL 0
+#else
+#define JavaSqlRef_INCLUDE_ALL 1
+#endif
+#undef JavaSqlRef_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlRef_) && (JavaSqlRef_INCLUDE_ALL || defined(JavaSqlRef_INCLUDE))
+#define JavaSqlRef_
 
 @protocol JavaUtilMap;
 
@@ -73,4 +84,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSqlRef)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlRef)
 
-#endif // _JavaSqlRef_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlRef_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/FilterOutputStream.java
 //
 
-#ifndef _JavaIoFilterOutputStream_H_
-#define _JavaIoFilterOutputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFilterOutputStream_INCLUDE_ALL")
+#ifdef JavaIoFilterOutputStream_RESTRICT
+#define JavaIoFilterOutputStream_INCLUDE_ALL 0
+#else
+#define JavaIoFilterOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoFilterOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFilterOutputStream_) && (JavaIoFilterOutputStream_INCLUDE_ALL || defined(JavaIoFilterOutputStream_INCLUDE))
+#define JavaIoFilterOutputStream_
+
+#define JavaIoOutputStream_RESTRICT 1
+#define JavaIoOutputStream_INCLUDE 1
 #include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
@@ -19,6 +33,7 @@
  decompression of the underlying stream. Output streams that wrap another
  output stream and provide some additional functionality on top of it usually
  inherit from this class.
+ - seealso: FilterOutputStream
  */
 @interface JavaIoFilterOutputStream : JavaIoOutputStream {
  @public
@@ -98,4 +113,8 @@ FOUNDATION_EXPORT JavaIoFilterOutputStream *new_JavaIoFilterOutputStream_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterOutputStream)
 
-#endif // _JavaIoFilterOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFilterOutputStream_INCLUDE_ALL")

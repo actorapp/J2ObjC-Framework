@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/helpers/LocatorImpl.java
 //
 
-#ifndef _OrgXmlSaxHelpersLocatorImpl_H_
-#define _OrgXmlSaxHelpersLocatorImpl_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxHelpersLocatorImpl_INCLUDE_ALL")
+#ifdef OrgXmlSaxHelpersLocatorImpl_RESTRICT
+#define OrgXmlSaxHelpersLocatorImpl_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHelpersLocatorImpl_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHelpersLocatorImpl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHelpersLocatorImpl_) && (OrgXmlSaxHelpersLocatorImpl_INCLUDE_ALL || defined(OrgXmlSaxHelpersLocatorImpl_INCLUDE))
+#define OrgXmlSaxHelpersLocatorImpl_
+
+#define OrgXmlSaxLocator_RESTRICT 1
+#define OrgXmlSaxLocator_INCLUDE 1
 #include "../../../../org/xml/sax/Locator.h"
 
 /*!
@@ -43,6 +57,7 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.Locator Locator
  */
 @interface OrgXmlSaxHelpersLocatorImpl : NSObject < OrgXmlSaxLocator >
 
@@ -68,12 +83,16 @@
 /*!
  @brief Return the saved column number (1-based).
  @return The column number as an integer, or -1 if none is available.
+ - seealso: org.xml.sax.Locator#getColumnNumber
+ - seealso: #setColumnNumber
  */
 - (jint)getColumnNumber;
 
 /*!
  @brief Return the saved line number (1-based).
  @return The line number as an integer, or -1 if none is available.
+ - seealso: org.xml.sax.Locator#getLineNumber
+ - seealso: #setLineNumber
  */
 - (jint)getLineNumber;
 
@@ -81,6 +100,8 @@
  @brief Return the saved public identifier.
  @return The public identifier as a string, or null if none
  is available.
+ - seealso: org.xml.sax.Locator#getPublicId
+ - seealso: #setPublicId
  */
 - (NSString *)getPublicId;
 
@@ -88,18 +109,22 @@
  @brief Return the saved system identifier.
  @return The system identifier as a string, or null if none
  is available.
+ - seealso: org.xml.sax.Locator#getSystemId
+ - seealso: #setSystemId
  */
 - (NSString *)getSystemId;
 
 /*!
  @brief Set the column number for this locator (1-based).
  @param columnNumber The column number, or -1 if none is available.
+ - seealso: #getColumnNumber
  */
 - (void)setColumnNumberWithInt:(jint)columnNumber;
 
 /*!
  @brief Set the line number for this locator (1-based).
  @param lineNumber The line number, or -1 if none is available.
+ - seealso: #getLineNumber
  */
 - (void)setLineNumberWithInt:(jint)lineNumber;
 
@@ -107,6 +132,7 @@
  @brief Set the public identifier for this locator.
  @param publicId The new public identifier, or null
  if none is available.
+ - seealso: #getPublicId
  */
 - (void)setPublicIdWithNSString:(NSString *)publicId;
 
@@ -114,6 +140,7 @@
  @brief Set the system identifier for this locator.
  @param systemId The new system identifier, or null
  if none is available.
+ - seealso: #getSystemId
  */
 - (void)setSystemIdWithNSString:(NSString *)systemId;
 
@@ -131,4 +158,8 @@ FOUNDATION_EXPORT OrgXmlSaxHelpersLocatorImpl *new_OrgXmlSaxHelpersLocatorImpl_i
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersLocatorImpl)
 
-#endif // _OrgXmlSaxHelpersLocatorImpl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHelpersLocatorImpl_INCLUDE_ALL")

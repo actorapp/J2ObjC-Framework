@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/Set.java
 //
 
-#ifndef _JavaUtilSet_H_
-#define _JavaUtilSet_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilSet_INCLUDE_ALL")
+#ifdef JavaUtilSet_RESTRICT
+#define JavaUtilSet_INCLUDE_ALL 0
+#else
+#define JavaUtilSet_INCLUDE_ALL 1
+#endif
+#undef JavaUtilSet_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilSet_) && (JavaUtilSet_INCLUDE_ALL || defined(JavaUtilSet_INCLUDE))
+#define JavaUtilSet_
+
+#define JavaUtilCollection_RESTRICT 1
+#define JavaUtilCollection_INCLUDE 1
 #include "../../java/util/Collection.h"
 
 @class IOSObjectArray;
@@ -53,6 +67,8 @@
  @brief Removes all elements from this set, leaving it empty.
  @throws UnsupportedOperationException
  when removing from this set is not supported.
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -83,6 +99,7 @@
  the object to compare with this object.
  @return boolean <code>true</code> if the object is the same as this object,
  and <code>false</code> if it is different from this object.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -91,6 +108,7 @@
  Two set which are equal must return
  the same value.
  @return the hash code of this set.
+ - seealso: #equals
  */
 - (NSUInteger)hash;
 
@@ -98,6 +116,7 @@
  @brief Returns true if this set has no elements.
  @return <code>true</code> if this set has no elements, <code>false</code>
  otherwise.
+ - seealso: #size
  */
 - (jboolean)isEmpty;
 
@@ -106,6 +125,7 @@
  The elements are
  unordered.
  @return an iterator on the elements of this set.
+ - seealso: Iterator
  */
 - (id<JavaUtilIterator>)iterator;
 
@@ -165,6 +185,7 @@
  @throws ArrayStoreException
  when the type of an element in this set cannot be stored in
  the type of the specified array.
+ - seealso: Collection#toArray(Object[])
  */
 - (IOSObjectArray *)toArrayWithNSObjectArray:(IOSObjectArray *)array;
 
@@ -174,4 +195,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilSet)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSet)
 
-#endif // _JavaUtilSet_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilSet_INCLUDE_ALL")

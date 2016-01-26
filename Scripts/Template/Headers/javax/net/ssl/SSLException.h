@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLException.java
 //
 
-#ifndef _JavaxNetSslSSLException_H_
-#define _JavaxNetSslSSLException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLException_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLException_RESTRICT
+#define JavaxNetSslSSLException_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLException_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLException_) && (JavaxNetSslSSLException_INCLUDE_ALL || defined(JavaxNetSslSSLException_INCLUDE))
+#define JavaxNetSslSSLException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../../java/io/IOException.h"
 
 @class JavaLangThrowable;
@@ -60,4 +74,8 @@ FOUNDATION_EXPORT JavaxNetSslSSLException *new_JavaxNetSslSSLException_initWithJ
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLException)
 
-#endif // _JavaxNetSslSSLException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLException_INCLUDE_ALL")

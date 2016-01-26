@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/ls/LSOutput.java
 //
 
-#ifndef _OrgW3cDomLsLSOutput_H_
-#define _OrgW3cDomLsLSOutput_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomLsLSOutput_INCLUDE_ALL")
+#ifdef OrgW3cDomLsLSOutput_RESTRICT
+#define OrgW3cDomLsLSOutput_INCLUDE_ALL 0
+#else
+#define OrgW3cDomLsLSOutput_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomLsLSOutput_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomLsLSOutput_) && (OrgW3cDomLsLSOutput_INCLUDE_ALL || defined(OrgW3cDomLsLSOutput_INCLUDE))
+#define OrgW3cDomLsLSOutput_
 
 @class JavaIoOutputStream;
 @class JavaIoWriter;
@@ -115,4 +126,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomLsLSOutput)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSOutput)
 
-#endif // _OrgW3cDomLsLSOutput_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomLsLSOutput_INCLUDE_ALL")

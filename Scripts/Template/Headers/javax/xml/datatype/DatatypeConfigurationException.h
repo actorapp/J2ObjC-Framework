@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/datatype/DatatypeConfigurationException.java
 //
 
-#ifndef _JavaxXmlDatatypeDatatypeConfigurationException_H_
-#define _JavaxXmlDatatypeDatatypeConfigurationException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE_ALL")
+#ifdef JavaxXmlDatatypeDatatypeConfigurationException_RESTRICT
+#define JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE_ALL 0
+#else
+#define JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlDatatypeDatatypeConfigurationException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlDatatypeDatatypeConfigurationException_) && (JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE_ALL || defined(JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE))
+#define JavaxXmlDatatypeDatatypeConfigurationException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../../java/lang/Exception.h"
 
 @class JavaIoPrintStream;
@@ -105,4 +119,8 @@ FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *new_JavaxXmlDa
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDatatypeConfigurationException)
 
-#endif // _JavaxXmlDatatypeDatatypeConfigurationException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE_ALL")

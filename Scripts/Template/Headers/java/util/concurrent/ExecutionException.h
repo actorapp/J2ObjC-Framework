@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ExecutionException.java
 //
 
-#ifndef _JavaUtilConcurrentExecutionException_H_
-#define _JavaUtilConcurrentExecutionException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentExecutionException_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentExecutionException_RESTRICT
+#define JavaUtilConcurrentExecutionException_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentExecutionException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentExecutionException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentExecutionException_) && (JavaUtilConcurrentExecutionException_INCLUDE_ALL || defined(JavaUtilConcurrentExecutionException_INCLUDE))
+#define JavaUtilConcurrentExecutionException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../../java/lang/Exception.h"
 
 @class JavaLangThrowable;
@@ -16,6 +30,7 @@
  that aborted by throwing an exception.
  This exception can be
  inspected using the <code>getCause()</code> method.
+ - seealso: Future
  @since 1.5
  @author Doug Lea
  */
@@ -84,4 +99,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentExecutionException *new_JavaUtilConcurrentEx
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutionException)
 
-#endif // _JavaUtilConcurrentExecutionException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentExecutionException_INCLUDE_ALL")

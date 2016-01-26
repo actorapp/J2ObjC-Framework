@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/KeyPair.java
 //
 
-#ifndef _JavaSecurityKeyPair_H_
-#define _JavaSecurityKeyPair_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityKeyPair_INCLUDE_ALL")
+#ifdef JavaSecurityKeyPair_RESTRICT
+#define JavaSecurityKeyPair_INCLUDE_ALL 0
+#else
+#define JavaSecurityKeyPair_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityKeyPair_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityKeyPair_) && (JavaSecurityKeyPair_INCLUDE_ALL || defined(JavaSecurityKeyPair_INCLUDE))
+#define JavaSecurityKeyPair_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @protocol JavaSecurityPrivateKey;
@@ -16,6 +30,8 @@
  @brief <code>KeyPair</code> is a container for a public key and a private key.
  Since the
  private key can be accessed, instances must be treated like a private key.
+ - seealso: PrivateKey
+ - seealso: PublicKey
  */
 @interface JavaSecurityKeyPair : NSObject < JavaIoSerializable >
 
@@ -54,4 +70,8 @@ FOUNDATION_EXPORT JavaSecurityKeyPair *new_JavaSecurityKeyPair_initWithJavaSecur
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyPair)
 
-#endif // _JavaSecurityKeyPair_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityKeyPair_INCLUDE_ALL")

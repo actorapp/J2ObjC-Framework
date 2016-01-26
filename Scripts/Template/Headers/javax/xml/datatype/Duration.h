@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/datatype/Duration.java
 //
 
-#ifndef _JavaxXmlDatatypeDuration_H_
-#define _JavaxXmlDatatypeDuration_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlDatatypeDuration_INCLUDE_ALL")
+#ifdef JavaxXmlDatatypeDuration_RESTRICT
+#define JavaxXmlDatatypeDuration_INCLUDE_ALL 0
+#else
+#define JavaxXmlDatatypeDuration_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlDatatypeDuration_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlDatatypeDuration_) && (JavaxXmlDatatypeDuration_INCLUDE_ALL || defined(JavaxXmlDatatypeDuration_INCLUDE))
+#define JavaxXmlDatatypeDuration_
 
 @class JavaMathBigDecimal;
 @class JavaUtilCalendar;
@@ -64,6 +75,7 @@
  @author <a href="mailto:Kohsuke.Kawaguchi@@Sun.com">Kohsuke Kawaguchi</a>
  @author <a href="mailto:Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  @version $Revision: 759828 $, $Date: 2009-03-29 18:26:29 -0700 (Sun, 29 Mar 2009) $
+ - seealso: XMLGregorianCalendar#add(Duration)
  @since 1.5
  */
 @interface JavaxXmlDatatypeDuration : NSObject
@@ -113,6 +125,7 @@
  If two durations cannot be meaningfully added. For
  example, adding negative one day to one month causes
  this exception.
+ - seealso: #subtract(Duration)
  */
 - (JavaxXmlDatatypeDuration *)addWithJavaxXmlDatatypeDuration:(JavaxXmlDatatypeDuration *)rhs;
 
@@ -193,6 +206,8 @@
  arbitrarily large/small/precise values, the request may be beyond the
  implementations capability.
  @throws NullPointerException if <code>duration</code> is <code>null</code>.
+ - seealso: #isShorterThan(Duration)
+ - seealso: #isLongerThan(Duration)
  */
 - (jint)compareWithJavaxXmlDatatypeDuration:(JavaxXmlDatatypeDuration *)duration;
 
@@ -226,6 +241,7 @@
  cannot reasonably process the request, e.g. W3C XML Schema allows for
  arbitrarily large/small/precise values, the request may be beyond the
  implementations capability.
+ - seealso: #compare(Duration duration)
  */
 - (jboolean)isEqual:(id)duration;
 
@@ -358,6 +374,7 @@
  If the startInstant parameter is null.
  @return milliseconds between <code>startInstant</code> and
  <code>startInstant</code> plus this <code>Duration</code>
+ - seealso: #getTimeInMillis(Calendar)
  */
 - (jlong)getTimeInMillisWithJavaUtilDate:(JavaUtilDate *)startInstant;
 
@@ -436,6 +453,7 @@
 
 /*!
  @brief Returns a hash code consistent with the definition of the equals method.
+ - seealso: Object#hashCode()
  */
 - (NSUInteger)hash;
 
@@ -456,6 +474,8 @@
  @throws NullPointerException If <code>duration</code> is null.
  @return true if the duration represented by this object
  is longer than the given duration. false otherwise.
+ - seealso: #isShorterThan(Duration)
+ - seealso: #compare(Duration duration)
  */
 - (jboolean)isLongerThanWithJavaxXmlDatatypeDuration:(JavaxXmlDatatypeDuration *)duration;
 
@@ -484,6 +504,8 @@
  arbitrarily large/small/precise values, the request may be beyond the
  implementations capability.
  @throws NullPointerException if <code>duration</code> is null.
+ - seealso: #isLongerThan(Duration duration)
+ - seealso: #compare(Duration duration)
  */
 - (jboolean)isShorterThanWithJavaxXmlDatatypeDuration:(JavaxXmlDatatypeDuration *)duration;
 
@@ -541,6 +563,7 @@
 @endcode
  @param factor Factor times longer of new <code>Duration</code> to create.
  @return New <code>Duration</code> that is <code>factor</code>times longer than this <code>Duration</code>.
+ - seealso: #multiply(BigDecimal)
  */
 - (JavaxXmlDatatypeDuration *)multiplyWithInt:(jint)factor;
 
@@ -621,6 +644,7 @@
  this exception.
  @throws NullPointerException
  If the rhs parameter is null.
+ - seealso: #add(Duration)
  */
 - (JavaxXmlDatatypeDuration *)subtractWithJavaxXmlDatatypeDuration:(JavaxXmlDatatypeDuration *)rhs;
 
@@ -648,4 +672,8 @@ FOUNDATION_EXPORT void JavaxXmlDatatypeDuration_init(JavaxXmlDatatypeDuration *s
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDuration)
 
-#endif // _JavaxXmlDatatypeDuration_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlDatatypeDuration_INCLUDE_ALL")

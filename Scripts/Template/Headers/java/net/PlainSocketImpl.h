@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/PlainSocketImpl.java
 //
 
-#ifndef _JavaNetPlainSocketImpl_H_
-#define _JavaNetPlainSocketImpl_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetPlainSocketImpl_INCLUDE_ALL")
+#ifdef JavaNetPlainSocketImpl_RESTRICT
+#define JavaNetPlainSocketImpl_INCLUDE_ALL 0
+#else
+#define JavaNetPlainSocketImpl_INCLUDE_ALL 1
+#endif
+#undef JavaNetPlainSocketImpl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetPlainSocketImpl_) && (JavaNetPlainSocketImpl_INCLUDE_ALL || defined(JavaNetPlainSocketImpl_INCLUDE))
+#define JavaNetPlainSocketImpl_
+
+#define JavaNetSocketImpl_RESTRICT 1
+#define JavaNetSocketImpl_INCLUDE 1
 #include "../../java/net/SocketImpl.h"
 
 @class JavaIoFileDescriptor;
@@ -115,4 +129,8 @@ FOUNDATION_EXPORT JavaNetPlainSocketImpl *new_JavaNetPlainSocketImpl_initWithJav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetPlainSocketImpl)
 
-#endif // _JavaNetPlainSocketImpl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetPlainSocketImpl_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/URLClassLoader.java
 //
 
-#ifndef _JavaNetURLClassLoader_H_
-#define _JavaNetURLClassLoader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetURLClassLoader_INCLUDE_ALL")
+#ifdef JavaNetURLClassLoader_RESTRICT
+#define JavaNetURLClassLoader_INCLUDE_ALL 0
+#else
+#define JavaNetURLClassLoader_INCLUDE_ALL 1
+#endif
+#undef JavaNetURLClassLoader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetURLClassLoader_) && (JavaNetURLClassLoader_INCLUDE_ALL || defined(JavaNetURLClassLoader_INCLUDE))
+#define JavaNetURLClassLoader_
+
+#define JavaSecuritySecureClassLoader_RESTRICT 1
+#define JavaSecuritySecureClassLoader_INCLUDE 1
 #include "../../java/security/SecureClassLoader.h"
 
 @class IOSObjectArray;
@@ -157,4 +171,8 @@ FOUNDATION_EXPORT JavaNetURLClassLoader *new_JavaNetURLClassLoader_initWithJavaN
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLClassLoader)
 
-#endif // _JavaNetURLClassLoader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetURLClassLoader_INCLUDE_ALL")

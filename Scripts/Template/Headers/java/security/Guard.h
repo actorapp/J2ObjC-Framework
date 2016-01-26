@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/Guard.java
 //
 
-#ifndef _JavaSecurityGuard_H_
-#define _JavaSecurityGuard_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityGuard_INCLUDE_ALL")
+#ifdef JavaSecurityGuard_RESTRICT
+#define JavaSecurityGuard_INCLUDE_ALL 0
+#else
+#define JavaSecurityGuard_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityGuard_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityGuard_) && (JavaSecurityGuard_INCLUDE_ALL || defined(JavaSecurityGuard_INCLUDE))
+#define JavaSecurityGuard_
 
 /*!
  @brief <code>Guard</code> implementors protect access to other objects.
@@ -30,4 +41,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecurityGuard)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityGuard)
 
-#endif // _JavaSecurityGuard_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityGuard_INCLUDE_ALL")

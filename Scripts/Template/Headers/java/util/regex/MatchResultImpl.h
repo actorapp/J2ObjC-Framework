@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/regex/MatchResultImpl.java
 //
 
-#ifndef _JavaUtilRegexMatchResultImpl_H_
-#define _JavaUtilRegexMatchResultImpl_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilRegexMatchResultImpl_INCLUDE_ALL")
+#ifdef JavaUtilRegexMatchResultImpl_RESTRICT
+#define JavaUtilRegexMatchResultImpl_INCLUDE_ALL 0
+#else
+#define JavaUtilRegexMatchResultImpl_INCLUDE_ALL 1
+#endif
+#undef JavaUtilRegexMatchResultImpl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilRegexMatchResultImpl_) && (JavaUtilRegexMatchResultImpl_INCLUDE_ALL || defined(JavaUtilRegexMatchResultImpl_INCLUDE))
+#define JavaUtilRegexMatchResultImpl_
+
+#define JavaUtilRegexMatchResult_RESTRICT 1
+#define JavaUtilRegexMatchResult_INCLUDE 1
 #include "../../../java/util/regex/MatchResult.h"
 
 @class IOSIntArray;
@@ -16,6 +30,7 @@
  given string.
  Only used internally, thus sparsely documented (though the
  defining public interface has full documentation).
+ - seealso: java.util.regex.MatchResult
  */
 @interface JavaUtilRegexMatchResultImpl : NSObject < JavaUtilRegexMatchResult >
 
@@ -50,4 +65,8 @@ FOUNDATION_EXPORT JavaUtilRegexMatchResultImpl *new_JavaUtilRegexMatchResultImpl
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexMatchResultImpl)
 
-#endif // _JavaUtilRegexMatchResultImpl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilRegexMatchResultImpl_INCLUDE_ALL")

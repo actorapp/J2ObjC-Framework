@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Comparable.java
 //
 
-#ifndef _JavaLangComparable_H_
-#define _JavaLangComparable_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangComparable_INCLUDE_ALL")
+#ifdef JavaLangComparable_RESTRICT
+#define JavaLangComparable_INCLUDE_ALL 0
+#else
+#define JavaLangComparable_INCLUDE_ALL 1
+#endif
+#undef JavaLangComparable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangComparable_) && (JavaLangComparable_INCLUDE_ALL || defined(JavaLangComparable_INCLUDE))
+#define JavaLangComparable_
 
 /*!
  @brief This interface should be implemented by all classes that wish to define a
@@ -47,4 +58,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangComparable)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangComparable)
 
-#endif // _JavaLangComparable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangComparable_INCLUDE_ALL")

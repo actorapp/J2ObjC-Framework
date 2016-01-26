@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLWarning.java
 //
 
-#ifndef _JavaSqlSQLWarning_H_
-#define _JavaSqlSQLWarning_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaSqlSQLWarning_INCLUDE_ALL")
+#ifdef JavaSqlSQLWarning_RESTRICT
+#define JavaSqlSQLWarning_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLWarning_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLWarning_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLWarning_) && (JavaSqlSQLWarning_INCLUDE_ALL || defined(JavaSqlSQLWarning_INCLUDE))
+#define JavaSqlSQLWarning_
+
+#define JavaSqlSQLException_RESTRICT 1
+#define JavaSqlSQLException_INCLUDE 1
 #include "../../java/sql/SQLException.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class JavaLangThrowable;
 
@@ -126,7 +143,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLWarning)
@@ -165,4 +181,8 @@ FOUNDATION_EXPORT JavaSqlSQLWarning *new_JavaSqlSQLWarning_initWithNSString_with
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLWarning)
 
-#endif // _JavaSqlSQLWarning_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLWarning_INCLUDE_ALL")

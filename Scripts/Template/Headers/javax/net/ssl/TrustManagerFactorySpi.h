@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/TrustManagerFactorySpi.java
 //
 
-#ifndef _JavaxNetSslTrustManagerFactorySpi_H_
-#define _JavaxNetSslTrustManagerFactorySpi_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslTrustManagerFactorySpi_INCLUDE_ALL")
+#ifdef JavaxNetSslTrustManagerFactorySpi_RESTRICT
+#define JavaxNetSslTrustManagerFactorySpi_INCLUDE_ALL 0
+#else
+#define JavaxNetSslTrustManagerFactorySpi_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslTrustManagerFactorySpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslTrustManagerFactorySpi_) && (JavaxNetSslTrustManagerFactorySpi_INCLUDE_ALL || defined(JavaxNetSslTrustManagerFactorySpi_INCLUDE))
+#define JavaxNetSslTrustManagerFactorySpi_
 
 @class IOSObjectArray;
 @class JavaSecurityKeyStore;
@@ -62,4 +73,8 @@ FOUNDATION_EXPORT void JavaxNetSslTrustManagerFactorySpi_init(JavaxNetSslTrustMa
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslTrustManagerFactorySpi)
 
-#endif // _JavaxNetSslTrustManagerFactorySpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslTrustManagerFactorySpi_INCLUDE_ALL")

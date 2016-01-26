@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/ext/Locator2Impl.java
 //
 
-#ifndef _OrgXmlSaxExtLocator2Impl_H_
-#define _OrgXmlSaxExtLocator2Impl_H_
-
 #include "../../../../J2ObjC_header.h"
-#include "../../../../org/xml/sax/ext/Locator2.h"
+
+#pragma push_macro("OrgXmlSaxExtLocator2Impl_INCLUDE_ALL")
+#ifdef OrgXmlSaxExtLocator2Impl_RESTRICT
+#define OrgXmlSaxExtLocator2Impl_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxExtLocator2Impl_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxExtLocator2Impl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxExtLocator2Impl_) && (OrgXmlSaxExtLocator2Impl_INCLUDE_ALL || defined(OrgXmlSaxExtLocator2Impl_INCLUDE))
+#define OrgXmlSaxExtLocator2Impl_
+
+#define OrgXmlSaxHelpersLocatorImpl_RESTRICT 1
+#define OrgXmlSaxHelpersLocatorImpl_INCLUDE 1
 #include "../../../../org/xml/sax/helpers/LocatorImpl.h"
+
+#define OrgXmlSaxExtLocator2_RESTRICT 1
+#define OrgXmlSaxExtLocator2_INCLUDE 1
+#include "../../../../org/xml/sax/ext/Locator2.h"
 
 @protocol OrgXmlSaxLocator;
 
@@ -47,24 +64,28 @@
 /*!
  @brief Returns the current value of the encoding property.
  @return the current value of the encoding property.
+ - seealso: #setEncoding
  */
 - (NSString *)getEncoding;
 
 /*!
  @brief Returns the current value of the version property.
  @return the current value of the version property.
+ - seealso: #setXMLVersion
  */
 - (NSString *)getXMLVersion;
 
 /*!
  @brief Assigns the current value of the encoding property.
  @param encoding the new "encoding" value
+ - seealso: #getEncoding
  */
 - (void)setEncodingWithNSString:(NSString *)encoding;
 
 /*!
  @brief Assigns the current value of the version property.
  @param version_ the new "version" value
+ - seealso: #getXMLVersion
  */
 - (void)setXMLVersionWithNSString:(NSString *)version_;
 
@@ -82,4 +103,8 @@ FOUNDATION_EXPORT OrgXmlSaxExtLocator2Impl *new_OrgXmlSaxExtLocator2Impl_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtLocator2Impl)
 
-#endif // _OrgXmlSaxExtLocator2Impl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxExtLocator2Impl_INCLUDE_ALL")

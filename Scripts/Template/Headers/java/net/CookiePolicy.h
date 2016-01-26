@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/CookiePolicy.java
 //
 
-#ifndef _JavaNetCookiePolicy_H_
-#define _JavaNetCookiePolicy_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetCookiePolicy_INCLUDE_ALL")
+#ifdef JavaNetCookiePolicy_RESTRICT
+#define JavaNetCookiePolicy_INCLUDE_ALL 0
+#else
+#define JavaNetCookiePolicy_INCLUDE_ALL 1
+#endif
+#undef JavaNetCookiePolicy_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetCookiePolicy_) && (JavaNetCookiePolicy_INCLUDE_ALL || defined(JavaNetCookiePolicy_INCLUDE))
+#define JavaNetCookiePolicy_
 
 @class JavaNetHttpCookie;
 @class JavaNetURI;
@@ -37,19 +48,44 @@
 
 @interface JavaNetCookiePolicy : NSObject
 
++ (id<JavaNetCookiePolicy>)ACCEPT_ALL;
+
++ (id<JavaNetCookiePolicy>)ACCEPT_NONE;
+
++ (id<JavaNetCookiePolicy>)ACCEPT_ORIGINAL_SERVER;
+
 @end
 
 J2OBJC_STATIC_INIT(JavaNetCookiePolicy)
 
-FOUNDATION_EXPORT id<JavaNetCookiePolicy> JavaNetCookiePolicy_ACCEPT_ALL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetCookiePolicy, ACCEPT_ALL_, id<JavaNetCookiePolicy>)
+/*!
+ @brief A pre-defined policy, accepts all cookies.
+ */
+inline id<JavaNetCookiePolicy> JavaNetCookiePolicy_get_ACCEPT_ALL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaNetCookiePolicy> JavaNetCookiePolicy_ACCEPT_ALL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetCookiePolicy, ACCEPT_ALL, id<JavaNetCookiePolicy>)
 
-FOUNDATION_EXPORT id<JavaNetCookiePolicy> JavaNetCookiePolicy_ACCEPT_NONE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetCookiePolicy, ACCEPT_NONE_, id<JavaNetCookiePolicy>)
+/*!
+ @brief A pre-defined policy, accepts no cookies at all.
+ */
+inline id<JavaNetCookiePolicy> JavaNetCookiePolicy_get_ACCEPT_NONE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaNetCookiePolicy> JavaNetCookiePolicy_ACCEPT_NONE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetCookiePolicy, ACCEPT_NONE, id<JavaNetCookiePolicy>)
 
-FOUNDATION_EXPORT id<JavaNetCookiePolicy> JavaNetCookiePolicy_ACCEPT_ORIGINAL_SERVER_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetCookiePolicy, ACCEPT_ORIGINAL_SERVER_, id<JavaNetCookiePolicy>)
+/*!
+ @brief A pre-defined policy, only accepts cookies from original server.
+ */
+inline id<JavaNetCookiePolicy> JavaNetCookiePolicy_get_ACCEPT_ORIGINAL_SERVER();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaNetCookiePolicy> JavaNetCookiePolicy_ACCEPT_ORIGINAL_SERVER;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetCookiePolicy, ACCEPT_ORIGINAL_SERVER, id<JavaNetCookiePolicy>)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetCookiePolicy)
 
-#endif // _JavaNetCookiePolicy_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetCookiePolicy_INCLUDE_ALL")

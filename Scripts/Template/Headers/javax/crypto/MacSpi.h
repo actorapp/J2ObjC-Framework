@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/crypto/MacSpi.java
 //
 
-#ifndef _JavaxCryptoMacSpi_H_
-#define _JavaxCryptoMacSpi_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxCryptoMacSpi_INCLUDE_ALL")
+#ifdef JavaxCryptoMacSpi_RESTRICT
+#define JavaxCryptoMacSpi_INCLUDE_ALL 0
+#else
+#define JavaxCryptoMacSpi_INCLUDE_ALL 1
+#endif
+#undef JavaxCryptoMacSpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxCryptoMacSpi_) && (JavaxCryptoMacSpi_INCLUDE_ALL || defined(JavaxCryptoMacSpi_INCLUDE))
+#define JavaxCryptoMacSpi_
 
 @class IOSByteArray;
 @class JavaNioByteBuffer;
@@ -16,6 +27,7 @@
 /*!
  @brief The <i>Service-Provider Interface</i> (<b>SPI</b>) definition for the <code>Mac</code>
   class.
+ - seealso: Mac
  */
 @interface JavaxCryptoMacSpi : NSObject
 
@@ -118,4 +130,8 @@ FOUNDATION_EXPORT void JavaxCryptoMacSpi_init(JavaxCryptoMacSpi *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoMacSpi)
 
-#endif // _JavaxCryptoMacSpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxCryptoMacSpi_INCLUDE_ALL")

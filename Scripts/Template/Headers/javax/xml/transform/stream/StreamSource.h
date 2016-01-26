@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/stream/StreamSource.java
 //
 
-#ifndef _JavaxXmlTransformStreamStreamSource_H_
-#define _JavaxXmlTransformStreamStreamSource_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformStreamStreamSource_INCLUDE_ALL")
+#ifdef JavaxXmlTransformStreamStreamSource_RESTRICT
+#define JavaxXmlTransformStreamStreamSource_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformStreamStreamSource_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformStreamStreamSource_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformStreamStreamSource_) && (JavaxXmlTransformStreamStreamSource_INCLUDE_ALL || defined(JavaxXmlTransformStreamStreamSource_INCLUDE))
+#define JavaxXmlTransformStreamStreamSource_
+
+#define JavaxXmlTransformSource_RESTRICT 1
+#define JavaxXmlTransformSource_INCLUDE 1
 #include "../../../../javax/xml/transform/Source.h"
 
 @class JavaIoFile;
@@ -24,6 +38,8 @@
  */
 @interface JavaxXmlTransformStreamStreamSource : NSObject < JavaxXmlTransformSource >
 
++ (NSString *)FEATURE;
+
 #pragma mark Public
 
 /*!
@@ -35,6 +51,7 @@
  <code>Transformer</code> will
  create an empty source <code>java.io.InputStream</code> using
  <code>new InputStream()</code>.</p>
+ - seealso: javax.xml.transform.Transformer#transform(Source xmlSource,Result outputTarget)
  */
 - (instancetype)init;
 
@@ -188,8 +205,15 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformStreamStreamSource)
 
-FOUNDATION_EXPORT NSString *JavaxXmlTransformStreamStreamSource_FEATURE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaxXmlTransformStreamStreamSource, FEATURE_, NSString *)
+/*!
+ @brief If <code>javax.xml.transform.TransformerFactory.getFeature</code>
+ returns true when passed this value as an argument,
+ the Transformer supports Source input of this type.
+ */
+inline NSString *JavaxXmlTransformStreamStreamSource_get_FEATURE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaxXmlTransformStreamStreamSource_FEATURE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaxXmlTransformStreamStreamSource, FEATURE, NSString *)
 
 FOUNDATION_EXPORT void JavaxXmlTransformStreamStreamSource_init(JavaxXmlTransformStreamStreamSource *self);
 
@@ -221,4 +245,8 @@ FOUNDATION_EXPORT JavaxXmlTransformStreamStreamSource *new_JavaxXmlTransformStre
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformStreamStreamSource)
 
-#endif // _JavaxXmlTransformStreamStreamSource_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformStreamStreamSource_INCLUDE_ALL")

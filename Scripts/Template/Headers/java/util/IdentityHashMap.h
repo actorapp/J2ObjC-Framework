@@ -3,17 +3,33 @@
 //  source: android/libcore/luni/src/main/java/java/util/IdentityHashMap.java
 //
 
-#ifndef _JavaUtilIdentityHashMap_H_
-#define _JavaUtilIdentityHashMap_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
-#include "../../java/util/AbstractCollection.h"
+
+#pragma push_macro("JavaUtilIdentityHashMap_INCLUDE_ALL")
+#ifdef JavaUtilIdentityHashMap_RESTRICT
+#define JavaUtilIdentityHashMap_INCLUDE_ALL 0
+#else
+#define JavaUtilIdentityHashMap_INCLUDE_ALL 1
+#endif
+#undef JavaUtilIdentityHashMap_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilIdentityHashMap_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_INCLUDE))
+#define JavaUtilIdentityHashMap_
+
+#define JavaUtilAbstractMap_RESTRICT 1
+#define JavaUtilAbstractMap_INCLUDE 1
 #include "../../java/util/AbstractMap.h"
-#include "../../java/util/AbstractSet.h"
-#include "../../java/util/Iterator.h"
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_INCLUDE 1
 #include "../../java/util/Map.h"
-#include "../../java/util/MapEntry.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
 @protocol JavaUtilCollection;
@@ -69,6 +85,8 @@
 
 /*!
  @brief Removes all elements from this map, leaving it empty.
+ - seealso: #isEmpty()
+ - seealso: #size()
  */
 - (void)clear;
 
@@ -76,6 +94,7 @@
  @brief Returns a new IdentityHashMap with the same mappings and size as this
  one.
  @return a shallow copy of this IdentityHashMap.
+ - seealso: java.lang.Cloneable
  */
 - (id)clone;
 
@@ -132,6 +151,7 @@
  @brief Returns whether this IdentityHashMap has no elements.
  @return <code>true</code> if this IdentityHashMap has no elements,
  <code>false</code> otherwise.
+ - seealso: #size()
  */
 - (jboolean)isEmpty;
 
@@ -224,6 +244,17 @@ FOUNDATION_EXPORT JavaUtilIdentityHashMap *new_JavaUtilIdentityHashMap_initWithJ
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap)
 
+#endif
+
+#if !defined (JavaUtilIdentityHashMap_IdentityHashMapEntry_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_IdentityHashMapEntry_INCLUDE))
+#define JavaUtilIdentityHashMap_IdentityHashMapEntry_
+
+#define JavaUtilMapEntry_RESTRICT 1
+#define JavaUtilMapEntry_INCLUDE 1
+#include "../../java/util/MapEntry.h"
+
+@class JavaUtilIdentityHashMap;
+
 @interface JavaUtilIdentityHashMap_IdentityHashMapEntry : JavaUtilMapEntry
 
 #pragma mark Public
@@ -253,6 +284,18 @@ FOUNDATION_EXPORT void JavaUtilIdentityHashMap_IdentityHashMapEntry_initWithJava
 FOUNDATION_EXPORT JavaUtilIdentityHashMap_IdentityHashMapEntry *new_JavaUtilIdentityHashMap_IdentityHashMapEntry_initWithJavaUtilIdentityHashMap_withId_withId_(JavaUtilIdentityHashMap *map, id theKey, id theValue) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_IdentityHashMapEntry)
+
+#endif
+
+#if !defined (JavaUtilIdentityHashMap_IdentityHashMapIterator_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_IdentityHashMapIterator_INCLUDE))
+#define JavaUtilIdentityHashMap_IdentityHashMapIterator_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
+#include "../../java/util/Iterator.h"
+
+@class JavaUtilIdentityHashMap;
+@protocol JavaUtilMapEntry_Type;
 
 @interface JavaUtilIdentityHashMap_IdentityHashMapIterator : NSObject < JavaUtilIterator > {
  @public
@@ -290,6 +333,18 @@ FOUNDATION_EXPORT JavaUtilIdentityHashMap_IdentityHashMapIterator *new_JavaUtilI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_IdentityHashMapIterator)
 
+#endif
+
+#if !defined (JavaUtilIdentityHashMap_IdentityHashMapEntrySet_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_IdentityHashMapEntrySet_INCLUDE))
+#define JavaUtilIdentityHashMap_IdentityHashMapEntrySet_
+
+#define JavaUtilAbstractSet_RESTRICT 1
+#define JavaUtilAbstractSet_INCLUDE 1
+#include "../../java/util/AbstractSet.h"
+
+@class JavaUtilIdentityHashMap;
+@protocol JavaUtilIterator;
+
 @interface JavaUtilIdentityHashMap_IdentityHashMapEntrySet : JavaUtilAbstractSet
 
 #pragma mark Public
@@ -310,7 +365,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_IdentityHashMapIterator)
 
 - (JavaUtilIdentityHashMap *)hashMap;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilIdentityHashMap_IdentityHashMapEntrySet)
@@ -320,6 +374,18 @@ FOUNDATION_EXPORT void JavaUtilIdentityHashMap_IdentityHashMapEntrySet_initWithJ
 FOUNDATION_EXPORT JavaUtilIdentityHashMap_IdentityHashMapEntrySet *new_JavaUtilIdentityHashMap_IdentityHashMapEntrySet_initWithJavaUtilIdentityHashMap_(JavaUtilIdentityHashMap *hm) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_IdentityHashMapEntrySet)
+
+#endif
+
+#if !defined (JavaUtilIdentityHashMap_KeySet_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_KeySet_INCLUDE))
+#define JavaUtilIdentityHashMap_KeySet_
+
+#define JavaUtilAbstractSet_RESTRICT 1
+#define JavaUtilAbstractSet_INCLUDE 1
+#include "../../java/util/AbstractSet.h"
+
+@class JavaUtilIdentityHashMap;
+@protocol JavaUtilIterator;
 
 @interface JavaUtilIdentityHashMap_KeySet : JavaUtilAbstractSet
 
@@ -339,7 +405,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_IdentityHashMapEntrySet)
 
 - (instancetype)initWithJavaUtilIdentityHashMap:(JavaUtilIdentityHashMap *)outer$;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilIdentityHashMap_KeySet)
@@ -349,6 +414,18 @@ FOUNDATION_EXPORT void JavaUtilIdentityHashMap_KeySet_initWithJavaUtilIdentityHa
 FOUNDATION_EXPORT JavaUtilIdentityHashMap_KeySet *new_JavaUtilIdentityHashMap_KeySet_initWithJavaUtilIdentityHashMap_(JavaUtilIdentityHashMap *outer$) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_KeySet)
+
+#endif
+
+#if !defined (JavaUtilIdentityHashMap_ValuesCollection_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_ValuesCollection_INCLUDE))
+#define JavaUtilIdentityHashMap_ValuesCollection_
+
+#define JavaUtilAbstractCollection_RESTRICT 1
+#define JavaUtilAbstractCollection_INCLUDE 1
+#include "../../java/util/AbstractCollection.h"
+
+@class JavaUtilIdentityHashMap;
+@protocol JavaUtilIterator;
 
 @interface JavaUtilIdentityHashMap_ValuesCollection : JavaUtilAbstractCollection
 
@@ -368,7 +445,6 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_KeySet)
 
 - (instancetype)initWithJavaUtilIdentityHashMap:(JavaUtilIdentityHashMap *)outer$;
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilIdentityHashMap_ValuesCollection)
@@ -379,4 +455,8 @@ FOUNDATION_EXPORT JavaUtilIdentityHashMap_ValuesCollection *new_JavaUtilIdentity
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_ValuesCollection)
 
-#endif // _JavaUtilIdentityHashMap_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilIdentityHashMap_INCLUDE_ALL")

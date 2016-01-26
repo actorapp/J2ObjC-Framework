@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/spec/ECParameterSpec.java
 //
 
-#ifndef _JavaSecuritySpecECParameterSpec_H_
-#define _JavaSecuritySpecECParameterSpec_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecuritySpecECParameterSpec_INCLUDE_ALL")
+#ifdef JavaSecuritySpecECParameterSpec_RESTRICT
+#define JavaSecuritySpecECParameterSpec_INCLUDE_ALL 0
+#else
+#define JavaSecuritySpecECParameterSpec_INCLUDE_ALL 1
+#endif
+#undef JavaSecuritySpecECParameterSpec_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecuritySpecECParameterSpec_) && (JavaSecuritySpecECParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecECParameterSpec_INCLUDE))
+#define JavaSecuritySpecECParameterSpec_
+
+#define JavaSecuritySpecAlgorithmParameterSpec_RESTRICT 1
+#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE 1
 #include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 @class JavaMathBigInteger;
@@ -86,4 +100,8 @@ FOUNDATION_EXPORT JavaSecuritySpecECParameterSpec *new_JavaSecuritySpecECParamet
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECParameterSpec)
 
-#endif // _JavaSecuritySpecECParameterSpec_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecuritySpecECParameterSpec_INCLUDE_ALL")

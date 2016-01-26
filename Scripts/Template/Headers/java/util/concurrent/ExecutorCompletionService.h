@@ -3,13 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ExecutorCompletionService.java
 //
 
-#ifndef _JavaUtilConcurrentExecutorCompletionService_H_
-#define _JavaUtilConcurrentExecutorCompletionService_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentExecutorCompletionService_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentExecutorCompletionService_RESTRICT
+#define JavaUtilConcurrentExecutorCompletionService_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentExecutorCompletionService_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentExecutorCompletionService_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentExecutorCompletionService_) && (JavaUtilConcurrentExecutorCompletionService_INCLUDE_ALL || defined(JavaUtilConcurrentExecutorCompletionService_INCLUDE))
+#define JavaUtilConcurrentExecutorCompletionService_
+
+#define JavaUtilConcurrentCompletionService_RESTRICT 1
+#define JavaUtilConcurrentCompletionService_INCLUDE 1
 #include "../../../java/util/concurrent/CompletionService.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaUtilConcurrentBlockingQueue;
 @protocol JavaUtilConcurrentCallable;
@@ -112,7 +126,7 @@
 - (id<JavaUtilConcurrentFuture>)poll;
 
 - (id<JavaUtilConcurrentFuture>)pollWithLong:(jlong)timeout
-          withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+              withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 - (id<JavaUtilConcurrentFuture>)submitWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)task;
 
@@ -135,4 +149,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentExecutorCompletionService *new_JavaUtilConcu
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutorCompletionService)
 
-#endif // _JavaUtilConcurrentExecutorCompletionService_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentExecutorCompletionService_INCLUDE_ALL")

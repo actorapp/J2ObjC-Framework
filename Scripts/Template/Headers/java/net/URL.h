@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/URL.java
 //
 
-#ifndef _JavaNetURL_H_
-#define _JavaNetURL_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetURL_INCLUDE_ALL")
+#ifdef JavaNetURL_RESTRICT
+#define JavaNetURL_INCLUDE_ALL 0
+#else
+#define JavaNetURL_INCLUDE_ALL 1
+#endif
+#undef JavaNetURL_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetURL_) && (JavaNetURL_INCLUDE_ALL || defined(JavaNetURL_INCLUDE))
+#define JavaNetURL_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -190,6 +204,7 @@
  If no
  default port is defined by the protocol or the <code>URLStreamHandler</code>,
  <code>-1</code> will be returned.
+ - seealso: URLStreamHandler#getDefaultPort
  */
 - (jint)getDefaultPort;
 
@@ -385,4 +400,8 @@ FOUNDATION_EXPORT JavaNetURL *new_JavaNetURL_initWithNSString_withNSString_withI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURL)
 
-#endif // _JavaNetURL_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetURL_INCLUDE_ALL")

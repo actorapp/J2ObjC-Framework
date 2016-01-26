@@ -3,14 +3,37 @@
 //  source: android/frameworks/base/core/java/android/text/SpannedString.java
 //
 
-#ifndef _AndroidTextSpannedString_H_
-#define _AndroidTextSpannedString_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../android/text/GetChars.h"
+
+#pragma push_macro("AndroidTextSpannedString_INCLUDE_ALL")
+#ifdef AndroidTextSpannedString_RESTRICT
+#define AndroidTextSpannedString_INCLUDE_ALL 0
+#else
+#define AndroidTextSpannedString_INCLUDE_ALL 1
+#endif
+#undef AndroidTextSpannedString_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextSpannedString_) && (AndroidTextSpannedString_INCLUDE_ALL || defined(AndroidTextSpannedString_INCLUDE))
+#define AndroidTextSpannedString_
+
+#define AndroidTextSpannableStringInternal_RESTRICT 1
+#define AndroidTextSpannableStringInternal_INCLUDE 1
 #include "../../android/text/SpannableStringInternal.h"
-#include "../../android/text/Spanned.h"
+
+#define JavaLangCharSequence_RESTRICT 1
+#define JavaLangCharSequence_INCLUDE 1
 #include "../../java/lang/CharSequence.h"
+
+#define AndroidTextGetChars_RESTRICT 1
+#define AndroidTextGetChars_INCLUDE 1
+#include "../../android/text/GetChars.h"
+
+#define AndroidTextSpanned_RESTRICT 1
+#define AndroidTextSpanned_INCLUDE 1
+#include "../../android/text/Spanned.h"
 
 /*!
  @brief This is the class for text whose content and markup are immutable.
@@ -40,4 +63,8 @@ FOUNDATION_EXPORT AndroidTextSpannedString *AndroidTextSpannedString_valueOfWith
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannedString)
 
-#endif // _AndroidTextSpannedString_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextSpannedString_INCLUDE_ALL")

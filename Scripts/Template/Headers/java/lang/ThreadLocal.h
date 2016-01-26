@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ThreadLocal.java
 //
 
-#ifndef _JavaLangThreadLocal_H_
-#define _JavaLangThreadLocal_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangThreadLocal_INCLUDE_ALL")
+#ifdef JavaLangThreadLocal_RESTRICT
+#define JavaLangThreadLocal_INCLUDE_ALL 0
+#else
+#define JavaLangThreadLocal_INCLUDE_ALL 1
+#endif
+#undef JavaLangThreadLocal_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangThreadLocal_) && (JavaLangThreadLocal_INCLUDE_ALL || defined(JavaLangThreadLocal_INCLUDE))
+#define JavaLangThreadLocal_
 
 @class JavaLangThread;
 @class JavaLangThreadLocal_Values;
@@ -18,6 +29,7 @@
  but each sees a different value when accessing it, and changes made by one
  thread do not affect the other threads. The implementation supports
  <code>null</code> values.
+ - seealso: java.lang.Thread
  @author Bob Lee
  */
 @interface JavaLangThreadLocal : NSObject
@@ -89,6 +101,13 @@ FOUNDATION_EXPORT JavaLangThreadLocal *new_JavaLangThreadLocal_init() NS_RETURNS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadLocal)
 
+#endif
+
+#if !defined (JavaLangThreadLocal_Values_) && (JavaLangThreadLocal_INCLUDE_ALL || defined(JavaLangThreadLocal_Values_INCLUDE))
+#define JavaLangThreadLocal_Values_
+
+@class JavaLangThreadLocal;
+
 /*!
  @brief Per-thread map of ThreadLocal instances to values.
  */
@@ -147,4 +166,8 @@ FOUNDATION_EXPORT JavaLangThreadLocal_Values *new_JavaLangThreadLocal_Values_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadLocal_Values)
 
-#endif // _JavaLangThreadLocal_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangThreadLocal_INCLUDE_ALL")

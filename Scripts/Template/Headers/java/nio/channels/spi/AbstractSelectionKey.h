@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/spi/AbstractSelectionKey.java
 //
 
-#ifndef _JavaNioChannelsSpiAbstractSelectionKey_H_
-#define _JavaNioChannelsSpiAbstractSelectionKey_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsSpiAbstractSelectionKey_INCLUDE_ALL")
+#ifdef JavaNioChannelsSpiAbstractSelectionKey_RESTRICT
+#define JavaNioChannelsSpiAbstractSelectionKey_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsSpiAbstractSelectionKey_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsSpiAbstractSelectionKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsSpiAbstractSelectionKey_) && (JavaNioChannelsSpiAbstractSelectionKey_INCLUDE_ALL || defined(JavaNioChannelsSpiAbstractSelectionKey_INCLUDE))
+#define JavaNioChannelsSpiAbstractSelectionKey_
+
+#define JavaNioChannelsSelectionKey_RESTRICT 1
+#define JavaNioChannelsSelectionKey_INCLUDE 1
 #include "../../../../java/nio/channels/SelectionKey.h"
 
 /*!
@@ -52,4 +66,8 @@ FOUNDATION_EXPORT void JavaNioChannelsSpiAbstractSelectionKey_init(JavaNioChanne
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiAbstractSelectionKey)
 
-#endif // _JavaNioChannelsSpiAbstractSelectionKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsSpiAbstractSelectionKey_INCLUDE_ALL")

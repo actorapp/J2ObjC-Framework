@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/Transformer.java
 //
 
-#ifndef _JavaxXmlTransformTransformer_H_
-#define _JavaxXmlTransformTransformer_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformTransformer_INCLUDE_ALL")
+#ifdef JavaxXmlTransformTransformer_RESTRICT
+#define JavaxXmlTransformTransformer_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformTransformer_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformTransformer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformTransformer_) && (JavaxXmlTransformTransformer_INCLUDE_ALL || defined(JavaxXmlTransformTransformer_INCLUDE))
+#define JavaxXmlTransformTransformer_
 
 @class JavaUtilProperties;
 @protocol JavaxXmlTransformErrorListener;
@@ -72,6 +83,10 @@
  <code>setOutputProperties</code>.</p>
  @return A copy of the set of output properties in effect for
  the next transformation.
+ - seealso: javax.xml.transform.OutputKeys
+ - seealso: java.util.Properties
+ - seealso: <a href="http://www.w3.org/TR/xslt#output">
+     *   XSL Transformations (XSLT) Version 1.0</a>
  */
 - (JavaUtilProperties *)getOutputProperties;
 
@@ -86,6 +101,7 @@
  @return The string value of the output property, or null
  if no property was found.
  @throws IllegalArgumentException If the property is not supported.
+ - seealso: javax.xml.transform.OutputKeys
  */
 - (NSString *)getOutputPropertyWithNSString:(NSString *)name;
 
@@ -154,6 +170,8 @@
  @param oformat A set of output properties that will be
  used to override any of the same properties in affect
  for the transformation.
+ - seealso: javax.xml.transform.OutputKeys
+ - seealso: java.util.Properties
  */
 - (void)setOutputPropertiesWithJavaUtilProperties:(JavaUtilProperties *)oformat;
 
@@ -177,6 +195,7 @@
  @param value The non-null string value of the output property.
  @throws IllegalArgumentException If the property is not supported, and is
  not qualified with a namespace.
+ - seealso: javax.xml.transform.OutputKeys
  */
 - (void)setOutputPropertyWithNSString:(NSString *)name
                          withNSString:(NSString *)value;
@@ -248,4 +267,8 @@ FOUNDATION_EXPORT void JavaxXmlTransformTransformer_init(JavaxXmlTransformTransf
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformer)
 
-#endif // _JavaxXmlTransformTransformer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformTransformer_INCLUDE_ALL")

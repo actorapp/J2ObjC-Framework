@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/security/NoSuchProviderException.java
 //
 
-#ifndef _JavaSecurityNoSuchProviderException_H_
-#define _JavaSecurityNoSuchProviderException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityNoSuchProviderException_INCLUDE_ALL")
+#ifdef JavaSecurityNoSuchProviderException_RESTRICT
+#define JavaSecurityNoSuchProviderException_INCLUDE_ALL 0
+#else
+#define JavaSecurityNoSuchProviderException_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityNoSuchProviderException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityNoSuchProviderException_) && (JavaSecurityNoSuchProviderException_INCLUDE_ALL || defined(JavaSecurityNoSuchProviderException_INCLUDE))
+#define JavaSecurityNoSuchProviderException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
 #include "../../java/security/GeneralSecurityException.h"
 
 /*!
@@ -44,4 +58,8 @@ FOUNDATION_EXPORT JavaSecurityNoSuchProviderException *new_JavaSecurityNoSuchPro
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityNoSuchProviderException)
 
-#endif // _JavaSecurityNoSuchProviderException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityNoSuchProviderException_INCLUDE_ALL")

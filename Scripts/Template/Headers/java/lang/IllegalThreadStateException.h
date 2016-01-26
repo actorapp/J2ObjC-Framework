@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/IllegalThreadStateException.java
 //
 
-#ifndef _JavaLangIllegalThreadStateException_H_
-#define _JavaLangIllegalThreadStateException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangIllegalThreadStateException_INCLUDE_ALL")
+#ifdef JavaLangIllegalThreadStateException_RESTRICT
+#define JavaLangIllegalThreadStateException_INCLUDE_ALL 0
+#else
+#define JavaLangIllegalThreadStateException_INCLUDE_ALL 1
+#endif
+#undef JavaLangIllegalThreadStateException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangIllegalThreadStateException_) && (JavaLangIllegalThreadStateException_INCLUDE_ALL || defined(JavaLangIllegalThreadStateException_INCLUDE))
+#define JavaLangIllegalThreadStateException_
+
+#define JavaLangIllegalArgumentException_RESTRICT 1
+#define JavaLangIllegalArgumentException_INCLUDE 1
 #include "../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaLangIllegalThreadStateException *new_JavaLangIllegalThread
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalThreadStateException)
 
-#endif // _JavaLangIllegalThreadStateException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangIllegalThreadStateException_INCLUDE_ALL")

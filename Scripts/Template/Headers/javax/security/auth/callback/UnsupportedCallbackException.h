@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/security/auth/callback/UnsupportedCallbackException.java
 //
 
-#ifndef _JavaxSecurityAuthCallbackUnsupportedCallbackException_H_
-#define _JavaxSecurityAuthCallbackUnsupportedCallbackException_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE_ALL")
+#ifdef JavaxSecurityAuthCallbackUnsupportedCallbackException_RESTRICT
+#define JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE_ALL 0
+#else
+#define JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE_ALL 1
+#endif
+#undef JavaxSecurityAuthCallbackUnsupportedCallbackException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxSecurityAuthCallbackUnsupportedCallbackException_) && (JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE_ALL || defined(JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE))
+#define JavaxSecurityAuthCallbackUnsupportedCallbackException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../../../java/lang/Exception.h"
 
 @protocol JavaxSecurityAuthCallbackCallback;
@@ -58,4 +72,8 @@ FOUNDATION_EXPORT JavaxSecurityAuthCallbackUnsupportedCallbackException *new_Jav
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthCallbackUnsupportedCallbackException)
 
-#endif // _JavaxSecurityAuthCallbackUnsupportedCallbackException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE_ALL")

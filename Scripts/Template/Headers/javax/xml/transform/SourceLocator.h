@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/SourceLocator.java
 //
 
-#ifndef _JavaxXmlTransformSourceLocator_H_
-#define _JavaxXmlTransformSourceLocator_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformSourceLocator_INCLUDE_ALL")
+#ifdef JavaxXmlTransformSourceLocator_RESTRICT
+#define JavaxXmlTransformSourceLocator_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformSourceLocator_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformSourceLocator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformSourceLocator_) && (JavaxXmlTransformSourceLocator_INCLUDE_ALL || defined(JavaxXmlTransformSourceLocator_INCLUDE))
+#define JavaxXmlTransformSourceLocator_
 
 /*!
  @brief This interface is primarily for the purposes of reporting where
@@ -21,6 +32,7 @@
  triggered the event appears.</p>
  @return A string containing the public identifier, or
  null if none is available.
+ - seealso: #getSystemId
  */
 - (NSString *)getPublicId;
 
@@ -33,6 +45,7 @@
  fully before passing it to the application.</p>
  @return A string containing the system identifier, or null
  if none is available.
+ - seealso: #getPublicId
  */
 - (NSString *)getSystemId;
 
@@ -46,6 +59,7 @@
  in the document entity or external parsed entity where the
  markup that triggered the event appears.</p>
  @return The line number, or -1 if none is available.
+ - seealso: #getColumnNumber
  */
 - (jint)getLineNumber;
 
@@ -59,6 +73,7 @@
  in the document entity or external parsed entity where the
  markup that triggered the event appears.</p>
  @return The column number, or -1 if none is available.
+ - seealso: #getLineNumber
  */
 - (jint)getColumnNumber;
 
@@ -68,4 +83,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformSourceLocator)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSourceLocator)
 
-#endif // _JavaxXmlTransformSourceLocator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformSourceLocator_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/ManagerFactoryParameters.java
 //
 
-#ifndef _JavaxNetSslManagerFactoryParameters_H_
-#define _JavaxNetSslManagerFactoryParameters_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslManagerFactoryParameters_INCLUDE_ALL")
+#ifdef JavaxNetSslManagerFactoryParameters_RESTRICT
+#define JavaxNetSslManagerFactoryParameters_INCLUDE_ALL 0
+#else
+#define JavaxNetSslManagerFactoryParameters_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslManagerFactoryParameters_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslManagerFactoryParameters_) && (JavaxNetSslManagerFactoryParameters_INCLUDE_ALL || defined(JavaxNetSslManagerFactoryParameters_INCLUDE))
+#define JavaxNetSslManagerFactoryParameters_
 
 /*!
  @brief The marker interface for key manager factory parameters.
@@ -22,4 +33,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxNetSslManagerFactoryParameters)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslManagerFactoryParameters)
 
-#endif // _JavaxNetSslManagerFactoryParameters_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslManagerFactoryParameters_INCLUDE_ALL")

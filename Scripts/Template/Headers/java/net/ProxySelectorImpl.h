@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/ProxySelectorImpl.java
 //
 
-#ifndef _JavaNetProxySelectorImpl_H_
-#define _JavaNetProxySelectorImpl_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetProxySelectorImpl_INCLUDE_ALL")
+#ifdef JavaNetProxySelectorImpl_RESTRICT
+#define JavaNetProxySelectorImpl_INCLUDE_ALL 0
+#else
+#define JavaNetProxySelectorImpl_INCLUDE_ALL 1
+#endif
+#undef JavaNetProxySelectorImpl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetProxySelectorImpl_) && (JavaNetProxySelectorImpl_INCLUDE_ALL || defined(JavaNetProxySelectorImpl_INCLUDE))
+#define JavaNetProxySelectorImpl_
+
+#define JavaNetProxySelector_RESTRICT 1
+#define JavaNetProxySelector_INCLUDE 1
 #include "../../java/net/ProxySelector.h"
 
 @class JavaIoIOException;
@@ -38,4 +52,8 @@ FOUNDATION_EXPORT JavaNetProxySelectorImpl *new_JavaNetProxySelectorImpl_init() 
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetProxySelectorImpl)
 
-#endif // _JavaNetProxySelectorImpl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetProxySelectorImpl_INCLUDE_ALL")

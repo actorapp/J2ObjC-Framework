@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/ext/EntityResolver2.java
 //
 
-#ifndef _OrgXmlSaxExtEntityResolver2_H_
-#define _OrgXmlSaxExtEntityResolver2_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxExtEntityResolver2_INCLUDE_ALL")
+#ifdef OrgXmlSaxExtEntityResolver2_RESTRICT
+#define OrgXmlSaxExtEntityResolver2_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxExtEntityResolver2_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxExtEntityResolver2_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxExtEntityResolver2_) && (OrgXmlSaxExtEntityResolver2_INCLUDE_ALL || defined(OrgXmlSaxExtEntityResolver2_INCLUDE))
+#define OrgXmlSaxExtEntityResolver2_
+
+#define OrgXmlSaxEntityResolver_RESTRICT 1
+#define OrgXmlSaxEntityResolver_INCLUDE 1
 #include "../../../../org/xml/sax/EntityResolver.h"
 
 @class OrgXmlSaxInputSource;
@@ -48,6 +62,7 @@
  EntityResolver2 implementation they provide  might throw an exception
  if the original SAX 1.0 style entity resolution method is invoked.
  </p>
+ - seealso: org.xml.sax.XMLReader#setEntityResolver
  @since SAX 2.0 (extensions 1.1 alpha)
  @author David Brownell
  @version TBD
@@ -180,4 +195,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxExtEntityResolver2)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtEntityResolver2)
 
-#endif // _OrgXmlSaxExtEntityResolver2_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxExtEntityResolver2_INCLUDE_ALL")

@@ -3,15 +3,25 @@
 //  source: android/libcore/luni/src/main/java/java/sql/ResultSetMetaData.java
 //
 
-#ifndef _JavaSqlResultSetMetaData_H_
-#define _JavaSqlResultSetMetaData_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/sql/Wrapper.h"
 
-#define JavaSqlResultSetMetaData_columnNoNulls 0
-#define JavaSqlResultSetMetaData_columnNullable 1
-#define JavaSqlResultSetMetaData_columnNullableUnknown 2
+#pragma push_macro("JavaSqlResultSetMetaData_INCLUDE_ALL")
+#ifdef JavaSqlResultSetMetaData_RESTRICT
+#define JavaSqlResultSetMetaData_INCLUDE_ALL 0
+#else
+#define JavaSqlResultSetMetaData_INCLUDE_ALL 1
+#endif
+#undef JavaSqlResultSetMetaData_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlResultSetMetaData_) && (JavaSqlResultSetMetaData_INCLUDE_ALL || defined(JavaSqlResultSetMetaData_INCLUDE))
+#define JavaSqlResultSetMetaData_
+
+#define JavaSqlWrapper_RESTRICT 1
+#define JavaSqlWrapper_INCLUDE 1
+#include "../../java/sql/Wrapper.h"
 
 /*!
  @brief Provides information about the columns returned in a <code>ResultSet</code>.
@@ -36,6 +46,7 @@
  @return the fully-qualified class name.
  @throws SQLException
  if there is a database error.
+ - seealso: ResultSet#getObject
  */
 - (NSString *)getColumnClassNameWithInt:(jint)column;
 
@@ -86,6 +97,7 @@
  @return the column type code.
  @throws SQLException
  if there is a database error.
+ - seealso: Types
  */
 - (jint)getColumnTypeWithInt:(jint)column;
 
@@ -240,14 +252,43 @@
 
 @end
 
+@interface JavaSqlResultSetMetaData : NSObject
+
++ (jint)columnNoNulls;
+
++ (jint)columnNullable;
+
++ (jint)columnNullableUnknown;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlResultSetMetaData)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSetMetaData, columnNoNulls, jint)
+/*!
+ @brief Indicates that a column cannot contain <code>NULL</code> values.
+ */
+inline jint JavaSqlResultSetMetaData_get_columnNoNulls();
+#define JavaSqlResultSetMetaData_columnNoNulls 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSetMetaData, columnNoNulls, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSetMetaData, columnNullable, jint)
+/*!
+ @brief Indicates that a column can contain <code>NULL</code> values.
+ */
+inline jint JavaSqlResultSetMetaData_get_columnNullable();
+#define JavaSqlResultSetMetaData_columnNullable 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSetMetaData, columnNullable, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlResultSetMetaData, columnNullableUnknown, jint)
+/*!
+ @brief Indicates that it is unknown whether a column can contain <code>NULL</code>s or not.
+ */
+inline jint JavaSqlResultSetMetaData_get_columnNullableUnknown();
+#define JavaSqlResultSetMetaData_columnNullableUnknown 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlResultSetMetaData, columnNullableUnknown, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlResultSetMetaData)
 
-#endif // _JavaSqlResultSetMetaData_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlResultSetMetaData_INCLUDE_ALL")

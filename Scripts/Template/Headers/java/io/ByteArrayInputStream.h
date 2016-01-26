@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/io/ByteArrayInputStream.java
 //
 
-#ifndef _JavaIoByteArrayInputStream_H_
-#define _JavaIoByteArrayInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoByteArrayInputStream_INCLUDE_ALL")
+#ifdef JavaIoByteArrayInputStream_RESTRICT
+#define JavaIoByteArrayInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoByteArrayInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoByteArrayInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoByteArrayInputStream_) && (JavaIoByteArrayInputStream_INCLUDE_ALL || defined(JavaIoByteArrayInputStream_INCLUDE))
+#define JavaIoByteArrayInputStream_
+
+#define JavaIoInputStream_RESTRICT 1
+#define JavaIoInputStream_INCLUDE 1
 #include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
 
 /*!
- @brief A specialized <code></code> for reading the contents of a byte array.
+ @brief A specialized <code>InputStream</code> for reading the contents of a byte array.
+ - seealso: ByteArrayOutputStream
  */
 @interface JavaIoByteArrayInputStream : JavaIoInputStream {
  @public
@@ -82,6 +97,8 @@
  stream back to the marked position.
  @param readlimit
  ignored.
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (void)markWithInt:(jint)readlimit;
 
@@ -91,6 +108,8 @@
  Returns <code>true</code> since this class supports
  these methods.
  @return always <code>true</code>.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (jboolean)markSupported;
 
@@ -112,6 +131,7 @@
  This implementation
  resets the position to either the marked position, the start position
  supplied in the constructor or 0 if neither has been provided.
+ - seealso: #mark(int)
  */
 - (void)reset;
 
@@ -141,4 +161,8 @@ FOUNDATION_EXPORT JavaIoByteArrayInputStream *new_JavaIoByteArrayInputStream_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoByteArrayInputStream)
 
-#endif // _JavaIoByteArrayInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoByteArrayInputStream_INCLUDE_ALL")

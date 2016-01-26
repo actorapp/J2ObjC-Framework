@@ -3,12 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/nio/Buffer.java
 //
 
-#ifndef _JavaNioBuffer_H_
-#define _JavaNioBuffer_H_
-
 #include "../../J2ObjC_header.h"
 
-#define JavaNioBuffer_UNSET_MARK -1
+#pragma push_macro("JavaNioBuffer_INCLUDE_ALL")
+#ifdef JavaNioBuffer_RESTRICT
+#define JavaNioBuffer_INCLUDE_ALL 0
+#else
+#define JavaNioBuffer_INCLUDE_ALL 1
+#endif
+#undef JavaNioBuffer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioBuffer_) && (JavaNioBuffer_INCLUDE_ALL || defined(JavaNioBuffer_INCLUDE))
+#define JavaNioBuffer_
 
 /*!
  @brief A buffer is a list of elements of a specific primitive type.
@@ -75,6 +84,8 @@
    */
   jlong effectiveDirectAddress_;
 }
+
++ (jint)UNSET_MARK;
 
 #pragma mark Public
 
@@ -290,10 +301,19 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaNioBuffer)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaNioBuffer, UNSET_MARK, jint)
+/*!
+ @brief <code>UNSET_MARK</code> means the mark has not been set.
+ */
+inline jint JavaNioBuffer_get_UNSET_MARK();
+#define JavaNioBuffer_UNSET_MARK -1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaNioBuffer, UNSET_MARK, jint)
 
 FOUNDATION_EXPORT void JavaNioBuffer_initWithInt_withInt_withLong_(JavaNioBuffer *self, jint elementSizeShift, jint capacity, jlong effectiveDirectAddress);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioBuffer)
 
-#endif // _JavaNioBuffer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioBuffer_INCLUDE_ALL")

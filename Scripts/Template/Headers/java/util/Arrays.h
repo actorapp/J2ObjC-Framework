@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/Arrays.java
 //
 
-#ifndef _JavaUtilArrays_H_
-#define _JavaUtilArrays_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilArrays_INCLUDE_ALL")
+#ifdef JavaUtilArrays_RESTRICT
+#define JavaUtilArrays_INCLUDE_ALL 0
+#else
+#define JavaUtilArrays_INCLUDE_ALL 1
+#endif
+#undef JavaUtilArrays_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilArrays_) && (JavaUtilArrays_INCLUDE_ALL || defined(JavaUtilArrays_INCLUDE))
+#define JavaUtilArrays_
 
 @class IOSBooleanArray;
 @class IOSByteArray;
@@ -833,6 +844,7 @@
  @return <code>true</code> if both arrays are <code>null</code> or if the arrays have the
  same length and the elements at each index in the two arrays are
  equal, <code>false</code> otherwise.
+ - seealso: Double#equals(Object)
  */
 + (jboolean)equalsWithDoubleArray:(IOSDoubleArray *)array1
                   withDoubleArray:(IOSDoubleArray *)array2;
@@ -848,6 +860,7 @@
  @return <code>true</code> if both arrays are <code>null</code> or if the arrays have the
  same length and the elements at each index in the two arrays are
  equal, <code>false</code> otherwise.
+ - seealso: Float#equals(Object)
  */
 + (jboolean)equalsWithFloatArray:(IOSFloatArray *)array1
                   withFloatArray:(IOSFloatArray *)array2;
@@ -1392,6 +1405,7 @@
  @brief Sorts the specified array in ascending numerical order.
  @param array
  the <code>double</code> array to be sorted.
+ - seealso: #sort(double[],int,int)
  */
 + (void)sortWithDoubleArray:(IOSDoubleArray *)array;
 
@@ -1409,6 +1423,7 @@
  if <code>start > end</code>.
  @throws ArrayIndexOutOfBoundsException
  if <code>start < 0</code> or <code>end > array.length</code>.
+ - seealso: Double#compareTo(Double)
  */
 + (void)sortWithDoubleArray:(IOSDoubleArray *)array
                     withInt:(jint)start
@@ -1418,6 +1433,7 @@
  @brief Sorts the specified array in ascending numerical order.
  @param array
  the <code>float</code> array to be sorted.
+ - seealso: #sort(float[],int,int)
  */
 + (void)sortWithFloatArray:(IOSFloatArray *)array;
 
@@ -1435,6 +1451,7 @@
  if <code>start > end</code>.
  @throws ArrayIndexOutOfBoundsException
  if <code>start < 0</code> or <code>end > array.length</code>.
+ - seealso: Float#compareTo(Float)
  */
 + (void)sortWithFloatArray:(IOSFloatArray *)array
                    withInt:(jint)start
@@ -1911,4 +1928,8 @@ FOUNDATION_EXPORT IOSObjectArray *JavaUtilArrays_copyOfRangeWithNSObjectArray_wi
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrays)
 
-#endif // _JavaUtilArrays_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilArrays_INCLUDE_ALL")

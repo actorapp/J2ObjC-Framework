@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/CookieStore.java
 //
 
-#ifndef _JavaNetCookieStore_H_
-#define _JavaNetCookieStore_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetCookieStore_INCLUDE_ALL")
+#ifdef JavaNetCookieStore_RESTRICT
+#define JavaNetCookieStore_INCLUDE_ALL 0
+#else
+#define JavaNetCookieStore_INCLUDE_ALL 1
+#endif
+#undef JavaNetCookieStore_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetCookieStore_) && (JavaNetCookieStore_INCLUDE_ALL || defined(JavaNetCookieStore_INCLUDE))
+#define JavaNetCookieStore_
 
 @class JavaNetHttpCookie;
 @class JavaNetURI;
@@ -95,4 +106,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaNetCookieStore)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetCookieStore)
 
-#endif // _JavaNetCookieStore_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetCookieStore_INCLUDE_ALL")

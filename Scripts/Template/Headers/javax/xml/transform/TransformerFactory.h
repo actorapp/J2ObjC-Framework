@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/TransformerFactory.java
 //
 
-#ifndef _JavaxXmlTransformTransformerFactory_H_
-#define _JavaxXmlTransformTransformerFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformTransformerFactory_INCLUDE_ALL")
+#ifdef JavaxXmlTransformTransformerFactory_RESTRICT
+#define JavaxXmlTransformTransformerFactory_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformTransformerFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformTransformerFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformTransformerFactory_) && (JavaxXmlTransformTransformerFactory_INCLUDE_ALL || defined(JavaxXmlTransformTransformerFactory_INCLUDE))
+#define JavaxXmlTransformTransformerFactory_
 
 @class JavaLangClassLoader;
 @class JavaxXmlTransformTransformer;
@@ -49,6 +60,8 @@
  @throws TransformerConfigurationException An <code>Exception</code>
  is thrown if an error occurs during parsing of the
  <code>source</code>.
+ - seealso: <a href="http://www.w3.org/TR/xml-stylesheet/">
+     *   Associating Style Sheets with XML documents Version 1.0</a>
  */
 - (id<JavaxXmlTransformSource>)getAssociatedStylesheetWithJavaxXmlTransformSource:(id<JavaxXmlTransformSource>)source
                                                                      withNSString:(NSString *)media
@@ -161,6 +174,8 @@
  @throws TransformerConfigurationException Thrown if there are errors when
  parsing the <code>Source</code> or it is not possible to create a
  <code>Transformer</code> instance.
+ - seealso: <a href="http://www.w3.org/TR/xslt">
+     *   XSL Transformations (XSLT) Version 1.0</a>
  */
 - (JavaxXmlTransformTransformer *)newTransformerWithJavaxXmlTransformSource:(id<JavaxXmlTransformSource>)source OBJC_METHOD_FAMILY_NONE;
 
@@ -250,4 +265,8 @@ FOUNDATION_EXPORT JavaxXmlTransformTransformerFactory *JavaxXmlTransformTransfor
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformerFactory)
 
-#endif // _JavaxXmlTransformTransformerFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformTransformerFactory_INCLUDE_ALL")

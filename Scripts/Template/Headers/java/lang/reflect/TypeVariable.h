@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/TypeVariable.java
 //
 
-#ifndef _JavaLangReflectTypeVariable_H_
-#define _JavaLangReflectTypeVariable_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectTypeVariable_INCLUDE_ALL")
+#ifdef JavaLangReflectTypeVariable_RESTRICT
+#define JavaLangReflectTypeVariable_INCLUDE_ALL 0
+#else
+#define JavaLangReflectTypeVariable_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectTypeVariable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectTypeVariable_) && (JavaLangReflectTypeVariable_INCLUDE_ALL || defined(JavaLangReflectTypeVariable_INCLUDE))
+#define JavaLangReflectTypeVariable_
+
+#define JavaLangReflectType_RESTRICT 1
+#define JavaLangReflectType_INCLUDE 1
 #include "../../../java/lang/reflect/Type.h"
 
 @class IOSObjectArray;
@@ -53,4 +67,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangReflectTypeVariable)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectTypeVariable)
 
-#endif // _JavaLangReflectTypeVariable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectTypeVariable_INCLUDE_ALL")

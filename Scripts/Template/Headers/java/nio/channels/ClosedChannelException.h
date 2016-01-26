@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/ClosedChannelException.java
 //
 
-#ifndef _JavaNioChannelsClosedChannelException_H_
-#define _JavaNioChannelsClosedChannelException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsClosedChannelException_INCLUDE_ALL")
+#ifdef JavaNioChannelsClosedChannelException_RESTRICT
+#define JavaNioChannelsClosedChannelException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsClosedChannelException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsClosedChannelException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsClosedChannelException_) && (JavaNioChannelsClosedChannelException_INCLUDE_ALL || defined(JavaNioChannelsClosedChannelException_INCLUDE))
+#define JavaNioChannelsClosedChannelException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../../java/io/IOException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioChannelsClosedChannelException *new_JavaNioChannelsClos
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsClosedChannelException)
 
-#endif // _JavaNioChannelsClosedChannelException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsClosedChannelException_INCLUDE_ALL")

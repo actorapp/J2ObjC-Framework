@@ -3,10 +3,21 @@
 //  source: android/frameworks/base/core/java/android/os/SystemClock.java
 //
 
-#ifndef _AndroidOsSystemClock_H_
-#define _AndroidOsSystemClock_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidOsSystemClock_INCLUDE_ALL")
+#ifdef AndroidOsSystemClock_RESTRICT
+#define AndroidOsSystemClock_INCLUDE_ALL 0
+#else
+#define AndroidOsSystemClock_INCLUDE_ALL 1
+#endif
+#undef AndroidOsSystemClock_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidOsSystemClock_) && (AndroidOsSystemClock_INCLUDE_ALL || defined(AndroidOsSystemClock_INCLUDE))
+#define AndroidOsSystemClock_
 
 /*!
  @brief Core timekeeping facilities.
@@ -117,4 +128,8 @@ FOUNDATION_EXPORT jlong AndroidOsSystemClock_currentTimeMicro();
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidOsSystemClock)
 
-#endif // _AndroidOsSystemClock_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidOsSystemClock_INCLUDE_ALL")

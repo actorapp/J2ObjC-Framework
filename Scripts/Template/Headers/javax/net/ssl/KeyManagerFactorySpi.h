@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/KeyManagerFactorySpi.java
 //
 
-#ifndef _JavaxNetSslKeyManagerFactorySpi_H_
-#define _JavaxNetSslKeyManagerFactorySpi_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslKeyManagerFactorySpi_INCLUDE_ALL")
+#ifdef JavaxNetSslKeyManagerFactorySpi_RESTRICT
+#define JavaxNetSslKeyManagerFactorySpi_INCLUDE_ALL 0
+#else
+#define JavaxNetSslKeyManagerFactorySpi_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslKeyManagerFactorySpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslKeyManagerFactorySpi_) && (JavaxNetSslKeyManagerFactorySpi_INCLUDE_ALL || defined(JavaxNetSslKeyManagerFactorySpi_INCLUDE))
+#define JavaxNetSslKeyManagerFactorySpi_
 
 @class IOSCharArray;
 @class IOSObjectArray;
@@ -68,4 +79,8 @@ FOUNDATION_EXPORT void JavaxNetSslKeyManagerFactorySpi_init(JavaxNetSslKeyManage
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslKeyManagerFactorySpi)
 
-#endif // _JavaxNetSslKeyManagerFactorySpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslKeyManagerFactorySpi_INCLUDE_ALL")

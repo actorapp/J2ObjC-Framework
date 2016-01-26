@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/Iterator.java
 //
 
-#ifndef _JavaUtilIterator_H_
-#define _JavaUtilIterator_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilIterator_INCLUDE_ALL")
+#ifdef JavaUtilIterator_RESTRICT
+#define JavaUtilIterator_INCLUDE_ALL 0
+#else
+#define JavaUtilIterator_INCLUDE_ALL 1
+#endif
+#undef JavaUtilIterator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilIterator_) && (JavaUtilIterator_INCLUDE_ALL || defined(JavaUtilIterator_INCLUDE))
+#define JavaUtilIterator_
 
 /*!
  @brief An iterator over a sequence of objects, such as a collection.
@@ -22,6 +33,7 @@
 
 /*!
  @brief Returns true if there is at least one more element, false otherwise.
+ - seealso: #next
  */
 - (jboolean)hasNext;
 
@@ -30,6 +42,7 @@
  @return the next object.
  @throws NoSuchElementException
  if there are no more elements.
+ - seealso: #hasNext
  */
 - (id)next;
 
@@ -51,4 +64,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilIterator)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIterator)
 
-#endif // _JavaUtilIterator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilIterator_INCLUDE_ALL")

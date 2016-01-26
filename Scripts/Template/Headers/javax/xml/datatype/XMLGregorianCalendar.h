@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/datatype/XMLGregorianCalendar.java
 //
 
-#ifndef _JavaxXmlDatatypeXMLGregorianCalendar_H_
-#define _JavaxXmlDatatypeXMLGregorianCalendar_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE_ALL")
+#ifdef JavaxXmlDatatypeXMLGregorianCalendar_RESTRICT
+#define JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE_ALL 0
+#else
+#define JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlDatatypeXMLGregorianCalendar_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlDatatypeXMLGregorianCalendar_) && (JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE_ALL || defined(JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE))
+#define JavaxXmlDatatypeXMLGregorianCalendar_
 
 @class JavaMathBigDecimal;
 @class JavaMathBigInteger;
@@ -156,6 +167,8 @@
  @author <a href="mailto:Kohsuke.Kawaguchi@@Sun.com">Kohsuke Kawaguchi</a>
  @author <a href="mailto:Jeff.Suttor@@Sun.com">Jeff Suttor</a>
  @version $Revision: 759822 $, $Date: 2009-03-29 18:15:11 -0700 (Sun, 29 Mar 2009) $
+ - seealso: Duration
+ - seealso: DatatypeFactory
  @since 1.5
  */
 @interface JavaxXmlDatatypeXMLGregorianCalendar : NSObject < NSCopying >
@@ -227,6 +240,7 @@
  </p>
  <p>Value constraints for this value are summarized in
  <a href="#datetimefield-day">day field of date/time field mapping table</a>.</p>
+ - seealso: #setDay(int)
  */
 - (jint)getDay;
 
@@ -238,6 +252,8 @@
  <a href="#datetimefield-year">year field of date/time field mapping table</a>.</p>
  @return eon of this <code>XMLGregorianCalendar</code>. The value
  returned is an integer multiple of 10^9.
+ - seealso: #getYear()
+ - seealso: #getEonAndYear()
  */
 - (JavaMathBigInteger *)getEon;
 
@@ -251,6 +267,8 @@
  when both fields are defined. When only <code>year</code> is defined,
  return it. When both <code>eon</code> and <code>year</code> are not
  defined, return <code>null</code>.
+ - seealso: #getEon()
+ - seealso: #getYear()
  */
 - (JavaMathBigInteger *)getEonAndYear;
 
@@ -264,6 +282,8 @@
  xs:dateTime second field, represented by <code>getSecond()</code>,
  does not return <code>DatatypeConstants.FIELD_UNDEFINED</code>.</p>
  @return fractional seconds  of this <code>XMLGregorianCalendar</code>.
+ - seealso: #getSecond()
+ - seealso: #setTime(int,int,int,BigDecimal)
  */
 - (JavaMathBigDecimal *)getFractionalSecond;
 
@@ -272,6 +292,7 @@
  Returns <code>DatatypeConstants.FIELD_UNDEFINED</code> if this field is not defined.
  <p>Value constraints for this value are summarized in
  <a href="#datetimefield-hour">hour field of date/time field mapping table</a>.</p>
+ - seealso: #setTime(int,int,int)
  */
 - (jint)getHour;
 
@@ -288,6 +309,8 @@
  <p>Value constraints for this value are summarized in
  <a href="#datetimefield-second">second field of date/time field mapping table</a>.</p>
  @return Millisecond  of this <code>XMLGregorianCalendar</code>.
+ - seealso: #getFractionalSecond()
+ - seealso: #setTime(int,int,int)
  */
 - (jint)getMillisecond;
 
@@ -297,6 +320,7 @@
  Returns <code>DatatypeConstants.FIELD_UNDEFINED</code> if this field is not defined.
  <p>Value constraints for this value are summarized in
  <a href="#datetimefield-minute">minute field of date/time field mapping table</a>.</p>
+ - seealso: #setTime(int,int,int)
  */
 - (jint)getMinute;
 
@@ -320,6 +344,9 @@
  <p>Value constraints for this value are summarized in
  <a href="#datetimefield-second">second field of date/time field mapping table</a>.</p>
  @return Second  of this <code>XMLGregorianCalendar</code>.
+ - seealso: #getFractionalSecond()
+ - seealso: #getMillisecond()
+ - seealso: #setTime(int,int,int)
  */
 - (jint)getSecond;
 
@@ -328,6 +355,7 @@
  <code>DatatypeConstants.FIELD_UNDEFINED</code> if this optional field is not defined.
  <p>Value constraints for this value are summarized in
  <a href="#datetimefield-timezone">timezone field of date/time field mapping table</a>.</p>
+ - seealso: #setTimezone(int)
  */
 - (jint)getTimezone;
 
@@ -466,6 +494,8 @@
  <p>Value constraints for this value are summarized in
  <a href="#datetimefield-year">year field of date/time field mapping table</a>.</p>
  @return year  of this <code>XMLGregorianCalendar</code>.
+ - seealso: #getEon()
+ - seealso: #getEonAndYear()
  */
 - (jint)getYear;
 
@@ -599,6 +629,7 @@
  <a href="#datetimefield-minute">minute field of date/time field mapping table</a>.
  @param second value constraints are summarized in
  <a href="#datetimefield-second">second field of date/time field mapping table</a>.
+ - seealso: #setTime(int,int,int,BigDecimal)
  @throws IllegalArgumentException if any parameter is
  outside value constraints for the field as specified in
  <a href="#datetimefieldmapping">date/time field mapping table</a>.
@@ -767,6 +798,7 @@ withJavaMathBigDecimal:(JavaMathBigDecimal *)fractional;
  <code>Calendar.set(int,int)</code></li>
  </ul>
  </p>
+ - seealso: #toGregorianCalendar(java.util.TimeZone,java.util.Locale,XMLGregorianCalendar)
  */
 - (JavaUtilGregorianCalendar *)toGregorianCalendar;
 
@@ -828,6 +860,7 @@ withJavaMathBigDecimal:(JavaMathBigDecimal *)fractional;
  @return A non-<code>null</code> valid <code>String</code> representation of this <code>XMLGregorianCalendar</code>.
  @throws IllegalStateException if the combination of set fields
  does not match one of the eight defined XML Schema builtin date/time datatypes.
+ - seealso: #toXMLFormat()
  */
 - (NSString *)description;
 
@@ -852,4 +885,8 @@ FOUNDATION_EXPORT void JavaxXmlDatatypeXMLGregorianCalendar_init(JavaxXmlDatatyp
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeXMLGregorianCalendar)
 
-#endif // _JavaxXmlDatatypeXMLGregorianCalendar_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE_ALL")

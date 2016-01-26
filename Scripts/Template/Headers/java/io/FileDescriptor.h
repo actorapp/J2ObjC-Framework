@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/io/FileDescriptor.java
 //
 
-#ifndef _JavaIoFileDescriptor_H_
-#define _JavaIoFileDescriptor_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFileDescriptor_INCLUDE_ALL")
+#ifdef JavaIoFileDescriptor_RESTRICT
+#define JavaIoFileDescriptor_INCLUDE_ALL 0
+#else
+#define JavaIoFileDescriptor_INCLUDE_ALL 1
+#endif
+#undef JavaIoFileDescriptor_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFileDescriptor_) && (JavaIoFileDescriptor_INCLUDE_ALL || defined(JavaIoFileDescriptor_INCLUDE))
+#define JavaIoFileDescriptor_
 
 /*!
  @brief Wraps a Unix file descriptor.
@@ -16,6 +27,12 @@
  file descriptor.
  */
 @interface JavaIoFileDescriptor : NSObject
+
++ (JavaIoFileDescriptor *)in;
+
++ (JavaIoFileDescriptor *)out;
+
++ (JavaIoFileDescriptor *)err;
 
 #pragma mark Public
 
@@ -57,14 +74,29 @@
 
 J2OBJC_STATIC_INIT(JavaIoFileDescriptor)
 
-FOUNDATION_EXPORT JavaIoFileDescriptor *JavaIoFileDescriptor_in_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoFileDescriptor, in_, JavaIoFileDescriptor *)
+/*!
+ @brief Corresponds to <code>stdin</code>.
+ */
+inline JavaIoFileDescriptor *JavaIoFileDescriptor_get_in();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaIoFileDescriptor *JavaIoFileDescriptor_in;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoFileDescriptor, in, JavaIoFileDescriptor *)
 
-FOUNDATION_EXPORT JavaIoFileDescriptor *JavaIoFileDescriptor_out_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoFileDescriptor, out_, JavaIoFileDescriptor *)
+/*!
+ @brief Corresponds to <code>stdout</code>.
+ */
+inline JavaIoFileDescriptor *JavaIoFileDescriptor_get_out();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaIoFileDescriptor *JavaIoFileDescriptor_out;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoFileDescriptor, out, JavaIoFileDescriptor *)
 
-FOUNDATION_EXPORT JavaIoFileDescriptor *JavaIoFileDescriptor_err_;
-J2OBJC_STATIC_FIELD_GETTER(JavaIoFileDescriptor, err_, JavaIoFileDescriptor *)
+/*!
+ @brief Corresponds to <code>stderr</code>.
+ */
+inline JavaIoFileDescriptor *JavaIoFileDescriptor_get_err();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaIoFileDescriptor *JavaIoFileDescriptor_err;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaIoFileDescriptor, err, JavaIoFileDescriptor *)
 
 FOUNDATION_EXPORT void JavaIoFileDescriptor_init(JavaIoFileDescriptor *self);
 
@@ -72,4 +104,8 @@ FOUNDATION_EXPORT JavaIoFileDescriptor *new_JavaIoFileDescriptor_init() NS_RETUR
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileDescriptor)
 
-#endif // _JavaIoFileDescriptor_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFileDescriptor_INCLUDE_ALL")

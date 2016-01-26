@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ScheduledFuture.java
 //
 
-#ifndef _JavaUtilConcurrentScheduledFuture_H_
-#define _JavaUtilConcurrentScheduledFuture_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentScheduledFuture_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentScheduledFuture_RESTRICT
+#define JavaUtilConcurrentScheduledFuture_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentScheduledFuture_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentScheduledFuture_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentScheduledFuture_) && (JavaUtilConcurrentScheduledFuture_INCLUDE_ALL || defined(JavaUtilConcurrentScheduledFuture_INCLUDE))
+#define JavaUtilConcurrentScheduledFuture_
+
+#define JavaUtilConcurrentDelayed_RESTRICT 1
+#define JavaUtilConcurrentDelayed_INCLUDE 1
 #include "../../../java/util/concurrent/Delayed.h"
+
+#define JavaUtilConcurrentFuture_RESTRICT 1
+#define JavaUtilConcurrentFuture_INCLUDE 1
 #include "../../../java/util/concurrent/Future.h"
 
 /*!
@@ -25,4 +42,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentScheduledFuture)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentScheduledFuture)
 
-#endif // _JavaUtilConcurrentScheduledFuture_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentScheduledFuture_INCLUDE_ALL")

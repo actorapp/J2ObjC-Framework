@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/io/OutputStream.java
 //
 
-#ifndef _JavaIoOutputStream_H_
-#define _JavaIoOutputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoOutputStream_INCLUDE_ALL")
+#ifdef JavaIoOutputStream_RESTRICT
+#define JavaIoOutputStream_INCLUDE_ALL 0
+#else
+#define JavaIoOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoOutputStream_) && (JavaIoOutputStream_INCLUDE_ALL || defined(JavaIoOutputStream_INCLUDE))
+#define JavaIoOutputStream_
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
 #include "../../java/io/Closeable.h"
+
+#define JavaIoFlushable_RESTRICT 1
+#define JavaIoFlushable_INCLUDE 1
 #include "../../java/io/Flushable.h"
 
 @class IOSByteArray;
@@ -30,6 +47,7 @@
   and <code>write(byte[],int,int)</code>. The
  three argument overload is necessary for bulk access to the data. This is
  much more efficient than byte-by-byte access.
+ - seealso: InputStream
  */
 @interface JavaIoOutputStream : NSObject < JavaIoCloseable, JavaIoFlushable >
 
@@ -112,4 +130,8 @@ FOUNDATION_EXPORT void JavaIoOutputStream_init(JavaIoOutputStream *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoOutputStream)
 
-#endif // _JavaIoOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoOutputStream_INCLUDE_ALL")

@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/util/AbstractQueue.java
 //
 
-#ifndef _JavaUtilAbstractQueue_H_
-#define _JavaUtilAbstractQueue_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilAbstractQueue_INCLUDE_ALL")
+#ifdef JavaUtilAbstractQueue_RESTRICT
+#define JavaUtilAbstractQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilAbstractQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilAbstractQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilAbstractQueue_) && (JavaUtilAbstractQueue_INCLUDE_ALL || defined(JavaUtilAbstractQueue_INCLUDE))
+#define JavaUtilAbstractQueue_
+
+#define JavaUtilAbstractCollection_RESTRICT 1
+#define JavaUtilAbstractCollection_INCLUDE 1
 #include "../../java/util/AbstractCollection.h"
+
+#define JavaUtilQueue_RESTRICT 1
+#define JavaUtilQueue_INCLUDE 1
 #include "../../java/util/Queue.h"
 
 @protocol JavaUtilCollection;
@@ -82,6 +99,7 @@
  queue, or if the specified collection is this queue
  @throws IllegalStateException if not all the elements can be added at
  this time due to insertion restrictions
+ - seealso: #add(Object)
  */
 - (jboolean)addAllWithJavaUtilCollection:(id<JavaUtilCollection>)c;
 
@@ -126,7 +144,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilAbstractQueue)
@@ -135,4 +152,8 @@ FOUNDATION_EXPORT void JavaUtilAbstractQueue_init(JavaUtilAbstractQueue *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractQueue)
 
-#endif // _JavaUtilAbstractQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilAbstractQueue_INCLUDE_ALL")

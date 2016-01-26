@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLProtocolException.java
 //
 
-#ifndef _JavaxNetSslSSLProtocolException_H_
-#define _JavaxNetSslSSLProtocolException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLProtocolException_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLProtocolException_RESTRICT
+#define JavaxNetSslSSLProtocolException_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLProtocolException_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLProtocolException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLProtocolException_) && (JavaxNetSslSSLProtocolException_INCLUDE_ALL || defined(JavaxNetSslSSLProtocolException_INCLUDE))
+#define JavaxNetSslSSLProtocolException_
+
+#define JavaxNetSslSSLException_RESTRICT 1
+#define JavaxNetSslSSLException_INCLUDE 1
 #include "../../../javax/net/ssl/SSLException.h"
 
 /*!
@@ -34,4 +48,8 @@ FOUNDATION_EXPORT JavaxNetSslSSLProtocolException *new_JavaxNetSslSSLProtocolExc
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLProtocolException)
 
-#endif // _JavaxNetSslSSLProtocolException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLProtocolException_INCLUDE_ALL")

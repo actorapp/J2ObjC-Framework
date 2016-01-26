@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/FilterInputStream.java
 //
 
-#ifndef _JavaIoFilterInputStream_H_
-#define _JavaIoFilterInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoFilterInputStream_INCLUDE_ALL")
+#ifdef JavaIoFilterInputStream_RESTRICT
+#define JavaIoFilterInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoFilterInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoFilterInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoFilterInputStream_) && (JavaIoFilterInputStream_INCLUDE_ALL || defined(JavaIoFilterInputStream_INCLUDE))
+#define JavaIoFilterInputStream_
+
+#define JavaIoInputStream_RESTRICT 1
+#define JavaIoInputStream_INCLUDE 1
 #include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
@@ -19,6 +33,7 @@
  decompression of the underlying stream. Input streams that wrap another input
  stream and provide some additional functionality on top of it usually inherit
  from this class.
+ - seealso: FilterOutputStream
  */
 @interface JavaIoFilterInputStream : JavaIoInputStream {
  @public
@@ -51,6 +66,8 @@
  @param readlimit
  the number of bytes that can be read from this stream before
  the mark is invalidated.
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (void)markWithInt:(jint)readlimit;
 
@@ -60,6 +77,9 @@
  marking.
  @return <code>true</code> if <code>mark()</code> and <code>reset()</code> are supported,
  <code>false</code> otherwise.
+ - seealso: #mark(int)
+ - seealso: #reset()
+ - seealso: #skip(long)
  */
 - (jboolean)markSupported;
 
@@ -87,6 +107,8 @@
  if this stream is already closed, no mark has been set or the
  mark is no longer valid because more than <code>readlimit</code>
  bytes have been read since setting the mark.
+ - seealso: #mark(int)
+ - seealso: #markSupported()
  */
 - (void)reset;
 
@@ -99,6 +121,8 @@
  @return the number of bytes actually skipped.
  @throws IOException
  if this stream is closed or another IOException occurs.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (jlong)skipWithLong:(jlong)byteCount;
 
@@ -126,4 +150,8 @@ FOUNDATION_EXPORT JavaIoFilterInputStream *new_JavaIoFilterInputStream_initWithJ
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterInputStream)
 
-#endif // _JavaIoFilterInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoFilterInputStream_INCLUDE_ALL")

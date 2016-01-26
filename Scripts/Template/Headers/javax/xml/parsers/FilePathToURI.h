@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/parsers/FilePathToURI.java
 //
 
-#ifndef _JavaxXmlParsersFilePathToURI_H_
-#define _JavaxXmlParsersFilePathToURI_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlParsersFilePathToURI_INCLUDE_ALL")
+#ifdef JavaxXmlParsersFilePathToURI_RESTRICT
+#define JavaxXmlParsersFilePathToURI_INCLUDE_ALL 0
+#else
+#define JavaxXmlParsersFilePathToURI_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlParsersFilePathToURI_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlParsersFilePathToURI_) && (JavaxXmlParsersFilePathToURI_INCLUDE_ALL || defined(JavaxXmlParsersFilePathToURI_INCLUDE))
+#define JavaxXmlParsersFilePathToURI_
 
 @interface JavaxXmlParsersFilePathToURI : NSObject
 
@@ -30,4 +41,8 @@ FOUNDATION_EXPORT JavaxXmlParsersFilePathToURI *new_JavaxXmlParsersFilePathToURI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersFilePathToURI)
 
-#endif // _JavaxXmlParsersFilePathToURI_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlParsersFilePathToURI_INCLUDE_ALL")

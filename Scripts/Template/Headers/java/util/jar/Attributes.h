@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/jar/Attributes.java
 //
 
-#ifndef _JavaUtilJarAttributes_H_
-#define _JavaUtilJarAttributes_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilJarAttributes_INCLUDE_ALL")
+#ifdef JavaUtilJarAttributes_RESTRICT
+#define JavaUtilJarAttributes_INCLUDE_ALL 0
+#else
+#define JavaUtilJarAttributes_INCLUDE_ALL 1
+#endif
+#undef JavaUtilJarAttributes_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilJarAttributes_) && (JavaUtilJarAttributes_INCLUDE_ALL || defined(JavaUtilJarAttributes_INCLUDE))
+#define JavaUtilJarAttributes_
+
+#define JavaUtilMap_RESTRICT 1
+#define JavaUtilMap_INCLUDE 1
 #include "../../../java/util/Map.h"
 
 @class JavaUtilJarAttributes_Name;
@@ -217,6 +231,11 @@ FOUNDATION_EXPORT JavaUtilJarAttributes *new_JavaUtilJarAttributes_initWithInt_(
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarAttributes)
 
+#endif
+
+#if !defined (JavaUtilJarAttributes_Name_) && (JavaUtilJarAttributes_INCLUDE_ALL || defined(JavaUtilJarAttributes_Name_INCLUDE))
+#define JavaUtilJarAttributes_Name_
+
 /*!
  @brief The name part of the name/value pairs constituting an attribute as
  defined by the specification of the JAR manifest.
@@ -231,6 +250,42 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarAttributes)
 @endcode
  */
 @interface JavaUtilJarAttributes_Name : NSObject
+
++ (JavaUtilJarAttributes_Name *)CLASS_PATH;
+
++ (JavaUtilJarAttributes_Name *)MANIFEST_VERSION;
+
++ (JavaUtilJarAttributes_Name *)MAIN_CLASS;
+
++ (JavaUtilJarAttributes_Name *)SIGNATURE_VERSION;
+
++ (JavaUtilJarAttributes_Name *)CONTENT_TYPE;
+
++ (JavaUtilJarAttributes_Name *)SEALED;
+
++ (JavaUtilJarAttributes_Name *)IMPLEMENTATION_TITLE;
+
++ (JavaUtilJarAttributes_Name *)IMPLEMENTATION_VERSION;
+
++ (JavaUtilJarAttributes_Name *)IMPLEMENTATION_VENDOR;
+
++ (JavaUtilJarAttributes_Name *)SPECIFICATION_TITLE;
+
++ (JavaUtilJarAttributes_Name *)SPECIFICATION_VERSION;
+
++ (JavaUtilJarAttributes_Name *)SPECIFICATION_VENDOR;
+
++ (JavaUtilJarAttributes_Name *)EXTENSION_LIST;
+
++ (JavaUtilJarAttributes_Name *)EXTENSION_NAME;
+
++ (JavaUtilJarAttributes_Name *)EXTENSION_INSTALLATION;
+
++ (JavaUtilJarAttributes_Name *)IMPLEMENTATION_VENDOR_ID;
+
++ (JavaUtilJarAttributes_Name *)IMPLEMENTATION_URL;
+
++ (JavaUtilJarAttributes_Name *)NAME;
 
 #pragma mark Public
 
@@ -250,59 +305,161 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarAttributes)
 
 J2OBJC_STATIC_INIT(JavaUtilJarAttributes_Name)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_CLASS_PATH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, CLASS_PATH_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The class path (a main attribute).
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_CLASS_PATH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_CLASS_PATH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, CLASS_PATH, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_MANIFEST_VERSION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, MANIFEST_VERSION_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The version of the manifest file (a main attribute).
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_MANIFEST_VERSION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_MANIFEST_VERSION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, MANIFEST_VERSION, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_MAIN_CLASS_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, MAIN_CLASS_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The main class's name (for stand-alone applications).
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_MAIN_CLASS();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_MAIN_CLASS;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, MAIN_CLASS, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_SIGNATURE_VERSION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, SIGNATURE_VERSION_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief Defines the signature version of the JAR file.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_SIGNATURE_VERSION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_SIGNATURE_VERSION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, SIGNATURE_VERSION, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_CONTENT_TYPE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, CONTENT_TYPE_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Content-Type</code> manifest attribute.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_CONTENT_TYPE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_CONTENT_TYPE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, CONTENT_TYPE, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_SEALED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, SEALED_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Sealed</code> manifest attribute which may have the value
+ <code>true</code> for sealed archives.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_SEALED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_SEALED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, SEALED, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_IMPLEMENTATION_TITLE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, IMPLEMENTATION_TITLE_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Implementation-Title</code> attribute whose value is a string
+ that defines the title of the extension implementation.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_IMPLEMENTATION_TITLE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_IMPLEMENTATION_TITLE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, IMPLEMENTATION_TITLE, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_IMPLEMENTATION_VERSION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, IMPLEMENTATION_VERSION_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Implementation-Version</code> attribute defining the version of
+ the extension implementation.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_IMPLEMENTATION_VERSION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_IMPLEMENTATION_VERSION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, IMPLEMENTATION_VERSION, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_IMPLEMENTATION_VENDOR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, IMPLEMENTATION_VENDOR_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Implementation-Vendor</code> attribute defining the organization
+ that maintains the extension implementation.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_IMPLEMENTATION_VENDOR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_IMPLEMENTATION_VENDOR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, IMPLEMENTATION_VENDOR, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_SPECIFICATION_TITLE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, SPECIFICATION_TITLE_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Specification-Title</code> attribute defining the title of the
+ extension specification.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_SPECIFICATION_TITLE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_SPECIFICATION_TITLE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, SPECIFICATION_TITLE, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_SPECIFICATION_VERSION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, SPECIFICATION_VERSION_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Specification-Version</code> attribute defining the version of
+ the extension specification.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_SPECIFICATION_VERSION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_SPECIFICATION_VERSION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, SPECIFICATION_VERSION, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_SPECIFICATION_VENDOR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, SPECIFICATION_VENDOR_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Specification-Vendor</code> attribute defining the organization
+ that maintains the extension specification.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_SPECIFICATION_VENDOR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_SPECIFICATION_VENDOR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, SPECIFICATION_VENDOR, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_EXTENSION_LIST_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, EXTENSION_LIST_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Extension-List</code> attribute defining the extensions that are
+ needed by the applet.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_EXTENSION_LIST();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_EXTENSION_LIST;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, EXTENSION_LIST, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_EXTENSION_NAME_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, EXTENSION_NAME_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Extension-Name</code> attribute which defines the unique name of
+ the extension.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_EXTENSION_NAME();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_EXTENSION_NAME;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, EXTENSION_NAME, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_EXTENSION_INSTALLATION_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, EXTENSION_INSTALLATION_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Extension-Installation</code> attribute.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_EXTENSION_INSTALLATION();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_EXTENSION_INSTALLATION;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, EXTENSION_INSTALLATION, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_IMPLEMENTATION_VENDOR_ID_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, IMPLEMENTATION_VENDOR_ID_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Implementation-Vendor-Id</code> attribute specifies the vendor
+ of an extension implementation if the applet requires an
+ implementation from a specific vendor.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_IMPLEMENTATION_VENDOR_ID();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_IMPLEMENTATION_VENDOR_ID;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, IMPLEMENTATION_VENDOR_ID, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_IMPLEMENTATION_URL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, IMPLEMENTATION_URL_, JavaUtilJarAttributes_Name *)
+/*!
+ @brief The <code>Implementation-URL</code> attribute specifying a URL that can be
+ used to obtain the most recent version of the extension if the
+ required version is not already installed.
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_IMPLEMENTATION_URL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_IMPLEMENTATION_URL;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, IMPLEMENTATION_URL, JavaUtilJarAttributes_Name *)
 
-FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_NAME_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilJarAttributes_Name, NAME_, JavaUtilJarAttributes_Name *)
+/*!
+ */
+inline JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_get_NAME();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *JavaUtilJarAttributes_Name_NAME;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilJarAttributes_Name, NAME, JavaUtilJarAttributes_Name *)
 
 FOUNDATION_EXPORT void JavaUtilJarAttributes_Name_initWithNSString_(JavaUtilJarAttributes_Name *self, NSString *name);
 
@@ -310,4 +467,8 @@ FOUNDATION_EXPORT JavaUtilJarAttributes_Name *new_JavaUtilJarAttributes_Name_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarAttributes_Name)
 
-#endif // _JavaUtilJarAttributes_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilJarAttributes_INCLUDE_ALL")

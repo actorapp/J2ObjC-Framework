@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/HttpCookie.java
 //
 
-#ifndef _JavaNetHttpCookie_H_
-#define _JavaNetHttpCookie_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetHttpCookie_INCLUDE_ALL")
+#ifdef JavaNetHttpCookie_RESTRICT
+#define JavaNetHttpCookie_INCLUDE_ALL 0
+#else
+#define JavaNetHttpCookie_INCLUDE_ALL 1
+#endif
+#undef JavaNetHttpCookie_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetHttpCookie_) && (JavaNetHttpCookie_INCLUDE_ALL || defined(JavaNetHttpCookie_INCLUDE))
+#define JavaNetHttpCookie_
 
 @class JavaNetURI;
 @protocol JavaUtilList;
@@ -296,6 +307,13 @@ FOUNDATION_EXPORT JavaNetHttpCookie *new_JavaNetHttpCookie_initWithNSString_with
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpCookie)
 
+#endif
+
+#if !defined (JavaNetHttpCookie_CookieParser_) && (JavaNetHttpCookie_INCLUDE_ALL || defined(JavaNetHttpCookie_CookieParser_INCLUDE))
+#define JavaNetHttpCookie_CookieParser_
+
+@protocol JavaUtilList;
+
 @interface JavaNetHttpCookie_CookieParser : NSObject {
  @public
   jboolean hasExpires_;
@@ -321,4 +339,8 @@ FOUNDATION_EXPORT JavaNetHttpCookie_CookieParser *new_JavaNetHttpCookie_CookiePa
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpCookie_CookieParser)
 
-#endif // _JavaNetHttpCookie_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetHttpCookie_INCLUDE_ALL")

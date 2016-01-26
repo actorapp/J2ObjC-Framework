@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/AbstractMethodError.java
 //
 
-#ifndef _JavaLangAbstractMethodError_H_
-#define _JavaLangAbstractMethodError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangAbstractMethodError_INCLUDE_ALL")
+#ifdef JavaLangAbstractMethodError_RESTRICT
+#define JavaLangAbstractMethodError_INCLUDE_ALL 0
+#else
+#define JavaLangAbstractMethodError_INCLUDE_ALL 1
+#endif
+#undef JavaLangAbstractMethodError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangAbstractMethodError_) && (JavaLangAbstractMethodError_INCLUDE_ALL || defined(JavaLangAbstractMethodError_INCLUDE))
+#define JavaLangAbstractMethodError_
+
+#define JavaLangIncompatibleClassChangeError_RESTRICT 1
+#define JavaLangIncompatibleClassChangeError_INCLUDE 1
 #include "../../java/lang/IncompatibleClassChangeError.h"
 
 /*!
@@ -47,4 +61,8 @@ FOUNDATION_EXPORT JavaLangAbstractMethodError *new_JavaLangAbstractMethodError_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAbstractMethodError)
 
-#endif // _JavaLangAbstractMethodError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangAbstractMethodError_INCLUDE_ALL")

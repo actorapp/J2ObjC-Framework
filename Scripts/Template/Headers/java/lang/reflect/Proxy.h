@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/Proxy.java
 //
 
-#ifndef _JavaLangReflectProxy_H_
-#define _JavaLangReflectProxy_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectProxy_INCLUDE_ALL")
+#ifdef JavaLangReflectProxy_RESTRICT
+#define JavaLangReflectProxy_INCLUDE_ALL 0
+#else
+#define JavaLangReflectProxy_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectProxy_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectProxy_) && (JavaLangReflectProxy_INCLUDE_ALL || defined(JavaLangReflectProxy_INCLUDE))
+#define JavaLangReflectProxy_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSClass;
@@ -19,6 +33,7 @@
  @brief <code>Proxy</code> defines methods for creating dynamic proxy classes and instances.
  A proxy class implements a declared set of interfaces and delegates method
  invocations to an <code>InvocationHandler</code>.
+ - seealso: InvocationHandler
  @since 1.3
  */
 @interface JavaLangReflectProxy : NSObject < JavaIoSerializable > {
@@ -116,9 +131,6 @@
 
 #pragma mark Package-Private
 
-
-
-
 @end
 
 J2OBJC_STATIC_INIT(JavaLangReflectProxy)
@@ -140,4 +152,8 @@ FOUNDATION_EXPORT id<JavaLangReflectInvocationHandler> JavaLangReflectProxy_getI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectProxy)
 
-#endif // _JavaLangReflectProxy_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectProxy_INCLUDE_ALL")

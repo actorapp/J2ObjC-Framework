@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/nio/IntBuffer.java
 //
 
-#ifndef _JavaNioIntBuffer_H_
-#define _JavaNioIntBuffer_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Comparable.h"
+
+#pragma push_macro("JavaNioIntBuffer_INCLUDE_ALL")
+#ifdef JavaNioIntBuffer_RESTRICT
+#define JavaNioIntBuffer_INCLUDE_ALL 0
+#else
+#define JavaNioIntBuffer_INCLUDE_ALL 1
+#endif
+#undef JavaNioIntBuffer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioIntBuffer_) && (JavaNioIntBuffer_INCLUDE_ALL || defined(JavaNioIntBuffer_INCLUDE))
+#define JavaNioIntBuffer_
+
+#define JavaNioBuffer_RESTRICT 1
+#define JavaNioBuffer_INCLUDE 1
 #include "../../java/nio/Buffer.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
+#include "../../java/lang/Comparable.h"
 
 @class IOSIntArray;
 @class JavaNioByteOrder;
@@ -365,4 +382,8 @@ FOUNDATION_EXPORT void JavaNioIntBuffer_initWithInt_withLong_(JavaNioIntBuffer *
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioIntBuffer)
 
-#endif // _JavaNioIntBuffer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioIntBuffer_INCLUDE_ALL")

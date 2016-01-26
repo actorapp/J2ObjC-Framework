@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/UnsafeArrayList.java
 //
 
-#ifndef _JavaUtilUnsafeArrayList_H_
-#define _JavaUtilUnsafeArrayList_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilUnsafeArrayList_INCLUDE_ALL")
+#ifdef JavaUtilUnsafeArrayList_RESTRICT
+#define JavaUtilUnsafeArrayList_INCLUDE_ALL 0
+#else
+#define JavaUtilUnsafeArrayList_INCLUDE_ALL 1
+#endif
+#undef JavaUtilUnsafeArrayList_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilUnsafeArrayList_) && (JavaUtilUnsafeArrayList_INCLUDE_ALL || defined(JavaUtilUnsafeArrayList_INCLUDE))
+#define JavaUtilUnsafeArrayList_
+
+#define JavaUtilAbstractList_RESTRICT 1
+#define JavaUtilAbstractList_INCLUDE 1
 #include "../../java/util/AbstractList.h"
 
 @class IOSClass;
@@ -32,7 +46,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilUnsafeArrayList)
@@ -43,4 +56,8 @@ FOUNDATION_EXPORT JavaUtilUnsafeArrayList *new_JavaUtilUnsafeArrayList_initWithI
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUnsafeArrayList)
 
-#endif // _JavaUtilUnsafeArrayList_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilUnsafeArrayList_INCLUDE_ALL")

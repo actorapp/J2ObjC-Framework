@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/interfaces/ECKey.java
 //
 
-#ifndef _JavaSecurityInterfacesECKey_H_
-#define _JavaSecurityInterfacesECKey_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityInterfacesECKey_INCLUDE_ALL")
+#ifdef JavaSecurityInterfacesECKey_RESTRICT
+#define JavaSecurityInterfacesECKey_INCLUDE_ALL 0
+#else
+#define JavaSecurityInterfacesECKey_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityInterfacesECKey_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityInterfacesECKey_) && (JavaSecurityInterfacesECKey_INCLUDE_ALL || defined(JavaSecurityInterfacesECKey_INCLUDE))
+#define JavaSecurityInterfacesECKey_
 
 @class JavaSecuritySpecECParameterSpec;
 
@@ -27,4 +38,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecurityInterfacesECKey)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesECKey)
 
-#endif // _JavaSecurityInterfacesECKey_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityInterfacesECKey_INCLUDE_ALL")

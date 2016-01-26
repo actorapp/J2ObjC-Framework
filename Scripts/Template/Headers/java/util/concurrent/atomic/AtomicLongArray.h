@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicLongArray.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicAtomicLongArray_H_
-#define _JavaUtilConcurrentAtomicAtomicLongArray_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicAtomicLongArray_RESTRICT
+#define JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicAtomicLongArray_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicAtomicLongArray_) && (JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE))
+#define JavaUtilConcurrentAtomicAtomicLongArray_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../../java/io/Serializable.h"
 
 @class IOSLongArray;
@@ -159,7 +173,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentAtomicAtomicLongArray)
@@ -174,4 +187,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicLongArray *new_JavaUtilConcurren
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLongArray)
 
-#endif // _JavaUtilConcurrentAtomicAtomicLongArray_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE_ALL")

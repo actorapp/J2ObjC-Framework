@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ExceptionInInitializerError.java
 //
 
-#ifndef _JavaLangExceptionInInitializerError_H_
-#define _JavaLangExceptionInInitializerError_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangExceptionInInitializerError_INCLUDE_ALL")
+#ifdef JavaLangExceptionInInitializerError_RESTRICT
+#define JavaLangExceptionInInitializerError_INCLUDE_ALL 0
+#else
+#define JavaLangExceptionInInitializerError_INCLUDE_ALL 1
+#endif
+#undef JavaLangExceptionInInitializerError_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangExceptionInInitializerError_) && (JavaLangExceptionInInitializerError_INCLUDE_ALL || defined(JavaLangExceptionInInitializerError_INCLUDE))
+#define JavaLangExceptionInInitializerError_
+
+#define JavaLangLinkageError_RESTRICT 1
+#define JavaLangLinkageError_INCLUDE 1
 #include "../../java/lang/LinkageError.h"
 
 @class JavaLangThrowable;
@@ -72,4 +86,8 @@ FOUNDATION_EXPORT JavaLangExceptionInInitializerError *new_JavaLangExceptionInIn
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangExceptionInInitializerError)
 
-#endif // _JavaLangExceptionInInitializerError_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangExceptionInInitializerError_INCLUDE_ALL")

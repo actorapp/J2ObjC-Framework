@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/jar/JarOutputStream.java
 //
 
-#ifndef _JavaUtilJarJarOutputStream_H_
-#define _JavaUtilJarJarOutputStream_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilJarJarOutputStream_INCLUDE_ALL")
+#ifdef JavaUtilJarJarOutputStream_RESTRICT
+#define JavaUtilJarJarOutputStream_INCLUDE_ALL 0
+#else
+#define JavaUtilJarJarOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaUtilJarJarOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilJarJarOutputStream_) && (JavaUtilJarJarOutputStream_INCLUDE_ALL || defined(JavaUtilJarJarOutputStream_INCLUDE))
+#define JavaUtilJarJarOutputStream_
+
+#define JavaUtilZipZipOutputStream_RESTRICT 1
+#define JavaUtilZipZipOutputStream_INCLUDE 1
 #include "../../../java/util/zip/ZipOutputStream.h"
 
 @class JavaIoOutputStream;
@@ -54,6 +68,7 @@
  the <code>ZipEntry</code> to write to.
  @throws IOException
  if an error occurs writing to the entry.
+ - seealso: ZipEntry
  */
 - (void)putNextEntryWithJavaUtilZipZipEntry:(JavaUtilZipZipEntry *)ze;
 
@@ -71,4 +86,8 @@ FOUNDATION_EXPORT JavaUtilJarJarOutputStream *new_JavaUtilJarJarOutputStream_ini
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarOutputStream)
 
-#endif // _JavaUtilJarJarOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilJarJarOutputStream_INCLUDE_ALL")

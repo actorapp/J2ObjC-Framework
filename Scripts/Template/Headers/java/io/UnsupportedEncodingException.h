@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/UnsupportedEncodingException.java
 //
 
-#ifndef _JavaIoUnsupportedEncodingException_H_
-#define _JavaIoUnsupportedEncodingException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoUnsupportedEncodingException_INCLUDE_ALL")
+#ifdef JavaIoUnsupportedEncodingException_RESTRICT
+#define JavaIoUnsupportedEncodingException_INCLUDE_ALL 0
+#else
+#define JavaIoUnsupportedEncodingException_INCLUDE_ALL 1
+#endif
+#undef JavaIoUnsupportedEncodingException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoUnsupportedEncodingException_) && (JavaIoUnsupportedEncodingException_INCLUDE_ALL || defined(JavaIoUnsupportedEncodingException_INCLUDE))
+#define JavaIoUnsupportedEncodingException_
+
+#define JavaIoIOException_RESTRICT 1
+#define JavaIoIOException_INCLUDE 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -45,4 +59,8 @@ FOUNDATION_EXPORT JavaIoUnsupportedEncodingException *new_JavaIoUnsupportedEncod
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoUnsupportedEncodingException)
 
-#endif // _JavaIoUnsupportedEncodingException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoUnsupportedEncodingException_INCLUDE_ALL")

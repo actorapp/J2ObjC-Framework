@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/IllegalMonitorStateException.java
 //
 
-#ifndef _JavaLangIllegalMonitorStateException_H_
-#define _JavaLangIllegalMonitorStateException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangIllegalMonitorStateException_INCLUDE_ALL")
+#ifdef JavaLangIllegalMonitorStateException_RESTRICT
+#define JavaLangIllegalMonitorStateException_INCLUDE_ALL 0
+#else
+#define JavaLangIllegalMonitorStateException_INCLUDE_ALL 1
+#endif
+#undef JavaLangIllegalMonitorStateException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangIllegalMonitorStateException_) && (JavaLangIllegalMonitorStateException_INCLUDE_ALL || defined(JavaLangIllegalMonitorStateException_INCLUDE))
+#define JavaLangIllegalMonitorStateException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -46,4 +60,8 @@ FOUNDATION_EXPORT JavaLangIllegalMonitorStateException *new_JavaLangIllegalMonit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalMonitorStateException)
 
-#endif // _JavaLangIllegalMonitorStateException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangIllegalMonitorStateException_INCLUDE_ALL")

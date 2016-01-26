@@ -3,12 +3,38 @@
 //  source: /Users/tball/tmp/j2objc/inject/javax_inject/build_result/java/javax/inject/Named.java
 //
 
-#ifndef _JavaxInjectNamed_H_
-#define _JavaxInjectNamed_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxInjectNamed_INCLUDE_ALL")
+#ifdef JavaxInjectNamed_RESTRICT
+#define JavaxInjectNamed_INCLUDE_ALL 0
+#else
+#define JavaxInjectNamed_INCLUDE_ALL 1
+#endif
+#undef JavaxInjectNamed_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxInjectNamed_) && (JavaxInjectNamed_INCLUDE_ALL || defined(JavaxInjectNamed_INCLUDE))
+#define JavaxInjectNamed_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../java/lang/annotation/Annotation.h"
 
+/*!
+ @brief String-based qualifier.
+ <p>Example usage:
+ @code
+
+   public class Car {
+     &#064;Inject <b>@@Named("driver")</b> Seat driverSeat;
+     &#064;Inject <b>@@Named("passenger")</b> Seat passengerSeat;
+     ...
+   
+@endcode
+ */
 @protocol JavaxInjectNamed < JavaLangAnnotationAnnotation >
 
 @property (readonly) NSString *value;
@@ -30,4 +56,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxInjectNamed)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxInjectNamed)
 
-#endif // _JavaxInjectNamed_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxInjectNamed_INCLUDE_ALL")

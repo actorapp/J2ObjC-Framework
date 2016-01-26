@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/PushbackReader.java
 //
 
-#ifndef _JavaIoPushbackReader_H_
-#define _JavaIoPushbackReader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoPushbackReader_INCLUDE_ALL")
+#ifdef JavaIoPushbackReader_RESTRICT
+#define JavaIoPushbackReader_INCLUDE_ALL 0
+#else
+#define JavaIoPushbackReader_INCLUDE_ALL 1
+#endif
+#undef JavaIoPushbackReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoPushbackReader_) && (JavaIoPushbackReader_INCLUDE_ALL || defined(JavaIoPushbackReader_INCLUDE))
+#define JavaIoPushbackReader_
+
+#define JavaIoFilterReader_RESTRICT 1
+#define JavaIoFilterReader_INCLUDE 1
 #include "../../java/io/FilterReader.h"
 
 @class IOSCharArray;
@@ -88,6 +102,8 @@
  <code>PushbackReader</code> does not support them, so
  it returns <code>false</code>.
  @return always <code>false</code>.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (jboolean)markSupported;
 
@@ -134,6 +150,8 @@
  or blocking will occur.
  @throws IOException
  if this reader is closed or some other I/O error occurs.
+ - seealso: #read()
+ - seealso: #read(char[],int,int)
  */
 - (jboolean)ready;
 
@@ -244,4 +262,8 @@ FOUNDATION_EXPORT JavaIoPushbackReader *new_JavaIoPushbackReader_initWithJavaIoR
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPushbackReader)
 
-#endif // _JavaIoPushbackReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoPushbackReader_INCLUDE_ALL")

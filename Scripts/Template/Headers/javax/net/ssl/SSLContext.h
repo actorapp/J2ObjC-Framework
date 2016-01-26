@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLContext.java
 //
 
-#ifndef _JavaxNetSslSSLContext_H_
-#define _JavaxNetSslSSLContext_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLContext_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLContext_RESTRICT
+#define JavaxNetSslSSLContext_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLContext_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLContext_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLContext_) && (JavaxNetSslSSLContext_INCLUDE_ALL || defined(JavaxNetSslSSLContext_INCLUDE))
+#define JavaxNetSslSSLContext_
 
 @class IOSObjectArray;
 @class JavaSecurityProvider;
@@ -356,4 +367,8 @@ FOUNDATION_EXPORT JavaxNetSslSSLContext *new_JavaxNetSslSSLContext_initWithJavax
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLContext)
 
-#endif // _JavaxNetSslSSLContext_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLContext_INCLUDE_ALL")

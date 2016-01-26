@@ -3,16 +3,30 @@
 //  source: android/libcore/luni/src/main/java/javax/crypto/ShortBufferException.java
 //
 
-#ifndef _JavaxCryptoShortBufferException_H_
-#define _JavaxCryptoShortBufferException_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/security/GeneralSecurityException.h"
+
+#pragma push_macro("JavaxCryptoShortBufferException_INCLUDE_ALL")
+#ifdef JavaxCryptoShortBufferException_RESTRICT
+#define JavaxCryptoShortBufferException_INCLUDE_ALL 0
+#else
+#define JavaxCryptoShortBufferException_INCLUDE_ALL 1
+#endif
+#undef JavaxCryptoShortBufferException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 /*!
  @author Vera Y. Petrashkova
  @version $Revision$
  */
+
+#if !defined (JavaxCryptoShortBufferException_) && (JavaxCryptoShortBufferException_INCLUDE_ALL || defined(JavaxCryptoShortBufferException_INCLUDE))
+#define JavaxCryptoShortBufferException_
+
+#define JavaSecurityGeneralSecurityException_RESTRICT 1
+#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#include "../../java/security/GeneralSecurityException.h"
 
 /*!
  @brief The exception that is thrown when the result of an operation is attempted to
@@ -49,4 +63,8 @@ FOUNDATION_EXPORT JavaxCryptoShortBufferException *new_JavaxCryptoShortBufferExc
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoShortBufferException)
 
-#endif // _JavaxCryptoShortBufferException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxCryptoShortBufferException_INCLUDE_ALL")

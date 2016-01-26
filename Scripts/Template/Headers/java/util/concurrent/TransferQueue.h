@@ -3,13 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/TransferQueue.java
 //
 
-#ifndef _JavaUtilConcurrentTransferQueue_H_
-#define _JavaUtilConcurrentTransferQueue_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentTransferQueue_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentTransferQueue_RESTRICT
+#define JavaUtilConcurrentTransferQueue_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentTransferQueue_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentTransferQueue_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentTransferQueue_) && (JavaUtilConcurrentTransferQueue_INCLUDE_ALL || defined(JavaUtilConcurrentTransferQueue_INCLUDE))
+#define JavaUtilConcurrentTransferQueue_
+
+#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
+#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 
 /*!
  @brief A <code>BlockingQueue</code> in which producers may wait for consumers
@@ -98,7 +112,7 @@
  */
 - (jboolean)tryTransferWithId:(id)e
                      withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Returns <code>true</code> if there is at least one consumer waiting
@@ -130,4 +144,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentTransferQueue)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentTransferQueue)
 
-#endif // _JavaUtilConcurrentTransferQueue_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentTransferQueue_INCLUDE_ALL")

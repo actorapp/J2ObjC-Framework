@@ -3,11 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/net/URLConnection.java
 //
 
-#ifndef _JavaNetURLConnection_H_
-#define _JavaNetURLConnection_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/net/ContentHandler.h"
+
+#pragma push_macro("JavaNetURLConnection_INCLUDE_ALL")
+#ifdef JavaNetURLConnection_RESTRICT
+#define JavaNetURLConnection_INCLUDE_ALL 0
+#else
+#define JavaNetURLConnection_INCLUDE_ALL 1
+#endif
+#undef JavaNetURLConnection_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetURLConnection_) && (JavaNetURLConnection_INCLUDE_ALL || defined(JavaNetURLConnection_INCLUDE))
+#define JavaNetURLConnection_
 
 @class IOSObjectArray;
 @class JavaIoInputStream;
@@ -104,6 +114,10 @@
    */
   jboolean allowUserInteraction_;
 }
+
++ (JavaUtilHashtable *)contentHandlers;
+
++ (void)setContentHandlers:(JavaUtilHashtable *)value;
 
 #pragma mark Public
 
@@ -223,11 +237,12 @@
 /*!
  @brief Returns null.
  */
-+ (NSString *)getDefaultRequestPropertyWithNSString:(NSString *)field;
++ (NSString *)getDefaultRequestPropertyWithNSString:(NSString *)field __attribute__((deprecated));
 
 /*!
  @brief Returns the default setting whether this connection allows using caches.
  @return the value of the default setting <code>defaultUseCaches</code>.
+ - seealso: #useCaches
  */
 - (jboolean)getDefaultUseCaches;
 
@@ -236,6 +251,7 @@
  connection allows to receive data.
  @return <code>true</code> if this connection allows input, <code>false</code>
  otherwise.
+ - seealso: #doInput
  */
 - (jboolean)getDoInput;
 
@@ -244,6 +260,7 @@
  this connection allows to send data.
  @return <code>true</code> if this connection allows output, <code>false</code>
  otherwise.
+ - seealso: #doOutput
  */
 - (jboolean)getDoOutput;
 
@@ -367,6 +384,7 @@
  Some protocols transmit data only if it has been modified
  more recently than a particular time.
  @return the time in milliseconds since January 1, 1970 GMT.
+ - seealso: #ifModifiedSince
  */
 - (jlong)getIfModifiedSince;
 
@@ -525,7 +543,7 @@
  @brief Does nothing.
  */
 + (void)setDefaultRequestPropertyWithNSString:(NSString *)field
-                                 withNSString:(NSString *)value;
+                                 withNSString:(NSString *)value __attribute__((deprecated));
 
 /*!
  @brief Sets the default value for the flag indicating whether this connection
@@ -533,6 +551,7 @@
  Existing <code>URLConnection</code>s are unaffected.
  @param newValue
  the default value of the flag to be used for new connections.
+ - seealso: #useCaches
  */
 - (void)setDefaultUseCachesWithBoolean:(jboolean)newValue;
 
@@ -544,6 +563,7 @@
  @throws IllegalAccessError
  if this method attempts to change the value after the
  connection has been already established.
+ - seealso: #doInput
  */
 - (void)setDoInputWithBoolean:(jboolean)newValue;
 
@@ -556,6 +576,7 @@
  @throws IllegalAccessError
  if this method attempts to change the value after the
  connection has been already established.
+ - seealso: #doOutput
  */
 - (void)setDoOutputWithBoolean:(jboolean)newValue;
 
@@ -577,6 +598,7 @@
  the time in milliseconds since January 1, 1970 GMT.
  @throws IllegalStateException
  if this <code>URLConnection</code> has already been connected.
+ - seealso: #ifModifiedSince
  */
 - (void)setIfModifiedSinceWithLong:(jlong)newValue;
 
@@ -617,6 +639,7 @@
  @throws IllegalStateException
  if this method attempts to change the flag after the
  connection has been established.
+ - seealso: #useCaches
  */
 - (void)setUseCachesWithBoolean:(jboolean)newValue;
 
@@ -645,9 +668,14 @@ J2OBJC_STATIC_INIT(JavaNetURLConnection)
 J2OBJC_FIELD_SETTER(JavaNetURLConnection, url_, JavaNetURL *)
 J2OBJC_FIELD_SETTER(JavaNetURLConnection, defaultHandler_, JavaNetContentHandler *)
 
-FOUNDATION_EXPORT JavaUtilHashtable *JavaNetURLConnection_contentHandlers_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetURLConnection, contentHandlers_, JavaUtilHashtable *)
-J2OBJC_STATIC_FIELD_SETTER(JavaNetURLConnection, contentHandlers_, JavaUtilHashtable *)
+/*!
+ @brief Cache for storing content handler
+ */
+inline JavaUtilHashtable *JavaNetURLConnection_get_contentHandlers();
+inline JavaUtilHashtable *JavaNetURLConnection_set_contentHandlers(JavaUtilHashtable *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilHashtable *JavaNetURLConnection_contentHandlers;
+J2OBJC_STATIC_FIELD_OBJ(JavaNetURLConnection, contentHandlers, JavaUtilHashtable *)
 
 FOUNDATION_EXPORT void JavaNetURLConnection_initWithJavaNetURL_(JavaNetURLConnection *self, JavaNetURL *url);
 
@@ -671,6 +699,17 @@ FOUNDATION_EXPORT void JavaNetURLConnection_setFileNameMapWithJavaNetFileNameMap
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLConnection)
 
+#endif
+
+#if !defined (JavaNetURLConnection_DefaultContentHandler_) && (JavaNetURLConnection_INCLUDE_ALL || defined(JavaNetURLConnection_DefaultContentHandler_INCLUDE))
+#define JavaNetURLConnection_DefaultContentHandler_
+
+#define JavaNetContentHandler_RESTRICT 1
+#define JavaNetContentHandler_INCLUDE 1
+#include "../../java/net/ContentHandler.h"
+
+@class JavaNetURLConnection;
+
 @interface JavaNetURLConnection_DefaultContentHandler : JavaNetContentHandler
 
 #pragma mark Public
@@ -691,4 +730,8 @@ FOUNDATION_EXPORT JavaNetURLConnection_DefaultContentHandler *new_JavaNetURLConn
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLConnection_DefaultContentHandler)
 
-#endif // _JavaNetURLConnection_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetURLConnection_INCLUDE_ALL")

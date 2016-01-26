@@ -3,17 +3,36 @@
 //  source: android/libcore/luni/src/main/java/java/io/ObjectOutput.java
 //
 
-#ifndef _JavaIoObjectOutput_H_
-#define _JavaIoObjectOutput_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoObjectOutput_INCLUDE_ALL")
+#ifdef JavaIoObjectOutput_RESTRICT
+#define JavaIoObjectOutput_INCLUDE_ALL 0
+#else
+#define JavaIoObjectOutput_INCLUDE_ALL 1
+#endif
+#undef JavaIoObjectOutput_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoObjectOutput_) && (JavaIoObjectOutput_INCLUDE_ALL || defined(JavaIoObjectOutput_INCLUDE))
+#define JavaIoObjectOutput_
+
+#define JavaIoDataOutput_RESTRICT 1
+#define JavaIoDataOutput_INCLUDE 1
 #include "../../java/io/DataOutput.h"
+
+#define JavaLangAutoCloseable_RESTRICT 1
+#define JavaLangAutoCloseable_INCLUDE 1
 #include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
 
 /*!
  @brief Defines an interface for classes that allow reading serialized objects.
+ - seealso: ObjectOutputStream
+ - seealso: ObjectInput
  */
 @protocol JavaIoObjectOutput < JavaIoDataOutput, JavaLangAutoCloseable, NSObject, JavaObject >
 
@@ -92,4 +111,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoObjectOutput)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectOutput)
 
-#endif // _JavaIoObjectOutput_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoObjectOutput_INCLUDE_ALL")

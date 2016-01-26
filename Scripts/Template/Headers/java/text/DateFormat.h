@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/text/DateFormat.java
 //
 
-#ifndef _JavaTextDateFormat_H_
-#define _JavaTextDateFormat_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextDateFormat_INCLUDE_ALL")
+#ifdef JavaTextDateFormat_RESTRICT
+#define JavaTextDateFormat_INCLUDE_ALL 0
+#else
+#define JavaTextDateFormat_INCLUDE_ALL 1
+#endif
+#undef JavaTextDateFormat_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextDateFormat_) && (JavaTextDateFormat_INCLUDE_ALL || defined(JavaTextDateFormat_INCLUDE))
+#define JavaTextDateFormat_
+
+#define JavaTextFormat_RESTRICT 1
+#define JavaTextFormat_INCLUDE 1
 #include "../../java/text/Format.h"
 
 @class IOSObjectArray;
@@ -18,30 +32,6 @@
 @class JavaUtilDate;
 @class JavaUtilLocale;
 @class JavaUtilTimeZone;
-
-#define JavaTextDateFormat_DEFAULT 2
-#define JavaTextDateFormat_FULL 0
-#define JavaTextDateFormat_LONG 1
-#define JavaTextDateFormat_MEDIUM 2
-#define JavaTextDateFormat_SHORT 3
-#define JavaTextDateFormat_ERA_FIELD 0
-#define JavaTextDateFormat_YEAR_FIELD 1
-#define JavaTextDateFormat_MONTH_FIELD 2
-#define JavaTextDateFormat_DATE_FIELD 3
-#define JavaTextDateFormat_HOUR_OF_DAY1_FIELD 4
-#define JavaTextDateFormat_HOUR_OF_DAY0_FIELD 5
-#define JavaTextDateFormat_MINUTE_FIELD 6
-#define JavaTextDateFormat_SECOND_FIELD 7
-#define JavaTextDateFormat_MILLISECOND_FIELD 8
-#define JavaTextDateFormat_DAY_OF_WEEK_FIELD 9
-#define JavaTextDateFormat_DAY_OF_YEAR_FIELD 10
-#define JavaTextDateFormat_DAY_OF_WEEK_IN_MONTH_FIELD 11
-#define JavaTextDateFormat_WEEK_OF_YEAR_FIELD 12
-#define JavaTextDateFormat_WEEK_OF_MONTH_FIELD 13
-#define JavaTextDateFormat_AM_PM_FIELD 14
-#define JavaTextDateFormat_HOUR1_FIELD 15
-#define JavaTextDateFormat_HOUR0_FIELD 16
-#define JavaTextDateFormat_TIMEZONE_FIELD 17
 
 /*!
  @brief Formats or parses dates and times.
@@ -92,6 +82,52 @@
   JavaTextNumberFormat *numberFormat_;
 }
 
++ (jint)DEFAULT;
+
++ (jint)FULL;
+
++ (jint)LONG;
+
++ (jint)MEDIUM;
+
++ (jint)SHORT;
+
++ (jint)ERA_FIELD;
+
++ (jint)YEAR_FIELD;
+
++ (jint)MONTH_FIELD;
+
++ (jint)DATE_FIELD;
+
++ (jint)HOUR_OF_DAY1_FIELD;
+
++ (jint)HOUR_OF_DAY0_FIELD;
+
++ (jint)MINUTE_FIELD;
+
++ (jint)SECOND_FIELD;
+
++ (jint)MILLISECOND_FIELD;
+
++ (jint)DAY_OF_WEEK_FIELD;
+
++ (jint)DAY_OF_YEAR_FIELD;
+
++ (jint)DAY_OF_WEEK_IN_MONTH_FIELD;
+
++ (jint)WEEK_OF_YEAR_FIELD;
+
++ (jint)WEEK_OF_MONTH_FIELD;
+
++ (jint)AM_PM_FIELD;
+
++ (jint)HOUR1_FIELD;
+
++ (jint)HOUR0_FIELD;
+
++ (jint)TIMEZONE_FIELD;
+
 #pragma mark Public
 
 /*!
@@ -107,6 +143,7 @@
  @return <code>true</code> if <code>object</code> is a <code>DateFormat</code> object and
  it has the same properties as this date format; <code>false</code>
  otherwise.
+ - seealso: #hashCode
  */
 - (jboolean)isEqual:(id)object;
 
@@ -438,51 +475,193 @@ J2OBJC_EMPTY_STATIC_INIT(JavaTextDateFormat)
 J2OBJC_FIELD_SETTER(JavaTextDateFormat, calendar_, JavaUtilCalendar *)
 J2OBJC_FIELD_SETTER(JavaTextDateFormat, numberFormat_, JavaTextNumberFormat *)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, DEFAULT, jint)
+/*!
+ @brief The format style constant defining the default format style.
+ The default
+ is MEDIUM.
+ */
+inline jint JavaTextDateFormat_get_DEFAULT();
+#define JavaTextDateFormat_DEFAULT 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, DEFAULT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, FULL, jint)
+/*!
+ @brief The format style constant defining the full style.
+ */
+inline jint JavaTextDateFormat_get_FULL();
+#define JavaTextDateFormat_FULL 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, FULL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, LONG, jint)
+/*!
+ @brief The format style constant defining the long style.
+ */
+inline jint JavaTextDateFormat_get_LONG();
+#define JavaTextDateFormat_LONG 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, LONG, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, MEDIUM, jint)
+/*!
+ @brief The format style constant defining the medium style.
+ */
+inline jint JavaTextDateFormat_get_MEDIUM();
+#define JavaTextDateFormat_MEDIUM 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, MEDIUM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, SHORT, jint)
+/*!
+ @brief The format style constant defining the short style.
+ */
+inline jint JavaTextDateFormat_get_SHORT();
+#define JavaTextDateFormat_SHORT 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, SHORT, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, ERA_FIELD, jint)
+/*!
+ @brief The <code>FieldPosition</code> selector for 'G' field alignment, corresponds
+ to the <code>Calendar.ERA</code> field.
+ */
+inline jint JavaTextDateFormat_get_ERA_FIELD();
+#define JavaTextDateFormat_ERA_FIELD 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, ERA_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, YEAR_FIELD, jint)
+/*!
+ @brief The <code>FieldPosition</code> selector for 'y' field alignment, corresponds
+ to the <code>Calendar.YEAR</code> field.
+ */
+inline jint JavaTextDateFormat_get_YEAR_FIELD();
+#define JavaTextDateFormat_YEAR_FIELD 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, YEAR_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, MONTH_FIELD, jint)
+/*!
+ @brief The <code>FieldPosition</code> selector for 'M' field alignment, corresponds
+ to the <code>Calendar.MONTH</code> field.
+ */
+inline jint JavaTextDateFormat_get_MONTH_FIELD();
+#define JavaTextDateFormat_MONTH_FIELD 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, MONTH_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, DATE_FIELD, jint)
+/*!
+ @brief The <code>FieldPosition</code> selector for 'd' field alignment, corresponds
+ to the <code>Calendar.DATE</code> field.
+ */
+inline jint JavaTextDateFormat_get_DATE_FIELD();
+#define JavaTextDateFormat_DATE_FIELD 3
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, DATE_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, HOUR_OF_DAY1_FIELD, jint)
+/*!
+ @brief The <code>FieldPosition</code> selector for 'k' field alignment, corresponds
+ to the <code>Calendar.HOUR_OF_DAY</code> field.
+ <code>HOUR_OF_DAY1_FIELD</code> is
+ used for the one-based 24-hour clock. For example, 23:59 + 01:00 results
+ in 24:59.
+ */
+inline jint JavaTextDateFormat_get_HOUR_OF_DAY1_FIELD();
+#define JavaTextDateFormat_HOUR_OF_DAY1_FIELD 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, HOUR_OF_DAY1_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, HOUR_OF_DAY0_FIELD, jint)
+/*!
+ @brief The <code>FieldPosition</code> selector for 'H' field alignment, corresponds
+ to the <code>Calendar.HOUR_OF_DAY</code> field.
+ <code>HOUR_OF_DAY0_FIELD</code> is
+ used for the zero-based 24-hour clock. For example, 23:59 + 01:00 results
+ in 00:59.
+ */
+inline jint JavaTextDateFormat_get_HOUR_OF_DAY0_FIELD();
+#define JavaTextDateFormat_HOUR_OF_DAY0_FIELD 5
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, HOUR_OF_DAY0_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, MINUTE_FIELD, jint)
+/*!
+ @brief FieldPosition selector for 'm' field alignment, corresponds to the
+ <code>Calendar.MINUTE</code> field.
+ */
+inline jint JavaTextDateFormat_get_MINUTE_FIELD();
+#define JavaTextDateFormat_MINUTE_FIELD 6
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, MINUTE_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, SECOND_FIELD, jint)
+/*!
+ @brief FieldPosition selector for 's' field alignment, corresponds to the
+ <code>Calendar.SECOND</code> field.
+ */
+inline jint JavaTextDateFormat_get_SECOND_FIELD();
+#define JavaTextDateFormat_SECOND_FIELD 7
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, SECOND_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, MILLISECOND_FIELD, jint)
+/*!
+ @brief FieldPosition selector for 'S' field alignment, corresponds to the
+ <code>Calendar.MILLISECOND</code> field.
+ */
+inline jint JavaTextDateFormat_get_MILLISECOND_FIELD();
+#define JavaTextDateFormat_MILLISECOND_FIELD 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, MILLISECOND_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, DAY_OF_WEEK_FIELD, jint)
+/*!
+ @brief FieldPosition selector for 'E' field alignment, corresponds to the
+ <code>Calendar.DAY_OF_WEEK</code> field.
+ */
+inline jint JavaTextDateFormat_get_DAY_OF_WEEK_FIELD();
+#define JavaTextDateFormat_DAY_OF_WEEK_FIELD 9
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, DAY_OF_WEEK_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, DAY_OF_YEAR_FIELD, jint)
+/*!
+ @brief FieldPosition selector for 'D' field alignment, corresponds to the
+ <code>Calendar.DAY_OF_YEAR</code> field.
+ */
+inline jint JavaTextDateFormat_get_DAY_OF_YEAR_FIELD();
+#define JavaTextDateFormat_DAY_OF_YEAR_FIELD 10
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, DAY_OF_YEAR_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, DAY_OF_WEEK_IN_MONTH_FIELD, jint)
+/*!
+ @brief FieldPosition selector for 'F' field alignment, corresponds to the
+ <code>Calendar.DAY_OF_WEEK_IN_MONTH</code> field.
+ */
+inline jint JavaTextDateFormat_get_DAY_OF_WEEK_IN_MONTH_FIELD();
+#define JavaTextDateFormat_DAY_OF_WEEK_IN_MONTH_FIELD 11
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, DAY_OF_WEEK_IN_MONTH_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, WEEK_OF_YEAR_FIELD, jint)
+/*!
+ @brief FieldPosition selector for 'w' field alignment, corresponds to the
+ <code>Calendar.WEEK_OF_YEAR</code> field.
+ */
+inline jint JavaTextDateFormat_get_WEEK_OF_YEAR_FIELD();
+#define JavaTextDateFormat_WEEK_OF_YEAR_FIELD 12
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, WEEK_OF_YEAR_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, WEEK_OF_MONTH_FIELD, jint)
+/*!
+ @brief FieldPosition selector for 'W' field alignment, corresponds to the
+ <code>Calendar.WEEK_OF_MONTH</code> field.
+ */
+inline jint JavaTextDateFormat_get_WEEK_OF_MONTH_FIELD();
+#define JavaTextDateFormat_WEEK_OF_MONTH_FIELD 13
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, WEEK_OF_MONTH_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, AM_PM_FIELD, jint)
+/*!
+ @brief FieldPosition selector for 'a' field alignment, corresponds to the
+ <code>Calendar.AM_PM</code> field.
+ */
+inline jint JavaTextDateFormat_get_AM_PM_FIELD();
+#define JavaTextDateFormat_AM_PM_FIELD 14
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, AM_PM_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, HOUR1_FIELD, jint)
+/*!
+ @brief FieldPosition selector for 'h' field alignment, corresponding to the
+ <code>Calendar.HOUR</code> field.
+ */
+inline jint JavaTextDateFormat_get_HOUR1_FIELD();
+#define JavaTextDateFormat_HOUR1_FIELD 15
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, HOUR1_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, HOUR0_FIELD, jint)
+/*!
+ @brief The <code>FieldPosition</code> selector for 'K' field alignment, corresponding to the
+ <code>Calendar.HOUR</code> field.
+ */
+inline jint JavaTextDateFormat_get_HOUR0_FIELD();
+#define JavaTextDateFormat_HOUR0_FIELD 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, HOUR0_FIELD, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat, TIMEZONE_FIELD, jint)
+/*!
+ @brief The <code>FieldPosition</code> selector for 'z' field alignment, corresponds
+ to the <code>Calendar.ZONE_OFFSET</code> and <code>Calendar.DST_OFFSET</code>
+ fields.
+ */
+inline jint JavaTextDateFormat_get_TIMEZONE_FIELD();
+#define JavaTextDateFormat_TIMEZONE_FIELD 17
+J2OBJC_STATIC_FIELD_CONSTANT(JavaTextDateFormat, TIMEZONE_FIELD, jint)
 
 FOUNDATION_EXPORT void JavaTextDateFormat_init(JavaTextDateFormat *self);
 
@@ -512,6 +691,15 @@ FOUNDATION_EXPORT JavaTextDateFormat *JavaTextDateFormat_getTimeInstanceWithInt_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat)
 
+#endif
+
+#if !defined (JavaTextDateFormat_Field_) && (JavaTextDateFormat_INCLUDE_ALL || defined(JavaTextDateFormat_Field_INCLUDE))
+#define JavaTextDateFormat_Field_
+
+#define JavaTextFormat_RESTRICT 1
+#define JavaTextFormat_Field_INCLUDE 1
+#include "../../java/text/Format.h"
+
 /*!
  @brief The instances of this inner class are used as attribute keys and values
  in <code>AttributedCharacterIterator</code> that the
@@ -521,6 +709,42 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat)
  constants defined here.
  */
 @interface JavaTextDateFormat_Field : JavaTextFormat_Field
+
++ (JavaTextDateFormat_Field *)ERA;
+
++ (JavaTextDateFormat_Field *)YEAR;
+
++ (JavaTextDateFormat_Field *)MONTH;
+
++ (JavaTextDateFormat_Field *)HOUR_OF_DAY0;
+
++ (JavaTextDateFormat_Field *)HOUR_OF_DAY1;
+
++ (JavaTextDateFormat_Field *)MINUTE;
+
++ (JavaTextDateFormat_Field *)SECOND;
+
++ (JavaTextDateFormat_Field *)MILLISECOND;
+
++ (JavaTextDateFormat_Field *)DAY_OF_WEEK;
+
++ (JavaTextDateFormat_Field *)DAY_OF_MONTH;
+
++ (JavaTextDateFormat_Field *)DAY_OF_YEAR;
+
++ (JavaTextDateFormat_Field *)DAY_OF_WEEK_IN_MONTH;
+
++ (JavaTextDateFormat_Field *)WEEK_OF_YEAR;
+
++ (JavaTextDateFormat_Field *)WEEK_OF_MONTH;
+
++ (JavaTextDateFormat_Field *)AM_PM;
+
++ (JavaTextDateFormat_Field *)HOUR0;
+
++ (JavaTextDateFormat_Field *)HOUR1;
+
++ (JavaTextDateFormat_Field *)TIME_ZONE;
 
 #pragma mark Public
 
@@ -560,59 +784,149 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat)
 
 J2OBJC_STATIC_INIT(JavaTextDateFormat_Field)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_ERA_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, ERA_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the era part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_ERA();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_ERA;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, ERA, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_YEAR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, YEAR_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the year part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_YEAR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_YEAR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, YEAR, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_MONTH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, MONTH_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the month part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_MONTH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_MONTH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, MONTH, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_HOUR_OF_DAY0_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, HOUR_OF_DAY0_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the hour of the day part of a date (0-11).
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_HOUR_OF_DAY0();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_HOUR_OF_DAY0;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, HOUR_OF_DAY0, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_HOUR_OF_DAY1_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, HOUR_OF_DAY1_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the hour of the day part of a date (1-12).
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_HOUR_OF_DAY1();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_HOUR_OF_DAY1;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, HOUR_OF_DAY1, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_MINUTE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, MINUTE_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the minute part of a time.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_MINUTE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_MINUTE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, MINUTE, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_SECOND_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, SECOND_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the second part of a time.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_SECOND();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_SECOND;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, SECOND, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_MILLISECOND_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, MILLISECOND_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the millisecond part of a time.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_MILLISECOND();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_MILLISECOND;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, MILLISECOND, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_DAY_OF_WEEK_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, DAY_OF_WEEK_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the day of the week part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_DAY_OF_WEEK();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_DAY_OF_WEEK;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, DAY_OF_WEEK, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_DAY_OF_MONTH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, DAY_OF_MONTH_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the day of the month part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_DAY_OF_MONTH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_DAY_OF_MONTH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, DAY_OF_MONTH, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_DAY_OF_YEAR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, DAY_OF_YEAR_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the day of the year part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_DAY_OF_YEAR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_DAY_OF_YEAR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, DAY_OF_YEAR, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_DAY_OF_WEEK_IN_MONTH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, DAY_OF_WEEK_IN_MONTH_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the day of the week in the month part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_DAY_OF_WEEK_IN_MONTH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_DAY_OF_WEEK_IN_MONTH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, DAY_OF_WEEK_IN_MONTH, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_WEEK_OF_YEAR_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, WEEK_OF_YEAR_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the week of the year part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_WEEK_OF_YEAR();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_WEEK_OF_YEAR;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, WEEK_OF_YEAR, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_WEEK_OF_MONTH_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, WEEK_OF_MONTH_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the week of the month part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_WEEK_OF_MONTH();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_WEEK_OF_MONTH;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, WEEK_OF_MONTH, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_AM_PM_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, AM_PM_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the time indicator part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_AM_PM();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_AM_PM;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, AM_PM, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_HOUR0_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, HOUR0_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the hour part of a date (0-11).
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_HOUR0();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_HOUR0;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, HOUR0, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_HOUR1_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, HOUR1_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the hour part of a date (1-12).
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_HOUR1();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_HOUR1;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, HOUR1, JavaTextDateFormat_Field *)
 
-FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_TIME_ZONE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaTextDateFormat_Field, TIME_ZONE_, JavaTextDateFormat_Field *)
+/*!
+ @brief Marks the time zone part of a date.
+ */
+inline JavaTextDateFormat_Field *JavaTextDateFormat_Field_get_TIME_ZONE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_TIME_ZONE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaTextDateFormat_Field, TIME_ZONE, JavaTextDateFormat_Field *)
 
 FOUNDATION_EXPORT void JavaTextDateFormat_Field_initWithNSString_withInt_(JavaTextDateFormat_Field *self, NSString *fieldName, jint calendarField);
 
@@ -622,4 +936,8 @@ FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_ofCalendarF
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat_Field)
 
-#endif // _JavaTextDateFormat_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextDateFormat_INCLUDE_ALL")

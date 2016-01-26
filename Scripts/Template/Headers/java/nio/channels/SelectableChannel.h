@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/SelectableChannel.java
 //
 
-#ifndef _JavaNioChannelsSelectableChannel_H_
-#define _JavaNioChannelsSelectableChannel_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/nio/channels/Channel.h"
+
+#pragma push_macro("JavaNioChannelsSelectableChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsSelectableChannel_RESTRICT
+#define JavaNioChannelsSelectableChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsSelectableChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsSelectableChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsSelectableChannel_) && (JavaNioChannelsSelectableChannel_INCLUDE_ALL || defined(JavaNioChannelsSelectableChannel_INCLUDE))
+#define JavaNioChannelsSelectableChannel_
+
+#define JavaNioChannelsSpiAbstractInterruptibleChannel_RESTRICT 1
+#define JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE 1
 #include "../../../java/nio/channels/spi/AbstractInterruptibleChannel.h"
+
+#define JavaNioChannelsChannel_RESTRICT 1
+#define JavaNioChannelsChannel_INCLUDE 1
+#include "../../../java/nio/channels/Channel.h"
 
 @class JavaNioChannelsSelectionKey;
 @class JavaNioChannelsSelector;
@@ -184,4 +201,8 @@ FOUNDATION_EXPORT void JavaNioChannelsSelectableChannel_init(JavaNioChannelsSele
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSelectableChannel)
 
-#endif // _JavaNioChannelsSelectableChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsSelectableChannel_INCLUDE_ALL")

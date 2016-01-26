@@ -3,10 +3,24 @@
 //  source: android/frameworks/base/core/java/android/text/GetChars.java
 //
 
-#ifndef _AndroidTextGetChars_H_
-#define _AndroidTextGetChars_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextGetChars_INCLUDE_ALL")
+#ifdef AndroidTextGetChars_RESTRICT
+#define AndroidTextGetChars_INCLUDE_ALL 0
+#else
+#define AndroidTextGetChars_INCLUDE_ALL 1
+#endif
+#undef AndroidTextGetChars_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextGetChars_) && (AndroidTextGetChars_INCLUDE_ALL || defined(AndroidTextGetChars_INCLUDE))
+#define AndroidTextGetChars_
+
+#define JavaLangCharSequence_RESTRICT 1
+#define JavaLangCharSequence_INCLUDE 1
 #include "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
@@ -34,4 +48,8 @@ J2OBJC_EMPTY_STATIC_INIT(AndroidTextGetChars)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextGetChars)
 
-#endif // _AndroidTextGetChars_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextGetChars_INCLUDE_ALL")

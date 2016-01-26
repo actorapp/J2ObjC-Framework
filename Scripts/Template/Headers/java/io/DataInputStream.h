@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/io/DataInputStream.java
 //
 
-#ifndef _JavaIoDataInputStream_H_
-#define _JavaIoDataInputStream_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/DataInput.h"
+
+#pragma push_macro("JavaIoDataInputStream_INCLUDE_ALL")
+#ifdef JavaIoDataInputStream_RESTRICT
+#define JavaIoDataInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoDataInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoDataInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoDataInputStream_) && (JavaIoDataInputStream_INCLUDE_ALL || defined(JavaIoDataInputStream_INCLUDE))
+#define JavaIoDataInputStream_
+
+#define JavaIoFilterInputStream_RESTRICT 1
+#define JavaIoFilterInputStream_INCLUDE 1
 #include "../../java/io/FilterInputStream.h"
+
+#define JavaIoDataInput_RESTRICT 1
+#define JavaIoDataInput_INCLUDE 1
+#include "../../java/io/DataInput.h"
 
 @class IOSByteArray;
 @class JavaIoInputStream;
@@ -19,6 +36,7 @@
  be read include byte, 16-bit short, 32-bit int, 32-bit float, 64-bit long,
  64-bit double, byte strings, and strings encoded in
  <code>modified UTF-8</code>.
+ - seealso: DataOutputStream
  */
 @interface JavaIoDataInputStream : JavaIoFilterInputStream < JavaIoDataInput >
 
@@ -34,6 +52,8 @@
  <code>DataInputStream</code>. All operations on such a stream will fail.
  @param inArg
  the source InputStream the filter reads from.
+ - seealso: DataOutputStream
+ - seealso: RandomAccessFile
  */
 - (instancetype)initWithJavaIoInputStream:(JavaIoInputStream *)inArg;
 
@@ -63,7 +83,7 @@
 
 /*!
  */
-- (NSString *)readLine;
+- (NSString *)readLine __attribute__((deprecated));
 
 - (jlong)readLong;
 
@@ -88,6 +108,8 @@
  @return the number of bytes actually skipped.
  @throws IOException
  if a problem occurs during skipping.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (jint)skipBytesWithInt:(jint)count;
 
@@ -107,4 +129,8 @@ FOUNDATION_EXPORT NSString *JavaIoDataInputStream_readUTFWithJavaIoDataInput_(id
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataInputStream)
 
-#endif // _JavaIoDataInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoDataInputStream_INCLUDE_ALL")

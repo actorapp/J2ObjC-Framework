@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/parsers/SAXParserFactory.java
 //
 
-#ifndef _JavaxXmlParsersSAXParserFactory_H_
-#define _JavaxXmlParsersSAXParserFactory_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlParsersSAXParserFactory_INCLUDE_ALL")
+#ifdef JavaxXmlParsersSAXParserFactory_RESTRICT
+#define JavaxXmlParsersSAXParserFactory_INCLUDE_ALL 0
+#else
+#define JavaxXmlParsersSAXParserFactory_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlParsersSAXParserFactory_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlParsersSAXParserFactory_) && (JavaxXmlParsersSAXParserFactory_INCLUDE_ALL || defined(JavaxXmlParsersSAXParserFactory_INCLUDE))
+#define JavaxXmlParsersSAXParserFactory_
 
 @class JavaLangClassLoader;
 @class JavaxXmlParsersSAXParser;
@@ -31,6 +42,7 @@
  @exception ParserConfigurationException if a parser cannot be created which satisfies the requested configuration.
  @exception SAXNotRecognizedException When the underlying XMLReader does not recognize the property name.
  @exception SAXNotSupportedException When the underlying XMLReader recognizes the property name but doesn't support the property.
+ - seealso: org.xml.sax.XMLReader#getProperty
  */
 - (jboolean)getFeatureWithNSString:(NSString *)name;
 
@@ -138,6 +150,7 @@
  recognizes the property name but doesn't support the
  property.
  @throws NullPointerException If the <code>name</code> parameter is null.
+ - seealso: org.xml.sax.XMLReader#setFeature
  */
 - (void)setFeatureWithNSString:(NSString *)name
                    withBoolean:(jboolean)value;
@@ -256,4 +269,8 @@ FOUNDATION_EXPORT JavaxXmlParsersSAXParserFactory *JavaxXmlParsersSAXParserFacto
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersSAXParserFactory)
 
-#endif // _JavaxXmlParsersSAXParserFactory_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlParsersSAXParserFactory_INCLUDE_ALL")

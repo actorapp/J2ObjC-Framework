@@ -3,15 +3,30 @@
 //  source: android/libcore/luni/src/main/java/java/util/UnknownFormatConversionException.java
 //
 
-#ifndef _JavaUtilUnknownFormatConversionException_H_
-#define _JavaUtilUnknownFormatConversionException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilUnknownFormatConversionException_INCLUDE_ALL")
+#ifdef JavaUtilUnknownFormatConversionException_RESTRICT
+#define JavaUtilUnknownFormatConversionException_INCLUDE_ALL 0
+#else
+#define JavaUtilUnknownFormatConversionException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilUnknownFormatConversionException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilUnknownFormatConversionException_) && (JavaUtilUnknownFormatConversionException_INCLUDE_ALL || defined(JavaUtilUnknownFormatConversionException_INCLUDE))
+#define JavaUtilUnknownFormatConversionException_
+
+#define JavaUtilIllegalFormatException_RESTRICT 1
+#define JavaUtilIllegalFormatException_INCLUDE 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
  @brief An <code>UnknownFormatConversionException</code> will be thrown if the format
  conversion is unknown.
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilUnknownFormatConversionException : JavaUtilIllegalFormatException
 
@@ -43,4 +58,8 @@ FOUNDATION_EXPORT JavaUtilUnknownFormatConversionException *new_JavaUtilUnknownF
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUnknownFormatConversionException)
 
-#endif // _JavaUtilUnknownFormatConversionException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilUnknownFormatConversionException_INCLUDE_ALL")

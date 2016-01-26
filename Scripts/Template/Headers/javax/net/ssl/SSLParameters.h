@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLParameters.java
 //
 
-#ifndef _JavaxNetSslSSLParameters_H_
-#define _JavaxNetSslSSLParameters_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLParameters_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLParameters_RESTRICT
+#define JavaxNetSslSSLParameters_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLParameters_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLParameters_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLParameters_) && (JavaxNetSslSSLParameters_INCLUDE_ALL || defined(JavaxNetSslSSLParameters_INCLUDE))
+#define JavaxNetSslSSLParameters_
 
 @class IOSObjectArray;
 
@@ -118,4 +129,8 @@ FOUNDATION_EXPORT JavaxNetSslSSLParameters *new_JavaxNetSslSSLParameters_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLParameters)
 
-#endif // _JavaxNetSslSSLParameters_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLParameters_INCLUDE_ALL")

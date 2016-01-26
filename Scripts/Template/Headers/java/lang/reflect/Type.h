@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/Type.java
 //
 
-#ifndef _JavaLangReflectType_H_
-#define _JavaLangReflectType_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectType_INCLUDE_ALL")
+#ifdef JavaLangReflectType_RESTRICT
+#define JavaLangReflectType_INCLUDE_ALL 0
+#else
+#define JavaLangReflectType_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectType_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectType_) && (JavaLangReflectType_INCLUDE_ALL || defined(JavaLangReflectType_INCLUDE))
+#define JavaLangReflectType_
 
 /*!
  @brief Common interface implemented by all Java types.
@@ -20,4 +31,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangReflectType)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectType)
 
-#endif // _JavaLangReflectType_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectType_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/nio/ByteOrder.java
 //
 
-#ifndef _JavaNioByteOrder_H_
-#define _JavaNioByteOrder_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioByteOrder_INCLUDE_ALL")
+#ifdef JavaNioByteOrder_RESTRICT
+#define JavaNioByteOrder_INCLUDE_ALL 0
+#else
+#define JavaNioByteOrder_INCLUDE_ALL 1
+#endif
+#undef JavaNioByteOrder_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioByteOrder_) && (JavaNioByteOrder_INCLUDE_ALL || defined(JavaNioByteOrder_INCLUDE))
+#define JavaNioByteOrder_
 
 /*!
  @brief Defines byte order constants.
@@ -22,6 +33,10 @@
    */
   jboolean needsSwap_;
 }
+
++ (JavaNioByteOrder *)BIG_ENDIAN_;
+
++ (JavaNioByteOrder *)LITTLE_ENDIAN_;
 
 #pragma mark Public
 
@@ -44,14 +59,28 @@
 
 J2OBJC_STATIC_INIT(JavaNioByteOrder)
 
-FOUNDATION_EXPORT JavaNioByteOrder *JavaNioByteOrder_BIG_ENDIAN__;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioByteOrder, BIG_ENDIAN__, JavaNioByteOrder *)
+/*!
+ @brief This constant represents big endian.
+ */
+inline JavaNioByteOrder *JavaNioByteOrder_get_BIG_ENDIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioByteOrder *JavaNioByteOrder_BIG_ENDIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioByteOrder, BIG_ENDIAN, JavaNioByteOrder *)
 
-FOUNDATION_EXPORT JavaNioByteOrder *JavaNioByteOrder_LITTLE_ENDIAN__;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioByteOrder, LITTLE_ENDIAN__, JavaNioByteOrder *)
+/*!
+ @brief This constant represents little endian.
+ */
+inline JavaNioByteOrder *JavaNioByteOrder_get_LITTLE_ENDIAN();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioByteOrder *JavaNioByteOrder_LITTLE_ENDIAN;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioByteOrder, LITTLE_ENDIAN, JavaNioByteOrder *)
 
 FOUNDATION_EXPORT JavaNioByteOrder *JavaNioByteOrder_nativeOrder();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioByteOrder)
 
-#endif // _JavaNioByteOrder_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioByteOrder_INCLUDE_ALL")

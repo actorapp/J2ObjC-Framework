@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/nio/ByteBuffer.java
 //
 
-#ifndef _JavaNioByteBuffer_H_
-#define _JavaNioByteBuffer_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Comparable.h"
+
+#pragma push_macro("JavaNioByteBuffer_INCLUDE_ALL")
+#ifdef JavaNioByteBuffer_RESTRICT
+#define JavaNioByteBuffer_INCLUDE_ALL 0
+#else
+#define JavaNioByteBuffer_INCLUDE_ALL 1
+#endif
+#undef JavaNioByteBuffer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioByteBuffer_) && (JavaNioByteBuffer_INCLUDE_ALL || defined(JavaNioByteBuffer_INCLUDE))
+#define JavaNioByteBuffer_
+
+#define JavaNioBuffer_RESTRICT 1
+#define JavaNioBuffer_INCLUDE 1
 #include "../../java/nio/Buffer.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
+#include "../../java/lang/Comparable.h"
 
 @class IOSByteArray;
 @class JavaNioByteOrder;
@@ -494,6 +511,7 @@
  the byte order to set. If <code>null</code> then the order
  will be <code>LITTLE_ENDIAN</code>.
  @return <code>this</code>
+ - seealso: ByteOrder
  */
 - (JavaNioByteBuffer *)orderWithJavaNioByteOrder:(JavaNioByteOrder *)byteOrder;
 
@@ -841,16 +859,19 @@
 
 /*!
  @brief Child class implements this method to realize <code>array()</code>.
+ - seealso: #array()
  */
 - (IOSByteArray *)protectedArray;
 
 /*!
  @brief Child class implements this method to realize <code>arrayOffset()</code>.
+ - seealso: #arrayOffset()
  */
 - (jint)protectedArrayOffset;
 
 /*!
  @brief Child class implements this method to realize <code>hasArray()</code>.
+ - seealso: #hasArray()
  */
 - (jboolean)protectedHasArray;
 
@@ -872,4 +893,8 @@ FOUNDATION_EXPORT void JavaNioByteBuffer_initWithInt_withLong_(JavaNioByteBuffer
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioByteBuffer)
 
-#endif // _JavaNioByteBuffer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioByteBuffer_INCLUDE_ALL")

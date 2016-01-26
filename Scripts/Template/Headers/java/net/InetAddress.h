@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/InetAddress.java
 //
 
-#ifndef _JavaNetInetAddress_H_
-#define _JavaNetInetAddress_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetInetAddress_INCLUDE_ALL")
+#ifdef JavaNetInetAddress_RESTRICT
+#define JavaNetInetAddress_INCLUDE_ALL 0
+#else
+#define JavaNetInetAddress_INCLUDE_ALL 1
+#endif
+#undef JavaNetInetAddress_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetInetAddress_) && (JavaNetInetAddress_INCLUDE_ALL || defined(JavaNetInetAddress_INCLUDE))
+#define JavaNetInetAddress_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -96,12 +110,16 @@
  <p>In Android 4.0 (Ice Cream Sandwich) and earlier, DNS caching was performed both by
  InetAddress and by the C library, which meant that DNS TTLs could not be honored correctly.
  In later releases, caching is done solely by the C library and DNS TTLs are honored.
+ - seealso: Inet4Address
+ - seealso: Inet6Address
  */
 @interface JavaNetInetAddress : NSObject < JavaIoSerializable > {
  @public
   IOSByteArray *ipaddress_;
   NSString *hostName_;
 }
+
++ (JavaNetInetAddress *)UNSPECIFIED;
 
 #pragma mark Public
 
@@ -433,8 +451,14 @@ J2OBJC_STATIC_INIT(JavaNetInetAddress)
 J2OBJC_FIELD_SETTER(JavaNetInetAddress, ipaddress_, IOSByteArray *)
 J2OBJC_FIELD_SETTER(JavaNetInetAddress, hostName_, NSString *)
 
-FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInetAddress_UNSPECIFIED_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNetInetAddress, UNSPECIFIED_, JavaNetInetAddress *)
+/*!
+ @brief Used by the DatagramSocket.disconnect implementation.
+  internal use only
+ */
+inline JavaNetInetAddress *JavaNetInetAddress_get_UNSPECIFIED();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInetAddress_UNSPECIFIED;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNetInetAddress, UNSPECIFIED, JavaNetInetAddress *)
 
 FOUNDATION_EXPORT void JavaNetInetAddress_initWithInt_withByteArray_withNSString_(JavaNetInetAddress *self, jint family, IOSByteArray *ipaddress, NSString *hostName);
 
@@ -462,4 +486,8 @@ FOUNDATION_EXPORT JavaNetInetAddress *JavaNetInetAddress_getByAddressWithNSStrin
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetInetAddress)
 
-#endif // _JavaNetInetAddress_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetInetAddress_INCLUDE_ALL")

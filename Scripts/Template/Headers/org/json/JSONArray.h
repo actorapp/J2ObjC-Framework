@@ -3,10 +3,21 @@
 //  source: android/libcore/json/src/main/java/org/json/JSONArray.java
 //
 
-#ifndef _OrgJsonJSONArray_H_
-#define _OrgJsonJSONArray_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("OrgJsonJSONArray_INCLUDE_ALL")
+#ifdef OrgJsonJSONArray_RESTRICT
+#define OrgJsonJSONArray_INCLUDE_ALL 0
+#else
+#define OrgJsonJSONArray_INCLUDE_ALL 1
+#endif
+#undef OrgJsonJSONArray_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgJsonJSONArray_) && (OrgJsonJSONArray_INCLUDE_ALL || defined(OrgJsonJSONArray_INCLUDE))
+#define OrgJsonJSONArray_
 
 @class OrgJsonJSONObject;
 @class OrgJsonJSONStringer;
@@ -426,4 +437,8 @@ FOUNDATION_EXPORT OrgJsonJSONArray *new_OrgJsonJSONArray_initWithId_(id array) N
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONArray)
 
-#endif // _OrgJsonJSONArray_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgJsonJSONArray_INCLUDE_ALL")

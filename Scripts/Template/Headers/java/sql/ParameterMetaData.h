@@ -3,19 +3,25 @@
 //  source: android/libcore/luni/src/main/java/java/sql/ParameterMetaData.java
 //
 
-#ifndef _JavaSqlParameterMetaData_H_
-#define _JavaSqlParameterMetaData_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/sql/Wrapper.h"
 
-#define JavaSqlParameterMetaData_parameterModeIn 1
-#define JavaSqlParameterMetaData_parameterModeInOut 2
-#define JavaSqlParameterMetaData_parameterModeOut 4
-#define JavaSqlParameterMetaData_parameterModeUnknown 0
-#define JavaSqlParameterMetaData_parameterNoNulls 0
-#define JavaSqlParameterMetaData_parameterNullable 1
-#define JavaSqlParameterMetaData_parameterNullableUnknown 2
+#pragma push_macro("JavaSqlParameterMetaData_INCLUDE_ALL")
+#ifdef JavaSqlParameterMetaData_RESTRICT
+#define JavaSqlParameterMetaData_INCLUDE_ALL 0
+#else
+#define JavaSqlParameterMetaData_INCLUDE_ALL 1
+#endif
+#undef JavaSqlParameterMetaData_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlParameterMetaData_) && (JavaSqlParameterMetaData_INCLUDE_ALL || defined(JavaSqlParameterMetaData_INCLUDE))
+#define JavaSqlParameterMetaData_
+
+#define JavaSqlWrapper_RESTRICT 1
+#define JavaSqlWrapper_INCLUDE 1
+#include "../../java/sql/Wrapper.h"
 
 /*!
  @brief An interface used to get information about the types and properties of
@@ -145,22 +151,80 @@
 
 @end
 
+@interface JavaSqlParameterMetaData : NSObject
+
++ (jint)parameterModeIn;
+
++ (jint)parameterModeInOut;
+
++ (jint)parameterModeOut;
+
++ (jint)parameterModeUnknown;
+
++ (jint)parameterNoNulls;
+
++ (jint)parameterNullable;
+
++ (jint)parameterNullableUnknown;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlParameterMetaData)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlParameterMetaData, parameterModeIn, jint)
+/*!
+ @brief Indicates that the parameter mode is <code>IN</code>.
+ */
+inline jint JavaSqlParameterMetaData_get_parameterModeIn();
+#define JavaSqlParameterMetaData_parameterModeIn 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlParameterMetaData, parameterModeIn, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlParameterMetaData, parameterModeInOut, jint)
+/*!
+ @brief Indicates that the parameter mode is <code>INOUT</code>.
+ */
+inline jint JavaSqlParameterMetaData_get_parameterModeInOut();
+#define JavaSqlParameterMetaData_parameterModeInOut 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlParameterMetaData, parameterModeInOut, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlParameterMetaData, parameterModeOut, jint)
+/*!
+ @brief Indicates that the parameter mode is <code>OUT</code>.
+ */
+inline jint JavaSqlParameterMetaData_get_parameterModeOut();
+#define JavaSqlParameterMetaData_parameterModeOut 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlParameterMetaData, parameterModeOut, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlParameterMetaData, parameterModeUnknown, jint)
+/*!
+ @brief Indicates that the parameter mode is not known.
+ */
+inline jint JavaSqlParameterMetaData_get_parameterModeUnknown();
+#define JavaSqlParameterMetaData_parameterModeUnknown 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlParameterMetaData, parameterModeUnknown, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlParameterMetaData, parameterNoNulls, jint)
+/*!
+ @brief Indicates that a parameter is not permitted to be <code>NULL</code>.
+ */
+inline jint JavaSqlParameterMetaData_get_parameterNoNulls();
+#define JavaSqlParameterMetaData_parameterNoNulls 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlParameterMetaData, parameterNoNulls, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlParameterMetaData, parameterNullable, jint)
+/*!
+ @brief Indicates that a parameter is permitted to be <code>NULL</code>.
+ */
+inline jint JavaSqlParameterMetaData_get_parameterNullable();
+#define JavaSqlParameterMetaData_parameterNullable 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlParameterMetaData, parameterNullable, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaSqlParameterMetaData, parameterNullableUnknown, jint)
+/*!
+ @brief Indicates that whether a parameter is allowed to be <code>null</code> or not
+ is not known.
+ */
+inline jint JavaSqlParameterMetaData_get_parameterNullableUnknown();
+#define JavaSqlParameterMetaData_parameterNullableUnknown 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaSqlParameterMetaData, parameterNullableUnknown, jint)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlParameterMetaData)
 
-#endif // _JavaSqlParameterMetaData_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlParameterMetaData_INCLUDE_ALL")

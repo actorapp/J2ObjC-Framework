@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/Comparator.java
 //
 
-#ifndef _JavaUtilComparator_H_
-#define _JavaUtilComparator_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilComparator_INCLUDE_ALL")
+#ifdef JavaUtilComparator_RESTRICT
+#define JavaUtilComparator_INCLUDE_ALL 0
+#else
+#define JavaUtilComparator_INCLUDE_ALL 1
+#endif
+#undef JavaUtilComparator_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilComparator_) && (JavaUtilComparator_INCLUDE_ALL || defined(JavaUtilComparator_INCLUDE))
+#define JavaUtilComparator_
 
 /*!
  @brief A <code>Comparator</code> is used to compare two objects to determine their ordering with
@@ -59,6 +70,8 @@
  the <code>Object</code> to compare with this comparator.
  @return boolean <code>true</code> if specified <code>Object</code> is the same as this
  <code>Object</code>, and <code>false</code> otherwise.
+ - seealso: Object#hashCode
+ - seealso: Object#equals
  */
 - (jboolean)isEqual:(id)object;
 
@@ -68,4 +81,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilComparator)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilComparator)
 
-#endif // _JavaUtilComparator_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilComparator_INCLUDE_ALL")

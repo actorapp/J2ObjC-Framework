@@ -3,17 +3,36 @@
 //  source: android/libcore/luni/src/main/java/java/util/InputMismatchException.java
 //
 
-#ifndef _JavaUtilInputMismatchException_H_
-#define _JavaUtilInputMismatchException_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+
+#pragma push_macro("JavaUtilInputMismatchException_INCLUDE_ALL")
+#ifdef JavaUtilInputMismatchException_RESTRICT
+#define JavaUtilInputMismatchException_INCLUDE_ALL 0
+#else
+#define JavaUtilInputMismatchException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilInputMismatchException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilInputMismatchException_) && (JavaUtilInputMismatchException_INCLUDE_ALL || defined(JavaUtilInputMismatchException_INCLUDE))
+#define JavaUtilInputMismatchException_
+
+#define JavaUtilNoSuchElementException_RESTRICT 1
+#define JavaUtilNoSuchElementException_INCLUDE 1
 #include "../../java/util/NoSuchElementException.h"
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../java/io/Serializable.h"
 
 /*!
  @brief An <code>InputMismatchException</code> is thrown by a scanner to indicate that the
  next token does not match or is out of range for the type specified in the
  pattern.
+ - seealso: Scanner
+ - seealso: java.lang.RuntimeException
  */
 @interface JavaUtilInputMismatchException : JavaUtilNoSuchElementException < JavaIoSerializable >
 
@@ -47,4 +66,8 @@ FOUNDATION_EXPORT JavaUtilInputMismatchException *new_JavaUtilInputMismatchExcep
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilInputMismatchException)
 
-#endif // _JavaUtilInputMismatchException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilInputMismatchException_INCLUDE_ALL")

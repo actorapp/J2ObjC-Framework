@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/IllegalSelectorException.java
 //
 
-#ifndef _JavaNioChannelsIllegalSelectorException_H_
-#define _JavaNioChannelsIllegalSelectorException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsIllegalSelectorException_INCLUDE_ALL")
+#ifdef JavaNioChannelsIllegalSelectorException_RESTRICT
+#define JavaNioChannelsIllegalSelectorException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsIllegalSelectorException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsIllegalSelectorException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsIllegalSelectorException_) && (JavaNioChannelsIllegalSelectorException_INCLUDE_ALL || defined(JavaNioChannelsIllegalSelectorException_INCLUDE))
+#define JavaNioChannelsIllegalSelectorException_
+
+#define JavaLangIllegalArgumentException_RESTRICT 1
+#define JavaLangIllegalArgumentException_INCLUDE 1
 #include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioChannelsIllegalSelectorException *new_JavaNioChannelsIl
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsIllegalSelectorException)
 
-#endif // _JavaNioChannelsIllegalSelectorException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsIllegalSelectorException_INCLUDE_ALL")

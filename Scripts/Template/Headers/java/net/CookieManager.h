@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/CookieManager.java
 //
 
-#ifndef _JavaNetCookieManager_H_
-#define _JavaNetCookieManager_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetCookieManager_INCLUDE_ALL")
+#ifdef JavaNetCookieManager_RESTRICT
+#define JavaNetCookieManager_INCLUDE_ALL 0
+#else
+#define JavaNetCookieManager_INCLUDE_ALL 1
+#endif
+#undef JavaNetCookieManager_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetCookieManager_) && (JavaNetCookieManager_INCLUDE_ALL || defined(JavaNetCookieManager_INCLUDE))
+#define JavaNetCookieManager_
+
+#define JavaNetCookieHandler_RESTRICT 1
+#define JavaNetCookieHandler_INCLUDE 1
 #include "../../java/net/CookieHandler.h"
 
 @class JavaNetURI;
@@ -129,4 +143,8 @@ FOUNDATION_EXPORT NSString *JavaNetCookieManager_pathToCookiePathWithNSString_(N
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetCookieManager)
 
-#endif // _JavaNetCookieManager_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetCookieManager_INCLUDE_ALL")

@@ -3,39 +3,32 @@
 //  source: android/libcore/luni/src/main/java/java/awt/font/NumericShaper.java
 //
 
-#ifndef _JavaAwtFontNumericShaper_H_
-#define _JavaAwtFontNumericShaper_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/io/Serializable.h"
 
-@class IOSCharArray;
+#pragma push_macro("JavaAwtFontNumericShaper_INCLUDE_ALL")
+#ifdef JavaAwtFontNumericShaper_RESTRICT
+#define JavaAwtFontNumericShaper_INCLUDE_ALL 0
+#else
+#define JavaAwtFontNumericShaper_INCLUDE_ALL 1
+#endif
+#undef JavaAwtFontNumericShaper_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
 /*!
  @author Ilya S. Okomin
  @version $Revision$
  */
 
-#define JavaAwtFontNumericShaper_EUROPEAN 1
-#define JavaAwtFontNumericShaper_ARABIC 2
-#define JavaAwtFontNumericShaper_EASTERN_ARABIC 4
-#define JavaAwtFontNumericShaper_DEVANAGARI 8
-#define JavaAwtFontNumericShaper_BENGALI 16
-#define JavaAwtFontNumericShaper_GURMUKHI 32
-#define JavaAwtFontNumericShaper_GUJARATI 64
-#define JavaAwtFontNumericShaper_ORIYA 128
-#define JavaAwtFontNumericShaper_TAMIL 256
-#define JavaAwtFontNumericShaper_TELUGU 512
-#define JavaAwtFontNumericShaper_KANNADA 1024
-#define JavaAwtFontNumericShaper_MALAYALAM 2048
-#define JavaAwtFontNumericShaper_THAI 4096
-#define JavaAwtFontNumericShaper_LAO 8192
-#define JavaAwtFontNumericShaper_TIBETAN 16384
-#define JavaAwtFontNumericShaper_MYANMAR 32768
-#define JavaAwtFontNumericShaper_ETHIOPIC 65536
-#define JavaAwtFontNumericShaper_KHMER 131072
-#define JavaAwtFontNumericShaper_MONGOLIAN 262144
-#define JavaAwtFontNumericShaper_ALL_RANGES 524287
+#if !defined (JavaAwtFontNumericShaper_) && (JavaAwtFontNumericShaper_INCLUDE_ALL || defined(JavaAwtFontNumericShaper_INCLUDE))
+#define JavaAwtFontNumericShaper_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
+#include "../../../java/io/Serializable.h"
+
+@class IOSCharArray;
 
 /*!
  @brief The Class NumericShaper provides methods to convert latin character codes
@@ -44,6 +37,46 @@
  see <a href="http://www.unicode.org/Public/UNIDATA/">unicode.org</a>.
  */
 @interface JavaAwtFontNumericShaper : NSObject < JavaIoSerializable >
+
++ (jint)EUROPEAN;
+
++ (jint)ARABIC;
+
++ (jint)EASTERN_ARABIC;
+
++ (jint)DEVANAGARI;
+
++ (jint)BENGALI;
+
++ (jint)GURMUKHI;
+
++ (jint)GUJARATI;
+
++ (jint)ORIYA;
+
++ (jint)TAMIL;
+
++ (jint)TELUGU;
+
++ (jint)KANNADA;
+
++ (jint)MALAYALAM;
+
++ (jint)THAI;
+
++ (jint)LAO;
+
++ (jint)TIBETAN;
+
++ (jint)MYANMAR;
+
++ (jint)ETHIOPIC;
+
++ (jint)KHMER;
+
++ (jint)MONGOLIAN;
+
++ (jint)ALL_RANGES;
 
 #pragma mark Public
 
@@ -135,50 +168,153 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaAwtFontNumericShaper)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, EUROPEAN, jint)
+/*!
+ @brief The Constant EUROPEAN indicates the latin and extended range,
+ and latin decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_EUROPEAN();
+#define JavaAwtFontNumericShaper_EUROPEAN 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, EUROPEAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, ARABIC, jint)
+/*!
+ @brief The Constant ARABIC indicates the ARABIC range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_ARABIC();
+#define JavaAwtFontNumericShaper_ARABIC 2
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, ARABIC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, EASTERN_ARABIC, jint)
+/*!
+ @brief The Constant EASTERN_ARABIC indicates the ARABIC range and
+ ARABIC_EXTENDED decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_EASTERN_ARABIC();
+#define JavaAwtFontNumericShaper_EASTERN_ARABIC 4
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, EASTERN_ARABIC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, DEVANAGARI, jint)
+/*!
+ @brief The Constant DEVANAGARI indicates the DEVANAGARI range and
+ decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_DEVANAGARI();
+#define JavaAwtFontNumericShaper_DEVANAGARI 8
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, DEVANAGARI, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, BENGALI, jint)
+/*!
+ @brief The Constant BENGALI indicates the BENGALI range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_BENGALI();
+#define JavaAwtFontNumericShaper_BENGALI 16
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, BENGALI, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, GURMUKHI, jint)
+/*!
+ @brief The Constant GURMUKHI indicates the GURMUKHI range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_GURMUKHI();
+#define JavaAwtFontNumericShaper_GURMUKHI 32
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, GURMUKHI, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, GUJARATI, jint)
+/*!
+ @brief The Constant GUJARATI indicates the GUJARATI range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_GUJARATI();
+#define JavaAwtFontNumericShaper_GUJARATI 64
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, GUJARATI, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, ORIYA, jint)
+/*!
+ @brief The Constant ORIYA indicates the ORIYA range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_ORIYA();
+#define JavaAwtFontNumericShaper_ORIYA 128
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, ORIYA, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, TAMIL, jint)
+/*!
+ @brief The Constant TAMIL indicates the TAMIL range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_TAMIL();
+#define JavaAwtFontNumericShaper_TAMIL 256
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, TAMIL, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, TELUGU, jint)
+/*!
+ @brief The Constant TELUGU indicates the TELUGU range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_TELUGU();
+#define JavaAwtFontNumericShaper_TELUGU 512
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, TELUGU, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, KANNADA, jint)
+/*!
+ @brief The Constant KANNADA indicates the KANNADA range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_KANNADA();
+#define JavaAwtFontNumericShaper_KANNADA 1024
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, KANNADA, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, MALAYALAM, jint)
+/*!
+ @brief The Constant MALAYALAM indicates the MALAYALAM range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_MALAYALAM();
+#define JavaAwtFontNumericShaper_MALAYALAM 2048
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, MALAYALAM, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, THAI, jint)
+/*!
+ @brief The Constant THAI indicates the THAI range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_THAI();
+#define JavaAwtFontNumericShaper_THAI 4096
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, THAI, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, LAO, jint)
+/*!
+ @brief The Constant LAO indicates the LAO range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_LAO();
+#define JavaAwtFontNumericShaper_LAO 8192
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, LAO, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, TIBETAN, jint)
+/*!
+ @brief The Constant TIBETAN indicates the TIBETAN range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_TIBETAN();
+#define JavaAwtFontNumericShaper_TIBETAN 16384
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, TIBETAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, MYANMAR, jint)
+/*!
+ @brief The Constant MYANMAR indicates the MYANMAR range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_MYANMAR();
+#define JavaAwtFontNumericShaper_MYANMAR 32768
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, MYANMAR, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, ETHIOPIC, jint)
+/*!
+ @brief The Constant ETHIOPIC indicates the ETHIOPIC range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_ETHIOPIC();
+#define JavaAwtFontNumericShaper_ETHIOPIC 65536
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, ETHIOPIC, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, KHMER, jint)
+/*!
+ @brief The Constant KHMER indicates the KHMER range and decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_KHMER();
+#define JavaAwtFontNumericShaper_KHMER 131072
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, KHMER, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, MONGOLIAN, jint)
+/*!
+ @brief The Constant MONGOLIAN indicates the MONGOLIAN range and
+ decimal base.
+ */
+inline jint JavaAwtFontNumericShaper_get_MONGOLIAN();
+#define JavaAwtFontNumericShaper_MONGOLIAN 262144
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, MONGOLIAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaAwtFontNumericShaper, ALL_RANGES, jint)
+/*!
+ @brief The Constant ALL_RANGES indicates all ranges.
+ */
+inline jint JavaAwtFontNumericShaper_get_ALL_RANGES();
+#define JavaAwtFontNumericShaper_ALL_RANGES 524287
+J2OBJC_STATIC_FIELD_CONSTANT(JavaAwtFontNumericShaper, ALL_RANGES, jint)
 
 FOUNDATION_EXPORT JavaAwtFontNumericShaper *JavaAwtFontNumericShaper_getContextualShaperWithInt_withInt_(jint ranges, jint defaultContext);
 
@@ -188,4 +324,8 @@ FOUNDATION_EXPORT JavaAwtFontNumericShaper *JavaAwtFontNumericShaper_getShaperWi
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaAwtFontNumericShaper)
 
-#endif // _JavaAwtFontNumericShaper_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaAwtFontNumericShaper_INCLUDE_ALL")

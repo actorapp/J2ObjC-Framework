@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/NonWritableChannelException.java
 //
 
-#ifndef _JavaNioChannelsNonWritableChannelException_H_
-#define _JavaNioChannelsNonWritableChannelException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsNonWritableChannelException_INCLUDE_ALL")
+#ifdef JavaNioChannelsNonWritableChannelException_RESTRICT
+#define JavaNioChannelsNonWritableChannelException_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsNonWritableChannelException_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsNonWritableChannelException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsNonWritableChannelException_) && (JavaNioChannelsNonWritableChannelException_INCLUDE_ALL || defined(JavaNioChannelsNonWritableChannelException_INCLUDE))
+#define JavaNioChannelsNonWritableChannelException_
+
+#define JavaLangIllegalStateException_RESTRICT 1
+#define JavaLangIllegalStateException_INCLUDE 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -32,4 +46,8 @@ FOUNDATION_EXPORT JavaNioChannelsNonWritableChannelException *new_JavaNioChannel
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsNonWritableChannelException)
 
-#endif // _JavaNioChannelsNonWritableChannelException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsNonWritableChannelException_INCLUDE_ALL")

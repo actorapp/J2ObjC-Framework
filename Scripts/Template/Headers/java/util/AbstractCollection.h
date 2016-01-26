@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/AbstractCollection.java
 //
 
-#ifndef _JavaUtilAbstractCollection_H_
-#define _JavaUtilAbstractCollection_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilAbstractCollection_INCLUDE_ALL")
+#ifdef JavaUtilAbstractCollection_RESTRICT
+#define JavaUtilAbstractCollection_INCLUDE_ALL 0
+#else
+#define JavaUtilAbstractCollection_INCLUDE_ALL 1
+#endif
+#undef JavaUtilAbstractCollection_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilAbstractCollection_) && (JavaUtilAbstractCollection_INCLUDE_ALL || defined(JavaUtilAbstractCollection_INCLUDE))
+#define JavaUtilAbstractCollection_
+
+#define JavaUtilCollection_RESTRICT 1
+#define JavaUtilCollection_INCLUDE 1
 #include "../../java/util/Collection.h"
 
 @class IOSObjectArray;
@@ -69,6 +83,9 @@
  @throws UnsupportedOperationException
  it the iterator does not support removing elements from
  this <code>Collection</code>
+ - seealso: #iterator
+ - seealso: #isEmpty
+ - seealso: #size
  */
 - (void)clear;
 
@@ -121,6 +138,7 @@
  tests, whether <code>size</code> returns 0.
  @return <code>true</code> if this <code>Collection</code> has no elements, <code>false</code>
  otherwise.
+ - seealso: #size
  */
 - (jboolean)isEmpty;
 
@@ -258,7 +276,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilAbstractCollection)
@@ -267,4 +284,8 @@ FOUNDATION_EXPORT void JavaUtilAbstractCollection_init(JavaUtilAbstractCollectio
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractCollection)
 
-#endif // _JavaUtilAbstractCollection_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilAbstractCollection_INCLUDE_ALL")

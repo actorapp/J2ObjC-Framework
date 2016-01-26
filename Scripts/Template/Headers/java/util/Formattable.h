@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/Formattable.java
 //
 
-#ifndef _JavaUtilFormattable_H_
-#define _JavaUtilFormattable_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilFormattable_INCLUDE_ALL")
+#ifdef JavaUtilFormattable_RESTRICT
+#define JavaUtilFormattable_INCLUDE_ALL 0
+#else
+#define JavaUtilFormattable_INCLUDE_ALL 1
+#endif
+#undef JavaUtilFormattable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilFormattable_) && (JavaUtilFormattable_INCLUDE_ALL || defined(JavaUtilFormattable_INCLUDE))
+#define JavaUtilFormattable_
 
 @class JavaUtilFormatter;
 
@@ -15,6 +26,7 @@
  should implement the <code>Formattable</code> interface.
  It gives basic control over
  formatting objects.
+ - seealso: Formatter
  */
 @protocol JavaUtilFormattable < NSObject, JavaObject >
 
@@ -56,4 +68,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilFormattable)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormattable)
 
-#endif // _JavaUtilFormattable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilFormattable_INCLUDE_ALL")

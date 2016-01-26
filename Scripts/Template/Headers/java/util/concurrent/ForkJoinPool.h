@@ -3,23 +3,37 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ForkJoinPool.java
 //
 
-#ifndef _JavaUtilConcurrentForkJoinPool_H_
-#define _JavaUtilConcurrentForkJoinPool_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentForkJoinPool_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentForkJoinPool_RESTRICT
+#define JavaUtilConcurrentForkJoinPool_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentForkJoinPool_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentForkJoinPool_RESTRICT
+#ifdef JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_INCLUDE
+#define JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentForkJoinPool_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_INCLUDE))
+#define JavaUtilConcurrentForkJoinPool_
+
+#define JavaUtilConcurrentAbstractExecutorService_RESTRICT 1
+#define JavaUtilConcurrentAbstractExecutorService_INCLUDE 1
 #include "../../../java/util/concurrent/AbstractExecutorService.h"
-#include "../../../java/util/concurrent/ForkJoinTask.h"
 
 @class IOSObjectArray;
-@class JavaLangThread;
 @class JavaLangThreadLocal;
 @class JavaLangThrowable;
-@class JavaLangVoid;
 @class JavaUtilConcurrentCountedCompleter;
 @class JavaUtilConcurrentForkJoinPool_WorkQueue;
 @class JavaUtilConcurrentForkJoinTask;
 @class JavaUtilConcurrentForkJoinWorkerThread;
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaLangThread_UncaughtExceptionHandler;
 @protocol JavaUtilCollection;
@@ -28,10 +42,6 @@
 @protocol JavaUtilConcurrentForkJoinPool_ManagedBlocker;
 @protocol JavaUtilConcurrentRunnableFuture;
 @protocol JavaUtilList;
-
-#define JavaUtilConcurrentForkJoinPool_LIFO_QUEUE 0
-#define JavaUtilConcurrentForkJoinPool_FIFO_QUEUE 1
-#define JavaUtilConcurrentForkJoinPool_SHARED_QUEUE -1
 
 /*!
  @brief An <code>ExecutorService</code> for running <code>ForkJoinTask</code>s.
@@ -148,6 +158,20 @@
   volatile_id pad18_, pad19_, pad1a_, pad1b_;
 }
 
++ (JavaLangThreadLocal *)submitters;
+
++ (id<JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory>)defaultForkJoinWorkerThreadFactory;
+
++ (JavaUtilConcurrentForkJoinPool *)common;
+
++ (jint)commonParallelism;
+
++ (jint)LIFO_QUEUE;
+
++ (jint)FIFO_QUEUE;
+
++ (jint)SHARED_QUEUE;
+
 #pragma mark Public
 
 /*!
@@ -205,7 +229,7 @@ withJavaLangThread_UncaughtExceptionHandler:(id<JavaLangThread_UncaughtException
  timeout elapsed.
  */
 - (jboolean)awaitQuiescenceWithLong:(jlong)timeout
- withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+     withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Blocks until all tasks have completed execution after a
@@ -222,7 +246,7 @@ withJavaLangThread_UncaughtExceptionHandler:(id<JavaLangThread_UncaughtException
  @throws InterruptedException if interrupted while waiting
  */
 - (jboolean)awaitTerminationWithLong:(jlong)timeout
-  withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+      withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Returns the common pool instance.
@@ -728,23 +752,64 @@ J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentForkJoinPool, pad19_, id)
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentForkJoinPool, pad1a_, id)
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentForkJoinPool, pad1b_, id)
 
-FOUNDATION_EXPORT JavaLangThreadLocal *JavaUtilConcurrentForkJoinPool_submitters_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinPool, submitters_, JavaLangThreadLocal *)
+/*!
+ @brief Per-thread submission bookkeeping.
+ Shared across all pools
+ to reduce ThreadLocal pollution and because random motion
+ to avoid contention in one pool is likely to hold for others.
+ Lazily initialized on first submission (but null-checked
+ in other contexts to avoid unnecessary initialization).
+ */
+inline JavaLangThreadLocal *JavaUtilConcurrentForkJoinPool_get_submitters();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangThreadLocal *JavaUtilConcurrentForkJoinPool_submitters;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilConcurrentForkJoinPool, submitters, JavaLangThreadLocal *)
 
-FOUNDATION_EXPORT id<JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory> JavaUtilConcurrentForkJoinPool_defaultForkJoinWorkerThreadFactory_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinPool, defaultForkJoinWorkerThreadFactory_, id<JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory>)
+/*!
+ @brief Creates a new ForkJoinWorkerThread.
+ This factory is used unless
+ overridden in ForkJoinPool constructors.
+ */
+inline id<JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory> JavaUtilConcurrentForkJoinPool_get_defaultForkJoinWorkerThreadFactory();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT id<JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory> JavaUtilConcurrentForkJoinPool_defaultForkJoinWorkerThreadFactory;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilConcurrentForkJoinPool, defaultForkJoinWorkerThreadFactory, id<JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory>)
 
-FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool *JavaUtilConcurrentForkJoinPool_common_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinPool, common_, JavaUtilConcurrentForkJoinPool *)
+/*!
+ @brief Common (static) pool.
+ Non-null for public use unless a static
+ construction exception, but internal usages null-check on use
+ to paranoically avoid potential initialization circularities
+ as well as to simplify generated code.
+ */
+inline JavaUtilConcurrentForkJoinPool *JavaUtilConcurrentForkJoinPool_get_common();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool *JavaUtilConcurrentForkJoinPool_common;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilConcurrentForkJoinPool, common, JavaUtilConcurrentForkJoinPool *)
 
-FOUNDATION_EXPORT jint JavaUtilConcurrentForkJoinPool_commonParallelism_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinPool, commonParallelism_, jint)
+/*!
+ @brief Common pool parallelism.
+ To allow simpler use and management
+ when common pool threads are disabled, we allow the underlying
+ common.parallelism field to be zero, but in that case still report
+ parallelism as 1 to reflect resulting caller-runs mechanics.
+ */
+inline jint JavaUtilConcurrentForkJoinPool_get_commonParallelism();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint JavaUtilConcurrentForkJoinPool_commonParallelism;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaUtilConcurrentForkJoinPool, commonParallelism, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinPool, LIFO_QUEUE, jint)
+inline jint JavaUtilConcurrentForkJoinPool_get_LIFO_QUEUE();
+#define JavaUtilConcurrentForkJoinPool_LIFO_QUEUE 0
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinPool, LIFO_QUEUE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinPool, FIFO_QUEUE, jint)
+inline jint JavaUtilConcurrentForkJoinPool_get_FIFO_QUEUE();
+#define JavaUtilConcurrentForkJoinPool_FIFO_QUEUE 1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinPool, FIFO_QUEUE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinPool, SHARED_QUEUE, jint)
+inline jint JavaUtilConcurrentForkJoinPool_get_SHARED_QUEUE();
+#define JavaUtilConcurrentForkJoinPool_SHARED_QUEUE -1
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinPool, SHARED_QUEUE, jint)
 
 FOUNDATION_EXPORT jint JavaUtilConcurrentForkJoinPool_getSurplusQueuedTaskCount();
 
@@ -772,6 +837,14 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_managedBlockWithJavaUtilCo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool)
 
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_INCLUDE))
+#define JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_
+
+@class JavaUtilConcurrentForkJoinPool;
+@class JavaUtilConcurrentForkJoinWorkerThread;
+
 /*!
  @brief Factory for creating new <code>ForkJoinWorkerThread</code>s.
  A <code>ForkJoinWorkerThreadFactory</code> must be defined and used
@@ -793,6 +866,14 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool)
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory)
+
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_INCLUDE))
+#define JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_
+
+@class JavaUtilConcurrentForkJoinPool;
+@class JavaUtilConcurrentForkJoinWorkerThread;
 
 /*!
  @brief Default ForkJoinWorkerThreadFactory implementation; creates a
@@ -817,6 +898,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThrea
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory *new_JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory)
+
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinPool_EmptyTask_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_EmptyTask_INCLUDE))
+#define JavaUtilConcurrentForkJoinPool_EmptyTask_
+
+#define JavaUtilConcurrentForkJoinTask_RESTRICT 1
+#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#include "../../../java/util/concurrent/ForkJoinTask.h"
+
+@class JavaLangVoid;
 
 /*!
  @brief Class for artificial tasks that are used to replace the target
@@ -849,8 +941,17 @@ FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_EmptyTask *new_JavaUtilConcurre
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_EmptyTask)
 
-#define JavaUtilConcurrentForkJoinPool_WorkQueue_INITIAL_QUEUE_CAPACITY 8192
-#define JavaUtilConcurrentForkJoinPool_WorkQueue_MAXIMUM_QUEUE_CAPACITY 67108864
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinPool_WorkQueue_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_WorkQueue_INCLUDE))
+#define JavaUtilConcurrentForkJoinPool_WorkQueue_
+
+@class IOSObjectArray;
+@class JavaLangThread;
+@class JavaUtilConcurrentCountedCompleter;
+@class JavaUtilConcurrentForkJoinPool;
+@class JavaUtilConcurrentForkJoinTask;
+@class JavaUtilConcurrentForkJoinWorkerThread;
 
 /*!
  @brief Queues supporting work-stealing as well as external task
@@ -917,6 +1018,10 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_EmptyTask)
   volatile_id pad10_, pad11_, pad12_, pad13_, pad14_, pad15_, pad16_, pad17_;
   volatile_id pad18_, pad19_, pad1a_, pad1b_, pad1c_, pad1d_;
 }
+
++ (jint)INITIAL_QUEUE_CAPACITY;
+
++ (jint)MAXIMUM_QUEUE_CAPACITY;
 
 #pragma mark Package-Private
 
@@ -1061,15 +1166,41 @@ J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentForkJoinPool_WorkQueue, pad1b_, i
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentForkJoinPool_WorkQueue, pad1c_, id)
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilConcurrentForkJoinPool_WorkQueue, pad1d_, id)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinPool_WorkQueue, INITIAL_QUEUE_CAPACITY, jint)
+/*!
+ @brief Capacity of work-stealing queue array upon initialization.
+ Must be a power of two; at least 4, but should be larger to
+ reduce or eliminate cacheline sharing among queues.
+ Currently, it is much larger, as a partial workaround for
+ the fact that JVMs often place arrays in locations that
+ share GC bookkeeping (especially cardmarks) such that
+ per-write accesses encounter serious memory contention.
+ */
+inline jint JavaUtilConcurrentForkJoinPool_WorkQueue_get_INITIAL_QUEUE_CAPACITY();
+#define JavaUtilConcurrentForkJoinPool_WorkQueue_INITIAL_QUEUE_CAPACITY 8192
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinPool_WorkQueue, INITIAL_QUEUE_CAPACITY, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentForkJoinPool_WorkQueue, MAXIMUM_QUEUE_CAPACITY, jint)
+/*!
+ @brief Maximum size for queue arrays.
+ Must be a power of two less
+ than or equal to 1 << (31 - width of array entry) to ensure
+ lack of wraparound of index calculations, but defined to a
+ value a bit less than this to help users trap runaway
+ programs before saturating systems.
+ */
+inline jint JavaUtilConcurrentForkJoinPool_WorkQueue_get_MAXIMUM_QUEUE_CAPACITY();
+#define JavaUtilConcurrentForkJoinPool_WorkQueue_MAXIMUM_QUEUE_CAPACITY 67108864
+J2OBJC_STATIC_FIELD_CONSTANT(JavaUtilConcurrentForkJoinPool_WorkQueue, MAXIMUM_QUEUE_CAPACITY, jint)
 
 FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_WorkQueue_initWithJavaUtilConcurrentForkJoinPool_withJavaUtilConcurrentForkJoinWorkerThread_withInt_withInt_(JavaUtilConcurrentForkJoinPool_WorkQueue *self, JavaUtilConcurrentForkJoinPool *pool, JavaUtilConcurrentForkJoinWorkerThread *owner, jint mode, jint seed);
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_WorkQueue *new_JavaUtilConcurrentForkJoinPool_WorkQueue_initWithJavaUtilConcurrentForkJoinPool_withJavaUtilConcurrentForkJoinWorkerThread_withInt_withInt_(JavaUtilConcurrentForkJoinPool *pool, JavaUtilConcurrentForkJoinWorkerThread *owner, jint mode, jint seed) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_WorkQueue)
+
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinPool_Submitter_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_Submitter_INCLUDE))
+#define JavaUtilConcurrentForkJoinPool_Submitter_
 
 /*!
  @brief Per-thread records for threads that submit to pools.
@@ -1104,6 +1235,11 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_Submitter_initWithInt_(Jav
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_Submitter *new_JavaUtilConcurrentForkJoinPool_Submitter_initWithInt_(jint s) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_Submitter)
+
+#endif
+
+#if !defined (JavaUtilConcurrentForkJoinPool_ManagedBlocker_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_ManagedBlocker_INCLUDE))
+#define JavaUtilConcurrentForkJoinPool_ManagedBlocker_
 
 /*!
  @brief Interface for extending managed parallelism for tasks running
@@ -1185,4 +1321,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentForkJoinPool_ManagedBlocker)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_ManagedBlocker)
 
-#endif // _JavaUtilConcurrentForkJoinPool_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentForkJoinPool_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/DOMStringList.java
 //
 
-#ifndef _OrgW3cDomDOMStringList_H_
-#define _OrgW3cDomDOMStringList_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomDOMStringList_INCLUDE_ALL")
+#ifdef OrgW3cDomDOMStringList_RESTRICT
+#define OrgW3cDomDOMStringList_INCLUDE_ALL 0
+#else
+#define OrgW3cDomDOMStringList_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomDOMStringList_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomDOMStringList_) && (OrgW3cDomDOMStringList_INCLUDE_ALL || defined(OrgW3cDomDOMStringList_INCLUDE))
+#define OrgW3cDomDOMStringList_
 
 /*!
  @brief The <code>DOMStringList</code> interface provides the abstraction of an
@@ -53,4 +64,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomDOMStringList)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMStringList)
 
-#endif // _OrgW3cDomDOMStringList_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomDOMStringList_INCLUDE_ALL")

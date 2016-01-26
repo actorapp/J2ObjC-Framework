@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/InvalidClassException.java
 //
 
-#ifndef _JavaIoInvalidClassException_H_
-#define _JavaIoInvalidClassException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoInvalidClassException_INCLUDE_ALL")
+#ifdef JavaIoInvalidClassException_RESTRICT
+#define JavaIoInvalidClassException_INCLUDE_ALL 0
+#else
+#define JavaIoInvalidClassException_INCLUDE_ALL 1
+#endif
+#undef JavaIoInvalidClassException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoInvalidClassException_) && (JavaIoInvalidClassException_INCLUDE_ALL || defined(JavaIoInvalidClassException_INCLUDE))
+#define JavaIoInvalidClassException_
+
+#define JavaIoObjectStreamException_RESTRICT 1
+#define JavaIoObjectStreamException_INCLUDE 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
@@ -20,6 +34,8 @@
  deserializing) because the no-arg constructor that needs to be run is not
  visible or fails.</li>
  </ul>
+ - seealso: ObjectInputStream#readObject()
+ - seealso: ObjectInputValidation#validateObject()
  */
 @interface JavaIoInvalidClassException : JavaIoObjectStreamException {
  @public
@@ -78,4 +94,8 @@ FOUNDATION_EXPORT JavaIoInvalidClassException *new_JavaIoInvalidClassException_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoInvalidClassException)
 
-#endif // _JavaIoInvalidClassException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoInvalidClassException_INCLUDE_ALL")

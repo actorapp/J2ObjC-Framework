@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/XMLFilter.java
 //
 
-#ifndef _OrgXmlSaxXMLFilter_H_
-#define _OrgXmlSaxXMLFilter_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxXMLFilter_INCLUDE_ALL")
+#ifdef OrgXmlSaxXMLFilter_RESTRICT
+#define OrgXmlSaxXMLFilter_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxXMLFilter_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxXMLFilter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxXMLFilter_) && (OrgXmlSaxXMLFilter_INCLUDE_ALL || defined(OrgXmlSaxXMLFilter_INCLUDE))
+#define OrgXmlSaxXMLFilter_
+
+#define OrgXmlSaxXMLReader_RESTRICT 1
+#define OrgXmlSaxXMLReader_INCLUDE 1
 #include "../../../org/xml/sax/XMLReader.h"
 
 /*!
@@ -29,6 +43,7 @@
  @since SAX 2.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.helpers.XMLFilterImpl
  */
 @protocol OrgXmlSaxXMLFilter < OrgXmlSaxXMLReader, NSObject, JavaObject >
 
@@ -57,4 +72,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxXMLFilter)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxXMLFilter)
 
-#endif // _OrgXmlSaxXMLFilter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxXMLFilter_INCLUDE_ALL")

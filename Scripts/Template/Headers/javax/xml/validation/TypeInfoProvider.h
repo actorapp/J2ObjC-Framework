@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/validation/TypeInfoProvider.java
 //
 
-#ifndef _JavaxXmlValidationTypeInfoProvider_H_
-#define _JavaxXmlValidationTypeInfoProvider_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlValidationTypeInfoProvider_INCLUDE_ALL")
+#ifdef JavaxXmlValidationTypeInfoProvider_RESTRICT
+#define JavaxXmlValidationTypeInfoProvider_INCLUDE_ALL 0
+#else
+#define JavaxXmlValidationTypeInfoProvider_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlValidationTypeInfoProvider_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlValidationTypeInfoProvider_) && (JavaxXmlValidationTypeInfoProvider_INCLUDE_ALL || defined(JavaxXmlValidationTypeInfoProvider_INCLUDE))
+#define JavaxXmlValidationTypeInfoProvider_
 
 @protocol OrgW3cDomTypeInfo;
 
@@ -23,6 +34,7 @@
  <code>ValidatorHandler.getTypeInfoProvider()</code> method.
  @author <a href="mailto:Kohsuke.Kawaguchi@@Sun.com">Kohsuke Kawaguchi</a>
  @version $Revision: 884939 $, $Date: 2009-11-27 10:20:46 -0800 (Fri, 27 Nov 2009) $
+ - seealso: org.w3c.dom.TypeInfo
  @since 1.5
  */
 @interface JavaxXmlValidationTypeInfoProvider : NSObject
@@ -152,4 +164,8 @@ FOUNDATION_EXPORT void JavaxXmlValidationTypeInfoProvider_init(JavaxXmlValidatio
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationTypeInfoProvider)
 
-#endif // _JavaxXmlValidationTypeInfoProvider_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlValidationTypeInfoProvider_INCLUDE_ALL")

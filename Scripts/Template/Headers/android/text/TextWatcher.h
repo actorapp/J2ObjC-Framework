@@ -3,10 +3,24 @@
 //  source: android/frameworks/base/core/java/android/text/TextWatcher.java
 //
 
-#ifndef _AndroidTextTextWatcher_H_
-#define _AndroidTextTextWatcher_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("AndroidTextTextWatcher_INCLUDE_ALL")
+#ifdef AndroidTextTextWatcher_RESTRICT
+#define AndroidTextTextWatcher_INCLUDE_ALL 0
+#else
+#define AndroidTextTextWatcher_INCLUDE_ALL 1
+#endif
+#undef AndroidTextTextWatcher_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextTextWatcher_) && (AndroidTextTextWatcher_INCLUDE_ALL || defined(AndroidTextTextWatcher_INCLUDE))
+#define AndroidTextTextWatcher_
+
+#define AndroidTextNoCopySpan_RESTRICT 1
+#define AndroidTextNoCopySpan_INCLUDE 1
 #include "../../android/text/NoCopySpan.h"
 
 @protocol AndroidTextEditable;
@@ -64,4 +78,8 @@ J2OBJC_EMPTY_STATIC_INIT(AndroidTextTextWatcher)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextWatcher)
 
-#endif // _AndroidTextTextWatcher_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextTextWatcher_INCLUDE_ALL")

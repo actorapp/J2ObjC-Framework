@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/GZIPOutputStream.java
 //
 
-#ifndef _JavaUtilZipGZIPOutputStream_H_
-#define _JavaUtilZipGZIPOutputStream_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipGZIPOutputStream_INCLUDE_ALL")
+#ifdef JavaUtilZipGZIPOutputStream_RESTRICT
+#define JavaUtilZipGZIPOutputStream_INCLUDE_ALL 0
+#else
+#define JavaUtilZipGZIPOutputStream_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipGZIPOutputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipGZIPOutputStream_) && (JavaUtilZipGZIPOutputStream_INCLUDE_ALL || defined(JavaUtilZipGZIPOutputStream_INCLUDE))
+#define JavaUtilZipGZIPOutputStream_
+
+#define JavaUtilZipDeflaterOutputStream_RESTRICT 1
+#define JavaUtilZipDeflaterOutputStream_INCLUDE 1
 #include "../../../java/util/zip/DeflaterOutputStream.h"
 
 @class IOSByteArray;
@@ -114,4 +128,8 @@ FOUNDATION_EXPORT JavaUtilZipGZIPOutputStream *new_JavaUtilZipGZIPOutputStream_i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipGZIPOutputStream)
 
-#endif // _JavaUtilZipGZIPOutputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipGZIPOutputStream_INCLUDE_ALL")

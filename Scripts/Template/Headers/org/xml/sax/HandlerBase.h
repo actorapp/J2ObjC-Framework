@@ -3,13 +3,36 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/HandlerBase.java
 //
 
-#ifndef _OrgXmlSaxHandlerBase_H_
-#define _OrgXmlSaxHandlerBase_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../org/xml/sax/DTDHandler.h"
-#include "../../../org/xml/sax/DocumentHandler.h"
+
+#pragma push_macro("OrgXmlSaxHandlerBase_INCLUDE_ALL")
+#ifdef OrgXmlSaxHandlerBase_RESTRICT
+#define OrgXmlSaxHandlerBase_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHandlerBase_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHandlerBase_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHandlerBase_) && (OrgXmlSaxHandlerBase_INCLUDE_ALL || defined(OrgXmlSaxHandlerBase_INCLUDE))
+#define OrgXmlSaxHandlerBase_
+
+#define OrgXmlSaxEntityResolver_RESTRICT 1
+#define OrgXmlSaxEntityResolver_INCLUDE 1
 #include "../../../org/xml/sax/EntityResolver.h"
+
+#define OrgXmlSaxDTDHandler_RESTRICT 1
+#define OrgXmlSaxDTDHandler_INCLUDE 1
+#include "../../../org/xml/sax/DTDHandler.h"
+
+#define OrgXmlSaxDocumentHandler_RESTRICT 1
+#define OrgXmlSaxDocumentHandler_INCLUDE 1
+#include "../../../org/xml/sax/DocumentHandler.h"
+
+#define OrgXmlSaxErrorHandler_RESTRICT 1
+#define OrgXmlSaxErrorHandler_INCLUDE 1
 #include "../../../org/xml/sax/ErrorHandler.h"
 
 @class IOSCharArray;
@@ -40,7 +63,12 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.EntityResolver
+ - seealso: org.xml.sax.DTDHandler
+ - seealso: org.xml.sax.DocumentHandler
+ - seealso: org.xml.sax.ErrorHandler
  */
+__attribute__((deprecated))
 @interface OrgXmlSaxHandlerBase : NSObject < OrgXmlSaxEntityResolver, OrgXmlSaxDTDHandler, OrgXmlSaxDocumentHandler, OrgXmlSaxErrorHandler >
 
 #pragma mark Public
@@ -59,6 +87,7 @@
  character array.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.DocumentHandler#characters
  */
 - (void)charactersWithCharArray:(IOSCharArray *)ch
                         withInt:(jint)start
@@ -72,6 +101,7 @@
  file).</p>
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.DocumentHandler#endDocument
  */
 - (void)endDocument;
 
@@ -84,6 +114,7 @@
  @param name the element name
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.DocumentHandler#endElement
  */
 - (void)endElementWithNSString:(NSString *)name;
 
@@ -96,6 +127,8 @@
  @param e The warning information encoded as an exception.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ErrorHandler#warning
+ - seealso: org.xml.sax.SAXParseException
  */
 - (void)errorWithOrgXmlSaxSAXParseException:(OrgXmlSaxSAXParseException *)e;
 
@@ -111,6 +144,8 @@
  @param e The error information encoded as an exception.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ErrorHandler#fatalError
+ - seealso: org.xml.sax.SAXParseException
  */
 - (void)fatalErrorWithOrgXmlSaxSAXParseException:(OrgXmlSaxSAXParseException *)e;
 
@@ -126,6 +161,7 @@
  character array.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.DocumentHandler#ignorableWhitespace
  */
 - (void)ignorableWhitespaceWithCharArray:(IOSCharArray *)ch
                                  withInt:(jint)start
@@ -140,6 +176,7 @@
  @param publicId The notation public identifier, or null if not
  available.
  @param systemId The notation system identifier.
+ - seealso: org.xml.sax.DTDHandler#notationDecl
  */
 - (void)notationDeclWithNSString:(NSString *)name
                     withNSString:(NSString *)publicId
@@ -156,6 +193,7 @@
  none is supplied.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.DocumentHandler#processingInstruction
  */
 - (void)processingInstructionWithNSString:(NSString *)target
                              withNSString:(NSString *)data;
@@ -175,6 +213,7 @@
  default behaviour.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.EntityResolver#resolveEntity
  */
 - (OrgXmlSaxInputSource *)resolveEntityWithNSString:(NSString *)publicId
                                        withNSString:(NSString *)systemId;
@@ -185,6 +224,8 @@
  method in a subclass if they wish to store the locator for use
  with other document events.</p>
  @param locator A locator for all SAX document events.
+ - seealso: org.xml.sax.DocumentHandler#setDocumentLocator
+ - seealso: org.xml.sax.Locator
  */
 - (void)setDocumentLocatorWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
 
@@ -196,6 +237,7 @@
  creating an output file).</p>
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.DocumentHandler#startDocument
  */
 - (void)startDocument;
 
@@ -209,6 +251,7 @@
  @param attributes The specified or defaulted attributes.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.DocumentHandler#startElement
  */
 - (void)startElementWithNSString:(NSString *)name
       withOrgXmlSaxAttributeList:(id<OrgXmlSaxAttributeList>)attributes;
@@ -223,6 +266,7 @@
  available.
  @param systemId The entity system identifier.
  @param notationName The name of the associated notation.
+ - seealso: org.xml.sax.DTDHandler#unparsedEntityDecl
  */
 - (void)unparsedEntityDeclWithNSString:(NSString *)name
                           withNSString:(NSString *)publicId
@@ -238,6 +282,8 @@
  @param e The warning information encoded as an exception.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ErrorHandler#warning
+ - seealso: org.xml.sax.SAXParseException
  */
 - (void)warningWithOrgXmlSaxSAXParseException:(OrgXmlSaxSAXParseException *)e;
 
@@ -251,4 +297,8 @@ FOUNDATION_EXPORT OrgXmlSaxHandlerBase *new_OrgXmlSaxHandlerBase_init() NS_RETUR
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHandlerBase)
 
-#endif // _OrgXmlSaxHandlerBase_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHandlerBase_INCLUDE_ALL")

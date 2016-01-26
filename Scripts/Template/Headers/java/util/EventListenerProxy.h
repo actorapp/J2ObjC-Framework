@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/EventListenerProxy.java
 //
 
-#ifndef _JavaUtilEventListenerProxy_H_
-#define _JavaUtilEventListenerProxy_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilEventListenerProxy_INCLUDE_ALL")
+#ifdef JavaUtilEventListenerProxy_RESTRICT
+#define JavaUtilEventListenerProxy_INCLUDE_ALL 0
+#else
+#define JavaUtilEventListenerProxy_INCLUDE_ALL 1
+#endif
+#undef JavaUtilEventListenerProxy_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilEventListenerProxy_) && (JavaUtilEventListenerProxy_INCLUDE_ALL || defined(JavaUtilEventListenerProxy_INCLUDE))
+#define JavaUtilEventListenerProxy_
+
+#define JavaUtilEventListener_RESTRICT 1
+#define JavaUtilEventListener_INCLUDE 1
 #include "../../java/util/EventListener.h"
 
 /*!
@@ -37,4 +51,8 @@ FOUNDATION_EXPORT void JavaUtilEventListenerProxy_initWithJavaUtilEventListener_
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEventListenerProxy)
 
-#endif // _JavaUtilEventListenerProxy_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilEventListenerProxy_INCLUDE_ALL")

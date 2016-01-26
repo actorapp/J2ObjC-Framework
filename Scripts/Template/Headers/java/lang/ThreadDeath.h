@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ThreadDeath.java
 //
 
-#ifndef _JavaLangThreadDeath_H_
-#define _JavaLangThreadDeath_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangThreadDeath_INCLUDE_ALL")
+#ifdef JavaLangThreadDeath_RESTRICT
+#define JavaLangThreadDeath_INCLUDE_ALL 0
+#else
+#define JavaLangThreadDeath_INCLUDE_ALL 1
+#endif
+#undef JavaLangThreadDeath_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangThreadDeath_) && (JavaLangThreadDeath_INCLUDE_ALL || defined(JavaLangThreadDeath_INCLUDE))
+#define JavaLangThreadDeath_
+
+#define JavaLangError_RESTRICT 1
+#define JavaLangError_INCLUDE 1
 #include "../../java/lang/Error.h"
 
 /*!
@@ -36,4 +50,8 @@ FOUNDATION_EXPORT JavaLangThreadDeath *new_JavaLangThreadDeath_init() NS_RETURNS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadDeath)
 
-#endif // _JavaLangThreadDeath_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangThreadDeath_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/ContentHandler.java
 //
 
-#ifndef _OrgXmlSaxContentHandler_H_
-#define _OrgXmlSaxContentHandler_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxContentHandler_INCLUDE_ALL")
+#ifdef OrgXmlSaxContentHandler_RESTRICT
+#define OrgXmlSaxContentHandler_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxContentHandler_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxContentHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxContentHandler_) && (OrgXmlSaxContentHandler_INCLUDE_ALL || defined(OrgXmlSaxContentHandler_INCLUDE))
+#define OrgXmlSaxContentHandler_
 
 @class IOSCharArray;
 @protocol OrgXmlSaxAttributes;
@@ -50,6 +61,9 @@ import java.net.*;
  @since SAX 2.0
  @author David Megginson
  @version 2.0.1+ (sax2r3pre1)
+ - seealso: org.xml.sax.XMLReader
+ - seealso: org.xml.sax.DTDHandler
+ - seealso: org.xml.sax.ErrorHandler
  */
 @protocol OrgXmlSaxContentHandler < NSObject, JavaObject >
 
@@ -74,6 +88,7 @@ import java.net.*;
  application should not attempt to use it at any other time.</p>
  @param locator an object that can return the location of
  any SAX document event
+ - seealso: org.xml.sax.Locator
  */
 - (void)setDocumentLocatorWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
 
@@ -84,6 +99,7 @@ import java.net.*;
  ).</p>
  @throws org.xml.sax.SAXException any SAX exception, possibly
  wrapping another exception
+ - seealso: #endDocument
  */
 - (void)startDocument;
 
@@ -103,6 +119,7 @@ import java.net.*;
  input.</p>
  @throws org.xml.sax.SAXException any SAX exception, possibly
  wrapping another exception
+ - seealso: #startDocument
  */
 - (void)endDocument;
 
@@ -136,6 +153,8 @@ import java.net.*;
  @param uri the Namespace URI the prefix is mapped to
  @throws org.xml.sax.SAXException the client may throw
  an exception during processing
+ - seealso: #endPrefixMapping
+ - seealso: #startElement
  */
 - (void)startPrefixMappingWithNSString:(NSString *)prefix
                           withNSString:(NSString *)uri;
@@ -151,6 +170,8 @@ import java.net.*;
  This is the empty string when a default mapping scope ends.
  @throws org.xml.sax.SAXException the client may throw
  an exception during processing
+ - seealso: #startPrefixMapping
+ - seealso: #endElement
  */
 - (void)endPrefixMappingWithNSString:(NSString *)prefix;
 
@@ -206,6 +227,9 @@ import java.net.*;
  startElement returns is undefined
  @throws org.xml.sax.SAXException any SAX exception, possibly
  wrapping another exception
+ - seealso: #endElement
+ - seealso: org.xml.sax.Attributes
+ - seealso: org.xml.sax.helpers.AttributesImpl
  */
 - (void)startElementWithNSString:(NSString *)uri
                     withNSString:(NSString *)localName
@@ -268,6 +292,8 @@ import java.net.*;
  @param length the number of characters to read from the array
  @throws org.xml.sax.SAXException any SAX exception, possibly
  wrapping another exception
+ - seealso: #ignorableWhitespace
+ - seealso: org.xml.sax.Locator
  */
 - (void)charactersWithCharArray:(IOSCharArray *)ch
                         withInt:(jint)start
@@ -292,6 +318,7 @@ import java.net.*;
  @param length the number of characters to read from the array
  @throws org.xml.sax.SAXException any SAX exception, possibly
  wrapping another exception
+ - seealso: #characters
  */
 - (void)ignorableWhitespaceWithCharArray:(IOSCharArray *)ch
                                  withInt:(jint)start
@@ -349,4 +376,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxContentHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxContentHandler)
 
-#endif // _OrgXmlSaxContentHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxContentHandler_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicBoolean.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicAtomicBoolean_H_
-#define _JavaUtilConcurrentAtomicAtomicBoolean_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicAtomicBoolean_RESTRICT
+#define JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicAtomicBoolean_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicAtomicBoolean_) && (JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE))
+#define JavaUtilConcurrentAtomicAtomicBoolean_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../../java/io/Serializable.h"
 
 /*!
@@ -105,4 +119,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicBoolean *new_JavaUtilConcurrentA
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicBoolean)
 
-#endif // _JavaUtilConcurrentAtomicAtomicBoolean_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE_ALL")

@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/AtomicStampedReference.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicAtomicStampedReference_H_
-#define _JavaUtilConcurrentAtomicAtomicStampedReference_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicAtomicStampedReference_RESTRICT
+#define JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicAtomicStampedReference_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicAtomicStampedReference_) && (JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE))
+#define JavaUtilConcurrentAtomicAtomicStampedReference_
 
 @class IOSIntArray;
 
@@ -122,4 +133,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicStampedReference *new_JavaUtilCo
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicStampedReference)
 
-#endif // _JavaUtilConcurrentAtomicAtomicStampedReference_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE_ALL")

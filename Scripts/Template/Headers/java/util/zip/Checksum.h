@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/zip/Checksum.java
 //
 
-#ifndef _JavaUtilZipChecksum_H_
-#define _JavaUtilZipChecksum_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilZipChecksum_INCLUDE_ALL")
+#ifdef JavaUtilZipChecksum_RESTRICT
+#define JavaUtilZipChecksum_INCLUDE_ALL 0
+#else
+#define JavaUtilZipChecksum_INCLUDE_ALL 1
+#endif
+#undef JavaUtilZipChecksum_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilZipChecksum_) && (JavaUtilZipChecksum_INCLUDE_ALL || defined(JavaUtilZipChecksum_INCLUDE))
+#define JavaUtilZipChecksum_
 
 @class IOSByteArray;
 
@@ -53,4 +64,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilZipChecksum)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipChecksum)
 
-#endif // _JavaUtilZipChecksum_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilZipChecksum_INCLUDE_ALL")

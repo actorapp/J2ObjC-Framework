@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/jar/ManifestReader.java
 //
 
-#ifndef _JavaUtilJarManifestReader_H_
-#define _JavaUtilJarManifestReader_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilJarManifestReader_INCLUDE_ALL")
+#ifdef JavaUtilJarManifestReader_RESTRICT
+#define JavaUtilJarManifestReader_INCLUDE_ALL 0
+#else
+#define JavaUtilJarManifestReader_INCLUDE_ALL 1
+#endif
+#undef JavaUtilJarManifestReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilJarManifestReader_) && (JavaUtilJarManifestReader_INCLUDE_ALL || defined(JavaUtilJarManifestReader_INCLUDE))
+#define JavaUtilJarManifestReader_
 
 @class IOSByteArray;
 @class JavaUtilJarAttributes;
@@ -39,4 +50,8 @@ FOUNDATION_EXPORT JavaUtilJarManifestReader *new_JavaUtilJarManifestReader_initW
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarManifestReader)
 
-#endif // _JavaUtilJarManifestReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilJarManifestReader_INCLUDE_ALL")

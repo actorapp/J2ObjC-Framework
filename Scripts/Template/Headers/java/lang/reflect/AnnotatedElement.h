@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/AnnotatedElement.java
 //
 
-#ifndef _JavaLangReflectAnnotatedElement_H_
-#define _JavaLangReflectAnnotatedElement_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectAnnotatedElement_INCLUDE_ALL")
+#ifdef JavaLangReflectAnnotatedElement_RESTRICT
+#define JavaLangReflectAnnotatedElement_INCLUDE_ALL 0
+#else
+#define JavaLangReflectAnnotatedElement_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectAnnotatedElement_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectAnnotatedElement_) && (JavaLangReflectAnnotatedElement_INCLUDE_ALL || defined(JavaLangReflectAnnotatedElement_INCLUDE))
+#define JavaLangReflectAnnotatedElement_
 
 @class IOSClass;
 @class IOSObjectArray;
@@ -65,4 +76,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangReflectAnnotatedElement)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectAnnotatedElement)
 
-#endif // _JavaLangReflectAnnotatedElement_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectAnnotatedElement_INCLUDE_ALL")

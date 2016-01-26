@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/Logger.java
 //
 
-#ifndef _JavaUtilLoggingLogger_H_
-#define _JavaUtilLoggingLogger_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLoggingLogger_INCLUDE_ALL")
+#ifdef JavaUtilLoggingLogger_RESTRICT
+#define JavaUtilLoggingLogger_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingLogger_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingLogger_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingLogger_) && (JavaUtilLoggingLogger_INCLUDE_ALL || defined(JavaUtilLoggingLogger_INCLUDE))
+#define JavaUtilLoggingLogger_
 
 @class IOSObjectArray;
 @class JavaLangThrowable;
@@ -56,6 +67,7 @@
  use it any longer.
  <p>
  All methods of this class are thread-safe.
+ - seealso: LogManager
  */
 @interface JavaUtilLoggingLogger : NSObject {
  @public
@@ -85,6 +97,10 @@
    */
   id<JavaUtilList> children_;
 }
+
++ (NSString *)GLOBAL_LOGGER_NAME;
+
++ (JavaUtilLoggingLogger *)global;
 
 #pragma mark Public
 
@@ -724,11 +740,24 @@ J2OBJC_STATIC_INIT(JavaUtilLoggingLogger)
 J2OBJC_VOLATILE_FIELD_SETTER(JavaUtilLoggingLogger, levelObjVal_, JavaUtilLoggingLevel *)
 J2OBJC_FIELD_SETTER(JavaUtilLoggingLogger, children_, id<JavaUtilList>)
 
-FOUNDATION_EXPORT NSString *JavaUtilLoggingLogger_GLOBAL_LOGGER_NAME_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLogger, GLOBAL_LOGGER_NAME_, NSString *)
+/*!
+ @brief The name of the global logger.
+ Before using this, see the discussion of how to use
+ <code>Logger</code> in the class documentation.
+ @since 1.6
+ */
+inline NSString *JavaUtilLoggingLogger_get_GLOBAL_LOGGER_NAME();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT NSString *JavaUtilLoggingLogger_GLOBAL_LOGGER_NAME;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLogger, GLOBAL_LOGGER_NAME, NSString *)
 
-FOUNDATION_EXPORT JavaUtilLoggingLogger *JavaUtilLoggingLogger_global_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilLoggingLogger, global_, JavaUtilLoggingLogger *)
+/*!
+ @brief The global logger is provided as convenience for casual use.
+ */
+inline JavaUtilLoggingLogger *JavaUtilLoggingLogger_get_global();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaUtilLoggingLogger *JavaUtilLoggingLogger_global;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaUtilLoggingLogger, global, JavaUtilLoggingLogger *)
 
 FOUNDATION_EXPORT void JavaUtilLoggingLogger_initWithNSString_withNSString_(JavaUtilLoggingLogger *self, NSString *name, NSString *resourceBundleName);
 
@@ -748,4 +777,8 @@ FOUNDATION_EXPORT JavaUtilLoggingLogger *JavaUtilLoggingLogger_getGlobal();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogger)
 
-#endif // _JavaUtilLoggingLogger_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingLogger_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/NotActiveException.java
 //
 
-#ifndef _JavaIoNotActiveException_H_
-#define _JavaIoNotActiveException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoNotActiveException_INCLUDE_ALL")
+#ifdef JavaIoNotActiveException_RESTRICT
+#define JavaIoNotActiveException_INCLUDE_ALL 0
+#else
+#define JavaIoNotActiveException_INCLUDE_ALL 1
+#endif
+#undef JavaIoNotActiveException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoNotActiveException_) && (JavaIoNotActiveException_INCLUDE_ALL || defined(JavaIoNotActiveException_INCLUDE))
+#define JavaIoNotActiveException_
+
+#define JavaIoObjectStreamException_RESTRICT 1
+#define JavaIoObjectStreamException_INCLUDE 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
@@ -55,4 +69,8 @@ FOUNDATION_EXPORT JavaIoNotActiveException *new_JavaIoNotActiveException_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoNotActiveException)
 
-#endif // _JavaIoNotActiveException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoNotActiveException_INCLUDE_ALL")

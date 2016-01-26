@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLNonTransientException.java
 //
 
-#ifndef _JavaSqlSQLNonTransientException_H_
-#define _JavaSqlSQLNonTransientException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLNonTransientException_INCLUDE_ALL")
+#ifdef JavaSqlSQLNonTransientException_RESTRICT
+#define JavaSqlSQLNonTransientException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLNonTransientException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLNonTransientException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLNonTransientException_) && (JavaSqlSQLNonTransientException_INCLUDE_ALL || defined(JavaSqlSQLNonTransientException_INCLUDE))
+#define JavaSqlSQLNonTransientException_
+
+#define JavaSqlSQLException_RESTRICT 1
+#define JavaSqlSQLException_INCLUDE 1
 #include "../../java/sql/SQLException.h"
 
 @class JavaLangThrowable;
@@ -127,7 +141,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLNonTransientException)
@@ -166,4 +179,8 @@ FOUNDATION_EXPORT JavaSqlSQLNonTransientException *new_JavaSqlSQLNonTransientExc
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLNonTransientException)
 
-#endif // _JavaSqlSQLNonTransientException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLNonTransientException_INCLUDE_ALL")

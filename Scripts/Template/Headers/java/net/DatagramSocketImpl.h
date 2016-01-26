@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/DatagramSocketImpl.java
 //
 
-#ifndef _JavaNetDatagramSocketImpl_H_
-#define _JavaNetDatagramSocketImpl_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetDatagramSocketImpl_INCLUDE_ALL")
+#ifdef JavaNetDatagramSocketImpl_RESTRICT
+#define JavaNetDatagramSocketImpl_INCLUDE_ALL 0
+#else
+#define JavaNetDatagramSocketImpl_INCLUDE_ALL 1
+#endif
+#undef JavaNetDatagramSocketImpl_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetDatagramSocketImpl_) && (JavaNetDatagramSocketImpl_INCLUDE_ALL || defined(JavaNetDatagramSocketImpl_INCLUDE))
+#define JavaNetDatagramSocketImpl_
+
+#define JavaNetSocketOptions_RESTRICT 1
+#define JavaNetSocketOptions_INCLUDE 1
 #include "../../java/net/SocketOptions.h"
 
 @class JavaIoFileDescriptor;
@@ -114,8 +128,9 @@ withJavaNetInetAddress:(JavaNetInetAddress *)addr;
  @throws IOException
  if an error occurs while getting the time-to-live option
  value.
+ - seealso: #getTimeToLive()
  */
-- (jbyte)getTTL;
+- (jbyte)getTTL __attribute__((deprecated));
 
 /*!
  @brief Adds this socket to the multicast group <code>addr</code>.
@@ -266,8 +281,9 @@ withJavaNetInetAddress:(JavaNetInetAddress *)addr;
  &lt;= 255.
  @throws IOException
  if an error occurs while setting the option.
+ - seealso: #setTimeToLive(int)
  */
-- (void)setTTLWithByte:(jbyte)ttl;
+- (void)setTTLWithByte:(jbyte)ttl __attribute__((deprecated));
 
 @end
 
@@ -279,4 +295,8 @@ FOUNDATION_EXPORT void JavaNetDatagramSocketImpl_init(JavaNetDatagramSocketImpl 
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramSocketImpl)
 
-#endif // _JavaNetDatagramSocketImpl_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetDatagramSocketImpl_INCLUDE_ALL")

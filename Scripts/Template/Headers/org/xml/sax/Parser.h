@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/Parser.java
 //
 
-#ifndef _OrgXmlSaxParser_H_
-#define _OrgXmlSaxParser_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxParser_INCLUDE_ALL")
+#ifdef OrgXmlSaxParser_RESTRICT
+#define OrgXmlSaxParser_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxParser_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxParser_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxParser_) && (OrgXmlSaxParser_INCLUDE_ALL || defined(OrgXmlSaxParser_INCLUDE))
+#define OrgXmlSaxParser_
 
 @class JavaUtilLocale;
 @class OrgXmlSaxInputSource;
@@ -39,7 +50,14 @@
  @since SAX 1.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.EntityResolver
+ - seealso: org.xml.sax.DTDHandler
+ - seealso: org.xml.sax.DocumentHandler
+ - seealso: org.xml.sax.ErrorHandler
+ - seealso: org.xml.sax.HandlerBase
+ - seealso: org.xml.sax.InputSource
  */
+__attribute__((deprecated))
 @protocol OrgXmlSaxParser < NSObject, JavaObject >
 
 /*!
@@ -52,6 +70,8 @@
  @exception org.xml.sax.SAXException Throws an exception
  (using the previous or default locale) if the
  requested locale is not supported.
+ - seealso: org.xml.sax.SAXException
+ - seealso: org.xml.sax.SAXParseException
  */
 - (void)setLocaleWithJavaUtilLocale:(JavaUtilLocale *)locale;
 
@@ -65,6 +85,8 @@
  in the middle of a parse, and the SAX parser must begin using
  the new resolver immediately.</p>
  @param resolver The object for resolving entities.
+ - seealso: EntityResolver
+ - seealso: HandlerBase
  */
 - (void)setEntityResolverWithOrgXmlSaxEntityResolver:(id<OrgXmlSaxEntityResolver>)resolver;
 
@@ -78,6 +100,8 @@
  handler in the middle of a parse, and the SAX parser must
  begin using the new handler immediately.</p>
  @param handler The DTD handler.
+ - seealso: DTDHandler
+ - seealso: HandlerBase
  */
 - (void)setDTDHandlerWithOrgXmlSaxDTDHandler:(id<OrgXmlSaxDTDHandler>)handler;
 
@@ -91,6 +115,8 @@
  middle of a parse, and the SAX parser must begin using the new
  handler immediately.</p>
  @param handler The document handler.
+ - seealso: DocumentHandler
+ - seealso: HandlerBase
  */
 - (void)setDocumentHandlerWithOrgXmlSaxDocumentHandler:(id<OrgXmlSaxDocumentHandler>)handler;
 
@@ -104,6 +130,9 @@
  middle of a parse, and the SAX parser must begin using the new
  handler immediately.</p>
  @param handler The error handler.
+ - seealso: ErrorHandler
+ - seealso: SAXException
+ - seealso: HandlerBase
  */
 - (void)setErrorHandlerWithOrgXmlSaxErrorHandler:(id<OrgXmlSaxErrorHandler>)handler;
 
@@ -124,6 +153,12 @@
  @exception java.io.IOException An IO exception from the parser,
  possibly from a byte stream or character stream
  supplied by the application.
+ - seealso: org.xml.sax.InputSource
+ - seealso: #parse(java.lang.String)
+ - seealso: #setEntityResolver
+ - seealso: #setDTDHandler
+ - seealso: #setDocumentHandler
+ - seealso: #setErrorHandler
  */
 - (void)parseWithOrgXmlSaxInputSource:(OrgXmlSaxInputSource *)source;
 
@@ -145,6 +180,7 @@
  @exception java.io.IOException An IO exception from the parser,
  possibly from a byte stream or character stream
  supplied by the application.
+ - seealso: #parse(org.xml.sax.InputSource)
  */
 - (void)parseWithNSString:(NSString *)systemId;
 
@@ -154,4 +190,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxParser)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxParser)
 
-#endif // _OrgXmlSaxParser_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxParser_INCLUDE_ALL")

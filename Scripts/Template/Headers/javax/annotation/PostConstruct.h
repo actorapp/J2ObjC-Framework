@@ -3,10 +3,24 @@
 //  source: Classes/javax/annotation/PostConstruct.java
 //
 
-#ifndef _JavaxAnnotationPostConstruct_H_
-#define _JavaxAnnotationPostConstruct_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxAnnotationPostConstruct_INCLUDE_ALL")
+#ifdef JavaxAnnotationPostConstruct_RESTRICT
+#define JavaxAnnotationPostConstruct_INCLUDE_ALL 0
+#else
+#define JavaxAnnotationPostConstruct_INCLUDE_ALL 1
+#endif
+#undef JavaxAnnotationPostConstruct_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxAnnotationPostConstruct_) && (JavaxAnnotationPostConstruct_INCLUDE_ALL || defined(JavaxAnnotationPostConstruct_INCLUDE))
+#define JavaxAnnotationPostConstruct_
+
+#define JavaLangAnnotationAnnotation_RESTRICT 1
+#define JavaLangAnnotationAnnotation_INCLUDE 1
 #include "../../java/lang/annotation/Annotation.h"
 
 /*!
@@ -26,4 +40,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxAnnotationPostConstruct)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxAnnotationPostConstruct)
 
-#endif // _JavaxAnnotationPostConstruct_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxAnnotationPostConstruct_INCLUDE_ALL")

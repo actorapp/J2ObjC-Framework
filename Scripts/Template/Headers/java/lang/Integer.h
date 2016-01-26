@@ -3,17 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Integer.java
 //
 
-#ifndef _JavaLangInteger_H_
-#define _JavaLangInteger_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangInteger_INCLUDE_ALL")
+#ifdef JavaLangInteger_RESTRICT
+#define JavaLangInteger_INCLUDE_ALL 0
+#else
+#define JavaLangInteger_INCLUDE_ALL 1
+#endif
+#undef JavaLangInteger_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangInteger_) && (JavaLangInteger_INCLUDE_ALL || defined(JavaLangInteger_INCLUDE))
+#define JavaLangInteger_
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
-
-#define JavaLangInteger_MAX_VALUE 2147483647
-#define JavaLangInteger_MIN_VALUE ((jint) 0x80000000)
-#define JavaLangInteger_SIZE 32
 
 /*!
  @brief The wrapper for the primitive type <code>int</code>.
@@ -23,9 +33,18 @@
  Jr.'s Hacker's Delight, (Addison Wesley, 2002)</a> and <a href=
  "http://graphics.stanford.edu/~seander/bithacks.html">Sean Anderson's
  Bit Twiddling Hacks.</a>
+ - seealso: java.lang.Long
  @since 1.0
  */
 @interface JavaLangInteger : NSNumber < JavaLangComparable >
+
++ (jint)MAX_VALUE;
+
++ (jint)MIN_VALUE;
+
++ (jint)SIZE;
+
++ (IOSClass *)TYPE;
 
 #pragma mark Public
 
@@ -43,6 +62,7 @@
  the string representation of an integer value.
  @throws NumberFormatException
  if <code>string</code> cannot be parsed as an integer value.
+ - seealso: #parseInt(String)
  */
 - (instancetype)initWithNSString:(NSString *)string;
 
@@ -75,6 +95,7 @@
  value of <code>object</code>; 0 if the value of this integer and the
  value of <code>object</code> are equal; a positive value if the value
  of this integer is greater than the value of <code>object</code>.
+ - seealso: java.lang.Comparable
  @since 1.2
  */
 - (jint)compareToWithId:(JavaLangInteger *)object;
@@ -386,6 +407,7 @@
  represented by <code>string</code>.
  @throws NumberFormatException
  if <code>string</code> cannot be parsed as an integer value.
+ - seealso: #parseInt(String)
  */
 + (JavaLangInteger *)valueOfWithNSString:(NSString *)string;
 
@@ -403,25 +425,47 @@
  <code>radix < Character.MIN_RADIX ||
  radix > Character.MAX_RADIX</code>
  .
+ - seealso: #parseInt(String,int)
  */
 + (JavaLangInteger *)valueOfWithNSString:(NSString *)string
                                  withInt:(jint)radix;
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_STATIC_INIT(JavaLangInteger)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangInteger, MAX_VALUE, jint)
+/*!
+ @brief Constant for the maximum <code>int</code> value, 2<sup>31</sup>-1.
+ */
+inline jint JavaLangInteger_get_MAX_VALUE();
+#define JavaLangInteger_MAX_VALUE 2147483647
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangInteger, MAX_VALUE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangInteger, MIN_VALUE, jint)
+/*!
+ @brief Constant for the minimum <code>int</code> value, -2<sup>31</sup>.
+ */
+inline jint JavaLangInteger_get_MIN_VALUE();
+#define JavaLangInteger_MIN_VALUE ((jint) 0x80000000)
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangInteger, MIN_VALUE, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(JavaLangInteger, SIZE, jint)
+/*!
+ @brief Constant for the number of bits needed to represent an <code>int</code> in
+ two's complement form.
+ @since 1.5
+ */
+inline jint JavaLangInteger_get_SIZE();
+#define JavaLangInteger_SIZE 32
+J2OBJC_STATIC_FIELD_CONSTANT(JavaLangInteger, SIZE, jint)
 
-FOUNDATION_EXPORT IOSClass *JavaLangInteger_TYPE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangInteger, TYPE_, IOSClass *)
+/*!
+ @brief The <code>Class</code> object that represents the primitive type <code>int</code>.
+ */
+inline IOSClass *JavaLangInteger_get_TYPE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaLangInteger_TYPE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangInteger, TYPE, IOSClass *)
 
 FOUNDATION_EXPORT void JavaLangInteger_initWithInt_(JavaLangInteger *self, jint value);
 
@@ -489,4 +533,8 @@ BOXED_COMPOUND_ASSIGN_MOD(Int, intValue, jint, JavaLangInteger)
 BOXED_COMPOUND_ASSIGN_BITWISE(Int, intValue, jint, JavaLangInteger)
 BOXED_SHIFT_ASSIGN_32(Int, intValue, jint, JavaLangInteger)
 
-#endif // _JavaLangInteger_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangInteger_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/SQLInvalidAuthorizationSpecException.java
 //
 
-#ifndef _JavaSqlSQLInvalidAuthorizationSpecException_H_
-#define _JavaSqlSQLInvalidAuthorizationSpecException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE_ALL")
+#ifdef JavaSqlSQLInvalidAuthorizationSpecException_RESTRICT
+#define JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE_ALL 0
+#else
+#define JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE_ALL 1
+#endif
+#undef JavaSqlSQLInvalidAuthorizationSpecException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlSQLInvalidAuthorizationSpecException_) && (JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE_ALL || defined(JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE))
+#define JavaSqlSQLInvalidAuthorizationSpecException_
+
+#define JavaSqlSQLNonTransientException_RESTRICT 1
+#define JavaSqlSQLNonTransientException_INCLUDE 1
 #include "../../java/sql/SQLNonTransientException.h"
 
 @class JavaLangThrowable;
@@ -136,7 +150,6 @@
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSqlSQLInvalidAuthorizationSpecException)
@@ -175,4 +188,8 @@ FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInv
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLInvalidAuthorizationSpecException)
 
-#endif // _JavaSqlSQLInvalidAuthorizationSpecException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE_ALL")

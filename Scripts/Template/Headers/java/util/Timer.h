@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/Timer.java
 //
 
-#ifndef _JavaUtilTimer_H_
-#define _JavaUtilTimer_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilTimer_INCLUDE_ALL")
+#ifdef JavaUtilTimer_RESTRICT
+#define JavaUtilTimer_INCLUDE_ALL 0
+#else
+#define JavaUtilTimer_INCLUDE_ALL 1
+#endif
+#undef JavaUtilTimer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilTimer_) && (JavaUtilTimer_INCLUDE_ALL || defined(JavaUtilTimer_INCLUDE))
+#define JavaUtilTimer_
 
 @class JavaUtilDate;
 @class JavaUtilTimerTask;
@@ -217,4 +228,8 @@ FOUNDATION_EXPORT JavaUtilTimer *new_JavaUtilTimer_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimer)
 
-#endif // _JavaUtilTimer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilTimer_INCLUDE_ALL")

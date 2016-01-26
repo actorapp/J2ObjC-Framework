@@ -3,13 +3,27 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/ScheduledExecutorService.java
 //
 
-#ifndef _JavaUtilConcurrentScheduledExecutorService_H_
-#define _JavaUtilConcurrentScheduledExecutorService_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentScheduledExecutorService_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentScheduledExecutorService_RESTRICT
+#define JavaUtilConcurrentScheduledExecutorService_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentScheduledExecutorService_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentScheduledExecutorService_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentScheduledExecutorService_) && (JavaUtilConcurrentScheduledExecutorService_INCLUDE_ALL || defined(JavaUtilConcurrentScheduledExecutorService_INCLUDE))
+#define JavaUtilConcurrentScheduledExecutorService_
+
+#define JavaUtilConcurrentExecutorService_RESTRICT 1
+#define JavaUtilConcurrentExecutorService_INCLUDE 1
 #include "../../../java/util/concurrent/ExecutorService.h"
 
-@class JavaUtilConcurrentTimeUnitEnum;
+@class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaUtilConcurrentCallable;
 @protocol JavaUtilConcurrentScheduledFuture;
@@ -80,7 +94,7 @@
  */
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleWithJavaLangRunnable:(id<JavaLangRunnable>)command
                                                              withLong:(jlong)delay
-                                   withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                       withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Creates and executes a ScheduledFuture that becomes enabled after the
@@ -95,7 +109,7 @@
  */
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleWithJavaUtilConcurrentCallable:(id<JavaUtilConcurrentCallable>)callable
                                                                        withLong:(jlong)delay
-                                             withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                                 withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Creates and executes a periodic action that becomes enabled first
@@ -124,7 +138,7 @@
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleAtFixedRateWithJavaLangRunnable:(id<JavaLangRunnable>)command
                                                                         withLong:(jlong)initialDelay
                                                                         withLong:(jlong)period
-                                              withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                                  withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Creates and executes a periodic action that becomes enabled first
@@ -151,7 +165,7 @@
 - (id<JavaUtilConcurrentScheduledFuture>)scheduleWithFixedDelayWithJavaLangRunnable:(id<JavaLangRunnable>)command
                                                                            withLong:(jlong)initialDelay
                                                                            withLong:(jlong)delay
-                                                 withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+                                                     withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 @end
 
@@ -159,4 +173,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentScheduledExecutorService)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentScheduledExecutorService)
 
-#endif // _JavaUtilConcurrentScheduledExecutorService_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentScheduledExecutorService_INCLUDE_ALL")

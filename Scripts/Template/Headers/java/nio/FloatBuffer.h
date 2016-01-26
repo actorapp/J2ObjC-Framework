@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/nio/FloatBuffer.java
 //
 
-#ifndef _JavaNioFloatBuffer_H_
-#define _JavaNioFloatBuffer_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Comparable.h"
+
+#pragma push_macro("JavaNioFloatBuffer_INCLUDE_ALL")
+#ifdef JavaNioFloatBuffer_RESTRICT
+#define JavaNioFloatBuffer_INCLUDE_ALL 0
+#else
+#define JavaNioFloatBuffer_INCLUDE_ALL 1
+#endif
+#undef JavaNioFloatBuffer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioFloatBuffer_) && (JavaNioFloatBuffer_INCLUDE_ALL || defined(JavaNioFloatBuffer_INCLUDE))
+#define JavaNioFloatBuffer_
+
+#define JavaNioBuffer_RESTRICT 1
+#define JavaNioBuffer_INCLUDE 1
 #include "../../java/nio/Buffer.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
+#include "../../java/lang/Comparable.h"
 
 @class IOSFloatArray;
 @class JavaNioByteOrder;
@@ -373,4 +390,8 @@ FOUNDATION_EXPORT void JavaNioFloatBuffer_initWithInt_withLong_(JavaNioFloatBuff
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioFloatBuffer)
 
-#endif // _JavaNioFloatBuffer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioFloatBuffer_INCLUDE_ALL")

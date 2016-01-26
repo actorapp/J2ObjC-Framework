@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/regex/PatternSyntaxException.java
 //
 
-#ifndef _JavaUtilRegexPatternSyntaxException_H_
-#define _JavaUtilRegexPatternSyntaxException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilRegexPatternSyntaxException_INCLUDE_ALL")
+#ifdef JavaUtilRegexPatternSyntaxException_RESTRICT
+#define JavaUtilRegexPatternSyntaxException_INCLUDE_ALL 0
+#else
+#define JavaUtilRegexPatternSyntaxException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilRegexPatternSyntaxException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilRegexPatternSyntaxException_) && (JavaUtilRegexPatternSyntaxException_INCLUDE_ALL || defined(JavaUtilRegexPatternSyntaxException_INCLUDE))
+#define JavaUtilRegexPatternSyntaxException_
+
+#define JavaLangIllegalArgumentException_RESTRICT 1
+#define JavaLangIllegalArgumentException_INCLUDE 1
 #include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -14,6 +28,8 @@
  <code>Pattern</code>.
  Might include a detailed description, the original regular
  expression, and the index at which the error occurred.
+ - seealso: Pattern#compile(String)
+ - seealso: Pattern#compile(java.lang.String,int)
  */
 @interface JavaUtilRegexPatternSyntaxException : JavaLangIllegalArgumentException
 
@@ -75,4 +91,8 @@ FOUNDATION_EXPORT JavaUtilRegexPatternSyntaxException *new_JavaUtilRegexPatternS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexPatternSyntaxException)
 
-#endif // _JavaUtilRegexPatternSyntaxException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilRegexPatternSyntaxException_INCLUDE_ALL")

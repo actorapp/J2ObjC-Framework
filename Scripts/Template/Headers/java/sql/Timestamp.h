@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/sql/Timestamp.java
 //
 
-#ifndef _JavaSqlTimestamp_H_
-#define _JavaSqlTimestamp_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSqlTimestamp_INCLUDE_ALL")
+#ifdef JavaSqlTimestamp_RESTRICT
+#define JavaSqlTimestamp_INCLUDE_ALL 0
+#else
+#define JavaSqlTimestamp_INCLUDE_ALL 1
+#endif
+#undef JavaSqlTimestamp_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSqlTimestamp_) && (JavaSqlTimestamp_INCLUDE_ALL || defined(JavaSqlTimestamp_INCLUDE))
+#define JavaSqlTimestamp_
+
+#define JavaUtilDate_RESTRICT 1
+#define JavaUtilDate_INCLUDE 1
 #include "../../java/util/Date.h"
 
 /*!
@@ -24,6 +38,9 @@
  it extends. Users should be aware that <code>Timestamp</code> objects are not
  interchangable with <code>java.util.Date</code> objects when used outside the
  confines of the <code>java.sql</code> package.
+ - seealso: Date
+ - seealso: Time
+ - seealso: java.util.Date
  */
 @interface JavaSqlTimestamp : JavaUtilDate
 
@@ -57,7 +74,7 @@
                     withInt:(jint)theHour
                     withInt:(jint)theMinute
                     withInt:(jint)theSecond
-                    withInt:(jint)theNano;
+                    withInt:(jint)theNano __attribute__((deprecated));
 
 /*!
  @brief Returns a <code>Timestamp</code> object corresponding to the time represented
@@ -225,4 +242,8 @@ FOUNDATION_EXPORT JavaSqlTimestamp *JavaSqlTimestamp_valueOfWithNSString_(NSStri
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlTimestamp)
 
-#endif // _JavaSqlTimestamp_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSqlTimestamp_INCLUDE_ALL")

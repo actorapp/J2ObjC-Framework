@@ -3,14 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/Exchanger.java
 //
 
-#ifndef _JavaUtilConcurrentExchanger_H_
-#define _JavaUtilConcurrentExchanger_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/lang/ThreadLocal.h"
 
-@class JavaLangThread;
-@class JavaUtilConcurrentTimeUnitEnum;
+#pragma push_macro("JavaUtilConcurrentExchanger_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentExchanger_RESTRICT
+#define JavaUtilConcurrentExchanger_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentExchanger_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentExchanger_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentExchanger_) && (JavaUtilConcurrentExchanger_INCLUDE_ALL || defined(JavaUtilConcurrentExchanger_INCLUDE))
+#define JavaUtilConcurrentExchanger_
+
+@class JavaUtilConcurrentTimeUnit;
 
 /*!
  @brief A synchronization point at which threads can pair and swap elements
@@ -72,6 +81,8 @@
  @author Doug Lea and Bill Scherer and Michael Scott
  */
 @interface JavaUtilConcurrentExchanger : NSObject
+
++ (jint)FULL;
 
 #pragma mark Public
 
@@ -152,20 +163,34 @@
  */
 - (id)exchangeWithId:(id)x
             withLong:(jlong)timeout
-withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 @end
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentExchanger)
 
-FOUNDATION_EXPORT jint JavaUtilConcurrentExchanger_FULL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentExchanger, FULL_, jint)
+/*!
+ @brief The maximum slot index of the arena: The number of slots that
+ can in principle hold all threads without contention, or at
+ most the maximum indexable value.
+ */
+inline jint JavaUtilConcurrentExchanger_get_FULL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint JavaUtilConcurrentExchanger_FULL;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaUtilConcurrentExchanger, FULL, jint)
 
 FOUNDATION_EXPORT void JavaUtilConcurrentExchanger_init(JavaUtilConcurrentExchanger *self);
 
 FOUNDATION_EXPORT JavaUtilConcurrentExchanger *new_JavaUtilConcurrentExchanger_init() NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExchanger)
+
+#endif
+
+#if !defined (JavaUtilConcurrentExchanger_Node_) && (JavaUtilConcurrentExchanger_INCLUDE_ALL || defined(JavaUtilConcurrentExchanger_Node_INCLUDE))
+#define JavaUtilConcurrentExchanger_Node_
+
+@class JavaLangThread;
 
 /*!
  @brief Nodes hold partially exchanged data, plus other per-thread
@@ -234,6 +259,17 @@ FOUNDATION_EXPORT JavaUtilConcurrentExchanger_Node *new_JavaUtilConcurrentExchan
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExchanger_Node)
 
+#endif
+
+#if !defined (JavaUtilConcurrentExchanger_Participant_) && (JavaUtilConcurrentExchanger_INCLUDE_ALL || defined(JavaUtilConcurrentExchanger_Participant_INCLUDE))
+#define JavaUtilConcurrentExchanger_Participant_
+
+#define JavaLangThreadLocal_RESTRICT 1
+#define JavaLangThreadLocal_INCLUDE 1
+#include "../../../java/lang/ThreadLocal.h"
+
+@class JavaUtilConcurrentExchanger_Node;
+
 /*!
  @brief The corresponding thread local class
  */
@@ -257,4 +293,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentExchanger_Participant *new_JavaUtilConcurren
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExchanger_Participant)
 
-#endif // _JavaUtilConcurrentExchanger_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentExchanger_INCLUDE_ALL")

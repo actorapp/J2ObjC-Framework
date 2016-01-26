@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Appendable.java
 //
 
-#ifndef _JavaLangAppendable_H_
-#define _JavaLangAppendable_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangAppendable_INCLUDE_ALL")
+#ifdef JavaLangAppendable_RESTRICT
+#define JavaLangAppendable_INCLUDE_ALL 0
+#else
+#define JavaLangAppendable_INCLUDE_ALL 1
+#endif
+#undef JavaLangAppendable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangAppendable_) && (JavaLangAppendable_INCLUDE_ALL || defined(JavaLangAppendable_INCLUDE))
+#define JavaLangAppendable_
 
 @protocol JavaLangCharSequence;
 
@@ -84,4 +95,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaLangAppendable)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAppendable)
 
-#endif // _JavaLangAppendable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangAppendable_INCLUDE_ALL")

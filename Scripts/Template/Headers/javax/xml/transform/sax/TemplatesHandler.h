@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/sax/TemplatesHandler.java
 //
 
-#ifndef _JavaxXmlTransformSaxTemplatesHandler_H_
-#define _JavaxXmlTransformSaxTemplatesHandler_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformSaxTemplatesHandler_INCLUDE_ALL")
+#ifdef JavaxXmlTransformSaxTemplatesHandler_RESTRICT
+#define JavaxXmlTransformSaxTemplatesHandler_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformSaxTemplatesHandler_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformSaxTemplatesHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformSaxTemplatesHandler_) && (JavaxXmlTransformSaxTemplatesHandler_INCLUDE_ALL || defined(JavaxXmlTransformSaxTemplatesHandler_INCLUDE))
+#define JavaxXmlTransformSaxTemplatesHandler_
+
+#define OrgXmlSaxContentHandler_RESTRICT 1
+#define OrgXmlSaxContentHandler_INCLUDE 1
 #include "../../../../org/xml/sax/ContentHandler.h"
 
 @protocol JavaxXmlTransformTemplates;
@@ -51,4 +65,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformSaxTemplatesHandler)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxTemplatesHandler)
 
-#endif // _JavaxXmlTransformSaxTemplatesHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformSaxTemplatesHandler_INCLUDE_ALL")

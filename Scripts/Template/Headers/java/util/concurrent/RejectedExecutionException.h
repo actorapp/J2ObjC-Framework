@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/RejectedExecutionException.java
 //
 
-#ifndef _JavaUtilConcurrentRejectedExecutionException_H_
-#define _JavaUtilConcurrentRejectedExecutionException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentRejectedExecutionException_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentRejectedExecutionException_RESTRICT
+#define JavaUtilConcurrentRejectedExecutionException_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentRejectedExecutionException_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentRejectedExecutionException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentRejectedExecutionException_) && (JavaUtilConcurrentRejectedExecutionException_INCLUDE_ALL || defined(JavaUtilConcurrentRejectedExecutionException_INCLUDE))
+#define JavaUtilConcurrentRejectedExecutionException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../../java/lang/RuntimeException.h"
 
 @class JavaLangThrowable;
@@ -82,4 +96,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *new_JavaUtilConc
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRejectedExecutionException)
 
-#endif // _JavaUtilConcurrentRejectedExecutionException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentRejectedExecutionException_INCLUDE_ALL")

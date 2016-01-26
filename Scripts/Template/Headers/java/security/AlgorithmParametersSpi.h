@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/AlgorithmParametersSpi.java
 //
 
-#ifndef _JavaSecurityAlgorithmParametersSpi_H_
-#define _JavaSecurityAlgorithmParametersSpi_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityAlgorithmParametersSpi_INCLUDE_ALL")
+#ifdef JavaSecurityAlgorithmParametersSpi_RESTRICT
+#define JavaSecurityAlgorithmParametersSpi_INCLUDE_ALL 0
+#else
+#define JavaSecurityAlgorithmParametersSpi_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityAlgorithmParametersSpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityAlgorithmParametersSpi_) && (JavaSecurityAlgorithmParametersSpi_INCLUDE_ALL || defined(JavaSecurityAlgorithmParametersSpi_INCLUDE))
+#define JavaSecurityAlgorithmParametersSpi_
 
 @class IOSByteArray;
 @class IOSClass;
@@ -15,6 +26,7 @@
 /*!
  @brief <code>AlgorithmParametersSpi</code> is the Service Provider Interface (SPI)
  definition for <code>AlgorithmParameters</code>.
+ - seealso: AlgorithmParameters
  */
 @interface JavaSecurityAlgorithmParametersSpi : NSObject
 
@@ -116,4 +128,8 @@ FOUNDATION_EXPORT void JavaSecurityAlgorithmParametersSpi_init(JavaSecurityAlgor
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAlgorithmParametersSpi)
 
-#endif // _JavaSecurityAlgorithmParametersSpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityAlgorithmParametersSpi_INCLUDE_ALL")

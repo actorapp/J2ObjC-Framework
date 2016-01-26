@@ -3,11 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/ClassLoader.java
 //
 
-#ifndef _JavaLangClassLoader_H_
-#define _JavaLangClassLoader_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/util/Enumeration.h"
+
+#pragma push_macro("JavaLangClassLoader_INCLUDE_ALL")
+#ifdef JavaLangClassLoader_RESTRICT
+#define JavaLangClassLoader_INCLUDE_ALL 0
+#else
+#define JavaLangClassLoader_INCLUDE_ALL 1
+#endif
+#undef JavaLangClassLoader_RESTRICT
+#ifdef JavaLangSystemClassLoader_INCLUDE
+#define JavaLangClassLoader_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangClassLoader_) && (JavaLangClassLoader_INCLUDE_ALL || defined(JavaLangClassLoader_INCLUDE))
+#define JavaLangClassLoader_
 
 @class IOSByteArray;
 @class IOSClass;
@@ -38,6 +51,7 @@
  loaders have a much more limited utility than with JVM-based systems like
  Java and Android.
  </p>
+ - seealso: Class
  */
 @interface JavaLangClassLoader : NSObject
 
@@ -69,6 +83,7 @@
  the name of the resource to find.
  @return the <code>URL</code> object for the requested resource or <code>null</code>
  if the resource can not be found
+ - seealso: Class#getResource
  */
 - (JavaNetURL *)getResourceWithNSString:(NSString *)resName;
 
@@ -80,6 +95,7 @@
  @return a stream for the resource or <code>null</code> if the resource can not be found
  @param resName
  the name of the resource to find.
+ - seealso: Class#getResourceAsStream
  */
 - (JavaIoInputStream *)getResourceAsStreamWithNSString:(NSString *)resName;
 
@@ -113,6 +129,7 @@
  if the resource can not be found.
  @param resName
  the name of the resource to find.
+ - seealso: Class#getResource
  */
 + (JavaNetURL *)getSystemResourceWithNSString:(NSString *)resName;
 
@@ -125,6 +142,7 @@
  @return a stream for the resource or <code>null</code>.
  @param resName
  the name of the resource to find.
+ - seealso: Class#getResourceAsStream
  */
 + (JavaIoInputStream *)getSystemResourceAsStreamWithNSString:(NSString *)resName;
 
@@ -230,7 +248,7 @@
  */
 - (IOSClass *)defineClassWithByteArray:(IOSByteArray *)classRep
                                withInt:(jint)offset
-                               withInt:(jint)length;
+                               withInt:(jint)length __attribute__((deprecated));
 
 /*!
  @brief Constructs a new class from an array of bytes containing a class
@@ -522,6 +540,17 @@ FOUNDATION_EXPORT void JavaLangClassLoader_initWithJavaLangClassLoader_withBoole
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassLoader)
 
+#endif
+
+#if !defined (JavaLangTwoEnumerationsInOne_) && (JavaLangClassLoader_INCLUDE_ALL || defined(JavaLangTwoEnumerationsInOne_INCLUDE))
+#define JavaLangTwoEnumerationsInOne_
+
+#define JavaUtilEnumeration_RESTRICT 1
+#define JavaUtilEnumeration_INCLUDE 1
+#include "../../java/util/Enumeration.h"
+
+@class JavaNetURL;
+
 @interface JavaLangTwoEnumerationsInOne : NSObject < JavaUtilEnumeration >
 
 #pragma mark Public
@@ -543,14 +572,31 @@ FOUNDATION_EXPORT JavaLangTwoEnumerationsInOne *new_JavaLangTwoEnumerationsInOne
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangTwoEnumerationsInOne)
 
+#endif
+
+#if !defined (JavaLangSystemClassLoader_) && (JavaLangClassLoader_INCLUDE_ALL || defined(JavaLangSystemClassLoader_INCLUDE))
+#define JavaLangSystemClassLoader_
+
+@class IOSClass;
+@class JavaIoInputStream;
+@class JavaLangClassLoader;
+@class JavaNetURL;
+@protocol JavaUtilEnumeration;
+
 /*!
  @brief ClassLoader for iOS and OS X.
  */
 @interface JavaLangSystemClassLoader : JavaLangClassLoader
 
++ (JavaLangClassLoader *)loader;
+
++ (void)setLoader:(JavaLangClassLoader *)value;
+
 #pragma mark Public
 
 - (JavaNetURL *)getResourceWithNSString:(NSString *)resName;
+
+- (JavaIoInputStream *)getResourceAsStreamWithNSString:(NSString *)name;
 
 - (id<JavaUtilEnumeration>)getResourcesWithNSString:(NSString *)resName;
 
@@ -573,9 +619,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangTwoEnumerationsInOne)
 
 J2OBJC_STATIC_INIT(JavaLangSystemClassLoader)
 
-FOUNDATION_EXPORT JavaLangClassLoader *JavaLangSystemClassLoader_loader_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangSystemClassLoader, loader_, JavaLangClassLoader *)
-J2OBJC_STATIC_FIELD_SETTER(JavaLangSystemClassLoader, loader_, JavaLangClassLoader *)
+inline JavaLangClassLoader *JavaLangSystemClassLoader_get_loader();
+inline JavaLangClassLoader *JavaLangSystemClassLoader_set_loader(JavaLangClassLoader *value);
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangClassLoader *JavaLangSystemClassLoader_loader;
+J2OBJC_STATIC_FIELD_OBJ(JavaLangSystemClassLoader, loader, JavaLangClassLoader *)
 
 FOUNDATION_EXPORT void JavaLangSystemClassLoader_init(JavaLangSystemClassLoader *self);
 
@@ -583,4 +631,8 @@ FOUNDATION_EXPORT JavaLangSystemClassLoader *new_JavaLangSystemClassLoader_init(
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangSystemClassLoader)
 
-#endif // _JavaLangClassLoader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangClassLoader_INCLUDE_ALL")

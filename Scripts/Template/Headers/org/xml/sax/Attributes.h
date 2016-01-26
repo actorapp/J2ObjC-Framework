@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/Attributes.java
 //
 
-#ifndef _OrgXmlSaxAttributes_H_
-#define _OrgXmlSaxAttributes_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgXmlSaxAttributes_INCLUDE_ALL")
+#ifdef OrgXmlSaxAttributes_RESTRICT
+#define OrgXmlSaxAttributes_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxAttributes_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxAttributes_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxAttributes_) && (OrgXmlSaxAttributes_INCLUDE_ALL || defined(OrgXmlSaxAttributes_INCLUDE))
+#define OrgXmlSaxAttributes_
 
 /*!
  @brief Interface for a list of XML attributes.
@@ -55,6 +66,8 @@
  @since SAX 2.0
  @author David Megginson
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.helpers.AttributesImpl
+ - seealso: org.xml.sax.ext.DeclHandler#attributeDecl
  */
 @protocol OrgXmlSaxAttributes < NSObject, JavaObject >
 
@@ -63,6 +76,11 @@
  <p>Once you know the number of attributes, you can iterate
  through the list.</p>
  @return The number of attributes in the list.
+ - seealso: #getURI(int)
+ - seealso: #getLocalName(int)
+ - seealso: #getQName(int)
+ - seealso: #getType(int)
+ - seealso: #getValue(int)
  */
 - (jint)getLength;
 
@@ -72,6 +90,7 @@
  @return The Namespace URI, or the empty string if none
  is available, or null if the index is out of
  range.
+ - seealso: #getLength
  */
 - (NSString *)getURIWithInt:(jint)index;
 
@@ -81,6 +100,7 @@
  @return The local name, or the empty string if Namespace
  processing is not being performed, or null
  if the index is out of range.
+ - seealso: #getLength
  */
 - (NSString *)getLocalNameWithInt:(jint)index;
 
@@ -90,6 +110,7 @@
  @return The XML qualified name, or the empty string
  if none is available, or null if the index
  is out of range.
+ - seealso: #getLength
  */
 - (NSString *)getQNameWithInt:(jint)index;
 
@@ -107,6 +128,7 @@
  @param index The attribute index (zero-based).
  @return The attribute's type as a string, or null if the
  index is out of range.
+ - seealso: #getLength
  */
 - (NSString *)getTypeWithInt:(jint)index;
 
@@ -119,6 +141,7 @@
  @param index The attribute index (zero-based).
  @return The attribute's value as a string, or null if the
  index is out of range.
+ - seealso: #getLength
  */
 - (NSString *)getValueWithInt:(jint)index;
 
@@ -196,4 +219,8 @@ J2OBJC_EMPTY_STATIC_INIT(OrgXmlSaxAttributes)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxAttributes)
 
-#endif // _OrgXmlSaxAttributes_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxAttributes_INCLUDE_ALL")

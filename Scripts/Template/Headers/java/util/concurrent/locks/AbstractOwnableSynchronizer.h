@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/locks/AbstractOwnableSynchronizer.java
 //
 
-#ifndef _JavaUtilConcurrentLocksAbstractOwnableSynchronizer_H_
-#define _JavaUtilConcurrentLocksAbstractOwnableSynchronizer_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentLocksAbstractOwnableSynchronizer_RESTRICT
+#define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentLocksAbstractOwnableSynchronizer_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentLocksAbstractOwnableSynchronizer_) && (JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE_ALL || defined(JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE))
+#define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../../java/io/Serializable.h"
 
 @class JavaLangThread;
@@ -59,4 +73,8 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksAbstractOwnableSynchronizer_init(J
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractOwnableSynchronizer)
 
-#endif // _JavaUtilConcurrentLocksAbstractOwnableSynchronizer_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/lang/reflect/UndeclaredThrowableException.java
 //
 
-#ifndef _JavaLangReflectUndeclaredThrowableException_H_
-#define _JavaLangReflectUndeclaredThrowableException_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangReflectUndeclaredThrowableException_INCLUDE_ALL")
+#ifdef JavaLangReflectUndeclaredThrowableException_RESTRICT
+#define JavaLangReflectUndeclaredThrowableException_INCLUDE_ALL 0
+#else
+#define JavaLangReflectUndeclaredThrowableException_INCLUDE_ALL 1
+#endif
+#undef JavaLangReflectUndeclaredThrowableException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangReflectUndeclaredThrowableException_) && (JavaLangReflectUndeclaredThrowableException_INCLUDE_ALL || defined(JavaLangReflectUndeclaredThrowableException_INCLUDE))
+#define JavaLangReflectUndeclaredThrowableException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
 #include "../../../java/lang/RuntimeException.h"
 
 @class JavaLangThrowable;
@@ -14,6 +28,7 @@
 /*!
  @brief This class provides a wrapper for an undeclared, checked exception thrown by
  an InvocationHandler.
+ - seealso: java.lang.reflect.InvocationHandler#invoke
  */
 @interface JavaLangReflectUndeclaredThrowableException : JavaLangRuntimeException
 
@@ -66,4 +81,8 @@ FOUNDATION_EXPORT JavaLangReflectUndeclaredThrowableException *new_JavaLangRefle
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectUndeclaredThrowableException)
 
-#endif // _JavaLangReflectUndeclaredThrowableException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangReflectUndeclaredThrowableException_INCLUDE_ALL")

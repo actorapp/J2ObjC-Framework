@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/DomainCombiner.java
 //
 
-#ifndef _JavaSecurityDomainCombiner_H_
-#define _JavaSecurityDomainCombiner_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityDomainCombiner_INCLUDE_ALL")
+#ifdef JavaSecurityDomainCombiner_RESTRICT
+#define JavaSecurityDomainCombiner_INCLUDE_ALL 0
+#else
+#define JavaSecurityDomainCombiner_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityDomainCombiner_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityDomainCombiner_) && (JavaSecurityDomainCombiner_INCLUDE_ALL || defined(JavaSecurityDomainCombiner_INCLUDE))
+#define JavaSecurityDomainCombiner_
 
 @class IOSObjectArray;
 
@@ -36,4 +47,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecurityDomainCombiner)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityDomainCombiner)
 
-#endif // _JavaSecurityDomainCombiner_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityDomainCombiner_INCLUDE_ALL")

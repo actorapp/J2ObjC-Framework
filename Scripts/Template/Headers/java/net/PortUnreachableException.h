@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/net/PortUnreachableException.java
 //
 
-#ifndef _JavaNetPortUnreachableException_H_
-#define _JavaNetPortUnreachableException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNetPortUnreachableException_INCLUDE_ALL")
+#ifdef JavaNetPortUnreachableException_RESTRICT
+#define JavaNetPortUnreachableException_INCLUDE_ALL 0
+#else
+#define JavaNetPortUnreachableException_INCLUDE_ALL 1
+#endif
+#undef JavaNetPortUnreachableException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNetPortUnreachableException_) && (JavaNetPortUnreachableException_INCLUDE_ALL || defined(JavaNetPortUnreachableException_INCLUDE))
+#define JavaNetPortUnreachableException_
+
+#define JavaNetSocketException_RESTRICT 1
+#define JavaNetSocketException_INCLUDE 1
 #include "../../java/net/SocketException.h"
 
 @class JavaLangThrowable;
@@ -56,4 +70,8 @@ FOUNDATION_EXPORT JavaNetPortUnreachableException *new_JavaNetPortUnreachableExc
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetPortUnreachableException)
 
-#endif // _JavaNetPortUnreachableException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNetPortUnreachableException_INCLUDE_ALL")

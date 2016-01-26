@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLContextSpi.java
 //
 
-#ifndef _JavaxNetSslSSLContextSpi_H_
-#define _JavaxNetSslSSLContextSpi_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLContextSpi_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLContextSpi_RESTRICT
+#define JavaxNetSslSSLContextSpi_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLContextSpi_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLContextSpi_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLContextSpi_) && (JavaxNetSslSSLContextSpi_INCLUDE_ALL || defined(JavaxNetSslSSLContextSpi_INCLUDE))
+#define JavaxNetSslSSLContextSpi_
 
 @class IOSObjectArray;
 @class JavaSecuritySecureRandom;
@@ -127,4 +138,8 @@ FOUNDATION_EXPORT void JavaxNetSslSSLContextSpi_init(JavaxNetSslSSLContextSpi *s
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLContextSpi)
 
-#endif // _JavaxNetSslSSLContextSpi_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLContextSpi_INCLUDE_ALL")

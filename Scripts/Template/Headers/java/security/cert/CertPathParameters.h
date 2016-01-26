@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/security/cert/CertPathParameters.java
 //
 
-#ifndef _JavaSecurityCertCertPathParameters_H_
-#define _JavaSecurityCertCertPathParameters_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaSecurityCertCertPathParameters_INCLUDE_ALL")
+#ifdef JavaSecurityCertCertPathParameters_RESTRICT
+#define JavaSecurityCertCertPathParameters_INCLUDE_ALL 0
+#else
+#define JavaSecurityCertCertPathParameters_INCLUDE_ALL 1
+#endif
+#undef JavaSecurityCertCertPathParameters_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaSecurityCertCertPathParameters_) && (JavaSecurityCertCertPathParameters_INCLUDE_ALL || defined(JavaSecurityCertCertPathParameters_INCLUDE))
+#define JavaSecurityCertCertPathParameters_
 
 /*!
  @brief The interface specification for certification path algorithm parameters.
@@ -28,4 +39,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaSecurityCertCertPathParameters)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathParameters)
 
-#endif // _JavaSecurityCertCertPathParameters_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaSecurityCertCertPathParameters_INCLUDE_ALL")

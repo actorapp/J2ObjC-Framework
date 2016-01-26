@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/io/InputStream.java
 //
 
-#ifndef _JavaIoInputStream_H_
-#define _JavaIoInputStream_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoInputStream_INCLUDE_ALL")
+#ifdef JavaIoInputStream_RESTRICT
+#define JavaIoInputStream_INCLUDE_ALL 0
+#else
+#define JavaIoInputStream_INCLUDE_ALL 1
+#endif
+#undef JavaIoInputStream_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoInputStream_) && (JavaIoInputStream_INCLUDE_ALL || defined(JavaIoInputStream_INCLUDE))
+#define JavaIoInputStream_
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
 #include "../../java/io/Closeable.h"
 
 @class IOSByteArray;
@@ -33,6 +47,7 @@
   and <code>read(byte[],int,int)</code>. The
  three argument overload is necessary for bulk access to the data. This is
  much more efficient than byte-by-byte access.
+ - seealso: OutputStream
  */
 @interface JavaIoInputStream : NSObject < JavaIoCloseable >
 
@@ -98,6 +113,8 @@
  @param readlimit
  the number of bytes that can be read from this stream before
  the mark is invalidated.
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (void)markWithInt:(jint)readlimit;
 
@@ -106,6 +123,8 @@
  <code>reset()</code> methods.
  The default implementation returns <code>false</code>.
  @return always <code>false</code>.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (jboolean)markSupported;
 
@@ -178,4 +197,8 @@ FOUNDATION_EXPORT void JavaIoInputStream_init(JavaIoInputStream *self);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoInputStream)
 
-#endif // _JavaIoInputStream_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoInputStream_INCLUDE_ALL")

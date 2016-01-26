@@ -3,16 +3,31 @@
 //  source: android/libcore/luni/src/main/java/java/io/CharArrayReader.java
 //
 
-#ifndef _JavaIoCharArrayReader_H_
-#define _JavaIoCharArrayReader_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoCharArrayReader_INCLUDE_ALL")
+#ifdef JavaIoCharArrayReader_RESTRICT
+#define JavaIoCharArrayReader_INCLUDE_ALL 0
+#else
+#define JavaIoCharArrayReader_INCLUDE_ALL 1
+#endif
+#undef JavaIoCharArrayReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoCharArrayReader_) && (JavaIoCharArrayReader_INCLUDE_ALL || defined(JavaIoCharArrayReader_INCLUDE))
+#define JavaIoCharArrayReader_
+
+#define JavaIoReader_RESTRICT 1
+#define JavaIoReader_INCLUDE 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
 
 /*!
  @brief A specialized <code>Reader</code> for reading the contents of a char array.
+ - seealso: CharArrayWriter
  */
 @interface JavaIoCharArrayReader : JavaIoReader {
  @public
@@ -90,6 +105,8 @@
  @brief Indicates whether this reader supports the <code>mark()</code> and
  <code>reset()</code> methods.
  @return <code>true</code> for CharArrayReader.
+ - seealso: #mark(int)
+ - seealso: #reset()
  */
 - (jboolean)markSupported;
 
@@ -169,4 +186,8 @@ FOUNDATION_EXPORT JavaIoCharArrayReader *new_JavaIoCharArrayReader_initWithCharA
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharArrayReader)
 
-#endif // _JavaIoCharArrayReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoCharArrayReader_INCLUDE_ALL")

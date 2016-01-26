@@ -3,12 +3,29 @@
 //  source: android/libcore/luni/src/main/java/java/io/Reader.java
 //
 
-#ifndef _JavaIoReader_H_
-#define _JavaIoReader_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/io/Closeable.h"
+
+#pragma push_macro("JavaIoReader_INCLUDE_ALL")
+#ifdef JavaIoReader_RESTRICT
+#define JavaIoReader_INCLUDE_ALL 0
+#else
+#define JavaIoReader_INCLUDE_ALL 1
+#endif
+#undef JavaIoReader_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoReader_) && (JavaIoReader_INCLUDE_ALL || defined(JavaIoReader_INCLUDE))
+#define JavaIoReader_
+
+#define JavaLangReadable_RESTRICT 1
+#define JavaLangReadable_INCLUDE 1
 #include "../../java/lang/Readable.h"
+
+#define JavaIoCloseable_RESTRICT 1
+#define JavaIoCloseable_INCLUDE 1
+#include "../../java/io/Closeable.h"
 
 @class IOSCharArray;
 @class JavaNioCharBuffer;
@@ -27,6 +44,7 @@
  <p>
  Many specialized readers for purposes like reading from a file already exist
  in this package.
+ - seealso: Writer
  */
 @interface JavaIoReader : NSObject < JavaLangReadable, JavaIoCloseable > {
  @public
@@ -63,6 +81,8 @@
  if <code>readLimit < 0</code>.
  @throws IOException
  if an error occurs while setting a mark in this reader.
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (void)markWithInt:(jint)readLimit;
 
@@ -133,6 +153,9 @@
  @return always <code>false</code>.
  @throws IOException
  if this reader is closed or some other I/O error occurs.
+ - seealso: #read()
+ - seealso: #read(char[])
+ - seealso: #read(char[],int,int)
  */
 - (jboolean)ready;
 
@@ -144,6 +167,8 @@
  implementation throws an <code>IOException</code>.
  @throws IOException
  always thrown in this default implementation.
+ - seealso: #mark(int)
+ - seealso: #markSupported()
  */
 - (void)reset;
 
@@ -158,6 +183,9 @@
  if <code>charCount < 0</code>.
  @throws IOException
  if this reader is closed or some other I/O error occurs.
+ - seealso: #mark(int)
+ - seealso: #markSupported()
+ - seealso: #reset()
  */
 - (jlong)skipWithLong:(jlong)charCount;
 
@@ -191,4 +219,8 @@ FOUNDATION_EXPORT void JavaIoReader_initWithId_(JavaIoReader *self, id lock);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoReader)
 
-#endif // _JavaIoReader_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoReader_INCLUDE_ALL")

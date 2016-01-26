@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/Channels.java
 //
 
-#ifndef _JavaNioChannelsChannels_H_
-#define _JavaNioChannelsChannels_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaNioChannelsChannels_INCLUDE_ALL")
+#ifdef JavaNioChannelsChannels_RESTRICT
+#define JavaNioChannelsChannels_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsChannels_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsChannels_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsChannels_) && (JavaNioChannelsChannels_INCLUDE_ALL || defined(JavaNioChannelsChannels_INCLUDE))
+#define JavaNioChannelsChannels_
 
 @class JavaIoInputStream;
 @class JavaIoOutputStream;
@@ -181,4 +192,8 @@ FOUNDATION_EXPORT void JavaNioChannelsChannels_checkBlockingWithJavaNioChannelsC
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsChannels)
 
-#endif // _JavaNioChannelsChannels_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsChannels_INCLUDE_ALL")

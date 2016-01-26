@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/atomic/Fences.java
 //
 
-#ifndef _JavaUtilConcurrentAtomicFences_H_
-#define _JavaUtilConcurrentAtomicFences_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilConcurrentAtomicFences_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentAtomicFences_RESTRICT
+#define JavaUtilConcurrentAtomicFences_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentAtomicFences_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentAtomicFences_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentAtomicFences_) && (JavaUtilConcurrentAtomicFences_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicFences_INCLUDE))
+#define JavaUtilConcurrentAtomicFences_
 
 /*!
  @brief A set of methods providing fine-grained control over happens-before
@@ -466,4 +477,8 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicFences_reachabilityFenceWithId_(i
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicFences)
 
-#endif // _JavaUtilConcurrentAtomicFences_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentAtomicFences_INCLUDE_ALL")

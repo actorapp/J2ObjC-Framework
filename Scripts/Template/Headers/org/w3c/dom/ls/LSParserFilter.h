@@ -3,18 +3,24 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/ls/LSParserFilter.java
 //
 
-#ifndef _OrgW3cDomLsLSParserFilter_H_
-#define _OrgW3cDomLsLSParserFilter_H_
-
 #include "../../../../J2ObjC_header.h"
+
+#pragma push_macro("OrgW3cDomLsLSParserFilter_INCLUDE_ALL")
+#ifdef OrgW3cDomLsLSParserFilter_RESTRICT
+#define OrgW3cDomLsLSParserFilter_INCLUDE_ALL 0
+#else
+#define OrgW3cDomLsLSParserFilter_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomLsLSParserFilter_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomLsLSParserFilter_) && (OrgW3cDomLsLSParserFilter_INCLUDE_ALL || defined(OrgW3cDomLsLSParserFilter_INCLUDE))
+#define OrgW3cDomLsLSParserFilter_
 
 @protocol OrgW3cDomElement;
 @protocol OrgW3cDomNode;
-
-#define OrgW3cDomLsLSParserFilter_FILTER_ACCEPT 1
-#define OrgW3cDomLsLSParserFilter_FILTER_REJECT 2
-#define OrgW3cDomLsLSParserFilter_FILTER_SKIP 3
-#define OrgW3cDomLsLSParserFilter_FILTER_INTERRUPT 4
 
 /*!
  @brief <code>LSParserFilter</code>s provide applications the ability to examine
@@ -156,16 +162,54 @@
 
 @end
 
+@interface OrgW3cDomLsLSParserFilter : NSObject
+
++ (jshort)FILTER_ACCEPT;
+
++ (jshort)FILTER_REJECT;
+
++ (jshort)FILTER_SKIP;
+
++ (jshort)FILTER_INTERRUPT;
+
+@end
+
 J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomLsLSParserFilter)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSParserFilter, FILTER_ACCEPT, jshort)
+/*!
+ @brief Accept the node.
+ */
+inline jshort OrgW3cDomLsLSParserFilter_get_FILTER_ACCEPT();
+#define OrgW3cDomLsLSParserFilter_FILTER_ACCEPT 1
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSParserFilter, FILTER_ACCEPT, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSParserFilter, FILTER_REJECT, jshort)
+/*!
+ @brief Reject the node and its children.
+ */
+inline jshort OrgW3cDomLsLSParserFilter_get_FILTER_REJECT();
+#define OrgW3cDomLsLSParserFilter_FILTER_REJECT 2
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSParserFilter, FILTER_REJECT, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSParserFilter, FILTER_SKIP, jshort)
+/*!
+ @brief Skip this single node.
+ The children of this node will still be
+ considered.
+ */
+inline jshort OrgW3cDomLsLSParserFilter_get_FILTER_SKIP();
+#define OrgW3cDomLsLSParserFilter_FILTER_SKIP 3
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSParserFilter, FILTER_SKIP, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSParserFilter, FILTER_INTERRUPT, jshort)
+/*!
+ @brief Interrupt the normal processing of the document.
+ */
+inline jshort OrgW3cDomLsLSParserFilter_get_FILTER_INTERRUPT();
+#define OrgW3cDomLsLSParserFilter_FILTER_INTERRUPT 4
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSParserFilter, FILTER_INTERRUPT, jshort)
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSParserFilter)
 
-#endif // _OrgW3cDomLsLSParserFilter_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomLsLSParserFilter_INCLUDE_ALL")

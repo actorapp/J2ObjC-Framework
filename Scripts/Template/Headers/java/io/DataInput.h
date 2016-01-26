@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/java/io/DataInput.java
 //
 
-#ifndef _JavaIoDataInput_H_
-#define _JavaIoDataInput_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaIoDataInput_INCLUDE_ALL")
+#ifdef JavaIoDataInput_RESTRICT
+#define JavaIoDataInput_INCLUDE_ALL 0
+#else
+#define JavaIoDataInput_INCLUDE_ALL 1
+#endif
+#undef JavaIoDataInput_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaIoDataInput_) && (JavaIoDataInput_INCLUDE_ALL || defined(JavaIoDataInput_INCLUDE))
+#define JavaIoDataInput_
 
 @class IOSByteArray;
 
@@ -34,6 +45,8 @@
  further information about character encoding. MUTF-8 is actually closer to
  the (relatively less well-known) encoding <a
  href="http://www.unicode.org/reports/tr26/">CESU-8</a> than to UTF-8 per se.
+ - seealso: DataInputStream
+ - seealso: RandomAccessFile
  */
 @protocol JavaIoDataInput < NSObject, JavaObject >
 
@@ -44,6 +57,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeBoolean(boolean)
  */
 - (jboolean)readBoolean;
 
@@ -54,6 +68,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeByte(int)
  */
 - (jbyte)readByte;
 
@@ -64,6 +79,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeChar(int)
  */
 - (jchar)readChar;
 
@@ -74,6 +90,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeDouble(double)
  */
 - (jdouble)readDouble;
 
@@ -84,6 +101,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeFloat(float)
  */
 - (jfloat)readFloat;
 
@@ -129,6 +147,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeInt(int)
  */
 - (jint)readInt;
 
@@ -154,6 +173,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeLong(long)
  */
 - (jlong)readLong;
 
@@ -164,6 +184,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeShort(int)
  */
 - (jshort)readShort;
 
@@ -174,6 +195,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeByte(int)
  */
 - (jint)readUnsignedByte;
 
@@ -184,6 +206,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeShort(int)
  */
 - (jint)readUnsignedShort;
 
@@ -194,6 +217,7 @@
  request can be satisfied.
  @throws IOException
  if an I/O error occurs while reading.
+ - seealso: DataOutput#writeUTF(java.lang.String)
  */
 - (NSString *)readUTF;
 
@@ -216,4 +240,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaIoDataInput)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataInput)
 
-#endif // _JavaIoDataInput_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaIoDataInput_INCLUDE_ALL")

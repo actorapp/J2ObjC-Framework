@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/text/ParseException.java
 //
 
-#ifndef _JavaTextParseException_H_
-#define _JavaTextParseException_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaTextParseException_INCLUDE_ALL")
+#ifdef JavaTextParseException_RESTRICT
+#define JavaTextParseException_INCLUDE_ALL 0
+#else
+#define JavaTextParseException_INCLUDE_ALL 1
+#endif
+#undef JavaTextParseException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaTextParseException_) && (JavaTextParseException_INCLUDE_ALL || defined(JavaTextParseException_INCLUDE))
+#define JavaTextParseException_
+
+#define JavaLangException_RESTRICT 1
+#define JavaLangException_INCLUDE 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -43,4 +57,8 @@ FOUNDATION_EXPORT JavaTextParseException *new_JavaTextParseException_initWithNSS
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextParseException)
 
-#endif // _JavaTextParseException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaTextParseException_INCLUDE_ALL")

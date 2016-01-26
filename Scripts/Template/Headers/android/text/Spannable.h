@@ -3,13 +3,25 @@
 //  source: android/frameworks/base/core/java/android/text/Spannable.java
 //
 
-#ifndef _AndroidTextSpannable_H_
-#define _AndroidTextSpannable_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../android/text/Spanned.h"
 
-@protocol JavaLangCharSequence;
+#pragma push_macro("AndroidTextSpannable_INCLUDE_ALL")
+#ifdef AndroidTextSpannable_RESTRICT
+#define AndroidTextSpannable_INCLUDE_ALL 0
+#else
+#define AndroidTextSpannable_INCLUDE_ALL 1
+#endif
+#undef AndroidTextSpannable_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextSpannable_) && (AndroidTextSpannable_INCLUDE_ALL || defined(AndroidTextSpannable_INCLUDE))
+#define AndroidTextSpannable_
+
+#define AndroidTextSpanned_RESTRICT 1
+#define AndroidTextSpanned_INCLUDE 1
+#include "../../android/text/Spanned.h"
 
 /*!
  @brief This is the interface for text to which markup objects can be
@@ -48,6 +60,14 @@ J2OBJC_EMPTY_STATIC_INIT(AndroidTextSpannable)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannable)
 
+#endif
+
+#if !defined (AndroidTextSpannable_Factory_) && (AndroidTextSpannable_INCLUDE_ALL || defined(AndroidTextSpannable_Factory_INCLUDE))
+#define AndroidTextSpannable_Factory_
+
+@protocol AndroidTextSpannable;
+@protocol JavaLangCharSequence;
+
 /*!
  @brief Factory used by TextView to create new Spannables.
  You can subclass
@@ -82,4 +102,8 @@ FOUNDATION_EXPORT AndroidTextSpannable_Factory *new_AndroidTextSpannable_Factory
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannable_Factory)
 
-#endif // _AndroidTextSpannable_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextSpannable_INCLUDE_ALL")

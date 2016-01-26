@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/javax/net/ssl/SSLServerSocket.java
 //
 
-#ifndef _JavaxNetSslSSLServerSocket_H_
-#define _JavaxNetSslSSLServerSocket_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxNetSslSSLServerSocket_INCLUDE_ALL")
+#ifdef JavaxNetSslSSLServerSocket_RESTRICT
+#define JavaxNetSslSSLServerSocket_INCLUDE_ALL 0
+#else
+#define JavaxNetSslSSLServerSocket_INCLUDE_ALL 1
+#endif
+#undef JavaxNetSslSSLServerSocket_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxNetSslSSLServerSocket_) && (JavaxNetSslSSLServerSocket_INCLUDE_ALL || defined(JavaxNetSslSSLServerSocket_INCLUDE))
+#define JavaxNetSslSSLServerSocket_
+
+#define JavaNetServerSocket_RESTRICT 1
+#define JavaNetServerSocket_INCLUDE 1
 #include "../../../java/net/ServerSocket.h"
 
 @class IOSObjectArray;
@@ -220,4 +234,8 @@ FOUNDATION_EXPORT void JavaxNetSslSSLServerSocket_initWithInt_withInt_withJavaNe
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLServerSocket)
 
-#endif // _JavaxNetSslSSLServerSocket_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxNetSslSSLServerSocket_INCLUDE_ALL")

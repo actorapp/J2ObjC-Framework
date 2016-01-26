@@ -3,10 +3,21 @@
 //  source: android/libcore/luni/src/main/java/javax/xml/transform/Source.java
 //
 
-#ifndef _JavaxXmlTransformSource_H_
-#define _JavaxXmlTransformSource_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaxXmlTransformSource_INCLUDE_ALL")
+#ifdef JavaxXmlTransformSource_RESTRICT
+#define JavaxXmlTransformSource_INCLUDE_ALL 0
+#else
+#define JavaxXmlTransformSource_INCLUDE_ALL 1
+#endif
+#undef JavaxXmlTransformSource_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxXmlTransformSource_) && (JavaxXmlTransformSource_INCLUDE_ALL || defined(JavaxXmlTransformSource_INCLUDE))
+#define JavaxXmlTransformSource_
 
 /*!
  @brief An object that implements this interface contains the information
@@ -37,4 +48,8 @@ J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformSource)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSource)
 
-#endif // _JavaxXmlTransformSource_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaxXmlTransformSource_INCLUDE_ALL")

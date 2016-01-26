@@ -3,15 +3,41 @@
 //  source: android/libcore/luni/src/main/java/java/nio/channels/FileChannel.java
 //
 
-#ifndef _JavaNioChannelsFileChannel_H_
-#define _JavaNioChannelsFileChannel_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/nio/channels/ByteChannel.h"
-#include "../../../java/nio/channels/GatheringByteChannel.h"
-#include "../../../java/nio/channels/ScatteringByteChannel.h"
-#include "../../../java/nio/channels/SeekableByteChannel.h"
+
+#pragma push_macro("JavaNioChannelsFileChannel_INCLUDE_ALL")
+#ifdef JavaNioChannelsFileChannel_RESTRICT
+#define JavaNioChannelsFileChannel_INCLUDE_ALL 0
+#else
+#define JavaNioChannelsFileChannel_INCLUDE_ALL 1
+#endif
+#undef JavaNioChannelsFileChannel_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaNioChannelsFileChannel_) && (JavaNioChannelsFileChannel_INCLUDE_ALL || defined(JavaNioChannelsFileChannel_INCLUDE))
+#define JavaNioChannelsFileChannel_
+
+#define JavaNioChannelsSpiAbstractInterruptibleChannel_RESTRICT 1
+#define JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE 1
 #include "../../../java/nio/channels/spi/AbstractInterruptibleChannel.h"
+
+#define JavaNioChannelsGatheringByteChannel_RESTRICT 1
+#define JavaNioChannelsGatheringByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/GatheringByteChannel.h"
+
+#define JavaNioChannelsScatteringByteChannel_RESTRICT 1
+#define JavaNioChannelsScatteringByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/ScatteringByteChannel.h"
+
+#define JavaNioChannelsByteChannel_RESTRICT 1
+#define JavaNioChannelsByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/ByteChannel.h"
+
+#define JavaNioChannelsSeekableByteChannel_RESTRICT 1
+#define JavaNioChannelsSeekableByteChannel_INCLUDE 1
+#include "../../../java/nio/channels/SeekableByteChannel.h"
 
 @class IOSObjectArray;
 @class JavaNioByteBuffer;
@@ -621,10 +647,21 @@ FOUNDATION_EXPORT void JavaNioChannelsFileChannel_init(JavaNioChannelsFileChanne
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileChannel)
 
+#endif
+
+#if !defined (JavaNioChannelsFileChannel_MapMode_) && (JavaNioChannelsFileChannel_INCLUDE_ALL || defined(JavaNioChannelsFileChannel_MapMode_INCLUDE))
+#define JavaNioChannelsFileChannel_MapMode_
+
 /*!
  @brief <code>MapMode</code> defines file mapping mode constants.
  */
 @interface JavaNioChannelsFileChannel_MapMode : NSObject
+
++ (JavaNioChannelsFileChannel_MapMode *)PRIVATE;
+
++ (JavaNioChannelsFileChannel_MapMode *)READ_ONLY;
+
++ (JavaNioChannelsFileChannel_MapMode *)READ_WRITE;
 
 #pragma mark Public
 
@@ -638,15 +675,34 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileChannel)
 
 J2OBJC_STATIC_INIT(JavaNioChannelsFileChannel_MapMode)
 
-FOUNDATION_EXPORT JavaNioChannelsFileChannel_MapMode *JavaNioChannelsFileChannel_MapMode_PRIVATE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioChannelsFileChannel_MapMode, PRIVATE_, JavaNioChannelsFileChannel_MapMode *)
+/*!
+ @brief Private mapping mode (equivalent to copy on write).
+ */
+inline JavaNioChannelsFileChannel_MapMode *JavaNioChannelsFileChannel_MapMode_get_PRIVATE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioChannelsFileChannel_MapMode *JavaNioChannelsFileChannel_MapMode_PRIVATE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioChannelsFileChannel_MapMode, PRIVATE, JavaNioChannelsFileChannel_MapMode *)
 
-FOUNDATION_EXPORT JavaNioChannelsFileChannel_MapMode *JavaNioChannelsFileChannel_MapMode_READ_ONLY_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioChannelsFileChannel_MapMode, READ_ONLY_, JavaNioChannelsFileChannel_MapMode *)
+/*!
+ @brief Read-only mapping mode.
+ */
+inline JavaNioChannelsFileChannel_MapMode *JavaNioChannelsFileChannel_MapMode_get_READ_ONLY();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioChannelsFileChannel_MapMode *JavaNioChannelsFileChannel_MapMode_READ_ONLY;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioChannelsFileChannel_MapMode, READ_ONLY, JavaNioChannelsFileChannel_MapMode *)
 
-FOUNDATION_EXPORT JavaNioChannelsFileChannel_MapMode *JavaNioChannelsFileChannel_MapMode_READ_WRITE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaNioChannelsFileChannel_MapMode, READ_WRITE_, JavaNioChannelsFileChannel_MapMode *)
+/*!
+ @brief Read-write mapping mode.
+ */
+inline JavaNioChannelsFileChannel_MapMode *JavaNioChannelsFileChannel_MapMode_get_READ_WRITE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaNioChannelsFileChannel_MapMode *JavaNioChannelsFileChannel_MapMode_READ_WRITE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaNioChannelsFileChannel_MapMode, READ_WRITE, JavaNioChannelsFileChannel_MapMode *)
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileChannel_MapMode)
 
-#endif // _JavaNioChannelsFileChannel_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaNioChannelsFileChannel_INCLUDE_ALL")

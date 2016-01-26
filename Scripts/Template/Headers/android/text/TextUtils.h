@@ -3,13 +3,24 @@
 //  source: android/frameworks/base/core/java/android/text/TextUtils.java
 //
 
-#ifndef _AndroidTextTextUtils_H_
-#define _AndroidTextTextUtils_H_
-
 #include "../../J2ObjC_header.h"
-#include "../../java/lang/Enum.h"
-#include "../../java/lang/Iterable.h"
-#include "../../java/util/Iterator.h"
+
+#pragma push_macro("AndroidTextTextUtils_INCLUDE_ALL")
+#ifdef AndroidTextTextUtils_RESTRICT
+#define AndroidTextTextUtils_INCLUDE_ALL 0
+#else
+#define AndroidTextTextUtils_INCLUDE_ALL 1
+#endif
+#undef AndroidTextTextUtils_RESTRICT
+#ifdef AndroidTextTextUtils_SimpleStringSplitter_INCLUDE
+#define AndroidTextTextUtils_StringSplitter_INCLUDE 1
+#endif
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (AndroidTextTextUtils_) && (AndroidTextTextUtils_INCLUDE_ALL || defined(AndroidTextTextUtils_INCLUDE))
+#define AndroidTextTextUtils_
 
 @class IOSCharArray;
 @class IOSClass;
@@ -21,36 +32,63 @@
 @protocol JavaLangCharSequence;
 @protocol JavaLangIterable;
 
-#define AndroidTextTextUtils_ALIGNMENT_SPAN 1
-#define AndroidTextTextUtils_FIRST_SPAN 1
-#define AndroidTextTextUtils_FOREGROUND_COLOR_SPAN 2
-#define AndroidTextTextUtils_RELATIVE_SIZE_SPAN 3
-#define AndroidTextTextUtils_SCALE_X_SPAN 4
-#define AndroidTextTextUtils_STRIKETHROUGH_SPAN 5
-#define AndroidTextTextUtils_UNDERLINE_SPAN 6
-#define AndroidTextTextUtils_STYLE_SPAN 7
-#define AndroidTextTextUtils_BULLET_SPAN 8
-#define AndroidTextTextUtils_QUOTE_SPAN 9
-#define AndroidTextTextUtils_LEADING_MARGIN_SPAN 10
-#define AndroidTextTextUtils_URL_SPAN 11
-#define AndroidTextTextUtils_BACKGROUND_COLOR_SPAN 12
-#define AndroidTextTextUtils_TYPEFACE_SPAN 13
-#define AndroidTextTextUtils_SUPERSCRIPT_SPAN 14
-#define AndroidTextTextUtils_SUBSCRIPT_SPAN 15
-#define AndroidTextTextUtils_ABSOLUTE_SIZE_SPAN 16
-#define AndroidTextTextUtils_TEXT_APPEARANCE_SPAN 17
-#define AndroidTextTextUtils_ANNOTATION 18
-#define AndroidTextTextUtils_SUGGESTION_SPAN 19
-#define AndroidTextTextUtils_SPELL_CHECK_SPAN 20
-#define AndroidTextTextUtils_SUGGESTION_RANGE_SPAN 21
-#define AndroidTextTextUtils_EASY_EDIT_SPAN 22
-#define AndroidTextTextUtils_LOCALE_SPAN 23
-#define AndroidTextTextUtils_LAST_SPAN 23
-#define AndroidTextTextUtils_CAP_MODE_CHARACTERS 4096
-#define AndroidTextTextUtils_CAP_MODE_WORDS 8192
-#define AndroidTextTextUtils_CAP_MODE_SENTENCES 16384
-
 @interface AndroidTextTextUtils : NSObject
+
++ (jint)ALIGNMENT_SPAN;
+
++ (jint)FIRST_SPAN;
+
++ (jint)FOREGROUND_COLOR_SPAN;
+
++ (jint)RELATIVE_SIZE_SPAN;
+
++ (jint)SCALE_X_SPAN;
+
++ (jint)STRIKETHROUGH_SPAN;
+
++ (jint)UNDERLINE_SPAN;
+
++ (jint)STYLE_SPAN;
+
++ (jint)BULLET_SPAN;
+
++ (jint)QUOTE_SPAN;
+
++ (jint)LEADING_MARGIN_SPAN;
+
++ (jint)URL_SPAN;
+
++ (jint)BACKGROUND_COLOR_SPAN;
+
++ (jint)TYPEFACE_SPAN;
+
++ (jint)SUPERSCRIPT_SPAN;
+
++ (jint)SUBSCRIPT_SPAN;
+
++ (jint)ABSOLUTE_SIZE_SPAN;
+
++ (jint)TEXT_APPEARANCE_SPAN;
+
++ (jint)ANNOTATION;
+
++ (jint)SUGGESTION_SPAN;
+
++ (jint)SPELL_CHECK_SPAN;
+
++ (jint)SUGGESTION_RANGE_SPAN;
+
++ (jint)EASY_EDIT_SPAN;
+
++ (jint)LOCALE_SPAN;
+
++ (jint)LAST_SPAN;
+
++ (jint)CAP_MODE_CHARACTERS;
+
++ (jint)CAP_MODE_WORDS;
+
++ (jint)CAP_MODE_SENTENCES;
 
 #pragma mark Public
 
@@ -286,6 +324,8 @@
 
 /*!
  @brief Pack 2 int values into a long, useful as a return value for a range
+ - seealso: #unpackRangeStartFromLong(long)
+ - seealso: #unpackRangeEndFromLong(long)
  */
 + (jlong)packRangeInLongWithInt:(jint)start
                         withInt:(jint)end;
@@ -353,11 +393,15 @@
 
 /*!
  @brief Get the end value from a range packed in a long by <code>packRangeInLong(int,int)</code>
+ - seealso: #unpackRangeStartFromLong(long)
+ - seealso: #packRangeInLong(int,int)
  */
 + (jint)unpackRangeEndFromLongWithLong:(jlong)range;
 
 /*!
  @brief Get the start value from a range packed in a long by <code>packRangeInLong(int,int)</code>
+ - seealso: #unpackRangeEndFromLong(long)
+ - seealso: #packRangeInLong(int,int)
  */
 + (jint)unpackRangeStartFromLongWithLong:(jlong)range;
 
@@ -379,61 +423,210 @@
 
 J2OBJC_STATIC_INIT(AndroidTextTextUtils)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, ALIGNMENT_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_ALIGNMENT_SPAN();
+#define AndroidTextTextUtils_ALIGNMENT_SPAN 1
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, ALIGNMENT_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, FIRST_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_FIRST_SPAN();
+#define AndroidTextTextUtils_FIRST_SPAN 1
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, FIRST_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, FOREGROUND_COLOR_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_FOREGROUND_COLOR_SPAN();
+#define AndroidTextTextUtils_FOREGROUND_COLOR_SPAN 2
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, FOREGROUND_COLOR_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, RELATIVE_SIZE_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_RELATIVE_SIZE_SPAN();
+#define AndroidTextTextUtils_RELATIVE_SIZE_SPAN 3
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, RELATIVE_SIZE_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, SCALE_X_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_SCALE_X_SPAN();
+#define AndroidTextTextUtils_SCALE_X_SPAN 4
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SCALE_X_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, STRIKETHROUGH_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_STRIKETHROUGH_SPAN();
+#define AndroidTextTextUtils_STRIKETHROUGH_SPAN 5
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, STRIKETHROUGH_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, UNDERLINE_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_UNDERLINE_SPAN();
+#define AndroidTextTextUtils_UNDERLINE_SPAN 6
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, UNDERLINE_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, STYLE_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_STYLE_SPAN();
+#define AndroidTextTextUtils_STYLE_SPAN 7
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, STYLE_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, BULLET_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_BULLET_SPAN();
+#define AndroidTextTextUtils_BULLET_SPAN 8
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, BULLET_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, QUOTE_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_QUOTE_SPAN();
+#define AndroidTextTextUtils_QUOTE_SPAN 9
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, QUOTE_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, LEADING_MARGIN_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_LEADING_MARGIN_SPAN();
+#define AndroidTextTextUtils_LEADING_MARGIN_SPAN 10
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, LEADING_MARGIN_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, URL_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_URL_SPAN();
+#define AndroidTextTextUtils_URL_SPAN 11
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, URL_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, BACKGROUND_COLOR_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_BACKGROUND_COLOR_SPAN();
+#define AndroidTextTextUtils_BACKGROUND_COLOR_SPAN 12
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, BACKGROUND_COLOR_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, TYPEFACE_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_TYPEFACE_SPAN();
+#define AndroidTextTextUtils_TYPEFACE_SPAN 13
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, TYPEFACE_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, SUPERSCRIPT_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_SUPERSCRIPT_SPAN();
+#define AndroidTextTextUtils_SUPERSCRIPT_SPAN 14
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SUPERSCRIPT_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, SUBSCRIPT_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_SUBSCRIPT_SPAN();
+#define AndroidTextTextUtils_SUBSCRIPT_SPAN 15
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SUBSCRIPT_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, ABSOLUTE_SIZE_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_ABSOLUTE_SIZE_SPAN();
+#define AndroidTextTextUtils_ABSOLUTE_SIZE_SPAN 16
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, ABSOLUTE_SIZE_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, TEXT_APPEARANCE_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_TEXT_APPEARANCE_SPAN();
+#define AndroidTextTextUtils_TEXT_APPEARANCE_SPAN 17
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, TEXT_APPEARANCE_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, ANNOTATION, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_ANNOTATION();
+#define AndroidTextTextUtils_ANNOTATION 18
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, ANNOTATION, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, SUGGESTION_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_SUGGESTION_SPAN();
+#define AndroidTextTextUtils_SUGGESTION_SPAN 19
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SUGGESTION_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, SPELL_CHECK_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_SPELL_CHECK_SPAN();
+#define AndroidTextTextUtils_SPELL_CHECK_SPAN 20
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SPELL_CHECK_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, SUGGESTION_RANGE_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_SUGGESTION_RANGE_SPAN();
+#define AndroidTextTextUtils_SUGGESTION_RANGE_SPAN 21
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, SUGGESTION_RANGE_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, EASY_EDIT_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_EASY_EDIT_SPAN();
+#define AndroidTextTextUtils_EASY_EDIT_SPAN 22
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, EASY_EDIT_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, LOCALE_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_LOCALE_SPAN();
+#define AndroidTextTextUtils_LOCALE_SPAN 23
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, LOCALE_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, LAST_SPAN, jint)
+/*!
+  
+ */
+inline jint AndroidTextTextUtils_get_LAST_SPAN();
+#define AndroidTextTextUtils_LAST_SPAN 23
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, LAST_SPAN, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, CAP_MODE_CHARACTERS, jint)
+/*!
+ @brief Capitalization mode for <code>getCapsMode</code>: capitalize all
+ characters.
+ This value is explicitly defined to be the same as
+ <code>InputType.TYPE_TEXT_FLAG_CAP_CHARACTERS</code>.
+ */
+inline jint AndroidTextTextUtils_get_CAP_MODE_CHARACTERS();
+#define AndroidTextTextUtils_CAP_MODE_CHARACTERS 4096
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, CAP_MODE_CHARACTERS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, CAP_MODE_WORDS, jint)
+/*!
+ @brief Capitalization mode for <code>getCapsMode</code>: capitalize the first
+ character of all words.
+ This value is explicitly defined to be the same as
+ <code>InputType.TYPE_TEXT_FLAG_CAP_WORDS</code>.
+ */
+inline jint AndroidTextTextUtils_get_CAP_MODE_WORDS();
+#define AndroidTextTextUtils_CAP_MODE_WORDS 8192
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, CAP_MODE_WORDS, jint)
 
-J2OBJC_STATIC_FIELD_GETTER(AndroidTextTextUtils, CAP_MODE_SENTENCES, jint)
+/*!
+ @brief Capitalization mode for <code>getCapsMode</code>: capitalize the first
+ character of each sentence.
+ This value is explicitly defined to be the same as
+ <code>InputType.TYPE_TEXT_FLAG_CAP_SENTENCES</code>.
+ */
+inline jint AndroidTextTextUtils_get_CAP_MODE_SENTENCES();
+#define AndroidTextTextUtils_CAP_MODE_SENTENCES 16384
+J2OBJC_STATIC_FIELD_CONSTANT(AndroidTextTextUtils, CAP_MODE_SENTENCES, jint)
 
 FOUNDATION_EXPORT void AndroidTextTextUtils_getCharsWithJavaLangCharSequence_withInt_withInt_withCharArray_withInt_(id<JavaLangCharSequence> s, jint start, jint end, IOSCharArray *dest, jint destoff);
 
@@ -523,6 +716,15 @@ FOUNDATION_EXPORT jint AndroidTextTextUtils_unpackRangeEndFromLongWithLong_(jlon
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils)
 
+#endif
+
+#if !defined (AndroidTextTextUtils_StringSplitter_) && (AndroidTextTextUtils_INCLUDE_ALL || defined(AndroidTextTextUtils_StringSplitter_INCLUDE))
+#define AndroidTextTextUtils_StringSplitter_
+
+#define JavaLangIterable_RESTRICT 1
+#define JavaLangIterable_INCLUDE 1
+#include "../../java/lang/Iterable.h"
+
 /*!
  @brief An interface for splitting strings according to rules that are opaque to the user of this
  interface.
@@ -550,6 +752,15 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils)
 J2OBJC_EMPTY_STATIC_INIT(AndroidTextTextUtils_StringSplitter)
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_StringSplitter)
+
+#endif
+
+#if !defined (AndroidTextTextUtils_SimpleStringSplitter_) && (AndroidTextTextUtils_INCLUDE_ALL || defined(AndroidTextTextUtils_SimpleStringSplitter_INCLUDE))
+#define AndroidTextTextUtils_SimpleStringSplitter_
+
+#define JavaUtilIterator_RESTRICT 1
+#define JavaUtilIterator_INCLUDE 1
+#include "../../java/util/Iterator.h"
 
 /*!
  @brief A simple string splitter.
@@ -583,7 +794,6 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_StringSplitter)
 
 #pragma mark Package-Private
 
-
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(AndroidTextTextUtils_SimpleStringSplitter)
@@ -594,47 +804,78 @@ FOUNDATION_EXPORT AndroidTextTextUtils_SimpleStringSplitter *new_AndroidTextText
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_SimpleStringSplitter)
 
-typedef NS_ENUM(NSUInteger, AndroidTextTextUtils_TruncateAt) {
-  AndroidTextTextUtils_TruncateAt_START = 0,
-  AndroidTextTextUtils_TruncateAt_MIDDLE = 1,
-  AndroidTextTextUtils_TruncateAt_END = 2,
-  AndroidTextTextUtils_TruncateAt_MARQUEE = 3,
-  AndroidTextTextUtils_TruncateAt_END_SMALL = 4,
+#endif
+
+#if !defined (AndroidTextTextUtils_TruncateAt_) && (AndroidTextTextUtils_INCLUDE_ALL || defined(AndroidTextTextUtils_TruncateAt_INCLUDE))
+#define AndroidTextTextUtils_TruncateAt_
+
+#define JavaLangEnum_RESTRICT 1
+#define JavaLangEnum_INCLUDE 1
+#include "../../java/lang/Enum.h"
+
+typedef NS_ENUM(NSUInteger, AndroidTextTextUtils_TruncateAt_Enum) {
+  AndroidTextTextUtils_TruncateAt_Enum_START = 0,
+  AndroidTextTextUtils_TruncateAt_Enum_MIDDLE = 1,
+  AndroidTextTextUtils_TruncateAt_Enum_END = 2,
+  AndroidTextTextUtils_TruncateAt_Enum_MARQUEE = 3,
+  AndroidTextTextUtils_TruncateAt_Enum_END_SMALL = 4,
 };
 
-@interface AndroidTextTextUtils_TruncateAtEnum : JavaLangEnum < NSCopying >
+@interface AndroidTextTextUtils_TruncateAt : JavaLangEnum < NSCopying >
+
++ (AndroidTextTextUtils_TruncateAt *)START;
+
++ (AndroidTextTextUtils_TruncateAt *)MIDDLE;
+
++ (AndroidTextTextUtils_TruncateAt *)END;
+
++ (AndroidTextTextUtils_TruncateAt *)MARQUEE;
+
++ (AndroidTextTextUtils_TruncateAt *)END_SMALL;
 
 #pragma mark Package-Private
 
 + (IOSObjectArray *)values;
-FOUNDATION_EXPORT IOSObjectArray *AndroidTextTextUtils_TruncateAtEnum_values();
 
-+ (AndroidTextTextUtils_TruncateAtEnum *)valueOfWithNSString:(NSString *)name;
-FOUNDATION_EXPORT AndroidTextTextUtils_TruncateAtEnum *AndroidTextTextUtils_TruncateAtEnum_valueOfWithNSString_(NSString *name);
++ (AndroidTextTextUtils_TruncateAt *)valueOfWithNSString:(NSString *)name;
 
 - (id)copyWithZone:(NSZone *)zone;
+- (AndroidTextTextUtils_TruncateAt_Enum)toNSEnum;
 
 @end
 
-J2OBJC_STATIC_INIT(AndroidTextTextUtils_TruncateAtEnum)
+J2OBJC_STATIC_INIT(AndroidTextTextUtils_TruncateAt)
 
-FOUNDATION_EXPORT AndroidTextTextUtils_TruncateAtEnum *AndroidTextTextUtils_TruncateAtEnum_values_[];
+/*! INTERNAL ONLY - Use enum accessors declared below. */
+FOUNDATION_EXPORT AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_values_[];
 
-#define AndroidTextTextUtils_TruncateAtEnum_START AndroidTextTextUtils_TruncateAtEnum_values_[AndroidTextTextUtils_TruncateAt_START]
-J2OBJC_ENUM_CONSTANT_GETTER(AndroidTextTextUtils_TruncateAtEnum, START)
+inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_START();
+J2OBJC_ENUM_CONSTANT(AndroidTextTextUtils_TruncateAt, START)
 
-#define AndroidTextTextUtils_TruncateAtEnum_MIDDLE AndroidTextTextUtils_TruncateAtEnum_values_[AndroidTextTextUtils_TruncateAt_MIDDLE]
-J2OBJC_ENUM_CONSTANT_GETTER(AndroidTextTextUtils_TruncateAtEnum, MIDDLE)
+inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_MIDDLE();
+J2OBJC_ENUM_CONSTANT(AndroidTextTextUtils_TruncateAt, MIDDLE)
 
-#define AndroidTextTextUtils_TruncateAtEnum_END AndroidTextTextUtils_TruncateAtEnum_values_[AndroidTextTextUtils_TruncateAt_END]
-J2OBJC_ENUM_CONSTANT_GETTER(AndroidTextTextUtils_TruncateAtEnum, END)
+inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_END();
+J2OBJC_ENUM_CONSTANT(AndroidTextTextUtils_TruncateAt, END)
 
-#define AndroidTextTextUtils_TruncateAtEnum_MARQUEE AndroidTextTextUtils_TruncateAtEnum_values_[AndroidTextTextUtils_TruncateAt_MARQUEE]
-J2OBJC_ENUM_CONSTANT_GETTER(AndroidTextTextUtils_TruncateAtEnum, MARQUEE)
+inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_MARQUEE();
+J2OBJC_ENUM_CONSTANT(AndroidTextTextUtils_TruncateAt, MARQUEE)
 
-#define AndroidTextTextUtils_TruncateAtEnum_END_SMALL AndroidTextTextUtils_TruncateAtEnum_values_[AndroidTextTextUtils_TruncateAt_END_SMALL]
-J2OBJC_ENUM_CONSTANT_GETTER(AndroidTextTextUtils_TruncateAtEnum, END_SMALL)
+/*!
+ */
+inline AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_get_END_SMALL();
+J2OBJC_ENUM_CONSTANT(AndroidTextTextUtils_TruncateAt, END_SMALL)
 
-J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_TruncateAtEnum)
+FOUNDATION_EXPORT IOSObjectArray *AndroidTextTextUtils_TruncateAt_values();
 
-#endif // _AndroidTextTextUtils_H_
+FOUNDATION_EXPORT AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_valueOfWithNSString_(NSString *name);
+
+FOUNDATION_EXPORT AndroidTextTextUtils_TruncateAt *AndroidTextTextUtils_TruncateAt_fromOrdinal(NSUInteger ordinal);
+
+J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_TruncateAt)
+
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("AndroidTextTextUtils_INCLUDE_ALL")

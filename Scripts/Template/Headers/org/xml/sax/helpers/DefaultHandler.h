@@ -3,13 +3,36 @@
 //  source: android/libcore/luni/src/main/java/org/xml/sax/helpers/DefaultHandler.java
 //
 
-#ifndef _OrgXmlSaxHelpersDefaultHandler_H_
-#define _OrgXmlSaxHelpersDefaultHandler_H_
-
 #include "../../../../J2ObjC_header.h"
-#include "../../../../org/xml/sax/ContentHandler.h"
-#include "../../../../org/xml/sax/DTDHandler.h"
+
+#pragma push_macro("OrgXmlSaxHelpersDefaultHandler_INCLUDE_ALL")
+#ifdef OrgXmlSaxHelpersDefaultHandler_RESTRICT
+#define OrgXmlSaxHelpersDefaultHandler_INCLUDE_ALL 0
+#else
+#define OrgXmlSaxHelpersDefaultHandler_INCLUDE_ALL 1
+#endif
+#undef OrgXmlSaxHelpersDefaultHandler_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgXmlSaxHelpersDefaultHandler_) && (OrgXmlSaxHelpersDefaultHandler_INCLUDE_ALL || defined(OrgXmlSaxHelpersDefaultHandler_INCLUDE))
+#define OrgXmlSaxHelpersDefaultHandler_
+
+#define OrgXmlSaxEntityResolver_RESTRICT 1
+#define OrgXmlSaxEntityResolver_INCLUDE 1
 #include "../../../../org/xml/sax/EntityResolver.h"
+
+#define OrgXmlSaxDTDHandler_RESTRICT 1
+#define OrgXmlSaxDTDHandler_INCLUDE 1
+#include "../../../../org/xml/sax/DTDHandler.h"
+
+#define OrgXmlSaxContentHandler_RESTRICT 1
+#define OrgXmlSaxContentHandler_INCLUDE 1
+#include "../../../../org/xml/sax/ContentHandler.h"
+
+#define OrgXmlSaxErrorHandler_RESTRICT 1
+#define OrgXmlSaxErrorHandler_INCLUDE 1
 #include "../../../../org/xml/sax/ErrorHandler.h"
 
 @class IOSCharArray;
@@ -44,6 +67,10 @@
  @since SAX 2.0
  @author David Megginson,
  @version 2.0.1 (sax2r2)
+ - seealso: org.xml.sax.EntityResolver
+ - seealso: org.xml.sax.DTDHandler
+ - seealso: org.xml.sax.ContentHandler
+ - seealso: org.xml.sax.ErrorHandler
  */
 @interface OrgXmlSaxHelpersDefaultHandler : NSObject < OrgXmlSaxEntityResolver, OrgXmlSaxDTDHandler, OrgXmlSaxContentHandler, OrgXmlSaxErrorHandler >
 
@@ -63,6 +90,7 @@
  character array.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ContentHandler#characters
  */
 - (void)charactersWithCharArray:(IOSCharArray *)ch
                         withInt:(jint)start
@@ -76,6 +104,7 @@
  file).</p>
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ContentHandler#endDocument
  */
 - (void)endDocument;
 
@@ -95,6 +124,7 @@
  empty string if qualified names are not available.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ContentHandler#endElement
  */
 - (void)endElementWithNSString:(NSString *)uri
                   withNSString:(NSString *)localName
@@ -108,6 +138,7 @@
  @param prefix The Namespace prefix being declared.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ContentHandler#endPrefixMapping
  */
 - (void)endPrefixMappingWithNSString:(NSString *)prefix;
 
@@ -120,6 +151,8 @@
  @param e The warning information encoded as an exception.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ErrorHandler#warning
+ - seealso: org.xml.sax.SAXParseException
  */
 - (void)errorWithOrgXmlSaxSAXParseException:(OrgXmlSaxSAXParseException *)e;
 
@@ -135,6 +168,8 @@
  @param e The error information encoded as an exception.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ErrorHandler#fatalError
+ - seealso: org.xml.sax.SAXParseException
  */
 - (void)fatalErrorWithOrgXmlSaxSAXParseException:(OrgXmlSaxSAXParseException *)e;
 
@@ -150,6 +185,7 @@
  character array.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ContentHandler#ignorableWhitespace
  */
 - (void)ignorableWhitespaceWithCharArray:(IOSCharArray *)ch
                                  withInt:(jint)start
@@ -166,6 +202,7 @@
  @param systemId The notation system identifier.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.DTDHandler#notationDecl
  */
 - (void)notationDeclWithNSString:(NSString *)name
                     withNSString:(NSString *)publicId
@@ -182,6 +219,7 @@
  none is supplied.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ContentHandler#processingInstruction
  */
 - (void)processingInstructionWithNSString:(NSString *)target
                              withNSString:(NSString *)data;
@@ -203,6 +241,7 @@
  up the new input source.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.EntityResolver#resolveEntity
  */
 - (OrgXmlSaxInputSource *)resolveEntityWithNSString:(NSString *)publicId
                                        withNSString:(NSString *)systemId;
@@ -213,6 +252,8 @@
  method in a subclass if they wish to store the locator for use
  with other document events.</p>
  @param locator A locator for all SAX document events.
+ - seealso: org.xml.sax.ContentHandler#setDocumentLocator
+ - seealso: org.xml.sax.Locator
  */
 - (void)setDocumentLocatorWithOrgXmlSaxLocator:(id<OrgXmlSaxLocator>)locator;
 
@@ -225,6 +266,7 @@
  @param name The name of the skipped entity.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ContentHandler#processingInstruction
  */
 - (void)skippedEntityWithNSString:(NSString *)name;
 
@@ -236,6 +278,7 @@
  creating an output file).</p>
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ContentHandler#startDocument
  */
 - (void)startDocument;
 
@@ -258,6 +301,7 @@
  Attributes object.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ContentHandler#startElement
  */
 - (void)startElementWithNSString:(NSString *)uri
                     withNSString:(NSString *)localName
@@ -273,6 +317,7 @@
  @param uri The Namespace URI mapped to the prefix.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ContentHandler#startPrefixMapping
  */
 - (void)startPrefixMappingWithNSString:(NSString *)prefix
                           withNSString:(NSString *)uri;
@@ -289,6 +334,7 @@
  @param notationName The name of the associated notation.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.DTDHandler#unparsedEntityDecl
  */
 - (void)unparsedEntityDeclWithNSString:(NSString *)name
                           withNSString:(NSString *)publicId
@@ -304,6 +350,8 @@
  @param e The warning information encoded as an exception.
  @exception org.xml.sax.SAXException Any SAX exception, possibly
  wrapping another exception.
+ - seealso: org.xml.sax.ErrorHandler#warning
+ - seealso: org.xml.sax.SAXParseException
  */
 - (void)warningWithOrgXmlSaxSAXParseException:(OrgXmlSaxSAXParseException *)e;
 
@@ -317,4 +365,8 @@ FOUNDATION_EXPORT OrgXmlSaxHelpersDefaultHandler *new_OrgXmlSaxHelpersDefaultHan
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersDefaultHandler)
 
-#endif // _OrgXmlSaxHelpersDefaultHandler_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgXmlSaxHelpersDefaultHandler_INCLUDE_ALL")

@@ -3,10 +3,24 @@
 //  source: android/libcore/luni/src/main/java/java/util/logging/LogRecord.java
 //
 
-#ifndef _JavaUtilLoggingLogRecord_H_
-#define _JavaUtilLoggingLogRecord_H_
-
 #include "../../../J2ObjC_header.h"
+
+#pragma push_macro("JavaUtilLoggingLogRecord_INCLUDE_ALL")
+#ifdef JavaUtilLoggingLogRecord_RESTRICT
+#define JavaUtilLoggingLogRecord_INCLUDE_ALL 0
+#else
+#define JavaUtilLoggingLogRecord_INCLUDE_ALL 1
+#endif
+#undef JavaUtilLoggingLogRecord_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilLoggingLogRecord_) && (JavaUtilLoggingLogRecord_INCLUDE_ALL || defined(JavaUtilLoggingLogRecord_INCLUDE))
+#define JavaUtilLoggingLogRecord_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -240,4 +254,8 @@ FOUNDATION_EXPORT JavaUtilLoggingLogRecord *new_JavaUtilLoggingLogRecord_initWit
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogRecord)
 
-#endif // _JavaUtilLoggingLogRecord_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilLoggingLogRecord_INCLUDE_ALL")

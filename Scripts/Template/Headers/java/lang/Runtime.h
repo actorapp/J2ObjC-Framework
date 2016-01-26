@@ -3,10 +3,21 @@
 //  source: Classes/java/lang/Runtime.java
 //
 
-#ifndef _JavaLangRuntime_H_
-#define _JavaLangRuntime_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangRuntime_INCLUDE_ALL")
+#ifdef JavaLangRuntime_RESTRICT
+#define JavaLangRuntime_INCLUDE_ALL 0
+#else
+#define JavaLangRuntime_INCLUDE_ALL 1
+#endif
+#undef JavaLangRuntime_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangRuntime_) && (JavaLangRuntime_INCLUDE_ALL || defined(JavaLangRuntime_INCLUDE))
+#define JavaLangRuntime_
 
 @class JavaLangThread;
 
@@ -73,4 +84,8 @@ FOUNDATION_EXPORT JavaLangRuntime *JavaLangRuntime_getRuntime();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRuntime)
 
-#endif // _JavaLangRuntime_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangRuntime_INCLUDE_ALL")

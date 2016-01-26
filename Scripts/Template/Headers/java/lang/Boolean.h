@@ -3,11 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/lang/Boolean.java
 //
 
-#ifndef _JavaLangBoolean_H_
-#define _JavaLangBoolean_H_
-
 #include "../../J2ObjC_header.h"
+
+#pragma push_macro("JavaLangBoolean_INCLUDE_ALL")
+#ifdef JavaLangBoolean_RESTRICT
+#define JavaLangBoolean_INCLUDE_ALL 0
+#else
+#define JavaLangBoolean_INCLUDE_ALL 1
+#endif
+#undef JavaLangBoolean_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaLangBoolean_) && (JavaLangBoolean_INCLUDE_ALL || defined(JavaLangBoolean_INCLUDE))
+#define JavaLangBoolean_
+
+#define JavaIoSerializable_RESTRICT 1
+#define JavaIoSerializable_INCLUDE 1
 #include "../../java/io/Serializable.h"
+
+#define JavaLangComparable_RESTRICT 1
+#define JavaLangComparable_INCLUDE 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -17,6 +34,12 @@
  @since 1.0
  */
 @interface JavaLangBoolean : NSObject < JavaIoSerializable, JavaLangComparable >
+
++ (IOSClass *)TYPE;
+
++ (JavaLangBoolean *)TRUE_;
+
++ (JavaLangBoolean *)FALSE_;
 
 #pragma mark Public
 
@@ -66,6 +89,7 @@
  <code>true</code> and the value of <code>that</code> is <code>false</code>; a
  negative value if the value if this boolean is <code>false</code> and
  the value of <code>that</code> is <code>true</code>.
+ - seealso: java.lang.Comparable
  @since 1.5
  */
 - (jint)compareToWithId:(JavaLangBoolean *)that;
@@ -90,6 +114,7 @@
  @return <code>true</code> if the system property named by <code>string</code>
  exists and it is equal to "true" using case insensitive
  comparison, <code>false</code> otherwise.
+ - seealso: System#getProperty(String)
  */
 + (jboolean)getBooleanWithNSString:(NSString *)string;
 
@@ -146,6 +171,7 @@
  the string representation of a boolean value.
  @return <code>Boolean.TRUE</code> if <code>string</code> is equal to "true" using
  case insensitive comparison, <code>Boolean.FALSE</code> otherwise.
+ - seealso: #parseBoolean(String)
  */
 + (JavaLangBoolean *)valueOfWithNSString:(NSString *)string;
 
@@ -153,14 +179,32 @@
 
 J2OBJC_STATIC_INIT(JavaLangBoolean)
 
-FOUNDATION_EXPORT IOSClass *JavaLangBoolean_TYPE_;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangBoolean, TYPE_, IOSClass *)
+/*!
+ @brief The <code>Class</code> object that represents the primitive type <code>boolean</code>
+ .
+ */
+inline IOSClass *JavaLangBoolean_get_TYPE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT IOSClass *JavaLangBoolean_TYPE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangBoolean, TYPE, IOSClass *)
 
-FOUNDATION_EXPORT JavaLangBoolean *JavaLangBoolean_TRUE__;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangBoolean, TRUE__, JavaLangBoolean *)
+/*!
+ @brief The <code>Boolean</code> object that represents the primitive value
+ <code>true</code>.
+ */
+inline JavaLangBoolean *JavaLangBoolean_get_TRUE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangBoolean *JavaLangBoolean_TRUE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangBoolean, TRUE, JavaLangBoolean *)
 
-FOUNDATION_EXPORT JavaLangBoolean *JavaLangBoolean_FALSE__;
-J2OBJC_STATIC_FIELD_GETTER(JavaLangBoolean, FALSE__, JavaLangBoolean *)
+/*!
+ @brief The <code>Boolean</code> object that represents the primitive value
+ <code>false</code>.
+ */
+inline JavaLangBoolean *JavaLangBoolean_get_FALSE();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT JavaLangBoolean *JavaLangBoolean_FALSE;
+J2OBJC_STATIC_FIELD_OBJ_FINAL(JavaLangBoolean, FALSE, JavaLangBoolean *)
 
 FOUNDATION_EXPORT void JavaLangBoolean_initWithNSString_(JavaLangBoolean *self, NSString *string);
 
@@ -184,4 +228,8 @@ FOUNDATION_EXPORT JavaLangBoolean *JavaLangBoolean_valueOfWithBoolean_(jboolean 
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangBoolean)
 
-#endif // _JavaLangBoolean_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaLangBoolean_INCLUDE_ALL")

@@ -3,14 +3,23 @@
 //  source: android/libcore/luni/src/main/java/java/util/concurrent/Phaser.java
 //
 
-#ifndef _JavaUtilConcurrentPhaser_H_
-#define _JavaUtilConcurrentPhaser_H_
-
 #include "../../../J2ObjC_header.h"
-#include "../../../java/util/concurrent/ForkJoinPool.h"
 
-@class JavaLangThread;
-@class JavaUtilConcurrentTimeUnitEnum;
+#pragma push_macro("JavaUtilConcurrentPhaser_INCLUDE_ALL")
+#ifdef JavaUtilConcurrentPhaser_RESTRICT
+#define JavaUtilConcurrentPhaser_INCLUDE_ALL 0
+#else
+#define JavaUtilConcurrentPhaser_INCLUDE_ALL 1
+#endif
+#undef JavaUtilConcurrentPhaser_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaUtilConcurrentPhaser_) && (JavaUtilConcurrentPhaser_INCLUDE_ALL || defined(JavaUtilConcurrentPhaser_INCLUDE))
+#define JavaUtilConcurrentPhaser_
+
+@class JavaUtilConcurrentTimeUnit;
 
 /*!
  @brief A reusable synchronization barrier, similar in functionality to
@@ -218,6 +227,8 @@
  */
 @interface JavaUtilConcurrentPhaser : NSObject
 
++ (jint)SPINS_PER_ARRIVAL;
+
 #pragma mark Public
 
 /*!
@@ -357,7 +368,7 @@
  */
 - (jint)awaitAdvanceInterruptiblyWithInt:(jint)phase
                                 withLong:(jlong)timeout
-      withJavaUtilConcurrentTimeUnitEnum:(JavaUtilConcurrentTimeUnitEnum *)unit;
+          withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 
 /*!
  @brief Adds the given number of new unarrived parties to this phaser.
@@ -520,8 +531,22 @@
 
 J2OBJC_STATIC_INIT(JavaUtilConcurrentPhaser)
 
-FOUNDATION_EXPORT jint JavaUtilConcurrentPhaser_SPINS_PER_ARRIVAL_;
-J2OBJC_STATIC_FIELD_GETTER(JavaUtilConcurrentPhaser, SPINS_PER_ARRIVAL_, jint)
+/*!
+ @brief The number of times to spin before blocking while waiting for
+ advance, per arrival while waiting.
+ On multiprocessors, fully
+ blocking and waking up a large number of threads all at once is
+ usually a very slow process, so we use rechargeable spins to
+ avoid it when threads regularly arrive: When a thread in
+ internalAwaitAdvance notices another arrival before blocking,
+ and there appear to be enough CPUs available, it spins
+ SPINS_PER_ARRIVAL more times before blocking. The value trades
+ off good-citizenship vs big unnecessary slowdowns.
+ */
+inline jint JavaUtilConcurrentPhaser_get_SPINS_PER_ARRIVAL();
+/*! INTERNAL ONLY - Use accessor function from above. */
+FOUNDATION_EXPORT jint JavaUtilConcurrentPhaser_SPINS_PER_ARRIVAL;
+J2OBJC_STATIC_FIELD_PRIMITIVE_FINAL(JavaUtilConcurrentPhaser, SPINS_PER_ARRIVAL, jint)
 
 FOUNDATION_EXPORT void JavaUtilConcurrentPhaser_init(JavaUtilConcurrentPhaser *self);
 
@@ -540,6 +565,18 @@ FOUNDATION_EXPORT void JavaUtilConcurrentPhaser_initWithJavaUtilConcurrentPhaser
 FOUNDATION_EXPORT JavaUtilConcurrentPhaser *new_JavaUtilConcurrentPhaser_initWithJavaUtilConcurrentPhaser_withInt_(JavaUtilConcurrentPhaser *parent, jint parties) NS_RETURNS_RETAINED;
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPhaser)
+
+#endif
+
+#if !defined (JavaUtilConcurrentPhaser_QNode_) && (JavaUtilConcurrentPhaser_INCLUDE_ALL || defined(JavaUtilConcurrentPhaser_QNode_INCLUDE))
+#define JavaUtilConcurrentPhaser_QNode_
+
+#define JavaUtilConcurrentForkJoinPool_RESTRICT 1
+#define JavaUtilConcurrentForkJoinPool_ManagedBlocker_INCLUDE 1
+#include "../../../java/util/concurrent/ForkJoinPool.h"
+
+@class JavaLangThread;
+@class JavaUtilConcurrentPhaser;
 
 /*!
  @brief Wait nodes for Treiber stack representing wait queue
@@ -585,4 +622,8 @@ FOUNDATION_EXPORT JavaUtilConcurrentPhaser_QNode *new_JavaUtilConcurrentPhaser_Q
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPhaser_QNode)
 
-#endif // _JavaUtilConcurrentPhaser_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("JavaUtilConcurrentPhaser_INCLUDE_ALL")

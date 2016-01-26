@@ -3,14 +3,25 @@
 //  source: android/libcore/luni/src/main/java/org/w3c/dom/ls/LSException.java
 //
 
-#ifndef _OrgW3cDomLsLSException_H_
-#define _OrgW3cDomLsLSException_H_
-
 #include "../../../../J2ObjC_header.h"
-#include "../../../../java/lang/RuntimeException.h"
 
-#define OrgW3cDomLsLSException_PARSE_ERR 81
-#define OrgW3cDomLsLSException_SERIALIZE_ERR 82
+#pragma push_macro("OrgW3cDomLsLSException_INCLUDE_ALL")
+#ifdef OrgW3cDomLsLSException_RESTRICT
+#define OrgW3cDomLsLSException_INCLUDE_ALL 0
+#else
+#define OrgW3cDomLsLSException_INCLUDE_ALL 1
+#endif
+#undef OrgW3cDomLsLSException_RESTRICT
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (OrgW3cDomLsLSException_) && (OrgW3cDomLsLSException_INCLUDE_ALL || defined(OrgW3cDomLsLSException_INCLUDE))
+#define OrgW3cDomLsLSException_
+
+#define JavaLangRuntimeException_RESTRICT 1
+#define JavaLangRuntimeException_INCLUDE 1
+#include "../../../../java/lang/RuntimeException.h"
 
 /*!
  @brief Parser or write operations may throw an <code>LSException</code> if the
@@ -32,6 +43,10 @@
   jshort code_;
 }
 
++ (jshort)PARSE_ERR;
+
++ (jshort)SERIALIZE_ERR;
+
 #pragma mark Public
 
 - (instancetype)initWithShort:(jshort)code
@@ -41,9 +56,21 @@
 
 J2OBJC_EMPTY_STATIC_INIT(OrgW3cDomLsLSException)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSException, PARSE_ERR, jshort)
+/*!
+ @brief If an attempt was made to load a document, or an XML Fragment, using
+ <code>LSParser</code> and the processing has been stopped.
+ */
+inline jshort OrgW3cDomLsLSException_get_PARSE_ERR();
+#define OrgW3cDomLsLSException_PARSE_ERR 81
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSException, PARSE_ERR, jshort)
 
-J2OBJC_STATIC_FIELD_GETTER(OrgW3cDomLsLSException, SERIALIZE_ERR, jshort)
+/*!
+ @brief If an attempt was made to serialize a <code>Node</code> using
+ <code>LSSerializer</code> and the processing has been stopped.
+ */
+inline jshort OrgW3cDomLsLSException_get_SERIALIZE_ERR();
+#define OrgW3cDomLsLSException_SERIALIZE_ERR 82
+J2OBJC_STATIC_FIELD_CONSTANT(OrgW3cDomLsLSException, SERIALIZE_ERR, jshort)
 
 FOUNDATION_EXPORT void OrgW3cDomLsLSException_initWithShort_withNSString_(OrgW3cDomLsLSException *self, jshort code, NSString *message);
 
@@ -51,4 +78,8 @@ FOUNDATION_EXPORT OrgW3cDomLsLSException *new_OrgW3cDomLsLSException_initWithSho
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSException)
 
-#endif // _OrgW3cDomLsLSException_H_
+#endif
+
+
+#pragma clang diagnostic pop
+#pragma pop_macro("OrgW3cDomLsLSException_INCLUDE_ALL")
