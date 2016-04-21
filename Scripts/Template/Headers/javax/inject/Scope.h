@@ -5,23 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxInjectScope_INCLUDE_ALL")
-#ifdef JavaxInjectScope_RESTRICT
-#define JavaxInjectScope_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxInjectScope")
+#ifdef RESTRICT_JavaxInjectScope
+#define INCLUDE_ALL_JavaxInjectScope 0
 #else
-#define JavaxInjectScope_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxInjectScope 1
 #endif
-#undef JavaxInjectScope_RESTRICT
+#undef RESTRICT_JavaxInjectScope
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxInjectScope_) && (JavaxInjectScope_INCLUDE_ALL || defined(JavaxInjectScope_INCLUDE))
+#if !defined (JavaxInjectScope_) && (INCLUDE_ALL_JavaxInjectScope || defined(INCLUDE_JavaxInjectScope))
 #define JavaxInjectScope_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief Identifies scope annotations.
@@ -81,10 +84,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxInjectScope)
 
+FOUNDATION_EXPORT id<JavaxInjectScope> create_JavaxInjectScope();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxInjectScope)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxInjectScope_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxInjectScope")

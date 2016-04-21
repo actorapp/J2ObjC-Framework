@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectGenericDeclaration_INCLUDE_ALL")
-#ifdef JavaLangReflectGenericDeclaration_RESTRICT
-#define JavaLangReflectGenericDeclaration_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectGenericDeclaration")
+#ifdef RESTRICT_JavaLangReflectGenericDeclaration
+#define INCLUDE_ALL_JavaLangReflectGenericDeclaration 0
 #else
-#define JavaLangReflectGenericDeclaration_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectGenericDeclaration 1
 #endif
-#undef JavaLangReflectGenericDeclaration_RESTRICT
+#undef RESTRICT_JavaLangReflectGenericDeclaration
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectGenericDeclaration_) && (JavaLangReflectGenericDeclaration_INCLUDE_ALL || defined(JavaLangReflectGenericDeclaration_INCLUDE))
+#if !defined (JavaLangReflectGenericDeclaration_) && (INCLUDE_ALL_JavaLangReflectGenericDeclaration || defined(INCLUDE_JavaLangReflectGenericDeclaration))
 #define JavaLangReflectGenericDeclaration_
 
 @class IOSObjectArray;
@@ -47,4 +47,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectGenericDeclaration)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectGenericDeclaration_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectGenericDeclaration")

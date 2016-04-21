@@ -5,23 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxInjectSingleton_INCLUDE_ALL")
-#ifdef JavaxInjectSingleton_RESTRICT
-#define JavaxInjectSingleton_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxInjectSingleton")
+#ifdef RESTRICT_JavaxInjectSingleton
+#define INCLUDE_ALL_JavaxInjectSingleton 0
 #else
-#define JavaxInjectSingleton_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxInjectSingleton 1
 #endif
-#undef JavaxInjectSingleton_RESTRICT
+#undef RESTRICT_JavaxInjectSingleton
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxInjectSingleton_) && (JavaxInjectSingleton_INCLUDE_ALL || defined(JavaxInjectSingleton_INCLUDE))
+#if !defined (JavaxInjectSingleton_) && (INCLUDE_ALL_JavaxInjectSingleton || defined(INCLUDE_JavaxInjectSingleton))
 #define JavaxInjectSingleton_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief Identifies a type that the injector only instantiates once.
@@ -38,10 +41,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxInjectSingleton)
 
+FOUNDATION_EXPORT id<JavaxInjectSingleton> create_JavaxInjectSingleton();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxInjectSingleton)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxInjectSingleton_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxInjectSingleton")

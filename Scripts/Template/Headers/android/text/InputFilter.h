@@ -5,24 +5,24 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextInputFilter_INCLUDE_ALL")
-#ifdef AndroidTextInputFilter_RESTRICT
-#define AndroidTextInputFilter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextInputFilter")
+#ifdef RESTRICT_AndroidTextInputFilter
+#define INCLUDE_ALL_AndroidTextInputFilter 0
 #else
-#define AndroidTextInputFilter_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextInputFilter 1
 #endif
-#undef AndroidTextInputFilter_RESTRICT
-#ifdef AndroidTextInputFilter_LengthFilter_INCLUDE
-#define AndroidTextInputFilter_INCLUDE 1
+#undef RESTRICT_AndroidTextInputFilter
+#ifdef INCLUDE_AndroidTextInputFilter_LengthFilter
+#define INCLUDE_AndroidTextInputFilter 1
 #endif
-#ifdef AndroidTextInputFilter_AllCaps_INCLUDE
-#define AndroidTextInputFilter_INCLUDE 1
+#ifdef INCLUDE_AndroidTextInputFilter_AllCaps
+#define INCLUDE_AndroidTextInputFilter 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextInputFilter_) && (AndroidTextInputFilter_INCLUDE_ALL || defined(AndroidTextInputFilter_INCLUDE))
+#if !defined (AndroidTextInputFilter_) && (INCLUDE_ALL_AndroidTextInputFilter || defined(INCLUDE_AndroidTextInputFilter))
 #define AndroidTextInputFilter_
 
 @protocol AndroidTextSpanned;
@@ -66,7 +66,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputFilter)
 
 #endif
 
-#if !defined (AndroidTextInputFilter_AllCaps_) && (AndroidTextInputFilter_INCLUDE_ALL || defined(AndroidTextInputFilter_AllCaps_INCLUDE))
+#if !defined (AndroidTextInputFilter_AllCaps_) && (INCLUDE_ALL_AndroidTextInputFilter || defined(INCLUDE_AndroidTextInputFilter_AllCaps))
 #define AndroidTextInputFilter_AllCaps_
 
 @protocol AndroidTextSpanned;
@@ -97,11 +97,13 @@ FOUNDATION_EXPORT void AndroidTextInputFilter_AllCaps_init(AndroidTextInputFilte
 
 FOUNDATION_EXPORT AndroidTextInputFilter_AllCaps *new_AndroidTextInputFilter_AllCaps_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextInputFilter_AllCaps *create_AndroidTextInputFilter_AllCaps_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputFilter_AllCaps)
 
 #endif
 
-#if !defined (AndroidTextInputFilter_LengthFilter_) && (AndroidTextInputFilter_INCLUDE_ALL || defined(AndroidTextInputFilter_LengthFilter_INCLUDE))
+#if !defined (AndroidTextInputFilter_LengthFilter_) && (INCLUDE_ALL_AndroidTextInputFilter || defined(INCLUDE_AndroidTextInputFilter_LengthFilter))
 #define AndroidTextInputFilter_LengthFilter_
 
 @protocol AndroidTextSpanned;
@@ -132,10 +134,12 @@ FOUNDATION_EXPORT void AndroidTextInputFilter_LengthFilter_initWithInt_(AndroidT
 
 FOUNDATION_EXPORT AndroidTextInputFilter_LengthFilter *new_AndroidTextInputFilter_LengthFilter_initWithInt_(jint max) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextInputFilter_LengthFilter *create_AndroidTextInputFilter_LengthFilter_initWithInt_(jint max);
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputFilter_LengthFilter)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextInputFilter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextInputFilter")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentRecursiveTask_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentRecursiveTask_RESTRICT
-#define JavaUtilConcurrentRecursiveTask_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentRecursiveTask")
+#ifdef RESTRICT_JavaUtilConcurrentRecursiveTask
+#define INCLUDE_ALL_JavaUtilConcurrentRecursiveTask 0
 #else
-#define JavaUtilConcurrentRecursiveTask_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentRecursiveTask 1
 #endif
-#undef JavaUtilConcurrentRecursiveTask_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentRecursiveTask
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentRecursiveTask_) && (JavaUtilConcurrentRecursiveTask_INCLUDE_ALL || defined(JavaUtilConcurrentRecursiveTask_INCLUDE))
+#if !defined (JavaUtilConcurrentRecursiveTask_) && (INCLUDE_ALL_JavaUtilConcurrentRecursiveTask || defined(INCLUDE_JavaUtilConcurrentRecursiveTask))
 #define JavaUtilConcurrentRecursiveTask_
 
-#define JavaUtilConcurrentForkJoinTask_RESTRICT 1
-#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentForkJoinTask 1
+#define INCLUDE_JavaUtilConcurrentForkJoinTask 1
 #include "../../../java/util/concurrent/ForkJoinTask.h"
 
 /*!
@@ -94,4 +94,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRecursiveTask)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentRecursiveTask_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentRecursiveTask")

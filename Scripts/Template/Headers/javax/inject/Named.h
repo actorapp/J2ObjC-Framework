@@ -5,23 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxInjectNamed_INCLUDE_ALL")
-#ifdef JavaxInjectNamed_RESTRICT
-#define JavaxInjectNamed_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxInjectNamed")
+#ifdef RESTRICT_JavaxInjectNamed
+#define INCLUDE_ALL_JavaxInjectNamed 0
 #else
-#define JavaxInjectNamed_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxInjectNamed 1
 #endif
-#undef JavaxInjectNamed_RESTRICT
+#undef RESTRICT_JavaxInjectNamed
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxInjectNamed_) && (JavaxInjectNamed_INCLUDE_ALL || defined(JavaxInjectNamed_INCLUDE))
+#if !defined (JavaxInjectNamed_) && (INCLUDE_ALL_JavaxInjectNamed || defined(INCLUDE_JavaxInjectNamed))
 #define JavaxInjectNamed_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief String-based qualifier.
@@ -42,17 +45,15 @@
 @end
 
 @interface JavaxInjectNamed : NSObject < JavaxInjectNamed > {
- @private
+ @public
   NSString *value_;
 }
-
-- (instancetype)initWithValue:(NSString *)value__;
-
-+ (NSString *)valueDefault;
 
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxInjectNamed)
+
+FOUNDATION_EXPORT id<JavaxInjectNamed> create_JavaxInjectNamed(NSString *value);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxInjectNamed)
 
@@ -60,4 +61,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxInjectNamed)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxInjectNamed_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxInjectNamed")

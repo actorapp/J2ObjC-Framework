@@ -5,33 +5,33 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityKeyStore_INCLUDE_ALL")
-#ifdef JavaSecurityKeyStore_RESTRICT
-#define JavaSecurityKeyStore_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityKeyStore")
+#ifdef RESTRICT_JavaSecurityKeyStore
+#define INCLUDE_ALL_JavaSecurityKeyStore 0
 #else
-#define JavaSecurityKeyStore_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityKeyStore 1
 #endif
-#undef JavaSecurityKeyStore_RESTRICT
-#ifdef JavaSecurityKeyStore_TrustedCertificateEntry_INCLUDE
-#define JavaSecurityKeyStore_Entry_INCLUDE 1
+#undef RESTRICT_JavaSecurityKeyStore
+#ifdef INCLUDE_JavaSecurityKeyStore_TrustedCertificateEntry
+#define INCLUDE_JavaSecurityKeyStore_Entry 1
 #endif
-#ifdef JavaSecurityKeyStore_SecretKeyEntry_INCLUDE
-#define JavaSecurityKeyStore_Entry_INCLUDE 1
+#ifdef INCLUDE_JavaSecurityKeyStore_SecretKeyEntry
+#define INCLUDE_JavaSecurityKeyStore_Entry 1
 #endif
-#ifdef JavaSecurityKeyStore_PrivateKeyEntry_INCLUDE
-#define JavaSecurityKeyStore_Entry_INCLUDE 1
+#ifdef INCLUDE_JavaSecurityKeyStore_PrivateKeyEntry
+#define INCLUDE_JavaSecurityKeyStore_Entry 1
 #endif
-#ifdef JavaSecurityKeyStore_PasswordProtection_INCLUDE
-#define JavaSecurityKeyStore_ProtectionParameter_INCLUDE 1
+#ifdef INCLUDE_JavaSecurityKeyStore_PasswordProtection
+#define INCLUDE_JavaSecurityKeyStore_ProtectionParameter 1
 #endif
-#ifdef JavaSecurityKeyStore_CallbackHandlerProtection_INCLUDE
-#define JavaSecurityKeyStore_ProtectionParameter_INCLUDE 1
+#ifdef INCLUDE_JavaSecurityKeyStore_CallbackHandlerProtection
+#define INCLUDE_JavaSecurityKeyStore_ProtectionParameter 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityKeyStore_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_INCLUDE))
+#if !defined (JavaSecurityKeyStore_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore))
 #define JavaSecurityKeyStore_
 
 @class IOSByteArray;
@@ -505,6 +505,8 @@ FOUNDATION_EXPORT void JavaSecurityKeyStore_initWithJavaSecurityKeyStoreSpi_with
 
 FOUNDATION_EXPORT JavaSecurityKeyStore *new_JavaSecurityKeyStore_initWithJavaSecurityKeyStoreSpi_withJavaSecurityProvider_withNSString_(JavaSecurityKeyStoreSpi *keyStoreSpi, JavaSecurityProvider *provider, NSString *type) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyStore *create_JavaSecurityKeyStore_initWithJavaSecurityKeyStoreSpi_withJavaSecurityProvider_withNSString_(JavaSecurityKeyStoreSpi *keyStoreSpi, JavaSecurityProvider *provider, NSString *type);
+
 FOUNDATION_EXPORT JavaSecurityKeyStore *JavaSecurityKeyStore_getInstanceWithNSString_(NSString *type);
 
 FOUNDATION_EXPORT JavaSecurityKeyStore *JavaSecurityKeyStore_getInstanceWithNSString_withNSString_(NSString *type, NSString *provider);
@@ -517,7 +519,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore)
 
 #endif
 
-#if !defined (JavaSecurityKeyStore_Builder_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_Builder_INCLUDE))
+#if !defined (JavaSecurityKeyStore_Builder_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore_Builder))
 #define JavaSecurityKeyStore_Builder_
 
 @class JavaIoFile;
@@ -666,7 +668,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_Builder)
 
 #endif
 
-#if !defined (JavaSecurityKeyStore_LoadStoreParameter_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_LoadStoreParameter_INCLUDE))
+#if !defined (JavaSecurityKeyStore_LoadStoreParameter_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore_LoadStoreParameter))
 #define JavaSecurityKeyStore_LoadStoreParameter_
 
 @protocol JavaSecurityKeyStore_ProtectionParameter;
@@ -695,7 +697,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_LoadStoreParameter)
 
 #endif
 
-#if !defined (JavaSecurityKeyStore_ProtectionParameter_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_ProtectionParameter_INCLUDE))
+#if !defined (JavaSecurityKeyStore_ProtectionParameter_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore_ProtectionParameter))
 #define JavaSecurityKeyStore_ProtectionParameter_
 
 /*!
@@ -714,7 +716,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_ProtectionParameter)
 
 #endif
 
-#if !defined (JavaSecurityKeyStore_CallbackHandlerProtection_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_CallbackHandlerProtection_INCLUDE))
+#if !defined (JavaSecurityKeyStore_CallbackHandlerProtection_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore_CallbackHandlerProtection))
 #define JavaSecurityKeyStore_CallbackHandlerProtection_
 
 @protocol JavaxSecurityAuthCallbackCallbackHandler;
@@ -751,11 +753,13 @@ FOUNDATION_EXPORT void JavaSecurityKeyStore_CallbackHandlerProtection_initWithJa
 
 FOUNDATION_EXPORT JavaSecurityKeyStore_CallbackHandlerProtection *new_JavaSecurityKeyStore_CallbackHandlerProtection_initWithJavaxSecurityAuthCallbackCallbackHandler_(id<JavaxSecurityAuthCallbackCallbackHandler> handler) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyStore_CallbackHandlerProtection *create_JavaSecurityKeyStore_CallbackHandlerProtection_initWithJavaxSecurityAuthCallbackCallbackHandler_(id<JavaxSecurityAuthCallbackCallbackHandler> handler);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_CallbackHandlerProtection)
 
 #endif
 
-#if !defined (JavaSecurityKeyStore_Entry_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_Entry_INCLUDE))
+#if !defined (JavaSecurityKeyStore_Entry_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore_Entry))
 #define JavaSecurityKeyStore_Entry_
 
 /*!
@@ -772,11 +776,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_Entry)
 
 #endif
 
-#if !defined (JavaSecurityKeyStore_PasswordProtection_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_PasswordProtection_INCLUDE))
+#if !defined (JavaSecurityKeyStore_PasswordProtection_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore_PasswordProtection))
 #define JavaSecurityKeyStore_PasswordProtection_
 
-#define JavaxSecurityAuthDestroyable_RESTRICT 1
-#define JavaxSecurityAuthDestroyable_INCLUDE 1
+#define RESTRICT_JavaxSecurityAuthDestroyable 1
+#define INCLUDE_JavaxSecurityAuthDestroyable 1
 #include "../../javax/security/auth/Destroyable.h"
 
 @class IOSCharArray;
@@ -829,11 +833,13 @@ FOUNDATION_EXPORT void JavaSecurityKeyStore_PasswordProtection_initWithCharArray
 
 FOUNDATION_EXPORT JavaSecurityKeyStore_PasswordProtection *new_JavaSecurityKeyStore_PasswordProtection_initWithCharArray_(IOSCharArray *password) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyStore_PasswordProtection *create_JavaSecurityKeyStore_PasswordProtection_initWithCharArray_(IOSCharArray *password);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_PasswordProtection)
 
 #endif
 
-#if !defined (JavaSecurityKeyStore_PrivateKeyEntry_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_PrivateKeyEntry_INCLUDE))
+#if !defined (JavaSecurityKeyStore_PrivateKeyEntry_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore_PrivateKeyEntry))
 #define JavaSecurityKeyStore_PrivateKeyEntry_
 
 @class IOSObjectArray;
@@ -900,11 +906,13 @@ FOUNDATION_EXPORT void JavaSecurityKeyStore_PrivateKeyEntry_initWithJavaSecurity
 
 FOUNDATION_EXPORT JavaSecurityKeyStore_PrivateKeyEntry *new_JavaSecurityKeyStore_PrivateKeyEntry_initWithJavaSecurityPrivateKey_withJavaSecurityCertCertificateArray_(id<JavaSecurityPrivateKey> privateKey, IOSObjectArray *chain) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyStore_PrivateKeyEntry *create_JavaSecurityKeyStore_PrivateKeyEntry_initWithJavaSecurityPrivateKey_withJavaSecurityCertCertificateArray_(id<JavaSecurityPrivateKey> privateKey, IOSObjectArray *chain);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_PrivateKeyEntry)
 
 #endif
 
-#if !defined (JavaSecurityKeyStore_SecretKeyEntry_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_SecretKeyEntry_INCLUDE))
+#if !defined (JavaSecurityKeyStore_SecretKeyEntry_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore_SecretKeyEntry))
 #define JavaSecurityKeyStore_SecretKeyEntry_
 
 @protocol JavaxCryptoSecretKey;
@@ -949,11 +957,13 @@ FOUNDATION_EXPORT void JavaSecurityKeyStore_SecretKeyEntry_initWithJavaxCryptoSe
 
 FOUNDATION_EXPORT JavaSecurityKeyStore_SecretKeyEntry *new_JavaSecurityKeyStore_SecretKeyEntry_initWithJavaxCryptoSecretKey_(id<JavaxCryptoSecretKey> secretKey) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyStore_SecretKeyEntry *create_JavaSecurityKeyStore_SecretKeyEntry_initWithJavaxCryptoSecretKey_(id<JavaxCryptoSecretKey> secretKey);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_SecretKeyEntry)
 
 #endif
 
-#if !defined (JavaSecurityKeyStore_TrustedCertificateEntry_) && (JavaSecurityKeyStore_INCLUDE_ALL || defined(JavaSecurityKeyStore_TrustedCertificateEntry_INCLUDE))
+#if !defined (JavaSecurityKeyStore_TrustedCertificateEntry_) && (INCLUDE_ALL_JavaSecurityKeyStore || defined(INCLUDE_JavaSecurityKeyStore_TrustedCertificateEntry))
 #define JavaSecurityKeyStore_TrustedCertificateEntry_
 
 @class JavaSecurityCertCertificate;
@@ -998,10 +1008,12 @@ FOUNDATION_EXPORT void JavaSecurityKeyStore_TrustedCertificateEntry_initWithJava
 
 FOUNDATION_EXPORT JavaSecurityKeyStore_TrustedCertificateEntry *new_JavaSecurityKeyStore_TrustedCertificateEntry_initWithJavaSecurityCertCertificate_(JavaSecurityCertCertificate *trustCertificate) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyStore_TrustedCertificateEntry *create_JavaSecurityKeyStore_TrustedCertificateEntry_initWithJavaSecurityCertCertificate_(JavaSecurityCertCertificate *trustCertificate);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStore_TrustedCertificateEntry)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityKeyStore_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityKeyStore")

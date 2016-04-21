@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoObjectStreamConstants_INCLUDE_ALL")
-#ifdef JavaIoObjectStreamConstants_RESTRICT
-#define JavaIoObjectStreamConstants_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoObjectStreamConstants")
+#ifdef RESTRICT_JavaIoObjectStreamConstants
+#define INCLUDE_ALL_JavaIoObjectStreamConstants 0
 #else
-#define JavaIoObjectStreamConstants_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoObjectStreamConstants 1
 #endif
-#undef JavaIoObjectStreamConstants_RESTRICT
+#undef RESTRICT_JavaIoObjectStreamConstants
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoObjectStreamConstants_) && (JavaIoObjectStreamConstants_INCLUDE_ALL || defined(JavaIoObjectStreamConstants_INCLUDE))
+#if !defined (JavaIoObjectStreamConstants_) && (INCLUDE_ALL_JavaIoObjectStreamConstants || defined(INCLUDE_JavaIoObjectStreamConstants))
 #define JavaIoObjectStreamConstants_
 
 @class JavaIoSerializablePermission;
@@ -320,4 +320,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamConstants)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoObjectStreamConstants_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoObjectStreamConstants")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangClassCastException_INCLUDE_ALL")
-#ifdef JavaLangClassCastException_RESTRICT
-#define JavaLangClassCastException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangClassCastException")
+#ifdef RESTRICT_JavaLangClassCastException
+#define INCLUDE_ALL_JavaLangClassCastException 0
 #else
-#define JavaLangClassCastException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangClassCastException 1
 #endif
-#undef JavaLangClassCastException_RESTRICT
+#undef RESTRICT_JavaLangClassCastException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangClassCastException_) && (JavaLangClassCastException_INCLUDE_ALL || defined(JavaLangClassCastException_INCLUDE))
+#if !defined (JavaLangClassCastException_) && (INCLUDE_ALL_JavaLangClassCastException || defined(INCLUDE_JavaLangClassCastException))
 #define JavaLangClassCastException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangClassCastException_init(JavaLangClassCastExceptio
 
 FOUNDATION_EXPORT JavaLangClassCastException *new_JavaLangClassCastException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangClassCastException *create_JavaLangClassCastException_init();
+
 FOUNDATION_EXPORT void JavaLangClassCastException_initWithNSString_(JavaLangClassCastException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangClassCastException *new_JavaLangClassCastException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangClassCastException *create_JavaLangClassCastException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassCastException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassCastException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangClassCastException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangClassCastException")

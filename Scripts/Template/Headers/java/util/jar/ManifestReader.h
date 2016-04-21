@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilJarManifestReader_INCLUDE_ALL")
-#ifdef JavaUtilJarManifestReader_RESTRICT
-#define JavaUtilJarManifestReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilJarManifestReader")
+#ifdef RESTRICT_JavaUtilJarManifestReader
+#define INCLUDE_ALL_JavaUtilJarManifestReader 0
 #else
-#define JavaUtilJarManifestReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilJarManifestReader 1
 #endif
-#undef JavaUtilJarManifestReader_RESTRICT
+#undef RESTRICT_JavaUtilJarManifestReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilJarManifestReader_) && (JavaUtilJarManifestReader_INCLUDE_ALL || defined(JavaUtilJarManifestReader_INCLUDE))
+#if !defined (JavaUtilJarManifestReader_) && (INCLUDE_ALL_JavaUtilJarManifestReader || defined(INCLUDE_JavaUtilJarManifestReader))
 #define JavaUtilJarManifestReader_
 
 @class IOSByteArray;
@@ -48,10 +48,12 @@ FOUNDATION_EXPORT void JavaUtilJarManifestReader_initWithByteArray_withJavaUtilJ
 
 FOUNDATION_EXPORT JavaUtilJarManifestReader *new_JavaUtilJarManifestReader_initWithByteArray_withJavaUtilJarAttributes_(IOSByteArray *buf, JavaUtilJarAttributes *main) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarManifestReader *create_JavaUtilJarManifestReader_initWithByteArray_withJavaUtilJarAttributes_(IOSByteArray *buf, JavaUtilJarAttributes *main);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarManifestReader)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilJarManifestReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilJarManifestReader")

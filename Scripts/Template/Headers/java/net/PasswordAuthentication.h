@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetPasswordAuthentication_INCLUDE_ALL")
-#ifdef JavaNetPasswordAuthentication_RESTRICT
-#define JavaNetPasswordAuthentication_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetPasswordAuthentication")
+#ifdef RESTRICT_JavaNetPasswordAuthentication
+#define INCLUDE_ALL_JavaNetPasswordAuthentication 0
 #else
-#define JavaNetPasswordAuthentication_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetPasswordAuthentication 1
 #endif
-#undef JavaNetPasswordAuthentication_RESTRICT
+#undef RESTRICT_JavaNetPasswordAuthentication
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetPasswordAuthentication_) && (JavaNetPasswordAuthentication_INCLUDE_ALL || defined(JavaNetPasswordAuthentication_INCLUDE))
+#if !defined (JavaNetPasswordAuthentication_) && (INCLUDE_ALL_JavaNetPasswordAuthentication || defined(INCLUDE_JavaNetPasswordAuthentication))
 #define JavaNetPasswordAuthentication_
 
 @class IOSCharArray;
@@ -64,10 +64,12 @@ FOUNDATION_EXPORT void JavaNetPasswordAuthentication_initWithNSString_withCharAr
 
 FOUNDATION_EXPORT JavaNetPasswordAuthentication *new_JavaNetPasswordAuthentication_initWithNSString_withCharArray_(NSString *userName, IOSCharArray *password) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetPasswordAuthentication *create_JavaNetPasswordAuthentication_initWithNSString_withCharArray_(NSString *userName, IOSCharArray *password);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetPasswordAuthentication)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetPasswordAuthentication_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetPasswordAuthentication")

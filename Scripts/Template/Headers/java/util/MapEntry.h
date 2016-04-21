@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilMapEntry_INCLUDE_ALL")
-#ifdef JavaUtilMapEntry_RESTRICT
-#define JavaUtilMapEntry_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilMapEntry")
+#ifdef RESTRICT_JavaUtilMapEntry
+#define INCLUDE_ALL_JavaUtilMapEntry 0
 #else
-#define JavaUtilMapEntry_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilMapEntry 1
 #endif
-#undef JavaUtilMapEntry_RESTRICT
+#undef RESTRICT_JavaUtilMapEntry
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilMapEntry_) && (JavaUtilMapEntry_INCLUDE_ALL || defined(JavaUtilMapEntry_INCLUDE))
+#if !defined (JavaUtilMapEntry_) && (INCLUDE_ALL_JavaUtilMapEntry || defined(INCLUDE_JavaUtilMapEntry))
 #define JavaUtilMapEntry_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_Entry_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap_Entry 1
 #include "../../java/util/Map.h"
 
 /*!
@@ -66,15 +66,19 @@ FOUNDATION_EXPORT void JavaUtilMapEntry_initWithId_(JavaUtilMapEntry *self, id t
 
 FOUNDATION_EXPORT JavaUtilMapEntry *new_JavaUtilMapEntry_initWithId_(id theKey) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilMapEntry *create_JavaUtilMapEntry_initWithId_(id theKey);
+
 FOUNDATION_EXPORT void JavaUtilMapEntry_initWithId_withId_(JavaUtilMapEntry *self, id theKey, id theValue);
 
 FOUNDATION_EXPORT JavaUtilMapEntry *new_JavaUtilMapEntry_initWithId_withId_(id theKey, id theValue) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilMapEntry *create_JavaUtilMapEntry_initWithId_withId_(id theKey, id theValue);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMapEntry)
 
 #endif
 
-#if !defined (JavaUtilMapEntry_Type_) && (JavaUtilMapEntry_INCLUDE_ALL || defined(JavaUtilMapEntry_Type_INCLUDE))
+#if !defined (JavaUtilMapEntry_Type_) && (INCLUDE_ALL_JavaUtilMapEntry || defined(INCLUDE_JavaUtilMapEntry_Type))
 #define JavaUtilMapEntry_Type_
 
 @class JavaUtilMapEntry;
@@ -93,4 +97,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMapEntry_Type)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilMapEntry_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilMapEntry")

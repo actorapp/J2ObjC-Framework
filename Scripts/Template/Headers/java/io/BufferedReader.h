@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoBufferedReader_INCLUDE_ALL")
-#ifdef JavaIoBufferedReader_RESTRICT
-#define JavaIoBufferedReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoBufferedReader")
+#ifdef RESTRICT_JavaIoBufferedReader
+#define INCLUDE_ALL_JavaIoBufferedReader 0
 #else
-#define JavaIoBufferedReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoBufferedReader 1
 #endif
-#undef JavaIoBufferedReader_RESTRICT
+#undef RESTRICT_JavaIoBufferedReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoBufferedReader_) && (JavaIoBufferedReader_INCLUDE_ALL || defined(JavaIoBufferedReader_INCLUDE))
+#if !defined (JavaIoBufferedReader_) && (INCLUDE_ALL_JavaIoBufferedReader || defined(INCLUDE_JavaIoBufferedReader))
 #define JavaIoBufferedReader_
 
-#define JavaIoReader_RESTRICT 1
-#define JavaIoReader_INCLUDE 1
+#define RESTRICT_JavaIoReader 1
+#define INCLUDE_JavaIoReader 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -200,9 +200,13 @@ FOUNDATION_EXPORT void JavaIoBufferedReader_initWithJavaIoReader_(JavaIoBuffered
 
 FOUNDATION_EXPORT JavaIoBufferedReader *new_JavaIoBufferedReader_initWithJavaIoReader_(JavaIoReader *inArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoBufferedReader *create_JavaIoBufferedReader_initWithJavaIoReader_(JavaIoReader *inArg);
+
 FOUNDATION_EXPORT void JavaIoBufferedReader_initWithJavaIoReader_withInt_(JavaIoBufferedReader *self, JavaIoReader *inArg, jint size);
 
 FOUNDATION_EXPORT JavaIoBufferedReader *new_JavaIoBufferedReader_initWithJavaIoReader_withInt_(JavaIoReader *inArg, jint size) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoBufferedReader *create_JavaIoBufferedReader_initWithJavaIoReader_withInt_(JavaIoReader *inArg, jint size);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedReader)
 
@@ -210,4 +214,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedReader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoBufferedReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoBufferedReader")

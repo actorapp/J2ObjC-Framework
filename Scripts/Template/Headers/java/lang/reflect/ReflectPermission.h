@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectReflectPermission_INCLUDE_ALL")
-#ifdef JavaLangReflectReflectPermission_RESTRICT
-#define JavaLangReflectReflectPermission_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectReflectPermission")
+#ifdef RESTRICT_JavaLangReflectReflectPermission
+#define INCLUDE_ALL_JavaLangReflectReflectPermission 0
 #else
-#define JavaLangReflectReflectPermission_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectReflectPermission 1
 #endif
-#undef JavaLangReflectReflectPermission_RESTRICT
+#undef RESTRICT_JavaLangReflectReflectPermission
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectReflectPermission_) && (JavaLangReflectReflectPermission_INCLUDE_ALL || defined(JavaLangReflectReflectPermission_INCLUDE))
+#if !defined (JavaLangReflectReflectPermission_) && (INCLUDE_ALL_JavaLangReflectReflectPermission || defined(INCLUDE_JavaLangReflectReflectPermission))
 #define JavaLangReflectReflectPermission_
 
-#define JavaSecurityBasicPermission_RESTRICT 1
-#define JavaSecurityBasicPermission_INCLUDE 1
+#define RESTRICT_JavaSecurityBasicPermission 1
+#define INCLUDE_JavaSecurityBasicPermission 1
 #include "../../../java/security/BasicPermission.h"
 
 @class JavaSecurityPermission;
@@ -49,9 +49,13 @@ FOUNDATION_EXPORT void JavaLangReflectReflectPermission_initWithNSString_(JavaLa
 
 FOUNDATION_EXPORT JavaLangReflectReflectPermission *new_JavaLangReflectReflectPermission_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangReflectReflectPermission *create_JavaLangReflectReflectPermission_initWithNSString_(NSString *name);
+
 FOUNDATION_EXPORT void JavaLangReflectReflectPermission_initWithNSString_withNSString_(JavaLangReflectReflectPermission *self, NSString *name, NSString *actions);
 
 FOUNDATION_EXPORT JavaLangReflectReflectPermission *new_JavaLangReflectReflectPermission_initWithNSString_withNSString_(NSString *name, NSString *actions) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangReflectReflectPermission *create_JavaLangReflectReflectPermission_initWithNSString_withNSString_(NSString *name, NSString *actions);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectReflectPermission)
 
@@ -59,4 +63,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectReflectPermission)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectReflectPermission_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectReflectPermission")

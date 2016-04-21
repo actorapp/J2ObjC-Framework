@@ -5,25 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySignature_INCLUDE_ALL")
-#ifdef JavaSecuritySignature_RESTRICT
-#define JavaSecuritySignature_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySignature")
+#ifdef RESTRICT_JavaSecuritySignature
+#define INCLUDE_ALL_JavaSecuritySignature 0
 #else
-#define JavaSecuritySignature_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySignature 1
 #endif
-#undef JavaSecuritySignature_RESTRICT
+#undef RESTRICT_JavaSecuritySignature
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySignature_) && (JavaSecuritySignature_INCLUDE_ALL || defined(JavaSecuritySignature_INCLUDE))
+#if !defined (JavaSecuritySignature_) && (INCLUDE_ALL_JavaSecuritySignature || defined(INCLUDE_JavaSecuritySignature))
 #define JavaSecuritySignature_
 
-#define JavaSecuritySignatureSpi_RESTRICT 1
-#define JavaSecuritySignatureSpi_INCLUDE 1
+#define RESTRICT_JavaSecuritySignatureSpi 1
+#define INCLUDE_JavaSecuritySignatureSpi 1
 #include "../../java/security/SignatureSpi.h"
 
 @class IOSByteArray;
+@class IOSObjectArray;
 @class JavaNioByteBuffer;
 @class JavaSecurityAlgorithmParameters;
 @class JavaSecurityCertCertificate;
@@ -422,4 +423,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySignature)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySignature_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySignature")

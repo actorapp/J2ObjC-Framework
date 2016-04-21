@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHelpersLocatorImpl_INCLUDE_ALL")
-#ifdef OrgXmlSaxHelpersLocatorImpl_RESTRICT
-#define OrgXmlSaxHelpersLocatorImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersLocatorImpl")
+#ifdef RESTRICT_OrgXmlSaxHelpersLocatorImpl
+#define INCLUDE_ALL_OrgXmlSaxHelpersLocatorImpl 0
 #else
-#define OrgXmlSaxHelpersLocatorImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHelpersLocatorImpl 1
 #endif
-#undef OrgXmlSaxHelpersLocatorImpl_RESTRICT
+#undef RESTRICT_OrgXmlSaxHelpersLocatorImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHelpersLocatorImpl_) && (OrgXmlSaxHelpersLocatorImpl_INCLUDE_ALL || defined(OrgXmlSaxHelpersLocatorImpl_INCLUDE))
+#if !defined (OrgXmlSaxHelpersLocatorImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersLocatorImpl || defined(INCLUDE_OrgXmlSaxHelpersLocatorImpl))
 #define OrgXmlSaxHelpersLocatorImpl_
 
-#define OrgXmlSaxLocator_RESTRICT 1
-#define OrgXmlSaxLocator_INCLUDE 1
+#define RESTRICT_OrgXmlSaxLocator 1
+#define INCLUDE_OrgXmlSaxLocator 1
 #include "../../../../org/xml/sax/Locator.h"
 
 /*!
@@ -152,9 +152,13 @@ FOUNDATION_EXPORT void OrgXmlSaxHelpersLocatorImpl_init(OrgXmlSaxHelpersLocatorI
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersLocatorImpl *new_OrgXmlSaxHelpersLocatorImpl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHelpersLocatorImpl *create_OrgXmlSaxHelpersLocatorImpl_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxHelpersLocatorImpl_initWithOrgXmlSaxLocator_(OrgXmlSaxHelpersLocatorImpl *self, id<OrgXmlSaxLocator> locator);
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersLocatorImpl *new_OrgXmlSaxHelpersLocatorImpl_initWithOrgXmlSaxLocator_(id<OrgXmlSaxLocator> locator) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxHelpersLocatorImpl *create_OrgXmlSaxHelpersLocatorImpl_initWithOrgXmlSaxLocator_(id<OrgXmlSaxLocator> locator);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersLocatorImpl)
 
@@ -162,4 +166,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersLocatorImpl)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHelpersLocatorImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersLocatorImpl")

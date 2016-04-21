@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslTrustManagerFactorySpi_INCLUDE_ALL")
-#ifdef JavaxNetSslTrustManagerFactorySpi_RESTRICT
-#define JavaxNetSslTrustManagerFactorySpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslTrustManagerFactorySpi")
+#ifdef RESTRICT_JavaxNetSslTrustManagerFactorySpi
+#define INCLUDE_ALL_JavaxNetSslTrustManagerFactorySpi 0
 #else
-#define JavaxNetSslTrustManagerFactorySpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslTrustManagerFactorySpi 1
 #endif
-#undef JavaxNetSslTrustManagerFactorySpi_RESTRICT
+#undef RESTRICT_JavaxNetSslTrustManagerFactorySpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslTrustManagerFactorySpi_) && (JavaxNetSslTrustManagerFactorySpi_INCLUDE_ALL || defined(JavaxNetSslTrustManagerFactorySpi_INCLUDE))
+#if !defined (JavaxNetSslTrustManagerFactorySpi_) && (INCLUDE_ALL_JavaxNetSslTrustManagerFactorySpi || defined(INCLUDE_JavaxNetSslTrustManagerFactorySpi))
 #define JavaxNetSslTrustManagerFactorySpi_
 
 @class IOSObjectArray;
@@ -77,4 +77,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslTrustManagerFactorySpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslTrustManagerFactorySpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslTrustManagerFactorySpi")

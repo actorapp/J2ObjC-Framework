@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilUnsafeArrayList_INCLUDE_ALL")
-#ifdef JavaUtilUnsafeArrayList_RESTRICT
-#define JavaUtilUnsafeArrayList_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilUnsafeArrayList")
+#ifdef RESTRICT_JavaUtilUnsafeArrayList
+#define INCLUDE_ALL_JavaUtilUnsafeArrayList 0
 #else
-#define JavaUtilUnsafeArrayList_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilUnsafeArrayList 1
 #endif
-#undef JavaUtilUnsafeArrayList_RESTRICT
+#undef RESTRICT_JavaUtilUnsafeArrayList
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilUnsafeArrayList_) && (JavaUtilUnsafeArrayList_INCLUDE_ALL || defined(JavaUtilUnsafeArrayList_INCLUDE))
+#if !defined (JavaUtilUnsafeArrayList_) && (INCLUDE_ALL_JavaUtilUnsafeArrayList || defined(INCLUDE_JavaUtilUnsafeArrayList))
 #define JavaUtilUnsafeArrayList_
 
-#define JavaUtilAbstractList_RESTRICT 1
-#define JavaUtilAbstractList_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractList 1
+#define INCLUDE_JavaUtilAbstractList 1
 #include "../../java/util/AbstractList.h"
 
 @class IOSClass;
@@ -54,10 +54,12 @@ FOUNDATION_EXPORT void JavaUtilUnsafeArrayList_initWithIOSClass_withInt_(JavaUti
 
 FOUNDATION_EXPORT JavaUtilUnsafeArrayList *new_JavaUtilUnsafeArrayList_initWithIOSClass_withInt_(IOSClass *elementType, jint initialCapacity) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilUnsafeArrayList *create_JavaUtilUnsafeArrayList_initWithIOSClass_withInt_(IOSClass *elementType, jint initialCapacity);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUnsafeArrayList)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilUnsafeArrayList_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilUnsafeArrayList")

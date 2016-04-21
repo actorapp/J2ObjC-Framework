@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoCharArrayWriter_INCLUDE_ALL")
-#ifdef JavaIoCharArrayWriter_RESTRICT
-#define JavaIoCharArrayWriter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoCharArrayWriter")
+#ifdef RESTRICT_JavaIoCharArrayWriter
+#define INCLUDE_ALL_JavaIoCharArrayWriter 0
 #else
-#define JavaIoCharArrayWriter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoCharArrayWriter 1
 #endif
-#undef JavaIoCharArrayWriter_RESTRICT
+#undef RESTRICT_JavaIoCharArrayWriter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoCharArrayWriter_) && (JavaIoCharArrayWriter_INCLUDE_ALL || defined(JavaIoCharArrayWriter_INCLUDE))
+#if !defined (JavaIoCharArrayWriter_) && (INCLUDE_ALL_JavaIoCharArrayWriter || defined(INCLUDE_JavaIoCharArrayWriter))
 #define JavaIoCharArrayWriter_
 
-#define JavaIoWriter_RESTRICT 1
-#define JavaIoWriter_INCLUDE 1
+#define RESTRICT_JavaIoWriter 1
+#define INCLUDE_JavaIoWriter 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -228,9 +228,13 @@ FOUNDATION_EXPORT void JavaIoCharArrayWriter_init(JavaIoCharArrayWriter *self);
 
 FOUNDATION_EXPORT JavaIoCharArrayWriter *new_JavaIoCharArrayWriter_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoCharArrayWriter *create_JavaIoCharArrayWriter_init();
+
 FOUNDATION_EXPORT void JavaIoCharArrayWriter_initWithInt_(JavaIoCharArrayWriter *self, jint initialSize);
 
 FOUNDATION_EXPORT JavaIoCharArrayWriter *new_JavaIoCharArrayWriter_initWithInt_(jint initialSize) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoCharArrayWriter *create_JavaIoCharArrayWriter_initWithInt_(jint initialSize);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharArrayWriter)
 
@@ -238,4 +242,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharArrayWriter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoCharArrayWriter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoCharArrayWriter")

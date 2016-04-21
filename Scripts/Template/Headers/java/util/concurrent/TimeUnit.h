@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentTimeUnit_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentTimeUnit_RESTRICT
-#define JavaUtilConcurrentTimeUnit_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentTimeUnit")
+#ifdef RESTRICT_JavaUtilConcurrentTimeUnit
+#define INCLUDE_ALL_JavaUtilConcurrentTimeUnit 0
 #else
-#define JavaUtilConcurrentTimeUnit_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentTimeUnit 1
 #endif
-#undef JavaUtilConcurrentTimeUnit_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentTimeUnit
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentTimeUnit_) && (JavaUtilConcurrentTimeUnit_INCLUDE_ALL || defined(JavaUtilConcurrentTimeUnit_INCLUDE))
+#if !defined (JavaUtilConcurrentTimeUnit_) && (INCLUDE_ALL_JavaUtilConcurrentTimeUnit || defined(INCLUDE_JavaUtilConcurrentTimeUnit))
 #define JavaUtilConcurrentTimeUnit_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../../java/lang/Enum.h"
 
 @class JavaLangThread;
@@ -366,4 +366,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentTimeUnit)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentTimeUnit_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentTimeUnit")

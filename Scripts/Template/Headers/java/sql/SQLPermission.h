@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLPermission_INCLUDE_ALL")
-#ifdef JavaSqlSQLPermission_RESTRICT
-#define JavaSqlSQLPermission_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLPermission")
+#ifdef RESTRICT_JavaSqlSQLPermission
+#define INCLUDE_ALL_JavaSqlSQLPermission 0
 #else
-#define JavaSqlSQLPermission_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLPermission 1
 #endif
-#undef JavaSqlSQLPermission_RESTRICT
+#undef RESTRICT_JavaSqlSQLPermission
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLPermission_) && (JavaSqlSQLPermission_INCLUDE_ALL || defined(JavaSqlSQLPermission_INCLUDE))
+#if !defined (JavaSqlSQLPermission_) && (INCLUDE_ALL_JavaSqlSQLPermission || defined(INCLUDE_JavaSqlSQLPermission))
 #define JavaSqlSQLPermission_
 
-#define JavaSecurityBasicPermission_RESTRICT 1
-#define JavaSecurityBasicPermission_INCLUDE 1
+#define RESTRICT_JavaSecurityBasicPermission 1
+#define INCLUDE_JavaSecurityBasicPermission 1
 #include "../../java/security/BasicPermission.h"
 
-#define JavaSecurityGuard_RESTRICT 1
-#define JavaSecurityGuard_INCLUDE 1
+#define RESTRICT_JavaSecurityGuard 1
+#define INCLUDE_JavaSecurityGuard 1
 #include "../../java/security/Guard.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class JavaSecurityPermission;
@@ -57,9 +57,13 @@ FOUNDATION_EXPORT void JavaSqlSQLPermission_initWithNSString_(JavaSqlSQLPermissi
 
 FOUNDATION_EXPORT JavaSqlSQLPermission *new_JavaSqlSQLPermission_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLPermission *create_JavaSqlSQLPermission_initWithNSString_(NSString *name);
+
 FOUNDATION_EXPORT void JavaSqlSQLPermission_initWithNSString_withNSString_(JavaSqlSQLPermission *self, NSString *name, NSString *actions);
 
 FOUNDATION_EXPORT JavaSqlSQLPermission *new_JavaSqlSQLPermission_initWithNSString_withNSString_(NSString *name, NSString *actions) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLPermission *create_JavaSqlSQLPermission_initWithNSString_withNSString_(NSString *name, NSString *actions);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLPermission)
 
@@ -67,4 +71,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLPermission)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLPermission_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLPermission")

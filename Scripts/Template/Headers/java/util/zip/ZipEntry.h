@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipZipEntry_INCLUDE_ALL")
-#ifdef JavaUtilZipZipEntry_RESTRICT
-#define JavaUtilZipZipEntry_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipZipEntry")
+#ifdef RESTRICT_JavaUtilZipZipEntry
+#define INCLUDE_ALL_JavaUtilZipZipEntry 0
 #else
-#define JavaUtilZipZipEntry_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipZipEntry 1
 #endif
-#undef JavaUtilZipZipEntry_RESTRICT
+#undef RESTRICT_JavaUtilZipZipEntry
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipZipEntry_) && (JavaUtilZipZipEntry_INCLUDE_ALL || defined(JavaUtilZipZipEntry_INCLUDE))
+#if !defined (JavaUtilZipZipEntry_) && (INCLUDE_ALL_JavaUtilZipZipEntry || defined(INCLUDE_JavaUtilZipZipEntry))
 #define JavaUtilZipZipEntry_
 
-#define JavaUtilZipZipConstants_RESTRICT 1
-#define JavaUtilZipZipConstants_INCLUDE 1
+#define RESTRICT_JavaUtilZipZipConstants 1
+#define INCLUDE_JavaUtilZipZipConstants 1
 #include "../../../java/util/zip/ZipConstants.h"
 
 @class IOSByteArray;
@@ -263,17 +263,25 @@ FOUNDATION_EXPORT void JavaUtilZipZipEntry_initWithNSString_withNSString_withLon
 
 FOUNDATION_EXPORT JavaUtilZipZipEntry *new_JavaUtilZipZipEntry_initWithNSString_withNSString_withLong_withLong_withLong_withInt_withInt_withInt_withByteArray_withLong_withLong_(NSString *name, NSString *comment, jlong crc, jlong compressedSize, jlong size, jint compressionMethod, jint time, jint modDate, IOSByteArray *extra, jlong localHeaderRelOffset, jlong dataOffset) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipZipEntry *create_JavaUtilZipZipEntry_initWithNSString_withNSString_withLong_withLong_withLong_withInt_withInt_withInt_withByteArray_withLong_withLong_(NSString *name, NSString *comment, jlong crc, jlong compressedSize, jlong size, jint compressionMethod, jint time, jint modDate, IOSByteArray *extra, jlong localHeaderRelOffset, jlong dataOffset);
+
 FOUNDATION_EXPORT void JavaUtilZipZipEntry_initWithNSString_(JavaUtilZipZipEntry *self, NSString *name);
 
 FOUNDATION_EXPORT JavaUtilZipZipEntry *new_JavaUtilZipZipEntry_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipZipEntry *create_JavaUtilZipZipEntry_initWithNSString_(NSString *name);
 
 FOUNDATION_EXPORT void JavaUtilZipZipEntry_initWithJavaUtilZipZipEntry_(JavaUtilZipZipEntry *self, JavaUtilZipZipEntry *ze);
 
 FOUNDATION_EXPORT JavaUtilZipZipEntry *new_JavaUtilZipZipEntry_initWithJavaUtilZipZipEntry_(JavaUtilZipZipEntry *ze) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipZipEntry *create_JavaUtilZipZipEntry_initWithJavaUtilZipZipEntry_(JavaUtilZipZipEntry *ze);
+
 FOUNDATION_EXPORT void JavaUtilZipZipEntry_initWithByteArray_withJavaIoInputStream_withJavaNioCharsetCharset_withBoolean_(JavaUtilZipZipEntry *self, IOSByteArray *cdeHdrBuf, JavaIoInputStream *cdStream, JavaNioCharsetCharset *defaultCharset, jboolean isZip64);
 
 FOUNDATION_EXPORT JavaUtilZipZipEntry *new_JavaUtilZipZipEntry_initWithByteArray_withJavaIoInputStream_withJavaNioCharsetCharset_withBoolean_(IOSByteArray *cdeHdrBuf, JavaIoInputStream *cdStream, JavaNioCharsetCharset *defaultCharset, jboolean isZip64) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipZipEntry *create_JavaUtilZipZipEntry_initWithByteArray_withJavaIoInputStream_withJavaNioCharsetCharset_withBoolean_(IOSByteArray *cdeHdrBuf, JavaIoInputStream *cdStream, JavaNioCharsetCharset *defaultCharset, jboolean isZip64);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipEntry)
 
@@ -281,4 +289,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipEntry)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipZipEntry_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipZipEntry")

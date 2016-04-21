@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilAbstractMap_INCLUDE_ALL")
-#ifdef JavaUtilAbstractMap_RESTRICT
-#define JavaUtilAbstractMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilAbstractMap")
+#ifdef RESTRICT_JavaUtilAbstractMap
+#define INCLUDE_ALL_JavaUtilAbstractMap 0
 #else
-#define JavaUtilAbstractMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilAbstractMap 1
 #endif
-#undef JavaUtilAbstractMap_RESTRICT
+#undef RESTRICT_JavaUtilAbstractMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilAbstractMap_) && (JavaUtilAbstractMap_INCLUDE_ALL || defined(JavaUtilAbstractMap_INCLUDE))
+#if !defined (JavaUtilAbstractMap_) && (INCLUDE_ALL_JavaUtilAbstractMap || defined(INCLUDE_JavaUtilAbstractMap))
 #define JavaUtilAbstractMap_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap 1
 #include "../../java/util/Map.h"
 
 @protocol JavaUtilCollection;
@@ -168,15 +168,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap)
 
 #endif
 
-#if !defined (JavaUtilAbstractMap_SimpleImmutableEntry_) && (JavaUtilAbstractMap_INCLUDE_ALL || defined(JavaUtilAbstractMap_SimpleImmutableEntry_INCLUDE))
+#if !defined (JavaUtilAbstractMap_SimpleImmutableEntry_) && (INCLUDE_ALL_JavaUtilAbstractMap || defined(INCLUDE_JavaUtilAbstractMap_SimpleImmutableEntry))
 #define JavaUtilAbstractMap_SimpleImmutableEntry_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_Entry_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap_Entry 1
 #include "../../java/util/Map.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -221,23 +221,27 @@ FOUNDATION_EXPORT void JavaUtilAbstractMap_SimpleImmutableEntry_initWithId_withI
 
 FOUNDATION_EXPORT JavaUtilAbstractMap_SimpleImmutableEntry *new_JavaUtilAbstractMap_SimpleImmutableEntry_initWithId_withId_(id theKey, id theValue) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilAbstractMap_SimpleImmutableEntry *create_JavaUtilAbstractMap_SimpleImmutableEntry_initWithId_withId_(id theKey, id theValue);
+
 FOUNDATION_EXPORT void JavaUtilAbstractMap_SimpleImmutableEntry_initWithJavaUtilMap_Entry_(JavaUtilAbstractMap_SimpleImmutableEntry *self, id<JavaUtilMap_Entry> copyFrom);
 
 FOUNDATION_EXPORT JavaUtilAbstractMap_SimpleImmutableEntry *new_JavaUtilAbstractMap_SimpleImmutableEntry_initWithJavaUtilMap_Entry_(id<JavaUtilMap_Entry> copyFrom) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilAbstractMap_SimpleImmutableEntry *create_JavaUtilAbstractMap_SimpleImmutableEntry_initWithJavaUtilMap_Entry_(id<JavaUtilMap_Entry> copyFrom);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap_SimpleImmutableEntry)
 
 #endif
 
-#if !defined (JavaUtilAbstractMap_SimpleEntry_) && (JavaUtilAbstractMap_INCLUDE_ALL || defined(JavaUtilAbstractMap_SimpleEntry_INCLUDE))
+#if !defined (JavaUtilAbstractMap_SimpleEntry_) && (INCLUDE_ALL_JavaUtilAbstractMap || defined(INCLUDE_JavaUtilAbstractMap_SimpleEntry))
 #define JavaUtilAbstractMap_SimpleEntry_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_Entry_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap_Entry 1
 #include "../../java/util/Map.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -276,9 +280,13 @@ FOUNDATION_EXPORT void JavaUtilAbstractMap_SimpleEntry_initWithId_withId_(JavaUt
 
 FOUNDATION_EXPORT JavaUtilAbstractMap_SimpleEntry *new_JavaUtilAbstractMap_SimpleEntry_initWithId_withId_(id theKey, id theValue) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilAbstractMap_SimpleEntry *create_JavaUtilAbstractMap_SimpleEntry_initWithId_withId_(id theKey, id theValue);
+
 FOUNDATION_EXPORT void JavaUtilAbstractMap_SimpleEntry_initWithJavaUtilMap_Entry_(JavaUtilAbstractMap_SimpleEntry *self, id<JavaUtilMap_Entry> copyFrom);
 
 FOUNDATION_EXPORT JavaUtilAbstractMap_SimpleEntry *new_JavaUtilAbstractMap_SimpleEntry_initWithJavaUtilMap_Entry_(id<JavaUtilMap_Entry> copyFrom) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilAbstractMap_SimpleEntry *create_JavaUtilAbstractMap_SimpleEntry_initWithJavaUtilMap_Entry_(id<JavaUtilMap_Entry> copyFrom);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap_SimpleEntry)
 
@@ -286,4 +294,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractMap_SimpleEntry)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilAbstractMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractMap")

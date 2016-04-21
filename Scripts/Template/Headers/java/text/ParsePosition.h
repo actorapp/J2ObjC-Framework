@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextParsePosition_INCLUDE_ALL")
-#ifdef JavaTextParsePosition_RESTRICT
-#define JavaTextParsePosition_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextParsePosition")
+#ifdef RESTRICT_JavaTextParsePosition
+#define INCLUDE_ALL_JavaTextParsePosition 0
 #else
-#define JavaTextParsePosition_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextParsePosition 1
 #endif
-#undef JavaTextParsePosition_RESTRICT
+#undef RESTRICT_JavaTextParsePosition
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextParsePosition_) && (JavaTextParsePosition_INCLUDE_ALL || defined(JavaTextParsePosition_INCLUDE))
+#if !defined (JavaTextParsePosition_) && (INCLUDE_ALL_JavaTextParsePosition || defined(INCLUDE_JavaTextParsePosition))
 #define JavaTextParsePosition_
 
 /*!
@@ -92,10 +92,12 @@ FOUNDATION_EXPORT void JavaTextParsePosition_initWithInt_(JavaTextParsePosition 
 
 FOUNDATION_EXPORT JavaTextParsePosition *new_JavaTextParsePosition_initWithInt_(jint index) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextParsePosition *create_JavaTextParsePosition_initWithInt_(jint index);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextParsePosition)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextParsePosition_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextParsePosition")

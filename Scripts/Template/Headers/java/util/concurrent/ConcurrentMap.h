@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentConcurrentMap_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentConcurrentMap_RESTRICT
-#define JavaUtilConcurrentConcurrentMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentMap")
+#ifdef RESTRICT_JavaUtilConcurrentConcurrentMap
+#define INCLUDE_ALL_JavaUtilConcurrentConcurrentMap 0
 #else
-#define JavaUtilConcurrentConcurrentMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentConcurrentMap 1
 #endif
-#undef JavaUtilConcurrentConcurrentMap_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentConcurrentMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentConcurrentMap_) && (JavaUtilConcurrentConcurrentMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentMap_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentMap_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentMap || defined(INCLUDE_JavaUtilConcurrentConcurrentMap))
 #define JavaUtilConcurrentConcurrentMap_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap 1
 #include "../../../java/util/Map.h"
 
 /*!
@@ -164,4 +164,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentMap)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentConcurrentMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentMap")

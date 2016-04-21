@@ -5,30 +5,30 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformSaxTransformerHandler_INCLUDE_ALL")
-#ifdef JavaxXmlTransformSaxTransformerHandler_RESTRICT
-#define JavaxXmlTransformSaxTransformerHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformSaxTransformerHandler")
+#ifdef RESTRICT_JavaxXmlTransformSaxTransformerHandler
+#define INCLUDE_ALL_JavaxXmlTransformSaxTransformerHandler 0
 #else
-#define JavaxXmlTransformSaxTransformerHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformSaxTransformerHandler 1
 #endif
-#undef JavaxXmlTransformSaxTransformerHandler_RESTRICT
+#undef RESTRICT_JavaxXmlTransformSaxTransformerHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformSaxTransformerHandler_) && (JavaxXmlTransformSaxTransformerHandler_INCLUDE_ALL || defined(JavaxXmlTransformSaxTransformerHandler_INCLUDE))
+#if !defined (JavaxXmlTransformSaxTransformerHandler_) && (INCLUDE_ALL_JavaxXmlTransformSaxTransformerHandler || defined(INCLUDE_JavaxXmlTransformSaxTransformerHandler))
 #define JavaxXmlTransformSaxTransformerHandler_
 
-#define OrgXmlSaxContentHandler_RESTRICT 1
-#define OrgXmlSaxContentHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxContentHandler 1
+#define INCLUDE_OrgXmlSaxContentHandler 1
 #include "../../../../org/xml/sax/ContentHandler.h"
 
-#define OrgXmlSaxExtLexicalHandler_RESTRICT 1
-#define OrgXmlSaxExtLexicalHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxExtLexicalHandler 1
+#define INCLUDE_OrgXmlSaxExtLexicalHandler 1
 #include "../../../../org/xml/sax/ext/LexicalHandler.h"
 
-#define OrgXmlSaxDTDHandler_RESTRICT 1
-#define OrgXmlSaxDTDHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxDTDHandler 1
+#define INCLUDE_OrgXmlSaxDTDHandler 1
 #include "../../../../org/xml/sax/DTDHandler.h"
 
 @class JavaxXmlTransformTransformer;
@@ -84,4 +84,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxTransformerHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformSaxTransformerHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformSaxTransformerHandler")

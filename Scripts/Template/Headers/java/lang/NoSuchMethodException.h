@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangNoSuchMethodException_INCLUDE_ALL")
-#ifdef JavaLangNoSuchMethodException_RESTRICT
-#define JavaLangNoSuchMethodException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangNoSuchMethodException")
+#ifdef RESTRICT_JavaLangNoSuchMethodException
+#define INCLUDE_ALL_JavaLangNoSuchMethodException 0
 #else
-#define JavaLangNoSuchMethodException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangNoSuchMethodException 1
 #endif
-#undef JavaLangNoSuchMethodException_RESTRICT
+#undef RESTRICT_JavaLangNoSuchMethodException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangNoSuchMethodException_) && (JavaLangNoSuchMethodException_INCLUDE_ALL || defined(JavaLangNoSuchMethodException_INCLUDE))
+#if !defined (JavaLangNoSuchMethodException_) && (INCLUDE_ALL_JavaLangNoSuchMethodException || defined(INCLUDE_JavaLangNoSuchMethodException))
 #define JavaLangNoSuchMethodException_
 
-#define JavaLangReflectiveOperationException_RESTRICT 1
-#define JavaLangReflectiveOperationException_INCLUDE 1
+#define RESTRICT_JavaLangReflectiveOperationException 1
+#define INCLUDE_JavaLangReflectiveOperationException 1
 #include "../../java/lang/ReflectiveOperationException.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangNoSuchMethodException_init(JavaLangNoSuchMethodEx
 
 FOUNDATION_EXPORT JavaLangNoSuchMethodException *new_JavaLangNoSuchMethodException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangNoSuchMethodException *create_JavaLangNoSuchMethodException_init();
+
 FOUNDATION_EXPORT void JavaLangNoSuchMethodException_initWithNSString_(JavaLangNoSuchMethodException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangNoSuchMethodException *new_JavaLangNoSuchMethodException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangNoSuchMethodException *create_JavaLangNoSuchMethodException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoSuchMethodException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoSuchMethodException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangNoSuchMethodException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangNoSuchMethodException")

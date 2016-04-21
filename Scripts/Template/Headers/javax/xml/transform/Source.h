@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformSource_INCLUDE_ALL")
-#ifdef JavaxXmlTransformSource_RESTRICT
-#define JavaxXmlTransformSource_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformSource")
+#ifdef RESTRICT_JavaxXmlTransformSource
+#define INCLUDE_ALL_JavaxXmlTransformSource 0
 #else
-#define JavaxXmlTransformSource_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformSource 1
 #endif
-#undef JavaxXmlTransformSource_RESTRICT
+#undef RESTRICT_JavaxXmlTransformSource
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformSource_) && (JavaxXmlTransformSource_INCLUDE_ALL || defined(JavaxXmlTransformSource_INCLUDE))
+#if !defined (JavaxXmlTransformSource_) && (INCLUDE_ALL_JavaxXmlTransformSource || defined(INCLUDE_JavaxXmlTransformSource))
 #define JavaxXmlTransformSource_
 
 /*!
@@ -52,4 +52,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSource)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformSource_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformSource")

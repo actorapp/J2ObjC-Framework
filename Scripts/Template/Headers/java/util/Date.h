@@ -5,27 +5,29 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilDate_INCLUDE_ALL")
-#ifdef JavaUtilDate_RESTRICT
-#define JavaUtilDate_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilDate")
+#ifdef RESTRICT_JavaUtilDate
+#define INCLUDE_ALL_JavaUtilDate 0
 #else
-#define JavaUtilDate_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilDate 1
 #endif
-#undef JavaUtilDate_RESTRICT
+#undef RESTRICT_JavaUtilDate
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilDate_) && (JavaUtilDate_INCLUDE_ALL || defined(JavaUtilDate_INCLUDE))
+#if !defined (JavaUtilDate_) && (INCLUDE_ALL_JavaUtilDate || defined(INCLUDE_JavaUtilDate))
 #define JavaUtilDate_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
+
+@class IOSObjectArray;
 
 /*!
  @brief A specific moment in time, with millisecond precision.
@@ -351,25 +353,37 @@ FOUNDATION_EXPORT void JavaUtilDate_init(JavaUtilDate *self);
 
 FOUNDATION_EXPORT JavaUtilDate *new_JavaUtilDate_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilDate *create_JavaUtilDate_init();
+
 FOUNDATION_EXPORT void JavaUtilDate_initWithInt_withInt_withInt_(JavaUtilDate *self, jint year, jint month, jint day);
 
 FOUNDATION_EXPORT JavaUtilDate *new_JavaUtilDate_initWithInt_withInt_withInt_(jint year, jint month, jint day) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilDate *create_JavaUtilDate_initWithInt_withInt_withInt_(jint year, jint month, jint day);
 
 FOUNDATION_EXPORT void JavaUtilDate_initWithInt_withInt_withInt_withInt_withInt_(JavaUtilDate *self, jint year, jint month, jint day, jint hour, jint minute);
 
 FOUNDATION_EXPORT JavaUtilDate *new_JavaUtilDate_initWithInt_withInt_withInt_withInt_withInt_(jint year, jint month, jint day, jint hour, jint minute) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilDate *create_JavaUtilDate_initWithInt_withInt_withInt_withInt_withInt_(jint year, jint month, jint day, jint hour, jint minute);
+
 FOUNDATION_EXPORT void JavaUtilDate_initWithInt_withInt_withInt_withInt_withInt_withInt_(JavaUtilDate *self, jint year, jint month, jint day, jint hour, jint minute, jint second);
 
 FOUNDATION_EXPORT JavaUtilDate *new_JavaUtilDate_initWithInt_withInt_withInt_withInt_withInt_withInt_(jint year, jint month, jint day, jint hour, jint minute, jint second) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilDate *create_JavaUtilDate_initWithInt_withInt_withInt_withInt_withInt_withInt_(jint year, jint month, jint day, jint hour, jint minute, jint second);
 
 FOUNDATION_EXPORT void JavaUtilDate_initWithLong_(JavaUtilDate *self, jlong milliseconds);
 
 FOUNDATION_EXPORT JavaUtilDate *new_JavaUtilDate_initWithLong_(jlong milliseconds) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilDate *create_JavaUtilDate_initWithLong_(jlong milliseconds);
+
 FOUNDATION_EXPORT void JavaUtilDate_initWithNSString_(JavaUtilDate *self, NSString *string);
 
 FOUNDATION_EXPORT JavaUtilDate *new_JavaUtilDate_initWithNSString_(NSString *string) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilDate *create_JavaUtilDate_initWithNSString_(NSString *string);
 
 FOUNDATION_EXPORT jlong JavaUtilDate_parseWithNSString_(NSString *string);
 
@@ -381,4 +395,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDate)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilDate_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilDate")

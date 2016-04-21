@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextCollator_INCLUDE_ALL")
-#ifdef JavaTextCollator_RESTRICT
-#define JavaTextCollator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextCollator")
+#ifdef RESTRICT_JavaTextCollator
+#define INCLUDE_ALL_JavaTextCollator 0
 #else
-#define JavaTextCollator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextCollator 1
 #endif
-#undef JavaTextCollator_RESTRICT
+#undef RESTRICT_JavaTextCollator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextCollator_) && (JavaTextCollator_INCLUDE_ALL || defined(JavaTextCollator_INCLUDE))
+#if !defined (JavaTextCollator_) && (INCLUDE_ALL_JavaTextCollator || defined(INCLUDE_JavaTextCollator))
 #define JavaTextCollator_
 
-#define JavaUtilComparator_RESTRICT 1
-#define JavaUtilComparator_INCLUDE 1
+#define RESTRICT_JavaUtilComparator 1
+#define INCLUDE_JavaUtilComparator 1
 #include "../../java/util/Comparator.h"
 
 @class IOSObjectArray;
@@ -308,4 +308,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextCollator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextCollator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextCollator")

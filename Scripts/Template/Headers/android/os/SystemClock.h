@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidOsSystemClock_INCLUDE_ALL")
-#ifdef AndroidOsSystemClock_RESTRICT
-#define AndroidOsSystemClock_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidOsSystemClock")
+#ifdef RESTRICT_AndroidOsSystemClock
+#define INCLUDE_ALL_AndroidOsSystemClock 0
 #else
-#define AndroidOsSystemClock_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidOsSystemClock 1
 #endif
-#undef AndroidOsSystemClock_RESTRICT
+#undef RESTRICT_AndroidOsSystemClock
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidOsSystemClock_) && (AndroidOsSystemClock_INCLUDE_ALL || defined(AndroidOsSystemClock_INCLUDE))
+#if !defined (AndroidOsSystemClock_) && (INCLUDE_ALL_AndroidOsSystemClock || defined(INCLUDE_AndroidOsSystemClock))
 #define AndroidOsSystemClock_
 
 /*!
@@ -132,4 +132,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidOsSystemClock)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidOsSystemClock_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidOsSystemClock")

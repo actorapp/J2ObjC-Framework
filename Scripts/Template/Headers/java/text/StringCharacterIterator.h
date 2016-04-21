@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextStringCharacterIterator_INCLUDE_ALL")
-#ifdef JavaTextStringCharacterIterator_RESTRICT
-#define JavaTextStringCharacterIterator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextStringCharacterIterator")
+#ifdef RESTRICT_JavaTextStringCharacterIterator
+#define INCLUDE_ALL_JavaTextStringCharacterIterator 0
 #else
-#define JavaTextStringCharacterIterator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextStringCharacterIterator 1
 #endif
-#undef JavaTextStringCharacterIterator_RESTRICT
+#undef RESTRICT_JavaTextStringCharacterIterator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextStringCharacterIterator_) && (JavaTextStringCharacterIterator_INCLUDE_ALL || defined(JavaTextStringCharacterIterator_INCLUDE))
+#if !defined (JavaTextStringCharacterIterator_) && (INCLUDE_ALL_JavaTextStringCharacterIterator || defined(INCLUDE_JavaTextStringCharacterIterator))
 #define JavaTextStringCharacterIterator_
 
-#define JavaTextCharacterIterator_RESTRICT 1
-#define JavaTextCharacterIterator_INCLUDE 1
+#define RESTRICT_JavaTextCharacterIterator 1
+#define INCLUDE_JavaTextCharacterIterator 1
 #include "../../java/text/CharacterIterator.h"
 
 /*!
@@ -192,13 +192,19 @@ FOUNDATION_EXPORT void JavaTextStringCharacterIterator_initWithNSString_(JavaTex
 
 FOUNDATION_EXPORT JavaTextStringCharacterIterator *new_JavaTextStringCharacterIterator_initWithNSString_(NSString *value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextStringCharacterIterator *create_JavaTextStringCharacterIterator_initWithNSString_(NSString *value);
+
 FOUNDATION_EXPORT void JavaTextStringCharacterIterator_initWithNSString_withInt_(JavaTextStringCharacterIterator *self, NSString *value, jint location);
 
 FOUNDATION_EXPORT JavaTextStringCharacterIterator *new_JavaTextStringCharacterIterator_initWithNSString_withInt_(NSString *value, jint location) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextStringCharacterIterator *create_JavaTextStringCharacterIterator_initWithNSString_withInt_(NSString *value, jint location);
+
 FOUNDATION_EXPORT void JavaTextStringCharacterIterator_initWithNSString_withInt_withInt_withInt_(JavaTextStringCharacterIterator *self, NSString *value, jint start, jint end, jint location);
 
 FOUNDATION_EXPORT JavaTextStringCharacterIterator *new_JavaTextStringCharacterIterator_initWithNSString_withInt_withInt_withInt_(NSString *value, jint start, jint end, jint location) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextStringCharacterIterator *create_JavaTextStringCharacterIterator_initWithNSString_withInt_withInt_withInt_(NSString *value, jint start, jint end, jint location);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextStringCharacterIterator)
 
@@ -206,4 +212,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextStringCharacterIterator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextStringCharacterIterator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextStringCharacterIterator")

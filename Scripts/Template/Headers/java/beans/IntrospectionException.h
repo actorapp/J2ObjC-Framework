@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansIntrospectionException_INCLUDE_ALL")
-#ifdef JavaBeansIntrospectionException_RESTRICT
-#define JavaBeansIntrospectionException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansIntrospectionException")
+#ifdef RESTRICT_JavaBeansIntrospectionException
+#define INCLUDE_ALL_JavaBeansIntrospectionException 0
 #else
-#define JavaBeansIntrospectionException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansIntrospectionException 1
 #endif
-#undef JavaBeansIntrospectionException_RESTRICT
+#undef RESTRICT_JavaBeansIntrospectionException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansIntrospectionException_) && (JavaBeansIntrospectionException_INCLUDE_ALL || defined(JavaBeansIntrospectionException_INCLUDE))
+#if !defined (JavaBeansIntrospectionException_) && (INCLUDE_ALL_JavaBeansIntrospectionException || defined(INCLUDE_JavaBeansIntrospectionException))
 #define JavaBeansIntrospectionException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
 
 @interface JavaBeansIntrospectionException : JavaLangException
@@ -37,10 +37,12 @@ FOUNDATION_EXPORT void JavaBeansIntrospectionException_initWithNSString_(JavaBea
 
 FOUNDATION_EXPORT JavaBeansIntrospectionException *new_JavaBeansIntrospectionException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansIntrospectionException *create_JavaBeansIntrospectionException_initWithNSString_(NSString *message);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIntrospectionException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansIntrospectionException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansIntrospectionException")

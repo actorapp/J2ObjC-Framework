@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilAbstractCollection_INCLUDE_ALL")
-#ifdef JavaUtilAbstractCollection_RESTRICT
-#define JavaUtilAbstractCollection_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilAbstractCollection")
+#ifdef RESTRICT_JavaUtilAbstractCollection
+#define INCLUDE_ALL_JavaUtilAbstractCollection 0
 #else
-#define JavaUtilAbstractCollection_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilAbstractCollection 1
 #endif
-#undef JavaUtilAbstractCollection_RESTRICT
+#undef RESTRICT_JavaUtilAbstractCollection
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilAbstractCollection_) && (JavaUtilAbstractCollection_INCLUDE_ALL || defined(JavaUtilAbstractCollection_INCLUDE))
+#if !defined (JavaUtilAbstractCollection_) && (INCLUDE_ALL_JavaUtilAbstractCollection || defined(INCLUDE_JavaUtilAbstractCollection))
 #define JavaUtilAbstractCollection_
 
-#define JavaUtilCollection_RESTRICT 1
-#define JavaUtilCollection_INCLUDE 1
+#define RESTRICT_JavaUtilCollection 1
+#define INCLUDE_JavaUtilCollection 1
 #include "../../java/util/Collection.h"
 
 @class IOSObjectArray;
@@ -288,4 +288,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractCollection)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilAbstractCollection_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractCollection")

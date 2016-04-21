@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetCookiePolicy_INCLUDE_ALL")
-#ifdef JavaNetCookiePolicy_RESTRICT
-#define JavaNetCookiePolicy_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetCookiePolicy")
+#ifdef RESTRICT_JavaNetCookiePolicy
+#define INCLUDE_ALL_JavaNetCookiePolicy 0
 #else
-#define JavaNetCookiePolicy_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetCookiePolicy 1
 #endif
-#undef JavaNetCookiePolicy_RESTRICT
+#undef RESTRICT_JavaNetCookiePolicy
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetCookiePolicy_) && (JavaNetCookiePolicy_INCLUDE_ALL || defined(JavaNetCookiePolicy_INCLUDE))
+#if !defined (JavaNetCookiePolicy_) && (INCLUDE_ALL_JavaNetCookiePolicy || defined(INCLUDE_JavaNetCookiePolicy))
 #define JavaNetCookiePolicy_
 
 @class JavaNetHttpCookie;
@@ -88,4 +88,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetCookiePolicy)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetCookiePolicy_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetCookiePolicy")

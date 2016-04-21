@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFilterReader_INCLUDE_ALL")
-#ifdef JavaIoFilterReader_RESTRICT
-#define JavaIoFilterReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFilterReader")
+#ifdef RESTRICT_JavaIoFilterReader
+#define INCLUDE_ALL_JavaIoFilterReader 0
 #else
-#define JavaIoFilterReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFilterReader 1
 #endif
-#undef JavaIoFilterReader_RESTRICT
+#undef RESTRICT_JavaIoFilterReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFilterReader_) && (JavaIoFilterReader_INCLUDE_ALL || defined(JavaIoFilterReader_INCLUDE))
+#if !defined (JavaIoFilterReader_) && (INCLUDE_ALL_JavaIoFilterReader || defined(INCLUDE_JavaIoFilterReader))
 #define JavaIoFilterReader_
 
-#define JavaIoReader_RESTRICT 1
-#define JavaIoReader_INCLUDE 1
+#define RESTRICT_JavaIoReader 1
+#define INCLUDE_JavaIoReader 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -173,4 +173,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterReader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFilterReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFilterReader")

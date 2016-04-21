@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilIllformedLocaleException_INCLUDE_ALL")
-#ifdef JavaUtilIllformedLocaleException_RESTRICT
-#define JavaUtilIllformedLocaleException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilIllformedLocaleException")
+#ifdef RESTRICT_JavaUtilIllformedLocaleException
+#define INCLUDE_ALL_JavaUtilIllformedLocaleException 0
 #else
-#define JavaUtilIllformedLocaleException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilIllformedLocaleException 1
 #endif
-#undef JavaUtilIllformedLocaleException_RESTRICT
+#undef RESTRICT_JavaUtilIllformedLocaleException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilIllformedLocaleException_) && (JavaUtilIllformedLocaleException_INCLUDE_ALL || defined(JavaUtilIllformedLocaleException_INCLUDE))
+#if !defined (JavaUtilIllformedLocaleException_) && (INCLUDE_ALL_JavaUtilIllformedLocaleException || defined(INCLUDE_JavaUtilIllformedLocaleException))
 #define JavaUtilIllformedLocaleException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -60,13 +60,19 @@ FOUNDATION_EXPORT void JavaUtilIllformedLocaleException_init(JavaUtilIllformedLo
 
 FOUNDATION_EXPORT JavaUtilIllformedLocaleException *new_JavaUtilIllformedLocaleException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIllformedLocaleException *create_JavaUtilIllformedLocaleException_init();
+
 FOUNDATION_EXPORT void JavaUtilIllformedLocaleException_initWithNSString_(JavaUtilIllformedLocaleException *self, NSString *message);
 
 FOUNDATION_EXPORT JavaUtilIllformedLocaleException *new_JavaUtilIllformedLocaleException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIllformedLocaleException *create_JavaUtilIllformedLocaleException_initWithNSString_(NSString *message);
+
 FOUNDATION_EXPORT void JavaUtilIllformedLocaleException_initWithNSString_withInt_(JavaUtilIllformedLocaleException *self, NSString *message, jint errorIndex);
 
 FOUNDATION_EXPORT JavaUtilIllformedLocaleException *new_JavaUtilIllformedLocaleException_initWithNSString_withInt_(NSString *message, jint errorIndex) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilIllformedLocaleException *create_JavaUtilIllformedLocaleException_initWithNSString_withInt_(NSString *message, jint errorIndex);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllformedLocaleException)
 
@@ -74,4 +80,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllformedLocaleException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilIllformedLocaleException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilIllformedLocaleException")

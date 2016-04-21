@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityUnrecoverableEntryException_INCLUDE_ALL")
-#ifdef JavaSecurityUnrecoverableEntryException_RESTRICT
-#define JavaSecurityUnrecoverableEntryException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityUnrecoverableEntryException")
+#ifdef RESTRICT_JavaSecurityUnrecoverableEntryException
+#define INCLUDE_ALL_JavaSecurityUnrecoverableEntryException 0
 #else
-#define JavaSecurityUnrecoverableEntryException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityUnrecoverableEntryException 1
 #endif
-#undef JavaSecurityUnrecoverableEntryException_RESTRICT
+#undef RESTRICT_JavaSecurityUnrecoverableEntryException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityUnrecoverableEntryException_) && (JavaSecurityUnrecoverableEntryException_INCLUDE_ALL || defined(JavaSecurityUnrecoverableEntryException_INCLUDE))
+#if !defined (JavaSecurityUnrecoverableEntryException_) && (INCLUDE_ALL_JavaSecurityUnrecoverableEntryException || defined(INCLUDE_JavaSecurityUnrecoverableEntryException))
 #define JavaSecurityUnrecoverableEntryException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../java/security/GeneralSecurityException.h"
 
 /*!
@@ -54,9 +54,13 @@ FOUNDATION_EXPORT void JavaSecurityUnrecoverableEntryException_init(JavaSecurity
 
 FOUNDATION_EXPORT JavaSecurityUnrecoverableEntryException *new_JavaSecurityUnrecoverableEntryException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityUnrecoverableEntryException *create_JavaSecurityUnrecoverableEntryException_init();
+
 FOUNDATION_EXPORT void JavaSecurityUnrecoverableEntryException_initWithNSString_(JavaSecurityUnrecoverableEntryException *self, NSString *msg);
 
 FOUNDATION_EXPORT JavaSecurityUnrecoverableEntryException *new_JavaSecurityUnrecoverableEntryException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityUnrecoverableEntryException *create_JavaSecurityUnrecoverableEntryException_initWithNSString_(NSString *msg);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityUnrecoverableEntryException)
 
@@ -64,4 +68,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityUnrecoverableEntryException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityUnrecoverableEntryException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityUnrecoverableEntryException")

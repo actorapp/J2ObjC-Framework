@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLSessionBindingEvent_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLSessionBindingEvent_RESTRICT
-#define JavaxNetSslSSLSessionBindingEvent_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLSessionBindingEvent")
+#ifdef RESTRICT_JavaxNetSslSSLSessionBindingEvent
+#define INCLUDE_ALL_JavaxNetSslSSLSessionBindingEvent 0
 #else
-#define JavaxNetSslSSLSessionBindingEvent_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLSessionBindingEvent 1
 #endif
-#undef JavaxNetSslSSLSessionBindingEvent_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLSessionBindingEvent
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLSessionBindingEvent_) && (JavaxNetSslSSLSessionBindingEvent_INCLUDE_ALL || defined(JavaxNetSslSSLSessionBindingEvent_INCLUDE))
+#if !defined (JavaxNetSslSSLSessionBindingEvent_) && (INCLUDE_ALL_JavaxNetSslSSLSessionBindingEvent || defined(INCLUDE_JavaxNetSslSSLSessionBindingEvent))
 #define JavaxNetSslSSLSessionBindingEvent_
 
-#define JavaUtilEventObject_RESTRICT 1
-#define JavaUtilEventObject_INCLUDE 1
+#define RESTRICT_JavaUtilEventObject 1
+#define INCLUDE_JavaUtilEventObject 1
 #include "../../../java/util/EventObject.h"
 
 @protocol JavaxNetSslSSLSession;
@@ -67,10 +67,12 @@ FOUNDATION_EXPORT void JavaxNetSslSSLSessionBindingEvent_initWithJavaxNetSslSSLS
 
 FOUNDATION_EXPORT JavaxNetSslSSLSessionBindingEvent *new_JavaxNetSslSSLSessionBindingEvent_initWithJavaxNetSslSSLSession_withNSString_(id<JavaxNetSslSSLSession> session, NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslSSLSessionBindingEvent *create_JavaxNetSslSSLSessionBindingEvent_initWithJavaxNetSslSSLSession_withNSString_(id<JavaxNetSslSSLSession> session, NSString *name);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLSessionBindingEvent)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLSessionBindingEvent_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLSessionBindingEvent")

@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoSerializable_INCLUDE_ALL")
-#ifdef JavaIoSerializable_RESTRICT
-#define JavaIoSerializable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoSerializable")
+#ifdef RESTRICT_JavaIoSerializable
+#define INCLUDE_ALL_JavaIoSerializable 0
 #else
-#define JavaIoSerializable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoSerializable 1
 #endif
-#undef JavaIoSerializable_RESTRICT
+#undef RESTRICT_JavaIoSerializable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoSerializable_) && (JavaIoSerializable_INCLUDE_ALL || defined(JavaIoSerializable_INCLUDE))
+#if !defined (JavaIoSerializable_) && (INCLUDE_ALL_JavaIoSerializable || defined(INCLUDE_JavaIoSerializable))
 #define JavaIoSerializable_
 
 /*!
@@ -101,4 +101,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoSerializable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoSerializable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoSerializable")

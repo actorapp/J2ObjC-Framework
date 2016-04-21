@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomDOMException_INCLUDE_ALL")
-#ifdef OrgW3cDomDOMException_RESTRICT
-#define OrgW3cDomDOMException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomDOMException")
+#ifdef RESTRICT_OrgW3cDomDOMException
+#define INCLUDE_ALL_OrgW3cDomDOMException 0
 #else
-#define OrgW3cDomDOMException_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomDOMException 1
 #endif
-#undef OrgW3cDomDOMException_RESTRICT
+#undef RESTRICT_OrgW3cDomDOMException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomDOMException_) && (OrgW3cDomDOMException_INCLUDE_ALL || defined(OrgW3cDomDOMException_INCLUDE))
+#if !defined (OrgW3cDomDOMException_) && (INCLUDE_ALL_OrgW3cDomDOMException || defined(INCLUDE_OrgW3cDomDOMException))
 #define OrgW3cDomDOMException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../../java/lang/RuntimeException.h"
 
 /*!
@@ -235,10 +235,12 @@ FOUNDATION_EXPORT void OrgW3cDomDOMException_initWithShort_withNSString_(OrgW3cD
 
 FOUNDATION_EXPORT OrgW3cDomDOMException *new_OrgW3cDomDOMException_initWithShort_withNSString_(jshort code, NSString *message) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgW3cDomDOMException *create_OrgW3cDomDOMException_initWithShort_withNSString_(jshort code, NSString *message);
+
 J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomDOMException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomDOMException")

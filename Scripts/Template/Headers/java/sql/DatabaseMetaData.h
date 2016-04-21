@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlDatabaseMetaData_INCLUDE_ALL")
-#ifdef JavaSqlDatabaseMetaData_RESTRICT
-#define JavaSqlDatabaseMetaData_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlDatabaseMetaData")
+#ifdef RESTRICT_JavaSqlDatabaseMetaData
+#define INCLUDE_ALL_JavaSqlDatabaseMetaData 0
 #else
-#define JavaSqlDatabaseMetaData_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlDatabaseMetaData 1
 #endif
-#undef JavaSqlDatabaseMetaData_RESTRICT
+#undef RESTRICT_JavaSqlDatabaseMetaData
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlDatabaseMetaData_) && (JavaSqlDatabaseMetaData_INCLUDE_ALL || defined(JavaSqlDatabaseMetaData_INCLUDE))
+#if !defined (JavaSqlDatabaseMetaData_) && (INCLUDE_ALL_JavaSqlDatabaseMetaData || defined(INCLUDE_JavaSqlDatabaseMetaData))
 #define JavaSqlDatabaseMetaData_
 
-#define JavaSqlWrapper_RESTRICT 1
-#define JavaSqlWrapper_INCLUDE 1
+#define RESTRICT_JavaSqlWrapper 1
+#define INCLUDE_JavaSqlWrapper 1
 #include "../../java/sql/Wrapper.h"
 
 @class IOSIntArray;
@@ -3374,4 +3374,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDatabaseMetaData)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlDatabaseMetaData_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlDatabaseMetaData")

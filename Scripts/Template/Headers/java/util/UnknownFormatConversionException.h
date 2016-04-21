@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilUnknownFormatConversionException_INCLUDE_ALL")
-#ifdef JavaUtilUnknownFormatConversionException_RESTRICT
-#define JavaUtilUnknownFormatConversionException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilUnknownFormatConversionException")
+#ifdef RESTRICT_JavaUtilUnknownFormatConversionException
+#define INCLUDE_ALL_JavaUtilUnknownFormatConversionException 0
 #else
-#define JavaUtilUnknownFormatConversionException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilUnknownFormatConversionException 1
 #endif
-#undef JavaUtilUnknownFormatConversionException_RESTRICT
+#undef RESTRICT_JavaUtilUnknownFormatConversionException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilUnknownFormatConversionException_) && (JavaUtilUnknownFormatConversionException_INCLUDE_ALL || defined(JavaUtilUnknownFormatConversionException_INCLUDE))
+#if !defined (JavaUtilUnknownFormatConversionException_) && (INCLUDE_ALL_JavaUtilUnknownFormatConversionException || defined(INCLUDE_JavaUtilUnknownFormatConversionException))
 #define JavaUtilUnknownFormatConversionException_
 
-#define JavaUtilIllegalFormatException_RESTRICT 1
-#define JavaUtilIllegalFormatException_INCLUDE 1
+#define RESTRICT_JavaUtilIllegalFormatException 1
+#define INCLUDE_JavaUtilIllegalFormatException 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
@@ -56,10 +56,12 @@ FOUNDATION_EXPORT void JavaUtilUnknownFormatConversionException_initWithNSString
 
 FOUNDATION_EXPORT JavaUtilUnknownFormatConversionException *new_JavaUtilUnknownFormatConversionException_initWithNSString_(NSString *s) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilUnknownFormatConversionException *create_JavaUtilUnknownFormatConversionException_initWithNSString_(NSString *s);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUnknownFormatConversionException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilUnknownFormatConversionException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilUnknownFormatConversionException")

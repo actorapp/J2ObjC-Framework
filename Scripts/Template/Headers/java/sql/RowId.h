@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlRowId_INCLUDE_ALL")
-#ifdef JavaSqlRowId_RESTRICT
-#define JavaSqlRowId_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlRowId")
+#ifdef RESTRICT_JavaSqlRowId
+#define INCLUDE_ALL_JavaSqlRowId 0
 #else
-#define JavaSqlRowId_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlRowId 1
 #endif
-#undef JavaSqlRowId_RESTRICT
+#undef RESTRICT_JavaSqlRowId
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlRowId_) && (JavaSqlRowId_INCLUDE_ALL || defined(JavaSqlRowId_INCLUDE))
+#if !defined (JavaSqlRowId_) && (INCLUDE_ALL_JavaSqlRowId || defined(INCLUDE_JavaSqlRowId))
 #define JavaSqlRowId_
 
 @class IOSByteArray;
@@ -48,4 +48,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlRowId)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlRowId_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlRowId")

@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE_ALL")
-#ifdef JavaSecurityAlgorithmParameterGeneratorSpi_RESTRICT
-#define JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityAlgorithmParameterGeneratorSpi")
+#ifdef RESTRICT_JavaSecurityAlgorithmParameterGeneratorSpi
+#define INCLUDE_ALL_JavaSecurityAlgorithmParameterGeneratorSpi 0
 #else
-#define JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityAlgorithmParameterGeneratorSpi 1
 #endif
-#undef JavaSecurityAlgorithmParameterGeneratorSpi_RESTRICT
+#undef RESTRICT_JavaSecurityAlgorithmParameterGeneratorSpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityAlgorithmParameterGeneratorSpi_) && (JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE_ALL || defined(JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE))
+#if !defined (JavaSecurityAlgorithmParameterGeneratorSpi_) && (INCLUDE_ALL_JavaSecurityAlgorithmParameterGeneratorSpi || defined(INCLUDE_JavaSecurityAlgorithmParameterGeneratorSpi))
 #define JavaSecurityAlgorithmParameterGeneratorSpi_
 
 @class JavaSecurityAlgorithmParameters;
@@ -84,4 +84,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAlgorithmParameterGeneratorSpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityAlgorithmParameterGeneratorSpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityAlgorithmParameterGeneratorSpi")

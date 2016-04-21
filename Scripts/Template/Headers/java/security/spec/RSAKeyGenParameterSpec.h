@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecRSAKeyGenParameterSpec_RESTRICT
-#define JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecRSAKeyGenParameterSpec")
+#ifdef RESTRICT_JavaSecuritySpecRSAKeyGenParameterSpec
+#define INCLUDE_ALL_JavaSecuritySpecRSAKeyGenParameterSpec 0
 #else
-#define JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecRSAKeyGenParameterSpec 1
 #endif
-#undef JavaSecuritySpecRSAKeyGenParameterSpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecRSAKeyGenParameterSpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecRSAKeyGenParameterSpec_) && (JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE))
+#if !defined (JavaSecuritySpecRSAKeyGenParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecRSAKeyGenParameterSpec || defined(INCLUDE_JavaSecuritySpecRSAKeyGenParameterSpec))
 #define JavaSecuritySpecRSAKeyGenParameterSpec_
 
-#define JavaSecuritySpecAlgorithmParameterSpec_RESTRICT 1
-#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
+#define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
 #include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 @class JavaMathBigInteger;
@@ -83,10 +83,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecRSAKeyGenParameterSpec_initWithInt_withJa
 
 FOUNDATION_EXPORT JavaSecuritySpecRSAKeyGenParameterSpec *new_JavaSecuritySpecRSAKeyGenParameterSpec_initWithInt_withJavaMathBigInteger_(jint keysize, JavaMathBigInteger *publicExponent) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecRSAKeyGenParameterSpec *create_JavaSecuritySpecRSAKeyGenParameterSpec_initWithInt_withJavaMathBigInteger_(jint keysize, JavaMathBigInteger *publicExponent);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAKeyGenParameterSpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecRSAKeyGenParameterSpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAKeyGenParameterSpec")

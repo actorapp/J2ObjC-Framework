@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetDefaultServerSocketFactory_INCLUDE_ALL")
-#ifdef JavaxNetDefaultServerSocketFactory_RESTRICT
-#define JavaxNetDefaultServerSocketFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetDefaultServerSocketFactory")
+#ifdef RESTRICT_JavaxNetDefaultServerSocketFactory
+#define INCLUDE_ALL_JavaxNetDefaultServerSocketFactory 0
 #else
-#define JavaxNetDefaultServerSocketFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetDefaultServerSocketFactory 1
 #endif
-#undef JavaxNetDefaultServerSocketFactory_RESTRICT
+#undef RESTRICT_JavaxNetDefaultServerSocketFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetDefaultServerSocketFactory_) && (JavaxNetDefaultServerSocketFactory_INCLUDE_ALL || defined(JavaxNetDefaultServerSocketFactory_INCLUDE))
+#if !defined (JavaxNetDefaultServerSocketFactory_) && (INCLUDE_ALL_JavaxNetDefaultServerSocketFactory || defined(INCLUDE_JavaxNetDefaultServerSocketFactory))
 #define JavaxNetDefaultServerSocketFactory_
 
-#define JavaxNetServerSocketFactory_RESTRICT 1
-#define JavaxNetServerSocketFactory_INCLUDE 1
+#define RESTRICT_JavaxNetServerSocketFactory 1
+#define INCLUDE_JavaxNetServerSocketFactory 1
 #include "../../javax/net/ServerSocketFactory.h"
 
 @class JavaNetInetAddress;
@@ -53,10 +53,12 @@ FOUNDATION_EXPORT void JavaxNetDefaultServerSocketFactory_init(JavaxNetDefaultSe
 
 FOUNDATION_EXPORT JavaxNetDefaultServerSocketFactory *new_JavaxNetDefaultServerSocketFactory_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetDefaultServerSocketFactory *create_JavaxNetDefaultServerSocketFactory_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetDefaultServerSocketFactory)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetDefaultServerSocketFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetDefaultServerSocketFactory")

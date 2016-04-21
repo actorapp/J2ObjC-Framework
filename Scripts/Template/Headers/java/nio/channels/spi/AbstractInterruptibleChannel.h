@@ -5,26 +5,26 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE_ALL")
-#ifdef JavaNioChannelsSpiAbstractInterruptibleChannel_RESTRICT
-#define JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsSpiAbstractInterruptibleChannel")
+#ifdef RESTRICT_JavaNioChannelsSpiAbstractInterruptibleChannel
+#define INCLUDE_ALL_JavaNioChannelsSpiAbstractInterruptibleChannel 0
 #else
-#define JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsSpiAbstractInterruptibleChannel 1
 #endif
-#undef JavaNioChannelsSpiAbstractInterruptibleChannel_RESTRICT
+#undef RESTRICT_JavaNioChannelsSpiAbstractInterruptibleChannel
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsSpiAbstractInterruptibleChannel_) && (JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE_ALL || defined(JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE))
+#if !defined (JavaNioChannelsSpiAbstractInterruptibleChannel_) && (INCLUDE_ALL_JavaNioChannelsSpiAbstractInterruptibleChannel || defined(INCLUDE_JavaNioChannelsSpiAbstractInterruptibleChannel))
 #define JavaNioChannelsSpiAbstractInterruptibleChannel_
 
-#define JavaNioChannelsChannel_RESTRICT 1
-#define JavaNioChannelsChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsChannel 1
+#define INCLUDE_JavaNioChannelsChannel 1
 #include "../../../../java/nio/channels/Channel.h"
 
-#define JavaNioChannelsInterruptibleChannel_RESTRICT 1
-#define JavaNioChannelsInterruptibleChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsInterruptibleChannel 1
+#define INCLUDE_JavaNioChannelsInterruptibleChannel 1
 #include "../../../../java/nio/channels/InterruptibleChannel.h"
 
 /*!
@@ -118,4 +118,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiAbstractInterruptibleChannel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSpiAbstractInterruptibleChannel")

@@ -3,37 +3,36 @@
 //  source: android/libcore/luni/src/main/java/javax/crypto/spec/SecretKeySpec.java
 //
 
-#include "../../../J2ObjC_header.h"
-
-#pragma push_macro("JavaxCryptoSpecSecretKeySpec_INCLUDE_ALL")
-#ifdef JavaxCryptoSpecSecretKeySpec_RESTRICT
-#define JavaxCryptoSpecSecretKeySpec_INCLUDE_ALL 0
-#else
-#define JavaxCryptoSpecSecretKeySpec_INCLUDE_ALL 1
-#endif
-#undef JavaxCryptoSpecSecretKeySpec_RESTRICT
-
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
 /*!
  @author Alexander Y. Kleymenov
  @version $Revision$
  */
+#include "../../../J2ObjC_header.h"
 
-#if !defined (JavaxCryptoSpecSecretKeySpec_) && (JavaxCryptoSpecSecretKeySpec_INCLUDE_ALL || defined(JavaxCryptoSpecSecretKeySpec_INCLUDE))
+#pragma push_macro("INCLUDE_ALL_JavaxCryptoSpecSecretKeySpec")
+#ifdef RESTRICT_JavaxCryptoSpecSecretKeySpec
+#define INCLUDE_ALL_JavaxCryptoSpecSecretKeySpec 0
+#else
+#define INCLUDE_ALL_JavaxCryptoSpecSecretKeySpec 1
+#endif
+#undef RESTRICT_JavaxCryptoSpecSecretKeySpec
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxCryptoSpecSecretKeySpec_) && (INCLUDE_ALL_JavaxCryptoSpecSecretKeySpec || defined(INCLUDE_JavaxCryptoSpecSecretKeySpec))
 #define JavaxCryptoSpecSecretKeySpec_
 
-#define JavaxCryptoSecretKey_RESTRICT 1
-#define JavaxCryptoSecretKey_INCLUDE 1
+#define RESTRICT_JavaxCryptoSecretKey 1
+#define INCLUDE_JavaxCryptoSecretKey 1
 #include "../../../javax/crypto/SecretKey.h"
 
-#define JavaSecuritySpecKeySpec_RESTRICT 1
-#define JavaSecuritySpecKeySpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecKeySpec 1
+#define INCLUDE_JavaSecuritySpecKeySpec 1
 #include "../../../java/security/spec/KeySpec.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -128,9 +127,13 @@ FOUNDATION_EXPORT void JavaxCryptoSpecSecretKeySpec_initWithByteArray_withNSStri
 
 FOUNDATION_EXPORT JavaxCryptoSpecSecretKeySpec *new_JavaxCryptoSpecSecretKeySpec_initWithByteArray_withNSString_(IOSByteArray *key, NSString *algorithm) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxCryptoSpecSecretKeySpec *create_JavaxCryptoSpecSecretKeySpec_initWithByteArray_withNSString_(IOSByteArray *key, NSString *algorithm);
+
 FOUNDATION_EXPORT void JavaxCryptoSpecSecretKeySpec_initWithByteArray_withInt_withInt_withNSString_(JavaxCryptoSpecSecretKeySpec *self, IOSByteArray *key, jint offset, jint len, NSString *algorithm);
 
 FOUNDATION_EXPORT JavaxCryptoSpecSecretKeySpec *new_JavaxCryptoSpecSecretKeySpec_initWithByteArray_withInt_withInt_withNSString_(IOSByteArray *key, jint offset, jint len, NSString *algorithm) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxCryptoSpecSecretKeySpec *create_JavaxCryptoSpecSecretKeySpec_initWithByteArray_withInt_withInt_withNSString_(IOSByteArray *key, jint offset, jint len, NSString *algorithm);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSpecSecretKeySpec)
 
@@ -138,4 +141,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSpecSecretKeySpec)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxCryptoSpecSecretKeySpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxCryptoSpecSecretKeySpec")

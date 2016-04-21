@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentExecutorService_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentExecutorService_RESTRICT
-#define JavaUtilConcurrentExecutorService_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentExecutorService")
+#ifdef RESTRICT_JavaUtilConcurrentExecutorService
+#define INCLUDE_ALL_JavaUtilConcurrentExecutorService 0
 #else
-#define JavaUtilConcurrentExecutorService_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentExecutorService 1
 #endif
-#undef JavaUtilConcurrentExecutorService_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentExecutorService
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentExecutorService_) && (JavaUtilConcurrentExecutorService_INCLUDE_ALL || defined(JavaUtilConcurrentExecutorService_INCLUDE))
+#if !defined (JavaUtilConcurrentExecutorService_) && (INCLUDE_ALL_JavaUtilConcurrentExecutorService || defined(INCLUDE_JavaUtilConcurrentExecutorService))
 #define JavaUtilConcurrentExecutorService_
 
-#define JavaUtilConcurrentExecutor_RESTRICT 1
-#define JavaUtilConcurrentExecutor_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentExecutor 1
+#define INCLUDE_JavaUtilConcurrentExecutor 1
 #include "../../../java/util/concurrent/Executor.h"
 
 @class JavaUtilConcurrentTimeUnit;
@@ -328,4 +328,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutorService)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentExecutorService_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentExecutorService")

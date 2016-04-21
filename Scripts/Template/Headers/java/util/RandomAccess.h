@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilRandomAccess_INCLUDE_ALL")
-#ifdef JavaUtilRandomAccess_RESTRICT
-#define JavaUtilRandomAccess_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilRandomAccess")
+#ifdef RESTRICT_JavaUtilRandomAccess
+#define INCLUDE_ALL_JavaUtilRandomAccess 0
 #else
-#define JavaUtilRandomAccess_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilRandomAccess 1
 #endif
-#undef JavaUtilRandomAccess_RESTRICT
+#undef RESTRICT_JavaUtilRandomAccess
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilRandomAccess_) && (JavaUtilRandomAccess_INCLUDE_ALL || defined(JavaUtilRandomAccess_INCLUDE))
+#if !defined (JavaUtilRandomAccess_) && (INCLUDE_ALL_JavaUtilRandomAccess || defined(INCLUDE_JavaUtilRandomAccess))
 #define JavaUtilRandomAccess_
 
 /*!
@@ -35,4 +35,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandomAccess)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilRandomAccess_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilRandomAccess")

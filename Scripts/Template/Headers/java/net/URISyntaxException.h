@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetURISyntaxException_INCLUDE_ALL")
-#ifdef JavaNetURISyntaxException_RESTRICT
-#define JavaNetURISyntaxException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetURISyntaxException")
+#ifdef RESTRICT_JavaNetURISyntaxException
+#define INCLUDE_ALL_JavaNetURISyntaxException 0
 #else
-#define JavaNetURISyntaxException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetURISyntaxException 1
 #endif
-#undef JavaNetURISyntaxException_RESTRICT
+#undef RESTRICT_JavaNetURISyntaxException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetURISyntaxException_) && (JavaNetURISyntaxException_INCLUDE_ALL || defined(JavaNetURISyntaxException_INCLUDE))
+#if !defined (JavaNetURISyntaxException_) && (INCLUDE_ALL_JavaNetURISyntaxException || defined(INCLUDE_JavaNetURISyntaxException))
 #define JavaNetURISyntaxException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -101,9 +101,13 @@ FOUNDATION_EXPORT void JavaNetURISyntaxException_initWithNSString_withNSString_w
 
 FOUNDATION_EXPORT JavaNetURISyntaxException *new_JavaNetURISyntaxException_initWithNSString_withNSString_withInt_(NSString *input, NSString *reason, jint index) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURISyntaxException *create_JavaNetURISyntaxException_initWithNSString_withNSString_withInt_(NSString *input, NSString *reason, jint index);
+
 FOUNDATION_EXPORT void JavaNetURISyntaxException_initWithNSString_withNSString_(JavaNetURISyntaxException *self, NSString *input, NSString *reason);
 
 FOUNDATION_EXPORT JavaNetURISyntaxException *new_JavaNetURISyntaxException_initWithNSString_withNSString_(NSString *input, NSString *reason) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetURISyntaxException *create_JavaNetURISyntaxException_initWithNSString_withNSString_(NSString *input, NSString *reason);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURISyntaxException)
 
@@ -111,4 +115,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURISyntaxException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetURISyntaxException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetURISyntaxException")

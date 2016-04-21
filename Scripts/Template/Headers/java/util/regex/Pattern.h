@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilRegexPattern_INCLUDE_ALL")
-#ifdef JavaUtilRegexPattern_RESTRICT
-#define JavaUtilRegexPattern_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilRegexPattern")
+#ifdef RESTRICT_JavaUtilRegexPattern
+#define INCLUDE_ALL_JavaUtilRegexPattern 0
 #else
-#define JavaUtilRegexPattern_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilRegexPattern 1
 #endif
-#undef JavaUtilRegexPattern_RESTRICT
+#undef RESTRICT_JavaUtilRegexPattern
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilRegexPattern_) && (JavaUtilRegexPattern_INCLUDE_ALL || defined(JavaUtilRegexPattern_INCLUDE))
+#if !defined (JavaUtilRegexPattern_) && (INCLUDE_ALL_JavaUtilRegexPattern || defined(INCLUDE_JavaUtilRegexPattern))
 #define JavaUtilRegexPattern_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -334,7 +334,7 @@
 
 #pragma mark Protected
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 #pragma mark Package-Private
 
@@ -439,4 +439,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexPattern)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilRegexPattern_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilRegexPattern")

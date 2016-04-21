@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoPipedReader_INCLUDE_ALL")
-#ifdef JavaIoPipedReader_RESTRICT
-#define JavaIoPipedReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoPipedReader")
+#ifdef RESTRICT_JavaIoPipedReader
+#define INCLUDE_ALL_JavaIoPipedReader 0
 #else
-#define JavaIoPipedReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoPipedReader 1
 #endif
-#undef JavaIoPipedReader_RESTRICT
+#undef RESTRICT_JavaIoPipedReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoPipedReader_) && (JavaIoPipedReader_INCLUDE_ALL || defined(JavaIoPipedReader_INCLUDE))
+#if !defined (JavaIoPipedReader_) && (INCLUDE_ALL_JavaIoPipedReader || defined(INCLUDE_JavaIoPipedReader))
 #define JavaIoPipedReader_
 
-#define JavaIoReader_RESTRICT 1
-#define JavaIoReader_INCLUDE 1
+#define RESTRICT_JavaIoReader 1
+#define INCLUDE_JavaIoReader 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -224,17 +224,25 @@ FOUNDATION_EXPORT void JavaIoPipedReader_init(JavaIoPipedReader *self);
 
 FOUNDATION_EXPORT JavaIoPipedReader *new_JavaIoPipedReader_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPipedReader *create_JavaIoPipedReader_init();
+
 FOUNDATION_EXPORT void JavaIoPipedReader_initWithJavaIoPipedWriter_(JavaIoPipedReader *self, JavaIoPipedWriter *outArg);
 
 FOUNDATION_EXPORT JavaIoPipedReader *new_JavaIoPipedReader_initWithJavaIoPipedWriter_(JavaIoPipedWriter *outArg) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPipedReader *create_JavaIoPipedReader_initWithJavaIoPipedWriter_(JavaIoPipedWriter *outArg);
 
 FOUNDATION_EXPORT void JavaIoPipedReader_initWithInt_(JavaIoPipedReader *self, jint pipeSize);
 
 FOUNDATION_EXPORT JavaIoPipedReader *new_JavaIoPipedReader_initWithInt_(jint pipeSize) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPipedReader *create_JavaIoPipedReader_initWithInt_(jint pipeSize);
+
 FOUNDATION_EXPORT void JavaIoPipedReader_initWithJavaIoPipedWriter_withInt_(JavaIoPipedReader *self, JavaIoPipedWriter *outArg, jint pipeSize);
 
 FOUNDATION_EXPORT JavaIoPipedReader *new_JavaIoPipedReader_initWithJavaIoPipedWriter_withInt_(JavaIoPipedWriter *outArg, jint pipeSize) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPipedReader *create_JavaIoPipedReader_initWithJavaIoPipedWriter_withInt_(JavaIoPipedWriter *outArg, jint pipeSize);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedReader)
 
@@ -242,4 +250,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedReader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoPipedReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoPipedReader")

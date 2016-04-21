@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReadable_INCLUDE_ALL")
-#ifdef JavaLangReadable_RESTRICT
-#define JavaLangReadable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReadable")
+#ifdef RESTRICT_JavaLangReadable
+#define INCLUDE_ALL_JavaLangReadable 0
 #else
-#define JavaLangReadable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReadable 1
 #endif
-#undef JavaLangReadable_RESTRICT
+#undef RESTRICT_JavaLangReadable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReadable_) && (JavaLangReadable_INCLUDE_ALL || defined(JavaLangReadable_INCLUDE))
+#if !defined (JavaLangReadable_) && (INCLUDE_ALL_JavaLangReadable || defined(INCLUDE_JavaLangReadable))
 #define JavaLangReadable_
 
 @class JavaNioCharBuffer;
@@ -50,4 +50,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReadable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReadable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReadable")

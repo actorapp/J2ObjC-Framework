@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlConnection_INCLUDE_ALL")
-#ifdef JavaSqlConnection_RESTRICT
-#define JavaSqlConnection_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlConnection")
+#ifdef RESTRICT_JavaSqlConnection
+#define INCLUDE_ALL_JavaSqlConnection 0
 #else
-#define JavaSqlConnection_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlConnection 1
 #endif
-#undef JavaSqlConnection_RESTRICT
+#undef RESTRICT_JavaSqlConnection
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlConnection_) && (JavaSqlConnection_INCLUDE_ALL || defined(JavaSqlConnection_INCLUDE))
+#if !defined (JavaSqlConnection_) && (INCLUDE_ALL_JavaSqlConnection || defined(INCLUDE_JavaSqlConnection))
 #define JavaSqlConnection_
 
-#define JavaSqlWrapper_RESTRICT 1
-#define JavaSqlWrapper_INCLUDE 1
+#define RESTRICT_JavaSqlWrapper 1
+#define INCLUDE_JavaSqlWrapper 1
 #include "../../java/sql/Wrapper.h"
 
-#define JavaLangAutoCloseable_RESTRICT 1
-#define JavaLangAutoCloseable_INCLUDE 1
+#define RESTRICT_JavaLangAutoCloseable 1
+#define INCLUDE_JavaLangAutoCloseable 1
 #include "../../java/lang/AutoCloseable.h"
 
 @class IOSIntArray;
@@ -885,4 +885,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlConnection)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlConnection_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlConnection")

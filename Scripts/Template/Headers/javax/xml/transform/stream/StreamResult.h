@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformStreamStreamResult_INCLUDE_ALL")
-#ifdef JavaxXmlTransformStreamStreamResult_RESTRICT
-#define JavaxXmlTransformStreamStreamResult_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformStreamStreamResult")
+#ifdef RESTRICT_JavaxXmlTransformStreamStreamResult
+#define INCLUDE_ALL_JavaxXmlTransformStreamStreamResult 0
 #else
-#define JavaxXmlTransformStreamStreamResult_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformStreamStreamResult 1
 #endif
-#undef JavaxXmlTransformStreamStreamResult_RESTRICT
+#undef RESTRICT_JavaxXmlTransformStreamStreamResult
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformStreamStreamResult_) && (JavaxXmlTransformStreamStreamResult_INCLUDE_ALL || defined(JavaxXmlTransformStreamStreamResult_INCLUDE))
+#if !defined (JavaxXmlTransformStreamStreamResult_) && (INCLUDE_ALL_JavaxXmlTransformStreamStreamResult || defined(INCLUDE_JavaxXmlTransformStreamStreamResult))
 #define JavaxXmlTransformStreamStreamResult_
 
-#define JavaxXmlTransformResult_RESTRICT 1
-#define JavaxXmlTransformResult_INCLUDE 1
+#define RESTRICT_JavaxXmlTransformResult 1
+#define INCLUDE_JavaxXmlTransformResult 1
 #include "../../../../javax/xml/transform/Result.h"
 
 @class JavaIoFile;
@@ -159,21 +159,31 @@ FOUNDATION_EXPORT void JavaxXmlTransformStreamStreamResult_init(JavaxXmlTransfor
 
 FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *new_JavaxXmlTransformStreamStreamResult_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *create_JavaxXmlTransformStreamStreamResult_init();
+
 FOUNDATION_EXPORT void JavaxXmlTransformStreamStreamResult_initWithJavaIoOutputStream_(JavaxXmlTransformStreamStreamResult *self, JavaIoOutputStream *outputStream);
 
 FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *new_JavaxXmlTransformStreamStreamResult_initWithJavaIoOutputStream_(JavaIoOutputStream *outputStream) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *create_JavaxXmlTransformStreamStreamResult_initWithJavaIoOutputStream_(JavaIoOutputStream *outputStream);
 
 FOUNDATION_EXPORT void JavaxXmlTransformStreamStreamResult_initWithJavaIoWriter_(JavaxXmlTransformStreamStreamResult *self, JavaIoWriter *writer);
 
 FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *new_JavaxXmlTransformStreamStreamResult_initWithJavaIoWriter_(JavaIoWriter *writer) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *create_JavaxXmlTransformStreamStreamResult_initWithJavaIoWriter_(JavaIoWriter *writer);
+
 FOUNDATION_EXPORT void JavaxXmlTransformStreamStreamResult_initWithNSString_(JavaxXmlTransformStreamStreamResult *self, NSString *systemId);
 
 FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *new_JavaxXmlTransformStreamStreamResult_initWithNSString_(NSString *systemId) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *create_JavaxXmlTransformStreamStreamResult_initWithNSString_(NSString *systemId);
+
 FOUNDATION_EXPORT void JavaxXmlTransformStreamStreamResult_initWithJavaIoFile_(JavaxXmlTransformStreamStreamResult *self, JavaIoFile *f);
 
 FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *new_JavaxXmlTransformStreamStreamResult_initWithJavaIoFile_(JavaIoFile *f) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformStreamStreamResult *create_JavaxXmlTransformStreamStreamResult_initWithJavaIoFile_(JavaIoFile *f);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformStreamStreamResult)
 
@@ -181,4 +191,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformStreamStreamResult)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformStreamStreamResult_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformStreamStreamResult")

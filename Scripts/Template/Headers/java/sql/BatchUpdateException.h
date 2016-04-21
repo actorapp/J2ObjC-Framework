@@ -5,30 +5,29 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlBatchUpdateException_INCLUDE_ALL")
-#ifdef JavaSqlBatchUpdateException_RESTRICT
-#define JavaSqlBatchUpdateException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlBatchUpdateException")
+#ifdef RESTRICT_JavaSqlBatchUpdateException
+#define INCLUDE_ALL_JavaSqlBatchUpdateException 0
 #else
-#define JavaSqlBatchUpdateException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlBatchUpdateException 1
 #endif
-#undef JavaSqlBatchUpdateException_RESTRICT
+#undef RESTRICT_JavaSqlBatchUpdateException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlBatchUpdateException_) && (JavaSqlBatchUpdateException_INCLUDE_ALL || defined(JavaSqlBatchUpdateException_INCLUDE))
+#if !defined (JavaSqlBatchUpdateException_) && (INCLUDE_ALL_JavaSqlBatchUpdateException || defined(INCLUDE_JavaSqlBatchUpdateException))
 #define JavaSqlBatchUpdateException_
 
-#define JavaSqlSQLException_RESTRICT 1
-#define JavaSqlSQLException_INCLUDE 1
+#define RESTRICT_JavaSqlSQLException 1
+#define INCLUDE_JavaSqlSQLException 1
 #include "../../java/sql/SQLException.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSIntArray;
-@class JavaLangThrowable;
 
 /*!
  @brief This exception is thrown if a problem occurs during a batch update operation.
@@ -82,7 +81,7 @@
  @since 1.6
  */
 - (instancetype)initWithIntArray:(IOSIntArray *)updateCounts
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates a <code>BatchUpdateException</code> with the <code>updateCounts</code> and
@@ -110,7 +109,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)reason
                     withIntArray:(IOSIntArray *)updateCounts
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates a <code>BatchUpdateException</code> for the case where all relevant
@@ -145,7 +144,7 @@
                     withNSString:(NSString *)SQLState
                          withInt:(jint)vendorCode
                     withIntArray:(IOSIntArray *)updateCounts
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates a <code>BatchUpdateException</code> with the <code>reason</code>, <code>SQLState</code>
@@ -178,7 +177,7 @@
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)SQLState
                     withIntArray:(IOSIntArray *)updateCounts
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an BatchUpdateException object.
@@ -188,7 +187,7 @@
  @param cause the Throwable object for the underlying reason this SQLException
  @since 1.6
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 /*!
  @brief Gets the <i>update count</i> array giving status information for every
@@ -226,41 +225,61 @@ FOUNDATION_EXPORT void JavaSqlBatchUpdateException_init(JavaSqlBatchUpdateExcept
 
 FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithJavaLangThrowable_(JavaSqlBatchUpdateException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *create_JavaSqlBatchUpdateException_init();
 
-FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithNSException_(JavaSqlBatchUpdateException *self, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithIntArray_withJavaLangThrowable_(JavaSqlBatchUpdateException *self, IOSIntArray *updateCounts, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithIntArray_withJavaLangThrowable_(IOSIntArray *updateCounts, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *create_JavaSqlBatchUpdateException_initWithNSException_(NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithNSString_withIntArray_withJavaLangThrowable_(JavaSqlBatchUpdateException *self, NSString *reason, IOSIntArray *updateCounts, JavaLangThrowable *cause);
+FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithIntArray_withNSException_(JavaSqlBatchUpdateException *self, IOSIntArray *updateCounts, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithNSString_withIntArray_withJavaLangThrowable_(NSString *reason, IOSIntArray *updateCounts, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithIntArray_withNSException_(IOSIntArray *updateCounts, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithNSString_withNSString_withIntArray_withJavaLangThrowable_(JavaSqlBatchUpdateException *self, NSString *reason, NSString *SQLState, IOSIntArray *updateCounts, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *create_JavaSqlBatchUpdateException_initWithIntArray_withNSException_(IOSIntArray *updateCounts, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithNSString_withNSString_withIntArray_withJavaLangThrowable_(NSString *reason, NSString *SQLState, IOSIntArray *updateCounts, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithNSString_withIntArray_withNSException_(JavaSqlBatchUpdateException *self, NSString *reason, IOSIntArray *updateCounts, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithNSString_withNSString_withInt_withIntArray_withJavaLangThrowable_(JavaSqlBatchUpdateException *self, NSString *reason, NSString *SQLState, jint vendorCode, IOSIntArray *updateCounts, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithNSString_withIntArray_withNSException_(NSString *reason, IOSIntArray *updateCounts, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithNSString_withNSString_withInt_withIntArray_withJavaLangThrowable_(NSString *reason, NSString *SQLState, jint vendorCode, IOSIntArray *updateCounts, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *create_JavaSqlBatchUpdateException_initWithNSString_withIntArray_withNSException_(NSString *reason, IOSIntArray *updateCounts, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithNSString_withNSString_withIntArray_withNSException_(JavaSqlBatchUpdateException *self, NSString *reason, NSString *SQLState, IOSIntArray *updateCounts, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithNSString_withNSString_withIntArray_withNSException_(NSString *reason, NSString *SQLState, IOSIntArray *updateCounts, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *create_JavaSqlBatchUpdateException_initWithNSString_withNSString_withIntArray_withNSException_(NSString *reason, NSString *SQLState, IOSIntArray *updateCounts, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithNSString_withNSString_withInt_withIntArray_withNSException_(JavaSqlBatchUpdateException *self, NSString *reason, NSString *SQLState, jint vendorCode, IOSIntArray *updateCounts, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithNSString_withNSString_withInt_withIntArray_withNSException_(NSString *reason, NSString *SQLState, jint vendorCode, IOSIntArray *updateCounts, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *create_JavaSqlBatchUpdateException_initWithNSString_withNSString_withInt_withIntArray_withNSException_(NSString *reason, NSString *SQLState, jint vendorCode, IOSIntArray *updateCounts, NSException *cause);
 
 FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithIntArray_(JavaSqlBatchUpdateException *self, IOSIntArray *updateCounts);
 
 FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithIntArray_(IOSIntArray *updateCounts) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *create_JavaSqlBatchUpdateException_initWithIntArray_(IOSIntArray *updateCounts);
+
 FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithNSString_withIntArray_(JavaSqlBatchUpdateException *self, NSString *reason, IOSIntArray *updateCounts);
 
 FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithNSString_withIntArray_(NSString *reason, IOSIntArray *updateCounts) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *create_JavaSqlBatchUpdateException_initWithNSString_withIntArray_(NSString *reason, IOSIntArray *updateCounts);
 
 FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithNSString_withNSString_withIntArray_(JavaSqlBatchUpdateException *self, NSString *reason, NSString *SQLState, IOSIntArray *updateCounts);
 
 FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithNSString_withNSString_withIntArray_(NSString *reason, NSString *SQLState, IOSIntArray *updateCounts) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *create_JavaSqlBatchUpdateException_initWithNSString_withNSString_withIntArray_(NSString *reason, NSString *SQLState, IOSIntArray *updateCounts);
+
 FOUNDATION_EXPORT void JavaSqlBatchUpdateException_initWithNSString_withNSString_withInt_withIntArray_(JavaSqlBatchUpdateException *self, NSString *reason, NSString *SQLState, jint vendorCode, IOSIntArray *updateCounts);
 
 FOUNDATION_EXPORT JavaSqlBatchUpdateException *new_JavaSqlBatchUpdateException_initWithNSString_withNSString_withInt_withIntArray_(NSString *reason, NSString *SQLState, jint vendorCode, IOSIntArray *updateCounts) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlBatchUpdateException *create_JavaSqlBatchUpdateException_initWithNSString_withNSString_withInt_withIntArray_(NSString *reason, NSString *SQLState, jint vendorCode, IOSIntArray *updateCounts);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlBatchUpdateException)
 
@@ -268,4 +287,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlBatchUpdateException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlBatchUpdateException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlBatchUpdateException")

@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioByteOrder_INCLUDE_ALL")
-#ifdef JavaNioByteOrder_RESTRICT
-#define JavaNioByteOrder_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioByteOrder")
+#ifdef RESTRICT_JavaNioByteOrder
+#define INCLUDE_ALL_JavaNioByteOrder 0
 #else
-#define JavaNioByteOrder_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioByteOrder 1
 #endif
-#undef JavaNioByteOrder_RESTRICT
+#undef RESTRICT_JavaNioByteOrder
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioByteOrder_) && (JavaNioByteOrder_INCLUDE_ALL || defined(JavaNioByteOrder_INCLUDE))
+#if !defined (JavaNioByteOrder_) && (INCLUDE_ALL_JavaNioByteOrder || defined(INCLUDE_JavaNioByteOrder))
 #define JavaNioByteOrder_
 
 /*!
@@ -83,4 +83,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioByteOrder)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioByteOrder_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioByteOrder")

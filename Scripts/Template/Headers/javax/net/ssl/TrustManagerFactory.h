@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslTrustManagerFactory_INCLUDE_ALL")
-#ifdef JavaxNetSslTrustManagerFactory_RESTRICT
-#define JavaxNetSslTrustManagerFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslTrustManagerFactory")
+#ifdef RESTRICT_JavaxNetSslTrustManagerFactory
+#define INCLUDE_ALL_JavaxNetSslTrustManagerFactory 0
 #else
-#define JavaxNetSslTrustManagerFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslTrustManagerFactory 1
 #endif
-#undef JavaxNetSslTrustManagerFactory_RESTRICT
+#undef RESTRICT_JavaxNetSslTrustManagerFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslTrustManagerFactory_) && (JavaxNetSslTrustManagerFactory_INCLUDE_ALL || defined(JavaxNetSslTrustManagerFactory_INCLUDE))
+#if !defined (JavaxNetSslTrustManagerFactory_) && (INCLUDE_ALL_JavaxNetSslTrustManagerFactory || defined(INCLUDE_JavaxNetSslTrustManagerFactory))
 #define JavaxNetSslTrustManagerFactory_
 
 @class IOSObjectArray;
@@ -167,10 +167,12 @@ FOUNDATION_EXPORT void JavaxNetSslTrustManagerFactory_initWithJavaxNetSslTrustMa
 
 FOUNDATION_EXPORT JavaxNetSslTrustManagerFactory *new_JavaxNetSslTrustManagerFactory_initWithJavaxNetSslTrustManagerFactorySpi_withJavaSecurityProvider_withNSString_(JavaxNetSslTrustManagerFactorySpi *factorySpi, JavaSecurityProvider *provider, NSString *algorithm) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslTrustManagerFactory *create_JavaxNetSslTrustManagerFactory_initWithJavaxNetSslTrustManagerFactorySpi_withJavaSecurityProvider_withNSString_(JavaxNetSslTrustManagerFactorySpi *factorySpi, JavaSecurityProvider *provider, NSString *algorithm);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslTrustManagerFactory)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslTrustManagerFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslTrustManagerFactory")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipAdler32_INCLUDE_ALL")
-#ifdef JavaUtilZipAdler32_RESTRICT
-#define JavaUtilZipAdler32_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipAdler32")
+#ifdef RESTRICT_JavaUtilZipAdler32
+#define INCLUDE_ALL_JavaUtilZipAdler32 0
 #else
-#define JavaUtilZipAdler32_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipAdler32 1
 #endif
-#undef JavaUtilZipAdler32_RESTRICT
+#undef RESTRICT_JavaUtilZipAdler32
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipAdler32_) && (JavaUtilZipAdler32_INCLUDE_ALL || defined(JavaUtilZipAdler32_INCLUDE))
+#if !defined (JavaUtilZipAdler32_) && (INCLUDE_ALL_JavaUtilZipAdler32 || defined(INCLUDE_JavaUtilZipAdler32))
 #define JavaUtilZipAdler32_
 
-#define JavaUtilZipChecksum_RESTRICT 1
-#define JavaUtilZipChecksum_INCLUDE 1
+#define RESTRICT_JavaUtilZipChecksum 1
+#define INCLUDE_JavaUtilZipChecksum 1
 #include "../../../java/util/zip/Checksum.h"
 
 @class IOSByteArray;
@@ -79,10 +79,12 @@ FOUNDATION_EXPORT void JavaUtilZipAdler32_init(JavaUtilZipAdler32 *self);
 
 FOUNDATION_EXPORT JavaUtilZipAdler32 *new_JavaUtilZipAdler32_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipAdler32 *create_JavaUtilZipAdler32_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipAdler32)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipAdler32_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipAdler32")

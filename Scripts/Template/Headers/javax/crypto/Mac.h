@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxCryptoMac_INCLUDE_ALL")
-#ifdef JavaxCryptoMac_RESTRICT
-#define JavaxCryptoMac_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxCryptoMac")
+#ifdef RESTRICT_JavaxCryptoMac
+#define INCLUDE_ALL_JavaxCryptoMac 0
 #else
-#define JavaxCryptoMac_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxCryptoMac 1
 #endif
-#undef JavaxCryptoMac_RESTRICT
+#undef RESTRICT_JavaxCryptoMac
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxCryptoMac_) && (JavaxCryptoMac_INCLUDE_ALL || defined(JavaxCryptoMac_INCLUDE))
+#if !defined (JavaxCryptoMac_) && (INCLUDE_ALL_JavaxCryptoMac || defined(INCLUDE_JavaxCryptoMac))
 #define JavaxCryptoMac_
 
 @class IOSByteArray;
@@ -280,6 +280,8 @@ FOUNDATION_EXPORT void JavaxCryptoMac_initWithJavaxCryptoMacSpi_withJavaSecurity
 
 FOUNDATION_EXPORT JavaxCryptoMac *new_JavaxCryptoMac_initWithJavaxCryptoMacSpi_withJavaSecurityProvider_withNSString_(JavaxCryptoMacSpi *macSpi, JavaSecurityProvider *provider, NSString *algorithm) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxCryptoMac *create_JavaxCryptoMac_initWithJavaxCryptoMacSpi_withJavaSecurityProvider_withNSString_(JavaxCryptoMacSpi *macSpi, JavaSecurityProvider *provider, NSString *algorithm);
+
 FOUNDATION_EXPORT JavaxCryptoMac *JavaxCryptoMac_getInstanceWithNSString_(NSString *algorithm);
 
 FOUNDATION_EXPORT JavaxCryptoMac *JavaxCryptoMac_getInstanceWithNSString_withNSString_(NSString *algorithm, NSString *provider);
@@ -292,4 +294,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoMac)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxCryptoMac_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxCryptoMac")

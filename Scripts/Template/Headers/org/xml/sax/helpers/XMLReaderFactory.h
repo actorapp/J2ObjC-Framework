@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHelpersXMLReaderFactory_INCLUDE_ALL")
-#ifdef OrgXmlSaxHelpersXMLReaderFactory_RESTRICT
-#define OrgXmlSaxHelpersXMLReaderFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersXMLReaderFactory")
+#ifdef RESTRICT_OrgXmlSaxHelpersXMLReaderFactory
+#define INCLUDE_ALL_OrgXmlSaxHelpersXMLReaderFactory 0
 #else
-#define OrgXmlSaxHelpersXMLReaderFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHelpersXMLReaderFactory 1
 #endif
-#undef OrgXmlSaxHelpersXMLReaderFactory_RESTRICT
+#undef RESTRICT_OrgXmlSaxHelpersXMLReaderFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHelpersXMLReaderFactory_) && (OrgXmlSaxHelpersXMLReaderFactory_INCLUDE_ALL || defined(OrgXmlSaxHelpersXMLReaderFactory_INCLUDE))
+#if !defined (OrgXmlSaxHelpersXMLReaderFactory_) && (INCLUDE_ALL_OrgXmlSaxHelpersXMLReaderFactory || defined(INCLUDE_OrgXmlSaxHelpersXMLReaderFactory))
 #define OrgXmlSaxHelpersXMLReaderFactory_
 
 @protocol OrgXmlSaxXMLReader;
@@ -120,4 +120,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLReaderFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHelpersXMLReaderFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersXMLReaderFactory")

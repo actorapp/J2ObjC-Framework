@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL")
-#ifdef JavaxXmlDatatypeFactoryFinder_RESTRICT
-#define JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlDatatypeFactoryFinder")
+#ifdef RESTRICT_JavaxXmlDatatypeFactoryFinder
+#define INCLUDE_ALL_JavaxXmlDatatypeFactoryFinder 0
 #else
-#define JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlDatatypeFactoryFinder 1
 #endif
-#undef JavaxXmlDatatypeFactoryFinder_RESTRICT
+#undef RESTRICT_JavaxXmlDatatypeFactoryFinder
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlDatatypeFactoryFinder_) && (JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL || defined(JavaxXmlDatatypeFactoryFinder_INCLUDE))
+#if !defined (JavaxXmlDatatypeFactoryFinder_) && (INCLUDE_ALL_JavaxXmlDatatypeFactoryFinder || defined(INCLUDE_JavaxXmlDatatypeFactoryFinder))
 #define JavaxXmlDatatypeFactoryFinder_
 
 @class JavaLangClassLoader;
@@ -70,11 +70,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeFactoryFinder)
 
 #endif
 
-#if !defined (JavaxXmlDatatypeFactoryFinder_ConfigurationError_) && (JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL || defined(JavaxXmlDatatypeFactoryFinder_ConfigurationError_INCLUDE))
+#if !defined (JavaxXmlDatatypeFactoryFinder_ConfigurationError_) && (INCLUDE_ALL_JavaxXmlDatatypeFactoryFinder || defined(INCLUDE_JavaxXmlDatatypeFactoryFinder_ConfigurationError))
 #define JavaxXmlDatatypeFactoryFinder_ConfigurationError_
 
-#define JavaLangError_RESTRICT 1
-#define JavaLangError_INCLUDE 1
+#define RESTRICT_JavaLangError 1
+#define INCLUDE_JavaLangError 1
 #include "../../../java/lang/Error.h"
 
 @class JavaLangException;
@@ -112,10 +112,12 @@ FOUNDATION_EXPORT void JavaxXmlDatatypeFactoryFinder_ConfigurationError_initWith
 
 FOUNDATION_EXPORT JavaxXmlDatatypeFactoryFinder_ConfigurationError *new_JavaxXmlDatatypeFactoryFinder_ConfigurationError_initWithNSString_withJavaLangException_(NSString *msg, JavaLangException *x) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlDatatypeFactoryFinder_ConfigurationError *create_JavaxXmlDatatypeFactoryFinder_ConfigurationError_initWithNSString_withJavaLangException_(NSString *msg, JavaLangException *x);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeFactoryFinder_ConfigurationError)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlDatatypeFactoryFinder_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlDatatypeFactoryFinder")

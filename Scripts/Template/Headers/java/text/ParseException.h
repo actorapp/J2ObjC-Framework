@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextParseException_INCLUDE_ALL")
-#ifdef JavaTextParseException_RESTRICT
-#define JavaTextParseException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextParseException")
+#ifdef RESTRICT_JavaTextParseException
+#define INCLUDE_ALL_JavaTextParseException 0
 #else
-#define JavaTextParseException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextParseException 1
 #endif
-#undef JavaTextParseException_RESTRICT
+#undef RESTRICT_JavaTextParseException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextParseException_) && (JavaTextParseException_INCLUDE_ALL || defined(JavaTextParseException_INCLUDE))
+#if !defined (JavaTextParseException_) && (INCLUDE_ALL_JavaTextParseException || defined(INCLUDE_JavaTextParseException))
 #define JavaTextParseException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -55,10 +55,12 @@ FOUNDATION_EXPORT void JavaTextParseException_initWithNSString_withInt_(JavaText
 
 FOUNDATION_EXPORT JavaTextParseException *new_JavaTextParseException_initWithNSString_withInt_(NSString *detailMessage, jint location) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextParseException *create_JavaTextParseException_initWithNSString_withInt_(NSString *detailMessage, jint location);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextParseException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextParseException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextParseException")

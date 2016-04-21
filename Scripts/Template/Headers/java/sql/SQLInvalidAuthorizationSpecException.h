@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE_ALL")
-#ifdef JavaSqlSQLInvalidAuthorizationSpecException_RESTRICT
-#define JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLInvalidAuthorizationSpecException")
+#ifdef RESTRICT_JavaSqlSQLInvalidAuthorizationSpecException
+#define INCLUDE_ALL_JavaSqlSQLInvalidAuthorizationSpecException 0
 #else
-#define JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLInvalidAuthorizationSpecException 1
 #endif
-#undef JavaSqlSQLInvalidAuthorizationSpecException_RESTRICT
+#undef RESTRICT_JavaSqlSQLInvalidAuthorizationSpecException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLInvalidAuthorizationSpecException_) && (JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE_ALL || defined(JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE))
+#if !defined (JavaSqlSQLInvalidAuthorizationSpecException_) && (INCLUDE_ALL_JavaSqlSQLInvalidAuthorizationSpecException || defined(INCLUDE_JavaSqlSQLInvalidAuthorizationSpecException))
 #define JavaSqlSQLInvalidAuthorizationSpecException_
 
-#define JavaSqlSQLNonTransientException_RESTRICT 1
-#define JavaSqlSQLNonTransientException_INCLUDE 1
+#define RESTRICT_JavaSqlSQLNonTransientException 1
+#define INCLUDE_JavaSqlSQLNonTransientException 1
 #include "../../java/sql/SQLNonTransientException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief An exception, which is subclass of SQLNonTransientException, is thrown when
@@ -102,7 +100,7 @@
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
                          withInt:(jint)vendorCode
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLInvalidAuthorizationSpecException object.
@@ -120,7 +118,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLInvalidAuthorizationSpecException object.
@@ -134,7 +132,7 @@
  SQLException
  */
 - (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLInvalidAuthorizationSpecException object.
@@ -146,7 +144,7 @@
  the Throwable object for the underlying reason this
  SQLException
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 #pragma mark Package-Private
 
@@ -158,33 +156,49 @@ FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_init(JavaSqlS
 
 FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *create_JavaSqlSQLInvalidAuthorizationSpecException_init();
+
 FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_(JavaSqlSQLInvalidAuthorizationSpecException *self, NSString *reason);
 
 FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_(NSString *reason) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *create_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_(NSString *reason);
 
 FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_(JavaSqlSQLInvalidAuthorizationSpecException *self, NSString *reason, NSString *sqlState);
 
 FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *create_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState);
+
 FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withInt_(JavaSqlSQLInvalidAuthorizationSpecException *self, NSString *reason, NSString *sqlState, jint vendorCode);
 
 FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithJavaLangThrowable_(JavaSqlSQLInvalidAuthorizationSpecException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *create_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode);
 
-FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithNSException_(JavaSqlSQLInvalidAuthorizationSpecException *self, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withJavaLangThrowable_(JavaSqlSQLInvalidAuthorizationSpecException *self, NSString *reason, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withJavaLangThrowable_(NSString *reason, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *create_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSException_(NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withJavaLangThrowable_(JavaSqlSQLInvalidAuthorizationSpecException *self, NSString *reason, NSString *sqlState, JavaLangThrowable *cause);
+FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSException_(JavaSqlSQLInvalidAuthorizationSpecException *self, NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withJavaLangThrowable_(NSString *reason, NSString *sqlState, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSException_(NSString *reason, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(JavaSqlSQLInvalidAuthorizationSpecException *self, NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *create_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSException_(NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withNSException_(JavaSqlSQLInvalidAuthorizationSpecException *self, NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *create_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withInt_withNSException_(JavaSqlSQLInvalidAuthorizationSpecException *self, NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *new_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLInvalidAuthorizationSpecException *create_JavaSqlSQLInvalidAuthorizationSpecException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLInvalidAuthorizationSpecException)
 
@@ -192,4 +206,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLInvalidAuthorizationSpecException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLInvalidAuthorizationSpecException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLInvalidAuthorizationSpecException")

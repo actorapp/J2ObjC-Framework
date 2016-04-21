@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_RESTRICT
-#define JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec")
+#ifdef RESTRICT_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec
+#define INCLUDE_ALL_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec 0
 #else
-#define JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec 1
 #endif
-#undef JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_) && (JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE))
+#if !defined (JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec || defined(INCLUDE_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec))
 #define JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_
 
-#define JavaSecuritySpecRSAPrivateKeySpec_RESTRICT 1
-#define JavaSecuritySpecRSAPrivateKeySpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecRSAPrivateKeySpec 1
+#define INCLUDE_JavaSecuritySpecRSAPrivateKeySpec 1
 #include "../../../java/security/spec/RSAPrivateKeySpec.h"
 
 @class IOSObjectArray;
@@ -125,10 +125,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_initWithJa
 
 FOUNDATION_EXPORT JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec *new_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_initWithJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaSecuritySpecRSAOtherPrimeInfoArray_(JavaMathBigInteger *modulus, JavaMathBigInteger *publicExponent, JavaMathBigInteger *privateExponent, JavaMathBigInteger *primeP, JavaMathBigInteger *primeQ, JavaMathBigInteger *primeExponentP, JavaMathBigInteger *primeExponentQ, JavaMathBigInteger *crtCoefficient, IOSObjectArray *otherPrimeInfo) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec *create_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_initWithJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaSecuritySpecRSAOtherPrimeInfoArray_(JavaMathBigInteger *modulus, JavaMathBigInteger *publicExponent, JavaMathBigInteger *privateExponent, JavaMathBigInteger *primeP, JavaMathBigInteger *primeQ, JavaMathBigInteger *primeExponentP, JavaMathBigInteger *primeExponentQ, JavaMathBigInteger *crtCoefficient, IOSObjectArray *otherPrimeInfo);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAMultiPrimePrivateCrtKeySpec")

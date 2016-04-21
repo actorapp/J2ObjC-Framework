@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilHashMap_INCLUDE_ALL")
-#ifdef JavaUtilHashMap_RESTRICT
-#define JavaUtilHashMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilHashMap")
+#ifdef RESTRICT_JavaUtilHashMap
+#define INCLUDE_ALL_JavaUtilHashMap 0
 #else
-#define JavaUtilHashMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilHashMap 1
 #endif
-#undef JavaUtilHashMap_RESTRICT
+#undef RESTRICT_JavaUtilHashMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilHashMap_) && (JavaUtilHashMap_INCLUDE_ALL || defined(JavaUtilHashMap_INCLUDE))
+#if !defined (JavaUtilHashMap_) && (INCLUDE_ALL_JavaUtilHashMap || defined(INCLUDE_JavaUtilHashMap))
 #define JavaUtilHashMap_
 
-#define JavaUtilAbstractMap_RESTRICT 1
-#define JavaUtilAbstractMap_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractMap 1
+#define INCLUDE_JavaUtilAbstractMap 1
 #include "../../java/util/AbstractMap.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -351,17 +351,25 @@ FOUNDATION_EXPORT void JavaUtilHashMap_init(JavaUtilHashMap *self);
 
 FOUNDATION_EXPORT JavaUtilHashMap *new_JavaUtilHashMap_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilHashMap *create_JavaUtilHashMap_init();
+
 FOUNDATION_EXPORT void JavaUtilHashMap_initWithInt_(JavaUtilHashMap *self, jint capacity);
 
 FOUNDATION_EXPORT JavaUtilHashMap *new_JavaUtilHashMap_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilHashMap *create_JavaUtilHashMap_initWithInt_(jint capacity);
 
 FOUNDATION_EXPORT void JavaUtilHashMap_initWithInt_withFloat_(JavaUtilHashMap *self, jint capacity, jfloat loadFactor);
 
 FOUNDATION_EXPORT JavaUtilHashMap *new_JavaUtilHashMap_initWithInt_withFloat_(jint capacity, jfloat loadFactor) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilHashMap *create_JavaUtilHashMap_initWithInt_withFloat_(jint capacity, jfloat loadFactor);
+
 FOUNDATION_EXPORT void JavaUtilHashMap_initWithJavaUtilMap_(JavaUtilHashMap *self, id<JavaUtilMap> map);
 
 FOUNDATION_EXPORT JavaUtilHashMap *new_JavaUtilHashMap_initWithJavaUtilMap_(id<JavaUtilMap> map) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilHashMap *create_JavaUtilHashMap_initWithJavaUtilMap_(id<JavaUtilMap> map);
 
 FOUNDATION_EXPORT jint JavaUtilHashMap_capacityForInitSizeWithInt_(jint size);
 
@@ -369,11 +377,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap)
 
 #endif
 
-#if !defined (JavaUtilHashMap_HashMapEntry_) && (JavaUtilHashMap_INCLUDE_ALL || defined(JavaUtilHashMap_HashMapEntry_INCLUDE))
+#if !defined (JavaUtilHashMap_HashMapEntry_) && (INCLUDE_ALL_JavaUtilHashMap || defined(INCLUDE_JavaUtilHashMap_HashMapEntry))
 #define JavaUtilHashMap_HashMapEntry_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_Entry_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap_Entry 1
 #include "../../java/util/Map.h"
 
 @interface JavaUtilHashMap_HashMapEntry : NSObject < JavaUtilMap_Entry > {
@@ -417,10 +425,12 @@ FOUNDATION_EXPORT void JavaUtilHashMap_HashMapEntry_initWithId_withId_withInt_wi
 
 FOUNDATION_EXPORT JavaUtilHashMap_HashMapEntry *new_JavaUtilHashMap_HashMapEntry_initWithId_withId_withInt_withJavaUtilHashMap_HashMapEntry_(id key, id value, jint hash_, JavaUtilHashMap_HashMapEntry *next) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilHashMap_HashMapEntry *create_JavaUtilHashMap_HashMapEntry_initWithId_withId_withInt_withJavaUtilHashMap_HashMapEntry_(id key, id value, jint hash_, JavaUtilHashMap_HashMapEntry *next);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashMap_HashMapEntry)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilHashMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilHashMap")

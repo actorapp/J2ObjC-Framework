@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelFactoryImpl_INCLUDE_ALL")
-#ifdef JavaNioChannelFactoryImpl_RESTRICT
-#define JavaNioChannelFactoryImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelFactoryImpl")
+#ifdef RESTRICT_JavaNioChannelFactoryImpl
+#define INCLUDE_ALL_JavaNioChannelFactoryImpl 0
 #else
-#define JavaNioChannelFactoryImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelFactoryImpl 1
 #endif
-#undef JavaNioChannelFactoryImpl_RESTRICT
+#undef RESTRICT_JavaNioChannelFactoryImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelFactoryImpl_) && (JavaNioChannelFactoryImpl_INCLUDE_ALL || defined(JavaNioChannelFactoryImpl_INCLUDE))
+#if !defined (JavaNioChannelFactoryImpl_) && (INCLUDE_ALL_JavaNioChannelFactoryImpl || defined(INCLUDE_JavaNioChannelFactoryImpl))
 #define JavaNioChannelFactoryImpl_
 
-#define JavaNioNioUtils_RESTRICT 1
-#define JavaNioNioUtils_ChannelFactory_INCLUDE 1
+#define RESTRICT_JavaNioNioUtils 1
+#define INCLUDE_JavaNioNioUtils_ChannelFactory 1
 #include "../../java/nio/NioUtils.h"
 
 @class JavaIoFileDescriptor;
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioChannelFactoryImpl_init(JavaNioChannelFactoryImpl 
 
 FOUNDATION_EXPORT JavaNioChannelFactoryImpl *new_JavaNioChannelFactoryImpl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelFactoryImpl *create_JavaNioChannelFactoryImpl_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelFactoryImpl)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelFactoryImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelFactoryImpl")

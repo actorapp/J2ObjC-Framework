@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetURLClassLoader_INCLUDE_ALL")
-#ifdef JavaNetURLClassLoader_RESTRICT
-#define JavaNetURLClassLoader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetURLClassLoader")
+#ifdef RESTRICT_JavaNetURLClassLoader
+#define INCLUDE_ALL_JavaNetURLClassLoader 0
 #else
-#define JavaNetURLClassLoader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetURLClassLoader 1
 #endif
-#undef JavaNetURLClassLoader_RESTRICT
+#undef RESTRICT_JavaNetURLClassLoader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetURLClassLoader_) && (JavaNetURLClassLoader_INCLUDE_ALL || defined(JavaNetURLClassLoader_INCLUDE))
+#if !defined (JavaNetURLClassLoader_) && (INCLUDE_ALL_JavaNetURLClassLoader || defined(INCLUDE_JavaNetURLClassLoader))
 #define JavaNetURLClassLoader_
 
-#define JavaSecuritySecureClassLoader_RESTRICT 1
-#define JavaSecuritySecureClassLoader_INCLUDE 1
+#define RESTRICT_JavaSecuritySecureClassLoader 1
+#define INCLUDE_JavaSecuritySecureClassLoader 1
 #include "../../java/security/SecureClassLoader.h"
 
 @class IOSObjectArray;
@@ -157,9 +157,13 @@ FOUNDATION_EXPORT void JavaNetURLClassLoader_initWithJavaNetURLArray_(JavaNetURL
 
 FOUNDATION_EXPORT JavaNetURLClassLoader *new_JavaNetURLClassLoader_initWithJavaNetURLArray_(IOSObjectArray *urls) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURLClassLoader *create_JavaNetURLClassLoader_initWithJavaNetURLArray_(IOSObjectArray *urls);
+
 FOUNDATION_EXPORT void JavaNetURLClassLoader_initWithJavaNetURLArray_withJavaLangClassLoader_(JavaNetURLClassLoader *self, IOSObjectArray *urls, JavaLangClassLoader *parent);
 
 FOUNDATION_EXPORT JavaNetURLClassLoader *new_JavaNetURLClassLoader_initWithJavaNetURLArray_withJavaLangClassLoader_(IOSObjectArray *urls, JavaLangClassLoader *parent) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetURLClassLoader *create_JavaNetURLClassLoader_initWithJavaNetURLArray_withJavaLangClassLoader_(IOSObjectArray *urls, JavaLangClassLoader *parent);
 
 FOUNDATION_EXPORT JavaNetURLClassLoader *JavaNetURLClassLoader_newInstanceWithJavaNetURLArray_(IOSObjectArray *urls);
 
@@ -169,10 +173,12 @@ FOUNDATION_EXPORT void JavaNetURLClassLoader_initWithJavaNetURLArray_withJavaLan
 
 FOUNDATION_EXPORT JavaNetURLClassLoader *new_JavaNetURLClassLoader_initWithJavaNetURLArray_withJavaLangClassLoader_withJavaNetURLStreamHandlerFactory_(IOSObjectArray *searchUrls, JavaLangClassLoader *parent, id<JavaNetURLStreamHandlerFactory> factory) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURLClassLoader *create_JavaNetURLClassLoader_initWithJavaNetURLArray_withJavaLangClassLoader_withJavaNetURLStreamHandlerFactory_(IOSObjectArray *searchUrls, JavaLangClassLoader *parent, id<JavaNetURLStreamHandlerFactory> factory);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLClassLoader)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetURLClassLoader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetURLClassLoader")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslHandshakeCompletedEvent_INCLUDE_ALL")
-#ifdef JavaxNetSslHandshakeCompletedEvent_RESTRICT
-#define JavaxNetSslHandshakeCompletedEvent_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslHandshakeCompletedEvent")
+#ifdef RESTRICT_JavaxNetSslHandshakeCompletedEvent
+#define INCLUDE_ALL_JavaxNetSslHandshakeCompletedEvent 0
 #else
-#define JavaxNetSslHandshakeCompletedEvent_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslHandshakeCompletedEvent 1
 #endif
-#undef JavaxNetSslHandshakeCompletedEvent_RESTRICT
+#undef RESTRICT_JavaxNetSslHandshakeCompletedEvent
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslHandshakeCompletedEvent_) && (JavaxNetSslHandshakeCompletedEvent_INCLUDE_ALL || defined(JavaxNetSslHandshakeCompletedEvent_INCLUDE))
+#if !defined (JavaxNetSslHandshakeCompletedEvent_) && (INCLUDE_ALL_JavaxNetSslHandshakeCompletedEvent || defined(INCLUDE_JavaxNetSslHandshakeCompletedEvent))
 #define JavaxNetSslHandshakeCompletedEvent_
 
-#define JavaUtilEventObject_RESTRICT 1
-#define JavaUtilEventObject_INCLUDE 1
+#define RESTRICT_JavaUtilEventObject 1
+#define INCLUDE_JavaUtilEventObject 1
 #include "../../../java/util/EventObject.h"
 
 @class IOSObjectArray;
@@ -120,10 +120,12 @@ FOUNDATION_EXPORT void JavaxNetSslHandshakeCompletedEvent_initWithJavaxNetSslSSL
 
 FOUNDATION_EXPORT JavaxNetSslHandshakeCompletedEvent *new_JavaxNetSslHandshakeCompletedEvent_initWithJavaxNetSslSSLSocket_withJavaxNetSslSSLSession_(JavaxNetSslSSLSocket *sock, id<JavaxNetSslSSLSession> s) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslHandshakeCompletedEvent *create_JavaxNetSslHandshakeCompletedEvent_initWithJavaxNetSslSSLSocket_withJavaxNetSslSSLSession_(JavaxNetSslSSLSocket *sock, id<JavaxNetSslSSLSession> s);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHandshakeCompletedEvent)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslHandshakeCompletedEvent_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslHandshakeCompletedEvent")

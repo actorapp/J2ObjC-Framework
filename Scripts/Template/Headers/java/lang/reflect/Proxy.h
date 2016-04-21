@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectProxy_INCLUDE_ALL")
-#ifdef JavaLangReflectProxy_RESTRICT
-#define JavaLangReflectProxy_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectProxy")
+#ifdef RESTRICT_JavaLangReflectProxy
+#define INCLUDE_ALL_JavaLangReflectProxy 0
 #else
-#define JavaLangReflectProxy_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectProxy 1
 #endif
-#undef JavaLangReflectProxy_RESTRICT
+#undef RESTRICT_JavaLangReflectProxy
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectProxy_) && (JavaLangReflectProxy_INCLUDE_ALL || defined(JavaLangReflectProxy_INCLUDE))
+#if !defined (JavaLangReflectProxy_) && (INCLUDE_ALL_JavaLangReflectProxy || defined(INCLUDE_JavaLangReflectProxy))
 #define JavaLangReflectProxy_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSClass;
@@ -142,6 +142,8 @@ FOUNDATION_EXPORT void JavaLangReflectProxy_initWithJavaLangReflectInvocationHan
 
 FOUNDATION_EXPORT JavaLangReflectProxy *new_JavaLangReflectProxy_initWithJavaLangReflectInvocationHandler_(id<JavaLangReflectInvocationHandler> h) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangReflectProxy *create_JavaLangReflectProxy_initWithJavaLangReflectInvocationHandler_(id<JavaLangReflectInvocationHandler> h);
+
 FOUNDATION_EXPORT IOSClass *JavaLangReflectProxy_getProxyClassWithJavaLangClassLoader_withIOSClassArray_(JavaLangClassLoader *loader, IOSObjectArray *interfaces);
 
 FOUNDATION_EXPORT id JavaLangReflectProxy_newProxyInstanceWithJavaLangClassLoader_withIOSClassArray_withJavaLangReflectInvocationHandler_(JavaLangClassLoader *loader, IOSObjectArray *interfaces, id<JavaLangReflectInvocationHandler> h);
@@ -156,4 +158,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectProxy)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectProxy_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectProxy")

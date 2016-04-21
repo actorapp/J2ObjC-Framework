@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangIllegalThreadStateException_INCLUDE_ALL")
-#ifdef JavaLangIllegalThreadStateException_RESTRICT
-#define JavaLangIllegalThreadStateException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangIllegalThreadStateException")
+#ifdef RESTRICT_JavaLangIllegalThreadStateException
+#define INCLUDE_ALL_JavaLangIllegalThreadStateException 0
 #else
-#define JavaLangIllegalThreadStateException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangIllegalThreadStateException 1
 #endif
-#undef JavaLangIllegalThreadStateException_RESTRICT
+#undef RESTRICT_JavaLangIllegalThreadStateException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangIllegalThreadStateException_) && (JavaLangIllegalThreadStateException_INCLUDE_ALL || defined(JavaLangIllegalThreadStateException_INCLUDE))
+#if !defined (JavaLangIllegalThreadStateException_) && (INCLUDE_ALL_JavaLangIllegalThreadStateException || defined(INCLUDE_JavaLangIllegalThreadStateException))
 #define JavaLangIllegalThreadStateException_
 
-#define JavaLangIllegalArgumentException_RESTRICT 1
-#define JavaLangIllegalArgumentException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalArgumentException 1
+#define INCLUDE_JavaLangIllegalArgumentException 1
 #include "../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangIllegalThreadStateException_init(JavaLangIllegalT
 
 FOUNDATION_EXPORT JavaLangIllegalThreadStateException *new_JavaLangIllegalThreadStateException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangIllegalThreadStateException *create_JavaLangIllegalThreadStateException_init();
+
 FOUNDATION_EXPORT void JavaLangIllegalThreadStateException_initWithNSString_(JavaLangIllegalThreadStateException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangIllegalThreadStateException *new_JavaLangIllegalThreadStateException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangIllegalThreadStateException *create_JavaLangIllegalThreadStateException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalThreadStateException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalThreadStateException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangIllegalThreadStateException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangIllegalThreadStateException")

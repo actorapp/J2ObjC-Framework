@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingFormatter_INCLUDE_ALL")
-#ifdef JavaUtilLoggingFormatter_RESTRICT
-#define JavaUtilLoggingFormatter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingFormatter")
+#ifdef RESTRICT_JavaUtilLoggingFormatter
+#define INCLUDE_ALL_JavaUtilLoggingFormatter 0
 #else
-#define JavaUtilLoggingFormatter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingFormatter 1
 #endif
-#undef JavaUtilLoggingFormatter_RESTRICT
+#undef RESTRICT_JavaUtilLoggingFormatter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingFormatter_) && (JavaUtilLoggingFormatter_INCLUDE_ALL || defined(JavaUtilLoggingFormatter_INCLUDE))
+#if !defined (JavaUtilLoggingFormatter_) && (INCLUDE_ALL_JavaUtilLoggingFormatter || defined(INCLUDE_JavaUtilLoggingFormatter))
 #define JavaUtilLoggingFormatter_
 
 @class JavaUtilLoggingHandler;
@@ -102,4 +102,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingFormatter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingFormatter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingFormatter")

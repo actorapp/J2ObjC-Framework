@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformErrorListener_INCLUDE_ALL")
-#ifdef JavaxXmlTransformErrorListener_RESTRICT
-#define JavaxXmlTransformErrorListener_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformErrorListener")
+#ifdef RESTRICT_JavaxXmlTransformErrorListener
+#define INCLUDE_ALL_JavaxXmlTransformErrorListener 0
 #else
-#define JavaxXmlTransformErrorListener_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformErrorListener 1
 #endif
-#undef JavaxXmlTransformErrorListener_RESTRICT
+#undef RESTRICT_JavaxXmlTransformErrorListener
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformErrorListener_) && (JavaxXmlTransformErrorListener_INCLUDE_ALL || defined(JavaxXmlTransformErrorListener_INCLUDE))
+#if !defined (JavaxXmlTransformErrorListener_) && (INCLUDE_ALL_JavaxXmlTransformErrorListener || defined(INCLUDE_JavaxXmlTransformErrorListener))
 #define JavaxXmlTransformErrorListener_
 
 @class JavaxXmlTransformTransformerException;
@@ -102,4 +102,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformErrorListener)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformErrorListener_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformErrorListener")

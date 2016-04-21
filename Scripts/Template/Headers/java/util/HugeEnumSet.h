@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilHugeEnumSet_INCLUDE_ALL")
-#ifdef JavaUtilHugeEnumSet_RESTRICT
-#define JavaUtilHugeEnumSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilHugeEnumSet")
+#ifdef RESTRICT_JavaUtilHugeEnumSet
+#define INCLUDE_ALL_JavaUtilHugeEnumSet 0
 #else
-#define JavaUtilHugeEnumSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilHugeEnumSet 1
 #endif
-#undef JavaUtilHugeEnumSet_RESTRICT
+#undef RESTRICT_JavaUtilHugeEnumSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilHugeEnumSet_) && (JavaUtilHugeEnumSet_INCLUDE_ALL || defined(JavaUtilHugeEnumSet_INCLUDE))
+#if !defined (JavaUtilHugeEnumSet_) && (INCLUDE_ALL_JavaUtilHugeEnumSet || defined(INCLUDE_JavaUtilHugeEnumSet))
 #define JavaUtilHugeEnumSet_
 
-#define JavaUtilEnumSet_RESTRICT 1
-#define JavaUtilEnumSet_INCLUDE 1
+#define RESTRICT_JavaUtilEnumSet 1
+#define INCLUDE_JavaUtilEnumSet 1
 #include "../../java/util/EnumSet.h"
 
 @class IOSClass;
@@ -86,10 +86,12 @@ FOUNDATION_EXPORT void JavaUtilHugeEnumSet_initWithIOSClass_withJavaLangEnumArra
 
 FOUNDATION_EXPORT JavaUtilHugeEnumSet *new_JavaUtilHugeEnumSet_initWithIOSClass_withJavaLangEnumArray_(IOSClass *elementType, IOSObjectArray *enums) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilHugeEnumSet *create_JavaUtilHugeEnumSet_initWithIOSClass_withJavaLangEnumArray_(IOSClass *elementType, IOSObjectArray *enums);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHugeEnumSet)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilHugeEnumSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilHugeEnumSet")

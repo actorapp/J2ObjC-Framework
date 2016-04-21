@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetURLConnection_INCLUDE_ALL")
-#ifdef JavaNetURLConnection_RESTRICT
-#define JavaNetURLConnection_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetURLConnection")
+#ifdef RESTRICT_JavaNetURLConnection
+#define INCLUDE_ALL_JavaNetURLConnection 0
 #else
-#define JavaNetURLConnection_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetURLConnection 1
 #endif
-#undef JavaNetURLConnection_RESTRICT
+#undef RESTRICT_JavaNetURLConnection
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetURLConnection_) && (JavaNetURLConnection_INCLUDE_ALL || defined(JavaNetURLConnection_INCLUDE))
+#if !defined (JavaNetURLConnection_) && (INCLUDE_ALL_JavaNetURLConnection || defined(INCLUDE_JavaNetURLConnection))
 #define JavaNetURLConnection_
 
 @class IOSObjectArray;
@@ -701,11 +701,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLConnection)
 
 #endif
 
-#if !defined (JavaNetURLConnection_DefaultContentHandler_) && (JavaNetURLConnection_INCLUDE_ALL || defined(JavaNetURLConnection_DefaultContentHandler_INCLUDE))
+#if !defined (JavaNetURLConnection_DefaultContentHandler_) && (INCLUDE_ALL_JavaNetURLConnection || defined(INCLUDE_JavaNetURLConnection_DefaultContentHandler))
 #define JavaNetURLConnection_DefaultContentHandler_
 
-#define JavaNetContentHandler_RESTRICT 1
-#define JavaNetContentHandler_INCLUDE 1
+#define RESTRICT_JavaNetContentHandler 1
+#define INCLUDE_JavaNetContentHandler 1
 #include "../../java/net/ContentHandler.h"
 
 @class JavaNetURLConnection;
@@ -728,10 +728,12 @@ FOUNDATION_EXPORT void JavaNetURLConnection_DefaultContentHandler_init(JavaNetUR
 
 FOUNDATION_EXPORT JavaNetURLConnection_DefaultContentHandler *new_JavaNetURLConnection_DefaultContentHandler_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURLConnection_DefaultContentHandler *create_JavaNetURLConnection_DefaultContentHandler_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLConnection_DefaultContentHandler)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetURLConnection_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetURLConnection")

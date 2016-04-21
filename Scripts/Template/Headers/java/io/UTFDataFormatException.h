@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoUTFDataFormatException_INCLUDE_ALL")
-#ifdef JavaIoUTFDataFormatException_RESTRICT
-#define JavaIoUTFDataFormatException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoUTFDataFormatException")
+#ifdef RESTRICT_JavaIoUTFDataFormatException
+#define INCLUDE_ALL_JavaIoUTFDataFormatException 0
 #else
-#define JavaIoUTFDataFormatException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoUTFDataFormatException 1
 #endif
-#undef JavaIoUTFDataFormatException_RESTRICT
+#undef RESTRICT_JavaIoUTFDataFormatException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoUTFDataFormatException_) && (JavaIoUTFDataFormatException_INCLUDE_ALL || defined(JavaIoUTFDataFormatException_INCLUDE))
+#if !defined (JavaIoUTFDataFormatException_) && (INCLUDE_ALL_JavaIoUTFDataFormatException || defined(INCLUDE_JavaIoUTFDataFormatException))
 #define JavaIoUTFDataFormatException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -54,9 +54,13 @@ FOUNDATION_EXPORT void JavaIoUTFDataFormatException_init(JavaIoUTFDataFormatExce
 
 FOUNDATION_EXPORT JavaIoUTFDataFormatException *new_JavaIoUTFDataFormatException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoUTFDataFormatException *create_JavaIoUTFDataFormatException_init();
+
 FOUNDATION_EXPORT void JavaIoUTFDataFormatException_initWithNSString_(JavaIoUTFDataFormatException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoUTFDataFormatException *new_JavaIoUTFDataFormatException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoUTFDataFormatException *create_JavaIoUTFDataFormatException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoUTFDataFormatException)
 
@@ -64,4 +68,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoUTFDataFormatException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoUTFDataFormatException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoUTFDataFormatException")

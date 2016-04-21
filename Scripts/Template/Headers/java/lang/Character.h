@@ -5,33 +5,34 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangCharacter_INCLUDE_ALL")
-#ifdef JavaLangCharacter_RESTRICT
-#define JavaLangCharacter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangCharacter")
+#ifdef RESTRICT_JavaLangCharacter
+#define INCLUDE_ALL_JavaLangCharacter 0
 #else
-#define JavaLangCharacter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangCharacter 1
 #endif
-#undef JavaLangCharacter_RESTRICT
-#ifdef JavaLangCharacter_UnicodeBlock_INCLUDE
-#define JavaLangCharacter_Subset_INCLUDE 1
+#undef RESTRICT_JavaLangCharacter
+#ifdef INCLUDE_JavaLangCharacter_UnicodeBlock
+#define INCLUDE_JavaLangCharacter_Subset 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangCharacter_) && (JavaLangCharacter_INCLUDE_ALL || defined(JavaLangCharacter_INCLUDE))
+#if !defined (JavaLangCharacter_) && (INCLUDE_ALL_JavaLangCharacter || defined(INCLUDE_JavaLangCharacter))
 #define JavaLangCharacter_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSCharArray;
 @class IOSClass;
+@class IOSObjectArray;
 @protocol JavaLangCharSequence;
 
 /*!
@@ -1789,6 +1790,8 @@ FOUNDATION_EXPORT void JavaLangCharacter_initWithChar_(JavaLangCharacter *self, 
 
 FOUNDATION_EXPORT JavaLangCharacter *new_JavaLangCharacter_initWithChar_(jchar value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangCharacter *create_JavaLangCharacter_initWithChar_(jchar value);
+
 FOUNDATION_EXPORT jint JavaLangCharacter_compareWithChar_withChar_(jchar lhs, jchar rhs);
 
 FOUNDATION_EXPORT JavaLangCharacter *JavaLangCharacter_valueOfWithChar_(jchar c);
@@ -1955,7 +1958,7 @@ BOXED_INC_AND_DEC(Char, charValue, JavaLangCharacter)
 
 #endif
 
-#if !defined (JavaLangCharacter_Subset_) && (JavaLangCharacter_INCLUDE_ALL || defined(JavaLangCharacter_Subset_INCLUDE))
+#if !defined (JavaLangCharacter_Subset_) && (INCLUDE_ALL_JavaLangCharacter || defined(INCLUDE_JavaLangCharacter_Subset))
 #define JavaLangCharacter_Subset_
 
 @interface JavaLangCharacter_Subset : NSObject
@@ -1993,12 +1996,16 @@ FOUNDATION_EXPORT void JavaLangCharacter_Subset_initWithNSString_(JavaLangCharac
 
 FOUNDATION_EXPORT JavaLangCharacter_Subset *new_JavaLangCharacter_Subset_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangCharacter_Subset *create_JavaLangCharacter_Subset_initWithNSString_(NSString *name);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangCharacter_Subset)
 
 #endif
 
-#if !defined (JavaLangCharacter_UnicodeBlock_) && (JavaLangCharacter_INCLUDE_ALL || defined(JavaLangCharacter_UnicodeBlock_INCLUDE))
+#if !defined (JavaLangCharacter_UnicodeBlock_) && (INCLUDE_ALL_JavaLangCharacter || defined(INCLUDE_JavaLangCharacter_UnicodeBlock))
 #define JavaLangCharacter_UnicodeBlock_
+
+@class IOSObjectArray;
 
 /*!
  @brief Represents a block of Unicode characters.
@@ -4176,4 +4183,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangCharacter_UnicodeBlock)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangCharacter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangCharacter")

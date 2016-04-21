@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangOutOfMemoryError_INCLUDE_ALL")
-#ifdef JavaLangOutOfMemoryError_RESTRICT
-#define JavaLangOutOfMemoryError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangOutOfMemoryError")
+#ifdef RESTRICT_JavaLangOutOfMemoryError
+#define INCLUDE_ALL_JavaLangOutOfMemoryError 0
 #else
-#define JavaLangOutOfMemoryError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangOutOfMemoryError 1
 #endif
-#undef JavaLangOutOfMemoryError_RESTRICT
+#undef RESTRICT_JavaLangOutOfMemoryError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangOutOfMemoryError_) && (JavaLangOutOfMemoryError_INCLUDE_ALL || defined(JavaLangOutOfMemoryError_INCLUDE))
+#if !defined (JavaLangOutOfMemoryError_) && (INCLUDE_ALL_JavaLangOutOfMemoryError || defined(INCLUDE_JavaLangOutOfMemoryError))
 #define JavaLangOutOfMemoryError_
 
-#define JavaLangVirtualMachineError_RESTRICT 1
-#define JavaLangVirtualMachineError_INCLUDE 1
+#define RESTRICT_JavaLangVirtualMachineError 1
+#define INCLUDE_JavaLangVirtualMachineError 1
 #include "../../java/lang/VirtualMachineError.h"
 
 /*!
@@ -55,9 +55,13 @@ FOUNDATION_EXPORT void JavaLangOutOfMemoryError_init(JavaLangOutOfMemoryError *s
 
 FOUNDATION_EXPORT JavaLangOutOfMemoryError *new_JavaLangOutOfMemoryError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangOutOfMemoryError *create_JavaLangOutOfMemoryError_init();
+
 FOUNDATION_EXPORT void JavaLangOutOfMemoryError_initWithNSString_(JavaLangOutOfMemoryError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangOutOfMemoryError *new_JavaLangOutOfMemoryError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangOutOfMemoryError *create_JavaLangOutOfMemoryError_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangOutOfMemoryError)
 
@@ -65,4 +69,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangOutOfMemoryError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangOutOfMemoryError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangOutOfMemoryError")

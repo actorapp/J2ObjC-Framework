@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangRuntimeException_INCLUDE_ALL")
-#ifdef JavaLangRuntimeException_RESTRICT
-#define JavaLangRuntimeException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangRuntimeException")
+#ifdef RESTRICT_JavaLangRuntimeException
+#define INCLUDE_ALL_JavaLangRuntimeException 0
 #else
-#define JavaLangRuntimeException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangRuntimeException 1
 #endif
-#undef JavaLangRuntimeException_RESTRICT
+#undef RESTRICT_JavaLangRuntimeException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangRuntimeException_) && (JavaLangRuntimeException_INCLUDE_ALL || defined(JavaLangRuntimeException_INCLUDE))
+#if !defined (JavaLangRuntimeException_) && (INCLUDE_ALL_JavaLangRuntimeException || defined(INCLUDE_JavaLangRuntimeException))
 #define JavaLangRuntimeException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>RuntimeException</code> is the superclass of all classes that represent
@@ -60,7 +58,7 @@
  the cause of this exception.
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)throwable;
+                 withNSException:(NSException *)throwable;
 
 /*!
  @brief Constructs a new <code>RuntimeException</code> with the current stack trace
@@ -68,7 +66,7 @@
  @param throwable
  the cause of this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)throwable;
+- (instancetype)initWithNSException:(NSException *)throwable;
 
 #pragma mark Protected
 
@@ -79,7 +77,7 @@
  @since 1.7
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause
+                 withNSException:(NSException *)cause
                      withBoolean:(jboolean)enableSuppression
                      withBoolean:(jboolean)writableStackTrace;
 
@@ -91,21 +89,31 @@ FOUNDATION_EXPORT void JavaLangRuntimeException_init(JavaLangRuntimeException *s
 
 FOUNDATION_EXPORT JavaLangRuntimeException *new_JavaLangRuntimeException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangRuntimeException *create_JavaLangRuntimeException_init();
+
 FOUNDATION_EXPORT void JavaLangRuntimeException_initWithNSString_(JavaLangRuntimeException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangRuntimeException *new_JavaLangRuntimeException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangRuntimeException_initWithNSString_withJavaLangThrowable_(JavaLangRuntimeException *self, NSString *detailMessage, JavaLangThrowable *throwable);
+FOUNDATION_EXPORT JavaLangRuntimeException *create_JavaLangRuntimeException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaLangRuntimeException *new_JavaLangRuntimeException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *throwable) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangRuntimeException_initWithNSString_withNSException_(JavaLangRuntimeException *self, NSString *detailMessage, NSException *throwable);
 
-FOUNDATION_EXPORT void JavaLangRuntimeException_initWithJavaLangThrowable_(JavaLangRuntimeException *self, JavaLangThrowable *throwable);
+FOUNDATION_EXPORT JavaLangRuntimeException *new_JavaLangRuntimeException_initWithNSString_withNSException_(NSString *detailMessage, NSException *throwable) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaLangRuntimeException *new_JavaLangRuntimeException_initWithJavaLangThrowable_(JavaLangThrowable *throwable) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaLangRuntimeException *create_JavaLangRuntimeException_initWithNSString_withNSException_(NSString *detailMessage, NSException *throwable);
 
-FOUNDATION_EXPORT void JavaLangRuntimeException_initWithNSString_withJavaLangThrowable_withBoolean_withBoolean_(JavaLangRuntimeException *self, NSString *message, JavaLangThrowable *cause, jboolean enableSuppression, jboolean writableStackTrace);
+FOUNDATION_EXPORT void JavaLangRuntimeException_initWithNSException_(JavaLangRuntimeException *self, NSException *throwable);
 
-FOUNDATION_EXPORT JavaLangRuntimeException *new_JavaLangRuntimeException_initWithNSString_withJavaLangThrowable_withBoolean_withBoolean_(NSString *message, JavaLangThrowable *cause, jboolean enableSuppression, jboolean writableStackTrace) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaLangRuntimeException *new_JavaLangRuntimeException_initWithNSException_(NSException *throwable) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangRuntimeException *create_JavaLangRuntimeException_initWithNSException_(NSException *throwable);
+
+FOUNDATION_EXPORT void JavaLangRuntimeException_initWithNSString_withNSException_withBoolean_withBoolean_(JavaLangRuntimeException *self, NSString *message, NSException *cause, jboolean enableSuppression, jboolean writableStackTrace);
+
+FOUNDATION_EXPORT JavaLangRuntimeException *new_JavaLangRuntimeException_initWithNSString_withNSException_withBoolean_withBoolean_(NSString *message, NSException *cause, jboolean enableSuppression, jboolean writableStackTrace) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangRuntimeException *create_JavaLangRuntimeException_initWithNSString_withNSException_withBoolean_withBoolean_(NSString *message, NSException *cause, jboolean enableSuppression, jboolean writableStackTrace);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRuntimeException)
 
@@ -113,4 +121,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRuntimeException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangRuntimeException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangRuntimeException")

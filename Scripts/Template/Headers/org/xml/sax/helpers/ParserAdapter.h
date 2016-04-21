@@ -5,26 +5,26 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL")
-#ifdef OrgXmlSaxHelpersParserAdapter_RESTRICT
-#define OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter")
+#ifdef RESTRICT_OrgXmlSaxHelpersParserAdapter
+#define INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter 0
 #else
-#define OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter 1
 #endif
-#undef OrgXmlSaxHelpersParserAdapter_RESTRICT
+#undef RESTRICT_OrgXmlSaxHelpersParserAdapter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHelpersParserAdapter_) && (OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL || defined(OrgXmlSaxHelpersParserAdapter_INCLUDE))
+#if !defined (OrgXmlSaxHelpersParserAdapter_) && (INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter || defined(INCLUDE_OrgXmlSaxHelpersParserAdapter))
 #define OrgXmlSaxHelpersParserAdapter_
 
-#define OrgXmlSaxXMLReader_RESTRICT 1
-#define OrgXmlSaxXMLReader_INCLUDE 1
+#define RESTRICT_OrgXmlSaxXMLReader 1
+#define INCLUDE_OrgXmlSaxXMLReader 1
 #include "../../../../org/xml/sax/XMLReader.h"
 
-#define OrgXmlSaxDocumentHandler_RESTRICT 1
-#define OrgXmlSaxDocumentHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxDocumentHandler 1
+#define INCLUDE_OrgXmlSaxDocumentHandler 1
 #include "../../../../org/xml/sax/DocumentHandler.h"
 
 @class IOSCharArray;
@@ -339,19 +339,23 @@ FOUNDATION_EXPORT void OrgXmlSaxHelpersParserAdapter_init(OrgXmlSaxHelpersParser
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersParserAdapter *new_OrgXmlSaxHelpersParserAdapter_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHelpersParserAdapter *create_OrgXmlSaxHelpersParserAdapter_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxHelpersParserAdapter_initWithOrgXmlSaxParser_(OrgXmlSaxHelpersParserAdapter *self, id<OrgXmlSaxParser> parser);
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersParserAdapter *new_OrgXmlSaxHelpersParserAdapter_initWithOrgXmlSaxParser_(id<OrgXmlSaxParser> parser) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxHelpersParserAdapter *create_OrgXmlSaxHelpersParserAdapter_initWithOrgXmlSaxParser_(id<OrgXmlSaxParser> parser);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter)
 
 #endif
 
-#if !defined (OrgXmlSaxHelpersParserAdapter_AttributeListAdapter_) && (OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL || defined(OrgXmlSaxHelpersParserAdapter_AttributeListAdapter_INCLUDE))
+#if !defined (OrgXmlSaxHelpersParserAdapter_AttributeListAdapter_) && (INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter || defined(INCLUDE_OrgXmlSaxHelpersParserAdapter_AttributeListAdapter))
 #define OrgXmlSaxHelpersParserAdapter_AttributeListAdapter_
 
-#define OrgXmlSaxAttributes_RESTRICT 1
-#define OrgXmlSaxAttributes_INCLUDE 1
+#define RESTRICT_OrgXmlSaxAttributes 1
+#define INCLUDE_OrgXmlSaxAttributes 1
 #include "../../../../org/xml/sax/Attributes.h"
 
 @class OrgXmlSaxHelpersParserAdapter;
@@ -487,10 +491,12 @@ FOUNDATION_EXPORT void OrgXmlSaxHelpersParserAdapter_AttributeListAdapter_initWi
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersParserAdapter_AttributeListAdapter *new_OrgXmlSaxHelpersParserAdapter_AttributeListAdapter_initWithOrgXmlSaxHelpersParserAdapter_(OrgXmlSaxHelpersParserAdapter *outer$) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHelpersParserAdapter_AttributeListAdapter *create_OrgXmlSaxHelpersParserAdapter_AttributeListAdapter_initWithOrgXmlSaxHelpersParserAdapter_(OrgXmlSaxHelpersParserAdapter *outer$);
+
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserAdapter_AttributeListAdapter)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHelpersParserAdapter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersParserAdapter")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlValidationSchemaFactoryFinder_INCLUDE_ALL")
-#ifdef JavaxXmlValidationSchemaFactoryFinder_RESTRICT
-#define JavaxXmlValidationSchemaFactoryFinder_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlValidationSchemaFactoryFinder")
+#ifdef RESTRICT_JavaxXmlValidationSchemaFactoryFinder
+#define INCLUDE_ALL_JavaxXmlValidationSchemaFactoryFinder 0
 #else
-#define JavaxXmlValidationSchemaFactoryFinder_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlValidationSchemaFactoryFinder 1
 #endif
-#undef JavaxXmlValidationSchemaFactoryFinder_RESTRICT
+#undef RESTRICT_JavaxXmlValidationSchemaFactoryFinder
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlValidationSchemaFactoryFinder_) && (JavaxXmlValidationSchemaFactoryFinder_INCLUDE_ALL || defined(JavaxXmlValidationSchemaFactoryFinder_INCLUDE))
+#if !defined (JavaxXmlValidationSchemaFactoryFinder_) && (INCLUDE_ALL_JavaxXmlValidationSchemaFactoryFinder || defined(INCLUDE_JavaxXmlValidationSchemaFactoryFinder))
 #define JavaxXmlValidationSchemaFactoryFinder_
 
 @class JavaLangClassLoader;
@@ -78,10 +78,12 @@ FOUNDATION_EXPORT void JavaxXmlValidationSchemaFactoryFinder_initWithJavaLangCla
 
 FOUNDATION_EXPORT JavaxXmlValidationSchemaFactoryFinder *new_JavaxXmlValidationSchemaFactoryFinder_initWithJavaLangClassLoader_(JavaLangClassLoader *loader) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlValidationSchemaFactoryFinder *create_JavaxXmlValidationSchemaFactoryFinder_initWithJavaLangClassLoader_(JavaLangClassLoader *loader);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationSchemaFactoryFinder)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlValidationSchemaFactoryFinder_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlValidationSchemaFactoryFinder")

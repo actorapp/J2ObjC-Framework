@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangClassNotFoundException_INCLUDE_ALL")
-#ifdef JavaLangClassNotFoundException_RESTRICT
-#define JavaLangClassNotFoundException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangClassNotFoundException")
+#ifdef RESTRICT_JavaLangClassNotFoundException
+#define INCLUDE_ALL_JavaLangClassNotFoundException 0
 #else
-#define JavaLangClassNotFoundException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangClassNotFoundException 1
 #endif
-#undef JavaLangClassNotFoundException_RESTRICT
+#undef RESTRICT_JavaLangClassNotFoundException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangClassNotFoundException_) && (JavaLangClassNotFoundException_INCLUDE_ALL || defined(JavaLangClassNotFoundException_INCLUDE))
+#if !defined (JavaLangClassNotFoundException_) && (INCLUDE_ALL_JavaLangClassNotFoundException || defined(INCLUDE_JavaLangClassNotFoundException))
 #define JavaLangClassNotFoundException_
 
-#define JavaLangReflectiveOperationException_RESTRICT 1
-#define JavaLangReflectiveOperationException_INCLUDE 1
+#define RESTRICT_JavaLangReflectiveOperationException 1
+#define INCLUDE_JavaLangReflectiveOperationException 1
 #include "../../java/lang/ReflectiveOperationException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Thrown when a class loader is unable to find a class.
@@ -56,20 +54,20 @@
  the exception which occurred while loading the class.
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)exception;
+                 withNSException:(NSException *)exception;
 
 /*!
  @brief Returns the cause of this Throwable, or <code>null</code> if there is no
  cause.
  @return Throwable the receiver's cause.
  */
-- (JavaLangThrowable *)getCause;
+- (NSException *)getCause;
 
 /*!
  @brief Returns the exception which occurred when loading the class.
  @return Throwable the exception which occurred while loading the class.
  */
-- (JavaLangThrowable *)getException;
+- (NSException *)getException;
 
 @end
 
@@ -79,13 +77,19 @@ FOUNDATION_EXPORT void JavaLangClassNotFoundException_init(JavaLangClassNotFound
 
 FOUNDATION_EXPORT JavaLangClassNotFoundException *new_JavaLangClassNotFoundException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangClassNotFoundException *create_JavaLangClassNotFoundException_init();
+
 FOUNDATION_EXPORT void JavaLangClassNotFoundException_initWithNSString_(JavaLangClassNotFoundException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangClassNotFoundException *new_JavaLangClassNotFoundException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangClassNotFoundException_initWithNSString_withJavaLangThrowable_(JavaLangClassNotFoundException *self, NSString *detailMessage, JavaLangThrowable *exception);
+FOUNDATION_EXPORT JavaLangClassNotFoundException *create_JavaLangClassNotFoundException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaLangClassNotFoundException *new_JavaLangClassNotFoundException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *exception) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangClassNotFoundException_initWithNSString_withNSException_(JavaLangClassNotFoundException *self, NSString *detailMessage, NSException *exception);
+
+FOUNDATION_EXPORT JavaLangClassNotFoundException *new_JavaLangClassNotFoundException_initWithNSString_withNSException_(NSString *detailMessage, NSException *exception) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangClassNotFoundException *create_JavaLangClassNotFoundException_initWithNSString_withNSException_(NSString *detailMessage, NSException *exception);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassNotFoundException)
 
@@ -93,4 +97,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassNotFoundException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangClassNotFoundException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangClassNotFoundException")

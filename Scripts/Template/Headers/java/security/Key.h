@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityKey_INCLUDE_ALL")
-#ifdef JavaSecurityKey_RESTRICT
-#define JavaSecurityKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityKey")
+#ifdef RESTRICT_JavaSecurityKey
+#define INCLUDE_ALL_JavaSecurityKey 0
 #else
-#define JavaSecurityKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityKey 1
 #endif
-#undef JavaSecurityKey_RESTRICT
+#undef RESTRICT_JavaSecurityKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityKey_) && (JavaSecurityKey_INCLUDE_ALL || defined(JavaSecurityKey_INCLUDE))
+#if !defined (JavaSecurityKey_) && (INCLUDE_ALL_JavaSecurityKey || defined(INCLUDE_JavaSecurityKey))
 #define JavaSecurityKey_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -80,4 +80,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityKey")

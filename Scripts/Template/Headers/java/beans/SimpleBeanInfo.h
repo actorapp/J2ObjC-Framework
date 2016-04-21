@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansSimpleBeanInfo_INCLUDE_ALL")
-#ifdef JavaBeansSimpleBeanInfo_RESTRICT
-#define JavaBeansSimpleBeanInfo_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansSimpleBeanInfo")
+#ifdef RESTRICT_JavaBeansSimpleBeanInfo
+#define INCLUDE_ALL_JavaBeansSimpleBeanInfo 0
 #else
-#define JavaBeansSimpleBeanInfo_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansSimpleBeanInfo 1
 #endif
-#undef JavaBeansSimpleBeanInfo_RESTRICT
+#undef RESTRICT_JavaBeansSimpleBeanInfo
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansSimpleBeanInfo_) && (JavaBeansSimpleBeanInfo_INCLUDE_ALL || defined(JavaBeansSimpleBeanInfo_INCLUDE))
+#if !defined (JavaBeansSimpleBeanInfo_) && (INCLUDE_ALL_JavaBeansSimpleBeanInfo || defined(INCLUDE_JavaBeansSimpleBeanInfo))
 #define JavaBeansSimpleBeanInfo_
 
-#define JavaBeansBeanInfo_RESTRICT 1
-#define JavaBeansBeanInfo_INCLUDE 1
+#define RESTRICT_JavaBeansBeanInfo 1
+#define INCLUDE_JavaBeansBeanInfo 1
 #include "../../java/beans/BeanInfo.h"
 
 @class IOSObjectArray;
@@ -54,10 +54,12 @@ FOUNDATION_EXPORT void JavaBeansSimpleBeanInfo_init(JavaBeansSimpleBeanInfo *sel
 
 FOUNDATION_EXPORT JavaBeansSimpleBeanInfo *new_JavaBeansSimpleBeanInfo_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansSimpleBeanInfo *create_JavaBeansSimpleBeanInfo_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansSimpleBeanInfo)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansSimpleBeanInfo_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansSimpleBeanInfo")

@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomTraversalNodeIterator_INCLUDE_ALL")
-#ifdef OrgW3cDomTraversalNodeIterator_RESTRICT
-#define OrgW3cDomTraversalNodeIterator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomTraversalNodeIterator")
+#ifdef RESTRICT_OrgW3cDomTraversalNodeIterator
+#define INCLUDE_ALL_OrgW3cDomTraversalNodeIterator 0
 #else
-#define OrgW3cDomTraversalNodeIterator_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomTraversalNodeIterator 1
 #endif
-#undef OrgW3cDomTraversalNodeIterator_RESTRICT
+#undef RESTRICT_OrgW3cDomTraversalNodeIterator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomTraversalNodeIterator_) && (OrgW3cDomTraversalNodeIterator_INCLUDE_ALL || defined(OrgW3cDomTraversalNodeIterator_INCLUDE))
+#if !defined (OrgW3cDomTraversalNodeIterator_) && (INCLUDE_ALL_OrgW3cDomTraversalNodeIterator || defined(INCLUDE_OrgW3cDomTraversalNodeIterator))
 #define OrgW3cDomTraversalNodeIterator_
 
 @protocol OrgW3cDomNode;
@@ -126,4 +126,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomTraversalNodeIterator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomTraversalNodeIterator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomTraversalNodeIterator")

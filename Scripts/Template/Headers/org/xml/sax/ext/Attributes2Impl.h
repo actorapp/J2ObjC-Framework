@@ -5,26 +5,26 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxExtAttributes2Impl_INCLUDE_ALL")
-#ifdef OrgXmlSaxExtAttributes2Impl_RESTRICT
-#define OrgXmlSaxExtAttributes2Impl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtAttributes2Impl")
+#ifdef RESTRICT_OrgXmlSaxExtAttributes2Impl
+#define INCLUDE_ALL_OrgXmlSaxExtAttributes2Impl 0
 #else
-#define OrgXmlSaxExtAttributes2Impl_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxExtAttributes2Impl 1
 #endif
-#undef OrgXmlSaxExtAttributes2Impl_RESTRICT
+#undef RESTRICT_OrgXmlSaxExtAttributes2Impl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxExtAttributes2Impl_) && (OrgXmlSaxExtAttributes2Impl_INCLUDE_ALL || defined(OrgXmlSaxExtAttributes2Impl_INCLUDE))
+#if !defined (OrgXmlSaxExtAttributes2Impl_) && (INCLUDE_ALL_OrgXmlSaxExtAttributes2Impl || defined(INCLUDE_OrgXmlSaxExtAttributes2Impl))
 #define OrgXmlSaxExtAttributes2Impl_
 
-#define OrgXmlSaxHelpersAttributesImpl_RESTRICT 1
-#define OrgXmlSaxHelpersAttributesImpl_INCLUDE 1
+#define RESTRICT_OrgXmlSaxHelpersAttributesImpl 1
+#define INCLUDE_OrgXmlSaxHelpersAttributesImpl 1
 #include "../../../../org/xml/sax/helpers/AttributesImpl.h"
 
-#define OrgXmlSaxExtAttributes2_RESTRICT 1
-#define OrgXmlSaxExtAttributes2_INCLUDE 1
+#define RESTRICT_OrgXmlSaxExtAttributes2 1
+#define INCLUDE_OrgXmlSaxExtAttributes2 1
 #include "../../../../org/xml/sax/ext/Attributes2.h"
 
 @protocol OrgXmlSaxAttributes;
@@ -183,9 +183,13 @@ FOUNDATION_EXPORT void OrgXmlSaxExtAttributes2Impl_init(OrgXmlSaxExtAttributes2I
 
 FOUNDATION_EXPORT OrgXmlSaxExtAttributes2Impl *new_OrgXmlSaxExtAttributes2Impl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxExtAttributes2Impl *create_OrgXmlSaxExtAttributes2Impl_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxExtAttributes2Impl_initWithOrgXmlSaxAttributes_(OrgXmlSaxExtAttributes2Impl *self, id<OrgXmlSaxAttributes> atts);
 
 FOUNDATION_EXPORT OrgXmlSaxExtAttributes2Impl *new_OrgXmlSaxExtAttributes2Impl_initWithOrgXmlSaxAttributes_(id<OrgXmlSaxAttributes> atts) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxExtAttributes2Impl *create_OrgXmlSaxExtAttributes2Impl_initWithOrgXmlSaxAttributes_(id<OrgXmlSaxAttributes> atts);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtAttributes2Impl)
 
@@ -193,4 +197,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtAttributes2Impl)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxExtAttributes2Impl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtAttributes2Impl")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityCertCertificateException_INCLUDE_ALL")
-#ifdef JavaxSecurityCertCertificateException_RESTRICT
-#define JavaxSecurityCertCertificateException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityCertCertificateException")
+#ifdef RESTRICT_JavaxSecurityCertCertificateException
+#define INCLUDE_ALL_JavaxSecurityCertCertificateException 0
 #else
-#define JavaxSecurityCertCertificateException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityCertCertificateException 1
 #endif
-#undef JavaxSecurityCertCertificateException_RESTRICT
+#undef RESTRICT_JavaxSecurityCertCertificateException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityCertCertificateException_) && (JavaxSecurityCertCertificateException_INCLUDE_ALL || defined(JavaxSecurityCertCertificateException_INCLUDE))
+#if !defined (JavaxSecurityCertCertificateException_) && (INCLUDE_ALL_JavaxSecurityCertCertificateException || defined(INCLUDE_JavaxSecurityCertCertificateException))
 #define JavaxSecurityCertCertificateException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -56,9 +56,13 @@ FOUNDATION_EXPORT void JavaxSecurityCertCertificateException_initWithNSString_(J
 
 FOUNDATION_EXPORT JavaxSecurityCertCertificateException *new_JavaxSecurityCertCertificateException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxSecurityCertCertificateException *create_JavaxSecurityCertCertificateException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaxSecurityCertCertificateException_init(JavaxSecurityCertCertificateException *self);
 
 FOUNDATION_EXPORT JavaxSecurityCertCertificateException *new_JavaxSecurityCertCertificateException_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxSecurityCertCertificateException *create_JavaxSecurityCertCertificateException_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateException)
 
@@ -66,4 +70,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityCertCertificateException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificateException")

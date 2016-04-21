@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlDatatypeDuration_INCLUDE_ALL")
-#ifdef JavaxXmlDatatypeDuration_RESTRICT
-#define JavaxXmlDatatypeDuration_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlDatatypeDuration")
+#ifdef RESTRICT_JavaxXmlDatatypeDuration
+#define INCLUDE_ALL_JavaxXmlDatatypeDuration 0
 #else
-#define JavaxXmlDatatypeDuration_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlDatatypeDuration 1
 #endif
-#undef JavaxXmlDatatypeDuration_RESTRICT
+#undef RESTRICT_JavaxXmlDatatypeDuration
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlDatatypeDuration_) && (JavaxXmlDatatypeDuration_INCLUDE_ALL || defined(JavaxXmlDatatypeDuration_INCLUDE))
+#if !defined (JavaxXmlDatatypeDuration_) && (INCLUDE_ALL_JavaxXmlDatatypeDuration || defined(INCLUDE_JavaxXmlDatatypeDuration))
 #define JavaxXmlDatatypeDuration_
 
 @class JavaMathBigDecimal;
@@ -676,4 +676,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDuration)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlDatatypeDuration_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlDatatypeDuration")

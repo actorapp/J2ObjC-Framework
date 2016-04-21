@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoPipedInputStream_INCLUDE_ALL")
-#ifdef JavaIoPipedInputStream_RESTRICT
-#define JavaIoPipedInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoPipedInputStream")
+#ifdef RESTRICT_JavaIoPipedInputStream
+#define INCLUDE_ALL_JavaIoPipedInputStream 0
 #else
-#define JavaIoPipedInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoPipedInputStream 1
 #endif
-#undef JavaIoPipedInputStream_RESTRICT
+#undef RESTRICT_JavaIoPipedInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoPipedInputStream_) && (JavaIoPipedInputStream_INCLUDE_ALL || defined(JavaIoPipedInputStream_INCLUDE))
+#if !defined (JavaIoPipedInputStream_) && (INCLUDE_ALL_JavaIoPipedInputStream || defined(INCLUDE_JavaIoPipedInputStream))
 #define JavaIoPipedInputStream_
 
-#define JavaIoInputStream_RESTRICT 1
-#define JavaIoInputStream_INCLUDE 1
+#define RESTRICT_JavaIoInputStream 1
+#define INCLUDE_JavaIoInputStream 1
 #include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
@@ -251,17 +251,25 @@ FOUNDATION_EXPORT void JavaIoPipedInputStream_init(JavaIoPipedInputStream *self)
 
 FOUNDATION_EXPORT JavaIoPipedInputStream *new_JavaIoPipedInputStream_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPipedInputStream *create_JavaIoPipedInputStream_init();
+
 FOUNDATION_EXPORT void JavaIoPipedInputStream_initWithJavaIoPipedOutputStream_(JavaIoPipedInputStream *self, JavaIoPipedOutputStream *outArg);
 
 FOUNDATION_EXPORT JavaIoPipedInputStream *new_JavaIoPipedInputStream_initWithJavaIoPipedOutputStream_(JavaIoPipedOutputStream *outArg) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPipedInputStream *create_JavaIoPipedInputStream_initWithJavaIoPipedOutputStream_(JavaIoPipedOutputStream *outArg);
 
 FOUNDATION_EXPORT void JavaIoPipedInputStream_initWithInt_(JavaIoPipedInputStream *self, jint pipeSize);
 
 FOUNDATION_EXPORT JavaIoPipedInputStream *new_JavaIoPipedInputStream_initWithInt_(jint pipeSize) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPipedInputStream *create_JavaIoPipedInputStream_initWithInt_(jint pipeSize);
+
 FOUNDATION_EXPORT void JavaIoPipedInputStream_initWithJavaIoPipedOutputStream_withInt_(JavaIoPipedInputStream *self, JavaIoPipedOutputStream *outArg, jint pipeSize);
 
 FOUNDATION_EXPORT JavaIoPipedInputStream *new_JavaIoPipedInputStream_initWithJavaIoPipedOutputStream_withInt_(JavaIoPipedOutputStream *outArg, jint pipeSize) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPipedInputStream *create_JavaIoPipedInputStream_initWithJavaIoPipedOutputStream_withInt_(JavaIoPipedOutputStream *outArg, jint pipeSize);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedInputStream)
 
@@ -269,4 +277,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedInputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoPipedInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoPipedInputStream")

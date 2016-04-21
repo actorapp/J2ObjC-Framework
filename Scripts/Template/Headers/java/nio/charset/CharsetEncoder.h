@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharsetCharsetEncoder_INCLUDE_ALL")
-#ifdef JavaNioCharsetCharsetEncoder_RESTRICT
-#define JavaNioCharsetCharsetEncoder_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharsetCharsetEncoder")
+#ifdef RESTRICT_JavaNioCharsetCharsetEncoder
+#define INCLUDE_ALL_JavaNioCharsetCharsetEncoder 0
 #else
-#define JavaNioCharsetCharsetEncoder_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharsetCharsetEncoder 1
 #endif
-#undef JavaNioCharsetCharsetEncoder_RESTRICT
+#undef RESTRICT_JavaNioCharsetCharsetEncoder
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharsetCharsetEncoder_) && (JavaNioCharsetCharsetEncoder_INCLUDE_ALL || defined(JavaNioCharsetCharsetEncoder_INCLUDE))
+#if !defined (JavaNioCharsetCharsetEncoder_) && (INCLUDE_ALL_JavaNioCharsetCharsetEncoder || defined(INCLUDE_JavaNioCharsetCharsetEncoder))
 #define JavaNioCharsetCharsetEncoder_
 
 @class IOSByteArray;
@@ -392,4 +392,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCharsetEncoder)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharsetCharsetEncoder_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCharsetEncoder")

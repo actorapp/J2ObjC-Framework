@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaMathMathContext_INCLUDE_ALL")
-#ifdef JavaMathMathContext_RESTRICT
-#define JavaMathMathContext_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaMathMathContext")
+#ifdef RESTRICT_JavaMathMathContext
+#define INCLUDE_ALL_JavaMathMathContext 0
 #else
-#define JavaMathMathContext_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaMathMathContext 1
 #endif
-#undef JavaMathMathContext_RESTRICT
+#undef RESTRICT_JavaMathMathContext
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaMathMathContext_) && (JavaMathMathContext_INCLUDE_ALL || defined(JavaMathMathContext_INCLUDE))
+#if !defined (JavaMathMathContext_) && (INCLUDE_ALL_JavaMathMathContext || defined(INCLUDE_JavaMathMathContext))
 #define JavaMathMathContext_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class JavaMathRoundingMode;
@@ -191,13 +191,19 @@ FOUNDATION_EXPORT void JavaMathMathContext_initWithInt_(JavaMathMathContext *sel
 
 FOUNDATION_EXPORT JavaMathMathContext *new_JavaMathMathContext_initWithInt_(jint precision) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathMathContext *create_JavaMathMathContext_initWithInt_(jint precision);
+
 FOUNDATION_EXPORT void JavaMathMathContext_initWithInt_withJavaMathRoundingMode_(JavaMathMathContext *self, jint precision, JavaMathRoundingMode *roundingMode);
 
 FOUNDATION_EXPORT JavaMathMathContext *new_JavaMathMathContext_initWithInt_withJavaMathRoundingMode_(jint precision, JavaMathRoundingMode *roundingMode) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathMathContext *create_JavaMathMathContext_initWithInt_withJavaMathRoundingMode_(jint precision, JavaMathRoundingMode *roundingMode);
+
 FOUNDATION_EXPORT void JavaMathMathContext_initWithNSString_(JavaMathMathContext *self, NSString *val);
 
 FOUNDATION_EXPORT JavaMathMathContext *new_JavaMathMathContext_initWithNSString_(NSString *val) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathMathContext *create_JavaMathMathContext_initWithNSString_(NSString *val);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaMathMathContext)
 
@@ -205,4 +211,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaMathMathContext)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaMathMathContext_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaMathMathContext")

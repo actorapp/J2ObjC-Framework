@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFileInputStream_INCLUDE_ALL")
-#ifdef JavaIoFileInputStream_RESTRICT
-#define JavaIoFileInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFileInputStream")
+#ifdef RESTRICT_JavaIoFileInputStream
+#define INCLUDE_ALL_JavaIoFileInputStream 0
 #else
-#define JavaIoFileInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFileInputStream 1
 #endif
-#undef JavaIoFileInputStream_RESTRICT
+#undef RESTRICT_JavaIoFileInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFileInputStream_) && (JavaIoFileInputStream_INCLUDE_ALL || defined(JavaIoFileInputStream_INCLUDE))
+#if !defined (JavaIoFileInputStream_) && (INCLUDE_ALL_JavaIoFileInputStream || defined(INCLUDE_JavaIoFileInputStream))
 #define JavaIoFileInputStream_
 
-#define JavaIoInputStream_RESTRICT 1
-#define JavaIoInputStream_INCLUDE 1
+#define RESTRICT_JavaIoInputStream 1
+#define INCLUDE_JavaIoInputStream 1
 #include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
@@ -108,7 +108,7 @@
  @throws IOException
  if an error occurs attempting to finalize this stream.
  */
-- (void)dealloc;
+- (void)javaFinalize;
 
 @end
 
@@ -118,13 +118,19 @@ FOUNDATION_EXPORT void JavaIoFileInputStream_initWithJavaIoFile_(JavaIoFileInput
 
 FOUNDATION_EXPORT JavaIoFileInputStream *new_JavaIoFileInputStream_initWithJavaIoFile_(JavaIoFile *file) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileInputStream *create_JavaIoFileInputStream_initWithJavaIoFile_(JavaIoFile *file);
+
 FOUNDATION_EXPORT void JavaIoFileInputStream_initWithJavaIoFileDescriptor_(JavaIoFileInputStream *self, JavaIoFileDescriptor *fd);
 
 FOUNDATION_EXPORT JavaIoFileInputStream *new_JavaIoFileInputStream_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileInputStream *create_JavaIoFileInputStream_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd);
+
 FOUNDATION_EXPORT void JavaIoFileInputStream_initWithNSString_(JavaIoFileInputStream *self, NSString *path);
 
 FOUNDATION_EXPORT JavaIoFileInputStream *new_JavaIoFileInputStream_initWithNSString_(NSString *path) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoFileInputStream *create_JavaIoFileInputStream_initWithNSString_(NSString *path);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileInputStream)
 
@@ -132,4 +138,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileInputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFileInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFileInputStream")

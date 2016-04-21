@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecMGF1ParameterSpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecMGF1ParameterSpec_RESTRICT
-#define JavaSecuritySpecMGF1ParameterSpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecMGF1ParameterSpec")
+#ifdef RESTRICT_JavaSecuritySpecMGF1ParameterSpec
+#define INCLUDE_ALL_JavaSecuritySpecMGF1ParameterSpec 0
 #else
-#define JavaSecuritySpecMGF1ParameterSpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecMGF1ParameterSpec 1
 #endif
-#undef JavaSecuritySpecMGF1ParameterSpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecMGF1ParameterSpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecMGF1ParameterSpec_) && (JavaSecuritySpecMGF1ParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecMGF1ParameterSpec_INCLUDE))
+#if !defined (JavaSecuritySpecMGF1ParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecMGF1ParameterSpec || defined(INCLUDE_JavaSecuritySpecMGF1ParameterSpec))
 #define JavaSecuritySpecMGF1ParameterSpec_
 
-#define JavaSecuritySpecAlgorithmParameterSpec_RESTRICT 1
-#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
+#define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
 #include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 /*!
@@ -101,10 +101,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecMGF1ParameterSpec_initWithNSString_(JavaS
 
 FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *new_JavaSecuritySpecMGF1ParameterSpec_initWithNSString_(NSString *mdName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecMGF1ParameterSpec *create_JavaSecuritySpecMGF1ParameterSpec_initWithNSString_(NSString *mdName);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecMGF1ParameterSpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecMGF1ParameterSpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecMGF1ParameterSpec")

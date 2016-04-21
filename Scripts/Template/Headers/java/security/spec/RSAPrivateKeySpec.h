@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecRSAPrivateKeySpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecRSAPrivateKeySpec_RESTRICT
-#define JavaSecuritySpecRSAPrivateKeySpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecRSAPrivateKeySpec")
+#ifdef RESTRICT_JavaSecuritySpecRSAPrivateKeySpec
+#define INCLUDE_ALL_JavaSecuritySpecRSAPrivateKeySpec 0
 #else
-#define JavaSecuritySpecRSAPrivateKeySpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecRSAPrivateKeySpec 1
 #endif
-#undef JavaSecuritySpecRSAPrivateKeySpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecRSAPrivateKeySpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecRSAPrivateKeySpec_) && (JavaSecuritySpecRSAPrivateKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecRSAPrivateKeySpec_INCLUDE))
+#if !defined (JavaSecuritySpecRSAPrivateKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecRSAPrivateKeySpec || defined(INCLUDE_JavaSecuritySpecRSAPrivateKeySpec))
 #define JavaSecuritySpecRSAPrivateKeySpec_
 
-#define JavaSecuritySpecKeySpec_RESTRICT 1
-#define JavaSecuritySpecKeySpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecKeySpec 1
+#define INCLUDE_JavaSecuritySpecKeySpec 1
 #include "../../../java/security/spec/KeySpec.h"
 
 @class JavaMathBigInteger;
@@ -67,10 +67,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecRSAPrivateKeySpec_initWithJavaMathBigInte
 
 FOUNDATION_EXPORT JavaSecuritySpecRSAPrivateKeySpec *new_JavaSecuritySpecRSAPrivateKeySpec_initWithJavaMathBigInteger_withJavaMathBigInteger_(JavaMathBigInteger *modulus, JavaMathBigInteger *privateExponent) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecRSAPrivateKeySpec *create_JavaSecuritySpecRSAPrivateKeySpec_initWithJavaMathBigInteger_withJavaMathBigInteger_(JavaMathBigInteger *modulus, JavaMathBigInteger *privateExponent);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAPrivateKeySpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecRSAPrivateKeySpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAPrivateKeySpec")

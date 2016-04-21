@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLServerSocketFactory_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLServerSocketFactory_RESTRICT
-#define JavaxNetSslSSLServerSocketFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLServerSocketFactory")
+#ifdef RESTRICT_JavaxNetSslSSLServerSocketFactory
+#define INCLUDE_ALL_JavaxNetSslSSLServerSocketFactory 0
 #else
-#define JavaxNetSslSSLServerSocketFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLServerSocketFactory 1
 #endif
-#undef JavaxNetSslSSLServerSocketFactory_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLServerSocketFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLServerSocketFactory_) && (JavaxNetSslSSLServerSocketFactory_INCLUDE_ALL || defined(JavaxNetSslSSLServerSocketFactory_INCLUDE))
+#if !defined (JavaxNetSslSSLServerSocketFactory_) && (INCLUDE_ALL_JavaxNetSslSSLServerSocketFactory || defined(INCLUDE_JavaxNetSslSSLServerSocketFactory))
 #define JavaxNetSslSSLServerSocketFactory_
 
-#define JavaxNetServerSocketFactory_RESTRICT 1
-#define JavaxNetServerSocketFactory_INCLUDE 1
+#define RESTRICT_JavaxNetServerSocketFactory 1
+#define INCLUDE_JavaxNetServerSocketFactory 1
 #include "../../../javax/net/ServerSocketFactory.h"
 
 @class IOSObjectArray;
@@ -75,4 +75,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLServerSocketFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLServerSocketFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLServerSocketFactory")

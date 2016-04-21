@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoNotActiveException_INCLUDE_ALL")
-#ifdef JavaIoNotActiveException_RESTRICT
-#define JavaIoNotActiveException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoNotActiveException")
+#ifdef RESTRICT_JavaIoNotActiveException
+#define INCLUDE_ALL_JavaIoNotActiveException 0
 #else
-#define JavaIoNotActiveException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoNotActiveException 1
 #endif
-#undef JavaIoNotActiveException_RESTRICT
+#undef RESTRICT_JavaIoNotActiveException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoNotActiveException_) && (JavaIoNotActiveException_INCLUDE_ALL || defined(JavaIoNotActiveException_INCLUDE))
+#if !defined (JavaIoNotActiveException_) && (INCLUDE_ALL_JavaIoNotActiveException || defined(INCLUDE_JavaIoNotActiveException))
 #define JavaIoNotActiveException_
 
-#define JavaIoObjectStreamException_RESTRICT 1
-#define JavaIoObjectStreamException_INCLUDE 1
+#define RESTRICT_JavaIoObjectStreamException 1
+#define INCLUDE_JavaIoObjectStreamException 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
@@ -63,9 +63,13 @@ FOUNDATION_EXPORT void JavaIoNotActiveException_init(JavaIoNotActiveException *s
 
 FOUNDATION_EXPORT JavaIoNotActiveException *new_JavaIoNotActiveException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoNotActiveException *create_JavaIoNotActiveException_init();
+
 FOUNDATION_EXPORT void JavaIoNotActiveException_initWithNSString_(JavaIoNotActiveException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoNotActiveException *new_JavaIoNotActiveException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoNotActiveException *create_JavaIoNotActiveException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoNotActiveException)
 
@@ -73,4 +77,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoNotActiveException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoNotActiveException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoNotActiveException")

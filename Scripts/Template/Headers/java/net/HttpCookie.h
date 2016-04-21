@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetHttpCookie_INCLUDE_ALL")
-#ifdef JavaNetHttpCookie_RESTRICT
-#define JavaNetHttpCookie_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetHttpCookie")
+#ifdef RESTRICT_JavaNetHttpCookie
+#define INCLUDE_ALL_JavaNetHttpCookie 0
 #else
-#define JavaNetHttpCookie_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetHttpCookie 1
 #endif
-#undef JavaNetHttpCookie_RESTRICT
+#undef RESTRICT_JavaNetHttpCookie
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetHttpCookie_) && (JavaNetHttpCookie_INCLUDE_ALL || defined(JavaNetHttpCookie_INCLUDE))
+#if !defined (JavaNetHttpCookie_) && (INCLUDE_ALL_JavaNetHttpCookie || defined(INCLUDE_JavaNetHttpCookie))
 #define JavaNetHttpCookie_
 
 @class JavaNetURI;
@@ -305,11 +305,13 @@ FOUNDATION_EXPORT void JavaNetHttpCookie_initWithNSString_withNSString_(JavaNetH
 
 FOUNDATION_EXPORT JavaNetHttpCookie *new_JavaNetHttpCookie_initWithNSString_withNSString_(NSString *name, NSString *value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetHttpCookie *create_JavaNetHttpCookie_initWithNSString_withNSString_(NSString *name, NSString *value);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpCookie)
 
 #endif
 
-#if !defined (JavaNetHttpCookie_CookieParser_) && (JavaNetHttpCookie_INCLUDE_ALL || defined(JavaNetHttpCookie_CookieParser_INCLUDE))
+#if !defined (JavaNetHttpCookie_CookieParser_) && (INCLUDE_ALL_JavaNetHttpCookie || defined(INCLUDE_JavaNetHttpCookie_CookieParser))
 #define JavaNetHttpCookie_CookieParser_
 
 @protocol JavaUtilList;
@@ -337,10 +339,12 @@ FOUNDATION_EXPORT void JavaNetHttpCookie_CookieParser_initWithNSString_(JavaNetH
 
 FOUNDATION_EXPORT JavaNetHttpCookie_CookieParser *new_JavaNetHttpCookie_CookieParser_initWithNSString_(NSString *input) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetHttpCookie_CookieParser *create_JavaNetHttpCookie_CookieParser_initWithNSString_(NSString *input);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpCookie_CookieParser)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetHttpCookie_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetHttpCookie")

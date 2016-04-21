@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlXpathXPathExpression_INCLUDE_ALL")
-#ifdef JavaxXmlXpathXPathExpression_RESTRICT
-#define JavaxXmlXpathXPathExpression_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathExpression")
+#ifdef RESTRICT_JavaxXmlXpathXPathExpression
+#define INCLUDE_ALL_JavaxXmlXpathXPathExpression 0
 #else
-#define JavaxXmlXpathXPathExpression_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlXpathXPathExpression 1
 #endif
-#undef JavaxXmlXpathXPathExpression_RESTRICT
+#undef RESTRICT_JavaxXmlXpathXPathExpression
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlXpathXPathExpression_) && (JavaxXmlXpathXPathExpression_INCLUDE_ALL || defined(JavaxXmlXpathXPathExpression_INCLUDE))
+#if !defined (JavaxXmlXpathXPathExpression_) && (INCLUDE_ALL_JavaxXmlXpathXPathExpression || defined(INCLUDE_JavaxXmlXpathXPathExpression))
 #define JavaxXmlXpathXPathExpression_
 
 @class JavaxXmlNamespaceQName;
@@ -170,4 +170,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathExpression)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlXpathXPathExpression_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathExpression")

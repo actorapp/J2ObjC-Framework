@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLIntegrityConstraintViolationException_INCLUDE_ALL")
-#ifdef JavaSqlSQLIntegrityConstraintViolationException_RESTRICT
-#define JavaSqlSQLIntegrityConstraintViolationException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLIntegrityConstraintViolationException")
+#ifdef RESTRICT_JavaSqlSQLIntegrityConstraintViolationException
+#define INCLUDE_ALL_JavaSqlSQLIntegrityConstraintViolationException 0
 #else
-#define JavaSqlSQLIntegrityConstraintViolationException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLIntegrityConstraintViolationException 1
 #endif
-#undef JavaSqlSQLIntegrityConstraintViolationException_RESTRICT
+#undef RESTRICT_JavaSqlSQLIntegrityConstraintViolationException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLIntegrityConstraintViolationException_) && (JavaSqlSQLIntegrityConstraintViolationException_INCLUDE_ALL || defined(JavaSqlSQLIntegrityConstraintViolationException_INCLUDE))
+#if !defined (JavaSqlSQLIntegrityConstraintViolationException_) && (INCLUDE_ALL_JavaSqlSQLIntegrityConstraintViolationException || defined(INCLUDE_JavaSqlSQLIntegrityConstraintViolationException))
 #define JavaSqlSQLIntegrityConstraintViolationException_
 
-#define JavaSqlSQLNonTransientException_RESTRICT 1
-#define JavaSqlSQLNonTransientException_INCLUDE 1
+#define RESTRICT_JavaSqlSQLNonTransientException 1
+#define INCLUDE_JavaSqlSQLNonTransientException 1
 #include "../../java/sql/SQLNonTransientException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief An exception, which is subclass of SQLNonTransientException, is thrown when
@@ -102,7 +100,7 @@
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
                          withInt:(jint)vendorCode
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLIntegrityConstraintViolationException object.
@@ -120,7 +118,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLIntegrityConstraintViolationException object.
@@ -134,7 +132,7 @@
  SQLException
  */
 - (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLIntegrityConstraintViolationException object.
@@ -146,7 +144,7 @@
  the Throwable object for the underlying reason this
  SQLException
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 #pragma mark Package-Private
 
@@ -158,33 +156,49 @@ FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_init(Java
 
 FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *create_JavaSqlSQLIntegrityConstraintViolationException_init();
+
 FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_(JavaSqlSQLIntegrityConstraintViolationException *self, NSString *reason);
 
 FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_(NSString *reason) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *create_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_(NSString *reason);
 
 FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_(JavaSqlSQLIntegrityConstraintViolationException *self, NSString *reason, NSString *sqlState);
 
 FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *create_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState);
+
 FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withInt_(JavaSqlSQLIntegrityConstraintViolationException *self, NSString *reason, NSString *sqlState, jint vendorCode);
 
 FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithJavaLangThrowable_(JavaSqlSQLIntegrityConstraintViolationException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *create_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode);
 
-FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithNSException_(JavaSqlSQLIntegrityConstraintViolationException *self, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withJavaLangThrowable_(JavaSqlSQLIntegrityConstraintViolationException *self, NSString *reason, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withJavaLangThrowable_(NSString *reason, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *create_JavaSqlSQLIntegrityConstraintViolationException_initWithNSException_(NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withJavaLangThrowable_(JavaSqlSQLIntegrityConstraintViolationException *self, NSString *reason, NSString *sqlState, JavaLangThrowable *cause);
+FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSException_(JavaSqlSQLIntegrityConstraintViolationException *self, NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withJavaLangThrowable_(NSString *reason, NSString *sqlState, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSException_(NSString *reason, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(JavaSqlSQLIntegrityConstraintViolationException *self, NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *create_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSException_(NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withNSException_(JavaSqlSQLIntegrityConstraintViolationException *self, NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *create_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withInt_withNSException_(JavaSqlSQLIntegrityConstraintViolationException *self, NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *new_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLIntegrityConstraintViolationException *create_JavaSqlSQLIntegrityConstraintViolationException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLIntegrityConstraintViolationException)
 
@@ -192,4 +206,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLIntegrityConstraintViolationException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLIntegrityConstraintViolationException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLIntegrityConstraintViolationException")

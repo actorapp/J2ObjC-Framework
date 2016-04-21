@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetServerSocketFactory_INCLUDE_ALL")
-#ifdef JavaxNetServerSocketFactory_RESTRICT
-#define JavaxNetServerSocketFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetServerSocketFactory")
+#ifdef RESTRICT_JavaxNetServerSocketFactory
+#define INCLUDE_ALL_JavaxNetServerSocketFactory 0
 #else
-#define JavaxNetServerSocketFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetServerSocketFactory 1
 #endif
-#undef JavaxNetServerSocketFactory_RESTRICT
+#undef RESTRICT_JavaxNetServerSocketFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetServerSocketFactory_) && (JavaxNetServerSocketFactory_INCLUDE_ALL || defined(JavaxNetServerSocketFactory_INCLUDE))
+#if !defined (JavaxNetServerSocketFactory_) && (INCLUDE_ALL_JavaxNetServerSocketFactory || defined(INCLUDE_JavaxNetServerSocketFactory))
 #define JavaxNetServerSocketFactory_
 
 @class JavaNetInetAddress;
@@ -107,4 +107,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetServerSocketFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetServerSocketFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetServerSocketFactory")

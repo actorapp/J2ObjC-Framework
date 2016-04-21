@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsGatheringByteChannel_INCLUDE_ALL")
-#ifdef JavaNioChannelsGatheringByteChannel_RESTRICT
-#define JavaNioChannelsGatheringByteChannel_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsGatheringByteChannel")
+#ifdef RESTRICT_JavaNioChannelsGatheringByteChannel
+#define INCLUDE_ALL_JavaNioChannelsGatheringByteChannel 0
 #else
-#define JavaNioChannelsGatheringByteChannel_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsGatheringByteChannel 1
 #endif
-#undef JavaNioChannelsGatheringByteChannel_RESTRICT
+#undef RESTRICT_JavaNioChannelsGatheringByteChannel
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsGatheringByteChannel_) && (JavaNioChannelsGatheringByteChannel_INCLUDE_ALL || defined(JavaNioChannelsGatheringByteChannel_INCLUDE))
+#if !defined (JavaNioChannelsGatheringByteChannel_) && (INCLUDE_ALL_JavaNioChannelsGatheringByteChannel || defined(INCLUDE_JavaNioChannelsGatheringByteChannel))
 #define JavaNioChannelsGatheringByteChannel_
 
-#define JavaNioChannelsWritableByteChannel_RESTRICT 1
-#define JavaNioChannelsWritableByteChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsWritableByteChannel 1
+#define INCLUDE_JavaNioChannelsWritableByteChannel 1
 #include "../../../java/nio/channels/WritableByteChannel.h"
 
 @class IOSObjectArray;
@@ -110,4 +110,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsGatheringByteChannel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsGatheringByteChannel_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsGatheringByteChannel")

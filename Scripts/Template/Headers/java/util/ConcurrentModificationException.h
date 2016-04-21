@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentModificationException_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentModificationException_RESTRICT
-#define JavaUtilConcurrentModificationException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentModificationException")
+#ifdef RESTRICT_JavaUtilConcurrentModificationException
+#define INCLUDE_ALL_JavaUtilConcurrentModificationException 0
 #else
-#define JavaUtilConcurrentModificationException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentModificationException 1
 #endif
-#undef JavaUtilConcurrentModificationException_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentModificationException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentModificationException_) && (JavaUtilConcurrentModificationException_INCLUDE_ALL || defined(JavaUtilConcurrentModificationException_INCLUDE))
+#if !defined (JavaUtilConcurrentModificationException_) && (INCLUDE_ALL_JavaUtilConcurrentModificationException || defined(INCLUDE_JavaUtilConcurrentModificationException))
 #define JavaUtilConcurrentModificationException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief An <code>ConcurrentModificationException</code> is thrown when a Collection is
@@ -55,13 +53,13 @@
  @since 1.7
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new <code>ConcurrentModificationException</code> with the given cause.
  @since 1.7
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -71,17 +69,25 @@ FOUNDATION_EXPORT void JavaUtilConcurrentModificationException_init(JavaUtilConc
 
 FOUNDATION_EXPORT JavaUtilConcurrentModificationException *new_JavaUtilConcurrentModificationException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentModificationException *create_JavaUtilConcurrentModificationException_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentModificationException_initWithNSString_(JavaUtilConcurrentModificationException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaUtilConcurrentModificationException *new_JavaUtilConcurrentModificationException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaUtilConcurrentModificationException_initWithNSString_withJavaLangThrowable_(JavaUtilConcurrentModificationException *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaUtilConcurrentModificationException *create_JavaUtilConcurrentModificationException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaUtilConcurrentModificationException *new_JavaUtilConcurrentModificationException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaUtilConcurrentModificationException_initWithNSString_withNSException_(JavaUtilConcurrentModificationException *self, NSString *detailMessage, NSException *cause);
 
-FOUNDATION_EXPORT void JavaUtilConcurrentModificationException_initWithJavaLangThrowable_(JavaUtilConcurrentModificationException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaUtilConcurrentModificationException *new_JavaUtilConcurrentModificationException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaUtilConcurrentModificationException *new_JavaUtilConcurrentModificationException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilConcurrentModificationException *create_JavaUtilConcurrentModificationException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT void JavaUtilConcurrentModificationException_initWithNSException_(JavaUtilConcurrentModificationException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaUtilConcurrentModificationException *new_JavaUtilConcurrentModificationException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentModificationException *create_JavaUtilConcurrentModificationException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentModificationException)
 
@@ -89,4 +95,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentModificationException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentModificationException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentModificationException")

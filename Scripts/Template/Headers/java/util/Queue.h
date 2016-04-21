@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilQueue_INCLUDE_ALL")
-#ifdef JavaUtilQueue_RESTRICT
-#define JavaUtilQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilQueue")
+#ifdef RESTRICT_JavaUtilQueue
+#define INCLUDE_ALL_JavaUtilQueue 0
 #else
-#define JavaUtilQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilQueue 1
 #endif
-#undef JavaUtilQueue_RESTRICT
+#undef RESTRICT_JavaUtilQueue
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilQueue_) && (JavaUtilQueue_INCLUDE_ALL || defined(JavaUtilQueue_INCLUDE))
+#if !defined (JavaUtilQueue_) && (INCLUDE_ALL_JavaUtilQueue || defined(INCLUDE_JavaUtilQueue))
 #define JavaUtilQueue_
 
-#define JavaUtilCollection_RESTRICT 1
-#define JavaUtilCollection_INCLUDE 1
+#define RESTRICT_JavaUtilCollection 1
+#define INCLUDE_JavaUtilCollection 1
 #include "../../java/util/Collection.h"
 
 /*!
@@ -196,4 +196,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilQueue)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilQueue")

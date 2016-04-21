@@ -5,21 +5,21 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextTextUtils_INCLUDE_ALL")
-#ifdef AndroidTextTextUtils_RESTRICT
-#define AndroidTextTextUtils_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextTextUtils")
+#ifdef RESTRICT_AndroidTextTextUtils
+#define INCLUDE_ALL_AndroidTextTextUtils 0
 #else
-#define AndroidTextTextUtils_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextTextUtils 1
 #endif
-#undef AndroidTextTextUtils_RESTRICT
-#ifdef AndroidTextTextUtils_SimpleStringSplitter_INCLUDE
-#define AndroidTextTextUtils_StringSplitter_INCLUDE 1
+#undef RESTRICT_AndroidTextTextUtils
+#ifdef INCLUDE_AndroidTextTextUtils_SimpleStringSplitter
+#define INCLUDE_AndroidTextTextUtils_StringSplitter 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextTextUtils_) && (AndroidTextTextUtils_INCLUDE_ALL || defined(AndroidTextTextUtils_INCLUDE))
+#if !defined (AndroidTextTextUtils_) && (INCLUDE_ALL_AndroidTextTextUtils || defined(INCLUDE_AndroidTextTextUtils))
 #define AndroidTextTextUtils_
 
 @class IOSCharArray;
@@ -718,11 +718,11 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils)
 
 #endif
 
-#if !defined (AndroidTextTextUtils_StringSplitter_) && (AndroidTextTextUtils_INCLUDE_ALL || defined(AndroidTextTextUtils_StringSplitter_INCLUDE))
+#if !defined (AndroidTextTextUtils_StringSplitter_) && (INCLUDE_ALL_AndroidTextTextUtils || defined(INCLUDE_AndroidTextTextUtils_StringSplitter))
 #define AndroidTextTextUtils_StringSplitter_
 
-#define JavaLangIterable_RESTRICT 1
-#define JavaLangIterable_INCLUDE 1
+#define RESTRICT_JavaLangIterable 1
+#define INCLUDE_JavaLangIterable 1
 #include "../../java/lang/Iterable.h"
 
 /*!
@@ -755,11 +755,11 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_StringSplitter)
 
 #endif
 
-#if !defined (AndroidTextTextUtils_SimpleStringSplitter_) && (AndroidTextTextUtils_INCLUDE_ALL || defined(AndroidTextTextUtils_SimpleStringSplitter_INCLUDE))
+#if !defined (AndroidTextTextUtils_SimpleStringSplitter_) && (INCLUDE_ALL_AndroidTextTextUtils || defined(INCLUDE_AndroidTextTextUtils_SimpleStringSplitter))
 #define AndroidTextTextUtils_SimpleStringSplitter_
 
-#define JavaUtilIterator_RESTRICT 1
-#define JavaUtilIterator_INCLUDE 1
+#define RESTRICT_JavaUtilIterator 1
+#define INCLUDE_JavaUtilIterator 1
 #include "../../java/util/Iterator.h"
 
 /*!
@@ -802,15 +802,17 @@ FOUNDATION_EXPORT void AndroidTextTextUtils_SimpleStringSplitter_initWithChar_(A
 
 FOUNDATION_EXPORT AndroidTextTextUtils_SimpleStringSplitter *new_AndroidTextTextUtils_SimpleStringSplitter_initWithChar_(jchar delimiter) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextTextUtils_SimpleStringSplitter *create_AndroidTextTextUtils_SimpleStringSplitter_initWithChar_(jchar delimiter);
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_SimpleStringSplitter)
 
 #endif
 
-#if !defined (AndroidTextTextUtils_TruncateAt_) && (AndroidTextTextUtils_INCLUDE_ALL || defined(AndroidTextTextUtils_TruncateAt_INCLUDE))
+#if !defined (AndroidTextTextUtils_TruncateAt_) && (INCLUDE_ALL_AndroidTextTextUtils || defined(INCLUDE_AndroidTextTextUtils_TruncateAt))
 #define AndroidTextTextUtils_TruncateAt_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, AndroidTextTextUtils_TruncateAt_Enum) {
@@ -878,4 +880,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextTextUtils_TruncateAt)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextTextUtils_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextTextUtils")

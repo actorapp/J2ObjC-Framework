@@ -5,26 +5,26 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityAuthX500X500Principal_INCLUDE_ALL")
-#ifdef JavaxSecurityAuthX500X500Principal_RESTRICT
-#define JavaxSecurityAuthX500X500Principal_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityAuthX500X500Principal")
+#ifdef RESTRICT_JavaxSecurityAuthX500X500Principal
+#define INCLUDE_ALL_JavaxSecurityAuthX500X500Principal 0
 #else
-#define JavaxSecurityAuthX500X500Principal_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityAuthX500X500Principal 1
 #endif
-#undef JavaxSecurityAuthX500X500Principal_RESTRICT
+#undef RESTRICT_JavaxSecurityAuthX500X500Principal
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityAuthX500X500Principal_) && (JavaxSecurityAuthX500X500Principal_INCLUDE_ALL || defined(JavaxSecurityAuthX500X500Principal_INCLUDE))
+#if !defined (JavaxSecurityAuthX500X500Principal_) && (INCLUDE_ALL_JavaxSecurityAuthX500X500Principal || defined(INCLUDE_JavaxSecurityAuthX500X500Principal))
 #define JavaxSecurityAuthX500X500Principal_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
-#define JavaSecurityPrincipal_RESTRICT 1
-#define JavaSecurityPrincipal_INCLUDE 1
+#define RESTRICT_JavaSecurityPrincipal 1
+#define INCLUDE_JavaSecurityPrincipal 1
 #include "../../../../java/security/Principal.h"
 
 @class IOSByteArray;
@@ -163,17 +163,25 @@ FOUNDATION_EXPORT void JavaxSecurityAuthX500X500Principal_initWithByteArray_(Jav
 
 FOUNDATION_EXPORT JavaxSecurityAuthX500X500Principal *new_JavaxSecurityAuthX500X500Principal_initWithByteArray_(IOSByteArray *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxSecurityAuthX500X500Principal *create_JavaxSecurityAuthX500X500Principal_initWithByteArray_(IOSByteArray *name);
+
 FOUNDATION_EXPORT void JavaxSecurityAuthX500X500Principal_initWithJavaIoInputStream_(JavaxSecurityAuthX500X500Principal *self, JavaIoInputStream *inArg);
 
 FOUNDATION_EXPORT JavaxSecurityAuthX500X500Principal *new_JavaxSecurityAuthX500X500Principal_initWithJavaIoInputStream_(JavaIoInputStream *inArg) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxSecurityAuthX500X500Principal *create_JavaxSecurityAuthX500X500Principal_initWithJavaIoInputStream_(JavaIoInputStream *inArg);
 
 FOUNDATION_EXPORT void JavaxSecurityAuthX500X500Principal_initWithNSString_(JavaxSecurityAuthX500X500Principal *self, NSString *name);
 
 FOUNDATION_EXPORT JavaxSecurityAuthX500X500Principal *new_JavaxSecurityAuthX500X500Principal_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxSecurityAuthX500X500Principal *create_JavaxSecurityAuthX500X500Principal_initWithNSString_(NSString *name);
+
 FOUNDATION_EXPORT void JavaxSecurityAuthX500X500Principal_initWithNSString_withJavaUtilMap_(JavaxSecurityAuthX500X500Principal *self, NSString *name, id<JavaUtilMap> keywordMap);
 
 FOUNDATION_EXPORT JavaxSecurityAuthX500X500Principal *new_JavaxSecurityAuthX500X500Principal_initWithNSString_withJavaUtilMap_(NSString *name, id<JavaUtilMap> keywordMap) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxSecurityAuthX500X500Principal *create_JavaxSecurityAuthX500X500Principal_initWithNSString_withJavaUtilMap_(NSString *name, id<JavaUtilMap> keywordMap);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthX500X500Principal)
 
@@ -181,4 +189,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthX500X500Principal)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityAuthX500X500Principal_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityAuthX500X500Principal")

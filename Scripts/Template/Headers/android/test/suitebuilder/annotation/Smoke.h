@@ -5,23 +5,26 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTestSuitebuilderAnnotationSmoke_INCLUDE_ALL")
-#ifdef AndroidTestSuitebuilderAnnotationSmoke_RESTRICT
-#define AndroidTestSuitebuilderAnnotationSmoke_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSmoke")
+#ifdef RESTRICT_AndroidTestSuitebuilderAnnotationSmoke
+#define INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSmoke 0
 #else
-#define AndroidTestSuitebuilderAnnotationSmoke_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSmoke 1
 #endif
-#undef AndroidTestSuitebuilderAnnotationSmoke_RESTRICT
+#undef RESTRICT_AndroidTestSuitebuilderAnnotationSmoke
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTestSuitebuilderAnnotationSmoke_) && (AndroidTestSuitebuilderAnnotationSmoke_INCLUDE_ALL || defined(AndroidTestSuitebuilderAnnotationSmoke_INCLUDE))
+#if !defined (AndroidTestSuitebuilderAnnotationSmoke_) && (INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSmoke || defined(INCLUDE_AndroidTestSuitebuilderAnnotationSmoke))
 #define AndroidTestSuitebuilderAnnotationSmoke_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief Marks a test that should run as part of the smoke tests.
@@ -38,10 +41,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(AndroidTestSuitebuilderAnnotationSmoke)
 
+FOUNDATION_EXPORT id<AndroidTestSuitebuilderAnnotationSmoke> create_AndroidTestSuitebuilderAnnotationSmoke();
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTestSuitebuilderAnnotationSmoke)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTestSuitebuilderAnnotationSmoke_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSmoke")

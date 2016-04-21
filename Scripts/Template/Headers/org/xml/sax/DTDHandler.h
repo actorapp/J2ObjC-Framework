@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxDTDHandler_INCLUDE_ALL")
-#ifdef OrgXmlSaxDTDHandler_RESTRICT
-#define OrgXmlSaxDTDHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxDTDHandler")
+#ifdef RESTRICT_OrgXmlSaxDTDHandler
+#define INCLUDE_ALL_OrgXmlSaxDTDHandler 0
 #else
-#define OrgXmlSaxDTDHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxDTDHandler 1
 #endif
-#undef OrgXmlSaxDTDHandler_RESTRICT
+#undef RESTRICT_OrgXmlSaxDTDHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxDTDHandler_) && (OrgXmlSaxDTDHandler_INCLUDE_ALL || defined(OrgXmlSaxDTDHandler_INCLUDE))
+#if !defined (OrgXmlSaxDTDHandler_) && (INCLUDE_ALL_OrgXmlSaxDTDHandler || defined(INCLUDE_OrgXmlSaxDTDHandler))
 #define OrgXmlSaxDTDHandler_
 
 /*!
@@ -119,4 +119,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxDTDHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxDTDHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxDTDHandler")

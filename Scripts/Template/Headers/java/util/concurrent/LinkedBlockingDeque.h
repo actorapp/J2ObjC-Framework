@@ -5,30 +5,30 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentLinkedBlockingDeque_RESTRICT
-#define JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque")
+#ifdef RESTRICT_JavaUtilConcurrentLinkedBlockingDeque
+#define INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque 0
 #else
-#define JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque 1
 #endif
-#undef JavaUtilConcurrentLinkedBlockingDeque_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentLinkedBlockingDeque
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentLinkedBlockingDeque_) && (JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedBlockingDeque_INCLUDE))
+#if !defined (JavaUtilConcurrentLinkedBlockingDeque_) && (INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque || defined(INCLUDE_JavaUtilConcurrentLinkedBlockingDeque))
 #define JavaUtilConcurrentLinkedBlockingDeque_
 
-#define JavaUtilAbstractQueue_RESTRICT 1
-#define JavaUtilAbstractQueue_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractQueue 1
+#define INCLUDE_JavaUtilAbstractQueue 1
 #include "../../../java/util/AbstractQueue.h"
 
-#define JavaUtilConcurrentBlockingDeque_RESTRICT 1
-#define JavaUtilConcurrentBlockingDeque_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentBlockingDeque 1
+#define INCLUDE_JavaUtilConcurrentBlockingDeque 1
 #include "../../../java/util/concurrent/BlockingDeque.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -428,19 +428,25 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLinkedBlockingDeque_init(JavaUtilConcur
 
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingDeque *new_JavaUtilConcurrentLinkedBlockingDeque_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingDeque *create_JavaUtilConcurrentLinkedBlockingDeque_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentLinkedBlockingDeque_initWithInt_(JavaUtilConcurrentLinkedBlockingDeque *self, jint capacity);
 
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingDeque *new_JavaUtilConcurrentLinkedBlockingDeque_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingDeque *create_JavaUtilConcurrentLinkedBlockingDeque_initWithInt_(jint capacity);
 
 FOUNDATION_EXPORT void JavaUtilConcurrentLinkedBlockingDeque_initWithJavaUtilCollection_(JavaUtilConcurrentLinkedBlockingDeque *self, id<JavaUtilCollection> c);
 
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingDeque *new_JavaUtilConcurrentLinkedBlockingDeque_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingDeque *create_JavaUtilConcurrentLinkedBlockingDeque_initWithJavaUtilCollection_(id<JavaUtilCollection> c);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLinkedBlockingDeque_Node_) && (JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedBlockingDeque_Node_INCLUDE))
+#if !defined (JavaUtilConcurrentLinkedBlockingDeque_Node_) && (INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque || defined(INCLUDE_JavaUtilConcurrentLinkedBlockingDeque_Node))
 #define JavaUtilConcurrentLinkedBlockingDeque_Node_
 
 /*!
@@ -484,10 +490,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLinkedBlockingDeque_Node_initWithId_(Ja
 
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingDeque_Node *new_JavaUtilConcurrentLinkedBlockingDeque_Node_initWithId_(id x) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLinkedBlockingDeque_Node *create_JavaUtilConcurrentLinkedBlockingDeque_Node_initWithId_(id x);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedBlockingDeque_Node)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentLinkedBlockingDeque_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedBlockingDeque")

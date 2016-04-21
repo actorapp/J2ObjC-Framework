@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecECParameterSpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecECParameterSpec_RESTRICT
-#define JavaSecuritySpecECParameterSpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECParameterSpec")
+#ifdef RESTRICT_JavaSecuritySpecECParameterSpec
+#define INCLUDE_ALL_JavaSecuritySpecECParameterSpec 0
 #else
-#define JavaSecuritySpecECParameterSpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecECParameterSpec 1
 #endif
-#undef JavaSecuritySpecECParameterSpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecECParameterSpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecECParameterSpec_) && (JavaSecuritySpecECParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecECParameterSpec_INCLUDE))
+#if !defined (JavaSecuritySpecECParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecECParameterSpec || defined(INCLUDE_JavaSecuritySpecECParameterSpec))
 #define JavaSecuritySpecECParameterSpec_
 
-#define JavaSecuritySpecAlgorithmParameterSpec_RESTRICT 1
-#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
+#define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
 #include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 @class JavaMathBigInteger;
@@ -98,10 +98,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecECParameterSpec_initWithJavaSecuritySpecE
 
 FOUNDATION_EXPORT JavaSecuritySpecECParameterSpec *new_JavaSecuritySpecECParameterSpec_initWithJavaSecuritySpecEllipticCurve_withJavaSecuritySpecECPoint_withJavaMathBigInteger_withInt_(JavaSecuritySpecEllipticCurve *curve, JavaSecuritySpecECPoint *generator, JavaMathBigInteger *order, jint cofactor) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecECParameterSpec *create_JavaSecuritySpecECParameterSpec_initWithJavaSecuritySpecEllipticCurve_withJavaSecuritySpecECPoint_withJavaMathBigInteger_withInt_(JavaSecuritySpecEllipticCurve *curve, JavaSecuritySpecECPoint *generator, JavaMathBigInteger *order, jint cofactor);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECParameterSpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecECParameterSpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECParameterSpec")

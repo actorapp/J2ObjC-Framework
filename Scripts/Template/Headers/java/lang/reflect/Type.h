@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectType_INCLUDE_ALL")
-#ifdef JavaLangReflectType_RESTRICT
-#define JavaLangReflectType_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectType")
+#ifdef RESTRICT_JavaLangReflectType
+#define INCLUDE_ALL_JavaLangReflectType 0
 #else
-#define JavaLangReflectType_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectType 1
 #endif
-#undef JavaLangReflectType_RESTRICT
+#undef RESTRICT_JavaLangReflectType
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectType_) && (JavaLangReflectType_INCLUDE_ALL || defined(JavaLangReflectType_INCLUDE))
+#if !defined (JavaLangReflectType_) && (INCLUDE_ALL_JavaLangReflectType || defined(INCLUDE_JavaLangReflectType))
 #define JavaLangReflectType_
 
 /*!
@@ -35,4 +35,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectType)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectType_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectType")

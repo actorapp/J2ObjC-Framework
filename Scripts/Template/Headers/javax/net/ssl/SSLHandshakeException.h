@@ -5,25 +5,23 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLHandshakeException_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLHandshakeException_RESTRICT
-#define JavaxNetSslSSLHandshakeException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLHandshakeException")
+#ifdef RESTRICT_JavaxNetSslSSLHandshakeException
+#define INCLUDE_ALL_JavaxNetSslSSLHandshakeException 0
 #else
-#define JavaxNetSslSSLHandshakeException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLHandshakeException 1
 #endif
-#undef JavaxNetSslSSLHandshakeException_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLHandshakeException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLHandshakeException_) && (JavaxNetSslSSLHandshakeException_INCLUDE_ALL || defined(JavaxNetSslSSLHandshakeException_INCLUDE))
+#if !defined (JavaxNetSslSSLHandshakeException_) && (INCLUDE_ALL_JavaxNetSslSSLHandshakeException || defined(INCLUDE_JavaxNetSslSSLHandshakeException))
 #define JavaxNetSslSSLHandshakeException_
 
-#define JavaxNetSslSSLException_RESTRICT 1
-#define JavaxNetSslSSLException_INCLUDE 1
+#define RESTRICT_JavaxNetSslSSLException 1
+#define INCLUDE_JavaxNetSslSSLException 1
 #include "../../../javax/net/ssl/SSLException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief The exception that is thrown when a handshake could not be completed
@@ -43,13 +41,13 @@
   internal use only
  */
 - (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance with given cause.
   internal use only
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -59,13 +57,19 @@ FOUNDATION_EXPORT void JavaxNetSslSSLHandshakeException_initWithNSString_(JavaxN
 
 FOUNDATION_EXPORT JavaxNetSslSSLHandshakeException *new_JavaxNetSslSSLHandshakeException_initWithNSString_(NSString *reason) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaxNetSslSSLHandshakeException_initWithJavaLangThrowable_(JavaxNetSslSSLHandshakeException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaxNetSslSSLHandshakeException *create_JavaxNetSslSSLHandshakeException_initWithNSString_(NSString *reason);
 
-FOUNDATION_EXPORT JavaxNetSslSSLHandshakeException *new_JavaxNetSslSSLHandshakeException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaxNetSslSSLHandshakeException_initWithNSException_(JavaxNetSslSSLHandshakeException *self, NSException *cause);
 
-FOUNDATION_EXPORT void JavaxNetSslSSLHandshakeException_initWithNSString_withJavaLangThrowable_(JavaxNetSslSSLHandshakeException *self, NSString *reason, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaxNetSslSSLHandshakeException *new_JavaxNetSslSSLHandshakeException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaxNetSslSSLHandshakeException *new_JavaxNetSslSSLHandshakeException_initWithNSString_withJavaLangThrowable_(NSString *reason, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaxNetSslSSLHandshakeException *create_JavaxNetSslSSLHandshakeException_initWithNSException_(NSException *cause);
+
+FOUNDATION_EXPORT void JavaxNetSslSSLHandshakeException_initWithNSString_withNSException_(JavaxNetSslSSLHandshakeException *self, NSString *reason, NSException *cause);
+
+FOUNDATION_EXPORT JavaxNetSslSSLHandshakeException *new_JavaxNetSslSSLHandshakeException_initWithNSString_withNSException_(NSString *reason, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxNetSslSSLHandshakeException *create_JavaxNetSslSSLHandshakeException_initWithNSString_withNSException_(NSString *reason, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLHandshakeException)
 
@@ -73,4 +77,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLHandshakeException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLHandshakeException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLHandshakeException")

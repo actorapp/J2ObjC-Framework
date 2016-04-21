@@ -5,30 +5,30 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingLoggingPermission_INCLUDE_ALL")
-#ifdef JavaUtilLoggingLoggingPermission_RESTRICT
-#define JavaUtilLoggingLoggingPermission_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingLoggingPermission")
+#ifdef RESTRICT_JavaUtilLoggingLoggingPermission
+#define INCLUDE_ALL_JavaUtilLoggingLoggingPermission 0
 #else
-#define JavaUtilLoggingLoggingPermission_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingLoggingPermission 1
 #endif
-#undef JavaUtilLoggingLoggingPermission_RESTRICT
+#undef RESTRICT_JavaUtilLoggingLoggingPermission
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingLoggingPermission_) && (JavaUtilLoggingLoggingPermission_INCLUDE_ALL || defined(JavaUtilLoggingLoggingPermission_INCLUDE))
+#if !defined (JavaUtilLoggingLoggingPermission_) && (INCLUDE_ALL_JavaUtilLoggingLoggingPermission || defined(INCLUDE_JavaUtilLoggingLoggingPermission))
 #define JavaUtilLoggingLoggingPermission_
 
-#define JavaSecurityBasicPermission_RESTRICT 1
-#define JavaSecurityBasicPermission_INCLUDE 1
+#define RESTRICT_JavaSecurityBasicPermission 1
+#define INCLUDE_JavaSecurityBasicPermission 1
 #include "../../../java/security/BasicPermission.h"
 
-#define JavaSecurityGuard_RESTRICT 1
-#define JavaSecurityGuard_INCLUDE 1
+#define RESTRICT_JavaSecurityGuard 1
+#define INCLUDE_JavaSecurityGuard 1
 #include "../../../java/security/Guard.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class JavaSecurityPermission;
@@ -55,10 +55,12 @@ FOUNDATION_EXPORT void JavaUtilLoggingLoggingPermission_initWithNSString_withNSS
 
 FOUNDATION_EXPORT JavaUtilLoggingLoggingPermission *new_JavaUtilLoggingLoggingPermission_initWithNSString_withNSString_(NSString *name, NSString *actions) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingLoggingPermission *create_JavaUtilLoggingLoggingPermission_initWithNSString_withNSString_(NSString *name, NSString *actions);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLoggingPermission)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingLoggingPermission_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLoggingPermission")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlValidationValidator_INCLUDE_ALL")
-#ifdef JavaxXmlValidationValidator_RESTRICT
-#define JavaxXmlValidationValidator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlValidationValidator")
+#ifdef RESTRICT_JavaxXmlValidationValidator
+#define INCLUDE_ALL_JavaxXmlValidationValidator 0
 #else
-#define JavaxXmlValidationValidator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlValidationValidator 1
 #endif
-#undef JavaxXmlValidationValidator_RESTRICT
+#undef RESTRICT_JavaxXmlValidationValidator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlValidationValidator_) && (JavaxXmlValidationValidator_INCLUDE_ALL || defined(JavaxXmlValidationValidator_INCLUDE))
+#if !defined (JavaxXmlValidationValidator_) && (INCLUDE_ALL_JavaxXmlValidationValidator || defined(INCLUDE_JavaxXmlValidationValidator))
 #define JavaxXmlValidationValidator_
 
 @protocol JavaxXmlTransformResult;
@@ -386,4 +386,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationValidator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlValidationValidator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlValidationValidator")

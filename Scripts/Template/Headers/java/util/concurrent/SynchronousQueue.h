@@ -5,42 +5,42 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentSynchronousQueue_RESTRICT
-#define JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue")
+#ifdef RESTRICT_JavaUtilConcurrentSynchronousQueue
+#define INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue 0
 #else
-#define JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue 1
 #endif
-#undef JavaUtilConcurrentSynchronousQueue_RESTRICT
-#ifdef JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_INCLUDE
-#define JavaUtilConcurrentSynchronousQueue_WaitQueue_INCLUDE 1
+#undef RESTRICT_JavaUtilConcurrentSynchronousQueue
+#ifdef INCLUDE_JavaUtilConcurrentSynchronousQueue_FifoWaitQueue
+#define INCLUDE_JavaUtilConcurrentSynchronousQueue_WaitQueue 1
 #endif
-#ifdef JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_INCLUDE
-#define JavaUtilConcurrentSynchronousQueue_WaitQueue_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentSynchronousQueue_LifoWaitQueue
+#define INCLUDE_JavaUtilConcurrentSynchronousQueue_WaitQueue 1
 #endif
-#ifdef JavaUtilConcurrentSynchronousQueue_TransferQueue_INCLUDE
-#define JavaUtilConcurrentSynchronousQueue_Transferer_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentSynchronousQueue_TransferQueue
+#define INCLUDE_JavaUtilConcurrentSynchronousQueue_Transferer 1
 #endif
-#ifdef JavaUtilConcurrentSynchronousQueue_TransferStack_INCLUDE
-#define JavaUtilConcurrentSynchronousQueue_Transferer_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentSynchronousQueue_TransferStack
+#define INCLUDE_JavaUtilConcurrentSynchronousQueue_Transferer 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentSynchronousQueue_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentSynchronousQueue_) && (INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue || defined(INCLUDE_JavaUtilConcurrentSynchronousQueue))
 #define JavaUtilConcurrentSynchronousQueue_
 
-#define JavaUtilAbstractQueue_RESTRICT 1
-#define JavaUtilAbstractQueue_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractQueue 1
+#define INCLUDE_JavaUtilAbstractQueue 1
 #include "../../../java/util/AbstractQueue.h"
 
-#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
-#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentBlockingQueue 1
+#define INCLUDE_JavaUtilConcurrentBlockingQueue 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSClass;
@@ -330,9 +330,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_init(JavaUtilConcurren
 
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue *new_JavaUtilConcurrentSynchronousQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue *create_JavaUtilConcurrentSynchronousQueue_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_initWithBoolean_(JavaUtilConcurrentSynchronousQueue *self, jboolean fair);
 
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue *new_JavaUtilConcurrentSynchronousQueue_initWithBoolean_(jboolean fair) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue *create_JavaUtilConcurrentSynchronousQueue_initWithBoolean_(jboolean fair);
 
 FOUNDATION_EXPORT jlong JavaUtilConcurrentSynchronousQueue_objectFieldOffsetWithSunMiscUnsafe_withNSString_withIOSClass_(SunMiscUnsafe *UNSAFE, NSString *field, IOSClass *klazz);
 
@@ -340,7 +344,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSynchronousQueue_Transferer_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_Transferer_INCLUDE))
+#if !defined (JavaUtilConcurrentSynchronousQueue_Transferer_) && (INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue || defined(INCLUDE_JavaUtilConcurrentSynchronousQueue_Transferer))
 #define JavaUtilConcurrentSynchronousQueue_Transferer_
 
 /*!
@@ -378,7 +382,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_Transferer)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSynchronousQueue_TransferStack_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_TransferStack_INCLUDE))
+#if !defined (JavaUtilConcurrentSynchronousQueue_TransferStack_) && (INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue || defined(INCLUDE_JavaUtilConcurrentSynchronousQueue_TransferStack))
 #define JavaUtilConcurrentSynchronousQueue_TransferStack_
 
 @class JavaUtilConcurrentSynchronousQueue_TransferStack_SNode;
@@ -489,11 +493,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_TransferStack_init(Jav
 
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferStack *new_JavaUtilConcurrentSynchronousQueue_TransferStack_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferStack *create_JavaUtilConcurrentSynchronousQueue_TransferStack_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferStack)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_INCLUDE))
+#if !defined (JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_) && (INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue || defined(INCLUDE_JavaUtilConcurrentSynchronousQueue_TransferStack_SNode))
 #define JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_
 
 @class JavaLangThread;
@@ -546,11 +552,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_in
 
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferStack_SNode *new_JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_initWithId_(id item) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferStack_SNode *create_JavaUtilConcurrentSynchronousQueue_TransferStack_SNode_initWithId_(id item);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferStack_SNode)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSynchronousQueue_TransferQueue_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_TransferQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentSynchronousQueue_TransferQueue_) && (INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue || defined(INCLUDE_JavaUtilConcurrentSynchronousQueue_TransferQueue))
 #define JavaUtilConcurrentSynchronousQueue_TransferQueue_
 
 @class JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode;
@@ -637,11 +645,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_TransferQueue_init(Jav
 
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferQueue *new_JavaUtilConcurrentSynchronousQueue_TransferQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferQueue *create_JavaUtilConcurrentSynchronousQueue_TransferQueue_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferQueue)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode_INCLUDE))
+#if !defined (JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode_) && (INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue || defined(INCLUDE_JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode))
 #define JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode_
 
 @class JavaLangThread;
@@ -694,15 +704,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode_in
 
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode *new_JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode_initWithId_withBoolean_(id item, jboolean isData) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode *create_JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode_initWithId_withBoolean_(id item, jboolean isData);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_TransferQueue_QNode)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSynchronousQueue_WaitQueue_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_WaitQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentSynchronousQueue_WaitQueue_) && (INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue || defined(INCLUDE_JavaUtilConcurrentSynchronousQueue_WaitQueue))
 #define JavaUtilConcurrentSynchronousQueue_WaitQueue_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @interface JavaUtilConcurrentSynchronousQueue_WaitQueue : NSObject < JavaIoSerializable >
@@ -719,11 +731,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_WaitQueue_init(JavaUti
 
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_WaitQueue *new_JavaUtilConcurrentSynchronousQueue_WaitQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_WaitQueue *create_JavaUtilConcurrentSynchronousQueue_WaitQueue_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_WaitQueue)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_) && (INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue || defined(INCLUDE_JavaUtilConcurrentSynchronousQueue_LifoWaitQueue))
 #define JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_
 
 @interface JavaUtilConcurrentSynchronousQueue_LifoWaitQueue : JavaUtilConcurrentSynchronousQueue_WaitQueue
@@ -740,11 +754,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_init(Jav
 
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_LifoWaitQueue *new_JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_LifoWaitQueue *create_JavaUtilConcurrentSynchronousQueue_LifoWaitQueue_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_LifoWaitQueue)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_) && (JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL || defined(JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_) && (INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue || defined(INCLUDE_JavaUtilConcurrentSynchronousQueue_FifoWaitQueue))
 #define JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_
 
 @interface JavaUtilConcurrentSynchronousQueue_FifoWaitQueue : JavaUtilConcurrentSynchronousQueue_WaitQueue
@@ -761,10 +777,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_init(Jav
 
 FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_FifoWaitQueue *new_JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSynchronousQueue_FifoWaitQueue *create_JavaUtilConcurrentSynchronousQueue_FifoWaitQueue_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSynchronousQueue_FifoWaitQueue)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentSynchronousQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentSynchronousQueue")

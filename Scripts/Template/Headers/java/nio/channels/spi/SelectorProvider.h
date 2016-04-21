@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsSpiSelectorProvider_INCLUDE_ALL")
-#ifdef JavaNioChannelsSpiSelectorProvider_RESTRICT
-#define JavaNioChannelsSpiSelectorProvider_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsSpiSelectorProvider")
+#ifdef RESTRICT_JavaNioChannelsSpiSelectorProvider
+#define INCLUDE_ALL_JavaNioChannelsSpiSelectorProvider 0
 #else
-#define JavaNioChannelsSpiSelectorProvider_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsSpiSelectorProvider 1
 #endif
-#undef JavaNioChannelsSpiSelectorProvider_RESTRICT
+#undef RESTRICT_JavaNioChannelsSpiSelectorProvider
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsSpiSelectorProvider_) && (JavaNioChannelsSpiSelectorProvider_INCLUDE_ALL || defined(JavaNioChannelsSpiSelectorProvider_INCLUDE))
+#if !defined (JavaNioChannelsSpiSelectorProvider_) && (INCLUDE_ALL_JavaNioChannelsSpiSelectorProvider || defined(INCLUDE_JavaNioChannelsSpiSelectorProvider))
 #define JavaNioChannelsSpiSelectorProvider_
 
 @class JavaNioChannelsDatagramChannel;
@@ -129,4 +129,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiSelectorProvider)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsSpiSelectorProvider_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSpiSelectorProvider")

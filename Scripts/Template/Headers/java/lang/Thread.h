@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangThread_INCLUDE_ALL")
-#ifdef JavaLangThread_RESTRICT
-#define JavaLangThread_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangThread")
+#ifdef RESTRICT_JavaLangThread
+#define INCLUDE_ALL_JavaLangThread 0
 #else
-#define JavaLangThread_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangThread 1
 #endif
-#undef JavaLangThread_RESTRICT
+#undef RESTRICT_JavaLangThread
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangThread_) && (JavaLangThread_INCLUDE_ALL || defined(JavaLangThread_INCLUDE))
+#if !defined (JavaLangThread_) && (INCLUDE_ALL_JavaLangThread || defined(INCLUDE_JavaLangThread))
 #define JavaLangThread_
 
-#define JavaLangRunnable_RESTRICT 1
-#define JavaLangRunnable_INCLUDE 1
+#define RESTRICT_JavaLangRunnable 1
+#define INCLUDE_JavaLangRunnable 1
 #include "../../java/lang/Runnable.h"
 
 @class IOSObjectArray;
@@ -493,33 +493,49 @@ FOUNDATION_EXPORT void JavaLangThread_init(JavaLangThread *self);
 
 FOUNDATION_EXPORT JavaLangThread *new_JavaLangThread_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangThread *create_JavaLangThread_init();
+
 FOUNDATION_EXPORT void JavaLangThread_initWithJavaLangRunnable_(JavaLangThread *self, id<JavaLangRunnable> runnable);
 
 FOUNDATION_EXPORT JavaLangThread *new_JavaLangThread_initWithJavaLangRunnable_(id<JavaLangRunnable> runnable) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangThread *create_JavaLangThread_initWithJavaLangRunnable_(id<JavaLangRunnable> runnable);
 
 FOUNDATION_EXPORT void JavaLangThread_initWithJavaLangRunnable_withNSString_(JavaLangThread *self, id<JavaLangRunnable> runnable, NSString *threadName);
 
 FOUNDATION_EXPORT JavaLangThread *new_JavaLangThread_initWithJavaLangRunnable_withNSString_(id<JavaLangRunnable> runnable, NSString *threadName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangThread *create_JavaLangThread_initWithJavaLangRunnable_withNSString_(id<JavaLangRunnable> runnable, NSString *threadName);
+
 FOUNDATION_EXPORT void JavaLangThread_initWithNSString_(JavaLangThread *self, NSString *threadName);
 
 FOUNDATION_EXPORT JavaLangThread *new_JavaLangThread_initWithNSString_(NSString *threadName) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangThread *create_JavaLangThread_initWithNSString_(NSString *threadName);
 
 FOUNDATION_EXPORT void JavaLangThread_initWithJavaLangThreadGroup_withJavaLangRunnable_(JavaLangThread *self, JavaLangThreadGroup *group, id<JavaLangRunnable> runnable);
 
 FOUNDATION_EXPORT JavaLangThread *new_JavaLangThread_initWithJavaLangThreadGroup_withJavaLangRunnable_(JavaLangThreadGroup *group, id<JavaLangRunnable> runnable) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangThread *create_JavaLangThread_initWithJavaLangThreadGroup_withJavaLangRunnable_(JavaLangThreadGroup *group, id<JavaLangRunnable> runnable);
+
 FOUNDATION_EXPORT void JavaLangThread_initWithJavaLangThreadGroup_withJavaLangRunnable_withNSString_withLong_(JavaLangThread *self, JavaLangThreadGroup *group, id<JavaLangRunnable> runnable, NSString *threadName, jlong stack);
 
 FOUNDATION_EXPORT JavaLangThread *new_JavaLangThread_initWithJavaLangThreadGroup_withJavaLangRunnable_withNSString_withLong_(JavaLangThreadGroup *group, id<JavaLangRunnable> runnable, NSString *threadName, jlong stack) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangThread *create_JavaLangThread_initWithJavaLangThreadGroup_withJavaLangRunnable_withNSString_withLong_(JavaLangThreadGroup *group, id<JavaLangRunnable> runnable, NSString *threadName, jlong stack);
 
 FOUNDATION_EXPORT void JavaLangThread_initWithJavaLangThreadGroup_withJavaLangRunnable_withNSString_(JavaLangThread *self, JavaLangThreadGroup *group, id<JavaLangRunnable> runnable, NSString *threadName);
 
 FOUNDATION_EXPORT JavaLangThread *new_JavaLangThread_initWithJavaLangThreadGroup_withJavaLangRunnable_withNSString_(JavaLangThreadGroup *group, id<JavaLangRunnable> runnable, NSString *threadName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangThread *create_JavaLangThread_initWithJavaLangThreadGroup_withJavaLangRunnable_withNSString_(JavaLangThreadGroup *group, id<JavaLangRunnable> runnable, NSString *threadName);
+
 FOUNDATION_EXPORT void JavaLangThread_initWithJavaLangThreadGroup_withNSString_(JavaLangThread *self, JavaLangThreadGroup *group, NSString *threadName);
 
 FOUNDATION_EXPORT JavaLangThread *new_JavaLangThread_initWithJavaLangThreadGroup_withNSString_(JavaLangThreadGroup *group, NSString *threadName) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangThread *create_JavaLangThread_initWithJavaLangThreadGroup_withNSString_(JavaLangThreadGroup *group, NSString *threadName);
 
 FOUNDATION_EXPORT JavaLangThread *JavaLangThread_currentThread();
 
@@ -549,11 +565,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThread)
 
 #endif
 
-#if !defined (JavaLangThread_State_) && (JavaLangThread_INCLUDE_ALL || defined(JavaLangThread_State_INCLUDE))
+#if !defined (JavaLangThread_State_) && (INCLUDE_ALL_JavaLangThread || defined(INCLUDE_JavaLangThread_State))
 #define JavaLangThread_State_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaLangThread_State_Enum) {
@@ -646,16 +662,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThread_State)
 
 #endif
 
-#if !defined (JavaLangThread_UncaughtExceptionHandler_) && (JavaLangThread_INCLUDE_ALL || defined(JavaLangThread_UncaughtExceptionHandler_INCLUDE))
+#if !defined (JavaLangThread_UncaughtExceptionHandler_) && (INCLUDE_ALL_JavaLangThread || defined(INCLUDE_JavaLangThread_UncaughtExceptionHandler))
 #define JavaLangThread_UncaughtExceptionHandler_
 
 @class JavaLangThread;
-@class JavaLangThrowable;
 
 @protocol JavaLangThread_UncaughtExceptionHandler < NSObject, JavaObject >
 
 - (void)uncaughtExceptionWithJavaLangThread:(JavaLangThread *)t
-                      withJavaLangThrowable:(JavaLangThrowable *)e;
+                            withNSException:(NSException *)e;
 
 @end
 
@@ -667,4 +682,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThread_UncaughtExceptionHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangThread_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangThread")

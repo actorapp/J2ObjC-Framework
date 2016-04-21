@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoPipedWriter_INCLUDE_ALL")
-#ifdef JavaIoPipedWriter_RESTRICT
-#define JavaIoPipedWriter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoPipedWriter")
+#ifdef RESTRICT_JavaIoPipedWriter
+#define INCLUDE_ALL_JavaIoPipedWriter 0
 #else
-#define JavaIoPipedWriter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoPipedWriter 1
 #endif
-#undef JavaIoPipedWriter_RESTRICT
+#undef RESTRICT_JavaIoPipedWriter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoPipedWriter_) && (JavaIoPipedWriter_INCLUDE_ALL || defined(JavaIoPipedWriter_INCLUDE))
+#if !defined (JavaIoPipedWriter_) && (INCLUDE_ALL_JavaIoPipedWriter || defined(INCLUDE_JavaIoPipedWriter))
 #define JavaIoPipedWriter_
 
-#define JavaIoWriter_RESTRICT 1
-#define JavaIoWriter_INCLUDE 1
+#define RESTRICT_JavaIoWriter 1
+#define INCLUDE_JavaIoWriter 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -152,9 +152,13 @@ FOUNDATION_EXPORT void JavaIoPipedWriter_init(JavaIoPipedWriter *self);
 
 FOUNDATION_EXPORT JavaIoPipedWriter *new_JavaIoPipedWriter_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPipedWriter *create_JavaIoPipedWriter_init();
+
 FOUNDATION_EXPORT void JavaIoPipedWriter_initWithJavaIoPipedReader_(JavaIoPipedWriter *self, JavaIoPipedReader *destination);
 
 FOUNDATION_EXPORT JavaIoPipedWriter *new_JavaIoPipedWriter_initWithJavaIoPipedReader_(JavaIoPipedReader *destination) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPipedWriter *create_JavaIoPipedWriter_initWithJavaIoPipedReader_(JavaIoPipedReader *destination);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedWriter)
 
@@ -162,4 +166,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedWriter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoPipedWriter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoPipedWriter")

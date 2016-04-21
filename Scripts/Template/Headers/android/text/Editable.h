@@ -5,34 +5,34 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextEditable_INCLUDE_ALL")
-#ifdef AndroidTextEditable_RESTRICT
-#define AndroidTextEditable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextEditable")
+#ifdef RESTRICT_AndroidTextEditable
+#define INCLUDE_ALL_AndroidTextEditable 0
 #else
-#define AndroidTextEditable_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextEditable 1
 #endif
-#undef AndroidTextEditable_RESTRICT
+#undef RESTRICT_AndroidTextEditable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextEditable_) && (AndroidTextEditable_INCLUDE_ALL || defined(AndroidTextEditable_INCLUDE))
+#if !defined (AndroidTextEditable_) && (INCLUDE_ALL_AndroidTextEditable || defined(INCLUDE_AndroidTextEditable))
 #define AndroidTextEditable_
 
-#define JavaLangCharSequence_RESTRICT 1
-#define JavaLangCharSequence_INCLUDE 1
+#define RESTRICT_JavaLangCharSequence 1
+#define INCLUDE_JavaLangCharSequence 1
 #include "../../java/lang/CharSequence.h"
 
-#define AndroidTextGetChars_RESTRICT 1
-#define AndroidTextGetChars_INCLUDE 1
+#define RESTRICT_AndroidTextGetChars 1
+#define INCLUDE_AndroidTextGetChars 1
 #include "../../android/text/GetChars.h"
 
-#define AndroidTextSpannable_RESTRICT 1
-#define AndroidTextSpannable_INCLUDE 1
+#define RESTRICT_AndroidTextSpannable 1
+#define INCLUDE_AndroidTextSpannable 1
 #include "../../android/text/Spannable.h"
 
-#define JavaLangAppendable_RESTRICT 1
-#define JavaLangAppendable_INCLUDE 1
+#define RESTRICT_JavaLangAppendable 1
+#define INCLUDE_JavaLangAppendable 1
 #include "../../java/lang/Appendable.h"
 
 @class IOSObjectArray;
@@ -157,7 +157,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextEditable)
 
 #endif
 
-#if !defined (AndroidTextEditable_Factory_) && (AndroidTextEditable_INCLUDE_ALL || defined(AndroidTextEditable_Factory_INCLUDE))
+#if !defined (AndroidTextEditable_Factory_) && (INCLUDE_ALL_AndroidTextEditable || defined(INCLUDE_AndroidTextEditable_Factory))
 #define AndroidTextEditable_Factory_
 
 @protocol AndroidTextEditable;
@@ -197,10 +197,12 @@ FOUNDATION_EXPORT void AndroidTextEditable_Factory_init(AndroidTextEditable_Fact
 
 FOUNDATION_EXPORT AndroidTextEditable_Factory *new_AndroidTextEditable_Factory_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextEditable_Factory *create_AndroidTextEditable_Factory_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextEditable_Factory)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextEditable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextEditable")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoLineNumberReader_INCLUDE_ALL")
-#ifdef JavaIoLineNumberReader_RESTRICT
-#define JavaIoLineNumberReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoLineNumberReader")
+#ifdef RESTRICT_JavaIoLineNumberReader
+#define INCLUDE_ALL_JavaIoLineNumberReader 0
 #else
-#define JavaIoLineNumberReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoLineNumberReader 1
 #endif
-#undef JavaIoLineNumberReader_RESTRICT
+#undef RESTRICT_JavaIoLineNumberReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoLineNumberReader_) && (JavaIoLineNumberReader_INCLUDE_ALL || defined(JavaIoLineNumberReader_INCLUDE))
+#if !defined (JavaIoLineNumberReader_) && (INCLUDE_ALL_JavaIoLineNumberReader || defined(INCLUDE_JavaIoLineNumberReader))
 #define JavaIoLineNumberReader_
 
-#define JavaIoBufferedReader_RESTRICT 1
-#define JavaIoBufferedReader_INCLUDE 1
+#define RESTRICT_JavaIoBufferedReader 1
+#define INCLUDE_JavaIoBufferedReader 1
 #include "../../java/io/BufferedReader.h"
 
 @class IOSCharArray;
@@ -191,9 +191,13 @@ FOUNDATION_EXPORT void JavaIoLineNumberReader_initWithJavaIoReader_(JavaIoLineNu
 
 FOUNDATION_EXPORT JavaIoLineNumberReader *new_JavaIoLineNumberReader_initWithJavaIoReader_(JavaIoReader *inArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoLineNumberReader *create_JavaIoLineNumberReader_initWithJavaIoReader_(JavaIoReader *inArg);
+
 FOUNDATION_EXPORT void JavaIoLineNumberReader_initWithJavaIoReader_withInt_(JavaIoLineNumberReader *self, JavaIoReader *inArg, jint size);
 
 FOUNDATION_EXPORT JavaIoLineNumberReader *new_JavaIoLineNumberReader_initWithJavaIoReader_withInt_(JavaIoReader *inArg, jint size) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoLineNumberReader *create_JavaIoLineNumberReader_initWithJavaIoReader_withInt_(JavaIoReader *inArg, jint size);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoLineNumberReader)
 
@@ -201,4 +205,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoLineNumberReader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoLineNumberReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoLineNumberReader")

@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilIllegalFormatFlagsException_INCLUDE_ALL")
-#ifdef JavaUtilIllegalFormatFlagsException_RESTRICT
-#define JavaUtilIllegalFormatFlagsException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilIllegalFormatFlagsException")
+#ifdef RESTRICT_JavaUtilIllegalFormatFlagsException
+#define INCLUDE_ALL_JavaUtilIllegalFormatFlagsException 0
 #else
-#define JavaUtilIllegalFormatFlagsException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilIllegalFormatFlagsException 1
 #endif
-#undef JavaUtilIllegalFormatFlagsException_RESTRICT
+#undef RESTRICT_JavaUtilIllegalFormatFlagsException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilIllegalFormatFlagsException_) && (JavaUtilIllegalFormatFlagsException_INCLUDE_ALL || defined(JavaUtilIllegalFormatFlagsException_INCLUDE))
+#if !defined (JavaUtilIllegalFormatFlagsException_) && (INCLUDE_ALL_JavaUtilIllegalFormatFlagsException || defined(INCLUDE_JavaUtilIllegalFormatFlagsException))
 #define JavaUtilIllegalFormatFlagsException_
 
-#define JavaUtilIllegalFormatException_RESTRICT 1
-#define JavaUtilIllegalFormatException_INCLUDE 1
+#define RESTRICT_JavaUtilIllegalFormatException 1
+#define INCLUDE_JavaUtilIllegalFormatException 1
 #include "../../java/util/IllegalFormatException.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -60,10 +60,12 @@ FOUNDATION_EXPORT void JavaUtilIllegalFormatFlagsException_initWithNSString_(Jav
 
 FOUNDATION_EXPORT JavaUtilIllegalFormatFlagsException *new_JavaUtilIllegalFormatFlagsException_initWithNSString_(NSString *flags) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIllegalFormatFlagsException *create_JavaUtilIllegalFormatFlagsException_initWithNSString_(NSString *flags);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatFlagsException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilIllegalFormatFlagsException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilIllegalFormatFlagsException")

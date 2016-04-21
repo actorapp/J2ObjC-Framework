@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextSpanned_INCLUDE_ALL")
-#ifdef AndroidTextSpanned_RESTRICT
-#define AndroidTextSpanned_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextSpanned")
+#ifdef RESTRICT_AndroidTextSpanned
+#define INCLUDE_ALL_AndroidTextSpanned 0
 #else
-#define AndroidTextSpanned_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextSpanned 1
 #endif
-#undef AndroidTextSpanned_RESTRICT
+#undef RESTRICT_AndroidTextSpanned
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextSpanned_) && (AndroidTextSpanned_INCLUDE_ALL || defined(AndroidTextSpanned_INCLUDE))
+#if !defined (AndroidTextSpanned_) && (INCLUDE_ALL_AndroidTextSpanned || defined(INCLUDE_AndroidTextSpanned))
 #define AndroidTextSpanned_
 
-#define JavaLangCharSequence_RESTRICT 1
-#define JavaLangCharSequence_INCLUDE 1
+#define RESTRICT_JavaLangCharSequence 1
+#define INCLUDE_JavaLangCharSequence 1
 #include "../../java/lang/CharSequence.h"
 
 @class IOSClass;
@@ -296,4 +296,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpanned)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextSpanned_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextSpanned")

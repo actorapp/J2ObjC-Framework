@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentTransferQueue_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentTransferQueue_RESTRICT
-#define JavaUtilConcurrentTransferQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentTransferQueue")
+#ifdef RESTRICT_JavaUtilConcurrentTransferQueue
+#define INCLUDE_ALL_JavaUtilConcurrentTransferQueue 0
 #else
-#define JavaUtilConcurrentTransferQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentTransferQueue 1
 #endif
-#undef JavaUtilConcurrentTransferQueue_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentTransferQueue
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentTransferQueue_) && (JavaUtilConcurrentTransferQueue_INCLUDE_ALL || defined(JavaUtilConcurrentTransferQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentTransferQueue_) && (INCLUDE_ALL_JavaUtilConcurrentTransferQueue || defined(INCLUDE_JavaUtilConcurrentTransferQueue))
 #define JavaUtilConcurrentTransferQueue_
 
-#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
-#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentBlockingQueue 1
+#define INCLUDE_JavaUtilConcurrentBlockingQueue 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
 
 @class JavaUtilConcurrentTimeUnit;
@@ -148,4 +148,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentTransferQueue)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentTransferQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentTransferQueue")

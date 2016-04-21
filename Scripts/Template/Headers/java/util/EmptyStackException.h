@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilEmptyStackException_INCLUDE_ALL")
-#ifdef JavaUtilEmptyStackException_RESTRICT
-#define JavaUtilEmptyStackException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilEmptyStackException")
+#ifdef RESTRICT_JavaUtilEmptyStackException
+#define INCLUDE_ALL_JavaUtilEmptyStackException 0
 #else
-#define JavaUtilEmptyStackException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilEmptyStackException 1
 #endif
-#undef JavaUtilEmptyStackException_RESTRICT
+#undef RESTRICT_JavaUtilEmptyStackException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilEmptyStackException_) && (JavaUtilEmptyStackException_INCLUDE_ALL || defined(JavaUtilEmptyStackException_INCLUDE))
+#if !defined (JavaUtilEmptyStackException_) && (INCLUDE_ALL_JavaUtilEmptyStackException || defined(INCLUDE_JavaUtilEmptyStackException))
 #define JavaUtilEmptyStackException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -46,10 +46,12 @@ FOUNDATION_EXPORT void JavaUtilEmptyStackException_init(JavaUtilEmptyStackExcept
 
 FOUNDATION_EXPORT JavaUtilEmptyStackException *new_JavaUtilEmptyStackException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilEmptyStackException *create_JavaUtilEmptyStackException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEmptyStackException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilEmptyStackException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilEmptyStackException")

@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertX509Certificate_INCLUDE_ALL")
-#ifdef JavaSecurityCertX509Certificate_RESTRICT
-#define JavaSecurityCertX509Certificate_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertX509Certificate")
+#ifdef RESTRICT_JavaSecurityCertX509Certificate
+#define INCLUDE_ALL_JavaSecurityCertX509Certificate 0
 #else
-#define JavaSecurityCertX509Certificate_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertX509Certificate 1
 #endif
-#undef JavaSecurityCertX509Certificate_RESTRICT
+#undef RESTRICT_JavaSecurityCertX509Certificate
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertX509Certificate_) && (JavaSecurityCertX509Certificate_INCLUDE_ALL || defined(JavaSecurityCertX509Certificate_INCLUDE))
+#if !defined (JavaSecurityCertX509Certificate_) && (INCLUDE_ALL_JavaSecurityCertX509Certificate || defined(INCLUDE_JavaSecurityCertX509Certificate))
 #define JavaSecurityCertX509Certificate_
 
-#define JavaSecurityCertCertificate_RESTRICT 1
-#define JavaSecurityCertCertificate_INCLUDE 1
+#define RESTRICT_JavaSecurityCertCertificate 1
+#define INCLUDE_JavaSecurityCertCertificate 1
 #include "../../../java/security/cert/Certificate.h"
 
-#define JavaSecurityCertX509Extension_RESTRICT 1
-#define JavaSecurityCertX509Extension_INCLUDE 1
+#define RESTRICT_JavaSecurityCertX509Extension 1
+#define INCLUDE_JavaSecurityCertX509Extension 1
 #include "../../../java/security/cert/X509Extension.h"
 
 @class IOSBooleanArray;
@@ -382,4 +382,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertX509Certificate)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertX509Certificate_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertX509Certificate")

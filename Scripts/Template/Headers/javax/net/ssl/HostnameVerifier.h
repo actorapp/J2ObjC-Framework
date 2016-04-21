@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslHostnameVerifier_INCLUDE_ALL")
-#ifdef JavaxNetSslHostnameVerifier_RESTRICT
-#define JavaxNetSslHostnameVerifier_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslHostnameVerifier")
+#ifdef RESTRICT_JavaxNetSslHostnameVerifier
+#define INCLUDE_ALL_JavaxNetSslHostnameVerifier 0
 #else
-#define JavaxNetSslHostnameVerifier_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslHostnameVerifier 1
 #endif
-#undef JavaxNetSslHostnameVerifier_RESTRICT
+#undef RESTRICT_JavaxNetSslHostnameVerifier
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslHostnameVerifier_) && (JavaxNetSslHostnameVerifier_INCLUDE_ALL || defined(JavaxNetSslHostnameVerifier_INCLUDE))
+#if !defined (JavaxNetSslHostnameVerifier_) && (INCLUDE_ALL_JavaxNetSslHostnameVerifier || defined(INCLUDE_JavaxNetSslHostnameVerifier))
 #define JavaxNetSslHostnameVerifier_
 
 @protocol JavaxNetSslSSLSession;
@@ -53,4 +53,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHostnameVerifier)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslHostnameVerifier_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslHostnameVerifier")

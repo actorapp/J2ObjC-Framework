@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLTransactionRollbackException_INCLUDE_ALL")
-#ifdef JavaSqlSQLTransactionRollbackException_RESTRICT
-#define JavaSqlSQLTransactionRollbackException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLTransactionRollbackException")
+#ifdef RESTRICT_JavaSqlSQLTransactionRollbackException
+#define INCLUDE_ALL_JavaSqlSQLTransactionRollbackException 0
 #else
-#define JavaSqlSQLTransactionRollbackException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLTransactionRollbackException 1
 #endif
-#undef JavaSqlSQLTransactionRollbackException_RESTRICT
+#undef RESTRICT_JavaSqlSQLTransactionRollbackException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLTransactionRollbackException_) && (JavaSqlSQLTransactionRollbackException_INCLUDE_ALL || defined(JavaSqlSQLTransactionRollbackException_INCLUDE))
+#if !defined (JavaSqlSQLTransactionRollbackException_) && (INCLUDE_ALL_JavaSqlSQLTransactionRollbackException || defined(INCLUDE_JavaSqlSQLTransactionRollbackException))
 #define JavaSqlSQLTransactionRollbackException_
 
-#define JavaSqlSQLTransientException_RESTRICT 1
-#define JavaSqlSQLTransientException_INCLUDE 1
+#define RESTRICT_JavaSqlSQLTransientException 1
+#define INCLUDE_JavaSqlSQLTransientException 1
 #include "../../java/sql/SQLTransientException.h"
-
-@class JavaLangThrowable;
 
 @interface JavaSqlSQLTransactionRollbackException : JavaSqlSQLTransientException
 
@@ -96,7 +94,7 @@
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
                          withInt:(jint)vendorCode
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLTransactionRollbackException object.
@@ -114,7 +112,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLTransactionRollbackException object.
@@ -128,7 +126,7 @@
  SQLException
  */
 - (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLTransactionRollbackException object.
@@ -139,7 +137,7 @@
  the Throwable object for the underlying reason this
  SQLException
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 #pragma mark Package-Private
 
@@ -151,33 +149,49 @@ FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_init(JavaSqlSQLTra
 
 FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *create_JavaSqlSQLTransactionRollbackException_init();
+
 FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithNSString_(JavaSqlSQLTransactionRollbackException *self, NSString *reason);
 
 FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithNSString_(NSString *reason) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *create_JavaSqlSQLTransactionRollbackException_initWithNSString_(NSString *reason);
 
 FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_(JavaSqlSQLTransactionRollbackException *self, NSString *reason, NSString *sqlState);
 
 FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *create_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState);
+
 FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withInt_(JavaSqlSQLTransactionRollbackException *self, NSString *reason, NSString *sqlState, jint vendorCode);
 
 FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithJavaLangThrowable_(JavaSqlSQLTransactionRollbackException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *create_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode);
 
-FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithNSException_(JavaSqlSQLTransactionRollbackException *self, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithNSString_withJavaLangThrowable_(JavaSqlSQLTransactionRollbackException *self, NSString *reason, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithNSString_withJavaLangThrowable_(NSString *reason, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *create_JavaSqlSQLTransactionRollbackException_initWithNSException_(NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withJavaLangThrowable_(JavaSqlSQLTransactionRollbackException *self, NSString *reason, NSString *sqlState, JavaLangThrowable *cause);
+FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithNSString_withNSException_(JavaSqlSQLTransactionRollbackException *self, NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withJavaLangThrowable_(NSString *reason, NSString *sqlState, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSException_(NSString *reason, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(JavaSqlSQLTransactionRollbackException *self, NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *create_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSException_(NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withNSException_(JavaSqlSQLTransactionRollbackException *self, NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *create_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withInt_withNSException_(JavaSqlSQLTransactionRollbackException *self, NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *new_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLTransactionRollbackException *create_JavaSqlSQLTransactionRollbackException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLTransactionRollbackException)
 
@@ -185,4 +199,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLTransactionRollbackException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLTransactionRollbackException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLTransactionRollbackException")

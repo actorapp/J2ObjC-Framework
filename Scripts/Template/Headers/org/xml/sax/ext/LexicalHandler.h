@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxExtLexicalHandler_INCLUDE_ALL")
-#ifdef OrgXmlSaxExtLexicalHandler_RESTRICT
-#define OrgXmlSaxExtLexicalHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtLexicalHandler")
+#ifdef RESTRICT_OrgXmlSaxExtLexicalHandler
+#define INCLUDE_ALL_OrgXmlSaxExtLexicalHandler 0
 #else
-#define OrgXmlSaxExtLexicalHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxExtLexicalHandler 1
 #endif
-#undef OrgXmlSaxExtLexicalHandler_RESTRICT
+#undef RESTRICT_OrgXmlSaxExtLexicalHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxExtLexicalHandler_) && (OrgXmlSaxExtLexicalHandler_INCLUDE_ALL || defined(OrgXmlSaxExtLexicalHandler_INCLUDE))
+#if !defined (OrgXmlSaxExtLexicalHandler_) && (INCLUDE_ALL_OrgXmlSaxExtLexicalHandler || defined(INCLUDE_OrgXmlSaxExtLexicalHandler))
 #define OrgXmlSaxExtLexicalHandler_
 
 @class IOSCharArray;
@@ -193,4 +193,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtLexicalHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxExtLexicalHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtLexicalHandler")

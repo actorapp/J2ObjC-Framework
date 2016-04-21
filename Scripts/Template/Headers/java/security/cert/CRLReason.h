@@ -5,30 +5,30 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCRLReason_INCLUDE_ALL")
-#ifdef JavaSecurityCertCRLReason_RESTRICT
-#define JavaSecurityCertCRLReason_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCRLReason")
+#ifdef RESTRICT_JavaSecurityCertCRLReason
+#define INCLUDE_ALL_JavaSecurityCertCRLReason 0
 #else
-#define JavaSecurityCertCRLReason_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCRLReason 1
 #endif
-#undef JavaSecurityCertCRLReason_RESTRICT
+#undef RESTRICT_JavaSecurityCertCRLReason
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCRLReason_) && (JavaSecurityCertCRLReason_INCLUDE_ALL || defined(JavaSecurityCertCRLReason_INCLUDE))
+#if !defined (JavaSecurityCertCRLReason_) && (INCLUDE_ALL_JavaSecurityCertCRLReason || defined(INCLUDE_JavaSecurityCertCRLReason))
 #define JavaSecurityCertCRLReason_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../../java/lang/Enum.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../../java/lang/Comparable.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 typedef NS_ENUM(NSUInteger, JavaSecurityCertCRLReason_Enum) {
@@ -136,4 +136,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCRLReason)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCRLReason_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCRLReason")

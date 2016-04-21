@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoObjectInputValidation_INCLUDE_ALL")
-#ifdef JavaIoObjectInputValidation_RESTRICT
-#define JavaIoObjectInputValidation_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoObjectInputValidation")
+#ifdef RESTRICT_JavaIoObjectInputValidation
+#define INCLUDE_ALL_JavaIoObjectInputValidation 0
 #else
-#define JavaIoObjectInputValidation_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoObjectInputValidation 1
 #endif
-#undef JavaIoObjectInputValidation_RESTRICT
+#undef RESTRICT_JavaIoObjectInputValidation
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoObjectInputValidation_) && (JavaIoObjectInputValidation_INCLUDE_ALL || defined(JavaIoObjectInputValidation_INCLUDE))
+#if !defined (JavaIoObjectInputValidation_) && (INCLUDE_ALL_JavaIoObjectInputValidation || defined(INCLUDE_JavaIoObjectInputValidation))
 #define JavaIoObjectInputValidation_
 
 /*!
@@ -45,4 +45,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInputValidation)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoObjectInputValidation_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoObjectInputValidation")

@@ -5,25 +5,24 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCertPathValidatorException_INCLUDE_ALL")
-#ifdef JavaSecurityCertCertPathValidatorException_RESTRICT
-#define JavaSecurityCertCertPathValidatorException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidatorException")
+#ifdef RESTRICT_JavaSecurityCertCertPathValidatorException
+#define INCLUDE_ALL_JavaSecurityCertCertPathValidatorException 0
 #else
-#define JavaSecurityCertCertPathValidatorException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCertPathValidatorException 1
 #endif
-#undef JavaSecurityCertCertPathValidatorException_RESTRICT
+#undef RESTRICT_JavaSecurityCertCertPathValidatorException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCertPathValidatorException_) && (JavaSecurityCertCertPathValidatorException_INCLUDE_ALL || defined(JavaSecurityCertCertPathValidatorException_INCLUDE))
+#if !defined (JavaSecurityCertCertPathValidatorException_) && (INCLUDE_ALL_JavaSecurityCertCertPathValidatorException || defined(INCLUDE_JavaSecurityCertCertPathValidatorException))
 #define JavaSecurityCertCertPathValidatorException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../../java/security/GeneralSecurityException.h"
 
-@class JavaLangThrowable;
 @class JavaSecurityCertCertPath;
 
 /*!
@@ -60,7 +59,7 @@
  the cause why the path could not be validated.
  */
 - (instancetype)initWithNSString:(NSString *)msg
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates a new <code>CertPathValidatorException</code> with the specified
@@ -82,7 +81,7 @@
  referencing an certificate in the certification path.
  */
 - (instancetype)initWithNSString:(NSString *)msg
-           withJavaLangThrowable:(JavaLangThrowable *)cause
+                 withNSException:(NSException *)cause
     withJavaSecurityCertCertPath:(JavaSecurityCertCertPath *)certPath
                          withInt:(jint)index;
 
@@ -92,7 +91,7 @@
  @param cause
  the cause why the path could not be validated.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 /*!
  @brief Returns the certification path that failed validation.
@@ -112,25 +111,35 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaSecurityCertCertPathValidatorException)
 
-FOUNDATION_EXPORT void JavaSecurityCertCertPathValidatorException_initWithNSString_withJavaLangThrowable_withJavaSecurityCertCertPath_withInt_(JavaSecurityCertCertPathValidatorException *self, NSString *msg, JavaLangThrowable *cause, JavaSecurityCertCertPath *certPath, jint index);
+FOUNDATION_EXPORT void JavaSecurityCertCertPathValidatorException_initWithNSString_withNSException_withJavaSecurityCertCertPath_withInt_(JavaSecurityCertCertPathValidatorException *self, NSString *msg, NSException *cause, JavaSecurityCertCertPath *certPath, jint index);
 
-FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *new_JavaSecurityCertCertPathValidatorException_initWithNSString_withJavaLangThrowable_withJavaSecurityCertCertPath_withInt_(NSString *msg, JavaLangThrowable *cause, JavaSecurityCertCertPath *certPath, jint index) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *new_JavaSecurityCertCertPathValidatorException_initWithNSString_withNSException_withJavaSecurityCertCertPath_withInt_(NSString *msg, NSException *cause, JavaSecurityCertCertPath *certPath, jint index) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityCertCertPathValidatorException_initWithNSString_withJavaLangThrowable_(JavaSecurityCertCertPathValidatorException *self, NSString *msg, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *create_JavaSecurityCertCertPathValidatorException_initWithNSString_withNSException_withJavaSecurityCertCertPath_withInt_(NSString *msg, NSException *cause, JavaSecurityCertCertPath *certPath, jint index);
 
-FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *new_JavaSecurityCertCertPathValidatorException_initWithNSString_withJavaLangThrowable_(NSString *msg, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityCertCertPathValidatorException_initWithNSString_withNSException_(JavaSecurityCertCertPathValidatorException *self, NSString *msg, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityCertCertPathValidatorException_initWithJavaLangThrowable_(JavaSecurityCertCertPathValidatorException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *new_JavaSecurityCertCertPathValidatorException_initWithNSString_withNSException_(NSString *msg, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *new_JavaSecurityCertCertPathValidatorException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *create_JavaSecurityCertCertPathValidatorException_initWithNSString_withNSException_(NSString *msg, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityCertCertPathValidatorException_initWithNSException_(JavaSecurityCertCertPathValidatorException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *new_JavaSecurityCertCertPathValidatorException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *create_JavaSecurityCertCertPathValidatorException_initWithNSException_(NSException *cause);
 
 FOUNDATION_EXPORT void JavaSecurityCertCertPathValidatorException_initWithNSString_(JavaSecurityCertCertPathValidatorException *self, NSString *msg);
 
 FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *new_JavaSecurityCertCertPathValidatorException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *create_JavaSecurityCertCertPathValidatorException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityCertCertPathValidatorException_init(JavaSecurityCertCertPathValidatorException *self);
 
 FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *new_JavaSecurityCertCertPathValidatorException_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityCertCertPathValidatorException *create_JavaSecurityCertCertPathValidatorException_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidatorException)
 
@@ -138,4 +147,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidatorException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCertPathValidatorException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidatorException")

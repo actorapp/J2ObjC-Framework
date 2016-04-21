@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsOverlappingFileLockException_INCLUDE_ALL")
-#ifdef JavaNioChannelsOverlappingFileLockException_RESTRICT
-#define JavaNioChannelsOverlappingFileLockException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsOverlappingFileLockException")
+#ifdef RESTRICT_JavaNioChannelsOverlappingFileLockException
+#define INCLUDE_ALL_JavaNioChannelsOverlappingFileLockException 0
 #else
-#define JavaNioChannelsOverlappingFileLockException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsOverlappingFileLockException 1
 #endif
-#undef JavaNioChannelsOverlappingFileLockException_RESTRICT
+#undef RESTRICT_JavaNioChannelsOverlappingFileLockException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsOverlappingFileLockException_) && (JavaNioChannelsOverlappingFileLockException_INCLUDE_ALL || defined(JavaNioChannelsOverlappingFileLockException_INCLUDE))
+#if !defined (JavaNioChannelsOverlappingFileLockException_) && (INCLUDE_ALL_JavaNioChannelsOverlappingFileLockException || defined(INCLUDE_JavaNioChannelsOverlappingFileLockException))
 #define JavaNioChannelsOverlappingFileLockException_
 
-#define JavaLangIllegalStateException_RESTRICT 1
-#define JavaLangIllegalStateException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalStateException 1
+#define INCLUDE_JavaLangIllegalStateException 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioChannelsOverlappingFileLockException_init(JavaNioC
 
 FOUNDATION_EXPORT JavaNioChannelsOverlappingFileLockException *new_JavaNioChannelsOverlappingFileLockException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsOverlappingFileLockException *create_JavaNioChannelsOverlappingFileLockException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsOverlappingFileLockException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsOverlappingFileLockException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsOverlappingFileLockException")

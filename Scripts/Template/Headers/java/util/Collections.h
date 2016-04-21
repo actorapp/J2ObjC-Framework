@@ -5,33 +5,33 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilCollections_INCLUDE_ALL")
-#ifdef JavaUtilCollections_RESTRICT
-#define JavaUtilCollections_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilCollections")
+#ifdef RESTRICT_JavaUtilCollections
+#define INCLUDE_ALL_JavaUtilCollections 0
 #else
-#define JavaUtilCollections_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilCollections 1
 #endif
-#undef JavaUtilCollections_RESTRICT
-#ifdef JavaUtilCollections_SynchronizedSortedSet_INCLUDE
-#define JavaUtilCollections_SynchronizedSet_INCLUDE 1
+#undef RESTRICT_JavaUtilCollections
+#ifdef INCLUDE_JavaUtilCollections_SynchronizedSortedSet
+#define INCLUDE_JavaUtilCollections_SynchronizedSet 1
 #endif
-#ifdef JavaUtilCollections_SynchronizedSortedMap_INCLUDE
-#define JavaUtilCollections_SynchronizedMap_INCLUDE 1
+#ifdef INCLUDE_JavaUtilCollections_SynchronizedSortedMap
+#define INCLUDE_JavaUtilCollections_SynchronizedMap 1
 #endif
-#ifdef JavaUtilCollections_SynchronizedSet_INCLUDE
-#define JavaUtilCollections_SynchronizedCollection_INCLUDE 1
+#ifdef INCLUDE_JavaUtilCollections_SynchronizedSet
+#define INCLUDE_JavaUtilCollections_SynchronizedCollection 1
 #endif
-#ifdef JavaUtilCollections_SynchronizedRandomAccessList_INCLUDE
-#define JavaUtilCollections_SynchronizedList_INCLUDE 1
+#ifdef INCLUDE_JavaUtilCollections_SynchronizedRandomAccessList
+#define INCLUDE_JavaUtilCollections_SynchronizedList 1
 #endif
-#ifdef JavaUtilCollections_SynchronizedList_INCLUDE
-#define JavaUtilCollections_SynchronizedCollection_INCLUDE 1
+#ifdef INCLUDE_JavaUtilCollections_SynchronizedList
+#define INCLUDE_JavaUtilCollections_SynchronizedCollection 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilCollections_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_INCLUDE))
+#if !defined (JavaUtilCollections_) && (INCLUDE_ALL_JavaUtilCollections || defined(INCLUDE_JavaUtilCollections))
 #define JavaUtilCollections_
 
 @class IOSClass;
@@ -930,15 +930,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections)
 
 #endif
 
-#if !defined (JavaUtilCollections_SynchronizedCollection_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedCollection_INCLUDE))
+#if !defined (JavaUtilCollections_SynchronizedCollection_) && (INCLUDE_ALL_JavaUtilCollections || defined(INCLUDE_JavaUtilCollections_SynchronizedCollection))
 #define JavaUtilCollections_SynchronizedCollection_
 
-#define JavaUtilCollection_RESTRICT 1
-#define JavaUtilCollection_INCLUDE 1
+#define RESTRICT_JavaUtilCollection 1
+#define INCLUDE_JavaUtilCollection 1
 #include "../../java/util/Collection.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -998,19 +998,23 @@ FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedCollection_initWithJavaUt
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedCollection *new_JavaUtilCollections_SynchronizedCollection_initWithJavaUtilCollection_(id<JavaUtilCollection> collection) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedCollection *create_JavaUtilCollections_SynchronizedCollection_initWithJavaUtilCollection_(id<JavaUtilCollection> collection);
+
 FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedCollection_initWithJavaUtilCollection_withId_(JavaUtilCollections_SynchronizedCollection *self, id<JavaUtilCollection> collection, id mutex);
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedCollection *new_JavaUtilCollections_SynchronizedCollection_initWithJavaUtilCollection_withId_(id<JavaUtilCollection> collection, id mutex) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedCollection *create_JavaUtilCollections_SynchronizedCollection_initWithJavaUtilCollection_withId_(id<JavaUtilCollection> collection, id mutex);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedCollection)
 
 #endif
 
-#if !defined (JavaUtilCollections_SynchronizedList_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedList_INCLUDE))
+#if !defined (JavaUtilCollections_SynchronizedList_) && (INCLUDE_ALL_JavaUtilCollections || defined(INCLUDE_JavaUtilCollections_SynchronizedList))
 #define JavaUtilCollections_SynchronizedList_
 
-#define JavaUtilList_RESTRICT 1
-#define JavaUtilList_INCLUDE 1
+#define RESTRICT_JavaUtilList 1
+#define INCLUDE_JavaUtilList 1
 #include "../../java/util/List.h"
 
 @protocol JavaUtilCollection;
@@ -1068,19 +1072,23 @@ FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedList_initWithJavaUtilList
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedList *new_JavaUtilCollections_SynchronizedList_initWithJavaUtilList_(id<JavaUtilList> l) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedList *create_JavaUtilCollections_SynchronizedList_initWithJavaUtilList_(id<JavaUtilList> l);
+
 FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedList_initWithJavaUtilList_withId_(JavaUtilCollections_SynchronizedList *self, id<JavaUtilList> l, id mutex);
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedList *new_JavaUtilCollections_SynchronizedList_initWithJavaUtilList_withId_(id<JavaUtilList> l, id mutex) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedList *create_JavaUtilCollections_SynchronizedList_initWithJavaUtilList_withId_(id<JavaUtilList> l, id mutex);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedList)
 
 #endif
 
-#if !defined (JavaUtilCollections_SynchronizedRandomAccessList_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedRandomAccessList_INCLUDE))
+#if !defined (JavaUtilCollections_SynchronizedRandomAccessList_) && (INCLUDE_ALL_JavaUtilCollections || defined(INCLUDE_JavaUtilCollections_SynchronizedRandomAccessList))
 #define JavaUtilCollections_SynchronizedRandomAccessList_
 
-#define JavaUtilRandomAccess_RESTRICT 1
-#define JavaUtilRandomAccess_INCLUDE 1
+#define RESTRICT_JavaUtilRandomAccess 1
+#define INCLUDE_JavaUtilRandomAccess 1
 #include "../../java/util/RandomAccess.h"
 
 @protocol JavaUtilList;
@@ -1107,23 +1115,27 @@ FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedRandomAccessList_initWith
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedRandomAccessList *new_JavaUtilCollections_SynchronizedRandomAccessList_initWithJavaUtilList_(id<JavaUtilList> l) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedRandomAccessList *create_JavaUtilCollections_SynchronizedRandomAccessList_initWithJavaUtilList_(id<JavaUtilList> l);
+
 FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedRandomAccessList_initWithJavaUtilList_withId_(JavaUtilCollections_SynchronizedRandomAccessList *self, id<JavaUtilList> l, id mutex);
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedRandomAccessList *new_JavaUtilCollections_SynchronizedRandomAccessList_initWithJavaUtilList_withId_(id<JavaUtilList> l, id mutex) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedRandomAccessList *create_JavaUtilCollections_SynchronizedRandomAccessList_initWithJavaUtilList_withId_(id<JavaUtilList> l, id mutex);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedRandomAccessList)
 
 #endif
 
-#if !defined (JavaUtilCollections_SynchronizedMap_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedMap_INCLUDE))
+#if !defined (JavaUtilCollections_SynchronizedMap_) && (INCLUDE_ALL_JavaUtilCollections || defined(INCLUDE_JavaUtilCollections_SynchronizedMap))
 #define JavaUtilCollections_SynchronizedMap_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap 1
 #include "../../java/util/Map.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
@@ -1184,19 +1196,23 @@ FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedMap_initWithJavaUtilMap_(
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedMap *new_JavaUtilCollections_SynchronizedMap_initWithJavaUtilMap_(id<JavaUtilMap> map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedMap *create_JavaUtilCollections_SynchronizedMap_initWithJavaUtilMap_(id<JavaUtilMap> map);
+
 FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedMap_initWithJavaUtilMap_withId_(JavaUtilCollections_SynchronizedMap *self, id<JavaUtilMap> map, id mutex);
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedMap *new_JavaUtilCollections_SynchronizedMap_initWithJavaUtilMap_withId_(id<JavaUtilMap> map, id mutex) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedMap *create_JavaUtilCollections_SynchronizedMap_initWithJavaUtilMap_withId_(id<JavaUtilMap> map, id mutex);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedMap)
 
 #endif
 
-#if !defined (JavaUtilCollections_SynchronizedSet_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedSet_INCLUDE))
+#if !defined (JavaUtilCollections_SynchronizedSet_) && (INCLUDE_ALL_JavaUtilCollections || defined(INCLUDE_JavaUtilCollections_SynchronizedSet))
 #define JavaUtilCollections_SynchronizedSet_
 
-#define JavaUtilSet_RESTRICT 1
-#define JavaUtilSet_INCLUDE 1
+#define RESTRICT_JavaUtilSet 1
+#define INCLUDE_JavaUtilSet 1
 #include "../../java/util/Set.h"
 
 @interface JavaUtilCollections_SynchronizedSet : JavaUtilCollections_SynchronizedCollection < JavaUtilSet >
@@ -1222,19 +1238,23 @@ FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedSet_initWithJavaUtilSet_(
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSet *new_JavaUtilCollections_SynchronizedSet_initWithJavaUtilSet_(id<JavaUtilSet> set) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSet *create_JavaUtilCollections_SynchronizedSet_initWithJavaUtilSet_(id<JavaUtilSet> set);
+
 FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedSet_initWithJavaUtilSet_withId_(JavaUtilCollections_SynchronizedSet *self, id<JavaUtilSet> set, id mutex);
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSet *new_JavaUtilCollections_SynchronizedSet_initWithJavaUtilSet_withId_(id<JavaUtilSet> set, id mutex) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSet *create_JavaUtilCollections_SynchronizedSet_initWithJavaUtilSet_withId_(id<JavaUtilSet> set, id mutex);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSet)
 
 #endif
 
-#if !defined (JavaUtilCollections_SynchronizedSortedMap_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedSortedMap_INCLUDE))
+#if !defined (JavaUtilCollections_SynchronizedSortedMap_) && (INCLUDE_ALL_JavaUtilCollections || defined(INCLUDE_JavaUtilCollections_SynchronizedSortedMap))
 #define JavaUtilCollections_SynchronizedSortedMap_
 
-#define JavaUtilSortedMap_RESTRICT 1
-#define JavaUtilSortedMap_INCLUDE 1
+#define RESTRICT_JavaUtilSortedMap 1
+#define INCLUDE_JavaUtilSortedMap 1
 #include "../../java/util/SortedMap.h"
 
 @protocol JavaUtilComparator;
@@ -1271,19 +1291,23 @@ FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedSortedMap_initWithJavaUti
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSortedMap *new_JavaUtilCollections_SynchronizedSortedMap_initWithJavaUtilSortedMap_(id<JavaUtilSortedMap> map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSortedMap *create_JavaUtilCollections_SynchronizedSortedMap_initWithJavaUtilSortedMap_(id<JavaUtilSortedMap> map);
+
 FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedSortedMap_initWithJavaUtilSortedMap_withId_(JavaUtilCollections_SynchronizedSortedMap *self, id<JavaUtilSortedMap> map, id mutex);
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSortedMap *new_JavaUtilCollections_SynchronizedSortedMap_initWithJavaUtilSortedMap_withId_(id<JavaUtilSortedMap> map, id mutex) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSortedMap *create_JavaUtilCollections_SynchronizedSortedMap_initWithJavaUtilSortedMap_withId_(id<JavaUtilSortedMap> map, id mutex);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedMap)
 
 #endif
 
-#if !defined (JavaUtilCollections_SynchronizedSortedSet_) && (JavaUtilCollections_INCLUDE_ALL || defined(JavaUtilCollections_SynchronizedSortedSet_INCLUDE))
+#if !defined (JavaUtilCollections_SynchronizedSortedSet_) && (INCLUDE_ALL_JavaUtilCollections || defined(INCLUDE_JavaUtilCollections_SynchronizedSortedSet))
 #define JavaUtilCollections_SynchronizedSortedSet_
 
-#define JavaUtilSortedSet_RESTRICT 1
-#define JavaUtilSortedSet_INCLUDE 1
+#define RESTRICT_JavaUtilSortedSet 1
+#define INCLUDE_JavaUtilSortedSet 1
 #include "../../java/util/SortedSet.h"
 
 @protocol JavaUtilComparator;
@@ -1320,9 +1344,13 @@ FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedSortedSet_initWithJavaUti
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSortedSet *new_JavaUtilCollections_SynchronizedSortedSet_initWithJavaUtilSortedSet_(id<JavaUtilSortedSet> set) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSortedSet *create_JavaUtilCollections_SynchronizedSortedSet_initWithJavaUtilSortedSet_(id<JavaUtilSortedSet> set);
+
 FOUNDATION_EXPORT void JavaUtilCollections_SynchronizedSortedSet_initWithJavaUtilSortedSet_withId_(JavaUtilCollections_SynchronizedSortedSet *self, id<JavaUtilSortedSet> set, id mutex);
 
 FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSortedSet *new_JavaUtilCollections_SynchronizedSortedSet_initWithJavaUtilSortedSet_withId_(id<JavaUtilSortedSet> set, id mutex) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilCollections_SynchronizedSortedSet *create_JavaUtilCollections_SynchronizedSortedSet_initWithJavaUtilSortedSet_withId_(id<JavaUtilSortedSet> set, id mutex);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedSet)
 
@@ -1330,4 +1358,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCollections_SynchronizedSortedSet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilCollections_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilCollections")

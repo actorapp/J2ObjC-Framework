@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangNoSuchFieldError_INCLUDE_ALL")
-#ifdef JavaLangNoSuchFieldError_RESTRICT
-#define JavaLangNoSuchFieldError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangNoSuchFieldError")
+#ifdef RESTRICT_JavaLangNoSuchFieldError
+#define INCLUDE_ALL_JavaLangNoSuchFieldError 0
 #else
-#define JavaLangNoSuchFieldError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangNoSuchFieldError 1
 #endif
-#undef JavaLangNoSuchFieldError_RESTRICT
+#undef RESTRICT_JavaLangNoSuchFieldError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangNoSuchFieldError_) && (JavaLangNoSuchFieldError_INCLUDE_ALL || defined(JavaLangNoSuchFieldError_INCLUDE))
+#if !defined (JavaLangNoSuchFieldError_) && (INCLUDE_ALL_JavaLangNoSuchFieldError || defined(INCLUDE_JavaLangNoSuchFieldError))
 #define JavaLangNoSuchFieldError_
 
-#define JavaLangIncompatibleClassChangeError_RESTRICT 1
-#define JavaLangIncompatibleClassChangeError_INCLUDE 1
+#define RESTRICT_JavaLangIncompatibleClassChangeError 1
+#define INCLUDE_JavaLangIncompatibleClassChangeError 1
 #include "../../java/lang/IncompatibleClassChangeError.h"
 
 /*!
@@ -55,9 +55,13 @@ FOUNDATION_EXPORT void JavaLangNoSuchFieldError_init(JavaLangNoSuchFieldError *s
 
 FOUNDATION_EXPORT JavaLangNoSuchFieldError *new_JavaLangNoSuchFieldError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangNoSuchFieldError *create_JavaLangNoSuchFieldError_init();
+
 FOUNDATION_EXPORT void JavaLangNoSuchFieldError_initWithNSString_(JavaLangNoSuchFieldError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangNoSuchFieldError *new_JavaLangNoSuchFieldError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangNoSuchFieldError *create_JavaLangNoSuchFieldError_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoSuchFieldError)
 
@@ -65,4 +69,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoSuchFieldError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangNoSuchFieldError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangNoSuchFieldError")

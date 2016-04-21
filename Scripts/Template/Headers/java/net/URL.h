@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetURL_INCLUDE_ALL")
-#ifdef JavaNetURL_RESTRICT
-#define JavaNetURL_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetURL")
+#ifdef RESTRICT_JavaNetURL
+#define INCLUDE_ALL_JavaNetURL 0
 #else
-#define JavaNetURL_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetURL 1
 #endif
-#undef JavaNetURL_RESTRICT
+#undef RESTRICT_JavaNetURL
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetURL_) && (JavaNetURL_INCLUDE_ALL || defined(JavaNetURL_INCLUDE))
+#if !defined (JavaNetURL_) && (INCLUDE_ALL_JavaNetURL || defined(INCLUDE_JavaNetURL))
 #define JavaNetURL_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -378,25 +378,37 @@ FOUNDATION_EXPORT void JavaNetURL_initWithNSString_(JavaNetURL *self, NSString *
 
 FOUNDATION_EXPORT JavaNetURL *new_JavaNetURL_initWithNSString_(NSString *spec) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURL *create_JavaNetURL_initWithNSString_(NSString *spec);
+
 FOUNDATION_EXPORT void JavaNetURL_initWithJavaNetURL_withNSString_(JavaNetURL *self, JavaNetURL *context, NSString *spec);
 
 FOUNDATION_EXPORT JavaNetURL *new_JavaNetURL_initWithJavaNetURL_withNSString_(JavaNetURL *context, NSString *spec) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetURL *create_JavaNetURL_initWithJavaNetURL_withNSString_(JavaNetURL *context, NSString *spec);
 
 FOUNDATION_EXPORT void JavaNetURL_initWithJavaNetURL_withNSString_withJavaNetURLStreamHandler_(JavaNetURL *self, JavaNetURL *context, NSString *spec, JavaNetURLStreamHandler *handler);
 
 FOUNDATION_EXPORT JavaNetURL *new_JavaNetURL_initWithJavaNetURL_withNSString_withJavaNetURLStreamHandler_(JavaNetURL *context, NSString *spec, JavaNetURLStreamHandler *handler) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURL *create_JavaNetURL_initWithJavaNetURL_withNSString_withJavaNetURLStreamHandler_(JavaNetURL *context, NSString *spec, JavaNetURLStreamHandler *handler);
+
 FOUNDATION_EXPORT void JavaNetURL_initWithNSString_withNSString_withNSString_(JavaNetURL *self, NSString *protocol, NSString *host, NSString *file);
 
 FOUNDATION_EXPORT JavaNetURL *new_JavaNetURL_initWithNSString_withNSString_withNSString_(NSString *protocol, NSString *host, NSString *file) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetURL *create_JavaNetURL_initWithNSString_withNSString_withNSString_(NSString *protocol, NSString *host, NSString *file);
 
 FOUNDATION_EXPORT void JavaNetURL_initWithNSString_withNSString_withInt_withNSString_(JavaNetURL *self, NSString *protocol, NSString *host, jint port, NSString *file);
 
 FOUNDATION_EXPORT JavaNetURL *new_JavaNetURL_initWithNSString_withNSString_withInt_withNSString_(NSString *protocol, NSString *host, jint port, NSString *file) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURL *create_JavaNetURL_initWithNSString_withNSString_withInt_withNSString_(NSString *protocol, NSString *host, jint port, NSString *file);
+
 FOUNDATION_EXPORT void JavaNetURL_initWithNSString_withNSString_withInt_withNSString_withJavaNetURLStreamHandler_(JavaNetURL *self, NSString *protocol, NSString *host, jint port, NSString *file, JavaNetURLStreamHandler *handler);
 
 FOUNDATION_EXPORT JavaNetURL *new_JavaNetURL_initWithNSString_withNSString_withInt_withNSString_withJavaNetURLStreamHandler_(NSString *protocol, NSString *host, jint port, NSString *file, JavaNetURLStreamHandler *handler) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetURL *create_JavaNetURL_initWithNSString_withNSString_withInt_withNSString_withJavaNetURLStreamHandler_(NSString *protocol, NSString *host, jint port, NSString *file, JavaNetURLStreamHandler *handler);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURL)
 
@@ -404,4 +416,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURL)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetURL_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetURL")

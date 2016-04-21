@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangLinkageError_INCLUDE_ALL")
-#ifdef JavaLangLinkageError_RESTRICT
-#define JavaLangLinkageError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangLinkageError")
+#ifdef RESTRICT_JavaLangLinkageError
+#define INCLUDE_ALL_JavaLangLinkageError 0
 #else
-#define JavaLangLinkageError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangLinkageError 1
 #endif
-#undef JavaLangLinkageError_RESTRICT
+#undef RESTRICT_JavaLangLinkageError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangLinkageError_) && (JavaLangLinkageError_INCLUDE_ALL || defined(JavaLangLinkageError_INCLUDE))
+#if !defined (JavaLangLinkageError_) && (INCLUDE_ALL_JavaLangLinkageError || defined(INCLUDE_JavaLangLinkageError))
 #define JavaLangLinkageError_
 
-#define JavaLangError_RESTRICT 1
-#define JavaLangError_INCLUDE 1
+#define RESTRICT_JavaLangError 1
+#define INCLUDE_JavaLangError 1
 #include "../../java/lang/Error.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>LinkageError</code> is the superclass of all error classes that occur when
@@ -53,14 +51,14 @@
  @since 1.7
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 #pragma mark Protected
 
 /*!
  @brief Constructs a new <code>LinkageError</code> with the given cause.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -70,17 +68,25 @@ FOUNDATION_EXPORT void JavaLangLinkageError_init(JavaLangLinkageError *self);
 
 FOUNDATION_EXPORT JavaLangLinkageError *new_JavaLangLinkageError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangLinkageError *create_JavaLangLinkageError_init();
+
 FOUNDATION_EXPORT void JavaLangLinkageError_initWithNSString_(JavaLangLinkageError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangLinkageError *new_JavaLangLinkageError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangLinkageError_initWithNSString_withJavaLangThrowable_(JavaLangLinkageError *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangLinkageError *create_JavaLangLinkageError_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaLangLinkageError *new_JavaLangLinkageError_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangLinkageError_initWithNSString_withNSException_(JavaLangLinkageError *self, NSString *detailMessage, NSException *cause);
 
-FOUNDATION_EXPORT void JavaLangLinkageError_initWithJavaLangThrowable_(JavaLangLinkageError *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangLinkageError *new_JavaLangLinkageError_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaLangLinkageError *new_JavaLangLinkageError_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaLangLinkageError *create_JavaLangLinkageError_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT void JavaLangLinkageError_initWithNSException_(JavaLangLinkageError *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaLangLinkageError *new_JavaLangLinkageError_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangLinkageError *create_JavaLangLinkageError_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangLinkageError)
 
@@ -88,4 +94,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangLinkageError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangLinkageError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangLinkageError")

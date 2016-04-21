@@ -5,19 +5,21 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetURLDecoder_INCLUDE_ALL")
-#ifdef JavaNetURLDecoder_RESTRICT
-#define JavaNetURLDecoder_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetURLDecoder")
+#ifdef RESTRICT_JavaNetURLDecoder
+#define INCLUDE_ALL_JavaNetURLDecoder 0
 #else
-#define JavaNetURLDecoder_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetURLDecoder 1
 #endif
-#undef JavaNetURLDecoder_RESTRICT
+#undef RESTRICT_JavaNetURLDecoder
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetURLDecoder_) && (JavaNetURLDecoder_INCLUDE_ALL || defined(JavaNetURLDecoder_INCLUDE))
+#if !defined (JavaNetURLDecoder_) && (INCLUDE_ALL_JavaNetURLDecoder || defined(INCLUDE_JavaNetURLDecoder))
 #define JavaNetURLDecoder_
+
+@class IOSObjectArray;
 
 /*!
  @brief This class is used to decode a string which is encoded in the <code>application/x-www-form-urlencoded</code>
@@ -67,10 +69,12 @@ FOUNDATION_EXPORT void JavaNetURLDecoder_init(JavaNetURLDecoder *self);
 
 FOUNDATION_EXPORT JavaNetURLDecoder *new_JavaNetURLDecoder_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURLDecoder *create_JavaNetURLDecoder_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLDecoder)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetURLDecoder_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetURLDecoder")

@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangExceptionInInitializerError_INCLUDE_ALL")
-#ifdef JavaLangExceptionInInitializerError_RESTRICT
-#define JavaLangExceptionInInitializerError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangExceptionInInitializerError")
+#ifdef RESTRICT_JavaLangExceptionInInitializerError
+#define INCLUDE_ALL_JavaLangExceptionInInitializerError 0
 #else
-#define JavaLangExceptionInInitializerError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangExceptionInInitializerError 1
 #endif
-#undef JavaLangExceptionInInitializerError_RESTRICT
+#undef RESTRICT_JavaLangExceptionInInitializerError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangExceptionInInitializerError_) && (JavaLangExceptionInInitializerError_INCLUDE_ALL || defined(JavaLangExceptionInInitializerError_INCLUDE))
+#if !defined (JavaLangExceptionInInitializerError_) && (INCLUDE_ALL_JavaLangExceptionInInitializerError || defined(INCLUDE_JavaLangExceptionInInitializerError))
 #define JavaLangExceptionInInitializerError_
 
-#define JavaLangLinkageError_RESTRICT 1
-#define JavaLangLinkageError_INCLUDE 1
+#define RESTRICT_JavaLangLinkageError 1
+#define INCLUDE_JavaLangLinkageError 1
 #include "../../java/lang/LinkageError.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Thrown when an exception occurs during class initialization.
@@ -54,19 +52,19 @@
  @param exception
  the exception that caused this error.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)exception;
+- (instancetype)initWithNSException:(NSException *)exception;
 
 /*!
  @brief Returns the cause of this error, or <code>null</code> if there is no cause.
  @return the exception that caused this error.
  */
-- (JavaLangThrowable *)getCause;
+- (NSException *)getCause;
 
 /*!
  @brief Returns the exception that is the cause of this error.
  @return the exception that caused this error.
  */
-- (JavaLangThrowable *)getException;
+- (NSException *)getException;
 
 @end
 
@@ -76,13 +74,19 @@ FOUNDATION_EXPORT void JavaLangExceptionInInitializerError_init(JavaLangExceptio
 
 FOUNDATION_EXPORT JavaLangExceptionInInitializerError *new_JavaLangExceptionInInitializerError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangExceptionInInitializerError *create_JavaLangExceptionInInitializerError_init();
+
 FOUNDATION_EXPORT void JavaLangExceptionInInitializerError_initWithNSString_(JavaLangExceptionInInitializerError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangExceptionInInitializerError *new_JavaLangExceptionInInitializerError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangExceptionInInitializerError_initWithJavaLangThrowable_(JavaLangExceptionInInitializerError *self, JavaLangThrowable *exception);
+FOUNDATION_EXPORT JavaLangExceptionInInitializerError *create_JavaLangExceptionInInitializerError_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaLangExceptionInInitializerError *new_JavaLangExceptionInInitializerError_initWithJavaLangThrowable_(JavaLangThrowable *exception) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangExceptionInInitializerError_initWithNSException_(JavaLangExceptionInInitializerError *self, NSException *exception);
+
+FOUNDATION_EXPORT JavaLangExceptionInInitializerError *new_JavaLangExceptionInInitializerError_initWithNSException_(NSException *exception) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangExceptionInInitializerError *create_JavaLangExceptionInInitializerError_initWithNSException_(NSException *exception);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangExceptionInInitializerError)
 
@@ -90,4 +94,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangExceptionInInitializerError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangExceptionInInitializerError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangExceptionInInitializerError")

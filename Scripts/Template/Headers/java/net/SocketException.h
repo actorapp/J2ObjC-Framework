@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetSocketException_INCLUDE_ALL")
-#ifdef JavaNetSocketException_RESTRICT
-#define JavaNetSocketException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetSocketException")
+#ifdef RESTRICT_JavaNetSocketException
+#define INCLUDE_ALL_JavaNetSocketException 0
 #else
-#define JavaNetSocketException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetSocketException 1
 #endif
-#undef JavaNetSocketException_RESTRICT
+#undef RESTRICT_JavaNetSocketException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetSocketException_) && (JavaNetSocketException_INCLUDE_ALL || defined(JavaNetSocketException_INCLUDE))
+#if !defined (JavaNetSocketException_) && (INCLUDE_ALL_JavaNetSocketException || defined(INCLUDE_JavaNetSocketException))
 #define JavaNetSocketException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief This <code>SocketException</code> may be thrown during socket creation or setting
@@ -48,13 +46,13 @@
   internal use only
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance with the given cause.
   internal use only
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -64,17 +62,25 @@ FOUNDATION_EXPORT void JavaNetSocketException_init(JavaNetSocketException *self)
 
 FOUNDATION_EXPORT JavaNetSocketException *new_JavaNetSocketException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetSocketException *create_JavaNetSocketException_init();
+
 FOUNDATION_EXPORT void JavaNetSocketException_initWithNSString_(JavaNetSocketException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaNetSocketException *new_JavaNetSocketException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaNetSocketException_initWithJavaLangThrowable_(JavaNetSocketException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaNetSocketException *create_JavaNetSocketException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaNetSocketException *new_JavaNetSocketException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaNetSocketException_initWithNSException_(JavaNetSocketException *self, NSException *cause);
 
-FOUNDATION_EXPORT void JavaNetSocketException_initWithNSString_withJavaLangThrowable_(JavaNetSocketException *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaNetSocketException *new_JavaNetSocketException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaNetSocketException *new_JavaNetSocketException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaNetSocketException *create_JavaNetSocketException_initWithNSException_(NSException *cause);
+
+FOUNDATION_EXPORT void JavaNetSocketException_initWithNSString_withNSException_(JavaNetSocketException *self, NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT JavaNetSocketException *new_JavaNetSocketException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetSocketException *create_JavaNetSocketException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketException)
 
@@ -82,4 +88,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetSocketException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetSocketException")

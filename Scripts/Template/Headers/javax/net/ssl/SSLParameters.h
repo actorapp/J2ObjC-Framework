@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLParameters_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLParameters_RESTRICT
-#define JavaxNetSslSSLParameters_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLParameters")
+#ifdef RESTRICT_JavaxNetSslSSLParameters
+#define INCLUDE_ALL_JavaxNetSslSSLParameters 0
 #else
-#define JavaxNetSslSSLParameters_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLParameters 1
 #endif
-#undef JavaxNetSslSSLParameters_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLParameters
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLParameters_) && (JavaxNetSslSSLParameters_INCLUDE_ALL || defined(JavaxNetSslSSLParameters_INCLUDE))
+#if !defined (JavaxNetSslSSLParameters_) && (INCLUDE_ALL_JavaxNetSslSSLParameters || defined(INCLUDE_JavaxNetSslSSLParameters))
 #define JavaxNetSslSSLParameters_
 
 @class IOSObjectArray;
@@ -119,13 +119,19 @@ FOUNDATION_EXPORT void JavaxNetSslSSLParameters_init(JavaxNetSslSSLParameters *s
 
 FOUNDATION_EXPORT JavaxNetSslSSLParameters *new_JavaxNetSslSSLParameters_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslSSLParameters *create_JavaxNetSslSSLParameters_init();
+
 FOUNDATION_EXPORT void JavaxNetSslSSLParameters_initWithNSStringArray_(JavaxNetSslSSLParameters *self, IOSObjectArray *cipherSuites);
 
 FOUNDATION_EXPORT JavaxNetSslSSLParameters *new_JavaxNetSslSSLParameters_initWithNSStringArray_(IOSObjectArray *cipherSuites) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslSSLParameters *create_JavaxNetSslSSLParameters_initWithNSStringArray_(IOSObjectArray *cipherSuites);
+
 FOUNDATION_EXPORT void JavaxNetSslSSLParameters_initWithNSStringArray_withNSStringArray_(JavaxNetSslSSLParameters *self, IOSObjectArray *cipherSuites, IOSObjectArray *protocols);
 
 FOUNDATION_EXPORT JavaxNetSslSSLParameters *new_JavaxNetSslSSLParameters_initWithNSStringArray_withNSStringArray_(IOSObjectArray *cipherSuites, IOSObjectArray *protocols) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxNetSslSSLParameters *create_JavaxNetSslSSLParameters_initWithNSStringArray_withNSStringArray_(IOSObjectArray *cipherSuites, IOSObjectArray *protocols);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLParameters)
 
@@ -133,4 +139,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLParameters)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLParameters_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLParameters")

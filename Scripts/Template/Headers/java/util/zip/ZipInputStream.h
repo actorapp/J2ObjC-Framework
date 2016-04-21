@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipZipInputStream_INCLUDE_ALL")
-#ifdef JavaUtilZipZipInputStream_RESTRICT
-#define JavaUtilZipZipInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipZipInputStream")
+#ifdef RESTRICT_JavaUtilZipZipInputStream
+#define INCLUDE_ALL_JavaUtilZipZipInputStream 0
 #else
-#define JavaUtilZipZipInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipZipInputStream 1
 #endif
-#undef JavaUtilZipZipInputStream_RESTRICT
+#undef RESTRICT_JavaUtilZipZipInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipZipInputStream_) && (JavaUtilZipZipInputStream_INCLUDE_ALL || defined(JavaUtilZipZipInputStream_INCLUDE))
+#if !defined (JavaUtilZipZipInputStream_) && (INCLUDE_ALL_JavaUtilZipZipInputStream || defined(INCLUDE_JavaUtilZipZipInputStream))
 #define JavaUtilZipZipInputStream_
 
-#define JavaUtilZipInflaterInputStream_RESTRICT 1
-#define JavaUtilZipInflaterInputStream_INCLUDE 1
+#define RESTRICT_JavaUtilZipInflaterInputStream 1
+#define INCLUDE_JavaUtilZipInflaterInputStream 1
 #include "../../../java/util/zip/InflaterInputStream.h"
 
-#define JavaUtilZipZipConstants_RESTRICT 1
-#define JavaUtilZipZipConstants_INCLUDE 1
+#define RESTRICT_JavaUtilZipZipConstants 1
+#define INCLUDE_JavaUtilZipZipConstants 1
 #include "../../../java/util/zip/ZipConstants.h"
 
 @class IOSByteArray;
@@ -130,10 +130,12 @@ FOUNDATION_EXPORT void JavaUtilZipZipInputStream_initWithJavaIoInputStream_(Java
 
 FOUNDATION_EXPORT JavaUtilZipZipInputStream *new_JavaUtilZipZipInputStream_initWithJavaIoInputStream_(JavaIoInputStream *stream) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipZipInputStream *create_JavaUtilZipZipInputStream_initWithJavaIoInputStream_(JavaIoInputStream *stream);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipInputStream)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipZipInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipZipInputStream")

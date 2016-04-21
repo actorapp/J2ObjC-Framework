@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLInput_INCLUDE_ALL")
-#ifdef JavaSqlSQLInput_RESTRICT
-#define JavaSqlSQLInput_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLInput")
+#ifdef RESTRICT_JavaSqlSQLInput
+#define INCLUDE_ALL_JavaSqlSQLInput 0
 #else
-#define JavaSqlSQLInput_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLInput 1
 #endif
-#undef JavaSqlSQLInput_RESTRICT
+#undef RESTRICT_JavaSqlSQLInput
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLInput_) && (JavaSqlSQLInput_INCLUDE_ALL || defined(JavaSqlSQLInput_INCLUDE))
+#if !defined (JavaSqlSQLInput_) && (INCLUDE_ALL_JavaSqlSQLInput || defined(INCLUDE_JavaSqlSQLInput))
 #define JavaSqlSQLInput_
 
 @class IOSByteArray;
@@ -352,4 +352,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLInput)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLInput_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLInput")

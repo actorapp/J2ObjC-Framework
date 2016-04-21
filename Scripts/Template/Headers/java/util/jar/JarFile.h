@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilJarJarFile_INCLUDE_ALL")
-#ifdef JavaUtilJarJarFile_RESTRICT
-#define JavaUtilJarJarFile_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilJarJarFile")
+#ifdef RESTRICT_JavaUtilJarJarFile
+#define INCLUDE_ALL_JavaUtilJarJarFile 0
 #else
-#define JavaUtilJarJarFile_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilJarJarFile 1
 #endif
-#undef JavaUtilJarJarFile_RESTRICT
+#undef RESTRICT_JavaUtilJarJarFile
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilJarJarFile_) && (JavaUtilJarJarFile_INCLUDE_ALL || defined(JavaUtilJarJarFile_INCLUDE))
+#if !defined (JavaUtilJarJarFile_) && (INCLUDE_ALL_JavaUtilJarJarFile || defined(INCLUDE_JavaUtilJarJarFile))
 #define JavaUtilJarJarFile_
 
-#define JavaUtilZipZipFile_RESTRICT 1
-#define JavaUtilZipZipFile_INCLUDE 1
+#define RESTRICT_JavaUtilZipZipFile 1
+#define INCLUDE_JavaUtilZipZipFile 1
 #include "../../../java/util/zip/ZipFile.h"
 
 @class JavaIoFile;
@@ -202,21 +202,31 @@ FOUNDATION_EXPORT void JavaUtilJarJarFile_initWithJavaIoFile_(JavaUtilJarJarFile
 
 FOUNDATION_EXPORT JavaUtilJarJarFile *new_JavaUtilJarJarFile_initWithJavaIoFile_(JavaIoFile *file) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarFile *create_JavaUtilJarJarFile_initWithJavaIoFile_(JavaIoFile *file);
+
 FOUNDATION_EXPORT void JavaUtilJarJarFile_initWithJavaIoFile_withBoolean_(JavaUtilJarJarFile *self, JavaIoFile *file, jboolean verify);
 
 FOUNDATION_EXPORT JavaUtilJarJarFile *new_JavaUtilJarJarFile_initWithJavaIoFile_withBoolean_(JavaIoFile *file, jboolean verify) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilJarJarFile *create_JavaUtilJarJarFile_initWithJavaIoFile_withBoolean_(JavaIoFile *file, jboolean verify);
 
 FOUNDATION_EXPORT void JavaUtilJarJarFile_initWithJavaIoFile_withBoolean_withInt_(JavaUtilJarJarFile *self, JavaIoFile *file, jboolean verify, jint mode);
 
 FOUNDATION_EXPORT JavaUtilJarJarFile *new_JavaUtilJarJarFile_initWithJavaIoFile_withBoolean_withInt_(JavaIoFile *file, jboolean verify, jint mode) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarFile *create_JavaUtilJarJarFile_initWithJavaIoFile_withBoolean_withInt_(JavaIoFile *file, jboolean verify, jint mode);
+
 FOUNDATION_EXPORT void JavaUtilJarJarFile_initWithNSString_(JavaUtilJarJarFile *self, NSString *filename);
 
 FOUNDATION_EXPORT JavaUtilJarJarFile *new_JavaUtilJarJarFile_initWithNSString_(NSString *filename) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarFile *create_JavaUtilJarJarFile_initWithNSString_(NSString *filename);
+
 FOUNDATION_EXPORT void JavaUtilJarJarFile_initWithNSString_withBoolean_(JavaUtilJarJarFile *self, NSString *filename, jboolean verify);
 
 FOUNDATION_EXPORT JavaUtilJarJarFile *new_JavaUtilJarJarFile_initWithNSString_withBoolean_(NSString *filename, jboolean verify) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilJarJarFile *create_JavaUtilJarJarFile_initWithNSString_withBoolean_(NSString *filename, jboolean verify);
 
 FOUNDATION_EXPORT JavaUtilHashMap *JavaUtilJarJarFile_readMetaEntriesWithJavaUtilZipZipFile_withBoolean_(JavaUtilZipZipFile *zipFile, jboolean verificationRequired);
 
@@ -224,11 +234,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarFile)
 
 #endif
 
-#if !defined (JavaUtilJarJarFile_JarFileInputStream_) && (JavaUtilJarJarFile_INCLUDE_ALL || defined(JavaUtilJarJarFile_JarFileInputStream_INCLUDE))
+#if !defined (JavaUtilJarJarFile_JarFileInputStream_) && (INCLUDE_ALL_JavaUtilJarJarFile || defined(INCLUDE_JavaUtilJarJarFile_JarFileInputStream))
 #define JavaUtilJarJarFile_JarFileInputStream_
 
-#define JavaIoFilterInputStream_RESTRICT 1
-#define JavaIoFilterInputStream_INCLUDE 1
+#define RESTRICT_JavaIoFilterInputStream 1
+#define INCLUDE_JavaIoFilterInputStream 1
 #include "../../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
@@ -263,15 +273,17 @@ FOUNDATION_EXPORT void JavaUtilJarJarFile_JarFileInputStream_initWithJavaIoInput
 
 FOUNDATION_EXPORT JavaUtilJarJarFile_JarFileInputStream *new_JavaUtilJarJarFile_JarFileInputStream_initWithJavaIoInputStream_withLong_withJavaUtilJarJarVerifier_VerifierEntry_(JavaIoInputStream *is, jlong size, JavaUtilJarJarVerifier_VerifierEntry *e) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarFile_JarFileInputStream *create_JavaUtilJarJarFile_JarFileInputStream_initWithJavaIoInputStream_withLong_withJavaUtilJarJarVerifier_VerifierEntry_(JavaIoInputStream *is, jlong size, JavaUtilJarJarVerifier_VerifierEntry *e);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarFile_JarFileInputStream)
 
 #endif
 
-#if !defined (JavaUtilJarJarFile_JarFileEnumerator_) && (JavaUtilJarJarFile_INCLUDE_ALL || defined(JavaUtilJarJarFile_JarFileEnumerator_INCLUDE))
+#if !defined (JavaUtilJarJarFile_JarFileEnumerator_) && (INCLUDE_ALL_JavaUtilJarJarFile || defined(INCLUDE_JavaUtilJarJarFile_JarFileEnumerator))
 #define JavaUtilJarJarFile_JarFileEnumerator_
 
-#define JavaUtilEnumeration_RESTRICT 1
-#define JavaUtilEnumeration_INCLUDE 1
+#define RESTRICT_JavaUtilEnumeration 1
+#define INCLUDE_JavaUtilEnumeration 1
 #include "../../../java/util/Enumeration.h"
 
 @class JavaUtilJarJarEntry;
@@ -305,10 +317,12 @@ FOUNDATION_EXPORT void JavaUtilJarJarFile_JarFileEnumerator_initWithJavaUtilEnum
 
 FOUNDATION_EXPORT JavaUtilJarJarFile_JarFileEnumerator *new_JavaUtilJarJarFile_JarFileEnumerator_initWithJavaUtilEnumeration_withJavaUtilJarJarFile_(id<JavaUtilEnumeration> zenum, JavaUtilJarJarFile *jf) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarFile_JarFileEnumerator *create_JavaUtilJarJarFile_JarFileEnumerator_initWithJavaUtilEnumeration_withJavaUtilJarJarFile_(id<JavaUtilEnumeration> zenum, JavaUtilJarJarFile *jf);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarFile_JarFileEnumerator)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilJarJarFile_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarFile")

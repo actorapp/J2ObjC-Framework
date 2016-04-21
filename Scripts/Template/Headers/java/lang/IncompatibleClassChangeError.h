@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangIncompatibleClassChangeError_INCLUDE_ALL")
-#ifdef JavaLangIncompatibleClassChangeError_RESTRICT
-#define JavaLangIncompatibleClassChangeError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangIncompatibleClassChangeError")
+#ifdef RESTRICT_JavaLangIncompatibleClassChangeError
+#define INCLUDE_ALL_JavaLangIncompatibleClassChangeError 0
 #else
-#define JavaLangIncompatibleClassChangeError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangIncompatibleClassChangeError 1
 #endif
-#undef JavaLangIncompatibleClassChangeError_RESTRICT
+#undef RESTRICT_JavaLangIncompatibleClassChangeError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangIncompatibleClassChangeError_) && (JavaLangIncompatibleClassChangeError_INCLUDE_ALL || defined(JavaLangIncompatibleClassChangeError_INCLUDE))
+#if !defined (JavaLangIncompatibleClassChangeError_) && (INCLUDE_ALL_JavaLangIncompatibleClassChangeError || defined(INCLUDE_JavaLangIncompatibleClassChangeError))
 #define JavaLangIncompatibleClassChangeError_
 
-#define JavaLangLinkageError_RESTRICT 1
-#define JavaLangLinkageError_INCLUDE 1
+#define RESTRICT_JavaLangLinkageError 1
+#define INCLUDE_JavaLangLinkageError 1
 #include "../../java/lang/LinkageError.h"
 
 /*!
@@ -55,9 +55,13 @@ FOUNDATION_EXPORT void JavaLangIncompatibleClassChangeError_init(JavaLangIncompa
 
 FOUNDATION_EXPORT JavaLangIncompatibleClassChangeError *new_JavaLangIncompatibleClassChangeError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangIncompatibleClassChangeError *create_JavaLangIncompatibleClassChangeError_init();
+
 FOUNDATION_EXPORT void JavaLangIncompatibleClassChangeError_initWithNSString_(JavaLangIncompatibleClassChangeError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangIncompatibleClassChangeError *new_JavaLangIncompatibleClassChangeError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangIncompatibleClassChangeError *create_JavaLangIncompatibleClassChangeError_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIncompatibleClassChangeError)
 
@@ -65,4 +69,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIncompatibleClassChangeError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangIncompatibleClassChangeError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangIncompatibleClassChangeError")

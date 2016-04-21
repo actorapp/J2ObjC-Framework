@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityAlgorithmParameters_INCLUDE_ALL")
-#ifdef JavaSecurityAlgorithmParameters_RESTRICT
-#define JavaSecurityAlgorithmParameters_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityAlgorithmParameters")
+#ifdef RESTRICT_JavaSecurityAlgorithmParameters
+#define INCLUDE_ALL_JavaSecurityAlgorithmParameters 0
 #else
-#define JavaSecurityAlgorithmParameters_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityAlgorithmParameters 1
 #endif
-#undef JavaSecurityAlgorithmParameters_RESTRICT
+#undef RESTRICT_JavaSecurityAlgorithmParameters
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityAlgorithmParameters_) && (JavaSecurityAlgorithmParameters_INCLUDE_ALL || defined(JavaSecurityAlgorithmParameters_INCLUDE))
+#if !defined (JavaSecurityAlgorithmParameters_) && (INCLUDE_ALL_JavaSecurityAlgorithmParameters || defined(INCLUDE_JavaSecurityAlgorithmParameters))
 #define JavaSecurityAlgorithmParameters_
 
 @class IOSByteArray;
@@ -207,6 +207,8 @@ FOUNDATION_EXPORT void JavaSecurityAlgorithmParameters_initWithJavaSecurityAlgor
 
 FOUNDATION_EXPORT JavaSecurityAlgorithmParameters *new_JavaSecurityAlgorithmParameters_initWithJavaSecurityAlgorithmParametersSpi_withJavaSecurityProvider_withNSString_(JavaSecurityAlgorithmParametersSpi *algPramSpi, JavaSecurityProvider *provider, NSString *algorithm) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityAlgorithmParameters *create_JavaSecurityAlgorithmParameters_initWithJavaSecurityAlgorithmParametersSpi_withJavaSecurityProvider_withNSString_(JavaSecurityAlgorithmParametersSpi *algPramSpi, JavaSecurityProvider *provider, NSString *algorithm);
+
 FOUNDATION_EXPORT JavaSecurityAlgorithmParameters *JavaSecurityAlgorithmParameters_getInstanceWithNSString_(NSString *algorithm);
 
 FOUNDATION_EXPORT JavaSecurityAlgorithmParameters *JavaSecurityAlgorithmParameters_getInstanceWithNSString_withNSString_(NSString *algorithm, NSString *provider);
@@ -219,4 +221,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAlgorithmParameters)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityAlgorithmParameters_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityAlgorithmParameters")

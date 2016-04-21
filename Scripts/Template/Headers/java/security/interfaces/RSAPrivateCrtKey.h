@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE_ALL")
-#ifdef JavaSecurityInterfacesRSAPrivateCrtKey_RESTRICT
-#define JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateCrtKey")
+#ifdef RESTRICT_JavaSecurityInterfacesRSAPrivateCrtKey
+#define INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateCrtKey 0
 #else
-#define JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateCrtKey 1
 #endif
-#undef JavaSecurityInterfacesRSAPrivateCrtKey_RESTRICT
+#undef RESTRICT_JavaSecurityInterfacesRSAPrivateCrtKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityInterfacesRSAPrivateCrtKey_) && (JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE_ALL || defined(JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE))
+#if !defined (JavaSecurityInterfacesRSAPrivateCrtKey_) && (INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateCrtKey || defined(INCLUDE_JavaSecurityInterfacesRSAPrivateCrtKey))
 #define JavaSecurityInterfacesRSAPrivateCrtKey_
 
-#define JavaSecurityInterfacesRSAPrivateKey_RESTRICT 1
-#define JavaSecurityInterfacesRSAPrivateKey_INCLUDE 1
+#define RESTRICT_JavaSecurityInterfacesRSAPrivateKey 1
+#define INCLUDE_JavaSecurityInterfacesRSAPrivateKey 1
 #include "../../../java/security/interfaces/RSAPrivateKey.h"
 
 @class JavaMathBigInteger;
@@ -89,4 +89,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesRSAPrivateCrtKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityInterfacesRSAPrivateCrtKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesRSAPrivateCrtKey")

@@ -5,30 +5,30 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentCopyOnWriteArrayList_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentCopyOnWriteArrayList_RESTRICT
-#define JavaUtilConcurrentCopyOnWriteArrayList_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList")
+#ifdef RESTRICT_JavaUtilConcurrentCopyOnWriteArrayList
+#define INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList 0
 #else
-#define JavaUtilConcurrentCopyOnWriteArrayList_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList 1
 #endif
-#undef JavaUtilConcurrentCopyOnWriteArrayList_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentCopyOnWriteArrayList
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentCopyOnWriteArrayList_) && (JavaUtilConcurrentCopyOnWriteArrayList_INCLUDE_ALL || defined(JavaUtilConcurrentCopyOnWriteArrayList_INCLUDE))
+#if !defined (JavaUtilConcurrentCopyOnWriteArrayList_) && (INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList || defined(INCLUDE_JavaUtilConcurrentCopyOnWriteArrayList))
 #define JavaUtilConcurrentCopyOnWriteArrayList_
 
-#define JavaUtilList_RESTRICT 1
-#define JavaUtilList_INCLUDE 1
+#define RESTRICT_JavaUtilList 1
+#define INCLUDE_JavaUtilList 1
 #include "../../../java/util/List.h"
 
-#define JavaUtilRandomAccess_RESTRICT 1
-#define JavaUtilRandomAccess_INCLUDE 1
+#define RESTRICT_JavaUtilRandomAccess 1
+#define INCLUDE_JavaUtilRandomAccess 1
 #include "../../../java/util/RandomAccess.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -213,13 +213,19 @@ FOUNDATION_EXPORT void JavaUtilConcurrentCopyOnWriteArrayList_init(JavaUtilConcu
 
 FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList *new_JavaUtilConcurrentCopyOnWriteArrayList_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList *create_JavaUtilConcurrentCopyOnWriteArrayList_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentCopyOnWriteArrayList_initWithJavaUtilCollection_(JavaUtilConcurrentCopyOnWriteArrayList *self, id<JavaUtilCollection> collection);
 
 FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList *new_JavaUtilConcurrentCopyOnWriteArrayList_initWithJavaUtilCollection_(id<JavaUtilCollection> collection) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList *create_JavaUtilConcurrentCopyOnWriteArrayList_initWithJavaUtilCollection_(id<JavaUtilCollection> collection);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentCopyOnWriteArrayList_initWithNSObjectArray_(JavaUtilConcurrentCopyOnWriteArrayList *self, IOSObjectArray *array);
 
 FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList *new_JavaUtilConcurrentCopyOnWriteArrayList_initWithNSObjectArray_(IOSObjectArray *array) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList *create_JavaUtilConcurrentCopyOnWriteArrayList_initWithNSObjectArray_(IOSObjectArray *array);
 
 FOUNDATION_EXPORT jboolean JavaUtilConcurrentCopyOnWriteArrayList_containsAllWithJavaUtilCollection_withNSObjectArray_withInt_withInt_(id<JavaUtilCollection> collection, IOSObjectArray *snapshot, jint from, jint to);
 
@@ -231,11 +237,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList)
 
 #endif
 
-#if !defined (JavaUtilConcurrentCopyOnWriteArrayList_CowSubList_) && (JavaUtilConcurrentCopyOnWriteArrayList_INCLUDE_ALL || defined(JavaUtilConcurrentCopyOnWriteArrayList_CowSubList_INCLUDE))
+#if !defined (JavaUtilConcurrentCopyOnWriteArrayList_CowSubList_) && (INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList || defined(INCLUDE_JavaUtilConcurrentCopyOnWriteArrayList_CowSubList))
 #define JavaUtilConcurrentCopyOnWriteArrayList_CowSubList_
 
-#define JavaUtilAbstractList_RESTRICT 1
-#define JavaUtilAbstractList_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractList 1
+#define INCLUDE_JavaUtilAbstractList 1
 #include "../../../java/util/AbstractList.h"
 
 @class IOSObjectArray;
@@ -323,11 +329,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentCopyOnWriteArrayList_CowSubList_initWit
 
 FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList_CowSubList *new_JavaUtilConcurrentCopyOnWriteArrayList_CowSubList_initWithJavaUtilConcurrentCopyOnWriteArrayList_withNSObjectArray_withInt_withInt_(JavaUtilConcurrentCopyOnWriteArrayList *outer$, IOSObjectArray *expectedElements, jint from, jint to) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList_CowSubList *create_JavaUtilConcurrentCopyOnWriteArrayList_CowSubList_initWithJavaUtilConcurrentCopyOnWriteArrayList_withNSObjectArray_withInt_withInt_(JavaUtilConcurrentCopyOnWriteArrayList *outer$, IOSObjectArray *expectedElements, jint from, jint to);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_CowSubList)
 
 #endif
 
-#if !defined (JavaUtilConcurrentCopyOnWriteArrayList_Slice_) && (JavaUtilConcurrentCopyOnWriteArrayList_INCLUDE_ALL || defined(JavaUtilConcurrentCopyOnWriteArrayList_Slice_INCLUDE))
+#if !defined (JavaUtilConcurrentCopyOnWriteArrayList_Slice_) && (INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList || defined(INCLUDE_JavaUtilConcurrentCopyOnWriteArrayList_Slice))
 #define JavaUtilConcurrentCopyOnWriteArrayList_Slice_
 
 @class IOSObjectArray;
@@ -362,15 +370,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentCopyOnWriteArrayList_Slice_initWithNSOb
 
 FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList_Slice *new_JavaUtilConcurrentCopyOnWriteArrayList_Slice_initWithNSObjectArray_withInt_withInt_(IOSObjectArray *expectedElements, jint from, jint to) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList_Slice *create_JavaUtilConcurrentCopyOnWriteArrayList_Slice_initWithNSObjectArray_withInt_withInt_(IOSObjectArray *expectedElements, jint from, jint to);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_Slice)
 
 #endif
 
-#if !defined (JavaUtilConcurrentCopyOnWriteArrayList_CowIterator_) && (JavaUtilConcurrentCopyOnWriteArrayList_INCLUDE_ALL || defined(JavaUtilConcurrentCopyOnWriteArrayList_CowIterator_INCLUDE))
+#if !defined (JavaUtilConcurrentCopyOnWriteArrayList_CowIterator_) && (INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList || defined(INCLUDE_JavaUtilConcurrentCopyOnWriteArrayList_CowIterator))
 #define JavaUtilConcurrentCopyOnWriteArrayList_CowIterator_
 
-#define JavaUtilListIterator_RESTRICT 1
-#define JavaUtilListIterator_INCLUDE 1
+#define RESTRICT_JavaUtilListIterator 1
+#define INCLUDE_JavaUtilListIterator 1
 #include "../../../java/util/ListIterator.h"
 
 @class IOSObjectArray;
@@ -414,10 +424,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentCopyOnWriteArrayList_CowIterator_initWi
 
 FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList_CowIterator *new_JavaUtilConcurrentCopyOnWriteArrayList_CowIterator_initWithNSObjectArray_withInt_withInt_(IOSObjectArray *snapshot, jint from, jint to) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArrayList_CowIterator *create_JavaUtilConcurrentCopyOnWriteArrayList_CowIterator_initWithNSObjectArray_withInt_withInt_(IOSObjectArray *snapshot, jint from, jint to);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArrayList_CowIterator)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentCopyOnWriteArrayList_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArrayList")

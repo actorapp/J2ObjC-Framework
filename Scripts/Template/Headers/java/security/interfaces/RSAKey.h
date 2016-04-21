@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityInterfacesRSAKey_INCLUDE_ALL")
-#ifdef JavaSecurityInterfacesRSAKey_RESTRICT
-#define JavaSecurityInterfacesRSAKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityInterfacesRSAKey")
+#ifdef RESTRICT_JavaSecurityInterfacesRSAKey
+#define INCLUDE_ALL_JavaSecurityInterfacesRSAKey 0
 #else
-#define JavaSecurityInterfacesRSAKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityInterfacesRSAKey 1
 #endif
-#undef JavaSecurityInterfacesRSAKey_RESTRICT
+#undef RESTRICT_JavaSecurityInterfacesRSAKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityInterfacesRSAKey_) && (JavaSecurityInterfacesRSAKey_INCLUDE_ALL || defined(JavaSecurityInterfacesRSAKey_INCLUDE))
+#if !defined (JavaSecurityInterfacesRSAKey_) && (INCLUDE_ALL_JavaSecurityInterfacesRSAKey || defined(INCLUDE_JavaSecurityInterfacesRSAKey))
 #define JavaSecurityInterfacesRSAKey_
 
 @class JavaMathBigInteger;
@@ -42,4 +42,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesRSAKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityInterfacesRSAKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesRSAKey")

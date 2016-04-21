@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentScheduledExecutorService_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentScheduledExecutorService_RESTRICT
-#define JavaUtilConcurrentScheduledExecutorService_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentScheduledExecutorService")
+#ifdef RESTRICT_JavaUtilConcurrentScheduledExecutorService
+#define INCLUDE_ALL_JavaUtilConcurrentScheduledExecutorService 0
 #else
-#define JavaUtilConcurrentScheduledExecutorService_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentScheduledExecutorService 1
 #endif
-#undef JavaUtilConcurrentScheduledExecutorService_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentScheduledExecutorService
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentScheduledExecutorService_) && (JavaUtilConcurrentScheduledExecutorService_INCLUDE_ALL || defined(JavaUtilConcurrentScheduledExecutorService_INCLUDE))
+#if !defined (JavaUtilConcurrentScheduledExecutorService_) && (INCLUDE_ALL_JavaUtilConcurrentScheduledExecutorService || defined(INCLUDE_JavaUtilConcurrentScheduledExecutorService))
 #define JavaUtilConcurrentScheduledExecutorService_
 
-#define JavaUtilConcurrentExecutorService_RESTRICT 1
-#define JavaUtilConcurrentExecutorService_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentExecutorService 1
+#define INCLUDE_JavaUtilConcurrentExecutorService 1
 #include "../../../java/util/concurrent/ExecutorService.h"
 
 @class JavaUtilConcurrentTimeUnit;
@@ -177,4 +177,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentScheduledExecutorService)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentScheduledExecutorService_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentScheduledExecutorService")

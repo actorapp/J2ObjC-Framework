@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslManagerFactoryParameters_INCLUDE_ALL")
-#ifdef JavaxNetSslManagerFactoryParameters_RESTRICT
-#define JavaxNetSslManagerFactoryParameters_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslManagerFactoryParameters")
+#ifdef RESTRICT_JavaxNetSslManagerFactoryParameters
+#define INCLUDE_ALL_JavaxNetSslManagerFactoryParameters 0
 #else
-#define JavaxNetSslManagerFactoryParameters_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslManagerFactoryParameters 1
 #endif
-#undef JavaxNetSslManagerFactoryParameters_RESTRICT
+#undef RESTRICT_JavaxNetSslManagerFactoryParameters
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslManagerFactoryParameters_) && (JavaxNetSslManagerFactoryParameters_INCLUDE_ALL || defined(JavaxNetSslManagerFactoryParameters_INCLUDE))
+#if !defined (JavaxNetSslManagerFactoryParameters_) && (INCLUDE_ALL_JavaxNetSslManagerFactoryParameters || defined(INCLUDE_JavaxNetSslManagerFactoryParameters))
 #define JavaxNetSslManagerFactoryParameters_
 
 /*!
@@ -37,4 +37,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslManagerFactoryParameters)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslManagerFactoryParameters_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslManagerFactoryParameters")

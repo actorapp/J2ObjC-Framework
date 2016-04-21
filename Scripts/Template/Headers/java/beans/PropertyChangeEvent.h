@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansPropertyChangeEvent_INCLUDE_ALL")
-#ifdef JavaBeansPropertyChangeEvent_RESTRICT
-#define JavaBeansPropertyChangeEvent_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansPropertyChangeEvent")
+#ifdef RESTRICT_JavaBeansPropertyChangeEvent
+#define INCLUDE_ALL_JavaBeansPropertyChangeEvent 0
 #else
-#define JavaBeansPropertyChangeEvent_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansPropertyChangeEvent 1
 #endif
-#undef JavaBeansPropertyChangeEvent_RESTRICT
+#undef RESTRICT_JavaBeansPropertyChangeEvent
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansPropertyChangeEvent_) && (JavaBeansPropertyChangeEvent_INCLUDE_ALL || defined(JavaBeansPropertyChangeEvent_INCLUDE))
+#if !defined (JavaBeansPropertyChangeEvent_) && (INCLUDE_ALL_JavaBeansPropertyChangeEvent || defined(INCLUDE_JavaBeansPropertyChangeEvent))
 #define JavaBeansPropertyChangeEvent_
 
-#define JavaUtilEventObject_RESTRICT 1
-#define JavaUtilEventObject_INCLUDE 1
+#define RESTRICT_JavaUtilEventObject 1
+#define INCLUDE_JavaUtilEventObject 1
 #include "../../java/util/EventObject.h"
 
 /*!
@@ -111,10 +111,12 @@ FOUNDATION_EXPORT void JavaBeansPropertyChangeEvent_initWithId_withNSString_with
 
 FOUNDATION_EXPORT JavaBeansPropertyChangeEvent *new_JavaBeansPropertyChangeEvent_initWithId_withNSString_withId_withId_(id source, NSString *propertyName, id oldValue, id newValue) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansPropertyChangeEvent *create_JavaBeansPropertyChangeEvent_initWithId_withNSString_withId_withId_(id source, NSString *propertyName, id oldValue, id newValue);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyChangeEvent)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansPropertyChangeEvent_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansPropertyChangeEvent")

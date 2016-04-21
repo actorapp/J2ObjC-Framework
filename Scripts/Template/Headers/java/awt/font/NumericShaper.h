@@ -3,29 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/awt/font/NumericShaper.java
 //
 
-#include "../../../J2ObjC_header.h"
-
-#pragma push_macro("JavaAwtFontNumericShaper_INCLUDE_ALL")
-#ifdef JavaAwtFontNumericShaper_RESTRICT
-#define JavaAwtFontNumericShaper_INCLUDE_ALL 0
-#else
-#define JavaAwtFontNumericShaper_INCLUDE_ALL 1
-#endif
-#undef JavaAwtFontNumericShaper_RESTRICT
-
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
 /*!
  @author Ilya S. Okomin
  @version $Revision$
  */
+#include "../../../J2ObjC_header.h"
 
-#if !defined (JavaAwtFontNumericShaper_) && (JavaAwtFontNumericShaper_INCLUDE_ALL || defined(JavaAwtFontNumericShaper_INCLUDE))
+#pragma push_macro("INCLUDE_ALL_JavaAwtFontNumericShaper")
+#ifdef RESTRICT_JavaAwtFontNumericShaper
+#define INCLUDE_ALL_JavaAwtFontNumericShaper 0
+#else
+#define INCLUDE_ALL_JavaAwtFontNumericShaper 1
+#endif
+#undef RESTRICT_JavaAwtFontNumericShaper
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaAwtFontNumericShaper_) && (INCLUDE_ALL_JavaAwtFontNumericShaper || defined(INCLUDE_JavaAwtFontNumericShaper))
 #define JavaAwtFontNumericShaper_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSCharArray;
@@ -328,4 +327,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaAwtFontNumericShaper)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaAwtFontNumericShaper_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaAwtFontNumericShaper")

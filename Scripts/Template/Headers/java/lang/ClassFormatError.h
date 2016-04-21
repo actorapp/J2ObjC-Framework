@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangClassFormatError_INCLUDE_ALL")
-#ifdef JavaLangClassFormatError_RESTRICT
-#define JavaLangClassFormatError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangClassFormatError")
+#ifdef RESTRICT_JavaLangClassFormatError
+#define INCLUDE_ALL_JavaLangClassFormatError 0
 #else
-#define JavaLangClassFormatError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangClassFormatError 1
 #endif
-#undef JavaLangClassFormatError_RESTRICT
+#undef RESTRICT_JavaLangClassFormatError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangClassFormatError_) && (JavaLangClassFormatError_INCLUDE_ALL || defined(JavaLangClassFormatError_INCLUDE))
+#if !defined (JavaLangClassFormatError_) && (INCLUDE_ALL_JavaLangClassFormatError || defined(INCLUDE_JavaLangClassFormatError))
 #define JavaLangClassFormatError_
 
-#define JavaLangLinkageError_RESTRICT 1
-#define JavaLangLinkageError_INCLUDE 1
+#define RESTRICT_JavaLangLinkageError 1
+#define INCLUDE_JavaLangLinkageError 1
 #include "../../java/lang/LinkageError.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangClassFormatError_init(JavaLangClassFormatError *s
 
 FOUNDATION_EXPORT JavaLangClassFormatError *new_JavaLangClassFormatError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangClassFormatError *create_JavaLangClassFormatError_init();
+
 FOUNDATION_EXPORT void JavaLangClassFormatError_initWithNSString_(JavaLangClassFormatError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangClassFormatError *new_JavaLangClassFormatError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangClassFormatError *create_JavaLangClassFormatError_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassFormatError)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassFormatError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangClassFormatError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangClassFormatError")

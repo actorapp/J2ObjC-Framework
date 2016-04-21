@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentCancellationException_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentCancellationException_RESTRICT
-#define JavaUtilConcurrentCancellationException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCancellationException")
+#ifdef RESTRICT_JavaUtilConcurrentCancellationException
+#define INCLUDE_ALL_JavaUtilConcurrentCancellationException 0
 #else
-#define JavaUtilConcurrentCancellationException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentCancellationException 1
 #endif
-#undef JavaUtilConcurrentCancellationException_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentCancellationException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentCancellationException_) && (JavaUtilConcurrentCancellationException_INCLUDE_ALL || defined(JavaUtilConcurrentCancellationException_INCLUDE))
+#if !defined (JavaUtilConcurrentCancellationException_) && (INCLUDE_ALL_JavaUtilConcurrentCancellationException || defined(INCLUDE_JavaUtilConcurrentCancellationException))
 #define JavaUtilConcurrentCancellationException_
 
-#define JavaLangIllegalStateException_RESTRICT 1
-#define JavaLangIllegalStateException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalStateException 1
+#define INCLUDE_JavaLangIllegalStateException 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -54,9 +54,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentCancellationException_init(JavaUtilConc
 
 FOUNDATION_EXPORT JavaUtilConcurrentCancellationException *new_JavaUtilConcurrentCancellationException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentCancellationException *create_JavaUtilConcurrentCancellationException_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentCancellationException_initWithNSString_(JavaUtilConcurrentCancellationException *self, NSString *message);
 
 FOUNDATION_EXPORT JavaUtilConcurrentCancellationException *new_JavaUtilConcurrentCancellationException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentCancellationException *create_JavaUtilConcurrentCancellationException_initWithNSString_(NSString *message);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCancellationException)
 
@@ -64,4 +68,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCancellationException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentCancellationException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCancellationException")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslDefaultSSLSocketFactory_INCLUDE_ALL")
-#ifdef JavaxNetSslDefaultSSLSocketFactory_RESTRICT
-#define JavaxNetSslDefaultSSLSocketFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslDefaultSSLSocketFactory")
+#ifdef RESTRICT_JavaxNetSslDefaultSSLSocketFactory
+#define INCLUDE_ALL_JavaxNetSslDefaultSSLSocketFactory 0
 #else
-#define JavaxNetSslDefaultSSLSocketFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslDefaultSSLSocketFactory 1
 #endif
-#undef JavaxNetSslDefaultSSLSocketFactory_RESTRICT
+#undef RESTRICT_JavaxNetSslDefaultSSLSocketFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslDefaultSSLSocketFactory_) && (JavaxNetSslDefaultSSLSocketFactory_INCLUDE_ALL || defined(JavaxNetSslDefaultSSLSocketFactory_INCLUDE))
+#if !defined (JavaxNetSslDefaultSSLSocketFactory_) && (INCLUDE_ALL_JavaxNetSslDefaultSSLSocketFactory || defined(INCLUDE_JavaxNetSslDefaultSSLSocketFactory))
 #define JavaxNetSslDefaultSSLSocketFactory_
 
-#define JavaxNetSslSSLSocketFactory_RESTRICT 1
-#define JavaxNetSslSSLSocketFactory_INCLUDE 1
+#define RESTRICT_JavaxNetSslSSLSocketFactory 1
+#define INCLUDE_JavaxNetSslSSLSocketFactory 1
 #include "../../../javax/net/ssl/SSLSocketFactory.h"
 
 @class IOSObjectArray;
@@ -71,10 +71,12 @@ FOUNDATION_EXPORT void JavaxNetSslDefaultSSLSocketFactory_initWithNSString_(Java
 
 FOUNDATION_EXPORT JavaxNetSslDefaultSSLSocketFactory *new_JavaxNetSslDefaultSSLSocketFactory_initWithNSString_(NSString *mes) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslDefaultSSLSocketFactory *create_JavaxNetSslDefaultSSLSocketFactory_initWithNSString_(NSString *mes);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslDefaultSSLSocketFactory)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslDefaultSSLSocketFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslDefaultSSLSocketFactory")

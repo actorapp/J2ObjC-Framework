@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilJarAttributes_INCLUDE_ALL")
-#ifdef JavaUtilJarAttributes_RESTRICT
-#define JavaUtilJarAttributes_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilJarAttributes")
+#ifdef RESTRICT_JavaUtilJarAttributes
+#define INCLUDE_ALL_JavaUtilJarAttributes 0
 #else
-#define JavaUtilJarAttributes_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilJarAttributes 1
 #endif
-#undef JavaUtilJarAttributes_RESTRICT
+#undef RESTRICT_JavaUtilJarAttributes
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilJarAttributes_) && (JavaUtilJarAttributes_INCLUDE_ALL || defined(JavaUtilJarAttributes_INCLUDE))
+#if !defined (JavaUtilJarAttributes_) && (INCLUDE_ALL_JavaUtilJarAttributes || defined(INCLUDE_JavaUtilJarAttributes))
 #define JavaUtilJarAttributes_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap 1
 #include "../../../java/util/Map.h"
 
 @class JavaUtilJarAttributes_Name;
@@ -221,19 +221,25 @@ FOUNDATION_EXPORT void JavaUtilJarAttributes_init(JavaUtilJarAttributes *self);
 
 FOUNDATION_EXPORT JavaUtilJarAttributes *new_JavaUtilJarAttributes_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarAttributes *create_JavaUtilJarAttributes_init();
+
 FOUNDATION_EXPORT void JavaUtilJarAttributes_initWithJavaUtilJarAttributes_(JavaUtilJarAttributes *self, JavaUtilJarAttributes *attrib);
 
 FOUNDATION_EXPORT JavaUtilJarAttributes *new_JavaUtilJarAttributes_initWithJavaUtilJarAttributes_(JavaUtilJarAttributes *attrib) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilJarAttributes *create_JavaUtilJarAttributes_initWithJavaUtilJarAttributes_(JavaUtilJarAttributes *attrib);
 
 FOUNDATION_EXPORT void JavaUtilJarAttributes_initWithInt_(JavaUtilJarAttributes *self, jint size);
 
 FOUNDATION_EXPORT JavaUtilJarAttributes *new_JavaUtilJarAttributes_initWithInt_(jint size) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarAttributes *create_JavaUtilJarAttributes_initWithInt_(jint size);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarAttributes)
 
 #endif
 
-#if !defined (JavaUtilJarAttributes_Name_) && (JavaUtilJarAttributes_INCLUDE_ALL || defined(JavaUtilJarAttributes_Name_INCLUDE))
+#if !defined (JavaUtilJarAttributes_Name_) && (INCLUDE_ALL_JavaUtilJarAttributes || defined(INCLUDE_JavaUtilJarAttributes_Name))
 #define JavaUtilJarAttributes_Name_
 
 /*!
@@ -465,10 +471,12 @@ FOUNDATION_EXPORT void JavaUtilJarAttributes_Name_initWithNSString_(JavaUtilJarA
 
 FOUNDATION_EXPORT JavaUtilJarAttributes_Name *new_JavaUtilJarAttributes_Name_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarAttributes_Name *create_JavaUtilJarAttributes_Name_initWithNSString_(NSString *name);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarAttributes_Name)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilJarAttributes_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilJarAttributes")

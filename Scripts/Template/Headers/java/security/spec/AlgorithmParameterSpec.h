@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecAlgorithmParameterSpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecAlgorithmParameterSpec_RESTRICT
-#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecAlgorithmParameterSpec")
+#ifdef RESTRICT_JavaSecuritySpecAlgorithmParameterSpec
+#define INCLUDE_ALL_JavaSecuritySpecAlgorithmParameterSpec 0
 #else
-#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecAlgorithmParameterSpec 1
 #endif
-#undef JavaSecuritySpecAlgorithmParameterSpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecAlgorithmParameterSpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecAlgorithmParameterSpec_) && (JavaSecuritySpecAlgorithmParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecAlgorithmParameterSpec_INCLUDE))
+#if !defined (JavaSecuritySpecAlgorithmParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecAlgorithmParameterSpec || defined(INCLUDE_JavaSecuritySpecAlgorithmParameterSpec))
 #define JavaSecuritySpecAlgorithmParameterSpec_
 
 /*!
@@ -36,4 +36,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecAlgorithmParameterSpec)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecAlgorithmParameterSpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecAlgorithmParameterSpec")

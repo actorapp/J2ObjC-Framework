@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoSerialVersionUIDDigest_INCLUDE_ALL")
-#ifdef JavaIoSerialVersionUIDDigest_RESTRICT
-#define JavaIoSerialVersionUIDDigest_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoSerialVersionUIDDigest")
+#ifdef RESTRICT_JavaIoSerialVersionUIDDigest
+#define INCLUDE_ALL_JavaIoSerialVersionUIDDigest 0
 #else
-#define JavaIoSerialVersionUIDDigest_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoSerialVersionUIDDigest 1
 #endif
-#undef JavaIoSerialVersionUIDDigest_RESTRICT
+#undef RESTRICT_JavaIoSerialVersionUIDDigest
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoSerialVersionUIDDigest_) && (JavaIoSerialVersionUIDDigest_INCLUDE_ALL || defined(JavaIoSerialVersionUIDDigest_INCLUDE))
+#if !defined (JavaIoSerialVersionUIDDigest_) && (INCLUDE_ALL_JavaIoSerialVersionUIDDigest || defined(INCLUDE_JavaIoSerialVersionUIDDigest))
 #define JavaIoSerialVersionUIDDigest_
 
-#define JavaIoObjectStreamClass_RESTRICT 1
-#define JavaIoObjectStreamClass_Digest_INCLUDE 1
+#define RESTRICT_JavaIoObjectStreamClass 1
+#define INCLUDE_JavaIoObjectStreamClass_Digest 1
 #include "../../java/io/ObjectStreamClass.h"
 
 @class IOSByteArray;
@@ -48,10 +48,12 @@ FOUNDATION_EXPORT void JavaIoSerialVersionUIDDigest_init(JavaIoSerialVersionUIDD
 
 FOUNDATION_EXPORT JavaIoSerialVersionUIDDigest *new_JavaIoSerialVersionUIDDigest_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoSerialVersionUIDDigest *create_JavaIoSerialVersionUIDDigest_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoSerialVersionUIDDigest)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoSerialVersionUIDDigest_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoSerialVersionUIDDigest")

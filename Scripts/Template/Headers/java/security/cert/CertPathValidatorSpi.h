@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCertPathValidatorSpi_INCLUDE_ALL")
-#ifdef JavaSecurityCertCertPathValidatorSpi_RESTRICT
-#define JavaSecurityCertCertPathValidatorSpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidatorSpi")
+#ifdef RESTRICT_JavaSecurityCertCertPathValidatorSpi
+#define INCLUDE_ALL_JavaSecurityCertCertPathValidatorSpi 0
 #else
-#define JavaSecurityCertCertPathValidatorSpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCertPathValidatorSpi 1
 #endif
-#undef JavaSecurityCertCertPathValidatorSpi_RESTRICT
+#undef RESTRICT_JavaSecurityCertCertPathValidatorSpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCertPathValidatorSpi_) && (JavaSecurityCertCertPathValidatorSpi_INCLUDE_ALL || defined(JavaSecurityCertCertPathValidatorSpi_INCLUDE))
+#if !defined (JavaSecurityCertCertPathValidatorSpi_) && (INCLUDE_ALL_JavaSecurityCertCertPathValidatorSpi || defined(INCLUDE_JavaSecurityCertCertPathValidatorSpi))
 #define JavaSecurityCertCertPathValidatorSpi_
 
 @class JavaSecurityCertCertPath;
@@ -67,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidatorSpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCertPathValidatorSpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidatorSpi")

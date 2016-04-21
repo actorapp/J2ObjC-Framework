@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangIllegalStateException_INCLUDE_ALL")
-#ifdef JavaLangIllegalStateException_RESTRICT
-#define JavaLangIllegalStateException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangIllegalStateException")
+#ifdef RESTRICT_JavaLangIllegalStateException
+#define INCLUDE_ALL_JavaLangIllegalStateException 0
 #else
-#define JavaLangIllegalStateException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangIllegalStateException 1
 #endif
-#undef JavaLangIllegalStateException_RESTRICT
+#undef RESTRICT_JavaLangIllegalStateException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangIllegalStateException_) && (JavaLangIllegalStateException_INCLUDE_ALL || defined(JavaLangIllegalStateException_INCLUDE))
+#if !defined (JavaLangIllegalStateException_) && (INCLUDE_ALL_JavaLangIllegalStateException || defined(INCLUDE_JavaLangIllegalStateException))
 #define JavaLangIllegalStateException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Thrown when an action is attempted at a time when the VM is not
@@ -57,7 +55,7 @@
  @since 1.5
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new <code>IllegalStateException</code> with the current stack
@@ -66,7 +64,7 @@
  the cause of this exception, may be <code>null</code>.
  @since 1.5
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -76,17 +74,25 @@ FOUNDATION_EXPORT void JavaLangIllegalStateException_init(JavaLangIllegalStateEx
 
 FOUNDATION_EXPORT JavaLangIllegalStateException *new_JavaLangIllegalStateException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangIllegalStateException *create_JavaLangIllegalStateException_init();
+
 FOUNDATION_EXPORT void JavaLangIllegalStateException_initWithNSString_(JavaLangIllegalStateException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangIllegalStateException *new_JavaLangIllegalStateException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangIllegalStateException_initWithNSString_withJavaLangThrowable_(JavaLangIllegalStateException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangIllegalStateException *create_JavaLangIllegalStateException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaLangIllegalStateException *new_JavaLangIllegalStateException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangIllegalStateException_initWithNSString_withNSException_(JavaLangIllegalStateException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaLangIllegalStateException_initWithJavaLangThrowable_(JavaLangIllegalStateException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangIllegalStateException *new_JavaLangIllegalStateException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaLangIllegalStateException *new_JavaLangIllegalStateException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaLangIllegalStateException *create_JavaLangIllegalStateException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaLangIllegalStateException_initWithNSException_(JavaLangIllegalStateException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaLangIllegalStateException *new_JavaLangIllegalStateException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangIllegalStateException *create_JavaLangIllegalStateException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalStateException)
 
@@ -94,4 +100,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalStateException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangIllegalStateException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangIllegalStateException")

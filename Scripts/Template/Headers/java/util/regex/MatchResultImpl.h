@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilRegexMatchResultImpl_INCLUDE_ALL")
-#ifdef JavaUtilRegexMatchResultImpl_RESTRICT
-#define JavaUtilRegexMatchResultImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilRegexMatchResultImpl")
+#ifdef RESTRICT_JavaUtilRegexMatchResultImpl
+#define INCLUDE_ALL_JavaUtilRegexMatchResultImpl 0
 #else
-#define JavaUtilRegexMatchResultImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilRegexMatchResultImpl 1
 #endif
-#undef JavaUtilRegexMatchResultImpl_RESTRICT
+#undef RESTRICT_JavaUtilRegexMatchResultImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilRegexMatchResultImpl_) && (JavaUtilRegexMatchResultImpl_INCLUDE_ALL || defined(JavaUtilRegexMatchResultImpl_INCLUDE))
+#if !defined (JavaUtilRegexMatchResultImpl_) && (INCLUDE_ALL_JavaUtilRegexMatchResultImpl || defined(INCLUDE_JavaUtilRegexMatchResultImpl))
 #define JavaUtilRegexMatchResultImpl_
 
-#define JavaUtilRegexMatchResult_RESTRICT 1
-#define JavaUtilRegexMatchResult_INCLUDE 1
+#define RESTRICT_JavaUtilRegexMatchResult 1
+#define INCLUDE_JavaUtilRegexMatchResult 1
 #include "../../../java/util/regex/MatchResult.h"
 
 @class IOSIntArray;
@@ -63,10 +63,12 @@ FOUNDATION_EXPORT void JavaUtilRegexMatchResultImpl_initWithNSString_withIntArra
 
 FOUNDATION_EXPORT JavaUtilRegexMatchResultImpl *new_JavaUtilRegexMatchResultImpl_initWithNSString_withIntArray_(NSString *text, IOSIntArray *offsets) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilRegexMatchResultImpl *create_JavaUtilRegexMatchResultImpl_initWithNSString_withIntArray_(NSString *text, IOSIntArray *offsets);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexMatchResultImpl)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilRegexMatchResultImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilRegexMatchResultImpl")

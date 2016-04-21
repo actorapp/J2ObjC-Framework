@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityPrivilegedActionException_INCLUDE_ALL")
-#ifdef JavaSecurityPrivilegedActionException_RESTRICT
-#define JavaSecurityPrivilegedActionException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityPrivilegedActionException")
+#ifdef RESTRICT_JavaSecurityPrivilegedActionException
+#define INCLUDE_ALL_JavaSecurityPrivilegedActionException 0
 #else
-#define JavaSecurityPrivilegedActionException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityPrivilegedActionException 1
 #endif
-#undef JavaSecurityPrivilegedActionException_RESTRICT
+#undef RESTRICT_JavaSecurityPrivilegedActionException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityPrivilegedActionException_) && (JavaSecurityPrivilegedActionException_INCLUDE_ALL || defined(JavaSecurityPrivilegedActionException_INCLUDE))
+#if !defined (JavaSecurityPrivilegedActionException_) && (INCLUDE_ALL_JavaSecurityPrivilegedActionException || defined(INCLUDE_JavaSecurityPrivilegedActionException))
 #define JavaSecurityPrivilegedActionException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -42,10 +42,12 @@ FOUNDATION_EXPORT void JavaSecurityPrivilegedActionException_initWithJavaLangExc
 
 FOUNDATION_EXPORT JavaSecurityPrivilegedActionException *new_JavaSecurityPrivilegedActionException_initWithJavaLangException_(JavaLangException *ex) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityPrivilegedActionException *create_JavaSecurityPrivilegedActionException_initWithJavaLangException_(JavaLangException *ex);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPrivilegedActionException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityPrivilegedActionException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityPrivilegedActionException")

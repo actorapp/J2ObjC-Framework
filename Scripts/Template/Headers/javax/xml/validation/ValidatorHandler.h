@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlValidationValidatorHandler_INCLUDE_ALL")
-#ifdef JavaxXmlValidationValidatorHandler_RESTRICT
-#define JavaxXmlValidationValidatorHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlValidationValidatorHandler")
+#ifdef RESTRICT_JavaxXmlValidationValidatorHandler
+#define INCLUDE_ALL_JavaxXmlValidationValidatorHandler 0
 #else
-#define JavaxXmlValidationValidatorHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlValidationValidatorHandler 1
 #endif
-#undef JavaxXmlValidationValidatorHandler_RESTRICT
+#undef RESTRICT_JavaxXmlValidationValidatorHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlValidationValidatorHandler_) && (JavaxXmlValidationValidatorHandler_INCLUDE_ALL || defined(JavaxXmlValidationValidatorHandler_INCLUDE))
+#if !defined (JavaxXmlValidationValidatorHandler_) && (INCLUDE_ALL_JavaxXmlValidationValidatorHandler || defined(INCLUDE_JavaxXmlValidationValidatorHandler))
 #define JavaxXmlValidationValidatorHandler_
 
-#define OrgXmlSaxContentHandler_RESTRICT 1
-#define OrgXmlSaxContentHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxContentHandler 1
+#define INCLUDE_OrgXmlSaxContentHandler 1
 #include "../../../org/xml/sax/ContentHandler.h"
 
 @class JavaxXmlValidationTypeInfoProvider;
@@ -392,4 +392,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationValidatorHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlValidationValidatorHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlValidationValidatorHandler")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsChannel_INCLUDE_ALL")
-#ifdef JavaNioChannelsChannel_RESTRICT
-#define JavaNioChannelsChannel_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsChannel")
+#ifdef RESTRICT_JavaNioChannelsChannel
+#define INCLUDE_ALL_JavaNioChannelsChannel 0
 #else
-#define JavaNioChannelsChannel_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsChannel 1
 #endif
-#undef JavaNioChannelsChannel_RESTRICT
+#undef RESTRICT_JavaNioChannelsChannel
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsChannel_) && (JavaNioChannelsChannel_INCLUDE_ALL || defined(JavaNioChannelsChannel_INCLUDE))
+#if !defined (JavaNioChannelsChannel_) && (INCLUDE_ALL_JavaNioChannelsChannel || defined(INCLUDE_JavaNioChannelsChannel))
 #define JavaNioChannelsChannel_
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../../java/io/Closeable.h"
 
 /*!
@@ -69,4 +69,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsChannel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsChannel_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsChannel")

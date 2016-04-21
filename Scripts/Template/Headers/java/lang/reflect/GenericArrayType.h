@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectGenericArrayType_INCLUDE_ALL")
-#ifdef JavaLangReflectGenericArrayType_RESTRICT
-#define JavaLangReflectGenericArrayType_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectGenericArrayType")
+#ifdef RESTRICT_JavaLangReflectGenericArrayType
+#define INCLUDE_ALL_JavaLangReflectGenericArrayType 0
 #else
-#define JavaLangReflectGenericArrayType_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectGenericArrayType 1
 #endif
-#undef JavaLangReflectGenericArrayType_RESTRICT
+#undef RESTRICT_JavaLangReflectGenericArrayType
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectGenericArrayType_) && (JavaLangReflectGenericArrayType_INCLUDE_ALL || defined(JavaLangReflectGenericArrayType_INCLUDE))
+#if !defined (JavaLangReflectGenericArrayType_) && (INCLUDE_ALL_JavaLangReflectGenericArrayType || defined(INCLUDE_JavaLangReflectGenericArrayType))
 #define JavaLangReflectGenericArrayType_
 
-#define JavaLangReflectType_RESTRICT 1
-#define JavaLangReflectType_INCLUDE 1
+#define RESTRICT_JavaLangReflectType 1
+#define INCLUDE_JavaLangReflectType 1
 #include "../../../java/lang/reflect/Type.h"
 
 /*!
@@ -51,4 +51,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectGenericArrayType)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectGenericArrayType_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectGenericArrayType")

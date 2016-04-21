@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomText_INCLUDE_ALL")
-#ifdef OrgW3cDomText_RESTRICT
-#define OrgW3cDomText_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomText")
+#ifdef RESTRICT_OrgW3cDomText
+#define INCLUDE_ALL_OrgW3cDomText 0
 #else
-#define OrgW3cDomText_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomText 1
 #endif
-#undef OrgW3cDomText_RESTRICT
+#undef RESTRICT_OrgW3cDomText
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomText_) && (OrgW3cDomText_INCLUDE_ALL || defined(OrgW3cDomText_INCLUDE))
+#if !defined (OrgW3cDomText_) && (INCLUDE_ALL_OrgW3cDomText || defined(INCLUDE_OrgW3cDomText))
 #define OrgW3cDomText_
 
-#define OrgW3cDomCharacterData_RESTRICT 1
-#define OrgW3cDomCharacterData_INCLUDE 1
+#define RESTRICT_OrgW3cDomCharacterData 1
+#define INCLUDE_OrgW3cDomCharacterData 1
 #include "../../../org/w3c/dom/CharacterData.h"
 
 /*!
@@ -147,4 +147,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomText)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomText_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomText")

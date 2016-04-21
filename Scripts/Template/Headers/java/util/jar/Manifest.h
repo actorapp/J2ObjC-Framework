@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilJarManifest_INCLUDE_ALL")
-#ifdef JavaUtilJarManifest_RESTRICT
-#define JavaUtilJarManifest_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilJarManifest")
+#ifdef RESTRICT_JavaUtilJarManifest
+#define INCLUDE_ALL_JavaUtilJarManifest 0
 #else
-#define JavaUtilJarManifest_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilJarManifest 1
 #endif
-#undef JavaUtilJarManifest_RESTRICT
+#undef RESTRICT_JavaUtilJarManifest
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilJarManifest_) && (JavaUtilJarManifest_INCLUDE_ALL || defined(JavaUtilJarManifest_INCLUDE))
+#if !defined (JavaUtilJarManifest_) && (INCLUDE_ALL_JavaUtilJarManifest || defined(INCLUDE_JavaUtilJarManifest))
 #define JavaUtilJarManifest_
 
 @class IOSByteArray;
@@ -169,17 +169,25 @@ FOUNDATION_EXPORT void JavaUtilJarManifest_init(JavaUtilJarManifest *self);
 
 FOUNDATION_EXPORT JavaUtilJarManifest *new_JavaUtilJarManifest_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarManifest *create_JavaUtilJarManifest_init();
+
 FOUNDATION_EXPORT void JavaUtilJarManifest_initWithJavaIoInputStream_(JavaUtilJarManifest *self, JavaIoInputStream *is);
 
 FOUNDATION_EXPORT JavaUtilJarManifest *new_JavaUtilJarManifest_initWithJavaIoInputStream_(JavaIoInputStream *is) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilJarManifest *create_JavaUtilJarManifest_initWithJavaIoInputStream_(JavaIoInputStream *is);
 
 FOUNDATION_EXPORT void JavaUtilJarManifest_initWithJavaUtilJarManifest_(JavaUtilJarManifest *self, JavaUtilJarManifest *man);
 
 FOUNDATION_EXPORT JavaUtilJarManifest *new_JavaUtilJarManifest_initWithJavaUtilJarManifest_(JavaUtilJarManifest *man) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarManifest *create_JavaUtilJarManifest_initWithJavaUtilJarManifest_(JavaUtilJarManifest *man);
+
 FOUNDATION_EXPORT void JavaUtilJarManifest_initWithByteArray_withBoolean_(JavaUtilJarManifest *self, IOSByteArray *manifestBytes, jboolean readChunks);
 
 FOUNDATION_EXPORT JavaUtilJarManifest *new_JavaUtilJarManifest_initWithByteArray_withBoolean_(IOSByteArray *manifestBytes, jboolean readChunks) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilJarManifest *create_JavaUtilJarManifest_initWithByteArray_withBoolean_(IOSByteArray *manifestBytes, jboolean readChunks);
 
 FOUNDATION_EXPORT void JavaUtilJarManifest_writeWithJavaUtilJarManifest_withJavaIoOutputStream_(JavaUtilJarManifest *manifest, JavaIoOutputStream *outArg);
 
@@ -187,7 +195,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarManifest)
 
 #endif
 
-#if !defined (JavaUtilJarManifest_Chunk_) && (JavaUtilJarManifest_INCLUDE_ALL || defined(JavaUtilJarManifest_Chunk_INCLUDE))
+#if !defined (JavaUtilJarManifest_Chunk_) && (INCLUDE_ALL_JavaUtilJarManifest || defined(INCLUDE_JavaUtilJarManifest_Chunk))
 #define JavaUtilJarManifest_Chunk_
 
 @interface JavaUtilJarManifest_Chunk : NSObject {
@@ -209,10 +217,12 @@ FOUNDATION_EXPORT void JavaUtilJarManifest_Chunk_initWithInt_withInt_(JavaUtilJa
 
 FOUNDATION_EXPORT JavaUtilJarManifest_Chunk *new_JavaUtilJarManifest_Chunk_initWithInt_withInt_(jint start, jint end) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarManifest_Chunk *create_JavaUtilJarManifest_Chunk_initWithInt_withInt_(jint start, jint end);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarManifest_Chunk)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilJarManifest_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilJarManifest")

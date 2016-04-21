@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoInvalidObjectException_INCLUDE_ALL")
-#ifdef JavaIoInvalidObjectException_RESTRICT
-#define JavaIoInvalidObjectException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoInvalidObjectException")
+#ifdef RESTRICT_JavaIoInvalidObjectException
+#define INCLUDE_ALL_JavaIoInvalidObjectException 0
 #else
-#define JavaIoInvalidObjectException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoInvalidObjectException 1
 #endif
-#undef JavaIoInvalidObjectException_RESTRICT
+#undef RESTRICT_JavaIoInvalidObjectException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoInvalidObjectException_) && (JavaIoInvalidObjectException_INCLUDE_ALL || defined(JavaIoInvalidObjectException_INCLUDE))
+#if !defined (JavaIoInvalidObjectException_) && (INCLUDE_ALL_JavaIoInvalidObjectException || defined(INCLUDE_JavaIoInvalidObjectException))
 #define JavaIoInvalidObjectException_
 
-#define JavaIoObjectStreamException_RESTRICT 1
-#define JavaIoObjectStreamException_INCLUDE 1
+#define RESTRICT_JavaIoObjectStreamException 1
+#define INCLUDE_JavaIoObjectStreamException 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
@@ -48,10 +48,12 @@ FOUNDATION_EXPORT void JavaIoInvalidObjectException_initWithNSString_(JavaIoInva
 
 FOUNDATION_EXPORT JavaIoInvalidObjectException *new_JavaIoInvalidObjectException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoInvalidObjectException *create_JavaIoInvalidObjectException_initWithNSString_(NSString *detailMessage);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoInvalidObjectException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoInvalidObjectException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoInvalidObjectException")

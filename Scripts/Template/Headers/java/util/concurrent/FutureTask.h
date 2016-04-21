@@ -5,25 +5,24 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentFutureTask_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentFutureTask_RESTRICT
-#define JavaUtilConcurrentFutureTask_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentFutureTask")
+#ifdef RESTRICT_JavaUtilConcurrentFutureTask
+#define INCLUDE_ALL_JavaUtilConcurrentFutureTask 0
 #else
-#define JavaUtilConcurrentFutureTask_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentFutureTask 1
 #endif
-#undef JavaUtilConcurrentFutureTask_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentFutureTask
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentFutureTask_) && (JavaUtilConcurrentFutureTask_INCLUDE_ALL || defined(JavaUtilConcurrentFutureTask_INCLUDE))
+#if !defined (JavaUtilConcurrentFutureTask_) && (INCLUDE_ALL_JavaUtilConcurrentFutureTask || defined(INCLUDE_JavaUtilConcurrentFutureTask))
 #define JavaUtilConcurrentFutureTask_
 
-#define JavaUtilConcurrentRunnableFuture_RESTRICT 1
-#define JavaUtilConcurrentRunnableFuture_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentRunnableFuture 1
+#define INCLUDE_JavaUtilConcurrentRunnableFuture 1
 #include "../../../java/util/concurrent/RunnableFuture.h"
 
-@class JavaLangThrowable;
 @class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
 @protocol JavaUtilConcurrentCallable;
@@ -136,7 +135,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
  upon failure of the computation.
  @param t the cause of failure
  */
-- (void)setExceptionWithJavaLangThrowable:(JavaLangThrowable *)t;
+- (void)setExceptionWithNSException:(NSException *)t;
 
 @end
 
@@ -146,15 +145,19 @@ FOUNDATION_EXPORT void JavaUtilConcurrentFutureTask_initWithJavaUtilConcurrentCa
 
 FOUNDATION_EXPORT JavaUtilConcurrentFutureTask *new_JavaUtilConcurrentFutureTask_initWithJavaUtilConcurrentCallable_(id<JavaUtilConcurrentCallable> callable) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentFutureTask *create_JavaUtilConcurrentFutureTask_initWithJavaUtilConcurrentCallable_(id<JavaUtilConcurrentCallable> callable);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentFutureTask_initWithJavaLangRunnable_withId_(JavaUtilConcurrentFutureTask *self, id<JavaLangRunnable> runnable, id result);
 
 FOUNDATION_EXPORT JavaUtilConcurrentFutureTask *new_JavaUtilConcurrentFutureTask_initWithJavaLangRunnable_withId_(id<JavaLangRunnable> runnable, id result) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentFutureTask *create_JavaUtilConcurrentFutureTask_initWithJavaLangRunnable_withId_(id<JavaLangRunnable> runnable, id result);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentFutureTask)
 
 #endif
 
-#if !defined (JavaUtilConcurrentFutureTask_WaitNode_) && (JavaUtilConcurrentFutureTask_INCLUDE_ALL || defined(JavaUtilConcurrentFutureTask_WaitNode_INCLUDE))
+#if !defined (JavaUtilConcurrentFutureTask_WaitNode_) && (INCLUDE_ALL_JavaUtilConcurrentFutureTask || defined(INCLUDE_JavaUtilConcurrentFutureTask_WaitNode))
 #define JavaUtilConcurrentFutureTask_WaitNode_
 
 @class JavaLangThread;
@@ -186,10 +189,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentFutureTask_WaitNode_init(JavaUtilConcur
 
 FOUNDATION_EXPORT JavaUtilConcurrentFutureTask_WaitNode *new_JavaUtilConcurrentFutureTask_WaitNode_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentFutureTask_WaitNode *create_JavaUtilConcurrentFutureTask_WaitNode_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentFutureTask_WaitNode)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentFutureTask_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentFutureTask")

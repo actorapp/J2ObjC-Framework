@@ -5,25 +5,23 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCRLException_INCLUDE_ALL")
-#ifdef JavaSecurityCertCRLException_RESTRICT
-#define JavaSecurityCertCRLException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCRLException")
+#ifdef RESTRICT_JavaSecurityCertCRLException
+#define INCLUDE_ALL_JavaSecurityCertCRLException 0
 #else
-#define JavaSecurityCertCRLException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCRLException 1
 #endif
-#undef JavaSecurityCertCRLException_RESTRICT
+#undef RESTRICT_JavaSecurityCertCRLException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCRLException_) && (JavaSecurityCertCRLException_INCLUDE_ALL || defined(JavaSecurityCertCRLException_INCLUDE))
+#if !defined (JavaSecurityCertCRLException_) && (INCLUDE_ALL_JavaSecurityCertCRLException || defined(INCLUDE_JavaSecurityCertCRLException))
 #define JavaSecurityCertCRLException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../../java/security/GeneralSecurityException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief The exception that is thrown if errors occur during handling of <code>CRL</code>s.
@@ -52,14 +50,14 @@
  the cause for this exception.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates a new <code>CRLException</code> with the specified cause.
  @param cause
  the cause for this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -69,17 +67,25 @@ FOUNDATION_EXPORT void JavaSecurityCertCRLException_initWithNSString_(JavaSecuri
 
 FOUNDATION_EXPORT JavaSecurityCertCRLException *new_JavaSecurityCertCRLException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityCertCRLException *create_JavaSecurityCertCRLException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityCertCRLException_init(JavaSecurityCertCRLException *self);
 
 FOUNDATION_EXPORT JavaSecurityCertCRLException *new_JavaSecurityCertCRLException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityCertCRLException_initWithNSString_withJavaLangThrowable_(JavaSecurityCertCRLException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityCertCRLException *create_JavaSecurityCertCRLException_init();
 
-FOUNDATION_EXPORT JavaSecurityCertCRLException *new_JavaSecurityCertCRLException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityCertCRLException_initWithNSString_withNSException_(JavaSecurityCertCRLException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityCertCRLException_initWithJavaLangThrowable_(JavaSecurityCertCRLException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityCertCRLException *new_JavaSecurityCertCRLException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityCertCRLException *new_JavaSecurityCertCRLException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityCertCRLException *create_JavaSecurityCertCRLException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityCertCRLException_initWithNSException_(JavaSecurityCertCRLException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityCertCRLException *new_JavaSecurityCertCRLException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityCertCRLException *create_JavaSecurityCertCRLException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCRLException)
 
@@ -87,4 +93,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCRLException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCRLException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCRLException")

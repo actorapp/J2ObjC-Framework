@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL")
-#ifdef OrgXmlSaxHelpersNamespaceSupport_RESTRICT
-#define OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersNamespaceSupport")
+#ifdef RESTRICT_OrgXmlSaxHelpersNamespaceSupport
+#define INCLUDE_ALL_OrgXmlSaxHelpersNamespaceSupport 0
 #else
-#define OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHelpersNamespaceSupport 1
 #endif
-#undef OrgXmlSaxHelpersNamespaceSupport_RESTRICT
+#undef RESTRICT_OrgXmlSaxHelpersNamespaceSupport
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHelpersNamespaceSupport_) && (OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL || defined(OrgXmlSaxHelpersNamespaceSupport_INCLUDE))
+#if !defined (OrgXmlSaxHelpersNamespaceSupport_) && (INCLUDE_ALL_OrgXmlSaxHelpersNamespaceSupport || defined(INCLUDE_OrgXmlSaxHelpersNamespaceSupport))
 #define OrgXmlSaxHelpersNamespaceSupport_
 
 @class IOSObjectArray;
@@ -355,11 +355,13 @@ FOUNDATION_EXPORT void OrgXmlSaxHelpersNamespaceSupport_init(OrgXmlSaxHelpersNam
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersNamespaceSupport *new_OrgXmlSaxHelpersNamespaceSupport_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHelpersNamespaceSupport *create_OrgXmlSaxHelpersNamespaceSupport_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport)
 
 #endif
 
-#if !defined (OrgXmlSaxHelpersNamespaceSupport_Context_) && (OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL || defined(OrgXmlSaxHelpersNamespaceSupport_Context_INCLUDE))
+#if !defined (OrgXmlSaxHelpersNamespaceSupport_Context_) && (INCLUDE_ALL_OrgXmlSaxHelpersNamespaceSupport || defined(INCLUDE_OrgXmlSaxHelpersNamespaceSupport_Context))
 #define OrgXmlSaxHelpersNamespaceSupport_Context_
 
 @class IOSObjectArray;
@@ -482,10 +484,12 @@ FOUNDATION_EXPORT void OrgXmlSaxHelpersNamespaceSupport_Context_initWithOrgXmlSa
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersNamespaceSupport_Context *new_OrgXmlSaxHelpersNamespaceSupport_Context_initWithOrgXmlSaxHelpersNamespaceSupport_(OrgXmlSaxHelpersNamespaceSupport *outer$) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHelpersNamespaceSupport_Context *create_OrgXmlSaxHelpersNamespaceSupport_Context_initWithOrgXmlSaxHelpersNamespaceSupport_(OrgXmlSaxHelpersNamespaceSupport *outer$);
+
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNamespaceSupport_Context)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHelpersNamespaceSupport_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersNamespaceSupport")

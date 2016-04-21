@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityAuthDestroyFailedException_INCLUDE_ALL")
-#ifdef JavaxSecurityAuthDestroyFailedException_RESTRICT
-#define JavaxSecurityAuthDestroyFailedException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityAuthDestroyFailedException")
+#ifdef RESTRICT_JavaxSecurityAuthDestroyFailedException
+#define INCLUDE_ALL_JavaxSecurityAuthDestroyFailedException 0
 #else
-#define JavaxSecurityAuthDestroyFailedException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityAuthDestroyFailedException 1
 #endif
-#undef JavaxSecurityAuthDestroyFailedException_RESTRICT
+#undef RESTRICT_JavaxSecurityAuthDestroyFailedException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityAuthDestroyFailedException_) && (JavaxSecurityAuthDestroyFailedException_INCLUDE_ALL || defined(JavaxSecurityAuthDestroyFailedException_INCLUDE))
+#if !defined (JavaxSecurityAuthDestroyFailedException_) && (INCLUDE_ALL_JavaxSecurityAuthDestroyFailedException || defined(INCLUDE_JavaxSecurityAuthDestroyFailedException))
 #define JavaxSecurityAuthDestroyFailedException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -50,9 +50,13 @@ FOUNDATION_EXPORT void JavaxSecurityAuthDestroyFailedException_init(JavaxSecurit
 
 FOUNDATION_EXPORT JavaxSecurityAuthDestroyFailedException *new_JavaxSecurityAuthDestroyFailedException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxSecurityAuthDestroyFailedException *create_JavaxSecurityAuthDestroyFailedException_init();
+
 FOUNDATION_EXPORT void JavaxSecurityAuthDestroyFailedException_initWithNSString_(JavaxSecurityAuthDestroyFailedException *self, NSString *message);
 
 FOUNDATION_EXPORT JavaxSecurityAuthDestroyFailedException *new_JavaxSecurityAuthDestroyFailedException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxSecurityAuthDestroyFailedException *create_JavaxSecurityAuthDestroyFailedException_initWithNSString_(NSString *message);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthDestroyFailedException)
 
@@ -60,4 +64,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthDestroyFailedException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityAuthDestroyFailedException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityAuthDestroyFailedException")

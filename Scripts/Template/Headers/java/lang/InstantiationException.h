@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangInstantiationException_INCLUDE_ALL")
-#ifdef JavaLangInstantiationException_RESTRICT
-#define JavaLangInstantiationException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangInstantiationException")
+#ifdef RESTRICT_JavaLangInstantiationException
+#define INCLUDE_ALL_JavaLangInstantiationException 0
 #else
-#define JavaLangInstantiationException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangInstantiationException 1
 #endif
-#undef JavaLangInstantiationException_RESTRICT
+#undef RESTRICT_JavaLangInstantiationException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangInstantiationException_) && (JavaLangInstantiationException_INCLUDE_ALL || defined(JavaLangInstantiationException_INCLUDE))
+#if !defined (JavaLangInstantiationException_) && (INCLUDE_ALL_JavaLangInstantiationException || defined(INCLUDE_JavaLangInstantiationException))
 #define JavaLangInstantiationException_
 
-#define JavaLangReflectiveOperationException_RESTRICT 1
-#define JavaLangReflectiveOperationException_INCLUDE 1
+#define RESTRICT_JavaLangReflectiveOperationException 1
+#define INCLUDE_JavaLangReflectiveOperationException 1
 #include "../../java/lang/ReflectiveOperationException.h"
 
 @class IOSClass;
@@ -65,13 +65,19 @@ FOUNDATION_EXPORT void JavaLangInstantiationException_init(JavaLangInstantiation
 
 FOUNDATION_EXPORT JavaLangInstantiationException *new_JavaLangInstantiationException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangInstantiationException *create_JavaLangInstantiationException_init();
+
 FOUNDATION_EXPORT void JavaLangInstantiationException_initWithNSString_(JavaLangInstantiationException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangInstantiationException *new_JavaLangInstantiationException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangInstantiationException *create_JavaLangInstantiationException_initWithNSString_(NSString *detailMessage);
+
 FOUNDATION_EXPORT void JavaLangInstantiationException_initWithIOSClass_(JavaLangInstantiationException *self, IOSClass *clazz);
 
 FOUNDATION_EXPORT JavaLangInstantiationException *new_JavaLangInstantiationException_initWithIOSClass_(IOSClass *clazz) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangInstantiationException *create_JavaLangInstantiationException_initWithIOSClass_(IOSClass *clazz);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangInstantiationException)
 
@@ -79,4 +85,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInstantiationException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangInstantiationException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangInstantiationException")

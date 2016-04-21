@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextDateFormat_INCLUDE_ALL")
-#ifdef JavaTextDateFormat_RESTRICT
-#define JavaTextDateFormat_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextDateFormat")
+#ifdef RESTRICT_JavaTextDateFormat
+#define INCLUDE_ALL_JavaTextDateFormat 0
 #else
-#define JavaTextDateFormat_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextDateFormat 1
 #endif
-#undef JavaTextDateFormat_RESTRICT
+#undef RESTRICT_JavaTextDateFormat
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextDateFormat_) && (JavaTextDateFormat_INCLUDE_ALL || defined(JavaTextDateFormat_INCLUDE))
+#if !defined (JavaTextDateFormat_) && (INCLUDE_ALL_JavaTextDateFormat || defined(INCLUDE_JavaTextDateFormat))
 #define JavaTextDateFormat_
 
-#define JavaTextFormat_RESTRICT 1
-#define JavaTextFormat_INCLUDE 1
+#define RESTRICT_JavaTextFormat 1
+#define INCLUDE_JavaTextFormat 1
 #include "../../java/text/Format.h"
 
 @class IOSObjectArray;
@@ -693,11 +693,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat)
 
 #endif
 
-#if !defined (JavaTextDateFormat_Field_) && (JavaTextDateFormat_INCLUDE_ALL || defined(JavaTextDateFormat_Field_INCLUDE))
+#if !defined (JavaTextDateFormat_Field_) && (INCLUDE_ALL_JavaTextDateFormat || defined(INCLUDE_JavaTextDateFormat_Field))
 #define JavaTextDateFormat_Field_
 
-#define JavaTextFormat_RESTRICT 1
-#define JavaTextFormat_Field_INCLUDE 1
+#define RESTRICT_JavaTextFormat 1
+#define INCLUDE_JavaTextFormat_Field 1
 #include "../../java/text/Format.h"
 
 /*!
@@ -932,6 +932,8 @@ FOUNDATION_EXPORT void JavaTextDateFormat_Field_initWithNSString_withInt_(JavaTe
 
 FOUNDATION_EXPORT JavaTextDateFormat_Field *new_JavaTextDateFormat_Field_initWithNSString_withInt_(NSString *fieldName, jint calendarField) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextDateFormat_Field *create_JavaTextDateFormat_Field_initWithNSString_withInt_(NSString *fieldName, jint calendarField);
+
 FOUNDATION_EXPORT JavaTextDateFormat_Field *JavaTextDateFormat_Field_ofCalendarFieldWithInt_(jint calendarField);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat_Field)
@@ -940,4 +942,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormat_Field)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextDateFormat_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextDateFormat")

@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentLocksLockSupport_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentLocksLockSupport_RESTRICT
-#define JavaUtilConcurrentLocksLockSupport_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksLockSupport")
+#ifdef RESTRICT_JavaUtilConcurrentLocksLockSupport
+#define INCLUDE_ALL_JavaUtilConcurrentLocksLockSupport 0
 #else
-#define JavaUtilConcurrentLocksLockSupport_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentLocksLockSupport 1
 #endif
-#undef JavaUtilConcurrentLocksLockSupport_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentLocksLockSupport
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentLocksLockSupport_) && (JavaUtilConcurrentLocksLockSupport_INCLUDE_ALL || defined(JavaUtilConcurrentLocksLockSupport_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksLockSupport_) && (INCLUDE_ALL_JavaUtilConcurrentLocksLockSupport || defined(INCLUDE_JavaUtilConcurrentLocksLockSupport))
 #define JavaUtilConcurrentLocksLockSupport_
 
 @class JavaLangThread;
@@ -303,4 +303,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksLockSupport)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentLocksLockSupport_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksLockSupport")

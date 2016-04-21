@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsChannels_INCLUDE_ALL")
-#ifdef JavaNioChannelsChannels_RESTRICT
-#define JavaNioChannelsChannels_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsChannels")
+#ifdef RESTRICT_JavaNioChannelsChannels
+#define INCLUDE_ALL_JavaNioChannelsChannels 0
 #else
-#define JavaNioChannelsChannels_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsChannels 1
 #endif
-#undef JavaNioChannelsChannels_RESTRICT
+#undef RESTRICT_JavaNioChannelsChannels
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsChannels_) && (JavaNioChannelsChannels_INCLUDE_ALL || defined(JavaNioChannelsChannels_INCLUDE))
+#if !defined (JavaNioChannelsChannels_) && (INCLUDE_ALL_JavaNioChannelsChannels || defined(INCLUDE_JavaNioChannelsChannels))
 #define JavaNioChannelsChannels_
 
 @class JavaIoInputStream;
@@ -196,4 +196,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsChannels)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsChannels_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsChannels")

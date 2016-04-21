@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharsetUnsupportedCharsetException_INCLUDE_ALL")
-#ifdef JavaNioCharsetUnsupportedCharsetException_RESTRICT
-#define JavaNioCharsetUnsupportedCharsetException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharsetUnsupportedCharsetException")
+#ifdef RESTRICT_JavaNioCharsetUnsupportedCharsetException
+#define INCLUDE_ALL_JavaNioCharsetUnsupportedCharsetException 0
 #else
-#define JavaNioCharsetUnsupportedCharsetException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharsetUnsupportedCharsetException 1
 #endif
-#undef JavaNioCharsetUnsupportedCharsetException_RESTRICT
+#undef RESTRICT_JavaNioCharsetUnsupportedCharsetException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharsetUnsupportedCharsetException_) && (JavaNioCharsetUnsupportedCharsetException_INCLUDE_ALL || defined(JavaNioCharsetUnsupportedCharsetException_INCLUDE))
+#if !defined (JavaNioCharsetUnsupportedCharsetException_) && (INCLUDE_ALL_JavaNioCharsetUnsupportedCharsetException || defined(INCLUDE_JavaNioCharsetUnsupportedCharsetException))
 #define JavaNioCharsetUnsupportedCharsetException_
 
-#define JavaLangIllegalArgumentException_RESTRICT 1
-#define JavaLangIllegalArgumentException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalArgumentException 1
+#define INCLUDE_JavaLangIllegalArgumentException 1
 #include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -53,10 +53,12 @@ FOUNDATION_EXPORT void JavaNioCharsetUnsupportedCharsetException_initWithNSStrin
 
 FOUNDATION_EXPORT JavaNioCharsetUnsupportedCharsetException *new_JavaNioCharsetUnsupportedCharsetException_initWithNSString_(NSString *charsetName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioCharsetUnsupportedCharsetException *create_JavaNioCharsetUnsupportedCharsetException_initWithNSString_(NSString *charsetName);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetUnsupportedCharsetException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharsetUnsupportedCharsetException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharsetUnsupportedCharsetException")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlValidationTypeInfoProvider_INCLUDE_ALL")
-#ifdef JavaxXmlValidationTypeInfoProvider_RESTRICT
-#define JavaxXmlValidationTypeInfoProvider_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlValidationTypeInfoProvider")
+#ifdef RESTRICT_JavaxXmlValidationTypeInfoProvider
+#define INCLUDE_ALL_JavaxXmlValidationTypeInfoProvider 0
 #else
-#define JavaxXmlValidationTypeInfoProvider_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlValidationTypeInfoProvider 1
 #endif
-#undef JavaxXmlValidationTypeInfoProvider_RESTRICT
+#undef RESTRICT_JavaxXmlValidationTypeInfoProvider
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlValidationTypeInfoProvider_) && (JavaxXmlValidationTypeInfoProvider_INCLUDE_ALL || defined(JavaxXmlValidationTypeInfoProvider_INCLUDE))
+#if !defined (JavaxXmlValidationTypeInfoProvider_) && (INCLUDE_ALL_JavaxXmlValidationTypeInfoProvider || defined(INCLUDE_JavaxXmlValidationTypeInfoProvider))
 #define JavaxXmlValidationTypeInfoProvider_
 
 @protocol OrgW3cDomTypeInfo;
@@ -168,4 +168,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationTypeInfoProvider)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlValidationTypeInfoProvider_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlValidationTypeInfoProvider")

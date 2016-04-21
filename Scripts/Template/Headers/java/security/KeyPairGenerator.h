@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityKeyPairGenerator_INCLUDE_ALL")
-#ifdef JavaSecurityKeyPairGenerator_RESTRICT
-#define JavaSecurityKeyPairGenerator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityKeyPairGenerator")
+#ifdef RESTRICT_JavaSecurityKeyPairGenerator
+#define INCLUDE_ALL_JavaSecurityKeyPairGenerator 0
 #else
-#define JavaSecurityKeyPairGenerator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityKeyPairGenerator 1
 #endif
-#undef JavaSecurityKeyPairGenerator_RESTRICT
+#undef RESTRICT_JavaSecurityKeyPairGenerator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityKeyPairGenerator_) && (JavaSecurityKeyPairGenerator_INCLUDE_ALL || defined(JavaSecurityKeyPairGenerator_INCLUDE))
+#if !defined (JavaSecurityKeyPairGenerator_) && (INCLUDE_ALL_JavaSecurityKeyPairGenerator || defined(INCLUDE_JavaSecurityKeyPairGenerator))
 #define JavaSecurityKeyPairGenerator_
 
-#define JavaSecurityKeyPairGeneratorSpi_RESTRICT 1
-#define JavaSecurityKeyPairGeneratorSpi_INCLUDE 1
+#define RESTRICT_JavaSecurityKeyPairGeneratorSpi 1
+#define INCLUDE_JavaSecurityKeyPairGeneratorSpi 1
 #include "../../java/security/KeyPairGeneratorSpi.h"
 
 @class JavaSecurityKeyPair;
@@ -193,4 +193,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyPairGenerator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityKeyPairGenerator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityKeyPairGenerator")

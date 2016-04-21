@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityTimestamp_INCLUDE_ALL")
-#ifdef JavaSecurityTimestamp_RESTRICT
-#define JavaSecurityTimestamp_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityTimestamp")
+#ifdef RESTRICT_JavaSecurityTimestamp
+#define INCLUDE_ALL_JavaSecurityTimestamp 0
 #else
-#define JavaSecurityTimestamp_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityTimestamp 1
 #endif
-#undef JavaSecurityTimestamp_RESTRICT
+#undef RESTRICT_JavaSecurityTimestamp
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityTimestamp_) && (JavaSecurityTimestamp_INCLUDE_ALL || defined(JavaSecurityTimestamp_INCLUDE))
+#if !defined (JavaSecurityTimestamp_) && (INCLUDE_ALL_JavaSecurityTimestamp || defined(INCLUDE_JavaSecurityTimestamp))
 #define JavaSecurityTimestamp_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class JavaSecurityCertCertPath;
@@ -103,10 +103,12 @@ FOUNDATION_EXPORT void JavaSecurityTimestamp_initWithJavaUtilDate_withJavaSecuri
 
 FOUNDATION_EXPORT JavaSecurityTimestamp *new_JavaSecurityTimestamp_initWithJavaUtilDate_withJavaSecurityCertCertPath_(JavaUtilDate *timestamp, JavaSecurityCertCertPath *signerCertPath) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityTimestamp *create_JavaSecurityTimestamp_initWithJavaUtilDate_withJavaSecurityCertCertPath_(JavaUtilDate *timestamp, JavaSecurityCertCertPath *signerCertPath);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityTimestamp)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityTimestamp_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityTimestamp")

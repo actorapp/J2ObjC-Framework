@@ -5,25 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoStringBufferInputStream_INCLUDE_ALL")
-#ifdef JavaIoStringBufferInputStream_RESTRICT
-#define JavaIoStringBufferInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoStringBufferInputStream")
+#ifdef RESTRICT_JavaIoStringBufferInputStream
+#define INCLUDE_ALL_JavaIoStringBufferInputStream 0
 #else
-#define JavaIoStringBufferInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoStringBufferInputStream 1
 #endif
-#undef JavaIoStringBufferInputStream_RESTRICT
+#undef RESTRICT_JavaIoStringBufferInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoStringBufferInputStream_) && (JavaIoStringBufferInputStream_INCLUDE_ALL || defined(JavaIoStringBufferInputStream_INCLUDE))
+#if !defined (JavaIoStringBufferInputStream_) && (INCLUDE_ALL_JavaIoStringBufferInputStream || defined(INCLUDE_JavaIoStringBufferInputStream))
 #define JavaIoStringBufferInputStream_
 
-#define JavaIoInputStream_RESTRICT 1
-#define JavaIoInputStream_INCLUDE 1
+#define RESTRICT_JavaIoInputStream 1
+#define INCLUDE_JavaIoInputStream 1
 #include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
+@class IOSObjectArray;
 
 /*!
  @brief A specialized <code>InputStream</code> that reads bytes from a <code>String</code> in
@@ -101,10 +102,12 @@ FOUNDATION_EXPORT void JavaIoStringBufferInputStream_initWithNSString_(JavaIoStr
 
 FOUNDATION_EXPORT JavaIoStringBufferInputStream *new_JavaIoStringBufferInputStream_initWithNSString_(NSString *str) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoStringBufferInputStream *create_JavaIoStringBufferInputStream_initWithNSString_(NSString *str);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoStringBufferInputStream)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoStringBufferInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoStringBufferInputStream")

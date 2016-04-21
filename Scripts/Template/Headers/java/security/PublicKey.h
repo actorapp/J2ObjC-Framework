@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityPublicKey_INCLUDE_ALL")
-#ifdef JavaSecurityPublicKey_RESTRICT
-#define JavaSecurityPublicKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityPublicKey")
+#ifdef RESTRICT_JavaSecurityPublicKey
+#define INCLUDE_ALL_JavaSecurityPublicKey 0
 #else
-#define JavaSecurityPublicKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityPublicKey 1
 #endif
-#undef JavaSecurityPublicKey_RESTRICT
+#undef RESTRICT_JavaSecurityPublicKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityPublicKey_) && (JavaSecurityPublicKey_INCLUDE_ALL || defined(JavaSecurityPublicKey_INCLUDE))
+#if !defined (JavaSecurityPublicKey_) && (INCLUDE_ALL_JavaSecurityPublicKey || defined(INCLUDE_JavaSecurityPublicKey))
 #define JavaSecurityPublicKey_
 
-#define JavaSecurityKey_RESTRICT 1
-#define JavaSecurityKey_INCLUDE 1
+#define RESTRICT_JavaSecurityKey 1
+#define INCLUDE_JavaSecurityKey 1
 #include "../../java/security/Key.h"
 
 /*!
@@ -52,4 +52,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPublicKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityPublicKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityPublicKey")

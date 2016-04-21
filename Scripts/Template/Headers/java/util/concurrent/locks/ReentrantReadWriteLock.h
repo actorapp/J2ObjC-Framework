@@ -5,32 +5,32 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentLocksReentrantReadWriteLock_RESTRICT
-#define JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock")
+#ifdef RESTRICT_JavaUtilConcurrentLocksReentrantReadWriteLock
+#define INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock 0
 #else
-#define JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock 1
 #endif
-#undef JavaUtilConcurrentLocksReentrantReadWriteLock_RESTRICT
-#ifdef JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync_INCLUDE
-#define JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_INCLUDE 1
+#undef RESTRICT_JavaUtilConcurrentLocksReentrantReadWriteLock
+#ifdef INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync
+#define INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_Sync 1
 #endif
-#ifdef JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync_INCLUDE
-#define JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync
+#define INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_Sync 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_) && (JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock))
 #define JavaUtilConcurrentLocksReentrantReadWriteLock_
 
-#define JavaUtilConcurrentLocksReadWriteLock_RESTRICT 1
-#define JavaUtilConcurrentLocksReadWriteLock_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentLocksReadWriteLock 1
+#define INCLUDE_JavaUtilConcurrentLocksReadWriteLock 1
 #include "../../../../java/util/concurrent/locks/ReadWriteLock.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 @class JavaLangThread;
@@ -440,19 +440,23 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantReadWriteLock_init(JavaUt
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock *new_JavaUtilConcurrentLocksReentrantReadWriteLock_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock *create_JavaUtilConcurrentLocksReentrantReadWriteLock_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantReadWriteLock_initWithBoolean_(JavaUtilConcurrentLocksReentrantReadWriteLock *self, jboolean fair);
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock *new_JavaUtilConcurrentLocksReentrantReadWriteLock_initWithBoolean_(jboolean fair) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock *create_JavaUtilConcurrentLocksReentrantReadWriteLock_initWithBoolean_(jboolean fair);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_) && (JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_Sync))
 #define JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_
 
-#define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_RESTRICT 1
-#define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
+#define INCLUDE_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
 #include "../../../../java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
 
 @class JavaLangThread;
@@ -576,7 +580,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter_) && (JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter))
 #define JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter_
 
 /*!
@@ -601,15 +605,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCo
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter *new_JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter *create_JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_ThreadLocalHoldCounter_) && (JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_ThreadLocalHoldCounter_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_ThreadLocalHoldCounter_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_ThreadLocalHoldCounter))
 #define JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_ThreadLocalHoldCounter_
 
-#define JavaLangThreadLocal_RESTRICT 1
-#define JavaLangThreadLocal_INCLUDE 1
+#define RESTRICT_JavaLangThreadLocal 1
+#define INCLUDE_JavaLangThreadLocal 1
 #include "../../../../java/lang/ThreadLocal.h"
 
 @class JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_HoldCounter;
@@ -637,11 +643,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_Thread
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_ThreadLocalHoldCounter *new_JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_ThreadLocalHoldCounter_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_ThreadLocalHoldCounter *create_JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_ThreadLocalHoldCounter_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_Sync_ThreadLocalHoldCounter)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync_) && (JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync))
 #define JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync_
 
 /*!
@@ -665,11 +673,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync *new_JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync *create_JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_NonfairSync)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync_) && (JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync))
 #define JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync_
 
 /*!
@@ -693,19 +703,21 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync_in
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync *new_JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync *create_JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_FairSync)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock_) && (JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock))
 #define JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock_
 
-#define JavaUtilConcurrentLocksLock_RESTRICT 1
-#define JavaUtilConcurrentLocksLock_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentLocksLock 1
+#define INCLUDE_JavaUtilConcurrentLocksLock 1
 #include "../../../../java/util/concurrent/locks/Lock.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentLocksReentrantReadWriteLock;
@@ -873,19 +885,21 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock_in
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock *new_JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock_initWithJavaUtilConcurrentLocksReentrantReadWriteLock_(JavaUtilConcurrentLocksReentrantReadWriteLock *lock) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock *create_JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock_initWithJavaUtilConcurrentLocksReentrantReadWriteLock_(JavaUtilConcurrentLocksReentrantReadWriteLock *lock);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_ReadLock)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock_) && (JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock))
 #define JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock_
 
-#define JavaUtilConcurrentLocksLock_RESTRICT 1
-#define JavaUtilConcurrentLocksLock_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentLocksLock 1
+#define INCLUDE_JavaUtilConcurrentLocksLock 1
 #include "../../../../java/util/concurrent/locks/Lock.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentLocksReentrantReadWriteLock;
@@ -1138,10 +1152,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock_i
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock *new_JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock_initWithJavaUtilConcurrentLocksReentrantReadWriteLock_(JavaUtilConcurrentLocksReentrantReadWriteLock *lock) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock *create_JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock_initWithJavaUtilConcurrentLocksReentrantReadWriteLock_(JavaUtilConcurrentLocksReentrantReadWriteLock *lock);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantReadWriteLock_WriteLock)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentLocksReentrantReadWriteLock_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReentrantReadWriteLock")

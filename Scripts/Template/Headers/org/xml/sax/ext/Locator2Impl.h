@@ -5,26 +5,26 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxExtLocator2Impl_INCLUDE_ALL")
-#ifdef OrgXmlSaxExtLocator2Impl_RESTRICT
-#define OrgXmlSaxExtLocator2Impl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtLocator2Impl")
+#ifdef RESTRICT_OrgXmlSaxExtLocator2Impl
+#define INCLUDE_ALL_OrgXmlSaxExtLocator2Impl 0
 #else
-#define OrgXmlSaxExtLocator2Impl_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxExtLocator2Impl 1
 #endif
-#undef OrgXmlSaxExtLocator2Impl_RESTRICT
+#undef RESTRICT_OrgXmlSaxExtLocator2Impl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxExtLocator2Impl_) && (OrgXmlSaxExtLocator2Impl_INCLUDE_ALL || defined(OrgXmlSaxExtLocator2Impl_INCLUDE))
+#if !defined (OrgXmlSaxExtLocator2Impl_) && (INCLUDE_ALL_OrgXmlSaxExtLocator2Impl || defined(INCLUDE_OrgXmlSaxExtLocator2Impl))
 #define OrgXmlSaxExtLocator2Impl_
 
-#define OrgXmlSaxHelpersLocatorImpl_RESTRICT 1
-#define OrgXmlSaxHelpersLocatorImpl_INCLUDE 1
+#define RESTRICT_OrgXmlSaxHelpersLocatorImpl 1
+#define INCLUDE_OrgXmlSaxHelpersLocatorImpl 1
 #include "../../../../org/xml/sax/helpers/LocatorImpl.h"
 
-#define OrgXmlSaxExtLocator2_RESTRICT 1
-#define OrgXmlSaxExtLocator2_INCLUDE 1
+#define RESTRICT_OrgXmlSaxExtLocator2 1
+#define INCLUDE_OrgXmlSaxExtLocator2 1
 #include "../../../../org/xml/sax/ext/Locator2.h"
 
 @protocol OrgXmlSaxLocator;
@@ -97,9 +97,13 @@ FOUNDATION_EXPORT void OrgXmlSaxExtLocator2Impl_init(OrgXmlSaxExtLocator2Impl *s
 
 FOUNDATION_EXPORT OrgXmlSaxExtLocator2Impl *new_OrgXmlSaxExtLocator2Impl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxExtLocator2Impl *create_OrgXmlSaxExtLocator2Impl_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxExtLocator2Impl_initWithOrgXmlSaxLocator_(OrgXmlSaxExtLocator2Impl *self, id<OrgXmlSaxLocator> locator);
 
 FOUNDATION_EXPORT OrgXmlSaxExtLocator2Impl *new_OrgXmlSaxExtLocator2Impl_initWithOrgXmlSaxLocator_(id<OrgXmlSaxLocator> locator) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxExtLocator2Impl *create_OrgXmlSaxExtLocator2Impl_initWithOrgXmlSaxLocator_(id<OrgXmlSaxLocator> locator);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtLocator2Impl)
 
@@ -107,4 +111,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtLocator2Impl)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxExtLocator2Impl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtLocator2Impl")

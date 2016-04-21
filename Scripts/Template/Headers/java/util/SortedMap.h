@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilSortedMap_INCLUDE_ALL")
-#ifdef JavaUtilSortedMap_RESTRICT
-#define JavaUtilSortedMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilSortedMap")
+#ifdef RESTRICT_JavaUtilSortedMap
+#define INCLUDE_ALL_JavaUtilSortedMap 0
 #else
-#define JavaUtilSortedMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilSortedMap 1
 #endif
-#undef JavaUtilSortedMap_RESTRICT
+#undef RESTRICT_JavaUtilSortedMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilSortedMap_) && (JavaUtilSortedMap_INCLUDE_ALL || defined(JavaUtilSortedMap_INCLUDE))
+#if !defined (JavaUtilSortedMap_) && (INCLUDE_ALL_JavaUtilSortedMap || defined(INCLUDE_JavaUtilSortedMap))
 #define JavaUtilSortedMap_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap 1
 #include "../../java/util/Map.h"
 
 @protocol JavaUtilComparator;
@@ -137,4 +137,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSortedMap)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilSortedMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilSortedMap")

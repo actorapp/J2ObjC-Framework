@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslKeyManager_INCLUDE_ALL")
-#ifdef JavaxNetSslKeyManager_RESTRICT
-#define JavaxNetSslKeyManager_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslKeyManager")
+#ifdef RESTRICT_JavaxNetSslKeyManager
+#define INCLUDE_ALL_JavaxNetSslKeyManager 0
 #else
-#define JavaxNetSslKeyManager_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslKeyManager 1
 #endif
-#undef JavaxNetSslKeyManager_RESTRICT
+#undef RESTRICT_JavaxNetSslKeyManager
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslKeyManager_) && (JavaxNetSslKeyManager_INCLUDE_ALL || defined(JavaxNetSslKeyManager_INCLUDE))
+#if !defined (JavaxNetSslKeyManager_) && (INCLUDE_ALL_JavaxNetSslKeyManager || defined(INCLUDE_JavaxNetSslKeyManager))
 #define JavaxNetSslKeyManager_
 
 /*!
@@ -38,4 +38,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslKeyManager)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslKeyManager_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslKeyManager")

@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentConcurrentNavigableMap_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentConcurrentNavigableMap_RESTRICT
-#define JavaUtilConcurrentConcurrentNavigableMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentNavigableMap")
+#ifdef RESTRICT_JavaUtilConcurrentConcurrentNavigableMap
+#define INCLUDE_ALL_JavaUtilConcurrentConcurrentNavigableMap 0
 #else
-#define JavaUtilConcurrentConcurrentNavigableMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentConcurrentNavigableMap 1
 #endif
-#undef JavaUtilConcurrentConcurrentNavigableMap_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentConcurrentNavigableMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentConcurrentNavigableMap_) && (JavaUtilConcurrentConcurrentNavigableMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentNavigableMap_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentNavigableMap_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentNavigableMap || defined(INCLUDE_JavaUtilConcurrentConcurrentNavigableMap))
 #define JavaUtilConcurrentConcurrentNavigableMap_
 
-#define JavaUtilConcurrentConcurrentMap_RESTRICT 1
-#define JavaUtilConcurrentConcurrentMap_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentConcurrentMap 1
+#define INCLUDE_JavaUtilConcurrentConcurrentMap 1
 #include "../../../java/util/concurrent/ConcurrentMap.h"
 
-#define JavaUtilNavigableMap_RESTRICT 1
-#define JavaUtilNavigableMap_INCLUDE 1
+#define RESTRICT_JavaUtilNavigableMap 1
+#define INCLUDE_JavaUtilNavigableMap 1
 #include "../../../java/util/NavigableMap.h"
 
 @protocol JavaUtilNavigableSet;
@@ -165,4 +165,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentNavigableMap)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentConcurrentNavigableMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentNavigableMap")

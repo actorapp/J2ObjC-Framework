@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsServerSocketChannel_INCLUDE_ALL")
-#ifdef JavaNioChannelsServerSocketChannel_RESTRICT
-#define JavaNioChannelsServerSocketChannel_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsServerSocketChannel")
+#ifdef RESTRICT_JavaNioChannelsServerSocketChannel
+#define INCLUDE_ALL_JavaNioChannelsServerSocketChannel 0
 #else
-#define JavaNioChannelsServerSocketChannel_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsServerSocketChannel 1
 #endif
-#undef JavaNioChannelsServerSocketChannel_RESTRICT
+#undef RESTRICT_JavaNioChannelsServerSocketChannel
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsServerSocketChannel_) && (JavaNioChannelsServerSocketChannel_INCLUDE_ALL || defined(JavaNioChannelsServerSocketChannel_INCLUDE))
+#if !defined (JavaNioChannelsServerSocketChannel_) && (INCLUDE_ALL_JavaNioChannelsServerSocketChannel || defined(INCLUDE_JavaNioChannelsServerSocketChannel))
 #define JavaNioChannelsServerSocketChannel_
 
-#define JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT 1
-#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsSpiAbstractSelectableChannel 1
+#define INCLUDE_JavaNioChannelsSpiAbstractSelectableChannel 1
 #include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
 
-#define JavaNioChannelsNetworkChannel_RESTRICT 1
-#define JavaNioChannelsNetworkChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsNetworkChannel 1
+#define INCLUDE_JavaNioChannelsNetworkChannel 1
 #include "../../../java/nio/channels/NetworkChannel.h"
 
 @class JavaNetServerSocket;
@@ -182,4 +182,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsServerSocketChannel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsServerSocketChannel_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsServerSocketChannel")

@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextInputType_INCLUDE_ALL")
-#ifdef AndroidTextInputType_RESTRICT
-#define AndroidTextInputType_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextInputType")
+#ifdef RESTRICT_AndroidTextInputType
+#define INCLUDE_ALL_AndroidTextInputType 0
 #else
-#define AndroidTextInputType_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextInputType 1
 #endif
-#undef AndroidTextInputType_RESTRICT
+#undef RESTRICT_AndroidTextInputType
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextInputType_) && (AndroidTextInputType_INCLUDE_ALL || defined(AndroidTextInputType_INCLUDE))
+#if !defined (AndroidTextInputType_) && (INCLUDE_ALL_AndroidTextInputType || defined(INCLUDE_AndroidTextInputType))
 #define AndroidTextInputType_
 
 /*!
@@ -528,4 +528,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextInputType)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextInputType_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextInputType")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecPSSParameterSpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecPSSParameterSpec_RESTRICT
-#define JavaSecuritySpecPSSParameterSpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecPSSParameterSpec")
+#ifdef RESTRICT_JavaSecuritySpecPSSParameterSpec
+#define INCLUDE_ALL_JavaSecuritySpecPSSParameterSpec 0
 #else
-#define JavaSecuritySpecPSSParameterSpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecPSSParameterSpec 1
 #endif
-#undef JavaSecuritySpecPSSParameterSpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecPSSParameterSpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecPSSParameterSpec_) && (JavaSecuritySpecPSSParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecPSSParameterSpec_INCLUDE))
+#if !defined (JavaSecuritySpecPSSParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecPSSParameterSpec || defined(INCLUDE_JavaSecuritySpecPSSParameterSpec))
 #define JavaSecuritySpecPSSParameterSpec_
 
-#define JavaSecuritySpecAlgorithmParameterSpec_RESTRICT 1
-#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
+#define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
 #include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 /*!
@@ -124,9 +124,13 @@ FOUNDATION_EXPORT void JavaSecuritySpecPSSParameterSpec_initWithInt_(JavaSecurit
 
 FOUNDATION_EXPORT JavaSecuritySpecPSSParameterSpec *new_JavaSecuritySpecPSSParameterSpec_initWithInt_(jint saltLen) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecPSSParameterSpec *create_JavaSecuritySpecPSSParameterSpec_initWithInt_(jint saltLen);
+
 FOUNDATION_EXPORT void JavaSecuritySpecPSSParameterSpec_initWithNSString_withNSString_withJavaSecuritySpecAlgorithmParameterSpec_withInt_withInt_(JavaSecuritySpecPSSParameterSpec *self, NSString *mdName, NSString *mgfName, id<JavaSecuritySpecAlgorithmParameterSpec> mgfSpec, jint saltLen, jint trailerField);
 
 FOUNDATION_EXPORT JavaSecuritySpecPSSParameterSpec *new_JavaSecuritySpecPSSParameterSpec_initWithNSString_withNSString_withJavaSecuritySpecAlgorithmParameterSpec_withInt_withInt_(NSString *mdName, NSString *mgfName, id<JavaSecuritySpecAlgorithmParameterSpec> mgfSpec, jint saltLen, jint trailerField) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecuritySpecPSSParameterSpec *create_JavaSecuritySpecPSSParameterSpec_initWithNSString_withNSString_withJavaSecuritySpecAlgorithmParameterSpec_withInt_withInt_(NSString *mdName, NSString *mgfName, id<JavaSecuritySpecAlgorithmParameterSpec> mgfSpec, jint saltLen, jint trailerField);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecPSSParameterSpec)
 
@@ -134,4 +138,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecPSSParameterSpec)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecPSSParameterSpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecPSSParameterSpec")

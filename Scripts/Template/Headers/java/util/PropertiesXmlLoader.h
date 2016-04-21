@@ -5,17 +5,55 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilPropertiesXmlLoader_INCLUDE_ALL")
-#ifdef JavaUtilPropertiesXmlLoader_RESTRICT
-#define JavaUtilPropertiesXmlLoader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilPropertiesXmlLoader")
+#ifdef RESTRICT_JavaUtilPropertiesXmlLoader
+#define INCLUDE_ALL_JavaUtilPropertiesXmlLoader 0
 #else
-#define JavaUtilPropertiesXmlLoader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilPropertiesXmlLoader 1
 #endif
-#undef JavaUtilPropertiesXmlLoader_RESTRICT
+#undef RESTRICT_JavaUtilPropertiesXmlLoader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
+#if !defined (JavaUtilPropertiesXmlLoader_) && (INCLUDE_ALL_JavaUtilPropertiesXmlLoader || defined(INCLUDE_JavaUtilPropertiesXmlLoader))
+#define JavaUtilPropertiesXmlLoader_
+
+#define RESTRICT_JavaUtilProperties 1
+#define INCLUDE_JavaUtilProperties_XmlLoader 1
+#include "../../java/util/Properties.h"
+
+@class JavaIoInputStream;
+@class JavaUtilProperties;
+
+/*!
+ @brief Dynamically loaded implementation for Properties.loadFromXML().
+ Public so that users can add an
+ explicit dependency to force load this class.
+ */
+@interface JavaUtilPropertiesXmlLoader : NSObject < JavaUtilProperties_XmlLoader >
+
+#pragma mark Public
+
+- (instancetype)init;
+
+- (void)load__WithJavaUtilProperties:(JavaUtilProperties *)p
+               withJavaIoInputStream:(JavaIoInputStream *)inArg;
+
+@end
+
+J2OBJC_EMPTY_STATIC_INIT(JavaUtilPropertiesXmlLoader)
+
+FOUNDATION_EXPORT void JavaUtilPropertiesXmlLoader_init(JavaUtilPropertiesXmlLoader *self);
+
+FOUNDATION_EXPORT JavaUtilPropertiesXmlLoader *new_JavaUtilPropertiesXmlLoader_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilPropertiesXmlLoader *create_JavaUtilPropertiesXmlLoader_init();
+
+J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPropertiesXmlLoader)
+
+#endif
+
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilPropertiesXmlLoader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilPropertiesXmlLoader")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomDOMConfiguration_INCLUDE_ALL")
-#ifdef OrgW3cDomDOMConfiguration_RESTRICT
-#define OrgW3cDomDOMConfiguration_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomDOMConfiguration")
+#ifdef RESTRICT_OrgW3cDomDOMConfiguration
+#define INCLUDE_ALL_OrgW3cDomDOMConfiguration 0
 #else
-#define OrgW3cDomDOMConfiguration_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomDOMConfiguration 1
 #endif
-#undef OrgW3cDomDOMConfiguration_RESTRICT
+#undef RESTRICT_OrgW3cDomDOMConfiguration
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomDOMConfiguration_) && (OrgW3cDomDOMConfiguration_INCLUDE_ALL || defined(OrgW3cDomDOMConfiguration_INCLUDE))
+#if !defined (OrgW3cDomDOMConfiguration_) && (INCLUDE_ALL_OrgW3cDomDOMConfiguration || defined(INCLUDE_OrgW3cDomDOMConfiguration))
 #define OrgW3cDomDOMConfiguration_
 
 @protocol OrgW3cDomDOMStringList;
@@ -430,4 +430,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMConfiguration)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomDOMConfiguration_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomDOMConfiguration")

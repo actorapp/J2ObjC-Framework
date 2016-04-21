@@ -5,25 +5,23 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectUndeclaredThrowableException_INCLUDE_ALL")
-#ifdef JavaLangReflectUndeclaredThrowableException_RESTRICT
-#define JavaLangReflectUndeclaredThrowableException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectUndeclaredThrowableException")
+#ifdef RESTRICT_JavaLangReflectUndeclaredThrowableException
+#define INCLUDE_ALL_JavaLangReflectUndeclaredThrowableException 0
 #else
-#define JavaLangReflectUndeclaredThrowableException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectUndeclaredThrowableException 1
 #endif
-#undef JavaLangReflectUndeclaredThrowableException_RESTRICT
+#undef RESTRICT_JavaLangReflectUndeclaredThrowableException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectUndeclaredThrowableException_) && (JavaLangReflectUndeclaredThrowableException_INCLUDE_ALL || defined(JavaLangReflectUndeclaredThrowableException_INCLUDE))
+#if !defined (JavaLangReflectUndeclaredThrowableException_) && (INCLUDE_ALL_JavaLangReflectUndeclaredThrowableException || defined(INCLUDE_JavaLangReflectUndeclaredThrowableException))
 #define JavaLangReflectUndeclaredThrowableException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../../java/lang/RuntimeException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief This class provides a wrapper for an undeclared, checked exception thrown by
@@ -40,7 +38,7 @@
  @param exception
  the undeclared, checked exception that occurred
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)exception;
+- (instancetype)initWithNSException:(NSException *)exception;
 
 /*!
  @brief Constructs a new <code>UndeclaredThrowableException</code> instance with the
@@ -50,34 +48,38 @@
  @param exception
  the undeclared, checked exception that occurred
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)exception
-                             withNSString:(NSString *)detailMessage;
+- (instancetype)initWithNSException:(NSException *)exception
+                       withNSString:(NSString *)detailMessage;
 
 /*!
  @brief Returns the undeclared, checked exception that occurred, which may be
  <code>null</code>.
  @return the undeclared, checked exception that occurred
  */
-- (JavaLangThrowable *)getCause;
+- (NSException *)getCause;
 
 /*!
  @brief Returns the undeclared, checked exception that occurred, which may be
  <code>null</code>.
  @return the undeclared, checked exception that occurred
  */
-- (JavaLangThrowable *)getUndeclaredThrowable;
+- (NSException *)getUndeclaredThrowable;
 
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaLangReflectUndeclaredThrowableException)
 
-FOUNDATION_EXPORT void JavaLangReflectUndeclaredThrowableException_initWithJavaLangThrowable_(JavaLangReflectUndeclaredThrowableException *self, JavaLangThrowable *exception);
+FOUNDATION_EXPORT void JavaLangReflectUndeclaredThrowableException_initWithNSException_(JavaLangReflectUndeclaredThrowableException *self, NSException *exception);
 
-FOUNDATION_EXPORT JavaLangReflectUndeclaredThrowableException *new_JavaLangReflectUndeclaredThrowableException_initWithJavaLangThrowable_(JavaLangThrowable *exception) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaLangReflectUndeclaredThrowableException *new_JavaLangReflectUndeclaredThrowableException_initWithNSException_(NSException *exception) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangReflectUndeclaredThrowableException_initWithJavaLangThrowable_withNSString_(JavaLangReflectUndeclaredThrowableException *self, JavaLangThrowable *exception, NSString *detailMessage);
+FOUNDATION_EXPORT JavaLangReflectUndeclaredThrowableException *create_JavaLangReflectUndeclaredThrowableException_initWithNSException_(NSException *exception);
 
-FOUNDATION_EXPORT JavaLangReflectUndeclaredThrowableException *new_JavaLangReflectUndeclaredThrowableException_initWithJavaLangThrowable_withNSString_(JavaLangThrowable *exception, NSString *detailMessage) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangReflectUndeclaredThrowableException_initWithNSException_withNSString_(JavaLangReflectUndeclaredThrowableException *self, NSException *exception, NSString *detailMessage);
+
+FOUNDATION_EXPORT JavaLangReflectUndeclaredThrowableException *new_JavaLangReflectUndeclaredThrowableException_initWithNSException_withNSString_(NSException *exception, NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangReflectUndeclaredThrowableException *create_JavaLangReflectUndeclaredThrowableException_initWithNSException_withNSString_(NSException *exception, NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectUndeclaredThrowableException)
 
@@ -85,4 +87,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectUndeclaredThrowableException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectUndeclaredThrowableException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectUndeclaredThrowableException")

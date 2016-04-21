@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextSpanWatcher_INCLUDE_ALL")
-#ifdef AndroidTextSpanWatcher_RESTRICT
-#define AndroidTextSpanWatcher_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextSpanWatcher")
+#ifdef RESTRICT_AndroidTextSpanWatcher
+#define INCLUDE_ALL_AndroidTextSpanWatcher 0
 #else
-#define AndroidTextSpanWatcher_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextSpanWatcher 1
 #endif
-#undef AndroidTextSpanWatcher_RESTRICT
+#undef RESTRICT_AndroidTextSpanWatcher
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextSpanWatcher_) && (AndroidTextSpanWatcher_INCLUDE_ALL || defined(AndroidTextSpanWatcher_INCLUDE))
+#if !defined (AndroidTextSpanWatcher_) && (INCLUDE_ALL_AndroidTextSpanWatcher || defined(INCLUDE_AndroidTextSpanWatcher))
 #define AndroidTextSpanWatcher_
 
-#define AndroidTextNoCopySpan_RESTRICT 1
-#define AndroidTextNoCopySpan_INCLUDE 1
+#define RESTRICT_AndroidTextNoCopySpan 1
+#define INCLUDE_AndroidTextNoCopySpan 1
 #include "../../android/text/NoCopySpan.h"
 
 @protocol AndroidTextSpannable;
@@ -72,4 +72,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpanWatcher)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextSpanWatcher_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextSpanWatcher")

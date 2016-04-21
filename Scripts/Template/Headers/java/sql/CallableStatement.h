@@ -5,25 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlCallableStatement_INCLUDE_ALL")
-#ifdef JavaSqlCallableStatement_RESTRICT
-#define JavaSqlCallableStatement_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlCallableStatement")
+#ifdef RESTRICT_JavaSqlCallableStatement
+#define INCLUDE_ALL_JavaSqlCallableStatement 0
 #else
-#define JavaSqlCallableStatement_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlCallableStatement 1
 #endif
-#undef JavaSqlCallableStatement_RESTRICT
+#undef RESTRICT_JavaSqlCallableStatement
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlCallableStatement_) && (JavaSqlCallableStatement_INCLUDE_ALL || defined(JavaSqlCallableStatement_INCLUDE))
+#if !defined (JavaSqlCallableStatement_) && (INCLUDE_ALL_JavaSqlCallableStatement || defined(INCLUDE_JavaSqlCallableStatement))
 #define JavaSqlCallableStatement_
 
-#define JavaSqlPreparedStatement_RESTRICT 1
-#define JavaSqlPreparedStatement_INCLUDE 1
+#define RESTRICT_JavaSqlPreparedStatement 1
+#define INCLUDE_JavaSqlPreparedStatement 1
 #include "../../java/sql/PreparedStatement.h"
 
 @class IOSByteArray;
+@class IOSObjectArray;
 @class JavaIoInputStream;
 @class JavaIoReader;
 @class JavaMathBigDecimal;
@@ -1628,4 +1629,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlCallableStatement)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlCallableStatement_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlCallableStatement")

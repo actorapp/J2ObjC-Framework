@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoRandomAccessFile_INCLUDE_ALL")
-#ifdef JavaIoRandomAccessFile_RESTRICT
-#define JavaIoRandomAccessFile_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoRandomAccessFile")
+#ifdef RESTRICT_JavaIoRandomAccessFile
+#define INCLUDE_ALL_JavaIoRandomAccessFile 0
 #else
-#define JavaIoRandomAccessFile_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoRandomAccessFile 1
 #endif
-#undef JavaIoRandomAccessFile_RESTRICT
+#undef RESTRICT_JavaIoRandomAccessFile
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoRandomAccessFile_) && (JavaIoRandomAccessFile_INCLUDE_ALL || defined(JavaIoRandomAccessFile_INCLUDE))
+#if !defined (JavaIoRandomAccessFile_) && (INCLUDE_ALL_JavaIoRandomAccessFile || defined(INCLUDE_JavaIoRandomAccessFile))
 #define JavaIoRandomAccessFile_
 
-#define JavaIoDataInput_RESTRICT 1
-#define JavaIoDataInput_INCLUDE 1
+#define RESTRICT_JavaIoDataInput 1
+#define INCLUDE_JavaIoDataInput 1
 #include "../../java/io/DataInput.h"
 
-#define JavaIoDataOutput_RESTRICT 1
-#define JavaIoDataOutput_INCLUDE 1
+#define RESTRICT_JavaIoDataOutput 1
+#define INCLUDE_JavaIoDataOutput 1
 #include "../../java/io/DataOutput.h"
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../java/io/Closeable.h"
 
 @class IOSByteArray;
@@ -628,7 +628,7 @@
 
 #pragma mark Protected
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 @end
 
@@ -638,9 +638,13 @@ FOUNDATION_EXPORT void JavaIoRandomAccessFile_initWithJavaIoFile_withNSString_(J
 
 FOUNDATION_EXPORT JavaIoRandomAccessFile *new_JavaIoRandomAccessFile_initWithJavaIoFile_withNSString_(JavaIoFile *file, NSString *mode) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoRandomAccessFile *create_JavaIoRandomAccessFile_initWithJavaIoFile_withNSString_(JavaIoFile *file, NSString *mode);
+
 FOUNDATION_EXPORT void JavaIoRandomAccessFile_initWithNSString_withNSString_(JavaIoRandomAccessFile *self, NSString *fileName, NSString *mode);
 
 FOUNDATION_EXPORT JavaIoRandomAccessFile *new_JavaIoRandomAccessFile_initWithNSString_withNSString_(NSString *fileName, NSString *mode) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoRandomAccessFile *create_JavaIoRandomAccessFile_initWithNSString_withNSString_(NSString *fileName, NSString *mode);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoRandomAccessFile)
 
@@ -648,4 +652,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoRandomAccessFile)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoRandomAccessFile_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoRandomAccessFile")

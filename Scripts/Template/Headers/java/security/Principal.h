@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityPrincipal_INCLUDE_ALL")
-#ifdef JavaSecurityPrincipal_RESTRICT
-#define JavaSecurityPrincipal_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityPrincipal")
+#ifdef RESTRICT_JavaSecurityPrincipal
+#define INCLUDE_ALL_JavaSecurityPrincipal 0
 #else
-#define JavaSecurityPrincipal_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityPrincipal 1
 #endif
-#undef JavaSecurityPrincipal_RESTRICT
+#undef RESTRICT_JavaSecurityPrincipal
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityPrincipal_) && (JavaSecurityPrincipal_INCLUDE_ALL || defined(JavaSecurityPrincipal_INCLUDE))
+#if !defined (JavaSecurityPrincipal_) && (INCLUDE_ALL_JavaSecurityPrincipal || defined(INCLUDE_JavaSecurityPrincipal))
 #define JavaSecurityPrincipal_
 
 /*!
@@ -72,4 +72,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPrincipal)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityPrincipal_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityPrincipal")

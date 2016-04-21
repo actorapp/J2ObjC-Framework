@@ -5,23 +5,26 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTestSuitebuilderAnnotationSuppress_INCLUDE_ALL")
-#ifdef AndroidTestSuitebuilderAnnotationSuppress_RESTRICT
-#define AndroidTestSuitebuilderAnnotationSuppress_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSuppress")
+#ifdef RESTRICT_AndroidTestSuitebuilderAnnotationSuppress
+#define INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSuppress 0
 #else
-#define AndroidTestSuitebuilderAnnotationSuppress_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSuppress 1
 #endif
-#undef AndroidTestSuitebuilderAnnotationSuppress_RESTRICT
+#undef RESTRICT_AndroidTestSuitebuilderAnnotationSuppress
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTestSuitebuilderAnnotationSuppress_) && (AndroidTestSuitebuilderAnnotationSuppress_INCLUDE_ALL || defined(AndroidTestSuitebuilderAnnotationSuppress_INCLUDE))
+#if !defined (AndroidTestSuitebuilderAnnotationSuppress_) && (INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSuppress || defined(INCLUDE_AndroidTestSuitebuilderAnnotationSuppress))
 #define AndroidTestSuitebuilderAnnotationSuppress_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief Use this annotation on test classes or test methods that should not be included in a test
@@ -39,10 +42,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(AndroidTestSuitebuilderAnnotationSuppress)
 
+FOUNDATION_EXPORT id<AndroidTestSuitebuilderAnnotationSuppress> create_AndroidTestSuitebuilderAnnotationSuppress();
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTestSuitebuilderAnnotationSuppress)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTestSuitebuilderAnnotationSuppress_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTestSuitebuilderAnnotationSuppress")

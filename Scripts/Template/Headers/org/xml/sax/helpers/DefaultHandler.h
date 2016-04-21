@@ -5,34 +5,34 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHelpersDefaultHandler_INCLUDE_ALL")
-#ifdef OrgXmlSaxHelpersDefaultHandler_RESTRICT
-#define OrgXmlSaxHelpersDefaultHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersDefaultHandler")
+#ifdef RESTRICT_OrgXmlSaxHelpersDefaultHandler
+#define INCLUDE_ALL_OrgXmlSaxHelpersDefaultHandler 0
 #else
-#define OrgXmlSaxHelpersDefaultHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHelpersDefaultHandler 1
 #endif
-#undef OrgXmlSaxHelpersDefaultHandler_RESTRICT
+#undef RESTRICT_OrgXmlSaxHelpersDefaultHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHelpersDefaultHandler_) && (OrgXmlSaxHelpersDefaultHandler_INCLUDE_ALL || defined(OrgXmlSaxHelpersDefaultHandler_INCLUDE))
+#if !defined (OrgXmlSaxHelpersDefaultHandler_) && (INCLUDE_ALL_OrgXmlSaxHelpersDefaultHandler || defined(INCLUDE_OrgXmlSaxHelpersDefaultHandler))
 #define OrgXmlSaxHelpersDefaultHandler_
 
-#define OrgXmlSaxEntityResolver_RESTRICT 1
-#define OrgXmlSaxEntityResolver_INCLUDE 1
+#define RESTRICT_OrgXmlSaxEntityResolver 1
+#define INCLUDE_OrgXmlSaxEntityResolver 1
 #include "../../../../org/xml/sax/EntityResolver.h"
 
-#define OrgXmlSaxDTDHandler_RESTRICT 1
-#define OrgXmlSaxDTDHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxDTDHandler 1
+#define INCLUDE_OrgXmlSaxDTDHandler 1
 #include "../../../../org/xml/sax/DTDHandler.h"
 
-#define OrgXmlSaxContentHandler_RESTRICT 1
-#define OrgXmlSaxContentHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxContentHandler 1
+#define INCLUDE_OrgXmlSaxContentHandler 1
 #include "../../../../org/xml/sax/ContentHandler.h"
 
-#define OrgXmlSaxErrorHandler_RESTRICT 1
-#define OrgXmlSaxErrorHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxErrorHandler 1
+#define INCLUDE_OrgXmlSaxErrorHandler 1
 #include "../../../../org/xml/sax/ErrorHandler.h"
 
 @class IOSCharArray;
@@ -363,10 +363,12 @@ FOUNDATION_EXPORT void OrgXmlSaxHelpersDefaultHandler_init(OrgXmlSaxHelpersDefau
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersDefaultHandler *new_OrgXmlSaxHelpersDefaultHandler_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHelpersDefaultHandler *create_OrgXmlSaxHelpersDefaultHandler_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersDefaultHandler)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHelpersDefaultHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersDefaultHandler")

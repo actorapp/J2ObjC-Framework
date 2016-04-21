@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetInet6Address_INCLUDE_ALL")
-#ifdef JavaNetInet6Address_RESTRICT
-#define JavaNetInet6Address_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetInet6Address")
+#ifdef RESTRICT_JavaNetInet6Address
+#define INCLUDE_ALL_JavaNetInet6Address 0
 #else
-#define JavaNetInet6Address_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetInet6Address 1
 #endif
-#undef JavaNetInet6Address_RESTRICT
+#undef RESTRICT_JavaNetInet6Address
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetInet6Address_) && (JavaNetInet6Address_INCLUDE_ALL || defined(JavaNetInet6Address_INCLUDE))
+#if !defined (JavaNetInet6Address_) && (INCLUDE_ALL_JavaNetInet6Address || defined(INCLUDE_JavaNetInet6Address))
 #define JavaNetInet6Address_
 
-#define JavaNetInetAddress_RESTRICT 1
-#define JavaNetInetAddress_INCLUDE 1
+#define RESTRICT_JavaNetInetAddress 1
+#define INCLUDE_JavaNetInetAddress 1
 #include "../../java/net/InetAddress.h"
 
 @class IOSByteArray;
@@ -155,6 +155,8 @@ FOUNDATION_EXPORT void JavaNetInet6Address_initWithByteArray_withNSString_withIn
 
 FOUNDATION_EXPORT JavaNetInet6Address *new_JavaNetInet6Address_initWithByteArray_withNSString_withInt_(IOSByteArray *ipaddress, NSString *hostName, jint scope_id) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetInet6Address *create_JavaNetInet6Address_initWithByteArray_withNSString_withInt_(IOSByteArray *ipaddress, NSString *hostName, jint scope_id);
+
 FOUNDATION_EXPORT JavaNetInet6Address *JavaNetInet6Address_getByAddressWithNSString_withByteArray_withInt_(NSString *host, IOSByteArray *addr, jint scope_id);
 
 FOUNDATION_EXPORT JavaNetInet6Address *JavaNetInet6Address_getByAddressWithNSString_withByteArray_withJavaNetNetworkInterface_(NSString *host, IOSByteArray *addr, JavaNetNetworkInterface *nif);
@@ -165,4 +167,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetInet6Address)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetInet6Address_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetInet6Address")

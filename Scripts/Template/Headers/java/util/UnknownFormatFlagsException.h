@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilUnknownFormatFlagsException_INCLUDE_ALL")
-#ifdef JavaUtilUnknownFormatFlagsException_RESTRICT
-#define JavaUtilUnknownFormatFlagsException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilUnknownFormatFlagsException")
+#ifdef RESTRICT_JavaUtilUnknownFormatFlagsException
+#define INCLUDE_ALL_JavaUtilUnknownFormatFlagsException 0
 #else
-#define JavaUtilUnknownFormatFlagsException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilUnknownFormatFlagsException 1
 #endif
-#undef JavaUtilUnknownFormatFlagsException_RESTRICT
+#undef RESTRICT_JavaUtilUnknownFormatFlagsException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilUnknownFormatFlagsException_) && (JavaUtilUnknownFormatFlagsException_INCLUDE_ALL || defined(JavaUtilUnknownFormatFlagsException_INCLUDE))
+#if !defined (JavaUtilUnknownFormatFlagsException_) && (INCLUDE_ALL_JavaUtilUnknownFormatFlagsException || defined(INCLUDE_JavaUtilUnknownFormatFlagsException))
 #define JavaUtilUnknownFormatFlagsException_
 
-#define JavaUtilIllegalFormatException_RESTRICT 1
-#define JavaUtilIllegalFormatException_INCLUDE 1
+#define RESTRICT_JavaUtilIllegalFormatException 1
+#define INCLUDE_JavaUtilIllegalFormatException 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
@@ -56,10 +56,12 @@ FOUNDATION_EXPORT void JavaUtilUnknownFormatFlagsException_initWithNSString_(Jav
 
 FOUNDATION_EXPORT JavaUtilUnknownFormatFlagsException *new_JavaUtilUnknownFormatFlagsException_initWithNSString_(NSString *f) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilUnknownFormatFlagsException *create_JavaUtilUnknownFormatFlagsException_initWithNSString_(NSString *f);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUnknownFormatFlagsException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilUnknownFormatFlagsException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilUnknownFormatFlagsException")

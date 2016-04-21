@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilArrayDeque_INCLUDE_ALL")
-#ifdef JavaUtilArrayDeque_RESTRICT
-#define JavaUtilArrayDeque_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilArrayDeque")
+#ifdef RESTRICT_JavaUtilArrayDeque
+#define INCLUDE_ALL_JavaUtilArrayDeque 0
 #else
-#define JavaUtilArrayDeque_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilArrayDeque 1
 #endif
-#undef JavaUtilArrayDeque_RESTRICT
+#undef RESTRICT_JavaUtilArrayDeque
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilArrayDeque_) && (JavaUtilArrayDeque_INCLUDE_ALL || defined(JavaUtilArrayDeque_INCLUDE))
+#if !defined (JavaUtilArrayDeque_) && (INCLUDE_ALL_JavaUtilArrayDeque || defined(INCLUDE_JavaUtilArrayDeque))
 #define JavaUtilArrayDeque_
 
-#define JavaUtilAbstractCollection_RESTRICT 1
-#define JavaUtilAbstractCollection_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractCollection 1
+#define INCLUDE_JavaUtilAbstractCollection 1
 #include "../../java/util/AbstractCollection.h"
 
-#define JavaUtilDeque_RESTRICT 1
-#define JavaUtilDeque_INCLUDE 1
+#define RESTRICT_JavaUtilDeque 1
+#define INCLUDE_JavaUtilDeque 1
 #include "../../java/util/Deque.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -380,13 +380,19 @@ FOUNDATION_EXPORT void JavaUtilArrayDeque_init(JavaUtilArrayDeque *self);
 
 FOUNDATION_EXPORT JavaUtilArrayDeque *new_JavaUtilArrayDeque_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilArrayDeque *create_JavaUtilArrayDeque_init();
+
 FOUNDATION_EXPORT void JavaUtilArrayDeque_initWithInt_(JavaUtilArrayDeque *self, jint numElements);
 
 FOUNDATION_EXPORT JavaUtilArrayDeque *new_JavaUtilArrayDeque_initWithInt_(jint numElements) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilArrayDeque *create_JavaUtilArrayDeque_initWithInt_(jint numElements);
+
 FOUNDATION_EXPORT void JavaUtilArrayDeque_initWithJavaUtilCollection_(JavaUtilArrayDeque *self, id<JavaUtilCollection> c);
 
 FOUNDATION_EXPORT JavaUtilArrayDeque *new_JavaUtilArrayDeque_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilArrayDeque *create_JavaUtilArrayDeque_initWithJavaUtilCollection_(id<JavaUtilCollection> c);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayDeque)
 
@@ -394,4 +400,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayDeque)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilArrayDeque_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilArrayDeque")

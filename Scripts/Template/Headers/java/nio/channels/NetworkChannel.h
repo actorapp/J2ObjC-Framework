@@ -5,30 +5,30 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsNetworkChannel_INCLUDE_ALL")
-#ifdef JavaNioChannelsNetworkChannel_RESTRICT
-#define JavaNioChannelsNetworkChannel_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsNetworkChannel")
+#ifdef RESTRICT_JavaNioChannelsNetworkChannel
+#define INCLUDE_ALL_JavaNioChannelsNetworkChannel 0
 #else
-#define JavaNioChannelsNetworkChannel_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsNetworkChannel 1
 #endif
-#undef JavaNioChannelsNetworkChannel_RESTRICT
+#undef RESTRICT_JavaNioChannelsNetworkChannel
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsNetworkChannel_) && (JavaNioChannelsNetworkChannel_INCLUDE_ALL || defined(JavaNioChannelsNetworkChannel_INCLUDE))
+#if !defined (JavaNioChannelsNetworkChannel_) && (INCLUDE_ALL_JavaNioChannelsNetworkChannel || defined(INCLUDE_JavaNioChannelsNetworkChannel))
 #define JavaNioChannelsNetworkChannel_
 
-#define JavaLangAutoCloseable_RESTRICT 1
-#define JavaLangAutoCloseable_INCLUDE 1
+#define RESTRICT_JavaLangAutoCloseable 1
+#define INCLUDE_JavaLangAutoCloseable 1
 #include "../../../java/lang/AutoCloseable.h"
 
-#define JavaNioChannelsChannel_RESTRICT 1
-#define JavaNioChannelsChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsChannel 1
+#define INCLUDE_JavaNioChannelsChannel 1
 #include "../../../java/nio/channels/Channel.h"
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../../java/io/Closeable.h"
 
 @class JavaNetSocketAddress;
@@ -125,4 +125,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsNetworkChannel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsNetworkChannel_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsNetworkChannel")

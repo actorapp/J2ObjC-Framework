@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFile_INCLUDE_ALL")
-#ifdef JavaIoFile_RESTRICT
-#define JavaIoFile_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFile")
+#ifdef RESTRICT_JavaIoFile
+#define INCLUDE_ALL_JavaIoFile 0
 #else
-#define JavaIoFile_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFile 1
 #endif
-#undef JavaIoFile_RESTRICT
+#undef RESTRICT_JavaIoFile
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFile_) && (JavaIoFile_INCLUDE_ALL || defined(JavaIoFile_INCLUDE))
+#if !defined (JavaIoFile_) && (INCLUDE_ALL_JavaIoFile || defined(INCLUDE_JavaIoFile))
 #define JavaIoFile_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSObjectArray;
@@ -717,17 +717,25 @@ FOUNDATION_EXPORT void JavaIoFile_initWithJavaIoFile_withNSString_(JavaIoFile *s
 
 FOUNDATION_EXPORT JavaIoFile *new_JavaIoFile_initWithJavaIoFile_withNSString_(JavaIoFile *dir, NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFile *create_JavaIoFile_initWithJavaIoFile_withNSString_(JavaIoFile *dir, NSString *name);
+
 FOUNDATION_EXPORT void JavaIoFile_initWithNSString_(JavaIoFile *self, NSString *path);
 
 FOUNDATION_EXPORT JavaIoFile *new_JavaIoFile_initWithNSString_(NSString *path) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoFile *create_JavaIoFile_initWithNSString_(NSString *path);
 
 FOUNDATION_EXPORT void JavaIoFile_initWithNSString_withNSString_(JavaIoFile *self, NSString *dirPath, NSString *name);
 
 FOUNDATION_EXPORT JavaIoFile *new_JavaIoFile_initWithNSString_withNSString_(NSString *dirPath, NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFile *create_JavaIoFile_initWithNSString_withNSString_(NSString *dirPath, NSString *name);
+
 FOUNDATION_EXPORT void JavaIoFile_initWithJavaNetURI_(JavaIoFile *self, JavaNetURI *uri);
 
 FOUNDATION_EXPORT JavaIoFile *new_JavaIoFile_initWithJavaNetURI_(JavaNetURI *uri) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoFile *create_JavaIoFile_initWithJavaNetURI_(JavaNetURI *uri);
 
 FOUNDATION_EXPORT IOSObjectArray *JavaIoFile_listRoots();
 
@@ -741,4 +749,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFile)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFile_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFile")

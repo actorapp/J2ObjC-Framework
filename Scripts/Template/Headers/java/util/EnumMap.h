@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilEnumMap_INCLUDE_ALL")
-#ifdef JavaUtilEnumMap_RESTRICT
-#define JavaUtilEnumMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilEnumMap")
+#ifdef RESTRICT_JavaUtilEnumMap
+#define INCLUDE_ALL_JavaUtilEnumMap 0
 #else
-#define JavaUtilEnumMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilEnumMap 1
 #endif
-#undef JavaUtilEnumMap_RESTRICT
+#undef RESTRICT_JavaUtilEnumMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilEnumMap_) && (JavaUtilEnumMap_INCLUDE_ALL || defined(JavaUtilEnumMap_INCLUDE))
+#if !defined (JavaUtilEnumMap_) && (INCLUDE_ALL_JavaUtilEnumMap || defined(INCLUDE_JavaUtilEnumMap))
 #define JavaUtilEnumMap_
 
-#define JavaUtilAbstractMap_RESTRICT 1
-#define JavaUtilAbstractMap_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractMap 1
+#define INCLUDE_JavaUtilAbstractMap 1
 #include "../../java/util/AbstractMap.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap 1
 #include "../../java/util/Map.h"
 
 @class IOSBooleanArray;
@@ -244,13 +244,19 @@ FOUNDATION_EXPORT void JavaUtilEnumMap_initWithIOSClass_(JavaUtilEnumMap *self, 
 
 FOUNDATION_EXPORT JavaUtilEnumMap *new_JavaUtilEnumMap_initWithIOSClass_(IOSClass *keyType) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilEnumMap *create_JavaUtilEnumMap_initWithIOSClass_(IOSClass *keyType);
+
 FOUNDATION_EXPORT void JavaUtilEnumMap_initWithJavaUtilEnumMap_(JavaUtilEnumMap *self, JavaUtilEnumMap *map);
 
 FOUNDATION_EXPORT JavaUtilEnumMap *new_JavaUtilEnumMap_initWithJavaUtilEnumMap_(JavaUtilEnumMap *map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilEnumMap *create_JavaUtilEnumMap_initWithJavaUtilEnumMap_(JavaUtilEnumMap *map);
+
 FOUNDATION_EXPORT void JavaUtilEnumMap_initWithJavaUtilMap_(JavaUtilEnumMap *self, id<JavaUtilMap> map);
 
 FOUNDATION_EXPORT JavaUtilEnumMap *new_JavaUtilEnumMap_initWithJavaUtilMap_(id<JavaUtilMap> map) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilEnumMap *create_JavaUtilEnumMap_initWithJavaUtilMap_(id<JavaUtilMap> map);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEnumMap)
 
@@ -258,4 +264,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEnumMap)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilEnumMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilEnumMap")

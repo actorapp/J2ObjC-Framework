@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlXMLConstants_INCLUDE_ALL")
-#ifdef JavaxXmlXMLConstants_RESTRICT
-#define JavaxXmlXMLConstants_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlXMLConstants")
+#ifdef RESTRICT_JavaxXmlXMLConstants
+#define INCLUDE_ALL_JavaxXmlXMLConstants 0
 #else
-#define JavaxXmlXMLConstants_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlXMLConstants 1
 #endif
-#undef JavaxXmlXMLConstants_RESTRICT
+#undef RESTRICT_JavaxXmlXMLConstants
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlXMLConstants_) && (JavaxXmlXMLConstants_INCLUDE_ALL || defined(JavaxXmlXMLConstants_INCLUDE))
+#if !defined (JavaxXmlXMLConstants_) && (INCLUDE_ALL_JavaxXmlXMLConstants || defined(INCLUDE_JavaxXmlXMLConstants))
 #define JavaxXmlXMLConstants_
 
 /*!
@@ -227,4 +227,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXMLConstants)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlXMLConstants_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlXMLConstants")

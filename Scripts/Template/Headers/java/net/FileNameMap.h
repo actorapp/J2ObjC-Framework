@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetFileNameMap_INCLUDE_ALL")
-#ifdef JavaNetFileNameMap_RESTRICT
-#define JavaNetFileNameMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetFileNameMap")
+#ifdef RESTRICT_JavaNetFileNameMap
+#define INCLUDE_ALL_JavaNetFileNameMap 0
 #else
-#define JavaNetFileNameMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetFileNameMap 1
 #endif
-#undef JavaNetFileNameMap_RESTRICT
+#undef RESTRICT_JavaNetFileNameMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetFileNameMap_) && (JavaNetFileNameMap_INCLUDE_ALL || defined(JavaNetFileNameMap_INCLUDE))
+#if !defined (JavaNetFileNameMap_) && (INCLUDE_ALL_JavaNetFileNameMap || defined(INCLUDE_JavaNetFileNameMap))
 #define JavaNetFileNameMap_
 
 /*!
@@ -46,4 +46,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetFileNameMap)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetFileNameMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetFileNameMap")

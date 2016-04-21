@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityAuthCallbackCallbackHandler_INCLUDE_ALL")
-#ifdef JavaxSecurityAuthCallbackCallbackHandler_RESTRICT
-#define JavaxSecurityAuthCallbackCallbackHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityAuthCallbackCallbackHandler")
+#ifdef RESTRICT_JavaxSecurityAuthCallbackCallbackHandler
+#define INCLUDE_ALL_JavaxSecurityAuthCallbackCallbackHandler 0
 #else
-#define JavaxSecurityAuthCallbackCallbackHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityAuthCallbackCallbackHandler 1
 #endif
-#undef JavaxSecurityAuthCallbackCallbackHandler_RESTRICT
+#undef RESTRICT_JavaxSecurityAuthCallbackCallbackHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityAuthCallbackCallbackHandler_) && (JavaxSecurityAuthCallbackCallbackHandler_INCLUDE_ALL || defined(JavaxSecurityAuthCallbackCallbackHandler_INCLUDE))
+#if !defined (JavaxSecurityAuthCallbackCallbackHandler_) && (INCLUDE_ALL_JavaxSecurityAuthCallbackCallbackHandler || defined(INCLUDE_JavaxSecurityAuthCallbackCallbackHandler))
 #define JavaxSecurityAuthCallbackCallbackHandler_
 
 @class IOSObjectArray;
@@ -64,4 +64,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthCallbackCallbackHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityAuthCallbackCallbackHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityAuthCallbackCallbackHandler")

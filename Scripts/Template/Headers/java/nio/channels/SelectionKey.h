@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsSelectionKey_INCLUDE_ALL")
-#ifdef JavaNioChannelsSelectionKey_RESTRICT
-#define JavaNioChannelsSelectionKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsSelectionKey")
+#ifdef RESTRICT_JavaNioChannelsSelectionKey
+#define INCLUDE_ALL_JavaNioChannelsSelectionKey 0
 #else
-#define JavaNioChannelsSelectionKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsSelectionKey 1
 #endif
-#undef JavaNioChannelsSelectionKey_RESTRICT
+#undef RESTRICT_JavaNioChannelsSelectionKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsSelectionKey_) && (JavaNioChannelsSelectionKey_INCLUDE_ALL || defined(JavaNioChannelsSelectionKey_INCLUDE))
+#if !defined (JavaNioChannelsSelectionKey_) && (INCLUDE_ALL_JavaNioChannelsSelectionKey || defined(INCLUDE_JavaNioChannelsSelectionKey))
 #define JavaNioChannelsSelectionKey_
 
 @class JavaNioChannelsSelectableChannel;
@@ -233,4 +233,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSelectionKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsSelectionKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSelectionKey")

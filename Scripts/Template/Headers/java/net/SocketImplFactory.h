@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetSocketImplFactory_INCLUDE_ALL")
-#ifdef JavaNetSocketImplFactory_RESTRICT
-#define JavaNetSocketImplFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetSocketImplFactory")
+#ifdef RESTRICT_JavaNetSocketImplFactory
+#define INCLUDE_ALL_JavaNetSocketImplFactory 0
 #else
-#define JavaNetSocketImplFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetSocketImplFactory 1
 #endif
-#undef JavaNetSocketImplFactory_RESTRICT
+#undef RESTRICT_JavaNetSocketImplFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetSocketImplFactory_) && (JavaNetSocketImplFactory_INCLUDE_ALL || defined(JavaNetSocketImplFactory_INCLUDE))
+#if !defined (JavaNetSocketImplFactory_) && (INCLUDE_ALL_JavaNetSocketImplFactory || defined(INCLUDE_JavaNetSocketImplFactory))
 #define JavaNetSocketImplFactory_
 
 @class JavaNetSocketImpl;
@@ -42,4 +42,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketImplFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetSocketImplFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetSocketImplFactory")

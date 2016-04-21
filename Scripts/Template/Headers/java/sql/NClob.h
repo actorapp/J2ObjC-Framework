@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlNClob_INCLUDE_ALL")
-#ifdef JavaSqlNClob_RESTRICT
-#define JavaSqlNClob_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlNClob")
+#ifdef RESTRICT_JavaSqlNClob
+#define INCLUDE_ALL_JavaSqlNClob 0
 #else
-#define JavaSqlNClob_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlNClob 1
 #endif
-#undef JavaSqlNClob_RESTRICT
+#undef RESTRICT_JavaSqlNClob
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlNClob_) && (JavaSqlNClob_INCLUDE_ALL || defined(JavaSqlNClob_INCLUDE))
+#if !defined (JavaSqlNClob_) && (INCLUDE_ALL_JavaSqlNClob || defined(INCLUDE_JavaSqlNClob))
 #define JavaSqlNClob_
 
-#define JavaSqlClob_RESTRICT 1
-#define JavaSqlClob_INCLUDE 1
+#define RESTRICT_JavaSqlClob 1
+#define INCLUDE_JavaSqlClob 1
 #include "../../java/sql/Clob.h"
 
 @protocol JavaSqlNClob < JavaSqlClob, NSObject, JavaObject >
@@ -35,4 +35,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlNClob)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlNClob_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlNClob")

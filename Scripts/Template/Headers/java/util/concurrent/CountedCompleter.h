@@ -5,25 +5,23 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentCountedCompleter_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentCountedCompleter_RESTRICT
-#define JavaUtilConcurrentCountedCompleter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCountedCompleter")
+#ifdef RESTRICT_JavaUtilConcurrentCountedCompleter
+#define INCLUDE_ALL_JavaUtilConcurrentCountedCompleter 0
 #else
-#define JavaUtilConcurrentCountedCompleter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentCountedCompleter 1
 #endif
-#undef JavaUtilConcurrentCountedCompleter_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentCountedCompleter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentCountedCompleter_) && (JavaUtilConcurrentCountedCompleter_INCLUDE_ALL || defined(JavaUtilConcurrentCountedCompleter_INCLUDE))
+#if !defined (JavaUtilConcurrentCountedCompleter_) && (INCLUDE_ALL_JavaUtilConcurrentCountedCompleter || defined(INCLUDE_JavaUtilConcurrentCountedCompleter))
 #define JavaUtilConcurrentCountedCompleter_
 
-#define JavaUtilConcurrentForkJoinTask_RESTRICT 1
-#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentForkJoinTask 1
+#define INCLUDE_JavaUtilConcurrentForkJoinTask 1
 #include "../../../java/util/concurrent/ForkJoinTask.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief A <code>ForkJoinTask</code> with a completion action performed when
@@ -535,8 +533,8 @@
  @return <code>true</code> if this exception should be propagated to this
  task's completer, if one exists
  */
-- (jboolean)onExceptionalCompletionWithJavaLangThrowable:(JavaLangThrowable *)ex
-                  withJavaUtilConcurrentCountedCompleter:(JavaUtilConcurrentCountedCompleter *)caller;
+- (jboolean)onExceptionalCompletionWithNSException:(NSException *)ex
+            withJavaUtilConcurrentCountedCompleter:(JavaUtilConcurrentCountedCompleter *)caller;
 
 /*!
  @brief Equivalent to <code>tryComplete</code> but does not invoke <code>onCompletion(CountedCompleter)</code>
@@ -613,7 +611,7 @@
 /*!
  @brief Supports ForkJoinTask exception propagation.
  */
-- (void)internalPropagateExceptionWithJavaLangThrowable:(JavaLangThrowable *)ex;
+- (void)internalPropagateExceptionWithNSException:(NSException *)ex;
 
 @end
 
@@ -633,4 +631,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCountedCompleter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentCountedCompleter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCountedCompleter")

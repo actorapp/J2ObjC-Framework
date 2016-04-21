@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangVirtualMachineError_INCLUDE_ALL")
-#ifdef JavaLangVirtualMachineError_RESTRICT
-#define JavaLangVirtualMachineError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangVirtualMachineError")
+#ifdef RESTRICT_JavaLangVirtualMachineError
+#define INCLUDE_ALL_JavaLangVirtualMachineError 0
 #else
-#define JavaLangVirtualMachineError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangVirtualMachineError 1
 #endif
-#undef JavaLangVirtualMachineError_RESTRICT
+#undef RESTRICT_JavaLangVirtualMachineError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangVirtualMachineError_) && (JavaLangVirtualMachineError_INCLUDE_ALL || defined(JavaLangVirtualMachineError_INCLUDE))
+#if !defined (JavaLangVirtualMachineError_) && (INCLUDE_ALL_JavaLangVirtualMachineError || defined(INCLUDE_JavaLangVirtualMachineError))
 #define JavaLangVirtualMachineError_
 
-#define JavaLangError_RESTRICT 1
-#define JavaLangError_INCLUDE 1
+#define RESTRICT_JavaLangError 1
+#define INCLUDE_JavaLangError 1
 #include "../../java/lang/Error.h"
 
 /*!
@@ -60,4 +60,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangVirtualMachineError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangVirtualMachineError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangVirtualMachineError")

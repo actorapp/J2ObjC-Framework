@@ -5,34 +5,34 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxExtDefaultHandler2_INCLUDE_ALL")
-#ifdef OrgXmlSaxExtDefaultHandler2_RESTRICT
-#define OrgXmlSaxExtDefaultHandler2_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtDefaultHandler2")
+#ifdef RESTRICT_OrgXmlSaxExtDefaultHandler2
+#define INCLUDE_ALL_OrgXmlSaxExtDefaultHandler2 0
 #else
-#define OrgXmlSaxExtDefaultHandler2_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxExtDefaultHandler2 1
 #endif
-#undef OrgXmlSaxExtDefaultHandler2_RESTRICT
+#undef RESTRICT_OrgXmlSaxExtDefaultHandler2
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxExtDefaultHandler2_) && (OrgXmlSaxExtDefaultHandler2_INCLUDE_ALL || defined(OrgXmlSaxExtDefaultHandler2_INCLUDE))
+#if !defined (OrgXmlSaxExtDefaultHandler2_) && (INCLUDE_ALL_OrgXmlSaxExtDefaultHandler2 || defined(INCLUDE_OrgXmlSaxExtDefaultHandler2))
 #define OrgXmlSaxExtDefaultHandler2_
 
-#define OrgXmlSaxHelpersDefaultHandler_RESTRICT 1
-#define OrgXmlSaxHelpersDefaultHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxHelpersDefaultHandler 1
+#define INCLUDE_OrgXmlSaxHelpersDefaultHandler 1
 #include "../../../../org/xml/sax/helpers/DefaultHandler.h"
 
-#define OrgXmlSaxExtLexicalHandler_RESTRICT 1
-#define OrgXmlSaxExtLexicalHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxExtLexicalHandler 1
+#define INCLUDE_OrgXmlSaxExtLexicalHandler 1
 #include "../../../../org/xml/sax/ext/LexicalHandler.h"
 
-#define OrgXmlSaxExtDeclHandler_RESTRICT 1
-#define OrgXmlSaxExtDeclHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxExtDeclHandler 1
+#define INCLUDE_OrgXmlSaxExtDeclHandler 1
 #include "../../../../org/xml/sax/ext/DeclHandler.h"
 
-#define OrgXmlSaxExtEntityResolver2_RESTRICT 1
-#define OrgXmlSaxExtEntityResolver2_INCLUDE 1
+#define RESTRICT_OrgXmlSaxExtEntityResolver2 1
+#define INCLUDE_OrgXmlSaxExtEntityResolver2 1
 #include "../../../../org/xml/sax/ext/EntityResolver2.h"
 
 @class IOSCharArray;
@@ -186,10 +186,12 @@ FOUNDATION_EXPORT void OrgXmlSaxExtDefaultHandler2_init(OrgXmlSaxExtDefaultHandl
 
 FOUNDATION_EXPORT OrgXmlSaxExtDefaultHandler2 *new_OrgXmlSaxExtDefaultHandler2_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxExtDefaultHandler2 *create_OrgXmlSaxExtDefaultHandler2_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtDefaultHandler2)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxExtDefaultHandler2_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtDefaultHandler2")

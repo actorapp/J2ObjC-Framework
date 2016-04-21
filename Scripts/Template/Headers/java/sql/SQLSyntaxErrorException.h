@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLSyntaxErrorException_INCLUDE_ALL")
-#ifdef JavaSqlSQLSyntaxErrorException_RESTRICT
-#define JavaSqlSQLSyntaxErrorException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLSyntaxErrorException")
+#ifdef RESTRICT_JavaSqlSQLSyntaxErrorException
+#define INCLUDE_ALL_JavaSqlSQLSyntaxErrorException 0
 #else
-#define JavaSqlSQLSyntaxErrorException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLSyntaxErrorException 1
 #endif
-#undef JavaSqlSQLSyntaxErrorException_RESTRICT
+#undef RESTRICT_JavaSqlSQLSyntaxErrorException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLSyntaxErrorException_) && (JavaSqlSQLSyntaxErrorException_INCLUDE_ALL || defined(JavaSqlSQLSyntaxErrorException_INCLUDE))
+#if !defined (JavaSqlSQLSyntaxErrorException_) && (INCLUDE_ALL_JavaSqlSQLSyntaxErrorException || defined(INCLUDE_JavaSqlSQLSyntaxErrorException))
 #define JavaSqlSQLSyntaxErrorException_
 
-#define JavaSqlSQLNonTransientException_RESTRICT 1
-#define JavaSqlSQLNonTransientException_INCLUDE 1
+#define RESTRICT_JavaSqlSQLNonTransientException 1
+#define INCLUDE_JavaSqlSQLNonTransientException 1
 #include "../../java/sql/SQLNonTransientException.h"
-
-@class JavaLangThrowable;
 
 @interface JavaSqlSQLSyntaxErrorException : JavaSqlSQLNonTransientException
 
@@ -94,7 +92,7 @@
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
                          withInt:(jint)vendorCode
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLSyntaxErrorException object.
@@ -112,7 +110,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLSyntaxErrorException object.
@@ -126,7 +124,7 @@
  SQLException
  */
 - (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLSyntaxErrorException object.
@@ -137,7 +135,7 @@
  the Throwable object for the underlying reason this
  SQLException
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 #pragma mark Package-Private
 
@@ -149,33 +147,49 @@ FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_init(JavaSqlSQLSyntaxError
 
 FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *create_JavaSqlSQLSyntaxErrorException_init();
+
 FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithNSString_(JavaSqlSQLSyntaxErrorException *self, NSString *reason);
 
 FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithNSString_(NSString *reason) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *create_JavaSqlSQLSyntaxErrorException_initWithNSString_(NSString *reason);
 
 FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_(JavaSqlSQLSyntaxErrorException *self, NSString *reason, NSString *sqlState);
 
 FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *create_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState);
+
 FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withInt_(JavaSqlSQLSyntaxErrorException *self, NSString *reason, NSString *sqlState, jint vendorCode);
 
 FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithJavaLangThrowable_(JavaSqlSQLSyntaxErrorException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *create_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode);
 
-FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithNSException_(JavaSqlSQLSyntaxErrorException *self, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithNSString_withJavaLangThrowable_(JavaSqlSQLSyntaxErrorException *self, NSString *reason, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithNSString_withJavaLangThrowable_(NSString *reason, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *create_JavaSqlSQLSyntaxErrorException_initWithNSException_(NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withJavaLangThrowable_(JavaSqlSQLSyntaxErrorException *self, NSString *reason, NSString *sqlState, JavaLangThrowable *cause);
+FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithNSString_withNSException_(JavaSqlSQLSyntaxErrorException *self, NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withJavaLangThrowable_(NSString *reason, NSString *sqlState, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSException_(NSString *reason, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(JavaSqlSQLSyntaxErrorException *self, NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *create_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSException_(NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withNSException_(JavaSqlSQLSyntaxErrorException *self, NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *create_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withInt_withNSException_(JavaSqlSQLSyntaxErrorException *self, NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *new_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLSyntaxErrorException *create_JavaSqlSQLSyntaxErrorException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLSyntaxErrorException)
 
@@ -183,4 +197,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLSyntaxErrorException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLSyntaxErrorException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLSyntaxErrorException")

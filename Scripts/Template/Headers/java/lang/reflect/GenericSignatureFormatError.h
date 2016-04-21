@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectGenericSignatureFormatError_INCLUDE_ALL")
-#ifdef JavaLangReflectGenericSignatureFormatError_RESTRICT
-#define JavaLangReflectGenericSignatureFormatError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectGenericSignatureFormatError")
+#ifdef RESTRICT_JavaLangReflectGenericSignatureFormatError
+#define INCLUDE_ALL_JavaLangReflectGenericSignatureFormatError 0
 #else
-#define JavaLangReflectGenericSignatureFormatError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectGenericSignatureFormatError 1
 #endif
-#undef JavaLangReflectGenericSignatureFormatError_RESTRICT
+#undef RESTRICT_JavaLangReflectGenericSignatureFormatError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectGenericSignatureFormatError_) && (JavaLangReflectGenericSignatureFormatError_INCLUDE_ALL || defined(JavaLangReflectGenericSignatureFormatError_INCLUDE))
+#if !defined (JavaLangReflectGenericSignatureFormatError_) && (INCLUDE_ALL_JavaLangReflectGenericSignatureFormatError || defined(INCLUDE_JavaLangReflectGenericSignatureFormatError))
 #define JavaLangReflectGenericSignatureFormatError_
 
-#define JavaLangClassFormatError_RESTRICT 1
-#define JavaLangClassFormatError_INCLUDE 1
+#define RESTRICT_JavaLangClassFormatError 1
+#define INCLUDE_JavaLangClassFormatError 1
 #include "../../../java/lang/ClassFormatError.h"
 
 /*!
@@ -45,10 +45,12 @@ FOUNDATION_EXPORT void JavaLangReflectGenericSignatureFormatError_init(JavaLangR
 
 FOUNDATION_EXPORT JavaLangReflectGenericSignatureFormatError *new_JavaLangReflectGenericSignatureFormatError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangReflectGenericSignatureFormatError *create_JavaLangReflectGenericSignatureFormatError_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectGenericSignatureFormatError)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectGenericSignatureFormatError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectGenericSignatureFormatError")

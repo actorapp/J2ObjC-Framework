@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxErrorHandler_INCLUDE_ALL")
-#ifdef OrgXmlSaxErrorHandler_RESTRICT
-#define OrgXmlSaxErrorHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxErrorHandler")
+#ifdef RESTRICT_OrgXmlSaxErrorHandler
+#define INCLUDE_ALL_OrgXmlSaxErrorHandler 0
 #else
-#define OrgXmlSaxErrorHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxErrorHandler 1
 #endif
-#undef OrgXmlSaxErrorHandler_RESTRICT
+#undef RESTRICT_OrgXmlSaxErrorHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxErrorHandler_) && (OrgXmlSaxErrorHandler_INCLUDE_ALL || defined(OrgXmlSaxErrorHandler_INCLUDE))
+#if !defined (OrgXmlSaxErrorHandler_) && (INCLUDE_ALL_OrgXmlSaxErrorHandler || defined(INCLUDE_OrgXmlSaxErrorHandler))
 #define OrgXmlSaxErrorHandler_
 
 @class OrgXmlSaxSAXParseException;
@@ -136,4 +136,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxErrorHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxErrorHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxErrorHandler")

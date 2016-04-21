@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLRecoverableException_INCLUDE_ALL")
-#ifdef JavaSqlSQLRecoverableException_RESTRICT
-#define JavaSqlSQLRecoverableException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLRecoverableException")
+#ifdef RESTRICT_JavaSqlSQLRecoverableException
+#define INCLUDE_ALL_JavaSqlSQLRecoverableException 0
 #else
-#define JavaSqlSQLRecoverableException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLRecoverableException 1
 #endif
-#undef JavaSqlSQLRecoverableException_RESTRICT
+#undef RESTRICT_JavaSqlSQLRecoverableException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLRecoverableException_) && (JavaSqlSQLRecoverableException_INCLUDE_ALL || defined(JavaSqlSQLRecoverableException_INCLUDE))
+#if !defined (JavaSqlSQLRecoverableException_) && (INCLUDE_ALL_JavaSqlSQLRecoverableException || defined(INCLUDE_JavaSqlSQLRecoverableException))
 #define JavaSqlSQLRecoverableException_
 
-#define JavaSqlSQLException_RESTRICT 1
-#define JavaSqlSQLException_INCLUDE 1
+#define RESTRICT_JavaSqlSQLException 1
+#define INCLUDE_JavaSqlSQLException 1
 #include "../../java/sql/SQLException.h"
-
-@class JavaLangThrowable;
 
 @interface JavaSqlSQLRecoverableException : JavaSqlSQLException
 
@@ -94,7 +92,7 @@
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
                          withInt:(jint)vendorCode
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLRecoverableException object.
@@ -112,7 +110,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLRecoverableException object.
@@ -126,7 +124,7 @@
  SQLException
  */
 - (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLRecoverableException object.
@@ -137,7 +135,7 @@
  the Throwable object for the underlying reason this
  SQLException
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 #pragma mark Package-Private
 
@@ -149,33 +147,49 @@ FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_init(JavaSqlSQLRecoverable
 
 FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *create_JavaSqlSQLRecoverableException_init();
+
 FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithNSString_(JavaSqlSQLRecoverableException *self, NSString *reason);
 
 FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithNSString_(NSString *reason) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *create_JavaSqlSQLRecoverableException_initWithNSString_(NSString *reason);
 
 FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithNSString_withNSString_(JavaSqlSQLRecoverableException *self, NSString *reason, NSString *sqlState);
 
 FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *create_JavaSqlSQLRecoverableException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState);
+
 FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithNSString_withNSString_withInt_(JavaSqlSQLRecoverableException *self, NSString *reason, NSString *sqlState, jint vendorCode);
 
 FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithJavaLangThrowable_(JavaSqlSQLRecoverableException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *create_JavaSqlSQLRecoverableException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode);
 
-FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithNSException_(JavaSqlSQLRecoverableException *self, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithNSString_withJavaLangThrowable_(JavaSqlSQLRecoverableException *self, NSString *reason, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithNSString_withJavaLangThrowable_(NSString *reason, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *create_JavaSqlSQLRecoverableException_initWithNSException_(NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithNSString_withNSString_withJavaLangThrowable_(JavaSqlSQLRecoverableException *self, NSString *reason, NSString *sqlState, JavaLangThrowable *cause);
+FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithNSString_withNSException_(JavaSqlSQLRecoverableException *self, NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithNSString_withNSString_withJavaLangThrowable_(NSString *reason, NSString *sqlState, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithNSString_withNSException_(NSString *reason, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(JavaSqlSQLRecoverableException *self, NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *create_JavaSqlSQLRecoverableException_initWithNSString_withNSException_(NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithNSString_withNSString_withNSException_(JavaSqlSQLRecoverableException *self, NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *create_JavaSqlSQLRecoverableException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSqlSQLRecoverableException_initWithNSString_withNSString_withInt_withNSException_(JavaSqlSQLRecoverableException *self, NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *new_JavaSqlSQLRecoverableException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLRecoverableException *create_JavaSqlSQLRecoverableException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLRecoverableException)
 
@@ -183,4 +197,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLRecoverableException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLRecoverableException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLRecoverableException")

@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityMessageDigestSpi_INCLUDE_ALL")
-#ifdef JavaSecurityMessageDigestSpi_RESTRICT
-#define JavaSecurityMessageDigestSpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityMessageDigestSpi")
+#ifdef RESTRICT_JavaSecurityMessageDigestSpi
+#define INCLUDE_ALL_JavaSecurityMessageDigestSpi 0
 #else
-#define JavaSecurityMessageDigestSpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityMessageDigestSpi 1
 #endif
-#undef JavaSecurityMessageDigestSpi_RESTRICT
+#undef RESTRICT_JavaSecurityMessageDigestSpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityMessageDigestSpi_) && (JavaSecurityMessageDigestSpi_INCLUDE_ALL || defined(JavaSecurityMessageDigestSpi_INCLUDE))
+#if !defined (JavaSecurityMessageDigestSpi_) && (INCLUDE_ALL_JavaSecurityMessageDigestSpi || defined(INCLUDE_JavaSecurityMessageDigestSpi))
 #define JavaSecurityMessageDigestSpi_
 
 @class IOSByteArray;
@@ -130,4 +130,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityMessageDigestSpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityMessageDigestSpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityMessageDigestSpi")

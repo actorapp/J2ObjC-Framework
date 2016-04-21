@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioMappedByteBuffer_INCLUDE_ALL")
-#ifdef JavaNioMappedByteBuffer_RESTRICT
-#define JavaNioMappedByteBuffer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioMappedByteBuffer")
+#ifdef RESTRICT_JavaNioMappedByteBuffer
+#define INCLUDE_ALL_JavaNioMappedByteBuffer 0
 #else
-#define JavaNioMappedByteBuffer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioMappedByteBuffer 1
 #endif
-#undef JavaNioMappedByteBuffer_RESTRICT
+#undef RESTRICT_JavaNioMappedByteBuffer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioMappedByteBuffer_) && (JavaNioMappedByteBuffer_INCLUDE_ALL || defined(JavaNioMappedByteBuffer_INCLUDE))
+#if !defined (JavaNioMappedByteBuffer_) && (INCLUDE_ALL_JavaNioMappedByteBuffer || defined(INCLUDE_JavaNioMappedByteBuffer))
 #define JavaNioMappedByteBuffer_
 
-#define JavaNioByteBuffer_RESTRICT 1
-#define JavaNioByteBuffer_INCLUDE 1
+#define RESTRICT_JavaNioByteBuffer 1
+#define INCLUDE_JavaNioByteBuffer 1
 #include "../../java/nio/ByteBuffer.h"
 
 @class JavaNioMemoryBlock;
@@ -91,4 +91,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioMappedByteBuffer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioMappedByteBuffer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioMappedByteBuffer")

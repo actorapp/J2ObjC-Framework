@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectAnnotatedElement_INCLUDE_ALL")
-#ifdef JavaLangReflectAnnotatedElement_RESTRICT
-#define JavaLangReflectAnnotatedElement_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectAnnotatedElement")
+#ifdef RESTRICT_JavaLangReflectAnnotatedElement
+#define INCLUDE_ALL_JavaLangReflectAnnotatedElement 0
 #else
-#define JavaLangReflectAnnotatedElement_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectAnnotatedElement 1
 #endif
-#undef JavaLangReflectAnnotatedElement_RESTRICT
+#undef RESTRICT_JavaLangReflectAnnotatedElement
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectAnnotatedElement_) && (JavaLangReflectAnnotatedElement_INCLUDE_ALL || defined(JavaLangReflectAnnotatedElement_INCLUDE))
+#if !defined (JavaLangReflectAnnotatedElement_) && (INCLUDE_ALL_JavaLangReflectAnnotatedElement || defined(INCLUDE_JavaLangReflectAnnotatedElement))
 #define JavaLangReflectAnnotatedElement_
 
 @class IOSClass;
@@ -80,4 +80,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectAnnotatedElement)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectAnnotatedElement_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectAnnotatedElement")

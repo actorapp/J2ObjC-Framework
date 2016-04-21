@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoBufferedWriter_INCLUDE_ALL")
-#ifdef JavaIoBufferedWriter_RESTRICT
-#define JavaIoBufferedWriter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoBufferedWriter")
+#ifdef RESTRICT_JavaIoBufferedWriter
+#define INCLUDE_ALL_JavaIoBufferedWriter 0
 #else
-#define JavaIoBufferedWriter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoBufferedWriter 1
 #endif
-#undef JavaIoBufferedWriter_RESTRICT
+#undef RESTRICT_JavaIoBufferedWriter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoBufferedWriter_) && (JavaIoBufferedWriter_INCLUDE_ALL || defined(JavaIoBufferedWriter_INCLUDE))
+#if !defined (JavaIoBufferedWriter_) && (INCLUDE_ALL_JavaIoBufferedWriter || defined(INCLUDE_JavaIoBufferedWriter))
 #define JavaIoBufferedWriter_
 
-#define JavaIoWriter_RESTRICT 1
-#define JavaIoWriter_INCLUDE 1
+#define RESTRICT_JavaIoWriter 1
+#define INCLUDE_JavaIoWriter 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -157,9 +157,13 @@ FOUNDATION_EXPORT void JavaIoBufferedWriter_initWithJavaIoWriter_(JavaIoBuffered
 
 FOUNDATION_EXPORT JavaIoBufferedWriter *new_JavaIoBufferedWriter_initWithJavaIoWriter_(JavaIoWriter *outArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoBufferedWriter *create_JavaIoBufferedWriter_initWithJavaIoWriter_(JavaIoWriter *outArg);
+
 FOUNDATION_EXPORT void JavaIoBufferedWriter_initWithJavaIoWriter_withInt_(JavaIoBufferedWriter *self, JavaIoWriter *outArg, jint size);
 
 FOUNDATION_EXPORT JavaIoBufferedWriter *new_JavaIoBufferedWriter_initWithJavaIoWriter_withInt_(JavaIoWriter *outArg, jint size) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoBufferedWriter *create_JavaIoBufferedWriter_initWithJavaIoWriter_withInt_(JavaIoWriter *outArg, jint size);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedWriter)
 
@@ -167,4 +171,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedWriter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoBufferedWriter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoBufferedWriter")

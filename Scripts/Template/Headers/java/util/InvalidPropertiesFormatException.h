@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilInvalidPropertiesFormatException_INCLUDE_ALL")
-#ifdef JavaUtilInvalidPropertiesFormatException_RESTRICT
-#define JavaUtilInvalidPropertiesFormatException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilInvalidPropertiesFormatException")
+#ifdef RESTRICT_JavaUtilInvalidPropertiesFormatException
+#define INCLUDE_ALL_JavaUtilInvalidPropertiesFormatException 0
 #else
-#define JavaUtilInvalidPropertiesFormatException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilInvalidPropertiesFormatException 1
 #endif
-#undef JavaUtilInvalidPropertiesFormatException_RESTRICT
+#undef RESTRICT_JavaUtilInvalidPropertiesFormatException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilInvalidPropertiesFormatException_) && (JavaUtilInvalidPropertiesFormatException_INCLUDE_ALL || defined(JavaUtilInvalidPropertiesFormatException_INCLUDE))
+#if !defined (JavaUtilInvalidPropertiesFormatException_) && (INCLUDE_ALL_JavaUtilInvalidPropertiesFormatException || defined(INCLUDE_JavaUtilInvalidPropertiesFormatException))
 #define JavaUtilInvalidPropertiesFormatException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief An <code>InvalidPropertiesFormatException</code> is thrown if loading the XML
@@ -51,7 +49,7 @@
  @param c
  the cause for the Exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)c;
+- (instancetype)initWithNSException:(NSException *)c;
 
 @end
 
@@ -61,9 +59,13 @@ FOUNDATION_EXPORT void JavaUtilInvalidPropertiesFormatException_initWithNSString
 
 FOUNDATION_EXPORT JavaUtilInvalidPropertiesFormatException *new_JavaUtilInvalidPropertiesFormatException_initWithNSString_(NSString *m) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaUtilInvalidPropertiesFormatException_initWithJavaLangThrowable_(JavaUtilInvalidPropertiesFormatException *self, JavaLangThrowable *c);
+FOUNDATION_EXPORT JavaUtilInvalidPropertiesFormatException *create_JavaUtilInvalidPropertiesFormatException_initWithNSString_(NSString *m);
 
-FOUNDATION_EXPORT JavaUtilInvalidPropertiesFormatException *new_JavaUtilInvalidPropertiesFormatException_initWithJavaLangThrowable_(JavaLangThrowable *c) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaUtilInvalidPropertiesFormatException_initWithNSException_(JavaUtilInvalidPropertiesFormatException *self, NSException *c);
+
+FOUNDATION_EXPORT JavaUtilInvalidPropertiesFormatException *new_JavaUtilInvalidPropertiesFormatException_initWithNSException_(NSException *c) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilInvalidPropertiesFormatException *create_JavaUtilInvalidPropertiesFormatException_initWithNSException_(NSException *c);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilInvalidPropertiesFormatException)
 
@@ -71,4 +73,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilInvalidPropertiesFormatException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilInvalidPropertiesFormatException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilInvalidPropertiesFormatException")

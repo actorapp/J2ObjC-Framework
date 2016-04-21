@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecECGenParameterSpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecECGenParameterSpec_RESTRICT
-#define JavaSecuritySpecECGenParameterSpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECGenParameterSpec")
+#ifdef RESTRICT_JavaSecuritySpecECGenParameterSpec
+#define INCLUDE_ALL_JavaSecuritySpecECGenParameterSpec 0
 #else
-#define JavaSecuritySpecECGenParameterSpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecECGenParameterSpec 1
 #endif
-#undef JavaSecuritySpecECGenParameterSpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecECGenParameterSpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecECGenParameterSpec_) && (JavaSecuritySpecECGenParameterSpec_INCLUDE_ALL || defined(JavaSecuritySpecECGenParameterSpec_INCLUDE))
+#if !defined (JavaSecuritySpecECGenParameterSpec_) && (INCLUDE_ALL_JavaSecuritySpecECGenParameterSpec || defined(INCLUDE_JavaSecuritySpecECGenParameterSpec))
 #define JavaSecuritySpecECGenParameterSpec_
 
-#define JavaSecuritySpecAlgorithmParameterSpec_RESTRICT 1
-#define JavaSecuritySpecAlgorithmParameterSpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecAlgorithmParameterSpec 1
+#define INCLUDE_JavaSecuritySpecAlgorithmParameterSpec 1
 #include "../../../java/security/spec/AlgorithmParameterSpec.h"
 
 /*!
@@ -53,10 +53,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecECGenParameterSpec_initWithNSString_(Java
 
 FOUNDATION_EXPORT JavaSecuritySpecECGenParameterSpec *new_JavaSecuritySpecECGenParameterSpec_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecECGenParameterSpec *create_JavaSecuritySpecECGenParameterSpec_initWithNSString_(NSString *name);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECGenParameterSpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecECGenParameterSpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECGenParameterSpec")

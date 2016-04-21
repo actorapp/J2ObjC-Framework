@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidUtilPrinter_INCLUDE_ALL")
-#ifdef AndroidUtilPrinter_RESTRICT
-#define AndroidUtilPrinter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidUtilPrinter")
+#ifdef RESTRICT_AndroidUtilPrinter
+#define INCLUDE_ALL_AndroidUtilPrinter 0
 #else
-#define AndroidUtilPrinter_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidUtilPrinter 1
 #endif
-#undef AndroidUtilPrinter_RESTRICT
+#undef RESTRICT_AndroidUtilPrinter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidUtilPrinter_) && (AndroidUtilPrinter_INCLUDE_ALL || defined(AndroidUtilPrinter_INCLUDE))
+#if !defined (AndroidUtilPrinter_) && (INCLUDE_ALL_AndroidUtilPrinter || defined(INCLUDE_AndroidUtilPrinter))
 #define AndroidUtilPrinter_
 
 /*!
@@ -42,4 +42,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilPrinter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidUtilPrinter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidUtilPrinter")

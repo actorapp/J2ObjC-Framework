@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansParameterDescriptor_INCLUDE_ALL")
-#ifdef JavaBeansParameterDescriptor_RESTRICT
-#define JavaBeansParameterDescriptor_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansParameterDescriptor")
+#ifdef RESTRICT_JavaBeansParameterDescriptor
+#define INCLUDE_ALL_JavaBeansParameterDescriptor 0
 #else
-#define JavaBeansParameterDescriptor_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansParameterDescriptor 1
 #endif
-#undef JavaBeansParameterDescriptor_RESTRICT
+#undef RESTRICT_JavaBeansParameterDescriptor
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansParameterDescriptor_) && (JavaBeansParameterDescriptor_INCLUDE_ALL || defined(JavaBeansParameterDescriptor_INCLUDE))
+#if !defined (JavaBeansParameterDescriptor_) && (INCLUDE_ALL_JavaBeansParameterDescriptor || defined(INCLUDE_JavaBeansParameterDescriptor))
 #define JavaBeansParameterDescriptor_
 
-#define JavaBeansFeatureDescriptor_RESTRICT 1
-#define JavaBeansFeatureDescriptor_INCLUDE 1
+#define RESTRICT_JavaBeansFeatureDescriptor 1
+#define INCLUDE_JavaBeansFeatureDescriptor 1
 #include "../../java/beans/FeatureDescriptor.h"
 
 @interface JavaBeansParameterDescriptor : JavaBeansFeatureDescriptor
@@ -37,10 +37,12 @@ FOUNDATION_EXPORT void JavaBeansParameterDescriptor_init(JavaBeansParameterDescr
 
 FOUNDATION_EXPORT JavaBeansParameterDescriptor *new_JavaBeansParameterDescriptor_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansParameterDescriptor *create_JavaBeansParameterDescriptor_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansParameterDescriptor)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansParameterDescriptor_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansParameterDescriptor")

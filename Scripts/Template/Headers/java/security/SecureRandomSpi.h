@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySecureRandomSpi_INCLUDE_ALL")
-#ifdef JavaSecuritySecureRandomSpi_RESTRICT
-#define JavaSecuritySecureRandomSpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySecureRandomSpi")
+#ifdef RESTRICT_JavaSecuritySecureRandomSpi
+#define INCLUDE_ALL_JavaSecuritySecureRandomSpi 0
 #else
-#define JavaSecuritySecureRandomSpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySecureRandomSpi 1
 #endif
-#undef JavaSecuritySecureRandomSpi_RESTRICT
+#undef RESTRICT_JavaSecuritySecureRandomSpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySecureRandomSpi_) && (JavaSecuritySecureRandomSpi_INCLUDE_ALL || defined(JavaSecuritySecureRandomSpi_INCLUDE))
+#if !defined (JavaSecuritySecureRandomSpi_) && (INCLUDE_ALL_JavaSecuritySecureRandomSpi || defined(INCLUDE_JavaSecuritySecureRandomSpi))
 #define JavaSecuritySecureRandomSpi_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -77,4 +77,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureRandomSpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySecureRandomSpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySecureRandomSpi")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilJarJarVerifier_INCLUDE_ALL")
-#ifdef JavaUtilJarJarVerifier_RESTRICT
-#define JavaUtilJarJarVerifier_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilJarJarVerifier")
+#ifdef RESTRICT_JavaUtilJarJarVerifier
+#define INCLUDE_ALL_JavaUtilJarJarVerifier 0
 #else
-#define JavaUtilJarJarVerifier_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilJarJarVerifier 1
 #endif
-#undef JavaUtilJarJarVerifier_RESTRICT
+#undef RESTRICT_JavaUtilJarJarVerifier
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilJarJarVerifier_) && (JavaUtilJarJarVerifier_INCLUDE_ALL || defined(JavaUtilJarJarVerifier_INCLUDE))
+#if !defined (JavaUtilJarJarVerifier_) && (INCLUDE_ALL_JavaUtilJarJarVerifier || defined(INCLUDE_JavaUtilJarJarVerifier))
 #define JavaUtilJarJarVerifier_
 
 @class IOSByteArray;
@@ -134,15 +134,17 @@ FOUNDATION_EXPORT void JavaUtilJarJarVerifier_initWithNSString_withJavaUtilJarMa
 
 FOUNDATION_EXPORT JavaUtilJarJarVerifier *new_JavaUtilJarJarVerifier_initWithNSString_withJavaUtilJarManifest_withJavaUtilHashMap_(NSString *name, JavaUtilJarManifest *manifest, JavaUtilHashMap *metaEntries) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarVerifier *create_JavaUtilJarJarVerifier_initWithNSString_withJavaUtilJarManifest_withJavaUtilHashMap_(NSString *name, JavaUtilJarManifest *manifest, JavaUtilHashMap *metaEntries);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarVerifier)
 
 #endif
 
-#if !defined (JavaUtilJarJarVerifier_VerifierEntry_) && (JavaUtilJarJarVerifier_INCLUDE_ALL || defined(JavaUtilJarJarVerifier_VerifierEntry_INCLUDE))
+#if !defined (JavaUtilJarJarVerifier_VerifierEntry_) && (INCLUDE_ALL_JavaUtilJarJarVerifier || defined(INCLUDE_JavaUtilJarJarVerifier_VerifierEntry))
 #define JavaUtilJarJarVerifier_VerifierEntry_
 
-#define JavaIoOutputStream_RESTRICT 1
-#define JavaIoOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoOutputStream 1
+#define INCLUDE_JavaIoOutputStream 1
 #include "../../../java/io/OutputStream.h"
 
 @class IOSByteArray;
@@ -199,10 +201,12 @@ FOUNDATION_EXPORT void JavaUtilJarJarVerifier_VerifierEntry_initWithNSString_wit
 
 FOUNDATION_EXPORT JavaUtilJarJarVerifier_VerifierEntry *new_JavaUtilJarJarVerifier_VerifierEntry_initWithNSString_withJavaSecurityMessageDigest_withByteArray_withJavaSecurityCertCertificateArray2_withJavaUtilHashtable_(NSString *name, JavaSecurityMessageDigest *digest, IOSByteArray *hash_, IOSObjectArray *certChains, JavaUtilHashtable *verifedEntries) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarVerifier_VerifierEntry *create_JavaUtilJarJarVerifier_VerifierEntry_initWithNSString_withJavaSecurityMessageDigest_withByteArray_withJavaSecurityCertCertificateArray2_withJavaUtilHashtable_(NSString *name, JavaSecurityMessageDigest *digest, IOSByteArray *hash_, IOSObjectArray *certChains, JavaUtilHashtable *verifedEntries);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarVerifier_VerifierEntry)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilJarJarVerifier_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarVerifier")

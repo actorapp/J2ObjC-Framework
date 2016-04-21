@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentFuture_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentFuture_RESTRICT
-#define JavaUtilConcurrentFuture_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentFuture")
+#ifdef RESTRICT_JavaUtilConcurrentFuture
+#define INCLUDE_ALL_JavaUtilConcurrentFuture 0
 #else
-#define JavaUtilConcurrentFuture_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentFuture 1
 #endif
-#undef JavaUtilConcurrentFuture_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentFuture
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentFuture_) && (JavaUtilConcurrentFuture_INCLUDE_ALL || defined(JavaUtilConcurrentFuture_INCLUDE))
+#if !defined (JavaUtilConcurrentFuture_) && (INCLUDE_ALL_JavaUtilConcurrentFuture || defined(INCLUDE_JavaUtilConcurrentFuture))
 #define JavaUtilConcurrentFuture_
 
 @class JavaUtilConcurrentTimeUnit;
@@ -156,4 +156,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentFuture)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentFuture_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentFuture")

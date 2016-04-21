@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoObjectInput_INCLUDE_ALL")
-#ifdef JavaIoObjectInput_RESTRICT
-#define JavaIoObjectInput_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoObjectInput")
+#ifdef RESTRICT_JavaIoObjectInput
+#define INCLUDE_ALL_JavaIoObjectInput 0
 #else
-#define JavaIoObjectInput_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoObjectInput 1
 #endif
-#undef JavaIoObjectInput_RESTRICT
+#undef RESTRICT_JavaIoObjectInput
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoObjectInput_) && (JavaIoObjectInput_INCLUDE_ALL || defined(JavaIoObjectInput_INCLUDE))
+#if !defined (JavaIoObjectInput_) && (INCLUDE_ALL_JavaIoObjectInput || defined(INCLUDE_JavaIoObjectInput))
 #define JavaIoObjectInput_
 
-#define JavaIoDataInput_RESTRICT 1
-#define JavaIoDataInput_INCLUDE 1
+#define RESTRICT_JavaIoDataInput 1
+#define INCLUDE_JavaIoDataInput 1
 #include "../../java/io/DataInput.h"
 
-#define JavaLangAutoCloseable_RESTRICT 1
-#define JavaLangAutoCloseable_INCLUDE 1
+#define RESTRICT_JavaLangAutoCloseable 1
+#define INCLUDE_JavaLangAutoCloseable 1
 #include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
@@ -130,4 +130,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInput)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoObjectInput_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoObjectInput")

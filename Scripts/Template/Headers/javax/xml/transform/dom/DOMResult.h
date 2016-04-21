@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformDomDOMResult_INCLUDE_ALL")
-#ifdef JavaxXmlTransformDomDOMResult_RESTRICT
-#define JavaxXmlTransformDomDOMResult_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMResult")
+#ifdef RESTRICT_JavaxXmlTransformDomDOMResult
+#define INCLUDE_ALL_JavaxXmlTransformDomDOMResult 0
 #else
-#define JavaxXmlTransformDomDOMResult_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformDomDOMResult 1
 #endif
-#undef JavaxXmlTransformDomDOMResult_RESTRICT
+#undef RESTRICT_JavaxXmlTransformDomDOMResult
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformDomDOMResult_) && (JavaxXmlTransformDomDOMResult_INCLUDE_ALL || defined(JavaxXmlTransformDomDOMResult_INCLUDE))
+#if !defined (JavaxXmlTransformDomDOMResult_) && (INCLUDE_ALL_JavaxXmlTransformDomDOMResult || defined(INCLUDE_JavaxXmlTransformDomDOMResult))
 #define JavaxXmlTransformDomDOMResult_
 
-#define JavaxXmlTransformResult_RESTRICT 1
-#define JavaxXmlTransformResult_INCLUDE 1
+#define RESTRICT_JavaxXmlTransformResult 1
+#define INCLUDE_JavaxXmlTransformResult 1
 #include "../../../../javax/xml/transform/Result.h"
 
 @protocol OrgW3cDomNode;
@@ -240,21 +240,31 @@ FOUNDATION_EXPORT void JavaxXmlTransformDomDOMResult_init(JavaxXmlTransformDomDO
 
 FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *new_JavaxXmlTransformDomDOMResult_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *create_JavaxXmlTransformDomDOMResult_init();
+
 FOUNDATION_EXPORT void JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_(JavaxXmlTransformDomDOMResult *self, id<OrgW3cDomNode> node);
 
 FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *new_JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_(id<OrgW3cDomNode> node) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *create_JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_(id<OrgW3cDomNode> node);
 
 FOUNDATION_EXPORT void JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_withNSString_(JavaxXmlTransformDomDOMResult *self, id<OrgW3cDomNode> node, NSString *systemId);
 
 FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *new_JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_withNSString_(id<OrgW3cDomNode> node, NSString *systemId) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *create_JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_withNSString_(id<OrgW3cDomNode> node, NSString *systemId);
+
 FOUNDATION_EXPORT void JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_withOrgW3cDomNode_(JavaxXmlTransformDomDOMResult *self, id<OrgW3cDomNode> node, id<OrgW3cDomNode> nextSibling);
 
 FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *new_JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_withOrgW3cDomNode_(id<OrgW3cDomNode> node, id<OrgW3cDomNode> nextSibling) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *create_JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_withOrgW3cDomNode_(id<OrgW3cDomNode> node, id<OrgW3cDomNode> nextSibling);
+
 FOUNDATION_EXPORT void JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_withOrgW3cDomNode_withNSString_(JavaxXmlTransformDomDOMResult *self, id<OrgW3cDomNode> node, id<OrgW3cDomNode> nextSibling, NSString *systemId);
 
 FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *new_JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_withOrgW3cDomNode_withNSString_(id<OrgW3cDomNode> node, id<OrgW3cDomNode> nextSibling, NSString *systemId) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformDomDOMResult *create_JavaxXmlTransformDomDOMResult_initWithOrgW3cDomNode_withOrgW3cDomNode_withNSString_(id<OrgW3cDomNode> node, id<OrgW3cDomNode> nextSibling, NSString *systemId);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMResult)
 
@@ -262,4 +272,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMResult)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformDomDOMResult_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMResult")

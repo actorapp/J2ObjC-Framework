@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLinkedHashMap_INCLUDE_ALL")
-#ifdef JavaUtilLinkedHashMap_RESTRICT
-#define JavaUtilLinkedHashMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLinkedHashMap")
+#ifdef RESTRICT_JavaUtilLinkedHashMap
+#define INCLUDE_ALL_JavaUtilLinkedHashMap 0
 #else
-#define JavaUtilLinkedHashMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLinkedHashMap 1
 #endif
-#undef JavaUtilLinkedHashMap_RESTRICT
+#undef RESTRICT_JavaUtilLinkedHashMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLinkedHashMap_) && (JavaUtilLinkedHashMap_INCLUDE_ALL || defined(JavaUtilLinkedHashMap_INCLUDE))
+#if !defined (JavaUtilLinkedHashMap_) && (INCLUDE_ALL_JavaUtilLinkedHashMap || defined(INCLUDE_JavaUtilLinkedHashMap))
 #define JavaUtilLinkedHashMap_
 
-#define JavaUtilHashMap_RESTRICT 1
-#define JavaUtilHashMap_INCLUDE 1
+#define RESTRICT_JavaUtilHashMap 1
+#define INCLUDE_JavaUtilHashMap 1
 #include "../../java/util/HashMap.h"
 
 @class JavaUtilHashMap_HashMapEntry;
@@ -206,31 +206,41 @@ FOUNDATION_EXPORT void JavaUtilLinkedHashMap_init(JavaUtilLinkedHashMap *self);
 
 FOUNDATION_EXPORT JavaUtilLinkedHashMap *new_JavaUtilLinkedHashMap_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLinkedHashMap *create_JavaUtilLinkedHashMap_init();
+
 FOUNDATION_EXPORT void JavaUtilLinkedHashMap_initWithInt_(JavaUtilLinkedHashMap *self, jint initialCapacity);
 
 FOUNDATION_EXPORT JavaUtilLinkedHashMap *new_JavaUtilLinkedHashMap_initWithInt_(jint initialCapacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLinkedHashMap *create_JavaUtilLinkedHashMap_initWithInt_(jint initialCapacity);
 
 FOUNDATION_EXPORT void JavaUtilLinkedHashMap_initWithInt_withFloat_(JavaUtilLinkedHashMap *self, jint initialCapacity, jfloat loadFactor);
 
 FOUNDATION_EXPORT JavaUtilLinkedHashMap *new_JavaUtilLinkedHashMap_initWithInt_withFloat_(jint initialCapacity, jfloat loadFactor) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLinkedHashMap *create_JavaUtilLinkedHashMap_initWithInt_withFloat_(jint initialCapacity, jfloat loadFactor);
+
 FOUNDATION_EXPORT void JavaUtilLinkedHashMap_initWithInt_withFloat_withBoolean_(JavaUtilLinkedHashMap *self, jint initialCapacity, jfloat loadFactor, jboolean accessOrder);
 
 FOUNDATION_EXPORT JavaUtilLinkedHashMap *new_JavaUtilLinkedHashMap_initWithInt_withFloat_withBoolean_(jint initialCapacity, jfloat loadFactor, jboolean accessOrder) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLinkedHashMap *create_JavaUtilLinkedHashMap_initWithInt_withFloat_withBoolean_(jint initialCapacity, jfloat loadFactor, jboolean accessOrder);
 
 FOUNDATION_EXPORT void JavaUtilLinkedHashMap_initWithJavaUtilMap_(JavaUtilLinkedHashMap *self, id<JavaUtilMap> map);
 
 FOUNDATION_EXPORT JavaUtilLinkedHashMap *new_JavaUtilLinkedHashMap_initWithJavaUtilMap_(id<JavaUtilMap> map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLinkedHashMap *create_JavaUtilLinkedHashMap_initWithJavaUtilMap_(id<JavaUtilMap> map);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashMap)
 
 #endif
 
-#if !defined (JavaUtilLinkedHashMap_LinkedEntry_) && (JavaUtilLinkedHashMap_INCLUDE_ALL || defined(JavaUtilLinkedHashMap_LinkedEntry_INCLUDE))
+#if !defined (JavaUtilLinkedHashMap_LinkedEntry_) && (INCLUDE_ALL_JavaUtilLinkedHashMap || defined(INCLUDE_JavaUtilLinkedHashMap_LinkedEntry))
 #define JavaUtilLinkedHashMap_LinkedEntry_
 
-#define JavaUtilHashMap_RESTRICT 1
-#define JavaUtilHashMap_HashMapEntry_INCLUDE 1
+#define RESTRICT_JavaUtilHashMap 1
+#define INCLUDE_JavaUtilHashMap_HashMapEntry 1
 #include "../../java/util/HashMap.h"
 
 /*!
@@ -238,8 +248,8 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashMap)
  */
 @interface JavaUtilLinkedHashMap_LinkedEntry : JavaUtilHashMap_HashMapEntry {
  @public
-  __weak JavaUtilLinkedHashMap_LinkedEntry *nxt_;
-  __weak JavaUtilLinkedHashMap_LinkedEntry *prv_;
+  __unsafe_unretained JavaUtilLinkedHashMap_LinkedEntry *nxt_;
+  __unsafe_unretained JavaUtilLinkedHashMap_LinkedEntry *prv_;
 }
 
 #pragma mark Package-Private
@@ -267,9 +277,13 @@ FOUNDATION_EXPORT void JavaUtilLinkedHashMap_LinkedEntry_init(JavaUtilLinkedHash
 
 FOUNDATION_EXPORT JavaUtilLinkedHashMap_LinkedEntry *new_JavaUtilLinkedHashMap_LinkedEntry_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLinkedHashMap_LinkedEntry *create_JavaUtilLinkedHashMap_LinkedEntry_init();
+
 FOUNDATION_EXPORT void JavaUtilLinkedHashMap_LinkedEntry_initWithId_withId_withInt_withJavaUtilHashMap_HashMapEntry_withJavaUtilLinkedHashMap_LinkedEntry_withJavaUtilLinkedHashMap_LinkedEntry_(JavaUtilLinkedHashMap_LinkedEntry *self, id key, id value, jint hash_, JavaUtilHashMap_HashMapEntry *next, JavaUtilLinkedHashMap_LinkedEntry *nxt, JavaUtilLinkedHashMap_LinkedEntry *prv);
 
 FOUNDATION_EXPORT JavaUtilLinkedHashMap_LinkedEntry *new_JavaUtilLinkedHashMap_LinkedEntry_initWithId_withId_withInt_withJavaUtilHashMap_HashMapEntry_withJavaUtilLinkedHashMap_LinkedEntry_withJavaUtilLinkedHashMap_LinkedEntry_(id key, id value, jint hash_, JavaUtilHashMap_HashMapEntry *next, JavaUtilLinkedHashMap_LinkedEntry *nxt, JavaUtilLinkedHashMap_LinkedEntry *prv) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLinkedHashMap_LinkedEntry *create_JavaUtilLinkedHashMap_LinkedEntry_initWithId_withId_withInt_withJavaUtilHashMap_HashMapEntry_withJavaUtilLinkedHashMap_LinkedEntry_withJavaUtilLinkedHashMap_LinkedEntry_(id key, id value, jint hash_, JavaUtilHashMap_HashMapEntry *next, JavaUtilLinkedHashMap_LinkedEntry *nxt, JavaUtilLinkedHashMap_LinkedEntry *prv);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashMap_LinkedEntry)
 
@@ -277,4 +291,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashMap_LinkedEntry)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLinkedHashMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLinkedHashMap")

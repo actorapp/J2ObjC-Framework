@@ -5,29 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoDataInputStream_INCLUDE_ALL")
-#ifdef JavaIoDataInputStream_RESTRICT
-#define JavaIoDataInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoDataInputStream")
+#ifdef RESTRICT_JavaIoDataInputStream
+#define INCLUDE_ALL_JavaIoDataInputStream 0
 #else
-#define JavaIoDataInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoDataInputStream 1
 #endif
-#undef JavaIoDataInputStream_RESTRICT
+#undef RESTRICT_JavaIoDataInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoDataInputStream_) && (JavaIoDataInputStream_INCLUDE_ALL || defined(JavaIoDataInputStream_INCLUDE))
+#if !defined (JavaIoDataInputStream_) && (INCLUDE_ALL_JavaIoDataInputStream || defined(INCLUDE_JavaIoDataInputStream))
 #define JavaIoDataInputStream_
 
-#define JavaIoFilterInputStream_RESTRICT 1
-#define JavaIoFilterInputStream_INCLUDE 1
+#define RESTRICT_JavaIoFilterInputStream 1
+#define INCLUDE_JavaIoFilterInputStream 1
 #include "../../java/io/FilterInputStream.h"
 
-#define JavaIoDataInput_RESTRICT 1
-#define JavaIoDataInput_INCLUDE 1
+#define RESTRICT_JavaIoDataInput 1
+#define INCLUDE_JavaIoDataInput 1
 #include "../../java/io/DataInput.h"
 
 @class IOSByteArray;
+@class IOSObjectArray;
 @class JavaIoInputStream;
 
 /*!
@@ -125,6 +126,8 @@ FOUNDATION_EXPORT void JavaIoDataInputStream_initWithJavaIoInputStream_(JavaIoDa
 
 FOUNDATION_EXPORT JavaIoDataInputStream *new_JavaIoDataInputStream_initWithJavaIoInputStream_(JavaIoInputStream *inArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoDataInputStream *create_JavaIoDataInputStream_initWithJavaIoInputStream_(JavaIoInputStream *inArg);
+
 FOUNDATION_EXPORT NSString *JavaIoDataInputStream_readUTFWithJavaIoDataInput_(id<JavaIoDataInput> inArg);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataInputStream)
@@ -133,4 +136,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataInputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoDataInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoDataInputStream")

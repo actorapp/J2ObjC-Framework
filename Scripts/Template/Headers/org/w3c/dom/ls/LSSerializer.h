@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomLsLSSerializer_INCLUDE_ALL")
-#ifdef OrgW3cDomLsLSSerializer_RESTRICT
-#define OrgW3cDomLsLSSerializer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomLsLSSerializer")
+#ifdef RESTRICT_OrgW3cDomLsLSSerializer
+#define INCLUDE_ALL_OrgW3cDomLsLSSerializer 0
 #else
-#define OrgW3cDomLsLSSerializer_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomLsLSSerializer 1
 #endif
-#undef OrgW3cDomLsLSSerializer_RESTRICT
+#undef RESTRICT_OrgW3cDomLsLSSerializer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomLsLSSerializer_) && (OrgW3cDomLsLSSerializer_INCLUDE_ALL || defined(OrgW3cDomLsLSSerializer_INCLUDE))
+#if !defined (OrgW3cDomLsLSSerializer_) && (INCLUDE_ALL_OrgW3cDomLsLSSerializer || defined(INCLUDE_OrgW3cDomLsLSSerializer))
 #define OrgW3cDomLsLSSerializer_
 
 @protocol OrgW3cDomDOMConfiguration;
@@ -458,4 +458,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSSerializer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomLsLSSerializer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomLsLSSerializer")

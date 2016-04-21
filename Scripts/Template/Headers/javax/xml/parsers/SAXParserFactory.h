@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlParsersSAXParserFactory_INCLUDE_ALL")
-#ifdef JavaxXmlParsersSAXParserFactory_RESTRICT
-#define JavaxXmlParsersSAXParserFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlParsersSAXParserFactory")
+#ifdef RESTRICT_JavaxXmlParsersSAXParserFactory
+#define INCLUDE_ALL_JavaxXmlParsersSAXParserFactory 0
 #else
-#define JavaxXmlParsersSAXParserFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlParsersSAXParserFactory 1
 #endif
-#undef JavaxXmlParsersSAXParserFactory_RESTRICT
+#undef RESTRICT_JavaxXmlParsersSAXParserFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlParsersSAXParserFactory_) && (JavaxXmlParsersSAXParserFactory_INCLUDE_ALL || defined(JavaxXmlParsersSAXParserFactory_INCLUDE))
+#if !defined (JavaxXmlParsersSAXParserFactory_) && (INCLUDE_ALL_JavaxXmlParsersSAXParserFactory || defined(INCLUDE_JavaxXmlParsersSAXParserFactory))
 #define JavaxXmlParsersSAXParserFactory_
 
 @class JavaLangClassLoader;
@@ -273,4 +273,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersSAXParserFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlParsersSAXParserFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlParsersSAXParserFactory")

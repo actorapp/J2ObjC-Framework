@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetURI_INCLUDE_ALL")
-#ifdef JavaNetURI_RESTRICT
-#define JavaNetURI_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetURI")
+#ifdef RESTRICT_JavaNetURI
+#define INCLUDE_ALL_JavaNetURI 0
 #else
-#define JavaNetURI_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetURI 1
 #endif
-#undef JavaNetURI_RESTRICT
+#undef RESTRICT_JavaNetURI
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetURI_) && (JavaNetURI_INCLUDE_ALL || defined(JavaNetURI_INCLUDE))
+#if !defined (JavaNetURI_) && (INCLUDE_ALL_JavaNetURI || defined(INCLUDE_JavaNetURI))
 #define JavaNetURI_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class JavaNetURL;
@@ -447,21 +447,31 @@ FOUNDATION_EXPORT void JavaNetURI_initWithNSString_(JavaNetURI *self, NSString *
 
 FOUNDATION_EXPORT JavaNetURI *new_JavaNetURI_initWithNSString_(NSString *spec) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURI *create_JavaNetURI_initWithNSString_(NSString *spec);
+
 FOUNDATION_EXPORT void JavaNetURI_initWithNSString_withNSString_withNSString_(JavaNetURI *self, NSString *scheme, NSString *schemeSpecificPart, NSString *fragment);
 
 FOUNDATION_EXPORT JavaNetURI *new_JavaNetURI_initWithNSString_withNSString_withNSString_(NSString *scheme, NSString *schemeSpecificPart, NSString *fragment) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetURI *create_JavaNetURI_initWithNSString_withNSString_withNSString_(NSString *scheme, NSString *schemeSpecificPart, NSString *fragment);
 
 FOUNDATION_EXPORT void JavaNetURI_initWithNSString_withNSString_withNSString_withInt_withNSString_withNSString_withNSString_(JavaNetURI *self, NSString *scheme, NSString *userInfo, NSString *host, jint port, NSString *path, NSString *query, NSString *fragment);
 
 FOUNDATION_EXPORT JavaNetURI *new_JavaNetURI_initWithNSString_withNSString_withNSString_withInt_withNSString_withNSString_withNSString_(NSString *scheme, NSString *userInfo, NSString *host, jint port, NSString *path, NSString *query, NSString *fragment) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURI *create_JavaNetURI_initWithNSString_withNSString_withNSString_withInt_withNSString_withNSString_withNSString_(NSString *scheme, NSString *userInfo, NSString *host, jint port, NSString *path, NSString *query, NSString *fragment);
+
 FOUNDATION_EXPORT void JavaNetURI_initWithNSString_withNSString_withNSString_withNSString_(JavaNetURI *self, NSString *scheme, NSString *host, NSString *path, NSString *fragment);
 
 FOUNDATION_EXPORT JavaNetURI *new_JavaNetURI_initWithNSString_withNSString_withNSString_withNSString_(NSString *scheme, NSString *host, NSString *path, NSString *fragment) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetURI *create_JavaNetURI_initWithNSString_withNSString_withNSString_withNSString_(NSString *scheme, NSString *host, NSString *path, NSString *fragment);
+
 FOUNDATION_EXPORT void JavaNetURI_initWithNSString_withNSString_withNSString_withNSString_withNSString_(JavaNetURI *self, NSString *scheme, NSString *authority, NSString *path, NSString *query, NSString *fragment);
 
 FOUNDATION_EXPORT JavaNetURI *new_JavaNetURI_initWithNSString_withNSString_withNSString_withNSString_withNSString_(NSString *scheme, NSString *authority, NSString *path, NSString *query, NSString *fragment) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetURI *create_JavaNetURI_initWithNSString_withNSString_withNSString_withNSString_withNSString_(NSString *scheme, NSString *authority, NSString *path, NSString *query, NSString *fragment);
 
 FOUNDATION_EXPORT JavaNetURI *JavaNetURI_createWithNSString_(NSString *uri);
 
@@ -473,4 +483,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURI)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetURI_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetURI")

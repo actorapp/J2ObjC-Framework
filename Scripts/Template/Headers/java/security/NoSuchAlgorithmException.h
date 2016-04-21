@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityNoSuchAlgorithmException_INCLUDE_ALL")
-#ifdef JavaSecurityNoSuchAlgorithmException_RESTRICT
-#define JavaSecurityNoSuchAlgorithmException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityNoSuchAlgorithmException")
+#ifdef RESTRICT_JavaSecurityNoSuchAlgorithmException
+#define INCLUDE_ALL_JavaSecurityNoSuchAlgorithmException 0
 #else
-#define JavaSecurityNoSuchAlgorithmException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityNoSuchAlgorithmException 1
 #endif
-#undef JavaSecurityNoSuchAlgorithmException_RESTRICT
+#undef RESTRICT_JavaSecurityNoSuchAlgorithmException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityNoSuchAlgorithmException_) && (JavaSecurityNoSuchAlgorithmException_INCLUDE_ALL || defined(JavaSecurityNoSuchAlgorithmException_INCLUDE))
+#if !defined (JavaSecurityNoSuchAlgorithmException_) && (INCLUDE_ALL_JavaSecurityNoSuchAlgorithmException || defined(INCLUDE_JavaSecurityNoSuchAlgorithmException))
 #define JavaSecurityNoSuchAlgorithmException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../java/security/GeneralSecurityException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>NoSuchAlgorithmException</code> indicates that a requested algorithm could
@@ -55,7 +53,7 @@
  the exception which is the cause for this exception.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance of <code>NoSuchAlgorithmException</code> with the
@@ -63,7 +61,7 @@
  @param cause
  the exception which is the cause for this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -73,17 +71,25 @@ FOUNDATION_EXPORT void JavaSecurityNoSuchAlgorithmException_initWithNSString_(Ja
 
 FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *new_JavaSecurityNoSuchAlgorithmException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *create_JavaSecurityNoSuchAlgorithmException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityNoSuchAlgorithmException_init(JavaSecurityNoSuchAlgorithmException *self);
 
 FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *new_JavaSecurityNoSuchAlgorithmException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityNoSuchAlgorithmException_initWithNSString_withJavaLangThrowable_(JavaSecurityNoSuchAlgorithmException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *create_JavaSecurityNoSuchAlgorithmException_init();
 
-FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *new_JavaSecurityNoSuchAlgorithmException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityNoSuchAlgorithmException_initWithNSString_withNSException_(JavaSecurityNoSuchAlgorithmException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityNoSuchAlgorithmException_initWithJavaLangThrowable_(JavaSecurityNoSuchAlgorithmException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *new_JavaSecurityNoSuchAlgorithmException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *new_JavaSecurityNoSuchAlgorithmException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *create_JavaSecurityNoSuchAlgorithmException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityNoSuchAlgorithmException_initWithNSException_(JavaSecurityNoSuchAlgorithmException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *new_JavaSecurityNoSuchAlgorithmException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityNoSuchAlgorithmException *create_JavaSecurityNoSuchAlgorithmException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityNoSuchAlgorithmException)
 
@@ -91,4 +97,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityNoSuchAlgorithmException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityNoSuchAlgorithmException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityNoSuchAlgorithmException")

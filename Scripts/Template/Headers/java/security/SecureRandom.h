@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySecureRandom_INCLUDE_ALL")
-#ifdef JavaSecuritySecureRandom_RESTRICT
-#define JavaSecuritySecureRandom_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySecureRandom")
+#ifdef RESTRICT_JavaSecuritySecureRandom
+#define INCLUDE_ALL_JavaSecuritySecureRandom 0
 #else
-#define JavaSecuritySecureRandom_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySecureRandom 1
 #endif
-#undef JavaSecuritySecureRandom_RESTRICT
+#undef RESTRICT_JavaSecuritySecureRandom
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySecureRandom_) && (JavaSecuritySecureRandom_INCLUDE_ALL || defined(JavaSecuritySecureRandom_INCLUDE))
+#if !defined (JavaSecuritySecureRandom_) && (INCLUDE_ALL_JavaSecuritySecureRandom || defined(INCLUDE_JavaSecuritySecureRandom))
 #define JavaSecuritySecureRandom_
 
-#define JavaUtilRandom_RESTRICT 1
-#define JavaUtilRandom_INCLUDE 1
+#define RESTRICT_JavaUtilRandom 1
+#define INCLUDE_JavaUtilRandom 1
 #include "../../java/util/Random.h"
 
 @class IOSByteArray;
@@ -211,13 +211,19 @@ FOUNDATION_EXPORT void JavaSecuritySecureRandom_init(JavaSecuritySecureRandom *s
 
 FOUNDATION_EXPORT JavaSecuritySecureRandom *new_JavaSecuritySecureRandom_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySecureRandom *create_JavaSecuritySecureRandom_init();
+
 FOUNDATION_EXPORT void JavaSecuritySecureRandom_initWithByteArray_(JavaSecuritySecureRandom *self, IOSByteArray *seed);
 
 FOUNDATION_EXPORT JavaSecuritySecureRandom *new_JavaSecuritySecureRandom_initWithByteArray_(IOSByteArray *seed) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySecureRandom *create_JavaSecuritySecureRandom_initWithByteArray_(IOSByteArray *seed);
+
 FOUNDATION_EXPORT void JavaSecuritySecureRandom_initWithJavaSecuritySecureRandomSpi_withJavaSecurityProvider_(JavaSecuritySecureRandom *self, JavaSecuritySecureRandomSpi *secureRandomSpi, JavaSecurityProvider *provider);
 
 FOUNDATION_EXPORT JavaSecuritySecureRandom *new_JavaSecuritySecureRandom_initWithJavaSecuritySecureRandomSpi_withJavaSecurityProvider_(JavaSecuritySecureRandomSpi *secureRandomSpi, JavaSecurityProvider *provider) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecuritySecureRandom *create_JavaSecuritySecureRandom_initWithJavaSecuritySecureRandomSpi_withJavaSecurityProvider_(JavaSecuritySecureRandomSpi *secureRandomSpi, JavaSecurityProvider *provider);
 
 FOUNDATION_EXPORT JavaSecuritySecureRandom *JavaSecuritySecureRandom_getInstanceWithNSString_(NSString *algorithm);
 
@@ -233,4 +239,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureRandom)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySecureRandom_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySecureRandom")

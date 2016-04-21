@@ -5,27 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE_ALL")
-#ifdef JavaxXmlDatatypeDatatypeConfigurationException_RESTRICT
-#define JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlDatatypeDatatypeConfigurationException")
+#ifdef RESTRICT_JavaxXmlDatatypeDatatypeConfigurationException
+#define INCLUDE_ALL_JavaxXmlDatatypeDatatypeConfigurationException 0
 #else
-#define JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlDatatypeDatatypeConfigurationException 1
 #endif
-#undef JavaxXmlDatatypeDatatypeConfigurationException_RESTRICT
+#undef RESTRICT_JavaxXmlDatatypeDatatypeConfigurationException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlDatatypeDatatypeConfigurationException_) && (JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE_ALL || defined(JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE))
+#if !defined (JavaxXmlDatatypeDatatypeConfigurationException_) && (INCLUDE_ALL_JavaxXmlDatatypeDatatypeConfigurationException || defined(INCLUDE_JavaxXmlDatatypeDatatypeConfigurationException))
 #define JavaxXmlDatatypeDatatypeConfigurationException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../java/lang/Exception.h"
 
 @class JavaIoPrintStream;
 @class JavaIoPrintWriter;
-@class JavaLangThrowable;
 
 /*!
  @brief <p>Indicates a serious configuration error.
@@ -61,7 +60,7 @@
  @param cause The cause.  A <code>null</code> value is permitted, and indicates that the cause is nonexistent or unknown.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief <p>Create a new <code>DatatypeConfigurationException</code> with
@@ -69,7 +68,7 @@
  </p>
  @param cause The cause.  A <code>null</code> value is permitted, and indicates that the cause is nonexistent or unknown.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 /*!
  @brief Print the the trace of methods from where the error
@@ -105,17 +104,25 @@ FOUNDATION_EXPORT void JavaxXmlDatatypeDatatypeConfigurationException_init(Javax
 
 FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *new_JavaxXmlDatatypeDatatypeConfigurationException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *create_JavaxXmlDatatypeDatatypeConfigurationException_init();
+
 FOUNDATION_EXPORT void JavaxXmlDatatypeDatatypeConfigurationException_initWithNSString_(JavaxXmlDatatypeDatatypeConfigurationException *self, NSString *message);
 
 FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *new_JavaxXmlDatatypeDatatypeConfigurationException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaxXmlDatatypeDatatypeConfigurationException_initWithNSString_withJavaLangThrowable_(JavaxXmlDatatypeDatatypeConfigurationException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *create_JavaxXmlDatatypeDatatypeConfigurationException_initWithNSString_(NSString *message);
 
-FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *new_JavaxXmlDatatypeDatatypeConfigurationException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaxXmlDatatypeDatatypeConfigurationException_initWithNSString_withNSException_(JavaxXmlDatatypeDatatypeConfigurationException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaxXmlDatatypeDatatypeConfigurationException_initWithJavaLangThrowable_(JavaxXmlDatatypeDatatypeConfigurationException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *new_JavaxXmlDatatypeDatatypeConfigurationException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *new_JavaxXmlDatatypeDatatypeConfigurationException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *create_JavaxXmlDatatypeDatatypeConfigurationException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaxXmlDatatypeDatatypeConfigurationException_initWithNSException_(JavaxXmlDatatypeDatatypeConfigurationException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *new_JavaxXmlDatatypeDatatypeConfigurationException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlDatatypeDatatypeConfigurationException *create_JavaxXmlDatatypeDatatypeConfigurationException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDatatypeConfigurationException)
 
@@ -123,4 +130,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDatatypeConfigurationException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlDatatypeDatatypeConfigurationException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlDatatypeDatatypeConfigurationException")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentRejectedExecutionHandler_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentRejectedExecutionHandler_RESTRICT
-#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentRejectedExecutionHandler")
+#ifdef RESTRICT_JavaUtilConcurrentRejectedExecutionHandler
+#define INCLUDE_ALL_JavaUtilConcurrentRejectedExecutionHandler 0
 #else
-#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentRejectedExecutionHandler 1
 #endif
-#undef JavaUtilConcurrentRejectedExecutionHandler_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentRejectedExecutionHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentRejectedExecutionHandler_) && (JavaUtilConcurrentRejectedExecutionHandler_INCLUDE_ALL || defined(JavaUtilConcurrentRejectedExecutionHandler_INCLUDE))
+#if !defined (JavaUtilConcurrentRejectedExecutionHandler_) && (INCLUDE_ALL_JavaUtilConcurrentRejectedExecutionHandler || defined(INCLUDE_JavaUtilConcurrentRejectedExecutionHandler))
 #define JavaUtilConcurrentRejectedExecutionHandler_
 
 @class JavaUtilConcurrentThreadPoolExecutor;
@@ -56,4 +56,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRejectedExecutionHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentRejectedExecutionHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentRejectedExecutionHandler")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentCyclicBarrier_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentCyclicBarrier_RESTRICT
-#define JavaUtilConcurrentCyclicBarrier_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCyclicBarrier")
+#ifdef RESTRICT_JavaUtilConcurrentCyclicBarrier
+#define INCLUDE_ALL_JavaUtilConcurrentCyclicBarrier 0
 #else
-#define JavaUtilConcurrentCyclicBarrier_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentCyclicBarrier 1
 #endif
-#undef JavaUtilConcurrentCyclicBarrier_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentCyclicBarrier
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentCyclicBarrier_) && (JavaUtilConcurrentCyclicBarrier_INCLUDE_ALL || defined(JavaUtilConcurrentCyclicBarrier_INCLUDE))
+#if !defined (JavaUtilConcurrentCyclicBarrier_) && (INCLUDE_ALL_JavaUtilConcurrentCyclicBarrier || defined(INCLUDE_JavaUtilConcurrentCyclicBarrier))
 #define JavaUtilConcurrentCyclicBarrier_
 
 @class JavaUtilConcurrentTimeUnit;
@@ -287,9 +287,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentCyclicBarrier_initWithInt_withJavaLangR
 
 FOUNDATION_EXPORT JavaUtilConcurrentCyclicBarrier *new_JavaUtilConcurrentCyclicBarrier_initWithInt_withJavaLangRunnable_(jint parties, id<JavaLangRunnable> barrierAction) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentCyclicBarrier *create_JavaUtilConcurrentCyclicBarrier_initWithInt_withJavaLangRunnable_(jint parties, id<JavaLangRunnable> barrierAction);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentCyclicBarrier_initWithInt_(JavaUtilConcurrentCyclicBarrier *self, jint parties);
 
 FOUNDATION_EXPORT JavaUtilConcurrentCyclicBarrier *new_JavaUtilConcurrentCyclicBarrier_initWithInt_(jint parties) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentCyclicBarrier *create_JavaUtilConcurrentCyclicBarrier_initWithInt_(jint parties);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCyclicBarrier)
 
@@ -297,4 +301,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCyclicBarrier)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentCyclicBarrier_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCyclicBarrier")

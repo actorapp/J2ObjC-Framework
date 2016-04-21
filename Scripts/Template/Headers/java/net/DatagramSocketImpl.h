@@ -5,24 +5,25 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetDatagramSocketImpl_INCLUDE_ALL")
-#ifdef JavaNetDatagramSocketImpl_RESTRICT
-#define JavaNetDatagramSocketImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetDatagramSocketImpl")
+#ifdef RESTRICT_JavaNetDatagramSocketImpl
+#define INCLUDE_ALL_JavaNetDatagramSocketImpl 0
 #else
-#define JavaNetDatagramSocketImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetDatagramSocketImpl 1
 #endif
-#undef JavaNetDatagramSocketImpl_RESTRICT
+#undef RESTRICT_JavaNetDatagramSocketImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetDatagramSocketImpl_) && (JavaNetDatagramSocketImpl_INCLUDE_ALL || defined(JavaNetDatagramSocketImpl_INCLUDE))
+#if !defined (JavaNetDatagramSocketImpl_) && (INCLUDE_ALL_JavaNetDatagramSocketImpl || defined(INCLUDE_JavaNetDatagramSocketImpl))
 #define JavaNetDatagramSocketImpl_
 
-#define JavaNetSocketOptions_RESTRICT 1
-#define JavaNetSocketOptions_INCLUDE 1
+#define RESTRICT_JavaNetSocketOptions 1
+#define INCLUDE_JavaNetSocketOptions 1
 #include "../../java/net/SocketOptions.h"
 
+@class IOSObjectArray;
 @class JavaIoFileDescriptor;
 @class JavaNetDatagramPacket;
 @class JavaNetInetAddress;
@@ -299,4 +300,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramSocketImpl)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetDatagramSocketImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetDatagramSocketImpl")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentExecutor_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentExecutor_RESTRICT
-#define JavaUtilConcurrentExecutor_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentExecutor")
+#ifdef RESTRICT_JavaUtilConcurrentExecutor
+#define INCLUDE_ALL_JavaUtilConcurrentExecutor 0
 #else
-#define JavaUtilConcurrentExecutor_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentExecutor 1
 #endif
-#undef JavaUtilConcurrentExecutor_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentExecutor
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentExecutor_) && (JavaUtilConcurrentExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentExecutor_INCLUDE))
+#if !defined (JavaUtilConcurrentExecutor_) && (INCLUDE_ALL_JavaUtilConcurrentExecutor || defined(INCLUDE_JavaUtilConcurrentExecutor))
 #define JavaUtilConcurrentExecutor_
 
 @protocol JavaLangRunnable;
@@ -131,4 +131,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutor)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentExecutor_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentExecutor")

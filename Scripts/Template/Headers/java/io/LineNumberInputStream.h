@@ -5,25 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoLineNumberInputStream_INCLUDE_ALL")
-#ifdef JavaIoLineNumberInputStream_RESTRICT
-#define JavaIoLineNumberInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoLineNumberInputStream")
+#ifdef RESTRICT_JavaIoLineNumberInputStream
+#define INCLUDE_ALL_JavaIoLineNumberInputStream 0
 #else
-#define JavaIoLineNumberInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoLineNumberInputStream 1
 #endif
-#undef JavaIoLineNumberInputStream_RESTRICT
+#undef RESTRICT_JavaIoLineNumberInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoLineNumberInputStream_) && (JavaIoLineNumberInputStream_INCLUDE_ALL || defined(JavaIoLineNumberInputStream_INCLUDE))
+#if !defined (JavaIoLineNumberInputStream_) && (INCLUDE_ALL_JavaIoLineNumberInputStream || defined(INCLUDE_JavaIoLineNumberInputStream))
 #define JavaIoLineNumberInputStream_
 
-#define JavaIoFilterInputStream_RESTRICT 1
-#define JavaIoFilterInputStream_INCLUDE 1
+#define RESTRICT_JavaIoFilterInputStream 1
+#define INCLUDE_JavaIoFilterInputStream 1
 #include "../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
+@class IOSObjectArray;
 @class JavaIoInputStream;
 
 /*!
@@ -173,10 +174,12 @@ FOUNDATION_EXPORT void JavaIoLineNumberInputStream_initWithJavaIoInputStream_(Ja
 
 FOUNDATION_EXPORT JavaIoLineNumberInputStream *new_JavaIoLineNumberInputStream_initWithJavaIoInputStream_(JavaIoInputStream *inArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoLineNumberInputStream *create_JavaIoLineNumberInputStream_initWithJavaIoInputStream_(JavaIoInputStream *inArg);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoLineNumberInputStream)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoLineNumberInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoLineNumberInputStream")

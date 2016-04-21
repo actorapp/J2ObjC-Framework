@@ -5,19 +5,21 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxAttributeList_INCLUDE_ALL")
-#ifdef OrgXmlSaxAttributeList_RESTRICT
-#define OrgXmlSaxAttributeList_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxAttributeList")
+#ifdef RESTRICT_OrgXmlSaxAttributeList
+#define INCLUDE_ALL_OrgXmlSaxAttributeList 0
 #else
-#define OrgXmlSaxAttributeList_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxAttributeList 1
 #endif
-#undef OrgXmlSaxAttributeList_RESTRICT
+#undef RESTRICT_OrgXmlSaxAttributeList
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxAttributeList_) && (OrgXmlSaxAttributeList_INCLUDE_ALL || defined(OrgXmlSaxAttributeList_INCLUDE))
+#if !defined (OrgXmlSaxAttributeList_) && (INCLUDE_ALL_OrgXmlSaxAttributeList || defined(INCLUDE_OrgXmlSaxAttributeList))
 #define OrgXmlSaxAttributeList_
+
+@class IOSObjectArray;
 
 /*!
  @brief Interface for an element's attribute specifications.
@@ -170,4 +172,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxAttributeList)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxAttributeList_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxAttributeList")

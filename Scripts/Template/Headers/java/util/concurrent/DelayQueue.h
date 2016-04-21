@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentDelayQueue_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentDelayQueue_RESTRICT
-#define JavaUtilConcurrentDelayQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentDelayQueue")
+#ifdef RESTRICT_JavaUtilConcurrentDelayQueue
+#define INCLUDE_ALL_JavaUtilConcurrentDelayQueue 0
 #else
-#define JavaUtilConcurrentDelayQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentDelayQueue 1
 #endif
-#undef JavaUtilConcurrentDelayQueue_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentDelayQueue
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentDelayQueue_) && (JavaUtilConcurrentDelayQueue_INCLUDE_ALL || defined(JavaUtilConcurrentDelayQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentDelayQueue_) && (INCLUDE_ALL_JavaUtilConcurrentDelayQueue || defined(INCLUDE_JavaUtilConcurrentDelayQueue))
 #define JavaUtilConcurrentDelayQueue_
 
-#define JavaUtilAbstractQueue_RESTRICT 1
-#define JavaUtilAbstractQueue_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractQueue 1
+#define INCLUDE_JavaUtilAbstractQueue 1
 #include "../../../java/util/AbstractQueue.h"
 
-#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
-#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentBlockingQueue 1
+#define INCLUDE_JavaUtilConcurrentBlockingQueue 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
 
 @class IOSObjectArray;
@@ -267,9 +267,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentDelayQueue_init(JavaUtilConcurrentDelay
 
 FOUNDATION_EXPORT JavaUtilConcurrentDelayQueue *new_JavaUtilConcurrentDelayQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentDelayQueue *create_JavaUtilConcurrentDelayQueue_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentDelayQueue_initWithJavaUtilCollection_(JavaUtilConcurrentDelayQueue *self, id<JavaUtilCollection> c);
 
 FOUNDATION_EXPORT JavaUtilConcurrentDelayQueue *new_JavaUtilConcurrentDelayQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentDelayQueue *create_JavaUtilConcurrentDelayQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentDelayQueue)
 
@@ -277,4 +281,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentDelayQueue)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentDelayQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentDelayQueue")

@@ -5,34 +5,34 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextSpannableString_INCLUDE_ALL")
-#ifdef AndroidTextSpannableString_RESTRICT
-#define AndroidTextSpannableString_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextSpannableString")
+#ifdef RESTRICT_AndroidTextSpannableString
+#define INCLUDE_ALL_AndroidTextSpannableString 0
 #else
-#define AndroidTextSpannableString_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextSpannableString 1
 #endif
-#undef AndroidTextSpannableString_RESTRICT
+#undef RESTRICT_AndroidTextSpannableString
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextSpannableString_) && (AndroidTextSpannableString_INCLUDE_ALL || defined(AndroidTextSpannableString_INCLUDE))
+#if !defined (AndroidTextSpannableString_) && (INCLUDE_ALL_AndroidTextSpannableString || defined(INCLUDE_AndroidTextSpannableString))
 #define AndroidTextSpannableString_
 
-#define AndroidTextSpannableStringInternal_RESTRICT 1
-#define AndroidTextSpannableStringInternal_INCLUDE 1
+#define RESTRICT_AndroidTextSpannableStringInternal 1
+#define INCLUDE_AndroidTextSpannableStringInternal 1
 #include "../../android/text/SpannableStringInternal.h"
 
-#define JavaLangCharSequence_RESTRICT 1
-#define JavaLangCharSequence_INCLUDE 1
+#define RESTRICT_JavaLangCharSequence 1
+#define INCLUDE_JavaLangCharSequence 1
 #include "../../java/lang/CharSequence.h"
 
-#define AndroidTextGetChars_RESTRICT 1
-#define AndroidTextGetChars_INCLUDE 1
+#define RESTRICT_AndroidTextGetChars 1
+#define INCLUDE_AndroidTextGetChars 1
 #include "../../android/text/GetChars.h"
 
-#define AndroidTextSpannable_RESTRICT 1
-#define AndroidTextSpannable_INCLUDE 1
+#define RESTRICT_AndroidTextSpannable 1
+#define INCLUDE_AndroidTextSpannable 1
 #include "../../android/text/Spannable.h"
 
 /*!
@@ -66,6 +66,8 @@ FOUNDATION_EXPORT void AndroidTextSpannableString_initWithJavaLangCharSequence_(
 
 FOUNDATION_EXPORT AndroidTextSpannableString *new_AndroidTextSpannableString_initWithJavaLangCharSequence_(id<JavaLangCharSequence> source) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextSpannableString *create_AndroidTextSpannableString_initWithJavaLangCharSequence_(id<JavaLangCharSequence> source);
+
 FOUNDATION_EXPORT AndroidTextSpannableString *AndroidTextSpannableString_valueOfWithJavaLangCharSequence_(id<JavaLangCharSequence> source);
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableString)
@@ -74,4 +76,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableString)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextSpannableString_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextSpannableString")

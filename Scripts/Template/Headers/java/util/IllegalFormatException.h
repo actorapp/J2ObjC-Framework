@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilIllegalFormatException_INCLUDE_ALL")
-#ifdef JavaUtilIllegalFormatException_RESTRICT
-#define JavaUtilIllegalFormatException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilIllegalFormatException")
+#ifdef RESTRICT_JavaUtilIllegalFormatException
+#define INCLUDE_ALL_JavaUtilIllegalFormatException 0
 #else
-#define JavaUtilIllegalFormatException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilIllegalFormatException 1
 #endif
-#undef JavaUtilIllegalFormatException_RESTRICT
+#undef RESTRICT_JavaUtilIllegalFormatException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilIllegalFormatException_) && (JavaUtilIllegalFormatException_INCLUDE_ALL || defined(JavaUtilIllegalFormatException_INCLUDE))
+#if !defined (JavaUtilIllegalFormatException_) && (INCLUDE_ALL_JavaUtilIllegalFormatException || defined(INCLUDE_JavaUtilIllegalFormatException))
 #define JavaUtilIllegalFormatException_
 
-#define JavaLangIllegalArgumentException_RESTRICT 1
-#define JavaLangIllegalArgumentException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalArgumentException 1
+#define INCLUDE_JavaLangIllegalArgumentException 1
 #include "../../java/lang/IllegalArgumentException.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -49,10 +49,12 @@ FOUNDATION_EXPORT void JavaUtilIllegalFormatException_init(JavaUtilIllegalFormat
 
 FOUNDATION_EXPORT JavaUtilIllegalFormatException *new_JavaUtilIllegalFormatException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIllegalFormatException *create_JavaUtilIllegalFormatException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilIllegalFormatException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilIllegalFormatException")

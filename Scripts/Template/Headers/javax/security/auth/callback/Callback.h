@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityAuthCallbackCallback_INCLUDE_ALL")
-#ifdef JavaxSecurityAuthCallbackCallback_RESTRICT
-#define JavaxSecurityAuthCallbackCallback_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityAuthCallbackCallback")
+#ifdef RESTRICT_JavaxSecurityAuthCallbackCallback
+#define INCLUDE_ALL_JavaxSecurityAuthCallbackCallback 0
 #else
-#define JavaxSecurityAuthCallbackCallback_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityAuthCallbackCallback 1
 #endif
-#undef JavaxSecurityAuthCallbackCallback_RESTRICT
+#undef RESTRICT_JavaxSecurityAuthCallbackCallback
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityAuthCallbackCallback_) && (JavaxSecurityAuthCallbackCallback_INCLUDE_ALL || defined(JavaxSecurityAuthCallbackCallback_INCLUDE))
+#if !defined (JavaxSecurityAuthCallbackCallback_) && (INCLUDE_ALL_JavaxSecurityAuthCallbackCallback || defined(INCLUDE_JavaxSecurityAuthCallbackCallback))
 #define JavaxSecurityAuthCallbackCallback_
 
 /*!
@@ -35,4 +35,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthCallbackCallback)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityAuthCallbackCallback_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityAuthCallbackCallback")

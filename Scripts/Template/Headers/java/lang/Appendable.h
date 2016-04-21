@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangAppendable_INCLUDE_ALL")
-#ifdef JavaLangAppendable_RESTRICT
-#define JavaLangAppendable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangAppendable")
+#ifdef RESTRICT_JavaLangAppendable
+#define INCLUDE_ALL_JavaLangAppendable 0
 #else
-#define JavaLangAppendable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangAppendable 1
 #endif
-#undef JavaLangAppendable_RESTRICT
+#undef RESTRICT_JavaLangAppendable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangAppendable_) && (JavaLangAppendable_INCLUDE_ALL || defined(JavaLangAppendable_INCLUDE))
+#if !defined (JavaLangAppendable_) && (INCLUDE_ALL_JavaLangAppendable || defined(INCLUDE_JavaLangAppendable))
 #define JavaLangAppendable_
 
 @protocol JavaLangCharSequence;
@@ -99,4 +99,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAppendable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangAppendable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangAppendable")

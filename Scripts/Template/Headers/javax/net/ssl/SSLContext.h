@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLContext_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLContext_RESTRICT
-#define JavaxNetSslSSLContext_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLContext")
+#ifdef RESTRICT_JavaxNetSslSSLContext
+#define INCLUDE_ALL_JavaxNetSslSSLContext 0
 #else
-#define JavaxNetSslSSLContext_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLContext 1
 #endif
-#undef JavaxNetSslSSLContext_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLContext
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLContext_) && (JavaxNetSslSSLContext_INCLUDE_ALL || defined(JavaxNetSslSSLContext_INCLUDE))
+#if !defined (JavaxNetSslSSLContext_) && (INCLUDE_ALL_JavaxNetSslSSLContext || defined(INCLUDE_JavaxNetSslSSLContext))
 #define JavaxNetSslSSLContext_
 
 @class IOSObjectArray;
@@ -365,10 +365,12 @@ FOUNDATION_EXPORT void JavaxNetSslSSLContext_initWithJavaxNetSslSSLContextSpi_wi
 
 FOUNDATION_EXPORT JavaxNetSslSSLContext *new_JavaxNetSslSSLContext_initWithJavaxNetSslSSLContextSpi_withJavaSecurityProvider_withNSString_(JavaxNetSslSSLContextSpi *contextSpi, JavaSecurityProvider *provider, NSString *protocol) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslSSLContext *create_JavaxNetSslSSLContext_initWithJavaxNetSslSSLContextSpi_withJavaSecurityProvider_withNSString_(JavaxNetSslSSLContextSpi *contextSpi, JavaSecurityProvider *provider, NSString *protocol);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLContext)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLContext_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLContext")

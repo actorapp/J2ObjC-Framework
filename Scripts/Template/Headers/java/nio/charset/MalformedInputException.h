@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharsetMalformedInputException_INCLUDE_ALL")
-#ifdef JavaNioCharsetMalformedInputException_RESTRICT
-#define JavaNioCharsetMalformedInputException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharsetMalformedInputException")
+#ifdef RESTRICT_JavaNioCharsetMalformedInputException
+#define INCLUDE_ALL_JavaNioCharsetMalformedInputException 0
 #else
-#define JavaNioCharsetMalformedInputException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharsetMalformedInputException 1
 #endif
-#undef JavaNioCharsetMalformedInputException_RESTRICT
+#undef RESTRICT_JavaNioCharsetMalformedInputException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharsetMalformedInputException_) && (JavaNioCharsetMalformedInputException_INCLUDE_ALL || defined(JavaNioCharsetMalformedInputException_INCLUDE))
+#if !defined (JavaNioCharsetMalformedInputException_) && (INCLUDE_ALL_JavaNioCharsetMalformedInputException || defined(INCLUDE_JavaNioCharsetMalformedInputException))
 #define JavaNioCharsetMalformedInputException_
 
-#define JavaNioCharsetCharacterCodingException_RESTRICT 1
-#define JavaNioCharsetCharacterCodingException_INCLUDE 1
+#define RESTRICT_JavaNioCharsetCharacterCodingException 1
+#define INCLUDE_JavaNioCharsetCharacterCodingException 1
 #include "../../../java/nio/charset/CharacterCodingException.h"
 
 /*!
@@ -54,10 +54,12 @@ FOUNDATION_EXPORT void JavaNioCharsetMalformedInputException_initWithInt_(JavaNi
 
 FOUNDATION_EXPORT JavaNioCharsetMalformedInputException *new_JavaNioCharsetMalformedInputException_initWithInt_(jint length) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioCharsetMalformedInputException *create_JavaNioCharsetMalformedInputException_initWithInt_(jint length);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetMalformedInputException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharsetMalformedInputException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharsetMalformedInputException")

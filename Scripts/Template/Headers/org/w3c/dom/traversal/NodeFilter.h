@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomTraversalNodeFilter_INCLUDE_ALL")
-#ifdef OrgW3cDomTraversalNodeFilter_RESTRICT
-#define OrgW3cDomTraversalNodeFilter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomTraversalNodeFilter")
+#ifdef RESTRICT_OrgW3cDomTraversalNodeFilter
+#define INCLUDE_ALL_OrgW3cDomTraversalNodeFilter 0
 #else
-#define OrgW3cDomTraversalNodeFilter_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomTraversalNodeFilter 1
 #endif
-#undef OrgW3cDomTraversalNodeFilter_RESTRICT
+#undef RESTRICT_OrgW3cDomTraversalNodeFilter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomTraversalNodeFilter_) && (OrgW3cDomTraversalNodeFilter_INCLUDE_ALL || defined(OrgW3cDomTraversalNodeFilter_INCLUDE))
+#if !defined (OrgW3cDomTraversalNodeFilter_) && (INCLUDE_ALL_OrgW3cDomTraversalNodeFilter || defined(INCLUDE_OrgW3cDomTraversalNodeFilter))
 #define OrgW3cDomTraversalNodeFilter_
 
 @protocol OrgW3cDomNode;
@@ -247,4 +247,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomTraversalNodeFilter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomTraversalNodeFilter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomTraversalNodeFilter")

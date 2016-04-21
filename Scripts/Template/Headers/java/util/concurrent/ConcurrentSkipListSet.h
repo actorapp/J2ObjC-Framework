@@ -5,30 +5,30 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentConcurrentSkipListSet_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentConcurrentSkipListSet_RESTRICT
-#define JavaUtilConcurrentConcurrentSkipListSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListSet")
+#ifdef RESTRICT_JavaUtilConcurrentConcurrentSkipListSet
+#define INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListSet 0
 #else
-#define JavaUtilConcurrentConcurrentSkipListSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListSet 1
 #endif
-#undef JavaUtilConcurrentConcurrentSkipListSet_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentConcurrentSkipListSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentConcurrentSkipListSet_) && (JavaUtilConcurrentConcurrentSkipListSet_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentSkipListSet_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentSkipListSet_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListSet || defined(INCLUDE_JavaUtilConcurrentConcurrentSkipListSet))
 #define JavaUtilConcurrentConcurrentSkipListSet_
 
-#define JavaUtilAbstractSet_RESTRICT 1
-#define JavaUtilAbstractSet_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractSet 1
+#define INCLUDE_JavaUtilAbstractSet 1
 #include "../../../java/util/AbstractSet.h"
 
-#define JavaUtilNavigableSet_RESTRICT 1
-#define JavaUtilNavigableSet_INCLUDE 1
+#define RESTRICT_JavaUtilNavigableSet 1
+#define INCLUDE_JavaUtilNavigableSet 1
 #include "../../../java/util/NavigableSet.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
@@ -351,21 +351,31 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentSkipListSet_init(JavaUtilConc
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *new_JavaUtilConcurrentConcurrentSkipListSet_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *create_JavaUtilConcurrentConcurrentSkipListSet_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilComparator_(JavaUtilConcurrentConcurrentSkipListSet *self, id<JavaUtilComparator> comparator);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *new_JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilComparator_(id<JavaUtilComparator> comparator) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *create_JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilComparator_(id<JavaUtilComparator> comparator);
 
 FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilCollection_(JavaUtilConcurrentConcurrentSkipListSet *self, id<JavaUtilCollection> c);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *new_JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *create_JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilCollection_(id<JavaUtilCollection> c);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilSortedSet_(JavaUtilConcurrentConcurrentSkipListSet *self, id<JavaUtilSortedSet> s);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *new_JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilSortedSet_(id<JavaUtilSortedSet> s) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *create_JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilSortedSet_(id<JavaUtilSortedSet> s);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilConcurrentConcurrentNavigableMap_(JavaUtilConcurrentConcurrentSkipListSet *self, id<JavaUtilConcurrentConcurrentNavigableMap> m);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *new_JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilConcurrentConcurrentNavigableMap_(id<JavaUtilConcurrentConcurrentNavigableMap> m) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentSkipListSet *create_JavaUtilConcurrentConcurrentSkipListSet_initWithJavaUtilConcurrentConcurrentNavigableMap_(id<JavaUtilConcurrentConcurrentNavigableMap> m);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListSet)
 
@@ -373,4 +383,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentSkipListSet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentConcurrentSkipListSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentSkipListSet")

@@ -5,26 +5,26 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentLocksAbstractQueuedSynchronizer_RESTRICT
-#define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedSynchronizer")
+#ifdef RESTRICT_JavaUtilConcurrentLocksAbstractQueuedSynchronizer
+#define INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 0
 #else
-#define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
 #endif
-#undef JavaUtilConcurrentLocksAbstractQueuedSynchronizer_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentLocksAbstractQueuedSynchronizer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_) && (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE_ALL || defined(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_) && (INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedSynchronizer || defined(INCLUDE_JavaUtilConcurrentLocksAbstractQueuedSynchronizer))
 #define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_
 
-#define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_RESTRICT 1
-#define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentLocksAbstractOwnableSynchronizer 1
+#define INCLUDE_JavaUtilConcurrentLocksAbstractOwnableSynchronizer 1
 #include "../../../../java/util/concurrent/locks/AbstractOwnableSynchronizer.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 @class JavaLangThread;
@@ -821,7 +821,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedSynchronizer)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_) && (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE_ALL || defined(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_) && (INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedSynchronizer || defined(INCLUDE_JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node))
 #define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_
 
 @class JavaLangThread;
@@ -1075,27 +1075,33 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_in
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *new_JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *create_JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_initWithJavaLangThread_withJavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *self, JavaLangThread *thread, JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *mode);
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *new_JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_initWithJavaLangThread_withJavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_(JavaLangThread *thread, JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *mode) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *create_JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_initWithJavaLangThread_withJavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_(JavaLangThread *thread, JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *mode);
 
 FOUNDATION_EXPORT void JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_initWithJavaLangThread_withInt_(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *self, JavaLangThread *thread, jint waitStatus);
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *new_JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_initWithJavaLangThread_withInt_(JavaLangThread *thread, jint waitStatus) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node *create_JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node_initWithJavaLangThread_withInt_(JavaLangThread *thread, jint waitStatus);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Node)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject_) && (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE_ALL || defined(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject_) && (INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedSynchronizer || defined(INCLUDE_JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject))
 #define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject_
 
-#define JavaUtilConcurrentLocksCondition_RESTRICT 1
-#define JavaUtilConcurrentLocksCondition_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentLocksCondition 1
+#define INCLUDE_JavaUtilConcurrentLocksCondition 1
 #include "../../../../java/util/concurrent/locks/Condition.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentLocksAbstractQueuedSynchronizer;
@@ -1271,10 +1277,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksAbstractQueuedSynchronizer_Conditi
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject *new_JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject_initWithJavaUtilConcurrentLocksAbstractQueuedSynchronizer_(JavaUtilConcurrentLocksAbstractQueuedSynchronizer *outer$) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject *create_JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject_initWithJavaUtilConcurrentLocksAbstractQueuedSynchronizer_(JavaUtilConcurrentLocksAbstractQueuedSynchronizer *outer$);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractQueuedSynchronizer_ConditionObject)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksAbstractQueuedSynchronizer")

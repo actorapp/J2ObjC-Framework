@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextUtilRfc822Tokenizer_INCLUDE_ALL")
-#ifdef AndroidTextUtilRfc822Tokenizer_RESTRICT
-#define AndroidTextUtilRfc822Tokenizer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextUtilRfc822Tokenizer")
+#ifdef RESTRICT_AndroidTextUtilRfc822Tokenizer
+#define INCLUDE_ALL_AndroidTextUtilRfc822Tokenizer 0
 #else
-#define AndroidTextUtilRfc822Tokenizer_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextUtilRfc822Tokenizer 1
 #endif
-#undef AndroidTextUtilRfc822Tokenizer_RESTRICT
+#undef RESTRICT_AndroidTextUtilRfc822Tokenizer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextUtilRfc822Tokenizer_) && (AndroidTextUtilRfc822Tokenizer_INCLUDE_ALL || defined(AndroidTextUtilRfc822Tokenizer_INCLUDE))
+#if !defined (AndroidTextUtilRfc822Tokenizer_) && (INCLUDE_ALL_AndroidTextUtilRfc822Tokenizer || defined(INCLUDE_AndroidTextUtilRfc822Tokenizer))
 #define AndroidTextUtilRfc822Tokenizer_
 
 @class IOSObjectArray;
@@ -93,10 +93,12 @@ FOUNDATION_EXPORT void AndroidTextUtilRfc822Tokenizer_init(AndroidTextUtilRfc822
 
 FOUNDATION_EXPORT AndroidTextUtilRfc822Tokenizer *new_AndroidTextUtilRfc822Tokenizer_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextUtilRfc822Tokenizer *create_AndroidTextUtilRfc822Tokenizer_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextUtilRfc822Tokenizer)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextUtilRfc822Tokenizer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextUtilRfc822Tokenizer")

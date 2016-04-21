@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansBeanDescriptor_INCLUDE_ALL")
-#ifdef JavaBeansBeanDescriptor_RESTRICT
-#define JavaBeansBeanDescriptor_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansBeanDescriptor")
+#ifdef RESTRICT_JavaBeansBeanDescriptor
+#define INCLUDE_ALL_JavaBeansBeanDescriptor 0
 #else
-#define JavaBeansBeanDescriptor_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansBeanDescriptor 1
 #endif
-#undef JavaBeansBeanDescriptor_RESTRICT
+#undef RESTRICT_JavaBeansBeanDescriptor
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansBeanDescriptor_) && (JavaBeansBeanDescriptor_INCLUDE_ALL || defined(JavaBeansBeanDescriptor_INCLUDE))
+#if !defined (JavaBeansBeanDescriptor_) && (INCLUDE_ALL_JavaBeansBeanDescriptor || defined(INCLUDE_JavaBeansBeanDescriptor))
 #define JavaBeansBeanDescriptor_
 
-#define JavaBeansFeatureDescriptor_RESTRICT 1
-#define JavaBeansFeatureDescriptor_INCLUDE 1
+#define RESTRICT_JavaBeansFeatureDescriptor 1
+#define INCLUDE_JavaBeansFeatureDescriptor 1
 #include "../../java/beans/FeatureDescriptor.h"
 
 @class IOSClass;
@@ -83,9 +83,13 @@ FOUNDATION_EXPORT void JavaBeansBeanDescriptor_initWithIOSClass_withIOSClass_(Ja
 
 FOUNDATION_EXPORT JavaBeansBeanDescriptor *new_JavaBeansBeanDescriptor_initWithIOSClass_withIOSClass_(IOSClass *beanClass, IOSClass *customizerClass) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansBeanDescriptor *create_JavaBeansBeanDescriptor_initWithIOSClass_withIOSClass_(IOSClass *beanClass, IOSClass *customizerClass);
+
 FOUNDATION_EXPORT void JavaBeansBeanDescriptor_initWithIOSClass_(JavaBeansBeanDescriptor *self, IOSClass *beanClass);
 
 FOUNDATION_EXPORT JavaBeansBeanDescriptor *new_JavaBeansBeanDescriptor_initWithIOSClass_(IOSClass *beanClass) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaBeansBeanDescriptor *create_JavaBeansBeanDescriptor_initWithIOSClass_(IOSClass *beanClass);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansBeanDescriptor)
 
@@ -93,4 +97,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansBeanDescriptor)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansBeanDescriptor_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansBeanDescriptor")

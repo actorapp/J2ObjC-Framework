@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidUtilArraySet_INCLUDE_ALL")
-#ifdef AndroidUtilArraySet_RESTRICT
-#define AndroidUtilArraySet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidUtilArraySet")
+#ifdef RESTRICT_AndroidUtilArraySet
+#define INCLUDE_ALL_AndroidUtilArraySet 0
 #else
-#define AndroidUtilArraySet_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidUtilArraySet 1
 #endif
-#undef AndroidUtilArraySet_RESTRICT
+#undef RESTRICT_AndroidUtilArraySet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidUtilArraySet_) && (AndroidUtilArraySet_INCLUDE_ALL || defined(AndroidUtilArraySet_INCLUDE))
+#if !defined (AndroidUtilArraySet_) && (INCLUDE_ALL_AndroidUtilArraySet || defined(INCLUDE_AndroidUtilArraySet))
 #define AndroidUtilArraySet_
 
-#define JavaUtilCollection_RESTRICT 1
-#define JavaUtilCollection_INCLUDE 1
+#define RESTRICT_JavaUtilCollection 1
+#define INCLUDE_JavaUtilCollection 1
 #include "../../java/util/Collection.h"
 
-#define JavaUtilSet_RESTRICT 1
-#define JavaUtilSet_INCLUDE 1
+#define RESTRICT_JavaUtilSet 1
+#define INCLUDE_JavaUtilSet 1
 #include "../../java/util/Set.h"
 
 @class AndroidUtilMapCollections;
@@ -246,13 +246,19 @@ FOUNDATION_EXPORT void AndroidUtilArraySet_init(AndroidUtilArraySet *self);
 
 FOUNDATION_EXPORT AndroidUtilArraySet *new_AndroidUtilArraySet_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilArraySet *create_AndroidUtilArraySet_init();
+
 FOUNDATION_EXPORT void AndroidUtilArraySet_initWithInt_(AndroidUtilArraySet *self, jint capacity);
 
 FOUNDATION_EXPORT AndroidUtilArraySet *new_AndroidUtilArraySet_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilArraySet *create_AndroidUtilArraySet_initWithInt_(jint capacity);
+
 FOUNDATION_EXPORT void AndroidUtilArraySet_initWithAndroidUtilArraySet_(AndroidUtilArraySet *self, AndroidUtilArraySet *set);
 
 FOUNDATION_EXPORT AndroidUtilArraySet *new_AndroidUtilArraySet_initWithAndroidUtilArraySet_(AndroidUtilArraySet *set) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT AndroidUtilArraySet *create_AndroidUtilArraySet_initWithAndroidUtilArraySet_(AndroidUtilArraySet *set);
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilArraySet)
 
@@ -260,4 +266,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilArraySet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidUtilArraySet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidUtilArraySet")

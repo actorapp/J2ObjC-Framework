@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilAbstractSequentialList_INCLUDE_ALL")
-#ifdef JavaUtilAbstractSequentialList_RESTRICT
-#define JavaUtilAbstractSequentialList_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilAbstractSequentialList")
+#ifdef RESTRICT_JavaUtilAbstractSequentialList
+#define INCLUDE_ALL_JavaUtilAbstractSequentialList 0
 #else
-#define JavaUtilAbstractSequentialList_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilAbstractSequentialList 1
 #endif
-#undef JavaUtilAbstractSequentialList_RESTRICT
+#undef RESTRICT_JavaUtilAbstractSequentialList
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilAbstractSequentialList_) && (JavaUtilAbstractSequentialList_INCLUDE_ALL || defined(JavaUtilAbstractSequentialList_INCLUDE))
+#if !defined (JavaUtilAbstractSequentialList_) && (INCLUDE_ALL_JavaUtilAbstractSequentialList || defined(INCLUDE_JavaUtilAbstractSequentialList))
 #define JavaUtilAbstractSequentialList_
 
-#define JavaUtilAbstractList_RESTRICT 1
-#define JavaUtilAbstractList_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractList 1
+#define INCLUDE_JavaUtilAbstractList 1
 #include "../../java/util/AbstractList.h"
 
 @protocol JavaUtilCollection;
@@ -75,4 +75,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractSequentialList)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilAbstractSequentialList_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractSequentialList")

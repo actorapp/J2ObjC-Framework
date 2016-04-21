@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilMissingFormatWidthException_INCLUDE_ALL")
-#ifdef JavaUtilMissingFormatWidthException_RESTRICT
-#define JavaUtilMissingFormatWidthException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilMissingFormatWidthException")
+#ifdef RESTRICT_JavaUtilMissingFormatWidthException
+#define INCLUDE_ALL_JavaUtilMissingFormatWidthException 0
 #else
-#define JavaUtilMissingFormatWidthException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilMissingFormatWidthException 1
 #endif
-#undef JavaUtilMissingFormatWidthException_RESTRICT
+#undef RESTRICT_JavaUtilMissingFormatWidthException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilMissingFormatWidthException_) && (JavaUtilMissingFormatWidthException_INCLUDE_ALL || defined(JavaUtilMissingFormatWidthException_INCLUDE))
+#if !defined (JavaUtilMissingFormatWidthException_) && (INCLUDE_ALL_JavaUtilMissingFormatWidthException || defined(INCLUDE_JavaUtilMissingFormatWidthException))
 #define JavaUtilMissingFormatWidthException_
 
-#define JavaUtilIllegalFormatException_RESTRICT 1
-#define JavaUtilIllegalFormatException_INCLUDE 1
+#define RESTRICT_JavaUtilIllegalFormatException 1
+#define INCLUDE_JavaUtilIllegalFormatException 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
@@ -56,10 +56,12 @@ FOUNDATION_EXPORT void JavaUtilMissingFormatWidthException_initWithNSString_(Jav
 
 FOUNDATION_EXPORT JavaUtilMissingFormatWidthException *new_JavaUtilMissingFormatWidthException_initWithNSString_(NSString *s) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilMissingFormatWidthException *create_JavaUtilMissingFormatWidthException_initWithNSString_(NSString *s);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMissingFormatWidthException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilMissingFormatWidthException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilMissingFormatWidthException")

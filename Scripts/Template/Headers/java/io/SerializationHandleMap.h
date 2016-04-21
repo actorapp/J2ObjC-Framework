@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoSerializationHandleMap_INCLUDE_ALL")
-#ifdef JavaIoSerializationHandleMap_RESTRICT
-#define JavaIoSerializationHandleMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoSerializationHandleMap")
+#ifdef RESTRICT_JavaIoSerializationHandleMap
+#define INCLUDE_ALL_JavaIoSerializationHandleMap 0
 #else
-#define JavaIoSerializationHandleMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoSerializationHandleMap 1
 #endif
-#undef JavaIoSerializationHandleMap_RESTRICT
+#undef RESTRICT_JavaIoSerializationHandleMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoSerializationHandleMap_) && (JavaIoSerializationHandleMap_INCLUDE_ALL || defined(JavaIoSerializationHandleMap_INCLUDE))
+#if !defined (JavaIoSerializationHandleMap_) && (INCLUDE_ALL_JavaIoSerializationHandleMap || defined(INCLUDE_JavaIoSerializationHandleMap))
 #define JavaIoSerializationHandleMap_
 
 /*!
@@ -47,10 +47,12 @@ FOUNDATION_EXPORT void JavaIoSerializationHandleMap_init(JavaIoSerializationHand
 
 FOUNDATION_EXPORT JavaIoSerializationHandleMap *new_JavaIoSerializationHandleMap_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoSerializationHandleMap *create_JavaIoSerializationHandleMap_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoSerializationHandleMap)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoSerializationHandleMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoSerializationHandleMap")

@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilAbstractSet_INCLUDE_ALL")
-#ifdef JavaUtilAbstractSet_RESTRICT
-#define JavaUtilAbstractSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilAbstractSet")
+#ifdef RESTRICT_JavaUtilAbstractSet
+#define INCLUDE_ALL_JavaUtilAbstractSet 0
 #else
-#define JavaUtilAbstractSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilAbstractSet 1
 #endif
-#undef JavaUtilAbstractSet_RESTRICT
+#undef RESTRICT_JavaUtilAbstractSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilAbstractSet_) && (JavaUtilAbstractSet_INCLUDE_ALL || defined(JavaUtilAbstractSet_INCLUDE))
+#if !defined (JavaUtilAbstractSet_) && (INCLUDE_ALL_JavaUtilAbstractSet || defined(INCLUDE_JavaUtilAbstractSet))
 #define JavaUtilAbstractSet_
 
-#define JavaUtilAbstractCollection_RESTRICT 1
-#define JavaUtilAbstractCollection_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractCollection 1
+#define INCLUDE_JavaUtilAbstractCollection 1
 #include "../../java/util/AbstractCollection.h"
 
-#define JavaUtilSet_RESTRICT 1
-#define JavaUtilSet_INCLUDE 1
+#define RESTRICT_JavaUtilSet 1
+#define INCLUDE_JavaUtilSet 1
 #include "../../java/util/Set.h"
 
 @protocol JavaUtilCollection;
@@ -96,4 +96,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractSet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilAbstractSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractSet")

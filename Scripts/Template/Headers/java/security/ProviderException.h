@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityProviderException_INCLUDE_ALL")
-#ifdef JavaSecurityProviderException_RESTRICT
-#define JavaSecurityProviderException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityProviderException")
+#ifdef RESTRICT_JavaSecurityProviderException
+#define INCLUDE_ALL_JavaSecurityProviderException 0
 #else
-#define JavaSecurityProviderException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityProviderException 1
 #endif
-#undef JavaSecurityProviderException_RESTRICT
+#undef RESTRICT_JavaSecurityProviderException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityProviderException_) && (JavaSecurityProviderException_INCLUDE_ALL || defined(JavaSecurityProviderException_INCLUDE))
+#if !defined (JavaSecurityProviderException_) && (INCLUDE_ALL_JavaSecurityProviderException || defined(INCLUDE_JavaSecurityProviderException))
 #define JavaSecurityProviderException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>ProviderException</code> is a general exception, thrown by security <code>Providers</code>
@@ -56,14 +54,14 @@
  the exception which is the cause for this exception.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance of <code>ProviderException</code> with the cause.
  @param cause
  the exception which is the cause for this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -73,17 +71,25 @@ FOUNDATION_EXPORT void JavaSecurityProviderException_initWithNSString_(JavaSecur
 
 FOUNDATION_EXPORT JavaSecurityProviderException *new_JavaSecurityProviderException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityProviderException *create_JavaSecurityProviderException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityProviderException_init(JavaSecurityProviderException *self);
 
 FOUNDATION_EXPORT JavaSecurityProviderException *new_JavaSecurityProviderException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityProviderException_initWithNSString_withJavaLangThrowable_(JavaSecurityProviderException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityProviderException *create_JavaSecurityProviderException_init();
 
-FOUNDATION_EXPORT JavaSecurityProviderException *new_JavaSecurityProviderException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityProviderException_initWithNSString_withNSException_(JavaSecurityProviderException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityProviderException_initWithJavaLangThrowable_(JavaSecurityProviderException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityProviderException *new_JavaSecurityProviderException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityProviderException *new_JavaSecurityProviderException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityProviderException *create_JavaSecurityProviderException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityProviderException_initWithNSException_(JavaSecurityProviderException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityProviderException *new_JavaSecurityProviderException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityProviderException *create_JavaSecurityProviderException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProviderException)
 
@@ -91,4 +97,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProviderException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityProviderException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityProviderException")

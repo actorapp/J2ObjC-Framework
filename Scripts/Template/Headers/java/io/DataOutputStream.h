@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoDataOutputStream_INCLUDE_ALL")
-#ifdef JavaIoDataOutputStream_RESTRICT
-#define JavaIoDataOutputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoDataOutputStream")
+#ifdef RESTRICT_JavaIoDataOutputStream
+#define INCLUDE_ALL_JavaIoDataOutputStream 0
 #else
-#define JavaIoDataOutputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoDataOutputStream 1
 #endif
-#undef JavaIoDataOutputStream_RESTRICT
+#undef RESTRICT_JavaIoDataOutputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoDataOutputStream_) && (JavaIoDataOutputStream_INCLUDE_ALL || defined(JavaIoDataOutputStream_INCLUDE))
+#if !defined (JavaIoDataOutputStream_) && (INCLUDE_ALL_JavaIoDataOutputStream || defined(INCLUDE_JavaIoDataOutputStream))
 #define JavaIoDataOutputStream_
 
-#define JavaIoFilterOutputStream_RESTRICT 1
-#define JavaIoFilterOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoFilterOutputStream 1
+#define INCLUDE_JavaIoFilterOutputStream 1
 #include "../../java/io/FilterOutputStream.h"
 
-#define JavaIoDataOutput_RESTRICT 1
-#define JavaIoDataOutput_INCLUDE 1
+#define RESTRICT_JavaIoDataOutput 1
+#define INCLUDE_JavaIoDataOutput 1
 #include "../../java/io/DataOutput.h"
 
 @class IOSByteArray;
@@ -152,10 +152,12 @@ FOUNDATION_EXPORT void JavaIoDataOutputStream_initWithJavaIoOutputStream_(JavaIo
 
 FOUNDATION_EXPORT JavaIoDataOutputStream *new_JavaIoDataOutputStream_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoDataOutputStream *create_JavaIoDataOutputStream_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataOutputStream)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoDataOutputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoDataOutputStream")

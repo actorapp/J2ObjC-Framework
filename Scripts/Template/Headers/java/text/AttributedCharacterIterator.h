@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextAttributedCharacterIterator_INCLUDE_ALL")
-#ifdef JavaTextAttributedCharacterIterator_RESTRICT
-#define JavaTextAttributedCharacterIterator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextAttributedCharacterIterator")
+#ifdef RESTRICT_JavaTextAttributedCharacterIterator
+#define INCLUDE_ALL_JavaTextAttributedCharacterIterator 0
 #else
-#define JavaTextAttributedCharacterIterator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextAttributedCharacterIterator 1
 #endif
-#undef JavaTextAttributedCharacterIterator_RESTRICT
+#undef RESTRICT_JavaTextAttributedCharacterIterator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextAttributedCharacterIterator_) && (JavaTextAttributedCharacterIterator_INCLUDE_ALL || defined(JavaTextAttributedCharacterIterator_INCLUDE))
+#if !defined (JavaTextAttributedCharacterIterator_) && (INCLUDE_ALL_JavaTextAttributedCharacterIterator || defined(INCLUDE_JavaTextAttributedCharacterIterator))
 #define JavaTextAttributedCharacterIterator_
 
-#define JavaTextCharacterIterator_RESTRICT 1
-#define JavaTextCharacterIterator_INCLUDE 1
+#define RESTRICT_JavaTextCharacterIterator 1
+#define INCLUDE_JavaTextCharacterIterator 1
 #include "../../java/text/CharacterIterator.h"
 
 @class JavaTextAttributedCharacterIterator_Attribute;
@@ -125,11 +125,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator)
 
 #endif
 
-#if !defined (JavaTextAttributedCharacterIterator_Attribute_) && (JavaTextAttributedCharacterIterator_INCLUDE_ALL || defined(JavaTextAttributedCharacterIterator_Attribute_INCLUDE))
+#if !defined (JavaTextAttributedCharacterIterator_Attribute_) && (INCLUDE_ALL_JavaTextAttributedCharacterIterator || defined(INCLUDE_JavaTextAttributedCharacterIterator_Attribute))
 #define JavaTextAttributedCharacterIterator_Attribute_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -239,10 +239,12 @@ FOUNDATION_EXPORT void JavaTextAttributedCharacterIterator_Attribute_initWithNSS
 
 FOUNDATION_EXPORT JavaTextAttributedCharacterIterator_Attribute *new_JavaTextAttributedCharacterIterator_Attribute_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextAttributedCharacterIterator_Attribute *create_JavaTextAttributedCharacterIterator_Attribute_initWithNSString_(NSString *name);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedCharacterIterator_Attribute)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextAttributedCharacterIterator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextAttributedCharacterIterator")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformURIResolver_INCLUDE_ALL")
-#ifdef JavaxXmlTransformURIResolver_RESTRICT
-#define JavaxXmlTransformURIResolver_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformURIResolver")
+#ifdef RESTRICT_JavaxXmlTransformURIResolver
+#define INCLUDE_ALL_JavaxXmlTransformURIResolver 0
 #else
-#define JavaxXmlTransformURIResolver_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformURIResolver 1
 #endif
-#undef JavaxXmlTransformURIResolver_RESTRICT
+#undef RESTRICT_JavaxXmlTransformURIResolver
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformURIResolver_) && (JavaxXmlTransformURIResolver_INCLUDE_ALL || defined(JavaxXmlTransformURIResolver_INCLUDE))
+#if !defined (JavaxXmlTransformURIResolver_) && (INCLUDE_ALL_JavaxXmlTransformURIResolver || defined(INCLUDE_JavaxXmlTransformURIResolver))
 #define JavaxXmlTransformURIResolver_
 
 @protocol JavaxXmlTransformSource;
@@ -51,4 +51,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformURIResolver)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformURIResolver_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformURIResolver")

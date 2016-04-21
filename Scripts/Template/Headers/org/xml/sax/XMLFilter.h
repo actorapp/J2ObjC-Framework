@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxXMLFilter_INCLUDE_ALL")
-#ifdef OrgXmlSaxXMLFilter_RESTRICT
-#define OrgXmlSaxXMLFilter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxXMLFilter")
+#ifdef RESTRICT_OrgXmlSaxXMLFilter
+#define INCLUDE_ALL_OrgXmlSaxXMLFilter 0
 #else
-#define OrgXmlSaxXMLFilter_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxXMLFilter 1
 #endif
-#undef OrgXmlSaxXMLFilter_RESTRICT
+#undef RESTRICT_OrgXmlSaxXMLFilter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxXMLFilter_) && (OrgXmlSaxXMLFilter_INCLUDE_ALL || defined(OrgXmlSaxXMLFilter_INCLUDE))
+#if !defined (OrgXmlSaxXMLFilter_) && (INCLUDE_ALL_OrgXmlSaxXMLFilter || defined(INCLUDE_OrgXmlSaxXMLFilter))
 #define OrgXmlSaxXMLFilter_
 
-#define OrgXmlSaxXMLReader_RESTRICT 1
-#define OrgXmlSaxXMLReader_INCLUDE 1
+#define RESTRICT_OrgXmlSaxXMLReader 1
+#define INCLUDE_OrgXmlSaxXMLReader 1
 #include "../../../org/xml/sax/XMLReader.h"
 
 /*!
@@ -76,4 +76,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxXMLFilter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxXMLFilter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxXMLFilter")

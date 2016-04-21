@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoPrintWriter_INCLUDE_ALL")
-#ifdef JavaIoPrintWriter_RESTRICT
-#define JavaIoPrintWriter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoPrintWriter")
+#ifdef RESTRICT_JavaIoPrintWriter
+#define INCLUDE_ALL_JavaIoPrintWriter 0
 #else
-#define JavaIoPrintWriter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoPrintWriter 1
 #endif
-#undef JavaIoPrintWriter_RESTRICT
+#undef RESTRICT_JavaIoPrintWriter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoPrintWriter_) && (JavaIoPrintWriter_INCLUDE_ALL || defined(JavaIoPrintWriter_INCLUDE))
+#if !defined (JavaIoPrintWriter_) && (INCLUDE_ALL_JavaIoPrintWriter || defined(INCLUDE_JavaIoPrintWriter))
 #define JavaIoPrintWriter_
 
-#define JavaIoWriter_RESTRICT 1
-#define JavaIoWriter_INCLUDE 1
+#define RESTRICT_JavaIoWriter 1
+#define INCLUDE_JavaIoWriter 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -567,33 +567,49 @@ FOUNDATION_EXPORT void JavaIoPrintWriter_initWithJavaIoOutputStream_(JavaIoPrint
 
 FOUNDATION_EXPORT JavaIoPrintWriter *new_JavaIoPrintWriter_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPrintWriter *create_JavaIoPrintWriter_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg);
+
 FOUNDATION_EXPORT void JavaIoPrintWriter_initWithJavaIoOutputStream_withBoolean_(JavaIoPrintWriter *self, JavaIoOutputStream *outArg, jboolean autoFlush);
 
 FOUNDATION_EXPORT JavaIoPrintWriter *new_JavaIoPrintWriter_initWithJavaIoOutputStream_withBoolean_(JavaIoOutputStream *outArg, jboolean autoFlush) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPrintWriter *create_JavaIoPrintWriter_initWithJavaIoOutputStream_withBoolean_(JavaIoOutputStream *outArg, jboolean autoFlush);
 
 FOUNDATION_EXPORT void JavaIoPrintWriter_initWithJavaIoWriter_(JavaIoPrintWriter *self, JavaIoWriter *wr);
 
 FOUNDATION_EXPORT JavaIoPrintWriter *new_JavaIoPrintWriter_initWithJavaIoWriter_(JavaIoWriter *wr) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPrintWriter *create_JavaIoPrintWriter_initWithJavaIoWriter_(JavaIoWriter *wr);
+
 FOUNDATION_EXPORT void JavaIoPrintWriter_initWithJavaIoWriter_withBoolean_(JavaIoPrintWriter *self, JavaIoWriter *wr, jboolean autoFlush);
 
 FOUNDATION_EXPORT JavaIoPrintWriter *new_JavaIoPrintWriter_initWithJavaIoWriter_withBoolean_(JavaIoWriter *wr, jboolean autoFlush) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPrintWriter *create_JavaIoPrintWriter_initWithJavaIoWriter_withBoolean_(JavaIoWriter *wr, jboolean autoFlush);
 
 FOUNDATION_EXPORT void JavaIoPrintWriter_initWithJavaIoFile_(JavaIoPrintWriter *self, JavaIoFile *file);
 
 FOUNDATION_EXPORT JavaIoPrintWriter *new_JavaIoPrintWriter_initWithJavaIoFile_(JavaIoFile *file) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPrintWriter *create_JavaIoPrintWriter_initWithJavaIoFile_(JavaIoFile *file);
+
 FOUNDATION_EXPORT void JavaIoPrintWriter_initWithJavaIoFile_withNSString_(JavaIoPrintWriter *self, JavaIoFile *file, NSString *csn);
 
 FOUNDATION_EXPORT JavaIoPrintWriter *new_JavaIoPrintWriter_initWithJavaIoFile_withNSString_(JavaIoFile *file, NSString *csn) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPrintWriter *create_JavaIoPrintWriter_initWithJavaIoFile_withNSString_(JavaIoFile *file, NSString *csn);
 
 FOUNDATION_EXPORT void JavaIoPrintWriter_initWithNSString_(JavaIoPrintWriter *self, NSString *fileName);
 
 FOUNDATION_EXPORT JavaIoPrintWriter *new_JavaIoPrintWriter_initWithNSString_(NSString *fileName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPrintWriter *create_JavaIoPrintWriter_initWithNSString_(NSString *fileName);
+
 FOUNDATION_EXPORT void JavaIoPrintWriter_initWithNSString_withNSString_(JavaIoPrintWriter *self, NSString *fileName, NSString *csn);
 
 FOUNDATION_EXPORT JavaIoPrintWriter *new_JavaIoPrintWriter_initWithNSString_withNSString_(NSString *fileName, NSString *csn) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPrintWriter *create_JavaIoPrintWriter_initWithNSString_withNSString_(NSString *fileName, NSString *csn);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPrintWriter)
 
@@ -601,4 +617,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPrintWriter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoPrintWriter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoPrintWriter")

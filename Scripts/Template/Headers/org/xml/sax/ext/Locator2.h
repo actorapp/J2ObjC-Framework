@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxExtLocator2_INCLUDE_ALL")
-#ifdef OrgXmlSaxExtLocator2_RESTRICT
-#define OrgXmlSaxExtLocator2_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtLocator2")
+#ifdef RESTRICT_OrgXmlSaxExtLocator2
+#define INCLUDE_ALL_OrgXmlSaxExtLocator2 0
 #else
-#define OrgXmlSaxExtLocator2_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxExtLocator2 1
 #endif
-#undef OrgXmlSaxExtLocator2_RESTRICT
+#undef RESTRICT_OrgXmlSaxExtLocator2
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxExtLocator2_) && (OrgXmlSaxExtLocator2_INCLUDE_ALL || defined(OrgXmlSaxExtLocator2_INCLUDE))
+#if !defined (OrgXmlSaxExtLocator2_) && (INCLUDE_ALL_OrgXmlSaxExtLocator2 || defined(INCLUDE_OrgXmlSaxExtLocator2))
 #define OrgXmlSaxExtLocator2_
 
-#define OrgXmlSaxLocator_RESTRICT 1
-#define OrgXmlSaxLocator_INCLUDE 1
+#define RESTRICT_OrgXmlSaxLocator 1
+#define INCLUDE_OrgXmlSaxLocator 1
 #include "../../../../org/xml/sax/Locator.h"
 
 /*!
@@ -91,4 +91,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtLocator2)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxExtLocator2_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtLocator2")

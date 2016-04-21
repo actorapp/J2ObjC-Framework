@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlWrapper_INCLUDE_ALL")
-#ifdef JavaSqlWrapper_RESTRICT
-#define JavaSqlWrapper_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlWrapper")
+#ifdef RESTRICT_JavaSqlWrapper
+#define INCLUDE_ALL_JavaSqlWrapper 0
 #else
-#define JavaSqlWrapper_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlWrapper 1
 #endif
-#undef JavaSqlWrapper_RESTRICT
+#undef RESTRICT_JavaSqlWrapper
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlWrapper_) && (JavaSqlWrapper_INCLUDE_ALL || defined(JavaSqlWrapper_INCLUDE))
+#if !defined (JavaSqlWrapper_) && (INCLUDE_ALL_JavaSqlWrapper || defined(INCLUDE_JavaSqlWrapper))
 #define JavaSqlWrapper_
 
 @class IOSClass;
@@ -62,4 +62,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlWrapper)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlWrapper_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlWrapper")

@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidOsAsyncTask_INCLUDE_ALL")
-#ifdef AndroidOsAsyncTask_RESTRICT
-#define AndroidOsAsyncTask_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidOsAsyncTask")
+#ifdef RESTRICT_AndroidOsAsyncTask
+#define INCLUDE_ALL_AndroidOsAsyncTask 0
 #else
-#define AndroidOsAsyncTask_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidOsAsyncTask 1
 #endif
-#undef AndroidOsAsyncTask_RESTRICT
+#undef RESTRICT_AndroidOsAsyncTask
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidOsAsyncTask_) && (AndroidOsAsyncTask_INCLUDE_ALL || defined(AndroidOsAsyncTask_INCLUDE))
+#if !defined (AndroidOsAsyncTask_) && (INCLUDE_ALL_AndroidOsAsyncTask || defined(INCLUDE_AndroidOsAsyncTask))
 #define AndroidOsAsyncTask_
 
 @class AndroidOsAsyncTask_Status;
@@ -425,11 +425,11 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidOsAsyncTask)
 
 #endif
 
-#if !defined (AndroidOsAsyncTask_Status_) && (AndroidOsAsyncTask_INCLUDE_ALL || defined(AndroidOsAsyncTask_Status_INCLUDE))
+#if !defined (AndroidOsAsyncTask_Status_) && (INCLUDE_ALL_AndroidOsAsyncTask || defined(INCLUDE_AndroidOsAsyncTask_Status))
 #define AndroidOsAsyncTask_Status_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, AndroidOsAsyncTask_Status_Enum) {
@@ -497,4 +497,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidOsAsyncTask_Status)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidOsAsyncTask_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidOsAsyncTask")

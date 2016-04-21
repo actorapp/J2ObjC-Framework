@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomTypeInfo_INCLUDE_ALL")
-#ifdef OrgW3cDomTypeInfo_RESTRICT
-#define OrgW3cDomTypeInfo_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomTypeInfo")
+#ifdef RESTRICT_OrgW3cDomTypeInfo
+#define INCLUDE_ALL_OrgW3cDomTypeInfo 0
 #else
-#define OrgW3cDomTypeInfo_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomTypeInfo 1
 #endif
-#undef OrgW3cDomTypeInfo_RESTRICT
+#undef RESTRICT_OrgW3cDomTypeInfo
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomTypeInfo_) && (OrgW3cDomTypeInfo_INCLUDE_ALL || defined(OrgW3cDomTypeInfo_INCLUDE))
+#if !defined (OrgW3cDomTypeInfo_) && (INCLUDE_ALL_OrgW3cDomTypeInfo || defined(INCLUDE_OrgW3cDomTypeInfo))
 #define OrgW3cDomTypeInfo_
 
 /*!
@@ -223,4 +223,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomTypeInfo)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomTypeInfo_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomTypeInfo")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsUnresolvedAddressException_INCLUDE_ALL")
-#ifdef JavaNioChannelsUnresolvedAddressException_RESTRICT
-#define JavaNioChannelsUnresolvedAddressException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsUnresolvedAddressException")
+#ifdef RESTRICT_JavaNioChannelsUnresolvedAddressException
+#define INCLUDE_ALL_JavaNioChannelsUnresolvedAddressException 0
 #else
-#define JavaNioChannelsUnresolvedAddressException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsUnresolvedAddressException 1
 #endif
-#undef JavaNioChannelsUnresolvedAddressException_RESTRICT
+#undef RESTRICT_JavaNioChannelsUnresolvedAddressException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsUnresolvedAddressException_) && (JavaNioChannelsUnresolvedAddressException_INCLUDE_ALL || defined(JavaNioChannelsUnresolvedAddressException_INCLUDE))
+#if !defined (JavaNioChannelsUnresolvedAddressException_) && (INCLUDE_ALL_JavaNioChannelsUnresolvedAddressException || defined(INCLUDE_JavaNioChannelsUnresolvedAddressException))
 #define JavaNioChannelsUnresolvedAddressException_
 
-#define JavaLangIllegalArgumentException_RESTRICT 1
-#define JavaLangIllegalArgumentException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalArgumentException 1
+#define INCLUDE_JavaLangIllegalArgumentException 1
 #include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioChannelsUnresolvedAddressException_init(JavaNioCha
 
 FOUNDATION_EXPORT JavaNioChannelsUnresolvedAddressException *new_JavaNioChannelsUnresolvedAddressException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsUnresolvedAddressException *create_JavaNioChannelsUnresolvedAddressException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsUnresolvedAddressException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsUnresolvedAddressException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsUnresolvedAddressException")

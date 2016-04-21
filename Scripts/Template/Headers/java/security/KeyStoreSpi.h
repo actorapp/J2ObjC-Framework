@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityKeyStoreSpi_INCLUDE_ALL")
-#ifdef JavaSecurityKeyStoreSpi_RESTRICT
-#define JavaSecurityKeyStoreSpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityKeyStoreSpi")
+#ifdef RESTRICT_JavaSecurityKeyStoreSpi
+#define INCLUDE_ALL_JavaSecurityKeyStoreSpi 0
 #else
-#define JavaSecurityKeyStoreSpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityKeyStoreSpi 1
 #endif
-#undef JavaSecurityKeyStoreSpi_RESTRICT
+#undef RESTRICT_JavaSecurityKeyStoreSpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityKeyStoreSpi_) && (JavaSecurityKeyStoreSpi_INCLUDE_ALL || defined(JavaSecurityKeyStoreSpi_INCLUDE))
+#if !defined (JavaSecurityKeyStoreSpi_) && (INCLUDE_ALL_JavaSecurityKeyStoreSpi || defined(INCLUDE_JavaSecurityKeyStoreSpi))
 #define JavaSecurityKeyStoreSpi_
 
 @class IOSByteArray;
@@ -356,4 +356,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStoreSpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityKeyStoreSpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityKeyStoreSpi")

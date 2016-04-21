@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidUtilPair_INCLUDE_ALL")
-#ifdef AndroidUtilPair_RESTRICT
-#define AndroidUtilPair_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidUtilPair")
+#ifdef RESTRICT_AndroidUtilPair
+#define INCLUDE_ALL_AndroidUtilPair 0
 #else
-#define AndroidUtilPair_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidUtilPair 1
 #endif
-#undef AndroidUtilPair_RESTRICT
+#undef RESTRICT_AndroidUtilPair
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidUtilPair_) && (AndroidUtilPair_INCLUDE_ALL || defined(AndroidUtilPair_INCLUDE))
+#if !defined (AndroidUtilPair_) && (INCLUDE_ALL_AndroidUtilPair || defined(INCLUDE_AndroidUtilPair))
 #define AndroidUtilPair_
 
 /*!
@@ -76,6 +76,8 @@ FOUNDATION_EXPORT void AndroidUtilPair_initWithId_withId_(AndroidUtilPair *self,
 
 FOUNDATION_EXPORT AndroidUtilPair *new_AndroidUtilPair_initWithId_withId_(id first, id second) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilPair *create_AndroidUtilPair_initWithId_withId_(id first, id second);
+
 FOUNDATION_EXPORT AndroidUtilPair *AndroidUtilPair_createWithId_withId_(id a, id b);
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilPair)
@@ -84,4 +86,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilPair)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidUtilPair_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidUtilPair")

@@ -5,25 +5,23 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE_ALL")
-#ifdef JavaxXmlXpathXPathFactoryConfigurationException_RESTRICT
-#define JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathFactoryConfigurationException")
+#ifdef RESTRICT_JavaxXmlXpathXPathFactoryConfigurationException
+#define INCLUDE_ALL_JavaxXmlXpathXPathFactoryConfigurationException 0
 #else
-#define JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlXpathXPathFactoryConfigurationException 1
 #endif
-#undef JavaxXmlXpathXPathFactoryConfigurationException_RESTRICT
+#undef RESTRICT_JavaxXmlXpathXPathFactoryConfigurationException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlXpathXPathFactoryConfigurationException_) && (JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE_ALL || defined(JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE))
+#if !defined (JavaxXmlXpathXPathFactoryConfigurationException_) && (INCLUDE_ALL_JavaxXmlXpathXPathFactoryConfigurationException || defined(INCLUDE_JavaxXmlXpathXPathFactoryConfigurationException))
 #define JavaxXmlXpathXPathFactoryConfigurationException_
 
-#define JavaxXmlXpathXPathException_RESTRICT 1
-#define JavaxXmlXpathXPathException_INCLUDE 1
+#define RESTRICT_JavaxXmlXpathXPathException 1
+#define INCLUDE_JavaxXmlXpathXPathException 1
 #include "../../../javax/xml/xpath/XPathException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>XPathFactoryConfigurationException</code> represents a configuration error in a <code>XPathFactory</code> environment.
@@ -53,7 +51,7 @@
  @param cause The cause.
  @throws NullPointerException if <code>cause</code> is <code>null</code>.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -63,9 +61,13 @@ FOUNDATION_EXPORT void JavaxXmlXpathXPathFactoryConfigurationException_initWithN
 
 FOUNDATION_EXPORT JavaxXmlXpathXPathFactoryConfigurationException *new_JavaxXmlXpathXPathFactoryConfigurationException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaxXmlXpathXPathFactoryConfigurationException_initWithJavaLangThrowable_(JavaxXmlXpathXPathFactoryConfigurationException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaxXmlXpathXPathFactoryConfigurationException *create_JavaxXmlXpathXPathFactoryConfigurationException_initWithNSString_(NSString *message);
 
-FOUNDATION_EXPORT JavaxXmlXpathXPathFactoryConfigurationException *new_JavaxXmlXpathXPathFactoryConfigurationException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaxXmlXpathXPathFactoryConfigurationException_initWithNSException_(JavaxXmlXpathXPathFactoryConfigurationException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaxXmlXpathXPathFactoryConfigurationException *new_JavaxXmlXpathXPathFactoryConfigurationException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlXpathXPathFactoryConfigurationException *create_JavaxXmlXpathXPathFactoryConfigurationException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFactoryConfigurationException)
 
@@ -73,4 +75,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFactoryConfigurationException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlXpathXPathFactoryConfigurationException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathFactoryConfigurationException")

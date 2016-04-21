@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCertPathValidatorResult_INCLUDE_ALL")
-#ifdef JavaSecurityCertCertPathValidatorResult_RESTRICT
-#define JavaSecurityCertCertPathValidatorResult_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidatorResult")
+#ifdef RESTRICT_JavaSecurityCertCertPathValidatorResult
+#define INCLUDE_ALL_JavaSecurityCertCertPathValidatorResult 0
 #else
-#define JavaSecurityCertCertPathValidatorResult_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCertPathValidatorResult 1
 #endif
-#undef JavaSecurityCertCertPathValidatorResult_RESTRICT
+#undef RESTRICT_JavaSecurityCertCertPathValidatorResult
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCertPathValidatorResult_) && (JavaSecurityCertCertPathValidatorResult_INCLUDE_ALL || defined(JavaSecurityCertCertPathValidatorResult_INCLUDE))
+#if !defined (JavaSecurityCertCertPathValidatorResult_) && (INCLUDE_ALL_JavaSecurityCertCertPathValidatorResult || defined(INCLUDE_JavaSecurityCertCertPathValidatorResult))
 #define JavaSecurityCertCertPathValidatorResult_
 
 /*!
@@ -42,4 +42,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidatorResult)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCertPathValidatorResult_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidatorResult")

@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioLongBuffer_INCLUDE_ALL")
-#ifdef JavaNioLongBuffer_RESTRICT
-#define JavaNioLongBuffer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioLongBuffer")
+#ifdef RESTRICT_JavaNioLongBuffer
+#define INCLUDE_ALL_JavaNioLongBuffer 0
 #else
-#define JavaNioLongBuffer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioLongBuffer 1
 #endif
-#undef JavaNioLongBuffer_RESTRICT
+#undef RESTRICT_JavaNioLongBuffer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioLongBuffer_) && (JavaNioLongBuffer_INCLUDE_ALL || defined(JavaNioLongBuffer_INCLUDE))
+#if !defined (JavaNioLongBuffer_) && (INCLUDE_ALL_JavaNioLongBuffer || defined(INCLUDE_JavaNioLongBuffer))
 #define JavaNioLongBuffer_
 
-#define JavaNioBuffer_RESTRICT 1
-#define JavaNioBuffer_INCLUDE 1
+#define RESTRICT_JavaNioBuffer 1
+#define INCLUDE_JavaNioBuffer 1
 #include "../../java/nio/Buffer.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSLongArray;
@@ -387,4 +387,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioLongBuffer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioLongBuffer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioLongBuffer")

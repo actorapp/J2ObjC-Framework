@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharsetCoderResult_INCLUDE_ALL")
-#ifdef JavaNioCharsetCoderResult_RESTRICT
-#define JavaNioCharsetCoderResult_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharsetCoderResult")
+#ifdef RESTRICT_JavaNioCharsetCoderResult
+#define INCLUDE_ALL_JavaNioCharsetCoderResult 0
 #else
-#define JavaNioCharsetCoderResult_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharsetCoderResult 1
 #endif
-#undef JavaNioCharsetCoderResult_RESTRICT
+#undef RESTRICT_JavaNioCharsetCoderResult
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharsetCoderResult_) && (JavaNioCharsetCoderResult_INCLUDE_ALL || defined(JavaNioCharsetCoderResult_INCLUDE))
+#if !defined (JavaNioCharsetCoderResult_) && (INCLUDE_ALL_JavaNioCharsetCoderResult || defined(INCLUDE_JavaNioCharsetCoderResult))
 #define JavaNioCharsetCoderResult_
 
 /*!
@@ -167,4 +167,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCoderResult)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharsetCoderResult_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCoderResult")

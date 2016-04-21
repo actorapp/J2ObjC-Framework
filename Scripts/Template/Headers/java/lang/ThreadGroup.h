@@ -5,27 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangThreadGroup_INCLUDE_ALL")
-#ifdef JavaLangThreadGroup_RESTRICT
-#define JavaLangThreadGroup_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangThreadGroup")
+#ifdef RESTRICT_JavaLangThreadGroup
+#define INCLUDE_ALL_JavaLangThreadGroup 0
 #else
-#define JavaLangThreadGroup_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangThreadGroup 1
 #endif
-#undef JavaLangThreadGroup_RESTRICT
+#undef RESTRICT_JavaLangThreadGroup
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangThreadGroup_) && (JavaLangThreadGroup_INCLUDE_ALL || defined(JavaLangThreadGroup_INCLUDE))
+#if !defined (JavaLangThreadGroup_) && (INCLUDE_ALL_JavaLangThreadGroup || defined(INCLUDE_JavaLangThreadGroup))
 #define JavaLangThreadGroup_
 
-#define JavaLangThread_RESTRICT 1
-#define JavaLangThread_UncaughtExceptionHandler_INCLUDE 1
+#define RESTRICT_JavaLangThread 1
+#define INCLUDE_JavaLangThread_UncaughtExceptionHandler 1
 #include "../../java/lang/Thread.h"
 
 @class IOSObjectArray;
 @class JavaLangThread;
-@class JavaLangThrowable;
 
 /*!
  @brief A <code>ThreadGroup</code> is a means of organizing <code>Thread</code>s into a
@@ -238,7 +237,7 @@
  - seealso: ThreadDeath
  */
 - (void)uncaughtExceptionWithJavaLangThread:(JavaLangThread *)t
-                      withJavaLangThrowable:(JavaLangThrowable *)e;
+                            withNSException:(NSException *)e;
 
 #pragma mark Package-Private
 
@@ -278,13 +277,19 @@ FOUNDATION_EXPORT void JavaLangThreadGroup_initWithNSString_(JavaLangThreadGroup
 
 FOUNDATION_EXPORT JavaLangThreadGroup *new_JavaLangThreadGroup_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangThreadGroup *create_JavaLangThreadGroup_initWithNSString_(NSString *name);
+
 FOUNDATION_EXPORT void JavaLangThreadGroup_initWithJavaLangThreadGroup_withNSString_(JavaLangThreadGroup *self, JavaLangThreadGroup *parent, NSString *name);
 
 FOUNDATION_EXPORT JavaLangThreadGroup *new_JavaLangThreadGroup_initWithJavaLangThreadGroup_withNSString_(JavaLangThreadGroup *parent, NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangThreadGroup *create_JavaLangThreadGroup_initWithJavaLangThreadGroup_withNSString_(JavaLangThreadGroup *parent, NSString *name);
+
 FOUNDATION_EXPORT void JavaLangThreadGroup_initWithJavaLangThreadGroup_(JavaLangThreadGroup *self, JavaLangThreadGroup *parent);
 
 FOUNDATION_EXPORT JavaLangThreadGroup *new_JavaLangThreadGroup_initWithJavaLangThreadGroup_(JavaLangThreadGroup *parent) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangThreadGroup *create_JavaLangThreadGroup_initWithJavaLangThreadGroup_(JavaLangThreadGroup *parent);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadGroup)
 
@@ -292,4 +297,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadGroup)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangThreadGroup_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangThreadGroup")

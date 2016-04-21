@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformSaxSAXSource_INCLUDE_ALL")
-#ifdef JavaxXmlTransformSaxSAXSource_RESTRICT
-#define JavaxXmlTransformSaxSAXSource_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformSaxSAXSource")
+#ifdef RESTRICT_JavaxXmlTransformSaxSAXSource
+#define INCLUDE_ALL_JavaxXmlTransformSaxSAXSource 0
 #else
-#define JavaxXmlTransformSaxSAXSource_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformSaxSAXSource 1
 #endif
-#undef JavaxXmlTransformSaxSAXSource_RESTRICT
+#undef RESTRICT_JavaxXmlTransformSaxSAXSource
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformSaxSAXSource_) && (JavaxXmlTransformSaxSAXSource_INCLUDE_ALL || defined(JavaxXmlTransformSaxSAXSource_INCLUDE))
+#if !defined (JavaxXmlTransformSaxSAXSource_) && (INCLUDE_ALL_JavaxXmlTransformSaxSAXSource || defined(INCLUDE_JavaxXmlTransformSaxSAXSource))
 #define JavaxXmlTransformSaxSAXSource_
 
-#define JavaxXmlTransformSource_RESTRICT 1
-#define JavaxXmlTransformSource_INCLUDE 1
+#define RESTRICT_JavaxXmlTransformSource 1
+#define INCLUDE_JavaxXmlTransformSource 1
 #include "../../../../javax/xml/transform/Source.h"
 
 @class OrgXmlSaxInputSource;
@@ -155,13 +155,19 @@ FOUNDATION_EXPORT void JavaxXmlTransformSaxSAXSource_init(JavaxXmlTransformSaxSA
 
 FOUNDATION_EXPORT JavaxXmlTransformSaxSAXSource *new_JavaxXmlTransformSaxSAXSource_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformSaxSAXSource *create_JavaxXmlTransformSaxSAXSource_init();
+
 FOUNDATION_EXPORT void JavaxXmlTransformSaxSAXSource_initWithOrgXmlSaxXMLReader_withOrgXmlSaxInputSource_(JavaxXmlTransformSaxSAXSource *self, id<OrgXmlSaxXMLReader> reader, OrgXmlSaxInputSource *inputSource);
 
 FOUNDATION_EXPORT JavaxXmlTransformSaxSAXSource *new_JavaxXmlTransformSaxSAXSource_initWithOrgXmlSaxXMLReader_withOrgXmlSaxInputSource_(id<OrgXmlSaxXMLReader> reader, OrgXmlSaxInputSource *inputSource) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformSaxSAXSource *create_JavaxXmlTransformSaxSAXSource_initWithOrgXmlSaxXMLReader_withOrgXmlSaxInputSource_(id<OrgXmlSaxXMLReader> reader, OrgXmlSaxInputSource *inputSource);
+
 FOUNDATION_EXPORT void JavaxXmlTransformSaxSAXSource_initWithOrgXmlSaxInputSource_(JavaxXmlTransformSaxSAXSource *self, OrgXmlSaxInputSource *inputSource);
 
 FOUNDATION_EXPORT JavaxXmlTransformSaxSAXSource *new_JavaxXmlTransformSaxSAXSource_initWithOrgXmlSaxInputSource_(OrgXmlSaxInputSource *inputSource) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformSaxSAXSource *create_JavaxXmlTransformSaxSAXSource_initWithOrgXmlSaxInputSource_(OrgXmlSaxInputSource *inputSource);
 
 FOUNDATION_EXPORT OrgXmlSaxInputSource *JavaxXmlTransformSaxSAXSource_sourceToInputSourceWithJavaxXmlTransformSource_(id<JavaxXmlTransformSource> source);
 
@@ -171,4 +177,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxSAXSource)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformSaxSAXSource_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformSaxSAXSource")

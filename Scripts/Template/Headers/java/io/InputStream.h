@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoInputStream_INCLUDE_ALL")
-#ifdef JavaIoInputStream_RESTRICT
-#define JavaIoInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoInputStream")
+#ifdef RESTRICT_JavaIoInputStream
+#define INCLUDE_ALL_JavaIoInputStream 0
 #else
-#define JavaIoInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoInputStream 1
 #endif
-#undef JavaIoInputStream_RESTRICT
+#undef RESTRICT_JavaIoInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoInputStream_) && (JavaIoInputStream_INCLUDE_ALL || defined(JavaIoInputStream_INCLUDE))
+#if !defined (JavaIoInputStream_) && (INCLUDE_ALL_JavaIoInputStream || defined(INCLUDE_JavaIoInputStream))
 #define JavaIoInputStream_
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../java/io/Closeable.h"
 
 @class IOSByteArray;
@@ -201,4 +201,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoInputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoInputStream")

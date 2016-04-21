@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangLong_INCLUDE_ALL")
-#ifdef JavaLangLong_RESTRICT
-#define JavaLangLong_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangLong")
+#ifdef RESTRICT_JavaLangLong
+#define INCLUDE_ALL_JavaLangLong 0
 #else
-#define JavaLangLong_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangLong 1
 #endif
-#undef JavaLangLong_RESTRICT
+#undef RESTRICT_JavaLangLong
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangLong_) && (JavaLangLong_INCLUDE_ALL || defined(JavaLangLong_INCLUDE))
+#if !defined (JavaLangLong_) && (INCLUDE_ALL_JavaLangLong || defined(INCLUDE_JavaLangLong))
 #define JavaLangLong_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -486,9 +486,13 @@ FOUNDATION_EXPORT void JavaLangLong_initWithLong_(JavaLangLong *self, jlong valu
 
 FOUNDATION_EXPORT JavaLangLong *new_JavaLangLong_initWithLong_(jlong value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangLong *create_JavaLangLong_initWithLong_(jlong value);
+
 FOUNDATION_EXPORT void JavaLangLong_initWithNSString_(JavaLangLong *self, NSString *string);
 
 FOUNDATION_EXPORT JavaLangLong *new_JavaLangLong_initWithNSString_(NSString *string) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangLong *create_JavaLangLong_initWithNSString_(NSString *string);
 
 FOUNDATION_EXPORT jint JavaLangLong_compareWithLong_withLong_(jlong lhs, jlong rhs);
 
@@ -556,4 +560,4 @@ BOXED_SHIFT_ASSIGN_64(Long, longLongValue, jlong, JavaLangLong)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangLong_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangLong")

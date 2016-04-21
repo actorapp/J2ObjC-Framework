@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangRefPhantomReference_INCLUDE_ALL")
-#ifdef JavaLangRefPhantomReference_RESTRICT
-#define JavaLangRefPhantomReference_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangRefPhantomReference")
+#ifdef RESTRICT_JavaLangRefPhantomReference
+#define INCLUDE_ALL_JavaLangRefPhantomReference 0
 #else
-#define JavaLangRefPhantomReference_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangRefPhantomReference 1
 #endif
-#undef JavaLangRefPhantomReference_RESTRICT
+#undef RESTRICT_JavaLangRefPhantomReference
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangRefPhantomReference_) && (JavaLangRefPhantomReference_INCLUDE_ALL || defined(JavaLangRefPhantomReference_INCLUDE))
+#if !defined (JavaLangRefPhantomReference_) && (INCLUDE_ALL_JavaLangRefPhantomReference || defined(INCLUDE_JavaLangRefPhantomReference))
 #define JavaLangRefPhantomReference_
 
-#define JavaLangRefReference_RESTRICT 1
-#define JavaLangRefReference_INCLUDE 1
+#define RESTRICT_JavaLangRefReference 1
+#define INCLUDE_JavaLangRefReference 1
 #include "../../../java/lang/ref/Reference.h"
 
 @class JavaLangRefReferenceQueue;
@@ -71,10 +71,12 @@ FOUNDATION_EXPORT void JavaLangRefPhantomReference_initWithId_withJavaLangRefRef
 
 FOUNDATION_EXPORT JavaLangRefPhantomReference *new_JavaLangRefPhantomReference_initWithId_withJavaLangRefReferenceQueue_(id r, JavaLangRefReferenceQueue *q) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangRefPhantomReference *create_JavaLangRefPhantomReference_initWithId_withJavaLangRefReferenceQueue_(id r, JavaLangRefReferenceQueue *q);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefPhantomReference)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangRefPhantomReference_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangRefPhantomReference")

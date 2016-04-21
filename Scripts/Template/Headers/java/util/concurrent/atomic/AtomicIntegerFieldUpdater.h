@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_RESTRICT
-#define JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater 0
 #else
-#define JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater 1
 #endif
-#undef JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_) && (JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater))
 #define JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_
 
 @class IOSClass;
@@ -208,4 +208,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicIntegerFieldUpdater")

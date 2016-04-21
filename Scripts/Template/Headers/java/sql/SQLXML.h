@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLXML_INCLUDE_ALL")
-#ifdef JavaSqlSQLXML_RESTRICT
-#define JavaSqlSQLXML_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLXML")
+#ifdef RESTRICT_JavaSqlSQLXML
+#define INCLUDE_ALL_JavaSqlSQLXML 0
 #else
-#define JavaSqlSQLXML_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLXML 1
 #endif
-#undef JavaSqlSQLXML_RESTRICT
+#undef RESTRICT_JavaSqlSQLXML
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLXML_) && (JavaSqlSQLXML_INCLUDE_ALL || defined(JavaSqlSQLXML_INCLUDE))
+#if !defined (JavaSqlSQLXML_) && (INCLUDE_ALL_JavaSqlSQLXML || defined(INCLUDE_JavaSqlSQLXML))
 #define JavaSqlSQLXML_
 
 @class IOSClass;
@@ -99,4 +99,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLXML)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLXML_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLXML")

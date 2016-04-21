@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsFileLockInterruptionException_INCLUDE_ALL")
-#ifdef JavaNioChannelsFileLockInterruptionException_RESTRICT
-#define JavaNioChannelsFileLockInterruptionException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsFileLockInterruptionException")
+#ifdef RESTRICT_JavaNioChannelsFileLockInterruptionException
+#define INCLUDE_ALL_JavaNioChannelsFileLockInterruptionException 0
 #else
-#define JavaNioChannelsFileLockInterruptionException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsFileLockInterruptionException 1
 #endif
-#undef JavaNioChannelsFileLockInterruptionException_RESTRICT
+#undef RESTRICT_JavaNioChannelsFileLockInterruptionException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsFileLockInterruptionException_) && (JavaNioChannelsFileLockInterruptionException_INCLUDE_ALL || defined(JavaNioChannelsFileLockInterruptionException_INCLUDE))
+#if !defined (JavaNioChannelsFileLockInterruptionException_) && (INCLUDE_ALL_JavaNioChannelsFileLockInterruptionException || defined(INCLUDE_JavaNioChannelsFileLockInterruptionException))
 #define JavaNioChannelsFileLockInterruptionException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../../java/io/IOException.h"
 
 /*!
@@ -46,10 +46,12 @@ FOUNDATION_EXPORT void JavaNioChannelsFileLockInterruptionException_init(JavaNio
 
 FOUNDATION_EXPORT JavaNioChannelsFileLockInterruptionException *new_JavaNioChannelsFileLockInterruptionException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsFileLockInterruptionException *create_JavaNioChannelsFileLockInterruptionException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileLockInterruptionException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsFileLockInterruptionException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsFileLockInterruptionException")

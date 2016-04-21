@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextNormalizer_INCLUDE_ALL")
-#ifdef JavaTextNormalizer_RESTRICT
-#define JavaTextNormalizer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextNormalizer")
+#ifdef RESTRICT_JavaTextNormalizer
+#define INCLUDE_ALL_JavaTextNormalizer 0
 #else
-#define JavaTextNormalizer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextNormalizer 1
 #endif
-#undef JavaTextNormalizer_RESTRICT
+#undef RESTRICT_JavaTextNormalizer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextNormalizer_) && (JavaTextNormalizer_INCLUDE_ALL || defined(JavaTextNormalizer_INCLUDE))
+#if !defined (JavaTextNormalizer_) && (INCLUDE_ALL_JavaTextNormalizer || defined(INCLUDE_JavaTextNormalizer))
 #define JavaTextNormalizer_
 
 @class JavaTextNormalizer_Form;
@@ -66,11 +66,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNormalizer)
 
 #endif
 
-#if !defined (JavaTextNormalizer_Form_) && (JavaTextNormalizer_INCLUDE_ALL || defined(JavaTextNormalizer_Form_INCLUDE))
+#if !defined (JavaTextNormalizer_Form_) && (INCLUDE_ALL_JavaTextNormalizer || defined(INCLUDE_JavaTextNormalizer_Form))
 #define JavaTextNormalizer_Form_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaTextNormalizer_Form_Enum) {
@@ -148,4 +148,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNormalizer_Form)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextNormalizer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextNormalizer")

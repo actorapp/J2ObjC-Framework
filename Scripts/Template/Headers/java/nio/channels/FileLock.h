@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsFileLock_INCLUDE_ALL")
-#ifdef JavaNioChannelsFileLock_RESTRICT
-#define JavaNioChannelsFileLock_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsFileLock")
+#ifdef RESTRICT_JavaNioChannelsFileLock
+#define INCLUDE_ALL_JavaNioChannelsFileLock 0
 #else
-#define JavaNioChannelsFileLock_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsFileLock 1
 #endif
-#undef JavaNioChannelsFileLock_RESTRICT
+#undef RESTRICT_JavaNioChannelsFileLock
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsFileLock_) && (JavaNioChannelsFileLock_INCLUDE_ALL || defined(JavaNioChannelsFileLock_INCLUDE))
+#if !defined (JavaNioChannelsFileLock_) && (INCLUDE_ALL_JavaNioChannelsFileLock || defined(INCLUDE_JavaNioChannelsFileLock))
 #define JavaNioChannelsFileLock_
 
-#define JavaLangAutoCloseable_RESTRICT 1
-#define JavaLangAutoCloseable_INCLUDE 1
+#define RESTRICT_JavaLangAutoCloseable 1
+#define INCLUDE_JavaLangAutoCloseable 1
 #include "../../../java/lang/AutoCloseable.h"
 
 @class JavaNioChannelsFileChannel;
@@ -181,4 +181,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsFileLock)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsFileLock_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsFileLock")

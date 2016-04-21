@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipGZIPInputStream_INCLUDE_ALL")
-#ifdef JavaUtilZipGZIPInputStream_RESTRICT
-#define JavaUtilZipGZIPInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipGZIPInputStream")
+#ifdef RESTRICT_JavaUtilZipGZIPInputStream
+#define INCLUDE_ALL_JavaUtilZipGZIPInputStream 0
 #else
-#define JavaUtilZipGZIPInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipGZIPInputStream 1
 #endif
-#undef JavaUtilZipGZIPInputStream_RESTRICT
+#undef RESTRICT_JavaUtilZipGZIPInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipGZIPInputStream_) && (JavaUtilZipGZIPInputStream_INCLUDE_ALL || defined(JavaUtilZipGZIPInputStream_INCLUDE))
+#if !defined (JavaUtilZipGZIPInputStream_) && (INCLUDE_ALL_JavaUtilZipGZIPInputStream || defined(INCLUDE_JavaUtilZipGZIPInputStream))
 #define JavaUtilZipGZIPInputStream_
 
-#define JavaUtilZipInflaterInputStream_RESTRICT 1
-#define JavaUtilZipInflaterInputStream_INCLUDE 1
+#define RESTRICT_JavaUtilZipInflaterInputStream 1
+#define INCLUDE_JavaUtilZipInflaterInputStream 1
 #include "../../../java/util/zip/InflaterInputStream.h"
 
 @class IOSByteArray;
@@ -116,9 +116,13 @@ FOUNDATION_EXPORT void JavaUtilZipGZIPInputStream_initWithJavaIoInputStream_(Jav
 
 FOUNDATION_EXPORT JavaUtilZipGZIPInputStream *new_JavaUtilZipGZIPInputStream_initWithJavaIoInputStream_(JavaIoInputStream *is) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipGZIPInputStream *create_JavaUtilZipGZIPInputStream_initWithJavaIoInputStream_(JavaIoInputStream *is);
+
 FOUNDATION_EXPORT void JavaUtilZipGZIPInputStream_initWithJavaIoInputStream_withInt_(JavaUtilZipGZIPInputStream *self, JavaIoInputStream *is, jint size);
 
 FOUNDATION_EXPORT JavaUtilZipGZIPInputStream *new_JavaUtilZipGZIPInputStream_initWithJavaIoInputStream_withInt_(JavaIoInputStream *is, jint size) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipGZIPInputStream *create_JavaUtilZipGZIPInputStream_initWithJavaIoInputStream_withInt_(JavaIoInputStream *is, jint size);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipGZIPInputStream)
 
@@ -126,4 +130,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipGZIPInputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipGZIPInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipGZIPInputStream")

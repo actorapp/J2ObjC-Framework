@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaMathRoundingMode_INCLUDE_ALL")
-#ifdef JavaMathRoundingMode_RESTRICT
-#define JavaMathRoundingMode_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaMathRoundingMode")
+#ifdef RESTRICT_JavaMathRoundingMode
+#define INCLUDE_ALL_JavaMathRoundingMode 0
 #else
-#define JavaMathRoundingMode_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaMathRoundingMode 1
 #endif
-#undef JavaMathRoundingMode_RESTRICT
+#undef RESTRICT_JavaMathRoundingMode
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaMathRoundingMode_) && (JavaMathRoundingMode_INCLUDE_ALL || defined(JavaMathRoundingMode_INCLUDE))
+#if !defined (JavaMathRoundingMode_) && (INCLUDE_ALL_JavaMathRoundingMode || defined(INCLUDE_JavaMathRoundingMode))
 #define JavaMathRoundingMode_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaMathRoundingMode_Enum) {
@@ -168,4 +168,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaMathRoundingMode)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaMathRoundingMode_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaMathRoundingMode")

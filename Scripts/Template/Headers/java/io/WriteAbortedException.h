@@ -5,26 +5,25 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoWriteAbortedException_INCLUDE_ALL")
-#ifdef JavaIoWriteAbortedException_RESTRICT
-#define JavaIoWriteAbortedException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoWriteAbortedException")
+#ifdef RESTRICT_JavaIoWriteAbortedException
+#define INCLUDE_ALL_JavaIoWriteAbortedException 0
 #else
-#define JavaIoWriteAbortedException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoWriteAbortedException 1
 #endif
-#undef JavaIoWriteAbortedException_RESTRICT
+#undef RESTRICT_JavaIoWriteAbortedException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoWriteAbortedException_) && (JavaIoWriteAbortedException_INCLUDE_ALL || defined(JavaIoWriteAbortedException_INCLUDE))
+#if !defined (JavaIoWriteAbortedException_) && (INCLUDE_ALL_JavaIoWriteAbortedException || defined(INCLUDE_JavaIoWriteAbortedException))
 #define JavaIoWriteAbortedException_
 
-#define JavaIoObjectStreamException_RESTRICT 1
-#define JavaIoObjectStreamException_INCLUDE 1
+#define RESTRICT_JavaIoObjectStreamException 1
+#define INCLUDE_JavaIoObjectStreamException 1
 #include "../../java/io/ObjectStreamException.h"
 
 @class JavaLangException;
-@class JavaLangThrowable;
 
 /*!
  @brief Signals that the <code>ObjectInputStream.readObject()</code> method has detected
@@ -63,7 +62,7 @@
  @brief Gets the cause of this exception or <code>null</code> if there is no cause.
  @return the exception cause.
  */
-- (JavaLangThrowable *)getCause;
+- (NSException *)getCause;
 
 /*!
  @brief Gets the extra information message which was provided when this exception
@@ -84,10 +83,12 @@ FOUNDATION_EXPORT void JavaIoWriteAbortedException_initWithNSString_withJavaLang
 
 FOUNDATION_EXPORT JavaIoWriteAbortedException *new_JavaIoWriteAbortedException_initWithNSString_withJavaLangException_(NSString *detailMessage, JavaLangException *rootCause) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoWriteAbortedException *create_JavaIoWriteAbortedException_initWithNSString_withJavaLangException_(NSString *detailMessage, JavaLangException *rootCause);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoWriteAbortedException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoWriteAbortedException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoWriteAbortedException")

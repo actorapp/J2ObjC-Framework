@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentThreadFactory_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentThreadFactory_RESTRICT
-#define JavaUtilConcurrentThreadFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentThreadFactory")
+#ifdef RESTRICT_JavaUtilConcurrentThreadFactory
+#define INCLUDE_ALL_JavaUtilConcurrentThreadFactory 0
 #else
-#define JavaUtilConcurrentThreadFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentThreadFactory 1
 #endif
-#undef JavaUtilConcurrentThreadFactory_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentThreadFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentThreadFactory_) && (JavaUtilConcurrentThreadFactory_INCLUDE_ALL || defined(JavaUtilConcurrentThreadFactory_INCLUDE))
+#if !defined (JavaUtilConcurrentThreadFactory_) && (INCLUDE_ALL_JavaUtilConcurrentThreadFactory || defined(INCLUDE_JavaUtilConcurrentThreadFactory))
 #define JavaUtilConcurrentThreadFactory_
 
 @class JavaLangThread;
@@ -65,4 +65,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentThreadFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentThreadFactory")

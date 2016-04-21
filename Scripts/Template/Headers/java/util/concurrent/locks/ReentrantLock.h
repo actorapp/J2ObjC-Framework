@@ -5,32 +5,32 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentLocksReentrantLock_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentLocksReentrantLock_RESTRICT
-#define JavaUtilConcurrentLocksReentrantLock_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock")
+#ifdef RESTRICT_JavaUtilConcurrentLocksReentrantLock
+#define INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock 0
 #else
-#define JavaUtilConcurrentLocksReentrantLock_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock 1
 #endif
-#undef JavaUtilConcurrentLocksReentrantLock_RESTRICT
-#ifdef JavaUtilConcurrentLocksReentrantLock_FairSync_INCLUDE
-#define JavaUtilConcurrentLocksReentrantLock_Sync_INCLUDE 1
+#undef RESTRICT_JavaUtilConcurrentLocksReentrantLock
+#ifdef INCLUDE_JavaUtilConcurrentLocksReentrantLock_FairSync
+#define INCLUDE_JavaUtilConcurrentLocksReentrantLock_Sync 1
 #endif
-#ifdef JavaUtilConcurrentLocksReentrantLock_NonfairSync_INCLUDE
-#define JavaUtilConcurrentLocksReentrantLock_Sync_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentLocksReentrantLock_NonfairSync
+#define INCLUDE_JavaUtilConcurrentLocksReentrantLock_Sync 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentLocksReentrantLock_) && (JavaUtilConcurrentLocksReentrantLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantLock_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantLock_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantLock))
 #define JavaUtilConcurrentLocksReentrantLock_
 
-#define JavaUtilConcurrentLocksLock_RESTRICT 1
-#define JavaUtilConcurrentLocksLock_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentLocksLock 1
+#define INCLUDE_JavaUtilConcurrentLocksLock 1
 #include "../../../../java/util/concurrent/locks/Lock.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 @class JavaLangThread;
@@ -506,19 +506,23 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantLock_init(JavaUtilConcurr
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantLock *new_JavaUtilConcurrentLocksReentrantLock_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantLock *create_JavaUtilConcurrentLocksReentrantLock_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantLock_initWithBoolean_(JavaUtilConcurrentLocksReentrantLock *self, jboolean fair);
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantLock *new_JavaUtilConcurrentLocksReentrantLock_initWithBoolean_(jboolean fair) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantLock *create_JavaUtilConcurrentLocksReentrantLock_initWithBoolean_(jboolean fair);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksReentrantLock_Sync_) && (JavaUtilConcurrentLocksReentrantLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantLock_Sync_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantLock_Sync_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantLock_Sync))
 #define JavaUtilConcurrentLocksReentrantLock_Sync_
 
-#define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_RESTRICT 1
-#define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
+#define INCLUDE_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
 #include "../../../../java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
 
 @class JavaLangThread;
@@ -575,7 +579,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock_Sync)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksReentrantLock_NonfairSync_) && (JavaUtilConcurrentLocksReentrantLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantLock_NonfairSync_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantLock_NonfairSync_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantLock_NonfairSync))
 #define JavaUtilConcurrentLocksReentrantLock_NonfairSync_
 
 /*!
@@ -606,11 +610,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantLock_NonfairSync_init(Jav
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantLock_NonfairSync *new_JavaUtilConcurrentLocksReentrantLock_NonfairSync_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantLock_NonfairSync *create_JavaUtilConcurrentLocksReentrantLock_NonfairSync_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock_NonfairSync)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLocksReentrantLock_FairSync_) && (JavaUtilConcurrentLocksReentrantLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReentrantLock_FairSync_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReentrantLock_FairSync_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock || defined(INCLUDE_JavaUtilConcurrentLocksReentrantLock_FairSync))
 #define JavaUtilConcurrentLocksReentrantLock_FairSync_
 
 /*!
@@ -641,10 +647,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLocksReentrantLock_FairSync_init(JavaUt
 
 FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantLock_FairSync *new_JavaUtilConcurrentLocksReentrantLock_FairSync_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLocksReentrantLock_FairSync *create_JavaUtilConcurrentLocksReentrantLock_FairSync_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReentrantLock_FairSync)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentLocksReentrantLock_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReentrantLock")

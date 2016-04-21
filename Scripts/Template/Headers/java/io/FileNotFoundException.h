@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFileNotFoundException_INCLUDE_ALL")
-#ifdef JavaIoFileNotFoundException_RESTRICT
-#define JavaIoFileNotFoundException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFileNotFoundException")
+#ifdef RESTRICT_JavaIoFileNotFoundException
+#define INCLUDE_ALL_JavaIoFileNotFoundException 0
 #else
-#define JavaIoFileNotFoundException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFileNotFoundException 1
 #endif
-#undef JavaIoFileNotFoundException_RESTRICT
+#undef RESTRICT_JavaIoFileNotFoundException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFileNotFoundException_) && (JavaIoFileNotFoundException_INCLUDE_ALL || defined(JavaIoFileNotFoundException_INCLUDE))
+#if !defined (JavaIoFileNotFoundException_) && (INCLUDE_ALL_JavaIoFileNotFoundException || defined(INCLUDE_JavaIoFileNotFoundException))
 #define JavaIoFileNotFoundException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -52,9 +52,13 @@ FOUNDATION_EXPORT void JavaIoFileNotFoundException_init(JavaIoFileNotFoundExcept
 
 FOUNDATION_EXPORT JavaIoFileNotFoundException *new_JavaIoFileNotFoundException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileNotFoundException *create_JavaIoFileNotFoundException_init();
+
 FOUNDATION_EXPORT void JavaIoFileNotFoundException_initWithNSString_(JavaIoFileNotFoundException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoFileNotFoundException *new_JavaIoFileNotFoundException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoFileNotFoundException *create_JavaIoFileNotFoundException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileNotFoundException)
 
@@ -62,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileNotFoundException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFileNotFoundException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFileNotFoundException")

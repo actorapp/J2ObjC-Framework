@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoEOFException_INCLUDE_ALL")
-#ifdef JavaIoEOFException_RESTRICT
-#define JavaIoEOFException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoEOFException")
+#ifdef RESTRICT_JavaIoEOFException
+#define INCLUDE_ALL_JavaIoEOFException 0
 #else
-#define JavaIoEOFException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoEOFException 1
 #endif
-#undef JavaIoEOFException_RESTRICT
+#undef RESTRICT_JavaIoEOFException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoEOFException_) && (JavaIoEOFException_INCLUDE_ALL || defined(JavaIoEOFException_INCLUDE))
+#if !defined (JavaIoEOFException_) && (INCLUDE_ALL_JavaIoEOFException || defined(INCLUDE_JavaIoEOFException))
 #define JavaIoEOFException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -52,9 +52,13 @@ FOUNDATION_EXPORT void JavaIoEOFException_init(JavaIoEOFException *self);
 
 FOUNDATION_EXPORT JavaIoEOFException *new_JavaIoEOFException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoEOFException *create_JavaIoEOFException_init();
+
 FOUNDATION_EXPORT void JavaIoEOFException_initWithNSString_(JavaIoEOFException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoEOFException *new_JavaIoEOFException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoEOFException *create_JavaIoEOFException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoEOFException)
 
@@ -62,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoEOFException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoEOFException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoEOFException")

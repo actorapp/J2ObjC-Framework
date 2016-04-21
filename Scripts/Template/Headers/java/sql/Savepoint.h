@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSavepoint_INCLUDE_ALL")
-#ifdef JavaSqlSavepoint_RESTRICT
-#define JavaSqlSavepoint_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSavepoint")
+#ifdef RESTRICT_JavaSqlSavepoint
+#define INCLUDE_ALL_JavaSqlSavepoint 0
 #else
-#define JavaSqlSavepoint_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSavepoint 1
 #endif
-#undef JavaSqlSavepoint_RESTRICT
+#undef RESTRICT_JavaSqlSavepoint
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSavepoint_) && (JavaSqlSavepoint_INCLUDE_ALL || defined(JavaSqlSavepoint_INCLUDE))
+#if !defined (JavaSqlSavepoint_) && (INCLUDE_ALL_JavaSqlSavepoint || defined(INCLUDE_JavaSqlSavepoint))
 #define JavaSqlSavepoint_
 
 /*!
@@ -54,4 +54,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSavepoint)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSavepoint_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSavepoint")

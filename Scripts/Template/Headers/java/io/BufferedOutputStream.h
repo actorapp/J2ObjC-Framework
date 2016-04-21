@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoBufferedOutputStream_INCLUDE_ALL")
-#ifdef JavaIoBufferedOutputStream_RESTRICT
-#define JavaIoBufferedOutputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoBufferedOutputStream")
+#ifdef RESTRICT_JavaIoBufferedOutputStream
+#define INCLUDE_ALL_JavaIoBufferedOutputStream 0
 #else
-#define JavaIoBufferedOutputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoBufferedOutputStream 1
 #endif
-#undef JavaIoBufferedOutputStream_RESTRICT
+#undef RESTRICT_JavaIoBufferedOutputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoBufferedOutputStream_) && (JavaIoBufferedOutputStream_INCLUDE_ALL || defined(JavaIoBufferedOutputStream_INCLUDE))
+#if !defined (JavaIoBufferedOutputStream_) && (INCLUDE_ALL_JavaIoBufferedOutputStream || defined(INCLUDE_JavaIoBufferedOutputStream))
 #define JavaIoBufferedOutputStream_
 
-#define JavaIoFilterOutputStream_RESTRICT 1
-#define JavaIoFilterOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoFilterOutputStream 1
+#define INCLUDE_JavaIoFilterOutputStream 1
 #include "../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
@@ -136,9 +136,13 @@ FOUNDATION_EXPORT void JavaIoBufferedOutputStream_initWithJavaIoOutputStream_(Ja
 
 FOUNDATION_EXPORT JavaIoBufferedOutputStream *new_JavaIoBufferedOutputStream_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoBufferedOutputStream *create_JavaIoBufferedOutputStream_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg);
+
 FOUNDATION_EXPORT void JavaIoBufferedOutputStream_initWithJavaIoOutputStream_withInt_(JavaIoBufferedOutputStream *self, JavaIoOutputStream *outArg, jint size);
 
 FOUNDATION_EXPORT JavaIoBufferedOutputStream *new_JavaIoBufferedOutputStream_initWithJavaIoOutputStream_withInt_(JavaIoOutputStream *outArg, jint size) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoBufferedOutputStream *create_JavaIoBufferedOutputStream_initWithJavaIoOutputStream_withInt_(JavaIoOutputStream *outArg, jint size);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedOutputStream)
 
@@ -146,4 +150,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoBufferedOutputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoBufferedOutputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoBufferedOutputStream")

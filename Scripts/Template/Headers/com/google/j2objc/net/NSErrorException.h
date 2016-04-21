@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("ComGoogleJ2objcNetNSErrorException_INCLUDE_ALL")
-#ifdef ComGoogleJ2objcNetNSErrorException_RESTRICT
-#define ComGoogleJ2objcNetNSErrorException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_ComGoogleJ2objcNetNSErrorException")
+#ifdef RESTRICT_ComGoogleJ2objcNetNSErrorException
+#define INCLUDE_ALL_ComGoogleJ2objcNetNSErrorException 0
 #else
-#define ComGoogleJ2objcNetNSErrorException_INCLUDE_ALL 1
+#define INCLUDE_ALL_ComGoogleJ2objcNetNSErrorException 1
 #endif
-#undef ComGoogleJ2objcNetNSErrorException_RESTRICT
+#undef RESTRICT_ComGoogleJ2objcNetNSErrorException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (ComGoogleJ2objcNetNSErrorException_) && (ComGoogleJ2objcNetNSErrorException_INCLUDE_ALL || defined(ComGoogleJ2objcNetNSErrorException_INCLUDE))
+#if !defined (ComGoogleJ2objcNetNSErrorException_) && (INCLUDE_ALL_ComGoogleJ2objcNetNSErrorException || defined(INCLUDE_ComGoogleJ2objcNetNSErrorException))
 #define ComGoogleJ2objcNetNSErrorException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../../../java/lang/RuntimeException.h"
 
 /*!
@@ -67,10 +67,12 @@ FOUNDATION_EXPORT void ComGoogleJ2objcNetNSErrorException_initWithId_(ComGoogleJ
 
 FOUNDATION_EXPORT ComGoogleJ2objcNetNSErrorException *new_ComGoogleJ2objcNetNSErrorException_initWithId_(id nsError) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT ComGoogleJ2objcNetNSErrorException *create_ComGoogleJ2objcNetNSErrorException_initWithId_(id nsError);
+
 J2OBJC_TYPE_LITERAL_HEADER(ComGoogleJ2objcNetNSErrorException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("ComGoogleJ2objcNetNSErrorException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_ComGoogleJ2objcNetNSErrorException")

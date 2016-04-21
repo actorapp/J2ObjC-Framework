@@ -5,23 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangSafeVarargs_INCLUDE_ALL")
-#ifdef JavaLangSafeVarargs_RESTRICT
-#define JavaLangSafeVarargs_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangSafeVarargs")
+#ifdef RESTRICT_JavaLangSafeVarargs
+#define INCLUDE_ALL_JavaLangSafeVarargs 0
 #else
-#define JavaLangSafeVarargs_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangSafeVarargs 1
 #endif
-#undef JavaLangSafeVarargs_RESTRICT
+#undef RESTRICT_JavaLangSafeVarargs
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangSafeVarargs_) && (JavaLangSafeVarargs_INCLUDE_ALL || defined(JavaLangSafeVarargs_INCLUDE))
+#if !defined (JavaLangSafeVarargs_) && (INCLUDE_ALL_JavaLangSafeVarargs || defined(INCLUDE_JavaLangSafeVarargs))
 #define JavaLangSafeVarargs_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief Claims to the compiler that the annotation target does nothing potentially unsafe
@@ -38,10 +41,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaLangSafeVarargs)
 
+FOUNDATION_EXPORT id<JavaLangSafeVarargs> create_JavaLangSafeVarargs();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangSafeVarargs)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangSafeVarargs_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangSafeVarargs")

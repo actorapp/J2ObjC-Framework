@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilRegexPatternSyntaxException_INCLUDE_ALL")
-#ifdef JavaUtilRegexPatternSyntaxException_RESTRICT
-#define JavaUtilRegexPatternSyntaxException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilRegexPatternSyntaxException")
+#ifdef RESTRICT_JavaUtilRegexPatternSyntaxException
+#define INCLUDE_ALL_JavaUtilRegexPatternSyntaxException 0
 #else
-#define JavaUtilRegexPatternSyntaxException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilRegexPatternSyntaxException 1
 #endif
-#undef JavaUtilRegexPatternSyntaxException_RESTRICT
+#undef RESTRICT_JavaUtilRegexPatternSyntaxException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilRegexPatternSyntaxException_) && (JavaUtilRegexPatternSyntaxException_INCLUDE_ALL || defined(JavaUtilRegexPatternSyntaxException_INCLUDE))
+#if !defined (JavaUtilRegexPatternSyntaxException_) && (INCLUDE_ALL_JavaUtilRegexPatternSyntaxException || defined(INCLUDE_JavaUtilRegexPatternSyntaxException))
 #define JavaUtilRegexPatternSyntaxException_
 
-#define JavaLangIllegalArgumentException_RESTRICT 1
-#define JavaLangIllegalArgumentException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalArgumentException 1
+#define INCLUDE_JavaLangIllegalArgumentException 1
 #include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -89,10 +89,12 @@ FOUNDATION_EXPORT void JavaUtilRegexPatternSyntaxException_initWithNSString_with
 
 FOUNDATION_EXPORT JavaUtilRegexPatternSyntaxException *new_JavaUtilRegexPatternSyntaxException_initWithNSString_withNSString_withInt_(NSString *description_, NSString *pattern, jint index) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilRegexPatternSyntaxException *create_JavaUtilRegexPatternSyntaxException_initWithNSString_withNSString_withInt_(NSString *description_, NSString *pattern, jint index);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexPatternSyntaxException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilRegexPatternSyntaxException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilRegexPatternSyntaxException")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLSessionContext_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLSessionContext_RESTRICT
-#define JavaxNetSslSSLSessionContext_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLSessionContext")
+#ifdef RESTRICT_JavaxNetSslSSLSessionContext
+#define INCLUDE_ALL_JavaxNetSslSSLSessionContext 0
 #else
-#define JavaxNetSslSSLSessionContext_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLSessionContext 1
 #endif
-#undef JavaxNetSslSSLSessionContext_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLSessionContext
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLSessionContext_) && (JavaxNetSslSSLSessionContext_INCLUDE_ALL || defined(JavaxNetSslSSLSessionContext_INCLUDE))
+#if !defined (JavaxNetSslSSLSessionContext_) && (INCLUDE_ALL_JavaxNetSslSSLSessionContext || defined(INCLUDE_JavaxNetSslSSLSessionContext))
 #define JavaxNetSslSSLSessionContext_
 
 @class IOSByteArray;
@@ -90,4 +90,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLSessionContext)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLSessionContext_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLSessionContext")

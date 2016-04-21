@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecRSAPublicKeySpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecRSAPublicKeySpec_RESTRICT
-#define JavaSecuritySpecRSAPublicKeySpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecRSAPublicKeySpec")
+#ifdef RESTRICT_JavaSecuritySpecRSAPublicKeySpec
+#define INCLUDE_ALL_JavaSecuritySpecRSAPublicKeySpec 0
 #else
-#define JavaSecuritySpecRSAPublicKeySpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecRSAPublicKeySpec 1
 #endif
-#undef JavaSecuritySpecRSAPublicKeySpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecRSAPublicKeySpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecRSAPublicKeySpec_) && (JavaSecuritySpecRSAPublicKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecRSAPublicKeySpec_INCLUDE))
+#if !defined (JavaSecuritySpecRSAPublicKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecRSAPublicKeySpec || defined(INCLUDE_JavaSecuritySpecRSAPublicKeySpec))
 #define JavaSecuritySpecRSAPublicKeySpec_
 
-#define JavaSecuritySpecKeySpec_RESTRICT 1
-#define JavaSecuritySpecKeySpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecKeySpec 1
+#define INCLUDE_JavaSecuritySpecKeySpec 1
 #include "../../../java/security/spec/KeySpec.h"
 
 @class JavaMathBigInteger;
@@ -67,10 +67,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecRSAPublicKeySpec_initWithJavaMathBigInteg
 
 FOUNDATION_EXPORT JavaSecuritySpecRSAPublicKeySpec *new_JavaSecuritySpecRSAPublicKeySpec_initWithJavaMathBigInteger_withJavaMathBigInteger_(JavaMathBigInteger *modulus, JavaMathBigInteger *publicExponent) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecRSAPublicKeySpec *create_JavaSecuritySpecRSAPublicKeySpec_initWithJavaMathBigInteger_withJavaMathBigInteger_(JavaMathBigInteger *modulus, JavaMathBigInteger *publicExponent);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAPublicKeySpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecRSAPublicKeySpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAPublicKeySpec")

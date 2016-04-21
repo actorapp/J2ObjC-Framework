@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxSAXParseException_INCLUDE_ALL")
-#ifdef OrgXmlSaxSAXParseException_RESTRICT
-#define OrgXmlSaxSAXParseException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxSAXParseException")
+#ifdef RESTRICT_OrgXmlSaxSAXParseException
+#define INCLUDE_ALL_OrgXmlSaxSAXParseException 0
 #else
-#define OrgXmlSaxSAXParseException_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxSAXParseException 1
 #endif
-#undef OrgXmlSaxSAXParseException_RESTRICT
+#undef RESTRICT_OrgXmlSaxSAXParseException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxSAXParseException_) && (OrgXmlSaxSAXParseException_INCLUDE_ALL || defined(OrgXmlSaxSAXParseException_INCLUDE))
+#if !defined (OrgXmlSaxSAXParseException_) && (INCLUDE_ALL_OrgXmlSaxSAXParseException || defined(INCLUDE_OrgXmlSaxSAXParseException))
 #define OrgXmlSaxSAXParseException_
 
-#define OrgXmlSaxSAXException_RESTRICT 1
-#define OrgXmlSaxSAXException_INCLUDE 1
+#define RESTRICT_OrgXmlSaxSAXException 1
+#define INCLUDE_OrgXmlSaxSAXException 1
 #include "../../../org/xml/sax/SAXException.h"
 
 @class JavaLangException;
@@ -180,17 +180,25 @@ FOUNDATION_EXPORT void OrgXmlSaxSAXParseException_initWithNSString_withOrgXmlSax
 
 FOUNDATION_EXPORT OrgXmlSaxSAXParseException *new_OrgXmlSaxSAXParseException_initWithNSString_withOrgXmlSaxLocator_(NSString *message, id<OrgXmlSaxLocator> locator) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxSAXParseException *create_OrgXmlSaxSAXParseException_initWithNSString_withOrgXmlSaxLocator_(NSString *message, id<OrgXmlSaxLocator> locator);
+
 FOUNDATION_EXPORT void OrgXmlSaxSAXParseException_initWithNSString_withOrgXmlSaxLocator_withJavaLangException_(OrgXmlSaxSAXParseException *self, NSString *message, id<OrgXmlSaxLocator> locator, JavaLangException *e);
 
 FOUNDATION_EXPORT OrgXmlSaxSAXParseException *new_OrgXmlSaxSAXParseException_initWithNSString_withOrgXmlSaxLocator_withJavaLangException_(NSString *message, id<OrgXmlSaxLocator> locator, JavaLangException *e) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxSAXParseException *create_OrgXmlSaxSAXParseException_initWithNSString_withOrgXmlSaxLocator_withJavaLangException_(NSString *message, id<OrgXmlSaxLocator> locator, JavaLangException *e);
 
 FOUNDATION_EXPORT void OrgXmlSaxSAXParseException_initWithNSString_withNSString_withNSString_withInt_withInt_(OrgXmlSaxSAXParseException *self, NSString *message, NSString *publicId, NSString *systemId, jint lineNumber, jint columnNumber);
 
 FOUNDATION_EXPORT OrgXmlSaxSAXParseException *new_OrgXmlSaxSAXParseException_initWithNSString_withNSString_withNSString_withInt_withInt_(NSString *message, NSString *publicId, NSString *systemId, jint lineNumber, jint columnNumber) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxSAXParseException *create_OrgXmlSaxSAXParseException_initWithNSString_withNSString_withNSString_withInt_withInt_(NSString *message, NSString *publicId, NSString *systemId, jint lineNumber, jint columnNumber);
+
 FOUNDATION_EXPORT void OrgXmlSaxSAXParseException_initWithNSString_withNSString_withNSString_withInt_withInt_withJavaLangException_(OrgXmlSaxSAXParseException *self, NSString *message, NSString *publicId, NSString *systemId, jint lineNumber, jint columnNumber, JavaLangException *e);
 
 FOUNDATION_EXPORT OrgXmlSaxSAXParseException *new_OrgXmlSaxSAXParseException_initWithNSString_withNSString_withNSString_withInt_withInt_withJavaLangException_(NSString *message, NSString *publicId, NSString *systemId, jint lineNumber, jint columnNumber, JavaLangException *e) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxSAXParseException *create_OrgXmlSaxSAXParseException_initWithNSString_withNSString_withNSString_withInt_withInt_withJavaLangException_(NSString *message, NSString *publicId, NSString *systemId, jint lineNumber, jint columnNumber, JavaLangException *e);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXParseException)
 
@@ -198,4 +206,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXParseException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxSAXParseException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxSAXParseException")

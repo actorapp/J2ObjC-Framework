@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidUtilBase64DataException_INCLUDE_ALL")
-#ifdef AndroidUtilBase64DataException_RESTRICT
-#define AndroidUtilBase64DataException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidUtilBase64DataException")
+#ifdef RESTRICT_AndroidUtilBase64DataException
+#define INCLUDE_ALL_AndroidUtilBase64DataException 0
 #else
-#define AndroidUtilBase64DataException_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidUtilBase64DataException 1
 #endif
-#undef AndroidUtilBase64DataException_RESTRICT
+#undef RESTRICT_AndroidUtilBase64DataException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidUtilBase64DataException_) && (AndroidUtilBase64DataException_INCLUDE_ALL || defined(AndroidUtilBase64DataException_INCLUDE))
+#if !defined (AndroidUtilBase64DataException_) && (INCLUDE_ALL_AndroidUtilBase64DataException || defined(INCLUDE_AndroidUtilBase64DataException))
 #define AndroidUtilBase64DataException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -43,10 +43,12 @@ FOUNDATION_EXPORT void AndroidUtilBase64DataException_initWithNSString_(AndroidU
 
 FOUNDATION_EXPORT AndroidUtilBase64DataException *new_AndroidUtilBase64DataException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilBase64DataException *create_AndroidUtilBase64DataException_initWithNSString_(NSString *detailMessage);
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64DataException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidUtilBase64DataException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidUtilBase64DataException")

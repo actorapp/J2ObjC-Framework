@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFileReader_INCLUDE_ALL")
-#ifdef JavaIoFileReader_RESTRICT
-#define JavaIoFileReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFileReader")
+#ifdef RESTRICT_JavaIoFileReader
+#define INCLUDE_ALL_JavaIoFileReader 0
 #else
-#define JavaIoFileReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFileReader 1
 #endif
-#undef JavaIoFileReader_RESTRICT
+#undef RESTRICT_JavaIoFileReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFileReader_) && (JavaIoFileReader_INCLUDE_ALL || defined(JavaIoFileReader_INCLUDE))
+#if !defined (JavaIoFileReader_) && (INCLUDE_ALL_JavaIoFileReader || defined(INCLUDE_JavaIoFileReader))
 #define JavaIoFileReader_
 
-#define JavaIoInputStreamReader_RESTRICT 1
-#define JavaIoInputStreamReader_INCLUDE 1
+#define RESTRICT_JavaIoInputStreamReader 1
+#define INCLUDE_JavaIoInputStreamReader 1
 #include "../../java/io/InputStreamReader.h"
 
 @class JavaIoFile;
@@ -76,13 +76,19 @@ FOUNDATION_EXPORT void JavaIoFileReader_initWithJavaIoFile_(JavaIoFileReader *se
 
 FOUNDATION_EXPORT JavaIoFileReader *new_JavaIoFileReader_initWithJavaIoFile_(JavaIoFile *file) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileReader *create_JavaIoFileReader_initWithJavaIoFile_(JavaIoFile *file);
+
 FOUNDATION_EXPORT void JavaIoFileReader_initWithJavaIoFileDescriptor_(JavaIoFileReader *self, JavaIoFileDescriptor *fd);
 
 FOUNDATION_EXPORT JavaIoFileReader *new_JavaIoFileReader_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileReader *create_JavaIoFileReader_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd);
+
 FOUNDATION_EXPORT void JavaIoFileReader_initWithNSString_(JavaIoFileReader *self, NSString *filename);
 
 FOUNDATION_EXPORT JavaIoFileReader *new_JavaIoFileReader_initWithNSString_(NSString *filename) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoFileReader *create_JavaIoFileReader_initWithNSString_(NSString *filename);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileReader)
 
@@ -90,4 +96,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileReader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFileReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFileReader")

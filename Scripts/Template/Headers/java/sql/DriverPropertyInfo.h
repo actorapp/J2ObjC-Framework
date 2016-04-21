@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlDriverPropertyInfo_INCLUDE_ALL")
-#ifdef JavaSqlDriverPropertyInfo_RESTRICT
-#define JavaSqlDriverPropertyInfo_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlDriverPropertyInfo")
+#ifdef RESTRICT_JavaSqlDriverPropertyInfo
+#define INCLUDE_ALL_JavaSqlDriverPropertyInfo 0
 #else
-#define JavaSqlDriverPropertyInfo_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlDriverPropertyInfo 1
 #endif
-#undef JavaSqlDriverPropertyInfo_RESTRICT
+#undef RESTRICT_JavaSqlDriverPropertyInfo
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlDriverPropertyInfo_) && (JavaSqlDriverPropertyInfo_INCLUDE_ALL || defined(JavaSqlDriverPropertyInfo_INCLUDE))
+#if !defined (JavaSqlDriverPropertyInfo_) && (INCLUDE_ALL_JavaSqlDriverPropertyInfo || defined(INCLUDE_JavaSqlDriverPropertyInfo))
 #define JavaSqlDriverPropertyInfo_
 
 @class IOSObjectArray;
@@ -86,10 +86,12 @@ FOUNDATION_EXPORT void JavaSqlDriverPropertyInfo_initWithNSString_withNSString_(
 
 FOUNDATION_EXPORT JavaSqlDriverPropertyInfo *new_JavaSqlDriverPropertyInfo_initWithNSString_withNSString_(NSString *name, NSString *value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlDriverPropertyInfo *create_JavaSqlDriverPropertyInfo_initWithNSString_withNSString_(NSString *name, NSString *value);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDriverPropertyInfo)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlDriverPropertyInfo_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlDriverPropertyInfo")

@@ -5,23 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxInjectInject_INCLUDE_ALL")
-#ifdef JavaxInjectInject_RESTRICT
-#define JavaxInjectInject_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxInjectInject")
+#ifdef RESTRICT_JavaxInjectInject
+#define INCLUDE_ALL_JavaxInjectInject 0
 #else
-#define JavaxInjectInject_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxInjectInject 1
 #endif
-#undef JavaxInjectInject_RESTRICT
+#undef RESTRICT_JavaxInjectInject
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxInjectInject_) && (JavaxInjectInject_INCLUDE_ALL || defined(JavaxInjectInject_INCLUDE))
+#if !defined (JavaxInjectInject_) && (INCLUDE_ALL_JavaxInjectInject || defined(INCLUDE_JavaxInjectInject))
 #define JavaxInjectInject_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief Identifies injectable constructors, methods, and fields.
@@ -165,10 +168,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxInjectInject)
 
+FOUNDATION_EXPORT id<JavaxInjectInject> create_JavaxInjectInject();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxInjectInject)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxInjectInject_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxInjectInject")

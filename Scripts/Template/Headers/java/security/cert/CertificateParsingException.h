@@ -5,25 +5,23 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCertificateParsingException_INCLUDE_ALL")
-#ifdef JavaSecurityCertCertificateParsingException_RESTRICT
-#define JavaSecurityCertCertificateParsingException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertificateParsingException")
+#ifdef RESTRICT_JavaSecurityCertCertificateParsingException
+#define INCLUDE_ALL_JavaSecurityCertCertificateParsingException 0
 #else
-#define JavaSecurityCertCertificateParsingException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCertificateParsingException 1
 #endif
-#undef JavaSecurityCertCertificateParsingException_RESTRICT
+#undef RESTRICT_JavaSecurityCertCertificateParsingException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCertificateParsingException_) && (JavaSecurityCertCertificateParsingException_INCLUDE_ALL || defined(JavaSecurityCertCertificateParsingException_INCLUDE))
+#if !defined (JavaSecurityCertCertificateParsingException_) && (INCLUDE_ALL_JavaSecurityCertCertificateParsingException || defined(INCLUDE_JavaSecurityCertCertificateParsingException))
 #define JavaSecurityCertCertificateParsingException_
 
-#define JavaSecurityCertCertificateException_RESTRICT 1
-#define JavaSecurityCertCertificateException_INCLUDE 1
+#define RESTRICT_JavaSecurityCertCertificateException 1
+#define INCLUDE_JavaSecurityCertCertificateException 1
 #include "../../../java/security/cert/CertificateException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief The exception that is thrown when a <code>Certificate</code> can not be parsed.
@@ -54,7 +52,7 @@
  the exception's source.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates a new <code>CertificateParsingException</code> with the specified
@@ -62,7 +60,7 @@
  @param cause
  the exception's source.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -72,17 +70,25 @@ FOUNDATION_EXPORT void JavaSecurityCertCertificateParsingException_initWithNSStr
 
 FOUNDATION_EXPORT JavaSecurityCertCertificateParsingException *new_JavaSecurityCertCertificateParsingException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityCertCertificateParsingException *create_JavaSecurityCertCertificateParsingException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityCertCertificateParsingException_init(JavaSecurityCertCertificateParsingException *self);
 
 FOUNDATION_EXPORT JavaSecurityCertCertificateParsingException *new_JavaSecurityCertCertificateParsingException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityCertCertificateParsingException_initWithNSString_withJavaLangThrowable_(JavaSecurityCertCertificateParsingException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityCertCertificateParsingException *create_JavaSecurityCertCertificateParsingException_init();
 
-FOUNDATION_EXPORT JavaSecurityCertCertificateParsingException *new_JavaSecurityCertCertificateParsingException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityCertCertificateParsingException_initWithNSString_withNSException_(JavaSecurityCertCertificateParsingException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityCertCertificateParsingException_initWithJavaLangThrowable_(JavaSecurityCertCertificateParsingException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityCertCertificateParsingException *new_JavaSecurityCertCertificateParsingException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityCertCertificateParsingException *new_JavaSecurityCertCertificateParsingException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityCertCertificateParsingException *create_JavaSecurityCertCertificateParsingException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityCertCertificateParsingException_initWithNSException_(JavaSecurityCertCertificateParsingException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityCertCertificateParsingException *new_JavaSecurityCertCertificateParsingException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityCertCertificateParsingException *create_JavaSecurityCertCertificateParsingException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificateParsingException)
 
@@ -90,4 +96,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificateParsingException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCertificateParsingException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertificateParsingException")

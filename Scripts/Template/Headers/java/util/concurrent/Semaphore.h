@@ -5,28 +5,28 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentSemaphore_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentSemaphore_RESTRICT
-#define JavaUtilConcurrentSemaphore_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentSemaphore")
+#ifdef RESTRICT_JavaUtilConcurrentSemaphore
+#define INCLUDE_ALL_JavaUtilConcurrentSemaphore 0
 #else
-#define JavaUtilConcurrentSemaphore_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentSemaphore 1
 #endif
-#undef JavaUtilConcurrentSemaphore_RESTRICT
-#ifdef JavaUtilConcurrentSemaphore_FairSync_INCLUDE
-#define JavaUtilConcurrentSemaphore_Sync_INCLUDE 1
+#undef RESTRICT_JavaUtilConcurrentSemaphore
+#ifdef INCLUDE_JavaUtilConcurrentSemaphore_FairSync
+#define INCLUDE_JavaUtilConcurrentSemaphore_Sync 1
 #endif
-#ifdef JavaUtilConcurrentSemaphore_NonfairSync_INCLUDE
-#define JavaUtilConcurrentSemaphore_Sync_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentSemaphore_NonfairSync
+#define INCLUDE_JavaUtilConcurrentSemaphore_Sync 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentSemaphore_) && (JavaUtilConcurrentSemaphore_INCLUDE_ALL || defined(JavaUtilConcurrentSemaphore_INCLUDE))
+#if !defined (JavaUtilConcurrentSemaphore_) && (INCLUDE_ALL_JavaUtilConcurrentSemaphore || defined(INCLUDE_JavaUtilConcurrentSemaphore))
 #define JavaUtilConcurrentSemaphore_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentTimeUnit;
@@ -509,19 +509,23 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSemaphore_initWithInt_(JavaUtilConcurre
 
 FOUNDATION_EXPORT JavaUtilConcurrentSemaphore *new_JavaUtilConcurrentSemaphore_initWithInt_(jint permits) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSemaphore *create_JavaUtilConcurrentSemaphore_initWithInt_(jint permits);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentSemaphore_initWithInt_withBoolean_(JavaUtilConcurrentSemaphore *self, jint permits, jboolean fair);
 
 FOUNDATION_EXPORT JavaUtilConcurrentSemaphore *new_JavaUtilConcurrentSemaphore_initWithInt_withBoolean_(jint permits, jboolean fair) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentSemaphore *create_JavaUtilConcurrentSemaphore_initWithInt_withBoolean_(jint permits, jboolean fair);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSemaphore_Sync_) && (JavaUtilConcurrentSemaphore_INCLUDE_ALL || defined(JavaUtilConcurrentSemaphore_Sync_INCLUDE))
+#if !defined (JavaUtilConcurrentSemaphore_Sync_) && (INCLUDE_ALL_JavaUtilConcurrentSemaphore || defined(INCLUDE_JavaUtilConcurrentSemaphore_Sync))
 #define JavaUtilConcurrentSemaphore_Sync_
 
-#define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_RESTRICT 1
-#define JavaUtilConcurrentLocksAbstractQueuedSynchronizer_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
+#define INCLUDE_JavaUtilConcurrentLocksAbstractQueuedSynchronizer 1
 #include "../../../java/util/concurrent/locks/AbstractQueuedSynchronizer.h"
 
 /*!
@@ -558,7 +562,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore_Sync)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSemaphore_NonfairSync_) && (JavaUtilConcurrentSemaphore_INCLUDE_ALL || defined(JavaUtilConcurrentSemaphore_NonfairSync_INCLUDE))
+#if !defined (JavaUtilConcurrentSemaphore_NonfairSync_) && (INCLUDE_ALL_JavaUtilConcurrentSemaphore || defined(INCLUDE_JavaUtilConcurrentSemaphore_NonfairSync))
 #define JavaUtilConcurrentSemaphore_NonfairSync_
 
 /*!
@@ -582,11 +586,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSemaphore_NonfairSync_initWithInt_(Java
 
 FOUNDATION_EXPORT JavaUtilConcurrentSemaphore_NonfairSync *new_JavaUtilConcurrentSemaphore_NonfairSync_initWithInt_(jint permits) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSemaphore_NonfairSync *create_JavaUtilConcurrentSemaphore_NonfairSync_initWithInt_(jint permits);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore_NonfairSync)
 
 #endif
 
-#if !defined (JavaUtilConcurrentSemaphore_FairSync_) && (JavaUtilConcurrentSemaphore_INCLUDE_ALL || defined(JavaUtilConcurrentSemaphore_FairSync_INCLUDE))
+#if !defined (JavaUtilConcurrentSemaphore_FairSync_) && (INCLUDE_ALL_JavaUtilConcurrentSemaphore || defined(INCLUDE_JavaUtilConcurrentSemaphore_FairSync))
 #define JavaUtilConcurrentSemaphore_FairSync_
 
 /*!
@@ -610,10 +616,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentSemaphore_FairSync_initWithInt_(JavaUti
 
 FOUNDATION_EXPORT JavaUtilConcurrentSemaphore_FairSync *new_JavaUtilConcurrentSemaphore_FairSync_initWithInt_(jint permits) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentSemaphore_FairSync *create_JavaUtilConcurrentSemaphore_FairSync_initWithInt_(jint permits);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentSemaphore_FairSync)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentSemaphore_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentSemaphore")

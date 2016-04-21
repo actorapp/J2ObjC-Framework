@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentBlockingDeque_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentBlockingDeque_RESTRICT
-#define JavaUtilConcurrentBlockingDeque_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentBlockingDeque")
+#ifdef RESTRICT_JavaUtilConcurrentBlockingDeque
+#define INCLUDE_ALL_JavaUtilConcurrentBlockingDeque 0
 #else
-#define JavaUtilConcurrentBlockingDeque_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentBlockingDeque 1
 #endif
-#undef JavaUtilConcurrentBlockingDeque_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentBlockingDeque
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentBlockingDeque_) && (JavaUtilConcurrentBlockingDeque_INCLUDE_ALL || defined(JavaUtilConcurrentBlockingDeque_INCLUDE))
+#if !defined (JavaUtilConcurrentBlockingDeque_) && (INCLUDE_ALL_JavaUtilConcurrentBlockingDeque || defined(INCLUDE_JavaUtilConcurrentBlockingDeque))
 #define JavaUtilConcurrentBlockingDeque_
 
-#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
-#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentBlockingQueue 1
+#define INCLUDE_JavaUtilConcurrentBlockingQueue 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
 
-#define JavaUtilDeque_RESTRICT 1
-#define JavaUtilDeque_INCLUDE 1
+#define RESTRICT_JavaUtilDeque 1
+#define INCLUDE_JavaUtilDeque 1
 #include "../../../java/util/Deque.h"
 
 @class JavaUtilConcurrentTimeUnit;
@@ -598,4 +598,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentBlockingDeque)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentBlockingDeque_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentBlockingDeque")

@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE_ALL")
-#ifdef JavaxSecurityAuthCallbackUnsupportedCallbackException_RESTRICT
-#define JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityAuthCallbackUnsupportedCallbackException")
+#ifdef RESTRICT_JavaxSecurityAuthCallbackUnsupportedCallbackException
+#define INCLUDE_ALL_JavaxSecurityAuthCallbackUnsupportedCallbackException 0
 #else
-#define JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityAuthCallbackUnsupportedCallbackException 1
 #endif
-#undef JavaxSecurityAuthCallbackUnsupportedCallbackException_RESTRICT
+#undef RESTRICT_JavaxSecurityAuthCallbackUnsupportedCallbackException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityAuthCallbackUnsupportedCallbackException_) && (JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE_ALL || defined(JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE))
+#if !defined (JavaxSecurityAuthCallbackUnsupportedCallbackException_) && (INCLUDE_ALL_JavaxSecurityAuthCallbackUnsupportedCallbackException || defined(INCLUDE_JavaxSecurityAuthCallbackUnsupportedCallbackException))
 #define JavaxSecurityAuthCallbackUnsupportedCallbackException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../../java/lang/Exception.h"
 
 @protocol JavaxSecurityAuthCallbackCallback;
@@ -66,9 +66,13 @@ FOUNDATION_EXPORT void JavaxSecurityAuthCallbackUnsupportedCallbackException_ini
 
 FOUNDATION_EXPORT JavaxSecurityAuthCallbackUnsupportedCallbackException *new_JavaxSecurityAuthCallbackUnsupportedCallbackException_initWithJavaxSecurityAuthCallbackCallback_(id<JavaxSecurityAuthCallbackCallback> callback) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxSecurityAuthCallbackUnsupportedCallbackException *create_JavaxSecurityAuthCallbackUnsupportedCallbackException_initWithJavaxSecurityAuthCallbackCallback_(id<JavaxSecurityAuthCallbackCallback> callback);
+
 FOUNDATION_EXPORT void JavaxSecurityAuthCallbackUnsupportedCallbackException_initWithJavaxSecurityAuthCallbackCallback_withNSString_(JavaxSecurityAuthCallbackUnsupportedCallbackException *self, id<JavaxSecurityAuthCallbackCallback> callback, NSString *message);
 
 FOUNDATION_EXPORT JavaxSecurityAuthCallbackUnsupportedCallbackException *new_JavaxSecurityAuthCallbackUnsupportedCallbackException_initWithJavaxSecurityAuthCallbackCallback_withNSString_(id<JavaxSecurityAuthCallbackCallback> callback, NSString *message) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxSecurityAuthCallbackUnsupportedCallbackException *create_JavaxSecurityAuthCallbackUnsupportedCallbackException_initWithJavaxSecurityAuthCallbackCallback_withNSString_(id<JavaxSecurityAuthCallbackCallback> callback, NSString *message);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthCallbackUnsupportedCallbackException)
 
@@ -76,4 +80,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthCallbackUnsupportedCallbackException
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityAuthCallbackUnsupportedCallbackException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityAuthCallbackUnsupportedCallbackException")

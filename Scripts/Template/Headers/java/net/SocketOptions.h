@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetSocketOptions_INCLUDE_ALL")
-#ifdef JavaNetSocketOptions_RESTRICT
-#define JavaNetSocketOptions_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetSocketOptions")
+#ifdef RESTRICT_JavaNetSocketOptions
+#define INCLUDE_ALL_JavaNetSocketOptions 0
 #else
-#define JavaNetSocketOptions_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetSocketOptions 1
 #endif
-#undef JavaNetSocketOptions_RESTRICT
+#undef RESTRICT_JavaNetSocketOptions
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetSocketOptions_) && (JavaNetSocketOptions_INCLUDE_ALL || defined(JavaNetSocketOptions_INCLUDE))
+#if !defined (JavaNetSocketOptions_) && (INCLUDE_ALL_JavaNetSocketOptions || defined(INCLUDE_JavaNetSocketOptions))
 #define JavaNetSocketOptions_
 
 /*!
@@ -254,4 +254,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketOptions)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetSocketOptions_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetSocketOptions")

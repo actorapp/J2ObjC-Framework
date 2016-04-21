@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharsetCharset_INCLUDE_ALL")
-#ifdef JavaNioCharsetCharset_RESTRICT
-#define JavaNioCharsetCharset_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharsetCharset")
+#ifdef RESTRICT_JavaNioCharsetCharset
+#define INCLUDE_ALL_JavaNioCharsetCharset 0
 #else
-#define JavaNioCharsetCharset_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharsetCharset 1
 #endif
-#undef JavaNioCharsetCharset_RESTRICT
+#undef RESTRICT_JavaNioCharsetCharset
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharsetCharset_) && (JavaNioCharsetCharset_INCLUDE_ALL || defined(JavaNioCharsetCharset_INCLUDE))
+#if !defined (JavaNioCharsetCharset_) && (INCLUDE_ALL_JavaNioCharsetCharset || defined(INCLUDE_JavaNioCharsetCharset))
 #define JavaNioCharsetCharset_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../../java/lang/Comparable.h"
 
 @class IOSObjectArray;
@@ -360,4 +360,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCharset)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharsetCharset_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCharset")

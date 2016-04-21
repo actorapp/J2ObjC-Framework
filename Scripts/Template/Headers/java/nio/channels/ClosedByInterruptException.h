@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsClosedByInterruptException_INCLUDE_ALL")
-#ifdef JavaNioChannelsClosedByInterruptException_RESTRICT
-#define JavaNioChannelsClosedByInterruptException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsClosedByInterruptException")
+#ifdef RESTRICT_JavaNioChannelsClosedByInterruptException
+#define INCLUDE_ALL_JavaNioChannelsClosedByInterruptException 0
 #else
-#define JavaNioChannelsClosedByInterruptException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsClosedByInterruptException 1
 #endif
-#undef JavaNioChannelsClosedByInterruptException_RESTRICT
+#undef RESTRICT_JavaNioChannelsClosedByInterruptException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsClosedByInterruptException_) && (JavaNioChannelsClosedByInterruptException_INCLUDE_ALL || defined(JavaNioChannelsClosedByInterruptException_INCLUDE))
+#if !defined (JavaNioChannelsClosedByInterruptException_) && (INCLUDE_ALL_JavaNioChannelsClosedByInterruptException || defined(INCLUDE_JavaNioChannelsClosedByInterruptException))
 #define JavaNioChannelsClosedByInterruptException_
 
-#define JavaNioChannelsAsynchronousCloseException_RESTRICT 1
-#define JavaNioChannelsAsynchronousCloseException_INCLUDE 1
+#define RESTRICT_JavaNioChannelsAsynchronousCloseException 1
+#define INCLUDE_JavaNioChannelsAsynchronousCloseException 1
 #include "../../../java/nio/channels/AsynchronousCloseException.h"
 
 /*!
@@ -48,10 +48,12 @@ FOUNDATION_EXPORT void JavaNioChannelsClosedByInterruptException_init(JavaNioCha
 
 FOUNDATION_EXPORT JavaNioChannelsClosedByInterruptException *new_JavaNioChannelsClosedByInterruptException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsClosedByInterruptException *create_JavaNioChannelsClosedByInterruptException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsClosedByInterruptException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsClosedByInterruptException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsClosedByInterruptException")

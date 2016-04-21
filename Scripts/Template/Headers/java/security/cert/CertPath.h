@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCertPath_INCLUDE_ALL")
-#ifdef JavaSecurityCertCertPath_RESTRICT
-#define JavaSecurityCertCertPath_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertPath")
+#ifdef RESTRICT_JavaSecurityCertCertPath
+#define INCLUDE_ALL_JavaSecurityCertCertPath 0
 #else
-#define JavaSecurityCertCertPath_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCertPath 1
 #endif
-#undef JavaSecurityCertCertPath_RESTRICT
+#undef RESTRICT_JavaSecurityCertCertPath
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCertPath_) && (JavaSecurityCertCertPath_INCLUDE_ALL || defined(JavaSecurityCertCertPath_INCLUDE))
+#if !defined (JavaSecurityCertCertPath_) && (INCLUDE_ALL_JavaSecurityCertCertPath || defined(INCLUDE_JavaSecurityCertCertPath))
 #define JavaSecurityCertCertPath_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -140,11 +140,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPath)
 
 #endif
 
-#if !defined (JavaSecurityCertCertPath_CertPathRep_) && (JavaSecurityCertCertPath_INCLUDE_ALL || defined(JavaSecurityCertCertPath_CertPathRep_INCLUDE))
+#if !defined (JavaSecurityCertCertPath_CertPathRep_) && (INCLUDE_ALL_JavaSecurityCertCertPath || defined(INCLUDE_JavaSecurityCertCertPath_CertPathRep))
 #define JavaSecurityCertCertPath_CertPathRep_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -185,10 +185,12 @@ FOUNDATION_EXPORT void JavaSecurityCertCertPath_CertPathRep_initWithNSString_wit
 
 FOUNDATION_EXPORT JavaSecurityCertCertPath_CertPathRep *new_JavaSecurityCertCertPath_CertPathRep_initWithNSString_withByteArray_(NSString *type, IOSByteArray *data) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityCertCertPath_CertPathRep *create_JavaSecurityCertCertPath_CertPathRep_initWithNSString_withByteArray_(NSString *type, IOSByteArray *data);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPath_CertPathRep)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCertPath_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertPath")

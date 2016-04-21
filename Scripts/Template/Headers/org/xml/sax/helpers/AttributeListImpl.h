@@ -5,23 +5,25 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHelpersAttributeListImpl_INCLUDE_ALL")
-#ifdef OrgXmlSaxHelpersAttributeListImpl_RESTRICT
-#define OrgXmlSaxHelpersAttributeListImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersAttributeListImpl")
+#ifdef RESTRICT_OrgXmlSaxHelpersAttributeListImpl
+#define INCLUDE_ALL_OrgXmlSaxHelpersAttributeListImpl 0
 #else
-#define OrgXmlSaxHelpersAttributeListImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHelpersAttributeListImpl 1
 #endif
-#undef OrgXmlSaxHelpersAttributeListImpl_RESTRICT
+#undef RESTRICT_OrgXmlSaxHelpersAttributeListImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHelpersAttributeListImpl_) && (OrgXmlSaxHelpersAttributeListImpl_INCLUDE_ALL || defined(OrgXmlSaxHelpersAttributeListImpl_INCLUDE))
+#if !defined (OrgXmlSaxHelpersAttributeListImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersAttributeListImpl || defined(INCLUDE_OrgXmlSaxHelpersAttributeListImpl))
 #define OrgXmlSaxHelpersAttributeListImpl_
 
-#define OrgXmlSaxAttributeList_RESTRICT 1
-#define OrgXmlSaxAttributeList_INCLUDE 1
+#define RESTRICT_OrgXmlSaxAttributeList 1
+#define INCLUDE_OrgXmlSaxAttributeList 1
 #include "../../../../org/xml/sax/AttributeList.h"
+
+@class IOSObjectArray;
 
 /*!
  @brief Default implementation for AttributeList.
@@ -198,9 +200,13 @@ FOUNDATION_EXPORT void OrgXmlSaxHelpersAttributeListImpl_init(OrgXmlSaxHelpersAt
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersAttributeListImpl *new_OrgXmlSaxHelpersAttributeListImpl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHelpersAttributeListImpl *create_OrgXmlSaxHelpersAttributeListImpl_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxHelpersAttributeListImpl_initWithOrgXmlSaxAttributeList_(OrgXmlSaxHelpersAttributeListImpl *self, id<OrgXmlSaxAttributeList> atts);
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersAttributeListImpl *new_OrgXmlSaxHelpersAttributeListImpl_initWithOrgXmlSaxAttributeList_(id<OrgXmlSaxAttributeList> atts) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxHelpersAttributeListImpl *create_OrgXmlSaxHelpersAttributeListImpl_initWithOrgXmlSaxAttributeList_(id<OrgXmlSaxAttributeList> atts);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersAttributeListImpl)
 
@@ -208,4 +214,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersAttributeListImpl)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHelpersAttributeListImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersAttributeListImpl")

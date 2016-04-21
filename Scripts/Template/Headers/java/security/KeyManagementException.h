@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityKeyManagementException_INCLUDE_ALL")
-#ifdef JavaSecurityKeyManagementException_RESTRICT
-#define JavaSecurityKeyManagementException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityKeyManagementException")
+#ifdef RESTRICT_JavaSecurityKeyManagementException
+#define INCLUDE_ALL_JavaSecurityKeyManagementException 0
 #else
-#define JavaSecurityKeyManagementException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityKeyManagementException 1
 #endif
-#undef JavaSecurityKeyManagementException_RESTRICT
+#undef RESTRICT_JavaSecurityKeyManagementException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityKeyManagementException_) && (JavaSecurityKeyManagementException_INCLUDE_ALL || defined(JavaSecurityKeyManagementException_INCLUDE))
+#if !defined (JavaSecurityKeyManagementException_) && (INCLUDE_ALL_JavaSecurityKeyManagementException || defined(INCLUDE_JavaSecurityKeyManagementException))
 #define JavaSecurityKeyManagementException_
 
-#define JavaSecurityKeyException_RESTRICT 1
-#define JavaSecurityKeyException_INCLUDE 1
+#define RESTRICT_JavaSecurityKeyException 1
+#define INCLUDE_JavaSecurityKeyException 1
 #include "../../java/security/KeyException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>KeyManagementException</code> is a general exception, thrown to indicate an
@@ -55,7 +53,7 @@
  the exception which is the cause for this exception.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance of <code>KeyManagementException</code> with the
@@ -63,7 +61,7 @@
  @param cause
  the exception which is the cause for this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -73,17 +71,25 @@ FOUNDATION_EXPORT void JavaSecurityKeyManagementException_initWithNSString_(Java
 
 FOUNDATION_EXPORT JavaSecurityKeyManagementException *new_JavaSecurityKeyManagementException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyManagementException *create_JavaSecurityKeyManagementException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityKeyManagementException_init(JavaSecurityKeyManagementException *self);
 
 FOUNDATION_EXPORT JavaSecurityKeyManagementException *new_JavaSecurityKeyManagementException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityKeyManagementException_initWithNSString_withJavaLangThrowable_(JavaSecurityKeyManagementException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityKeyManagementException *create_JavaSecurityKeyManagementException_init();
 
-FOUNDATION_EXPORT JavaSecurityKeyManagementException *new_JavaSecurityKeyManagementException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityKeyManagementException_initWithNSString_withNSException_(JavaSecurityKeyManagementException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityKeyManagementException_initWithJavaLangThrowable_(JavaSecurityKeyManagementException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityKeyManagementException *new_JavaSecurityKeyManagementException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityKeyManagementException *new_JavaSecurityKeyManagementException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityKeyManagementException *create_JavaSecurityKeyManagementException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityKeyManagementException_initWithNSException_(JavaSecurityKeyManagementException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityKeyManagementException *new_JavaSecurityKeyManagementException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityKeyManagementException *create_JavaSecurityKeyManagementException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyManagementException)
 
@@ -91,4 +97,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyManagementException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityKeyManagementException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityKeyManagementException")

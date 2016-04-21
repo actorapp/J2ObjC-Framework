@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecECFieldF2m_INCLUDE_ALL")
-#ifdef JavaSecuritySpecECFieldF2m_RESTRICT
-#define JavaSecuritySpecECFieldF2m_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECFieldF2m")
+#ifdef RESTRICT_JavaSecuritySpecECFieldF2m
+#define INCLUDE_ALL_JavaSecuritySpecECFieldF2m 0
 #else
-#define JavaSecuritySpecECFieldF2m_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecECFieldF2m 1
 #endif
-#undef JavaSecuritySpecECFieldF2m_RESTRICT
+#undef RESTRICT_JavaSecuritySpecECFieldF2m
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecECFieldF2m_) && (JavaSecuritySpecECFieldF2m_INCLUDE_ALL || defined(JavaSecuritySpecECFieldF2m_INCLUDE))
+#if !defined (JavaSecuritySpecECFieldF2m_) && (INCLUDE_ALL_JavaSecuritySpecECFieldF2m || defined(INCLUDE_JavaSecuritySpecECFieldF2m))
 #define JavaSecuritySpecECFieldF2m_
 
-#define JavaSecuritySpecECField_RESTRICT 1
-#define JavaSecuritySpecECField_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecECField 1
+#define INCLUDE_JavaSecuritySpecECField 1
 #include "../../../java/security/spec/ECField.h"
 
 @class IOSIntArray;
@@ -135,13 +135,19 @@ FOUNDATION_EXPORT void JavaSecuritySpecECFieldF2m_initWithInt_(JavaSecuritySpecE
 
 FOUNDATION_EXPORT JavaSecuritySpecECFieldF2m *new_JavaSecuritySpecECFieldF2m_initWithInt_(jint m) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecECFieldF2m *create_JavaSecuritySpecECFieldF2m_initWithInt_(jint m);
+
 FOUNDATION_EXPORT void JavaSecuritySpecECFieldF2m_initWithInt_withJavaMathBigInteger_(JavaSecuritySpecECFieldF2m *self, jint m, JavaMathBigInteger *rp);
 
 FOUNDATION_EXPORT JavaSecuritySpecECFieldF2m *new_JavaSecuritySpecECFieldF2m_initWithInt_withJavaMathBigInteger_(jint m, JavaMathBigInteger *rp) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecECFieldF2m *create_JavaSecuritySpecECFieldF2m_initWithInt_withJavaMathBigInteger_(jint m, JavaMathBigInteger *rp);
+
 FOUNDATION_EXPORT void JavaSecuritySpecECFieldF2m_initWithInt_withIntArray_(JavaSecuritySpecECFieldF2m *self, jint m, IOSIntArray *ks);
 
 FOUNDATION_EXPORT JavaSecuritySpecECFieldF2m *new_JavaSecuritySpecECFieldF2m_initWithInt_withIntArray_(jint m, IOSIntArray *ks) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecuritySpecECFieldF2m *create_JavaSecuritySpecECFieldF2m_initWithInt_withIntArray_(jint m, IOSIntArray *ks);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECFieldF2m)
 
@@ -149,4 +155,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECFieldF2m)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecECFieldF2m_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECFieldF2m")

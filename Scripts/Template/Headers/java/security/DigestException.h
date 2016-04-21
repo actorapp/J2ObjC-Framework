@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityDigestException_INCLUDE_ALL")
-#ifdef JavaSecurityDigestException_RESTRICT
-#define JavaSecurityDigestException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityDigestException")
+#ifdef RESTRICT_JavaSecurityDigestException
+#define INCLUDE_ALL_JavaSecurityDigestException 0
 #else
-#define JavaSecurityDigestException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityDigestException 1
 #endif
-#undef JavaSecurityDigestException_RESTRICT
+#undef RESTRICT_JavaSecurityDigestException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityDigestException_) && (JavaSecurityDigestException_INCLUDE_ALL || defined(JavaSecurityDigestException_INCLUDE))
+#if !defined (JavaSecurityDigestException_) && (INCLUDE_ALL_JavaSecurityDigestException || defined(INCLUDE_JavaSecurityDigestException))
 #define JavaSecurityDigestException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../java/security/GeneralSecurityException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>DigestException</code> is a general message digest exception.
@@ -54,7 +52,7 @@
  the exception which is the cause for this exception.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance of <code>DigestException</code> with the
@@ -62,7 +60,7 @@
  @param cause
  the exception which is the cause for this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -72,17 +70,25 @@ FOUNDATION_EXPORT void JavaSecurityDigestException_initWithNSString_(JavaSecurit
 
 FOUNDATION_EXPORT JavaSecurityDigestException *new_JavaSecurityDigestException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityDigestException *create_JavaSecurityDigestException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityDigestException_init(JavaSecurityDigestException *self);
 
 FOUNDATION_EXPORT JavaSecurityDigestException *new_JavaSecurityDigestException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityDigestException_initWithNSString_withJavaLangThrowable_(JavaSecurityDigestException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityDigestException *create_JavaSecurityDigestException_init();
 
-FOUNDATION_EXPORT JavaSecurityDigestException *new_JavaSecurityDigestException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityDigestException_initWithNSString_withNSException_(JavaSecurityDigestException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityDigestException_initWithJavaLangThrowable_(JavaSecurityDigestException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityDigestException *new_JavaSecurityDigestException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityDigestException *new_JavaSecurityDigestException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityDigestException *create_JavaSecurityDigestException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityDigestException_initWithNSException_(JavaSecurityDigestException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityDigestException *new_JavaSecurityDigestException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityDigestException *create_JavaSecurityDigestException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityDigestException)
 
@@ -90,4 +96,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityDigestException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityDigestException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityDigestException")

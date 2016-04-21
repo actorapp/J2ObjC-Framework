@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangAssertionError_INCLUDE_ALL")
-#ifdef JavaLangAssertionError_RESTRICT
-#define JavaLangAssertionError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangAssertionError")
+#ifdef RESTRICT_JavaLangAssertionError
+#define INCLUDE_ALL_JavaLangAssertionError 0
 #else
-#define JavaLangAssertionError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangAssertionError 1
 #endif
-#undef JavaLangAssertionError_RESTRICT
+#undef RESTRICT_JavaLangAssertionError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangAssertionError_) && (JavaLangAssertionError_INCLUDE_ALL || defined(JavaLangAssertionError_INCLUDE))
+#if !defined (JavaLangAssertionError_) && (INCLUDE_ALL_JavaLangAssertionError || defined(INCLUDE_JavaLangAssertionError))
 #define JavaLangAssertionError_
 
-#define JavaLangError_RESTRICT 1
-#define JavaLangError_INCLUDE 1
+#define RESTRICT_JavaLangError 1
+#define INCLUDE_JavaLangError 1
 #include "../../java/lang/Error.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Thrown when an assertion has failed.
@@ -103,7 +101,7 @@
  @since 1.7
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 @end
 
@@ -113,37 +111,55 @@ FOUNDATION_EXPORT void JavaLangAssertionError_init(JavaLangAssertionError *self)
 
 FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangAssertionError_initWithNSString_withJavaLangThrowable_(JavaLangAssertionError *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangAssertionError *create_JavaLangAssertionError_init();
 
-FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangAssertionError_initWithNSString_withNSException_(JavaLangAssertionError *self, NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangAssertionError *create_JavaLangAssertionError_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
 
 FOUNDATION_EXPORT void JavaLangAssertionError_initWithId_(JavaLangAssertionError *self, id detailMessage);
 
 FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_initWithId_(id detailMessage) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangAssertionError *create_JavaLangAssertionError_initWithId_(id detailMessage);
+
 FOUNDATION_EXPORT void JavaLangAssertionError_initWithBoolean_(JavaLangAssertionError *self, jboolean detailMessage);
 
 FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_initWithBoolean_(jboolean detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangAssertionError *create_JavaLangAssertionError_initWithBoolean_(jboolean detailMessage);
 
 FOUNDATION_EXPORT void JavaLangAssertionError_initWithChar_(JavaLangAssertionError *self, jchar detailMessage);
 
 FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_initWithChar_(jchar detailMessage) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangAssertionError *create_JavaLangAssertionError_initWithChar_(jchar detailMessage);
+
 FOUNDATION_EXPORT void JavaLangAssertionError_initWithInt_(JavaLangAssertionError *self, jint detailMessage);
 
 FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_initWithInt_(jint detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangAssertionError *create_JavaLangAssertionError_initWithInt_(jint detailMessage);
 
 FOUNDATION_EXPORT void JavaLangAssertionError_initWithLong_(JavaLangAssertionError *self, jlong detailMessage);
 
 FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_initWithLong_(jlong detailMessage) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangAssertionError *create_JavaLangAssertionError_initWithLong_(jlong detailMessage);
+
 FOUNDATION_EXPORT void JavaLangAssertionError_initWithFloat_(JavaLangAssertionError *self, jfloat detailMessage);
 
 FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_initWithFloat_(jfloat detailMessage) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangAssertionError *create_JavaLangAssertionError_initWithFloat_(jfloat detailMessage);
+
 FOUNDATION_EXPORT void JavaLangAssertionError_initWithDouble_(JavaLangAssertionError *self, jdouble detailMessage);
 
 FOUNDATION_EXPORT JavaLangAssertionError *new_JavaLangAssertionError_initWithDouble_(jdouble detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangAssertionError *create_JavaLangAssertionError_initWithDouble_(jdouble detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAssertionError)
 
@@ -151,4 +167,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAssertionError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangAssertionError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangAssertionError")

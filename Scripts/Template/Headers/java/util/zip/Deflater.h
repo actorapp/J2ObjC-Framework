@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipDeflater_INCLUDE_ALL")
-#ifdef JavaUtilZipDeflater_RESTRICT
-#define JavaUtilZipDeflater_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipDeflater")
+#ifdef RESTRICT_JavaUtilZipDeflater
+#define INCLUDE_ALL_JavaUtilZipDeflater 0
 #else
-#define JavaUtilZipDeflater_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipDeflater 1
 #endif
-#undef JavaUtilZipDeflater_RESTRICT
+#undef RESTRICT_JavaUtilZipDeflater
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipDeflater_) && (JavaUtilZipDeflater_INCLUDE_ALL || defined(JavaUtilZipDeflater_INCLUDE))
+#if !defined (JavaUtilZipDeflater_) && (INCLUDE_ALL_JavaUtilZipDeflater || defined(INCLUDE_JavaUtilZipDeflater))
 #define JavaUtilZipDeflater_
 
 @class IOSByteArray;
@@ -269,7 +269,7 @@
 
 #pragma mark Protected
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 @end
 
@@ -370,13 +370,19 @@ FOUNDATION_EXPORT void JavaUtilZipDeflater_init(JavaUtilZipDeflater *self);
 
 FOUNDATION_EXPORT JavaUtilZipDeflater *new_JavaUtilZipDeflater_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipDeflater *create_JavaUtilZipDeflater_init();
+
 FOUNDATION_EXPORT void JavaUtilZipDeflater_initWithInt_(JavaUtilZipDeflater *self, jint level);
 
 FOUNDATION_EXPORT JavaUtilZipDeflater *new_JavaUtilZipDeflater_initWithInt_(jint level) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipDeflater *create_JavaUtilZipDeflater_initWithInt_(jint level);
+
 FOUNDATION_EXPORT void JavaUtilZipDeflater_initWithInt_withBoolean_(JavaUtilZipDeflater *self, jint level, jboolean noHeader);
 
 FOUNDATION_EXPORT JavaUtilZipDeflater *new_JavaUtilZipDeflater_initWithInt_withBoolean_(jint level, jboolean noHeader) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipDeflater *create_JavaUtilZipDeflater_initWithInt_withBoolean_(jint level, jboolean noHeader);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDeflater)
 
@@ -384,4 +390,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDeflater)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipDeflater_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipDeflater")

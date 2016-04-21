@@ -3,29 +3,28 @@
 //  source: android/libcore/luni/src/main/java/javax/crypto/ShortBufferException.java
 //
 
-#include "../../J2ObjC_header.h"
-
-#pragma push_macro("JavaxCryptoShortBufferException_INCLUDE_ALL")
-#ifdef JavaxCryptoShortBufferException_RESTRICT
-#define JavaxCryptoShortBufferException_INCLUDE_ALL 0
-#else
-#define JavaxCryptoShortBufferException_INCLUDE_ALL 1
-#endif
-#undef JavaxCryptoShortBufferException_RESTRICT
-
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
 /*!
  @author Vera Y. Petrashkova
  @version $Revision$
  */
+#include "../../J2ObjC_header.h"
 
-#if !defined (JavaxCryptoShortBufferException_) && (JavaxCryptoShortBufferException_INCLUDE_ALL || defined(JavaxCryptoShortBufferException_INCLUDE))
+#pragma push_macro("INCLUDE_ALL_JavaxCryptoShortBufferException")
+#ifdef RESTRICT_JavaxCryptoShortBufferException
+#define INCLUDE_ALL_JavaxCryptoShortBufferException 0
+#else
+#define INCLUDE_ALL_JavaxCryptoShortBufferException 1
+#endif
+#undef RESTRICT_JavaxCryptoShortBufferException
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaxCryptoShortBufferException_) && (INCLUDE_ALL_JavaxCryptoShortBufferException || defined(INCLUDE_JavaxCryptoShortBufferException))
 #define JavaxCryptoShortBufferException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../java/security/GeneralSecurityException.h"
 
 /*!
@@ -57,9 +56,13 @@ FOUNDATION_EXPORT void JavaxCryptoShortBufferException_initWithNSString_(JavaxCr
 
 FOUNDATION_EXPORT JavaxCryptoShortBufferException *new_JavaxCryptoShortBufferException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxCryptoShortBufferException *create_JavaxCryptoShortBufferException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaxCryptoShortBufferException_init(JavaxCryptoShortBufferException *self);
 
 FOUNDATION_EXPORT JavaxCryptoShortBufferException *new_JavaxCryptoShortBufferException_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxCryptoShortBufferException *create_JavaxCryptoShortBufferException_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoShortBufferException)
 
@@ -67,4 +70,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoShortBufferException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxCryptoShortBufferException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxCryptoShortBufferException")

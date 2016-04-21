@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangComparable_INCLUDE_ALL")
-#ifdef JavaLangComparable_RESTRICT
-#define JavaLangComparable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangComparable")
+#ifdef RESTRICT_JavaLangComparable
+#define INCLUDE_ALL_JavaLangComparable 0
 #else
-#define JavaLangComparable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangComparable 1
 #endif
-#undef JavaLangComparable_RESTRICT
+#undef RESTRICT_JavaLangComparable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangComparable_) && (JavaLangComparable_INCLUDE_ALL || defined(JavaLangComparable_INCLUDE))
+#if !defined (JavaLangComparable_) && (INCLUDE_ALL_JavaLangComparable || defined(INCLUDE_JavaLangComparable))
 #define JavaLangComparable_
 
 /*!
@@ -62,4 +62,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangComparable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangComparable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangComparable")

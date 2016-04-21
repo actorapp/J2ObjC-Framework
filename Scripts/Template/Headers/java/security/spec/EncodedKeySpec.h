@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecEncodedKeySpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecEncodedKeySpec_RESTRICT
-#define JavaSecuritySpecEncodedKeySpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecEncodedKeySpec")
+#ifdef RESTRICT_JavaSecuritySpecEncodedKeySpec
+#define INCLUDE_ALL_JavaSecuritySpecEncodedKeySpec 0
 #else
-#define JavaSecuritySpecEncodedKeySpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecEncodedKeySpec 1
 #endif
-#undef JavaSecuritySpecEncodedKeySpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecEncodedKeySpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecEncodedKeySpec_) && (JavaSecuritySpecEncodedKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecEncodedKeySpec_INCLUDE))
+#if !defined (JavaSecuritySpecEncodedKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecEncodedKeySpec || defined(INCLUDE_JavaSecuritySpecEncodedKeySpec))
 #define JavaSecuritySpecEncodedKeySpec_
 
-#define JavaSecuritySpecKeySpec_RESTRICT 1
-#define JavaSecuritySpecKeySpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecKeySpec 1
+#define INCLUDE_JavaSecuritySpecKeySpec 1
 #include "../../../java/security/spec/KeySpec.h"
 
 @class IOSByteArray;
@@ -66,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecEncodedKeySpec)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecEncodedKeySpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecEncodedKeySpec")

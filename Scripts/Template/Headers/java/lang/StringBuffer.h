@@ -5,34 +5,34 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangStringBuffer_INCLUDE_ALL")
-#ifdef JavaLangStringBuffer_RESTRICT
-#define JavaLangStringBuffer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangStringBuffer")
+#ifdef RESTRICT_JavaLangStringBuffer
+#define INCLUDE_ALL_JavaLangStringBuffer 0
 #else
-#define JavaLangStringBuffer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangStringBuffer 1
 #endif
-#undef JavaLangStringBuffer_RESTRICT
+#undef RESTRICT_JavaLangStringBuffer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangStringBuffer_) && (JavaLangStringBuffer_INCLUDE_ALL || defined(JavaLangStringBuffer_INCLUDE))
+#if !defined (JavaLangStringBuffer_) && (INCLUDE_ALL_JavaLangStringBuffer || defined(INCLUDE_JavaLangStringBuffer))
 #define JavaLangStringBuffer_
 
-#define JavaLangAbstractStringBuilder_RESTRICT 1
-#define JavaLangAbstractStringBuilder_INCLUDE 1
+#define RESTRICT_JavaLangAbstractStringBuilder 1
+#define INCLUDE_JavaLangAbstractStringBuilder 1
 #include "../../java/lang/AbstractStringBuilder.h"
 
-#define JavaLangAppendable_RESTRICT 1
-#define JavaLangAppendable_INCLUDE 1
+#define RESTRICT_JavaLangAppendable 1
+#define INCLUDE_JavaLangAppendable 1
 #include "../../java/lang/Appendable.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
-#define JavaLangCharSequence_RESTRICT 1
-#define JavaLangCharSequence_INCLUDE 1
+#define RESTRICT_JavaLangCharSequence 1
+#define INCLUDE_JavaLangCharSequence 1
 #include "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
@@ -595,17 +595,25 @@ FOUNDATION_EXPORT void JavaLangStringBuffer_init(JavaLangStringBuffer *self);
 
 FOUNDATION_EXPORT JavaLangStringBuffer *new_JavaLangStringBuffer_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangStringBuffer *create_JavaLangStringBuffer_init();
+
 FOUNDATION_EXPORT void JavaLangStringBuffer_initWithInt_(JavaLangStringBuffer *self, jint capacity);
 
 FOUNDATION_EXPORT JavaLangStringBuffer *new_JavaLangStringBuffer_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangStringBuffer *create_JavaLangStringBuffer_initWithInt_(jint capacity);
 
 FOUNDATION_EXPORT void JavaLangStringBuffer_initWithNSString_(JavaLangStringBuffer *self, NSString *string);
 
 FOUNDATION_EXPORT JavaLangStringBuffer *new_JavaLangStringBuffer_initWithNSString_(NSString *string) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangStringBuffer *create_JavaLangStringBuffer_initWithNSString_(NSString *string);
+
 FOUNDATION_EXPORT void JavaLangStringBuffer_initWithJavaLangCharSequence_(JavaLangStringBuffer *self, id<JavaLangCharSequence> cs);
 
 FOUNDATION_EXPORT JavaLangStringBuffer *new_JavaLangStringBuffer_initWithJavaLangCharSequence_(id<JavaLangCharSequence> cs) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangStringBuffer *create_JavaLangStringBuffer_initWithJavaLangCharSequence_(id<JavaLangCharSequence> cs);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangStringBuffer)
 
@@ -613,4 +621,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangStringBuffer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangStringBuffer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangStringBuffer")

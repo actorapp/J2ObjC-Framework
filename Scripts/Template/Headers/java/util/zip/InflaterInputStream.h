@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipInflaterInputStream_INCLUDE_ALL")
-#ifdef JavaUtilZipInflaterInputStream_RESTRICT
-#define JavaUtilZipInflaterInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipInflaterInputStream")
+#ifdef RESTRICT_JavaUtilZipInflaterInputStream
+#define INCLUDE_ALL_JavaUtilZipInflaterInputStream 0
 #else
-#define JavaUtilZipInflaterInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipInflaterInputStream 1
 #endif
-#undef JavaUtilZipInflaterInputStream_RESTRICT
+#undef RESTRICT_JavaUtilZipInflaterInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipInflaterInputStream_) && (JavaUtilZipInflaterInputStream_INCLUDE_ALL || defined(JavaUtilZipInflaterInputStream_INCLUDE))
+#if !defined (JavaUtilZipInflaterInputStream_) && (INCLUDE_ALL_JavaUtilZipInflaterInputStream || defined(INCLUDE_JavaUtilZipInflaterInputStream))
 #define JavaUtilZipInflaterInputStream_
 
-#define JavaIoFilterInputStream_RESTRICT 1
-#define JavaIoFilterInputStream_INCLUDE 1
+#define RESTRICT_JavaIoFilterInputStream 1
+#define INCLUDE_JavaIoFilterInputStream 1
 #include "../../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
@@ -196,13 +196,19 @@ FOUNDATION_EXPORT void JavaUtilZipInflaterInputStream_initWithJavaIoInputStream_
 
 FOUNDATION_EXPORT JavaUtilZipInflaterInputStream *new_JavaUtilZipInflaterInputStream_initWithJavaIoInputStream_(JavaIoInputStream *is) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipInflaterInputStream *create_JavaUtilZipInflaterInputStream_initWithJavaIoInputStream_(JavaIoInputStream *is);
+
 FOUNDATION_EXPORT void JavaUtilZipInflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipInflater_(JavaUtilZipInflaterInputStream *self, JavaIoInputStream *is, JavaUtilZipInflater *inflater);
 
 FOUNDATION_EXPORT JavaUtilZipInflaterInputStream *new_JavaUtilZipInflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipInflater_(JavaIoInputStream *is, JavaUtilZipInflater *inflater) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipInflaterInputStream *create_JavaUtilZipInflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipInflater_(JavaIoInputStream *is, JavaUtilZipInflater *inflater);
+
 FOUNDATION_EXPORT void JavaUtilZipInflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipInflater_withInt_(JavaUtilZipInflaterInputStream *self, JavaIoInputStream *is, JavaUtilZipInflater *inflater, jint bufferSize);
 
 FOUNDATION_EXPORT JavaUtilZipInflaterInputStream *new_JavaUtilZipInflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipInflater_withInt_(JavaIoInputStream *is, JavaUtilZipInflater *inflater, jint bufferSize) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipInflaterInputStream *create_JavaUtilZipInflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipInflater_withInt_(JavaIoInputStream *is, JavaUtilZipInflater *inflater, jint bufferSize);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipInflaterInputStream)
 
@@ -210,4 +216,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipInflaterInputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipInflaterInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipInflaterInputStream")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFileWriter_INCLUDE_ALL")
-#ifdef JavaIoFileWriter_RESTRICT
-#define JavaIoFileWriter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFileWriter")
+#ifdef RESTRICT_JavaIoFileWriter
+#define INCLUDE_ALL_JavaIoFileWriter 0
 #else
-#define JavaIoFileWriter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFileWriter 1
 #endif
-#undef JavaIoFileWriter_RESTRICT
+#undef RESTRICT_JavaIoFileWriter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFileWriter_) && (JavaIoFileWriter_INCLUDE_ALL || defined(JavaIoFileWriter_INCLUDE))
+#if !defined (JavaIoFileWriter_) && (INCLUDE_ALL_JavaIoFileWriter || defined(INCLUDE_JavaIoFileWriter))
 #define JavaIoFileWriter_
 
-#define JavaIoOutputStreamWriter_RESTRICT 1
-#define JavaIoOutputStreamWriter_INCLUDE 1
+#define RESTRICT_JavaIoOutputStreamWriter 1
+#define INCLUDE_JavaIoOutputStreamWriter 1
 #include "../../java/io/OutputStreamWriter.h"
 
 @class JavaIoFile;
@@ -103,21 +103,31 @@ FOUNDATION_EXPORT void JavaIoFileWriter_initWithJavaIoFile_(JavaIoFileWriter *se
 
 FOUNDATION_EXPORT JavaIoFileWriter *new_JavaIoFileWriter_initWithJavaIoFile_(JavaIoFile *file) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileWriter *create_JavaIoFileWriter_initWithJavaIoFile_(JavaIoFile *file);
+
 FOUNDATION_EXPORT void JavaIoFileWriter_initWithJavaIoFile_withBoolean_(JavaIoFileWriter *self, JavaIoFile *file, jboolean append);
 
 FOUNDATION_EXPORT JavaIoFileWriter *new_JavaIoFileWriter_initWithJavaIoFile_withBoolean_(JavaIoFile *file, jboolean append) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoFileWriter *create_JavaIoFileWriter_initWithJavaIoFile_withBoolean_(JavaIoFile *file, jboolean append);
 
 FOUNDATION_EXPORT void JavaIoFileWriter_initWithJavaIoFileDescriptor_(JavaIoFileWriter *self, JavaIoFileDescriptor *fd);
 
 FOUNDATION_EXPORT JavaIoFileWriter *new_JavaIoFileWriter_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileWriter *create_JavaIoFileWriter_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd);
+
 FOUNDATION_EXPORT void JavaIoFileWriter_initWithNSString_(JavaIoFileWriter *self, NSString *filename);
 
 FOUNDATION_EXPORT JavaIoFileWriter *new_JavaIoFileWriter_initWithNSString_(NSString *filename) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileWriter *create_JavaIoFileWriter_initWithNSString_(NSString *filename);
+
 FOUNDATION_EXPORT void JavaIoFileWriter_initWithNSString_withBoolean_(JavaIoFileWriter *self, NSString *filename, jboolean append);
 
 FOUNDATION_EXPORT JavaIoFileWriter *new_JavaIoFileWriter_initWithNSString_withBoolean_(NSString *filename, jboolean append) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoFileWriter *create_JavaIoFileWriter_initWithNSString_withBoolean_(NSString *filename, jboolean append);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileWriter)
 
@@ -125,4 +135,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileWriter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFileWriter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFileWriter")

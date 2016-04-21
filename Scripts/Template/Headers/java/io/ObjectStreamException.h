@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoObjectStreamException_INCLUDE_ALL")
-#ifdef JavaIoObjectStreamException_RESTRICT
-#define JavaIoObjectStreamException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoObjectStreamException")
+#ifdef RESTRICT_JavaIoObjectStreamException
+#define INCLUDE_ALL_JavaIoObjectStreamException 0
 #else
-#define JavaIoObjectStreamException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoObjectStreamException 1
 #endif
-#undef JavaIoObjectStreamException_RESTRICT
+#undef RESTRICT_JavaIoObjectStreamException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoObjectStreamException_) && (JavaIoObjectStreamException_INCLUDE_ALL || defined(JavaIoObjectStreamException_INCLUDE))
+#if !defined (JavaIoObjectStreamException_) && (INCLUDE_ALL_JavaIoObjectStreamException || defined(INCLUDE_JavaIoObjectStreamException))
 #define JavaIoObjectStreamException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -67,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoObjectStreamException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoObjectStreamException")

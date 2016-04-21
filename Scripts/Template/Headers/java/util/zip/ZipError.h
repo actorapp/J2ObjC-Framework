@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipZipError_INCLUDE_ALL")
-#ifdef JavaUtilZipZipError_RESTRICT
-#define JavaUtilZipZipError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipZipError")
+#ifdef RESTRICT_JavaUtilZipZipError
+#define INCLUDE_ALL_JavaUtilZipZipError 0
 #else
-#define JavaUtilZipZipError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipZipError 1
 #endif
-#undef JavaUtilZipZipError_RESTRICT
+#undef RESTRICT_JavaUtilZipZipError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipZipError_) && (JavaUtilZipZipError_INCLUDE_ALL || defined(JavaUtilZipZipError_INCLUDE))
+#if !defined (JavaUtilZipZipError_) && (INCLUDE_ALL_JavaUtilZipZipError || defined(INCLUDE_JavaUtilZipZipError))
 #define JavaUtilZipZipError_
 
-#define JavaLangInternalError_RESTRICT 1
-#define JavaLangInternalError_INCLUDE 1
+#define RESTRICT_JavaLangInternalError 1
+#define INCLUDE_JavaLangInternalError 1
 #include "../../../java/lang/InternalError.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaUtilZipZipError_initWithNSString_(JavaUtilZipZipError
 
 FOUNDATION_EXPORT JavaUtilZipZipError *new_JavaUtilZipZipError_initWithNSString_(NSString *s) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipZipError *create_JavaUtilZipZipError_initWithNSString_(NSString *s);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipError)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipZipError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipZipError")

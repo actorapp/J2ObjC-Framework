@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilRegexMatchResult_INCLUDE_ALL")
-#ifdef JavaUtilRegexMatchResult_RESTRICT
-#define JavaUtilRegexMatchResult_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilRegexMatchResult")
+#ifdef RESTRICT_JavaUtilRegexMatchResult
+#define INCLUDE_ALL_JavaUtilRegexMatchResult 0
 #else
-#define JavaUtilRegexMatchResult_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilRegexMatchResult 1
 #endif
-#undef JavaUtilRegexMatchResult_RESTRICT
+#undef RESTRICT_JavaUtilRegexMatchResult
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilRegexMatchResult_) && (JavaUtilRegexMatchResult_INCLUDE_ALL || defined(JavaUtilRegexMatchResult_INCLUDE))
+#if !defined (JavaUtilRegexMatchResult_) && (INCLUDE_ALL_JavaUtilRegexMatchResult || defined(INCLUDE_JavaUtilRegexMatchResult))
 #define JavaUtilRegexMatchResult_
 
 /*!
@@ -97,4 +97,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexMatchResult)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilRegexMatchResult_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilRegexMatchResult")

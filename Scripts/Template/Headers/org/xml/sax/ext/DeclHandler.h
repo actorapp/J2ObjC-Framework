@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxExtDeclHandler_INCLUDE_ALL")
-#ifdef OrgXmlSaxExtDeclHandler_RESTRICT
-#define OrgXmlSaxExtDeclHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtDeclHandler")
+#ifdef RESTRICT_OrgXmlSaxExtDeclHandler
+#define INCLUDE_ALL_OrgXmlSaxExtDeclHandler 0
 #else
-#define OrgXmlSaxExtDeclHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxExtDeclHandler 1
 #endif
-#undef OrgXmlSaxExtDeclHandler_RESTRICT
+#undef RESTRICT_OrgXmlSaxExtDeclHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxExtDeclHandler_) && (OrgXmlSaxExtDeclHandler_INCLUDE_ALL || defined(OrgXmlSaxExtDeclHandler_INCLUDE))
+#if !defined (OrgXmlSaxExtDeclHandler_) && (INCLUDE_ALL_OrgXmlSaxExtDeclHandler || defined(INCLUDE_OrgXmlSaxExtDeclHandler))
 #define OrgXmlSaxExtDeclHandler_
 
 /*!
@@ -141,4 +141,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtDeclHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxExtDeclHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtDeclHandler")

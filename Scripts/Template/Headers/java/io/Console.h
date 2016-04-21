@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoConsole_INCLUDE_ALL")
-#ifdef JavaIoConsole_RESTRICT
-#define JavaIoConsole_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoConsole")
+#ifdef RESTRICT_JavaIoConsole
+#define INCLUDE_ALL_JavaIoConsole 0
 #else
-#define JavaIoConsole_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoConsole 1
 #endif
-#undef JavaIoConsole_RESTRICT
+#undef RESTRICT_JavaIoConsole
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoConsole_) && (JavaIoConsole_INCLUDE_ALL || defined(JavaIoConsole_INCLUDE))
+#if !defined (JavaIoConsole_) && (INCLUDE_ALL_JavaIoConsole || defined(INCLUDE_JavaIoConsole))
 #define JavaIoConsole_
 
-#define JavaIoFlushable_RESTRICT 1
-#define JavaIoFlushable_INCLUDE 1
+#define RESTRICT_JavaIoFlushable 1
+#define INCLUDE_JavaIoFlushable 1
 #include "../../java/io/Flushable.h"
 
 @class IOSCharArray;
@@ -119,4 +119,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoConsole)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoConsole_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoConsole")

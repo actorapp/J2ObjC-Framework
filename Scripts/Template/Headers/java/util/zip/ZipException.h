@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipZipException_INCLUDE_ALL")
-#ifdef JavaUtilZipZipException_RESTRICT
-#define JavaUtilZipZipException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipZipException")
+#ifdef RESTRICT_JavaUtilZipZipException
+#define INCLUDE_ALL_JavaUtilZipZipException 0
 #else
-#define JavaUtilZipZipException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipZipException 1
 #endif
-#undef JavaUtilZipZipException_RESTRICT
+#undef RESTRICT_JavaUtilZipZipException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipZipException_) && (JavaUtilZipZipException_INCLUDE_ALL || defined(JavaUtilZipZipException_INCLUDE))
+#if !defined (JavaUtilZipZipException_) && (INCLUDE_ALL_JavaUtilZipZipException || defined(INCLUDE_JavaUtilZipZipException))
 #define JavaUtilZipZipException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../../java/io/IOException.h"
 
 /*!
@@ -54,9 +54,13 @@ FOUNDATION_EXPORT void JavaUtilZipZipException_init(JavaUtilZipZipException *sel
 
 FOUNDATION_EXPORT JavaUtilZipZipException *new_JavaUtilZipZipException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipZipException *create_JavaUtilZipZipException_init();
+
 FOUNDATION_EXPORT void JavaUtilZipZipException_initWithNSString_(JavaUtilZipZipException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaUtilZipZipException *new_JavaUtilZipZipException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipZipException *create_JavaUtilZipZipException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipException)
 
@@ -64,4 +68,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipZipException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipZipException")

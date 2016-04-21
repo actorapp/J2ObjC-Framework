@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLEngineResult_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLEngineResult_RESTRICT
-#define JavaxNetSslSSLEngineResult_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLEngineResult")
+#ifdef RESTRICT_JavaxNetSslSSLEngineResult
+#define INCLUDE_ALL_JavaxNetSslSSLEngineResult 0
 #else
-#define JavaxNetSslSSLEngineResult_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLEngineResult 1
 #endif
-#undef JavaxNetSslSSLEngineResult_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLEngineResult
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLEngineResult_) && (JavaxNetSslSSLEngineResult_INCLUDE_ALL || defined(JavaxNetSslSSLEngineResult_INCLUDE))
+#if !defined (JavaxNetSslSSLEngineResult_) && (INCLUDE_ALL_JavaxNetSslSSLEngineResult || defined(INCLUDE_JavaxNetSslSSLEngineResult))
 #define JavaxNetSslSSLEngineResult_
 
 @class JavaxNetSslSSLEngineResult_HandshakeStatus;
@@ -85,15 +85,17 @@ FOUNDATION_EXPORT void JavaxNetSslSSLEngineResult_initWithJavaxNetSslSSLEngineRe
 
 FOUNDATION_EXPORT JavaxNetSslSSLEngineResult *new_JavaxNetSslSSLEngineResult_initWithJavaxNetSslSSLEngineResult_Status_withJavaxNetSslSSLEngineResult_HandshakeStatus_withInt_withInt_(JavaxNetSslSSLEngineResult_Status *status, JavaxNetSslSSLEngineResult_HandshakeStatus *handshakeStatus, jint bytesConsumed, jint bytesProduced) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslSSLEngineResult *create_JavaxNetSslSSLEngineResult_initWithJavaxNetSslSSLEngineResult_Status_withJavaxNetSslSSLEngineResult_HandshakeStatus_withInt_withInt_(JavaxNetSslSSLEngineResult_Status *status, JavaxNetSslSSLEngineResult_HandshakeStatus *handshakeStatus, jint bytesConsumed, jint bytesProduced);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLEngineResult)
 
 #endif
 
-#if !defined (JavaxNetSslSSLEngineResult_HandshakeStatus_) && (JavaxNetSslSSLEngineResult_INCLUDE_ALL || defined(JavaxNetSslSSLEngineResult_HandshakeStatus_INCLUDE))
+#if !defined (JavaxNetSslSSLEngineResult_HandshakeStatus_) && (INCLUDE_ALL_JavaxNetSslSSLEngineResult || defined(INCLUDE_JavaxNetSslSSLEngineResult_HandshakeStatus))
 #define JavaxNetSslSSLEngineResult_HandshakeStatus_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaxNetSslSSLEngineResult_HandshakeStatus_Enum) {
@@ -178,11 +180,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLEngineResult_HandshakeStatus)
 
 #endif
 
-#if !defined (JavaxNetSslSSLEngineResult_Status_) && (JavaxNetSslSSLEngineResult_INCLUDE_ALL || defined(JavaxNetSslSSLEngineResult_Status_INCLUDE))
+#if !defined (JavaxNetSslSSLEngineResult_Status_) && (INCLUDE_ALL_JavaxNetSslSSLEngineResult || defined(INCLUDE_JavaxNetSslSSLEngineResult_Status))
 #define JavaxNetSslSSLEngineResult_Status_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaxNetSslSSLEngineResult_Status_Enum) {
@@ -261,4 +263,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLEngineResult_Status)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLEngineResult_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLEngineResult")

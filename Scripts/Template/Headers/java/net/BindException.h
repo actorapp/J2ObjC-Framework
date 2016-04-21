@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetBindException_INCLUDE_ALL")
-#ifdef JavaNetBindException_RESTRICT
-#define JavaNetBindException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetBindException")
+#ifdef RESTRICT_JavaNetBindException
+#define INCLUDE_ALL_JavaNetBindException 0
 #else
-#define JavaNetBindException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetBindException 1
 #endif
-#undef JavaNetBindException_RESTRICT
+#undef RESTRICT_JavaNetBindException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetBindException_) && (JavaNetBindException_INCLUDE_ALL || defined(JavaNetBindException_INCLUDE))
+#if !defined (JavaNetBindException_) && (INCLUDE_ALL_JavaNetBindException || defined(INCLUDE_JavaNetBindException))
 #define JavaNetBindException_
 
-#define JavaNetSocketException_RESTRICT 1
-#define JavaNetSocketException_INCLUDE 1
+#define RESTRICT_JavaNetSocketException 1
+#define INCLUDE_JavaNetSocketException 1
 #include "../../java/net/SocketException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief A <code>BindException</code> is thrown when a process cannot bind a local
@@ -49,7 +47,7 @@
  @brief Constructs a new instance with the given detail message and cause.
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 @end
 
@@ -59,13 +57,19 @@ FOUNDATION_EXPORT void JavaNetBindException_init(JavaNetBindException *self);
 
 FOUNDATION_EXPORT JavaNetBindException *new_JavaNetBindException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetBindException *create_JavaNetBindException_init();
+
 FOUNDATION_EXPORT void JavaNetBindException_initWithNSString_(JavaNetBindException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaNetBindException *new_JavaNetBindException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaNetBindException_initWithNSString_withJavaLangThrowable_(JavaNetBindException *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaNetBindException *create_JavaNetBindException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaNetBindException *new_JavaNetBindException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaNetBindException_initWithNSString_withNSException_(JavaNetBindException *self, NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT JavaNetBindException *new_JavaNetBindException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetBindException *create_JavaNetBindException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetBindException)
 
@@ -73,4 +77,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetBindException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetBindException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetBindException")

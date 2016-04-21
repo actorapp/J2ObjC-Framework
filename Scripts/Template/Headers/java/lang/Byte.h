@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangByte_INCLUDE_ALL")
-#ifdef JavaLangByte_RESTRICT
-#define JavaLangByte_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangByte")
+#ifdef RESTRICT_JavaLangByte
+#define INCLUDE_ALL_JavaLangByte 0
 #else
-#define JavaLangByte_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangByte 1
 #endif
-#undef JavaLangByte_RESTRICT
+#undef RESTRICT_JavaLangByte
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangByte_) && (JavaLangByte_INCLUDE_ALL || defined(JavaLangByte_INCLUDE))
+#if !defined (JavaLangByte_) && (INCLUDE_ALL_JavaLangByte || defined(INCLUDE_JavaLangByte))
 #define JavaLangByte_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -259,9 +259,13 @@ FOUNDATION_EXPORT void JavaLangByte_initWithByte_(JavaLangByte *self, jbyte valu
 
 FOUNDATION_EXPORT JavaLangByte *new_JavaLangByte_initWithByte_(jbyte value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangByte *create_JavaLangByte_initWithByte_(jbyte value);
+
 FOUNDATION_EXPORT void JavaLangByte_initWithNSString_(JavaLangByte *self, NSString *string);
 
 FOUNDATION_EXPORT JavaLangByte *new_JavaLangByte_initWithNSString_(NSString *string) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangByte *create_JavaLangByte_initWithNSString_(NSString *string);
 
 FOUNDATION_EXPORT jint JavaLangByte_compareWithByte_withByte_(jbyte lhs, jbyte rhs);
 
@@ -289,4 +293,4 @@ BOXED_INC_AND_DEC(Byte, charValue, JavaLangByte)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangByte_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangByte")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilRegexMatcher_INCLUDE_ALL")
-#ifdef JavaUtilRegexMatcher_RESTRICT
-#define JavaUtilRegexMatcher_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilRegexMatcher")
+#ifdef RESTRICT_JavaUtilRegexMatcher
+#define INCLUDE_ALL_JavaUtilRegexMatcher 0
 #else
-#define JavaUtilRegexMatcher_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilRegexMatcher 1
 #endif
-#undef JavaUtilRegexMatcher_RESTRICT
+#undef RESTRICT_JavaUtilRegexMatcher
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilRegexMatcher_) && (JavaUtilRegexMatcher_INCLUDE_ALL || defined(JavaUtilRegexMatcher_INCLUDE))
+#if !defined (JavaUtilRegexMatcher_) && (INCLUDE_ALL_JavaUtilRegexMatcher || defined(INCLUDE_JavaUtilRegexMatcher))
 #define JavaUtilRegexMatcher_
 
-#define JavaUtilRegexMatchResult_RESTRICT 1
-#define JavaUtilRegexMatchResult_INCLUDE 1
+#define RESTRICT_JavaUtilRegexMatchResult 1
+#define INCLUDE_JavaUtilRegexMatchResult 1
 #include "../../../java/util/regex/MatchResult.h"
 
 @class JavaLangStringBuffer;
@@ -301,7 +301,7 @@
 
 #pragma mark Protected
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 #pragma mark Package-Private
 
@@ -325,6 +325,8 @@ FOUNDATION_EXPORT void JavaUtilRegexMatcher_initWithJavaUtilRegexPattern_withJav
 
 FOUNDATION_EXPORT JavaUtilRegexMatcher *new_JavaUtilRegexMatcher_initWithJavaUtilRegexPattern_withJavaLangCharSequence_(JavaUtilRegexPattern *pattern, id<JavaLangCharSequence> input) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilRegexMatcher *create_JavaUtilRegexMatcher_initWithJavaUtilRegexPattern_withJavaLangCharSequence_(JavaUtilRegexPattern *pattern, id<JavaLangCharSequence> input);
+
 FOUNDATION_EXPORT NSString *JavaUtilRegexMatcher_quoteReplacementWithNSString_(NSString *s);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexMatcher)
@@ -333,4 +335,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexMatcher)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilRegexMatcher_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilRegexMatcher")

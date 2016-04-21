@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityPrivateKey_INCLUDE_ALL")
-#ifdef JavaSecurityPrivateKey_RESTRICT
-#define JavaSecurityPrivateKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityPrivateKey")
+#ifdef RESTRICT_JavaSecurityPrivateKey
+#define INCLUDE_ALL_JavaSecurityPrivateKey 0
 #else
-#define JavaSecurityPrivateKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityPrivateKey 1
 #endif
-#undef JavaSecurityPrivateKey_RESTRICT
+#undef RESTRICT_JavaSecurityPrivateKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityPrivateKey_) && (JavaSecurityPrivateKey_INCLUDE_ALL || defined(JavaSecurityPrivateKey_INCLUDE))
+#if !defined (JavaSecurityPrivateKey_) && (INCLUDE_ALL_JavaSecurityPrivateKey || defined(INCLUDE_JavaSecurityPrivateKey))
 #define JavaSecurityPrivateKey_
 
-#define JavaSecurityKey_RESTRICT 1
-#define JavaSecurityKey_INCLUDE 1
+#define RESTRICT_JavaSecurityKey 1
+#define INCLUDE_JavaSecurityKey 1
 #include "../../java/security/Key.h"
 
 /*!
@@ -52,4 +52,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPrivateKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityPrivateKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityPrivateKey")

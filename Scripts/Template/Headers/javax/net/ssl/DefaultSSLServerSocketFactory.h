@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE_ALL")
-#ifdef JavaxNetSslDefaultSSLServerSocketFactory_RESTRICT
-#define JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslDefaultSSLServerSocketFactory")
+#ifdef RESTRICT_JavaxNetSslDefaultSSLServerSocketFactory
+#define INCLUDE_ALL_JavaxNetSslDefaultSSLServerSocketFactory 0
 #else
-#define JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslDefaultSSLServerSocketFactory 1
 #endif
-#undef JavaxNetSslDefaultSSLServerSocketFactory_RESTRICT
+#undef RESTRICT_JavaxNetSslDefaultSSLServerSocketFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslDefaultSSLServerSocketFactory_) && (JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE_ALL || defined(JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE))
+#if !defined (JavaxNetSslDefaultSSLServerSocketFactory_) && (INCLUDE_ALL_JavaxNetSslDefaultSSLServerSocketFactory || defined(INCLUDE_JavaxNetSslDefaultSSLServerSocketFactory))
 #define JavaxNetSslDefaultSSLServerSocketFactory_
 
-#define JavaxNetSslSSLServerSocketFactory_RESTRICT 1
-#define JavaxNetSslSSLServerSocketFactory_INCLUDE 1
+#define RESTRICT_JavaxNetSslSSLServerSocketFactory 1
+#define INCLUDE_JavaxNetSslSSLServerSocketFactory 1
 #include "../../../javax/net/ssl/SSLServerSocketFactory.h"
 
 @class IOSObjectArray;
@@ -59,10 +59,12 @@ FOUNDATION_EXPORT void JavaxNetSslDefaultSSLServerSocketFactory_initWithNSString
 
 FOUNDATION_EXPORT JavaxNetSslDefaultSSLServerSocketFactory *new_JavaxNetSslDefaultSSLServerSocketFactory_initWithNSString_(NSString *mes) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslDefaultSSLServerSocketFactory *create_JavaxNetSslDefaultSSLServerSocketFactory_initWithNSString_(NSString *mes);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslDefaultSSLServerSocketFactory)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslDefaultSSLServerSocketFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslDefaultSSLServerSocketFactory")

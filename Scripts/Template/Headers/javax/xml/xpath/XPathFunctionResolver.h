@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlXpathXPathFunctionResolver_INCLUDE_ALL")
-#ifdef JavaxXmlXpathXPathFunctionResolver_RESTRICT
-#define JavaxXmlXpathXPathFunctionResolver_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathFunctionResolver")
+#ifdef RESTRICT_JavaxXmlXpathXPathFunctionResolver
+#define INCLUDE_ALL_JavaxXmlXpathXPathFunctionResolver 0
 #else
-#define JavaxXmlXpathXPathFunctionResolver_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlXpathXPathFunctionResolver 1
 #endif
-#undef JavaxXmlXpathXPathFunctionResolver_RESTRICT
+#undef RESTRICT_JavaxXmlXpathXPathFunctionResolver
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlXpathXPathFunctionResolver_) && (JavaxXmlXpathXPathFunctionResolver_INCLUDE_ALL || defined(JavaxXmlXpathXPathFunctionResolver_INCLUDE))
+#if !defined (JavaxXmlXpathXPathFunctionResolver_) && (INCLUDE_ALL_JavaxXmlXpathXPathFunctionResolver || defined(INCLUDE_JavaxXmlXpathXPathFunctionResolver))
 #define JavaxXmlXpathXPathFunctionResolver_
 
 @class JavaxXmlNamespaceQName;
@@ -66,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFunctionResolver)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlXpathXPathFunctionResolver_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathFunctionResolver")

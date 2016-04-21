@@ -5,25 +5,24 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformTransformerConfigurationException_INCLUDE_ALL")
-#ifdef JavaxXmlTransformTransformerConfigurationException_RESTRICT
-#define JavaxXmlTransformTransformerConfigurationException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformTransformerConfigurationException")
+#ifdef RESTRICT_JavaxXmlTransformTransformerConfigurationException
+#define INCLUDE_ALL_JavaxXmlTransformTransformerConfigurationException 0
 #else
-#define JavaxXmlTransformTransformerConfigurationException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformTransformerConfigurationException 1
 #endif
-#undef JavaxXmlTransformTransformerConfigurationException_RESTRICT
+#undef RESTRICT_JavaxXmlTransformTransformerConfigurationException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformTransformerConfigurationException_) && (JavaxXmlTransformTransformerConfigurationException_INCLUDE_ALL || defined(JavaxXmlTransformTransformerConfigurationException_INCLUDE))
+#if !defined (JavaxXmlTransformTransformerConfigurationException_) && (INCLUDE_ALL_JavaxXmlTransformTransformerConfigurationException || defined(INCLUDE_JavaxXmlTransformTransformerConfigurationException))
 #define JavaxXmlTransformTransformerConfigurationException_
 
-#define JavaxXmlTransformTransformerException_RESTRICT 1
-#define JavaxXmlTransformTransformerException_INCLUDE 1
+#define RESTRICT_JavaxXmlTransformTransformerException 1
+#define INCLUDE_JavaxXmlTransformTransformerException 1
 #include "../../../javax/xml/transform/TransformerException.h"
 
-@class JavaLangThrowable;
 @protocol JavaxXmlTransformSourceLocator;
 
 /*!
@@ -66,7 +65,7 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator;
  */
 - (instancetype)initWithNSString:(NSString *)message
 withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
-           withJavaLangThrowable:(JavaLangThrowable *)e;
+                 withNSException:(NSException *)e;
 
 /*!
  @brief Create a new <code>TransformerConfigurationException</code> with the
@@ -76,7 +75,7 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
  @param msg The detail message.
  */
 - (instancetype)initWithNSString:(NSString *)msg
-           withJavaLangThrowable:(JavaLangThrowable *)e;
+                 withNSException:(NSException *)e;
 
 /*!
  @brief Create a new <code>TransformerConfigurationException</code> with a
@@ -84,7 +83,7 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
  @param e The exception to be encapsulated in a
  TransformerConfigurationException.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)e;
+- (instancetype)initWithNSException:(NSException *)e;
 
 @end
 
@@ -94,25 +93,37 @@ FOUNDATION_EXPORT void JavaxXmlTransformTransformerConfigurationException_init(J
 
 FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *new_JavaxXmlTransformTransformerConfigurationException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *create_JavaxXmlTransformTransformerConfigurationException_init();
+
 FOUNDATION_EXPORT void JavaxXmlTransformTransformerConfigurationException_initWithNSString_(JavaxXmlTransformTransformerConfigurationException *self, NSString *msg);
 
 FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *new_JavaxXmlTransformTransformerConfigurationException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaxXmlTransformTransformerConfigurationException_initWithJavaLangThrowable_(JavaxXmlTransformTransformerConfigurationException *self, JavaLangThrowable *e);
+FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *create_JavaxXmlTransformTransformerConfigurationException_initWithNSString_(NSString *msg);
 
-FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *new_JavaxXmlTransformTransformerConfigurationException_initWithJavaLangThrowable_(JavaLangThrowable *e) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaxXmlTransformTransformerConfigurationException_initWithNSException_(JavaxXmlTransformTransformerConfigurationException *self, NSException *e);
 
-FOUNDATION_EXPORT void JavaxXmlTransformTransformerConfigurationException_initWithNSString_withJavaLangThrowable_(JavaxXmlTransformTransformerConfigurationException *self, NSString *msg, JavaLangThrowable *e);
+FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *new_JavaxXmlTransformTransformerConfigurationException_initWithNSException_(NSException *e) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *new_JavaxXmlTransformTransformerConfigurationException_initWithNSString_withJavaLangThrowable_(NSString *msg, JavaLangThrowable *e) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *create_JavaxXmlTransformTransformerConfigurationException_initWithNSException_(NSException *e);
+
+FOUNDATION_EXPORT void JavaxXmlTransformTransformerConfigurationException_initWithNSString_withNSException_(JavaxXmlTransformTransformerConfigurationException *self, NSString *msg, NSException *e);
+
+FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *new_JavaxXmlTransformTransformerConfigurationException_initWithNSString_withNSException_(NSString *msg, NSException *e) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *create_JavaxXmlTransformTransformerConfigurationException_initWithNSString_withNSException_(NSString *msg, NSException *e);
 
 FOUNDATION_EXPORT void JavaxXmlTransformTransformerConfigurationException_initWithNSString_withJavaxXmlTransformSourceLocator_(JavaxXmlTransformTransformerConfigurationException *self, NSString *message, id<JavaxXmlTransformSourceLocator> locator);
 
 FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *new_JavaxXmlTransformTransformerConfigurationException_initWithNSString_withJavaxXmlTransformSourceLocator_(NSString *message, id<JavaxXmlTransformSourceLocator> locator) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaxXmlTransformTransformerConfigurationException_initWithNSString_withJavaxXmlTransformSourceLocator_withJavaLangThrowable_(JavaxXmlTransformTransformerConfigurationException *self, NSString *message, id<JavaxXmlTransformSourceLocator> locator, JavaLangThrowable *e);
+FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *create_JavaxXmlTransformTransformerConfigurationException_initWithNSString_withJavaxXmlTransformSourceLocator_(NSString *message, id<JavaxXmlTransformSourceLocator> locator);
 
-FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *new_JavaxXmlTransformTransformerConfigurationException_initWithNSString_withJavaxXmlTransformSourceLocator_withJavaLangThrowable_(NSString *message, id<JavaxXmlTransformSourceLocator> locator, JavaLangThrowable *e) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaxXmlTransformTransformerConfigurationException_initWithNSString_withJavaxXmlTransformSourceLocator_withNSException_(JavaxXmlTransformTransformerConfigurationException *self, NSString *message, id<JavaxXmlTransformSourceLocator> locator, NSException *e);
+
+FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *new_JavaxXmlTransformTransformerConfigurationException_initWithNSString_withJavaxXmlTransformSourceLocator_withNSException_(NSString *message, id<JavaxXmlTransformSourceLocator> locator, NSException *e) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformTransformerConfigurationException *create_JavaxXmlTransformTransformerConfigurationException_initWithNSString_withJavaxXmlTransformSourceLocator_withNSException_(NSString *message, id<JavaxXmlTransformSourceLocator> locator, NSException *e);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformerConfigurationException)
 
@@ -120,4 +131,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformerConfigurationException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformTransformerConfigurationException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformTransformerConfigurationException")

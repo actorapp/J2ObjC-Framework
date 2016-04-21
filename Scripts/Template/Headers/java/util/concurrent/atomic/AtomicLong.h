@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicAtomicLong_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicAtomicLong_RESTRICT
-#define JavaUtilConcurrentAtomicAtomicLong_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLong")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicLong
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLong 0
 #else
-#define JavaUtilConcurrentAtomicAtomicLong_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLong 1
 #endif
-#undef JavaUtilConcurrentAtomicAtomicLong_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicAtomicLong
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicAtomicLong_) && (JavaUtilConcurrentAtomicAtomicLong_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicLong_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicAtomicLong_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLong || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicLong))
 #define JavaUtilConcurrentAtomicAtomicLong_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 /*!
@@ -190,9 +190,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicLong_initWithLong_(JavaUtil
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicLong *new_JavaUtilConcurrentAtomicAtomicLong_initWithLong_(jlong initialValue) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicLong *create_JavaUtilConcurrentAtomicAtomicLong_initWithLong_(jlong initialValue);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicLong_init(JavaUtilConcurrentAtomicAtomicLong *self);
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicLong *new_JavaUtilConcurrentAtomicAtomicLong_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicLong *create_JavaUtilConcurrentAtomicAtomicLong_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLong)
 
@@ -200,4 +204,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLong)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicAtomicLong_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLong")

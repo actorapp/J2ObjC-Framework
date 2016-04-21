@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoDataInput_INCLUDE_ALL")
-#ifdef JavaIoDataInput_RESTRICT
-#define JavaIoDataInput_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoDataInput")
+#ifdef RESTRICT_JavaIoDataInput
+#define INCLUDE_ALL_JavaIoDataInput 0
 #else
-#define JavaIoDataInput_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoDataInput 1
 #endif
-#undef JavaIoDataInput_RESTRICT
+#undef RESTRICT_JavaIoDataInput
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoDataInput_) && (JavaIoDataInput_INCLUDE_ALL || defined(JavaIoDataInput_INCLUDE))
+#if !defined (JavaIoDataInput_) && (INCLUDE_ALL_JavaIoDataInput || defined(INCLUDE_JavaIoDataInput))
 #define JavaIoDataInput_
 
 @class IOSByteArray;
@@ -244,4 +244,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoDataInput)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoDataInput_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoDataInput")

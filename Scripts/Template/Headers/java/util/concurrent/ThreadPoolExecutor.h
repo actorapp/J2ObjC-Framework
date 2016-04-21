@@ -5,26 +5,25 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentThreadPoolExecutor_RESTRICT
-#define JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor")
+#ifdef RESTRICT_JavaUtilConcurrentThreadPoolExecutor
+#define INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor 0
 #else
-#define JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor 1
 #endif
-#undef JavaUtilConcurrentThreadPoolExecutor_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentThreadPoolExecutor
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentThreadPoolExecutor_) && (JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentThreadPoolExecutor_INCLUDE))
+#if !defined (JavaUtilConcurrentThreadPoolExecutor_) && (INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor || defined(INCLUDE_JavaUtilConcurrentThreadPoolExecutor))
 #define JavaUtilConcurrentThreadPoolExecutor_
 
-#define JavaUtilConcurrentAbstractExecutorService_RESTRICT 1
-#define JavaUtilConcurrentAbstractExecutorService_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentAbstractExecutorService 1
+#define INCLUDE_JavaUtilConcurrentAbstractExecutorService 1
 #include "../../../java/util/concurrent/AbstractExecutorService.h"
 
 @class JavaLangThread;
-@class JavaLangThrowable;
 @class JavaUtilConcurrentThreadPoolExecutor_Worker;
 @class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
@@ -730,7 +729,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  execution completed normally
  */
 - (void)afterExecuteWithJavaLangRunnable:(id<JavaLangRunnable>)r
-                   withJavaLangThrowable:(JavaLangThrowable *)t;
+                         withNSException:(NSException *)t;
 
 /*!
  @brief Method invoked prior to executing the given Runnable in the
@@ -752,7 +751,7 @@ withJavaUtilConcurrentRejectedExecutionHandler:(id<JavaUtilConcurrentRejectedExe
  @brief Invokes <code>shutdown</code> when this executor is no longer
  referenced and it has no threads.
  */
-- (void)dealloc;
+- (void)javaFinalize;
 
 /*!
  @brief Method invoked when the Executor has terminated.
@@ -852,27 +851,35 @@ FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_
 
 FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *create_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory);
 
 FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *create_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory);
 
 FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentRejectedExecutionHandler_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentRejectedExecutionHandler> handler);
 
 FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentRejectedExecutionHandler_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentRejectedExecutionHandler> handler) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *create_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentRejectedExecutionHandler_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentRejectedExecutionHandler> handler);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_withJavaUtilConcurrentRejectedExecutionHandler_(JavaUtilConcurrentThreadPoolExecutor *self, jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory, id<JavaUtilConcurrentRejectedExecutionHandler> handler);
 
 FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *new_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_withJavaUtilConcurrentRejectedExecutionHandler_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory, id<JavaUtilConcurrentRejectedExecutionHandler> handler) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor *create_JavaUtilConcurrentThreadPoolExecutor_initWithInt_withInt_withLong_withJavaUtilConcurrentTimeUnit_withJavaUtilConcurrentBlockingQueue_withJavaUtilConcurrentThreadFactory_withJavaUtilConcurrentRejectedExecutionHandler_(jint corePoolSize, jint maximumPoolSize, jlong keepAliveTime, JavaUtilConcurrentTimeUnit *unit, id<JavaUtilConcurrentBlockingQueue> workQueue, id<JavaUtilConcurrentThreadFactory> threadFactory, id<JavaUtilConcurrentRejectedExecutionHandler> handler);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor)
 
 #endif
 
-#if !defined (JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy_) && (JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy_INCLUDE))
+#if !defined (JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy_) && (INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor || defined(INCLUDE_JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy))
 #define JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy_
 
-#define JavaUtilConcurrentRejectedExecutionHandler_RESTRICT 1
-#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentRejectedExecutionHandler 1
+#define INCLUDE_JavaUtilConcurrentRejectedExecutionHandler 1
 #include "../../../java/util/concurrent/RejectedExecutionHandler.h"
 
 @class JavaUtilConcurrentThreadPoolExecutor;
@@ -910,15 +917,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy_ini
 
 FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy *new_JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy *create_JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_CallerRunsPolicy)
 
 #endif
 
-#if !defined (JavaUtilConcurrentThreadPoolExecutor_AbortPolicy_) && (JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentThreadPoolExecutor_AbortPolicy_INCLUDE))
+#if !defined (JavaUtilConcurrentThreadPoolExecutor_AbortPolicy_) && (INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor || defined(INCLUDE_JavaUtilConcurrentThreadPoolExecutor_AbortPolicy))
 #define JavaUtilConcurrentThreadPoolExecutor_AbortPolicy_
 
-#define JavaUtilConcurrentRejectedExecutionHandler_RESTRICT 1
-#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentRejectedExecutionHandler 1
+#define INCLUDE_JavaUtilConcurrentRejectedExecutionHandler 1
 #include "../../../java/util/concurrent/RejectedExecutionHandler.h"
 
 @class JavaUtilConcurrentThreadPoolExecutor;
@@ -954,15 +963,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_AbortPolicy_init(Jav
 
 FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_AbortPolicy *new_JavaUtilConcurrentThreadPoolExecutor_AbortPolicy_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_AbortPolicy *create_JavaUtilConcurrentThreadPoolExecutor_AbortPolicy_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_AbortPolicy)
 
 #endif
 
-#if !defined (JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_) && (JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_INCLUDE))
+#if !defined (JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_) && (INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor || defined(INCLUDE_JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy))
 #define JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_
 
-#define JavaUtilConcurrentRejectedExecutionHandler_RESTRICT 1
-#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentRejectedExecutionHandler 1
+#define INCLUDE_JavaUtilConcurrentRejectedExecutionHandler 1
 #include "../../../java/util/concurrent/RejectedExecutionHandler.h"
 
 @class JavaUtilConcurrentThreadPoolExecutor;
@@ -997,15 +1008,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_init(J
 
 FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy *new_JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy *create_JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_DiscardPolicy)
 
 #endif
 
-#if !defined (JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy_) && (JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL || defined(JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy_INCLUDE))
+#if !defined (JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy_) && (INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor || defined(INCLUDE_JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy))
 #define JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy_
 
-#define JavaUtilConcurrentRejectedExecutionHandler_RESTRICT 1
-#define JavaUtilConcurrentRejectedExecutionHandler_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentRejectedExecutionHandler 1
+#define INCLUDE_JavaUtilConcurrentRejectedExecutionHandler 1
 #include "../../../java/util/concurrent/RejectedExecutionHandler.h"
 
 @class JavaUtilConcurrentThreadPoolExecutor;
@@ -1044,10 +1057,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy_
 
 FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy *new_JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy *create_JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadPoolExecutor_DiscardOldestPolicy)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentThreadPoolExecutor_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentThreadPoolExecutor")

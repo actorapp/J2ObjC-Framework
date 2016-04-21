@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoCharConversionException_INCLUDE_ALL")
-#ifdef JavaIoCharConversionException_RESTRICT
-#define JavaIoCharConversionException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoCharConversionException")
+#ifdef RESTRICT_JavaIoCharConversionException
+#define INCLUDE_ALL_JavaIoCharConversionException 0
 #else
-#define JavaIoCharConversionException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoCharConversionException 1
 #endif
-#undef JavaIoCharConversionException_RESTRICT
+#undef RESTRICT_JavaIoCharConversionException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoCharConversionException_) && (JavaIoCharConversionException_INCLUDE_ALL || defined(JavaIoCharConversionException_INCLUDE))
+#if !defined (JavaIoCharConversionException_) && (INCLUDE_ALL_JavaIoCharConversionException || defined(INCLUDE_JavaIoCharConversionException))
 #define JavaIoCharConversionException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -52,9 +52,13 @@ FOUNDATION_EXPORT void JavaIoCharConversionException_init(JavaIoCharConversionEx
 
 FOUNDATION_EXPORT JavaIoCharConversionException *new_JavaIoCharConversionException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoCharConversionException *create_JavaIoCharConversionException_init();
+
 FOUNDATION_EXPORT void JavaIoCharConversionException_initWithNSString_(JavaIoCharConversionException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoCharConversionException *new_JavaIoCharConversionException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoCharConversionException *create_JavaIoCharConversionException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharConversionException)
 
@@ -62,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharConversionException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoCharConversionException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoCharConversionException")

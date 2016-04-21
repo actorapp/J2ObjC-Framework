@@ -5,25 +5,24 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentForkJoinWorkerThread_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentForkJoinWorkerThread_RESTRICT
-#define JavaUtilConcurrentForkJoinWorkerThread_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentForkJoinWorkerThread")
+#ifdef RESTRICT_JavaUtilConcurrentForkJoinWorkerThread
+#define INCLUDE_ALL_JavaUtilConcurrentForkJoinWorkerThread 0
 #else
-#define JavaUtilConcurrentForkJoinWorkerThread_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentForkJoinWorkerThread 1
 #endif
-#undef JavaUtilConcurrentForkJoinWorkerThread_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentForkJoinWorkerThread
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentForkJoinWorkerThread_) && (JavaUtilConcurrentForkJoinWorkerThread_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinWorkerThread_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinWorkerThread_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinWorkerThread || defined(INCLUDE_JavaUtilConcurrentForkJoinWorkerThread))
 #define JavaUtilConcurrentForkJoinWorkerThread_
 
-#define JavaLangThread_RESTRICT 1
-#define JavaLangThread_INCLUDE 1
+#define RESTRICT_JavaLangThread 1
+#define INCLUDE_JavaLangThread 1
 #include "../../../java/lang/Thread.h"
 
-@class JavaLangThrowable;
 @class JavaUtilConcurrentForkJoinPool;
 @class JavaUtilConcurrentForkJoinPool_WorkQueue;
 
@@ -43,7 +42,7 @@
 @interface JavaUtilConcurrentForkJoinWorkerThread : JavaLangThread {
  @public
   JavaUtilConcurrentForkJoinPool *pool_;
-  __weak JavaUtilConcurrentForkJoinPool_WorkQueue *workQueue_;
+  __unsafe_unretained JavaUtilConcurrentForkJoinPool_WorkQueue *workQueue_;
 }
 
 #pragma mark Public
@@ -102,7 +101,7 @@
  @param exception the exception causing this thread to abort due
  to an unrecoverable error, or <code>null</code> if completed normally
  */
-- (void)onTerminationWithJavaLangThrowable:(JavaLangThrowable *)exception;
+- (void)onTerminationWithNSException:(NSException *)exception;
 
 @end
 
@@ -114,10 +113,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinWorkerThread_initWithJavaUtilCo
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinWorkerThread *new_JavaUtilConcurrentForkJoinWorkerThread_initWithJavaUtilConcurrentForkJoinPool_(JavaUtilConcurrentForkJoinPool *pool) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinWorkerThread *create_JavaUtilConcurrentForkJoinWorkerThread_initWithJavaUtilConcurrentForkJoinPool_(JavaUtilConcurrentForkJoinPool *pool);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinWorkerThread)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentForkJoinWorkerThread_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentForkJoinWorkerThread")

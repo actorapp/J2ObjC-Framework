@@ -5,63 +5,63 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentConcurrentHashMap_RESTRICT
-#define JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap")
+#ifdef RESTRICT_JavaUtilConcurrentConcurrentHashMap
+#define INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap 0
 #else
-#define JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap 1
 #endif
-#undef JavaUtilConcurrentConcurrentHashMap_RESTRICT
-#ifdef JavaUtilConcurrentConcurrentHashMap_EntrySetView_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_CollectionView_INCLUDE 1
+#undef RESTRICT_JavaUtilConcurrentConcurrentHashMap
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_EntrySetView
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_CollectionView 1
 #endif
-#ifdef JavaUtilConcurrentConcurrentHashMap_ValuesView_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_CollectionView_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_ValuesView
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_CollectionView 1
 #endif
-#ifdef JavaUtilConcurrentConcurrentHashMap_KeySetView_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_CollectionView_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_KeySetView
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_CollectionView 1
 #endif
-#ifdef JavaUtilConcurrentConcurrentHashMap_EntryIterator_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_BaseIterator_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_EntryIterator
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_BaseIterator 1
 #endif
-#ifdef JavaUtilConcurrentConcurrentHashMap_ValueIterator_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_BaseIterator_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_ValueIterator
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_BaseIterator 1
 #endif
-#ifdef JavaUtilConcurrentConcurrentHashMap_KeyIterator_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_BaseIterator_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_KeyIterator
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_BaseIterator 1
 #endif
-#ifdef JavaUtilConcurrentConcurrentHashMap_BaseIterator_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_Traverser_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_BaseIterator
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_Traverser 1
 #endif
-#ifdef JavaUtilConcurrentConcurrentHashMap_TreeBin_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_Node_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_TreeBin
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_Node 1
 #endif
-#ifdef JavaUtilConcurrentConcurrentHashMap_TreeNode_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_Node_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_TreeNode
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_Node 1
 #endif
-#ifdef JavaUtilConcurrentConcurrentHashMap_ReservationNode_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_Node_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_ReservationNode
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_Node 1
 #endif
-#ifdef JavaUtilConcurrentConcurrentHashMap_ForwardingNode_INCLUDE
-#define JavaUtilConcurrentConcurrentHashMap_Node_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentConcurrentHashMap_ForwardingNode
+#define INCLUDE_JavaUtilConcurrentConcurrentHashMap_Node 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap))
 #define JavaUtilConcurrentConcurrentHashMap_
 
-#define JavaUtilAbstractMap_RESTRICT 1
-#define JavaUtilAbstractMap_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractMap 1
+#define INCLUDE_JavaUtilAbstractMap 1
 #include "../../../java/util/AbstractMap.h"
 
-#define JavaUtilConcurrentConcurrentMap_RESTRICT 1
-#define JavaUtilConcurrentConcurrentMap_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentConcurrentMap 1
+#define INCLUDE_JavaUtilConcurrentConcurrentMap 1
 #include "../../../java/util/concurrent/ConcurrentMap.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSClass;
@@ -700,21 +700,31 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_init(JavaUtilConcurre
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap *new_JavaUtilConcurrentConcurrentHashMap_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap *create_JavaUtilConcurrentConcurrentHashMap_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_initWithInt_(JavaUtilConcurrentConcurrentHashMap *self, jint initialCapacity);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap *new_JavaUtilConcurrentConcurrentHashMap_initWithInt_(jint initialCapacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap *create_JavaUtilConcurrentConcurrentHashMap_initWithInt_(jint initialCapacity);
 
 FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_initWithJavaUtilMap_(JavaUtilConcurrentConcurrentHashMap *self, id<JavaUtilMap> m);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap *new_JavaUtilConcurrentConcurrentHashMap_initWithJavaUtilMap_(id<JavaUtilMap> m) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap *create_JavaUtilConcurrentConcurrentHashMap_initWithJavaUtilMap_(id<JavaUtilMap> m);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_initWithInt_withFloat_(JavaUtilConcurrentConcurrentHashMap *self, jint initialCapacity, jfloat loadFactor);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap *new_JavaUtilConcurrentConcurrentHashMap_initWithInt_withFloat_(jint initialCapacity, jfloat loadFactor) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap *create_JavaUtilConcurrentConcurrentHashMap_initWithInt_withFloat_(jint initialCapacity, jfloat loadFactor);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_initWithInt_withFloat_withInt_(JavaUtilConcurrentConcurrentHashMap *self, jint initialCapacity, jfloat loadFactor, jint concurrencyLevel);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap *new_JavaUtilConcurrentConcurrentHashMap_initWithInt_withFloat_withInt_(jint initialCapacity, jfloat loadFactor, jint concurrencyLevel) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap *create_JavaUtilConcurrentConcurrentHashMap_initWithInt_withFloat_withInt_(jint initialCapacity, jfloat loadFactor, jint concurrencyLevel);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_KeySetView *JavaUtilConcurrentConcurrentHashMap_newKeySet();
 
@@ -728,11 +738,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_Node_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_Node_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_Node_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_Node))
 #define JavaUtilConcurrentConcurrentHashMap_Node_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_Entry_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap_Entry 1
 #include "../../../java/util/Map.h"
 
 /*!
@@ -791,19 +801,21 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_Node_initWithInt_with
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_Node *new_JavaUtilConcurrentConcurrentHashMap_Node_initWithInt_withId_withId_withJavaUtilConcurrentConcurrentHashMap_Node_(jint hash_, id key, id val, JavaUtilConcurrentConcurrentHashMap_Node *next) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_Node *create_JavaUtilConcurrentConcurrentHashMap_Node_initWithInt_withId_withId_withJavaUtilConcurrentConcurrentHashMap_Node_(jint hash_, id key, id val, JavaUtilConcurrentConcurrentHashMap_Node *next);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_Node)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_Segment_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_Segment_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_Segment_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_Segment))
 #define JavaUtilConcurrentConcurrentHashMap_Segment_
 
-#define JavaUtilConcurrentLocksReentrantLock_RESTRICT 1
-#define JavaUtilConcurrentLocksReentrantLock_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentLocksReentrantLock 1
+#define INCLUDE_JavaUtilConcurrentLocksReentrantLock 1
 #include "../../../java/util/concurrent/locks/ReentrantLock.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 /*!
@@ -827,11 +839,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_Segment_initWithFloat
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_Segment *new_JavaUtilConcurrentConcurrentHashMap_Segment_initWithFloat_(jfloat lf) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_Segment *create_JavaUtilConcurrentConcurrentHashMap_Segment_initWithFloat_(jfloat lf);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_Segment)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_ForwardingNode_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_ForwardingNode_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_ForwardingNode_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_ForwardingNode))
 #define JavaUtilConcurrentConcurrentHashMap_ForwardingNode_
 
 @class IOSObjectArray;
@@ -862,11 +876,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_ForwardingNode_initWi
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ForwardingNode *new_JavaUtilConcurrentConcurrentHashMap_ForwardingNode_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_(IOSObjectArray *tab) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ForwardingNode *create_JavaUtilConcurrentConcurrentHashMap_ForwardingNode_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_(IOSObjectArray *tab);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ForwardingNode)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_ReservationNode_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_ReservationNode_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_ReservationNode_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_ReservationNode))
 #define JavaUtilConcurrentConcurrentHashMap_ReservationNode_
 
 @class JavaUtilConcurrentConcurrentHashMap_Node;
@@ -891,11 +907,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_ReservationNode_init(
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ReservationNode *new_JavaUtilConcurrentConcurrentHashMap_ReservationNode_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ReservationNode *create_JavaUtilConcurrentConcurrentHashMap_ReservationNode_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ReservationNode)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_TreeNode_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_TreeNode_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_TreeNode_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_TreeNode))
 #define JavaUtilConcurrentConcurrentHashMap_TreeNode_
 
 @class IOSClass;
@@ -945,11 +963,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_TreeNode_initWithInt_
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TreeNode *new_JavaUtilConcurrentConcurrentHashMap_TreeNode_initWithInt_withId_withId_withJavaUtilConcurrentConcurrentHashMap_Node_withJavaUtilConcurrentConcurrentHashMap_TreeNode_(jint hash_, id key, id val, JavaUtilConcurrentConcurrentHashMap_Node *next, JavaUtilConcurrentConcurrentHashMap_TreeNode *parent) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TreeNode *create_JavaUtilConcurrentConcurrentHashMap_TreeNode_initWithInt_withId_withId_withJavaUtilConcurrentConcurrentHashMap_Node_withJavaUtilConcurrentConcurrentHashMap_TreeNode_(jint hash_, id key, id val, JavaUtilConcurrentConcurrentHashMap_Node *next, JavaUtilConcurrentConcurrentHashMap_TreeNode *parent);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TreeNode)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_TreeBin_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_TreeBin_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_TreeBin_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_TreeBin))
 #define JavaUtilConcurrentConcurrentHashMap_TreeBin_
 
 @class JavaLangThread;
@@ -1068,6 +1088,8 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_TreeBin_initWithJavaU
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TreeBin *new_JavaUtilConcurrentConcurrentHashMap_TreeBin_initWithJavaUtilConcurrentConcurrentHashMap_TreeNode_(JavaUtilConcurrentConcurrentHashMap_TreeNode *b) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TreeBin *create_JavaUtilConcurrentConcurrentHashMap_TreeBin_initWithJavaUtilConcurrentConcurrentHashMap_TreeNode_(JavaUtilConcurrentConcurrentHashMap_TreeNode *b);
+
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TreeNode *JavaUtilConcurrentConcurrentHashMap_TreeBin_rotateLeftWithJavaUtilConcurrentConcurrentHashMap_TreeNode_withJavaUtilConcurrentConcurrentHashMap_TreeNode_(JavaUtilConcurrentConcurrentHashMap_TreeNode *root, JavaUtilConcurrentConcurrentHashMap_TreeNode *p);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TreeNode *JavaUtilConcurrentConcurrentHashMap_TreeBin_rotateRightWithJavaUtilConcurrentConcurrentHashMap_TreeNode_withJavaUtilConcurrentConcurrentHashMap_TreeNode_(JavaUtilConcurrentConcurrentHashMap_TreeNode *root, JavaUtilConcurrentConcurrentHashMap_TreeNode *p);
@@ -1082,7 +1104,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TreeBin)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_TableStack_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_TableStack_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_TableStack_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_TableStack))
 #define JavaUtilConcurrentConcurrentHashMap_TableStack_
 
 @class IOSObjectArray;
@@ -1115,11 +1137,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_TableStack_init(JavaU
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TableStack *new_JavaUtilConcurrentConcurrentHashMap_TableStack_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_TableStack *create_JavaUtilConcurrentConcurrentHashMap_TableStack_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_TableStack)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_Traverser_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_Traverser_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_Traverser_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_Traverser))
 #define JavaUtilConcurrentConcurrentHashMap_Traverser_
 
 @class IOSObjectArray;
@@ -1181,11 +1205,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_Traverser_initWithJav
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_Traverser *new_JavaUtilConcurrentConcurrentHashMap_Traverser_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_(IOSObjectArray *tab, jint size, jint index, jint limit) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_Traverser *create_JavaUtilConcurrentConcurrentHashMap_Traverser_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_(IOSObjectArray *tab, jint size, jint index, jint limit);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_Traverser)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_BaseIterator_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_BaseIterator_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_BaseIterator_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_BaseIterator))
 #define JavaUtilConcurrentConcurrentHashMap_BaseIterator_
 
 @class IOSObjectArray;
@@ -1230,19 +1256,21 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_BaseIterator_initWith
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_BaseIterator *new_JavaUtilConcurrentConcurrentHashMap_BaseIterator_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_withJavaUtilConcurrentConcurrentHashMap_(IOSObjectArray *tab, jint size, jint index, jint limit, JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_BaseIterator *create_JavaUtilConcurrentConcurrentHashMap_BaseIterator_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_withJavaUtilConcurrentConcurrentHashMap_(IOSObjectArray *tab, jint size, jint index, jint limit, JavaUtilConcurrentConcurrentHashMap *map);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_BaseIterator)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_KeyIterator_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_KeyIterator_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_KeyIterator_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_KeyIterator))
 #define JavaUtilConcurrentConcurrentHashMap_KeyIterator_
 
-#define JavaUtilIterator_RESTRICT 1
-#define JavaUtilIterator_INCLUDE 1
+#define RESTRICT_JavaUtilIterator 1
+#define INCLUDE_JavaUtilIterator 1
 #include "../../../java/util/Iterator.h"
 
-#define JavaUtilEnumeration_RESTRICT 1
-#define JavaUtilEnumeration_INCLUDE 1
+#define RESTRICT_JavaUtilEnumeration 1
+#define INCLUDE_JavaUtilEnumeration 1
 #include "../../../java/util/Enumeration.h"
 
 @class IOSObjectArray;
@@ -1272,19 +1300,21 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_KeyIterator_initWithJ
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_KeyIterator *new_JavaUtilConcurrentConcurrentHashMap_KeyIterator_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_withJavaUtilConcurrentConcurrentHashMap_(IOSObjectArray *tab, jint index, jint size, jint limit, JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_KeyIterator *create_JavaUtilConcurrentConcurrentHashMap_KeyIterator_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_withJavaUtilConcurrentConcurrentHashMap_(IOSObjectArray *tab, jint index, jint size, jint limit, JavaUtilConcurrentConcurrentHashMap *map);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeyIterator)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_ValueIterator_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_ValueIterator_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_ValueIterator_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_ValueIterator))
 #define JavaUtilConcurrentConcurrentHashMap_ValueIterator_
 
-#define JavaUtilIterator_RESTRICT 1
-#define JavaUtilIterator_INCLUDE 1
+#define RESTRICT_JavaUtilIterator 1
+#define INCLUDE_JavaUtilIterator 1
 #include "../../../java/util/Iterator.h"
 
-#define JavaUtilEnumeration_RESTRICT 1
-#define JavaUtilEnumeration_INCLUDE 1
+#define RESTRICT_JavaUtilEnumeration 1
+#define INCLUDE_JavaUtilEnumeration 1
 #include "../../../java/util/Enumeration.h"
 
 @class IOSObjectArray;
@@ -1314,15 +1344,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_ValueIterator_initWit
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ValueIterator *new_JavaUtilConcurrentConcurrentHashMap_ValueIterator_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_withJavaUtilConcurrentConcurrentHashMap_(IOSObjectArray *tab, jint index, jint size, jint limit, JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ValueIterator *create_JavaUtilConcurrentConcurrentHashMap_ValueIterator_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_withJavaUtilConcurrentConcurrentHashMap_(IOSObjectArray *tab, jint index, jint size, jint limit, JavaUtilConcurrentConcurrentHashMap *map);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValueIterator)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_EntryIterator_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_EntryIterator_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_EntryIterator_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_EntryIterator))
 #define JavaUtilConcurrentConcurrentHashMap_EntryIterator_
 
-#define JavaUtilIterator_RESTRICT 1
-#define JavaUtilIterator_INCLUDE 1
+#define RESTRICT_JavaUtilIterator 1
+#define INCLUDE_JavaUtilIterator 1
 #include "../../../java/util/Iterator.h"
 
 @class IOSObjectArray;
@@ -1351,15 +1383,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_EntryIterator_initWit
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_EntryIterator *new_JavaUtilConcurrentConcurrentHashMap_EntryIterator_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_withJavaUtilConcurrentConcurrentHashMap_(IOSObjectArray *tab, jint index, jint size, jint limit, JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_EntryIterator *create_JavaUtilConcurrentConcurrentHashMap_EntryIterator_initWithJavaUtilConcurrentConcurrentHashMap_NodeArray_withInt_withInt_withInt_withJavaUtilConcurrentConcurrentHashMap_(IOSObjectArray *tab, jint index, jint size, jint limit, JavaUtilConcurrentConcurrentHashMap *map);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_EntryIterator)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_MapEntry_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_MapEntry_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_MapEntry_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_MapEntry))
 #define JavaUtilConcurrentConcurrentHashMap_MapEntry_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_Entry_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap_Entry 1
 #include "../../../java/util/Map.h"
 
 @class JavaUtilConcurrentConcurrentHashMap;
@@ -1415,19 +1449,21 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_MapEntry_initWithId_w
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_MapEntry *new_JavaUtilConcurrentConcurrentHashMap_MapEntry_initWithId_withId_withJavaUtilConcurrentConcurrentHashMap_(id key, id val, JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_MapEntry *create_JavaUtilConcurrentConcurrentHashMap_MapEntry_initWithId_withId_withJavaUtilConcurrentConcurrentHashMap_(id key, id val, JavaUtilConcurrentConcurrentHashMap *map);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapEntry)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_CollectionView_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_CollectionView_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_CollectionView_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_CollectionView))
 #define JavaUtilConcurrentConcurrentHashMap_CollectionView_
 
-#define JavaUtilCollection_RESTRICT 1
-#define JavaUtilCollection_INCLUDE 1
+#define RESTRICT_JavaUtilCollection 1
+#define INCLUDE_JavaUtilCollection 1
 #include "../../../java/util/Collection.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -1439,7 +1475,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_MapEntry)
  */
 @interface JavaUtilConcurrentConcurrentHashMap_CollectionView : NSObject < JavaUtilCollection, JavaIoSerializable > {
  @public
-  __weak JavaUtilConcurrentConcurrentHashMap *map_;
+  __unsafe_unretained JavaUtilConcurrentConcurrentHashMap *map_;
 }
 
 #pragma mark Public
@@ -1510,15 +1546,15 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_CollectionView)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_KeySetView_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_KeySetView_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_KeySetView_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_KeySetView))
 #define JavaUtilConcurrentConcurrentHashMap_KeySetView_
 
-#define JavaUtilSet_RESTRICT 1
-#define JavaUtilSet_INCLUDE 1
+#define RESTRICT_JavaUtilSet 1
+#define INCLUDE_JavaUtilSet 1
 #include "../../../java/util/Set.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentConcurrentHashMap;
@@ -1608,19 +1644,21 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_KeySetView_initWithJa
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_KeySetView *new_JavaUtilConcurrentConcurrentHashMap_KeySetView_initWithJavaUtilConcurrentConcurrentHashMap_withId_(JavaUtilConcurrentConcurrentHashMap *map, id value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_KeySetView *create_JavaUtilConcurrentConcurrentHashMap_KeySetView_initWithJavaUtilConcurrentConcurrentHashMap_withId_(JavaUtilConcurrentConcurrentHashMap *map, id value);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_KeySetView)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_ValuesView_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_ValuesView_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_ValuesView_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_ValuesView))
 #define JavaUtilConcurrentConcurrentHashMap_ValuesView_
 
-#define JavaUtilCollection_RESTRICT 1
-#define JavaUtilCollection_INCLUDE 1
+#define RESTRICT_JavaUtilCollection 1
+#define INCLUDE_JavaUtilCollection 1
 #include "../../../java/util/Collection.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentConcurrentHashMap;
@@ -1658,19 +1696,21 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_ValuesView_initWithJa
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ValuesView *new_JavaUtilConcurrentConcurrentHashMap_ValuesView_initWithJavaUtilConcurrentConcurrentHashMap_(JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_ValuesView *create_JavaUtilConcurrentConcurrentHashMap_ValuesView_initWithJavaUtilConcurrentConcurrentHashMap_(JavaUtilConcurrentConcurrentHashMap *map);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_ValuesView)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_EntrySetView_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_EntrySetView_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_EntrySetView_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_EntrySetView))
 #define JavaUtilConcurrentConcurrentHashMap_EntrySetView_
 
-#define JavaUtilSet_RESTRICT 1
-#define JavaUtilSet_INCLUDE 1
+#define RESTRICT_JavaUtilSet 1
+#define INCLUDE_JavaUtilSet 1
 #include "../../../java/util/Set.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentConcurrentHashMap;
@@ -1717,11 +1757,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_EntrySetView_initWith
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_EntrySetView *new_JavaUtilConcurrentConcurrentHashMap_EntrySetView_initWithJavaUtilConcurrentConcurrentHashMap_(JavaUtilConcurrentConcurrentHashMap *map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_EntrySetView *create_JavaUtilConcurrentConcurrentHashMap_EntrySetView_initWithJavaUtilConcurrentConcurrentHashMap_(JavaUtilConcurrentConcurrentHashMap *map);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_EntrySetView)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_CounterCell_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_CounterCell_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_CounterCell_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_CounterCell))
 #define JavaUtilConcurrentConcurrentHashMap_CounterCell_
 
 @interface JavaUtilConcurrentConcurrentHashMap_CounterCell : NSObject {
@@ -1743,11 +1785,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_CounterCell_initWithL
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_CounterCell *new_JavaUtilConcurrentConcurrentHashMap_CounterCell_initWithLong_(jlong x) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_CounterCell *create_JavaUtilConcurrentConcurrentHashMap_CounterCell_initWithLong_(jlong x);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_CounterCell)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentHashMap_CounterHashCode_) && (JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentHashMap_CounterHashCode_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentHashMap_CounterHashCode_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap || defined(INCLUDE_JavaUtilConcurrentConcurrentHashMap_CounterHashCode))
 #define JavaUtilConcurrentConcurrentHashMap_CounterHashCode_
 
 /*!
@@ -1773,10 +1817,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentHashMap_CounterHashCode_init(
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_CounterHashCode *new_JavaUtilConcurrentConcurrentHashMap_CounterHashCode_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentHashMap_CounterHashCode *create_JavaUtilConcurrentConcurrentHashMap_CounterHashCode_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentHashMap_CounterHashCode)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentConcurrentHashMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentHashMap")

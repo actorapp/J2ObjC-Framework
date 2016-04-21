@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsAsynchronousCloseException_INCLUDE_ALL")
-#ifdef JavaNioChannelsAsynchronousCloseException_RESTRICT
-#define JavaNioChannelsAsynchronousCloseException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsAsynchronousCloseException")
+#ifdef RESTRICT_JavaNioChannelsAsynchronousCloseException
+#define INCLUDE_ALL_JavaNioChannelsAsynchronousCloseException 0
 #else
-#define JavaNioChannelsAsynchronousCloseException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsAsynchronousCloseException 1
 #endif
-#undef JavaNioChannelsAsynchronousCloseException_RESTRICT
+#undef RESTRICT_JavaNioChannelsAsynchronousCloseException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsAsynchronousCloseException_) && (JavaNioChannelsAsynchronousCloseException_INCLUDE_ALL || defined(JavaNioChannelsAsynchronousCloseException_INCLUDE))
+#if !defined (JavaNioChannelsAsynchronousCloseException_) && (INCLUDE_ALL_JavaNioChannelsAsynchronousCloseException || defined(INCLUDE_JavaNioChannelsAsynchronousCloseException))
 #define JavaNioChannelsAsynchronousCloseException_
 
-#define JavaNioChannelsClosedChannelException_RESTRICT 1
-#define JavaNioChannelsClosedChannelException_INCLUDE 1
+#define RESTRICT_JavaNioChannelsClosedChannelException 1
+#define INCLUDE_JavaNioChannelsClosedChannelException 1
 #include "../../../java/nio/channels/ClosedChannelException.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioChannelsAsynchronousCloseException_init(JavaNioCha
 
 FOUNDATION_EXPORT JavaNioChannelsAsynchronousCloseException *new_JavaNioChannelsAsynchronousCloseException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsAsynchronousCloseException *create_JavaNioChannelsAsynchronousCloseException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsAsynchronousCloseException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsAsynchronousCloseException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsAsynchronousCloseException")

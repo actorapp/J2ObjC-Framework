@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformTransformer_INCLUDE_ALL")
-#ifdef JavaxXmlTransformTransformer_RESTRICT
-#define JavaxXmlTransformTransformer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformTransformer")
+#ifdef RESTRICT_JavaxXmlTransformTransformer
+#define INCLUDE_ALL_JavaxXmlTransformTransformer 0
 #else
-#define JavaxXmlTransformTransformer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformTransformer 1
 #endif
-#undef JavaxXmlTransformTransformer_RESTRICT
+#undef RESTRICT_JavaxXmlTransformTransformer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformTransformer_) && (JavaxXmlTransformTransformer_INCLUDE_ALL || defined(JavaxXmlTransformTransformer_INCLUDE))
+#if !defined (JavaxXmlTransformTransformer_) && (INCLUDE_ALL_JavaxXmlTransformTransformer || defined(INCLUDE_JavaxXmlTransformTransformer))
 #define JavaxXmlTransformTransformer_
 
 @class JavaUtilProperties;
@@ -271,4 +271,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformTransformer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformTransformer")

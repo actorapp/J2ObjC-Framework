@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoObjectOutputStream_INCLUDE_ALL")
-#ifdef JavaIoObjectOutputStream_RESTRICT
-#define JavaIoObjectOutputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoObjectOutputStream")
+#ifdef RESTRICT_JavaIoObjectOutputStream
+#define INCLUDE_ALL_JavaIoObjectOutputStream 0
 #else
-#define JavaIoObjectOutputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoObjectOutputStream 1
 #endif
-#undef JavaIoObjectOutputStream_RESTRICT
+#undef RESTRICT_JavaIoObjectOutputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoObjectOutputStream_) && (JavaIoObjectOutputStream_INCLUDE_ALL || defined(JavaIoObjectOutputStream_INCLUDE))
+#if !defined (JavaIoObjectOutputStream_) && (INCLUDE_ALL_JavaIoObjectOutputStream || defined(INCLUDE_JavaIoObjectOutputStream))
 #define JavaIoObjectOutputStream_
 
-#define JavaIoOutputStream_RESTRICT 1
-#define JavaIoOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoOutputStream 1
+#define INCLUDE_JavaIoOutputStream 1
 #include "../../java/io/OutputStream.h"
 
-#define JavaIoObjectOutput_RESTRICT 1
-#define JavaIoObjectOutput_INCLUDE 1
+#define RESTRICT_JavaIoObjectOutput 1
+#define INCLUDE_JavaIoObjectOutput 1
 #include "../../java/io/ObjectOutput.h"
 
-#define JavaIoObjectStreamConstants_RESTRICT 1
-#define JavaIoObjectStreamConstants_INCLUDE 1
+#define RESTRICT_JavaIoObjectStreamConstants 1
+#define INCLUDE_JavaIoObjectStreamConstants 1
 #include "../../java/io/ObjectStreamConstants.h"
 
 @class IOSByteArray;
@@ -422,17 +422,22 @@ FOUNDATION_EXPORT void JavaIoObjectOutputStream_init(JavaIoObjectOutputStream *s
 
 FOUNDATION_EXPORT JavaIoObjectOutputStream *new_JavaIoObjectOutputStream_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoObjectOutputStream *create_JavaIoObjectOutputStream_init();
+
 FOUNDATION_EXPORT void JavaIoObjectOutputStream_initWithJavaIoOutputStream_(JavaIoObjectOutputStream *self, JavaIoOutputStream *output);
 
 FOUNDATION_EXPORT JavaIoObjectOutputStream *new_JavaIoObjectOutputStream_initWithJavaIoOutputStream_(JavaIoOutputStream *output) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoObjectOutputStream *create_JavaIoObjectOutputStream_initWithJavaIoOutputStream_(JavaIoOutputStream *output);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectOutputStream)
 
 #endif
 
-#if !defined (JavaIoObjectOutputStream_PutField_) && (JavaIoObjectOutputStream_INCLUDE_ALL || defined(JavaIoObjectOutputStream_PutField_INCLUDE))
+#if !defined (JavaIoObjectOutputStream_PutField_) && (INCLUDE_ALL_JavaIoObjectOutputStream || defined(INCLUDE_JavaIoObjectOutputStream_PutField))
 #define JavaIoObjectOutputStream_PutField_
 
+@class IOSObjectArray;
 @protocol JavaIoObjectOutput;
 
 /*!
@@ -565,4 +570,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectOutputStream_PutField)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoObjectOutputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoObjectOutputStream")

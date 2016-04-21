@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextSpanSet_INCLUDE_ALL")
-#ifdef AndroidTextSpanSet_RESTRICT
-#define AndroidTextSpanSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextSpanSet")
+#ifdef RESTRICT_AndroidTextSpanSet
+#define INCLUDE_ALL_AndroidTextSpanSet 0
 #else
-#define AndroidTextSpanSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextSpanSet 1
 #endif
-#undef AndroidTextSpanSet_RESTRICT
+#undef RESTRICT_AndroidTextSpanSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextSpanSet_) && (AndroidTextSpanSet_INCLUDE_ALL || defined(AndroidTextSpanSet_INCLUDE))
+#if !defined (AndroidTextSpanSet_) && (INCLUDE_ALL_AndroidTextSpanSet || defined(INCLUDE_AndroidTextSpanSet))
 #define AndroidTextSpanSet_
 
 @class IOSClass;
@@ -81,10 +81,12 @@ FOUNDATION_EXPORT void AndroidTextSpanSet_initWithIOSClass_(AndroidTextSpanSet *
 
 FOUNDATION_EXPORT AndroidTextSpanSet *new_AndroidTextSpanSet_initWithIOSClass_(IOSClass *type) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextSpanSet *create_AndroidTextSpanSet_initWithIOSClass_(IOSClass *type);
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpanSet)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextSpanSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextSpanSet")

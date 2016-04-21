@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingStreamHandler_INCLUDE_ALL")
-#ifdef JavaUtilLoggingStreamHandler_RESTRICT
-#define JavaUtilLoggingStreamHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingStreamHandler")
+#ifdef RESTRICT_JavaUtilLoggingStreamHandler
+#define INCLUDE_ALL_JavaUtilLoggingStreamHandler 0
 #else
-#define JavaUtilLoggingStreamHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingStreamHandler 1
 #endif
-#undef JavaUtilLoggingStreamHandler_RESTRICT
+#undef RESTRICT_JavaUtilLoggingStreamHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingStreamHandler_) && (JavaUtilLoggingStreamHandler_INCLUDE_ALL || defined(JavaUtilLoggingStreamHandler_INCLUDE))
+#if !defined (JavaUtilLoggingStreamHandler_) && (INCLUDE_ALL_JavaUtilLoggingStreamHandler || defined(INCLUDE_JavaUtilLoggingStreamHandler))
 #define JavaUtilLoggingStreamHandler_
 
-#define JavaUtilLoggingHandler_RESTRICT 1
-#define JavaUtilLoggingHandler_INCLUDE 1
+#define RESTRICT_JavaUtilLoggingHandler 1
+#define INCLUDE_JavaUtilLoggingHandler 1
 #include "../../../java/util/logging/Handler.h"
 
 @class JavaIoOutputStream;
@@ -190,17 +190,25 @@ FOUNDATION_EXPORT void JavaUtilLoggingStreamHandler_init(JavaUtilLoggingStreamHa
 
 FOUNDATION_EXPORT JavaUtilLoggingStreamHandler *new_JavaUtilLoggingStreamHandler_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingStreamHandler *create_JavaUtilLoggingStreamHandler_init();
+
 FOUNDATION_EXPORT void JavaUtilLoggingStreamHandler_initWithJavaIoOutputStream_(JavaUtilLoggingStreamHandler *self, JavaIoOutputStream *os);
 
 FOUNDATION_EXPORT JavaUtilLoggingStreamHandler *new_JavaUtilLoggingStreamHandler_initWithJavaIoOutputStream_(JavaIoOutputStream *os) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLoggingStreamHandler *create_JavaUtilLoggingStreamHandler_initWithJavaIoOutputStream_(JavaIoOutputStream *os);
 
 FOUNDATION_EXPORT void JavaUtilLoggingStreamHandler_initWithNSString_withNSString_withNSString_withNSString_(JavaUtilLoggingStreamHandler *self, NSString *defaultLevel, NSString *defaultFilter, NSString *defaultFormatter, NSString *defaultEncoding);
 
 FOUNDATION_EXPORT JavaUtilLoggingStreamHandler *new_JavaUtilLoggingStreamHandler_initWithNSString_withNSString_withNSString_withNSString_(NSString *defaultLevel, NSString *defaultFilter, NSString *defaultFormatter, NSString *defaultEncoding) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingStreamHandler *create_JavaUtilLoggingStreamHandler_initWithNSString_withNSString_withNSString_withNSString_(NSString *defaultLevel, NSString *defaultFilter, NSString *defaultFormatter, NSString *defaultEncoding);
+
 FOUNDATION_EXPORT void JavaUtilLoggingStreamHandler_initWithJavaIoOutputStream_withJavaUtilLoggingFormatter_(JavaUtilLoggingStreamHandler *self, JavaIoOutputStream *os, JavaUtilLoggingFormatter *formatter);
 
 FOUNDATION_EXPORT JavaUtilLoggingStreamHandler *new_JavaUtilLoggingStreamHandler_initWithJavaIoOutputStream_withJavaUtilLoggingFormatter_(JavaIoOutputStream *os, JavaUtilLoggingFormatter *formatter) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLoggingStreamHandler *create_JavaUtilLoggingStreamHandler_initWithJavaIoOutputStream_withJavaUtilLoggingFormatter_(JavaIoOutputStream *os, JavaUtilLoggingFormatter *formatter);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingStreamHandler)
 
@@ -208,4 +216,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingStreamHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingStreamHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingStreamHandler")

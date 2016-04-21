@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentCallable_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentCallable_RESTRICT
-#define JavaUtilConcurrentCallable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCallable")
+#ifdef RESTRICT_JavaUtilConcurrentCallable
+#define INCLUDE_ALL_JavaUtilConcurrentCallable 0
 #else
-#define JavaUtilConcurrentCallable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentCallable 1
 #endif
-#undef JavaUtilConcurrentCallable_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentCallable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentCallable_) && (JavaUtilConcurrentCallable_INCLUDE_ALL || defined(JavaUtilConcurrentCallable_INCLUDE))
+#if !defined (JavaUtilConcurrentCallable_) && (INCLUDE_ALL_JavaUtilConcurrentCallable || defined(INCLUDE_JavaUtilConcurrentCallable))
 #define JavaUtilConcurrentCallable_
 
 /*!
@@ -53,4 +53,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCallable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentCallable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCallable")

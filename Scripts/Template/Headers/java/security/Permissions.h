@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityPermissions_INCLUDE_ALL")
-#ifdef JavaSecurityPermissions_RESTRICT
-#define JavaSecurityPermissions_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityPermissions")
+#ifdef RESTRICT_JavaSecurityPermissions
+#define INCLUDE_ALL_JavaSecurityPermissions 0
 #else
-#define JavaSecurityPermissions_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityPermissions 1
 #endif
-#undef JavaSecurityPermissions_RESTRICT
+#undef RESTRICT_JavaSecurityPermissions
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityPermissions_) && (JavaSecurityPermissions_INCLUDE_ALL || defined(JavaSecurityPermissions_INCLUDE))
+#if !defined (JavaSecurityPermissions_) && (INCLUDE_ALL_JavaSecurityPermissions || defined(INCLUDE_JavaSecurityPermissions))
 #define JavaSecurityPermissions_
 
-#define JavaSecurityPermissionCollection_RESTRICT 1
-#define JavaSecurityPermissionCollection_INCLUDE 1
+#define RESTRICT_JavaSecurityPermissionCollection 1
+#define INCLUDE_JavaSecurityPermissionCollection 1
 #include "../../java/security/PermissionCollection.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class JavaSecurityPermission;
@@ -53,10 +53,12 @@ FOUNDATION_EXPORT void JavaSecurityPermissions_init(JavaSecurityPermissions *sel
 
 FOUNDATION_EXPORT JavaSecurityPermissions *new_JavaSecurityPermissions_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityPermissions *create_JavaSecurityPermissions_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPermissions)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityPermissions_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityPermissions")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilStack_INCLUDE_ALL")
-#ifdef JavaUtilStack_RESTRICT
-#define JavaUtilStack_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilStack")
+#ifdef RESTRICT_JavaUtilStack
+#define INCLUDE_ALL_JavaUtilStack 0
 #else
-#define JavaUtilStack_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilStack 1
 #endif
-#undef JavaUtilStack_RESTRICT
+#undef RESTRICT_JavaUtilStack
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilStack_) && (JavaUtilStack_INCLUDE_ALL || defined(JavaUtilStack_INCLUDE))
+#if !defined (JavaUtilStack_) && (INCLUDE_ALL_JavaUtilStack || defined(INCLUDE_JavaUtilStack))
 #define JavaUtilStack_
 
-#define JavaUtilVector_RESTRICT 1
-#define JavaUtilVector_INCLUDE 1
+#define RESTRICT_JavaUtilVector 1
+#define INCLUDE_JavaUtilVector 1
 #include "../../java/util/Vector.h"
 
 /*!
@@ -93,10 +93,12 @@ FOUNDATION_EXPORT void JavaUtilStack_init(JavaUtilStack *self);
 
 FOUNDATION_EXPORT JavaUtilStack *new_JavaUtilStack_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilStack *create_JavaUtilStack_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStack)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilStack_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilStack")

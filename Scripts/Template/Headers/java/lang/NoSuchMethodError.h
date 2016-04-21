@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangNoSuchMethodError_INCLUDE_ALL")
-#ifdef JavaLangNoSuchMethodError_RESTRICT
-#define JavaLangNoSuchMethodError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangNoSuchMethodError")
+#ifdef RESTRICT_JavaLangNoSuchMethodError
+#define INCLUDE_ALL_JavaLangNoSuchMethodError 0
 #else
-#define JavaLangNoSuchMethodError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangNoSuchMethodError 1
 #endif
-#undef JavaLangNoSuchMethodError_RESTRICT
+#undef RESTRICT_JavaLangNoSuchMethodError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangNoSuchMethodError_) && (JavaLangNoSuchMethodError_INCLUDE_ALL || defined(JavaLangNoSuchMethodError_INCLUDE))
+#if !defined (JavaLangNoSuchMethodError_) && (INCLUDE_ALL_JavaLangNoSuchMethodError || defined(INCLUDE_JavaLangNoSuchMethodError))
 #define JavaLangNoSuchMethodError_
 
-#define JavaLangIncompatibleClassChangeError_RESTRICT 1
-#define JavaLangIncompatibleClassChangeError_INCLUDE 1
+#define RESTRICT_JavaLangIncompatibleClassChangeError 1
+#define INCLUDE_JavaLangIncompatibleClassChangeError 1
 #include "../../java/lang/IncompatibleClassChangeError.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangNoSuchMethodError_init(JavaLangNoSuchMethodError 
 
 FOUNDATION_EXPORT JavaLangNoSuchMethodError *new_JavaLangNoSuchMethodError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangNoSuchMethodError *create_JavaLangNoSuchMethodError_init();
+
 FOUNDATION_EXPORT void JavaLangNoSuchMethodError_initWithNSString_(JavaLangNoSuchMethodError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangNoSuchMethodError *new_JavaLangNoSuchMethodError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangNoSuchMethodError *create_JavaLangNoSuchMethodError_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoSuchMethodError)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoSuchMethodError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangNoSuchMethodError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangNoSuchMethodError")

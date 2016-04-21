@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicAtomicLongArray_RESTRICT
-#define JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongArray")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicLongArray
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongArray 0
 #else
-#define JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongArray 1
 #endif
-#undef JavaUtilConcurrentAtomicAtomicLongArray_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicAtomicLongArray
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicAtomicLongArray_) && (JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicAtomicLongArray_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongArray || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicLongArray))
 #define JavaUtilConcurrentAtomicAtomicLongArray_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 @class IOSLongArray;
@@ -181,9 +181,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicLongArray_initWithInt_(Java
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicLongArray *new_JavaUtilConcurrentAtomicAtomicLongArray_initWithInt_(jint length) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicLongArray *create_JavaUtilConcurrentAtomicAtomicLongArray_initWithInt_(jint length);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicLongArray_initWithLongArray_(JavaUtilConcurrentAtomicAtomicLongArray *self, IOSLongArray *array);
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicLongArray *new_JavaUtilConcurrentAtomicAtomicLongArray_initWithLongArray_(IOSLongArray *array) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicLongArray *create_JavaUtilConcurrentAtomicAtomicLongArray_initWithLongArray_(IOSLongArray *array);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLongArray)
 
@@ -191,4 +195,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLongArray)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicAtomicLongArray_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongArray")

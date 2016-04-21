@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomUserDataHandler_INCLUDE_ALL")
-#ifdef OrgW3cDomUserDataHandler_RESTRICT
-#define OrgW3cDomUserDataHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomUserDataHandler")
+#ifdef RESTRICT_OrgW3cDomUserDataHandler
+#define INCLUDE_ALL_OrgW3cDomUserDataHandler 0
 #else
-#define OrgW3cDomUserDataHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomUserDataHandler 1
 #endif
-#undef OrgW3cDomUserDataHandler_RESTRICT
+#undef RESTRICT_OrgW3cDomUserDataHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomUserDataHandler_) && (OrgW3cDomUserDataHandler_INCLUDE_ALL || defined(OrgW3cDomUserDataHandler_INCLUDE))
+#if !defined (OrgW3cDomUserDataHandler_) && (INCLUDE_ALL_OrgW3cDomUserDataHandler || defined(INCLUDE_OrgW3cDomUserDataHandler))
 #define OrgW3cDomUserDataHandler_
 
 @protocol OrgW3cDomNode;
@@ -117,4 +117,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomUserDataHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomUserDataHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomUserDataHandler")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangIllegalAccessException_INCLUDE_ALL")
-#ifdef JavaLangIllegalAccessException_RESTRICT
-#define JavaLangIllegalAccessException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangIllegalAccessException")
+#ifdef RESTRICT_JavaLangIllegalAccessException
+#define INCLUDE_ALL_JavaLangIllegalAccessException 0
 #else
-#define JavaLangIllegalAccessException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangIllegalAccessException 1
 #endif
-#undef JavaLangIllegalAccessException_RESTRICT
+#undef RESTRICT_JavaLangIllegalAccessException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangIllegalAccessException_) && (JavaLangIllegalAccessException_INCLUDE_ALL || defined(JavaLangIllegalAccessException_INCLUDE))
+#if !defined (JavaLangIllegalAccessException_) && (INCLUDE_ALL_JavaLangIllegalAccessException || defined(INCLUDE_JavaLangIllegalAccessException))
 #define JavaLangIllegalAccessException_
 
-#define JavaLangReflectiveOperationException_RESTRICT 1
-#define JavaLangReflectiveOperationException_INCLUDE 1
+#define RESTRICT_JavaLangReflectiveOperationException 1
+#define INCLUDE_JavaLangReflectiveOperationException 1
 #include "../../java/lang/ReflectiveOperationException.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangIllegalAccessException_init(JavaLangIllegalAccess
 
 FOUNDATION_EXPORT JavaLangIllegalAccessException *new_JavaLangIllegalAccessException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangIllegalAccessException *create_JavaLangIllegalAccessException_init();
+
 FOUNDATION_EXPORT void JavaLangIllegalAccessException_initWithNSString_(JavaLangIllegalAccessException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangIllegalAccessException *new_JavaLangIllegalAccessException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangIllegalAccessException *create_JavaLangIllegalAccessException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalAccessException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalAccessException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangIllegalAccessException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangIllegalAccessException")

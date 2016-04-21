@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipCheckedOutputStream_INCLUDE_ALL")
-#ifdef JavaUtilZipCheckedOutputStream_RESTRICT
-#define JavaUtilZipCheckedOutputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipCheckedOutputStream")
+#ifdef RESTRICT_JavaUtilZipCheckedOutputStream
+#define INCLUDE_ALL_JavaUtilZipCheckedOutputStream 0
 #else
-#define JavaUtilZipCheckedOutputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipCheckedOutputStream 1
 #endif
-#undef JavaUtilZipCheckedOutputStream_RESTRICT
+#undef RESTRICT_JavaUtilZipCheckedOutputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipCheckedOutputStream_) && (JavaUtilZipCheckedOutputStream_INCLUDE_ALL || defined(JavaUtilZipCheckedOutputStream_INCLUDE))
+#if !defined (JavaUtilZipCheckedOutputStream_) && (INCLUDE_ALL_JavaUtilZipCheckedOutputStream || defined(INCLUDE_JavaUtilZipCheckedOutputStream))
 #define JavaUtilZipCheckedOutputStream_
 
-#define JavaIoFilterOutputStream_RESTRICT 1
-#define JavaIoFilterOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoFilterOutputStream 1
+#define INCLUDE_JavaIoFilterOutputStream 1
 #include "../../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
@@ -94,10 +94,12 @@ FOUNDATION_EXPORT void JavaUtilZipCheckedOutputStream_initWithJavaIoOutputStream
 
 FOUNDATION_EXPORT JavaUtilZipCheckedOutputStream *new_JavaUtilZipCheckedOutputStream_initWithJavaIoOutputStream_withJavaUtilZipChecksum_(JavaIoOutputStream *os, id<JavaUtilZipChecksum> cs) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipCheckedOutputStream *create_JavaUtilZipCheckedOutputStream_initWithJavaIoOutputStream_withJavaUtilZipChecksum_(JavaIoOutputStream *os, id<JavaUtilZipChecksum> cs);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipCheckedOutputStream)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipCheckedOutputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipCheckedOutputStream")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharsetCodingErrorAction_INCLUDE_ALL")
-#ifdef JavaNioCharsetCodingErrorAction_RESTRICT
-#define JavaNioCharsetCodingErrorAction_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharsetCodingErrorAction")
+#ifdef RESTRICT_JavaNioCharsetCodingErrorAction
+#define INCLUDE_ALL_JavaNioCharsetCodingErrorAction 0
 #else
-#define JavaNioCharsetCodingErrorAction_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharsetCodingErrorAction 1
 #endif
-#undef JavaNioCharsetCodingErrorAction_RESTRICT
+#undef RESTRICT_JavaNioCharsetCodingErrorAction
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharsetCodingErrorAction_) && (JavaNioCharsetCodingErrorAction_INCLUDE_ALL || defined(JavaNioCharsetCodingErrorAction_INCLUDE))
+#if !defined (JavaNioCharsetCodingErrorAction_) && (INCLUDE_ALL_JavaNioCharsetCodingErrorAction || defined(INCLUDE_JavaNioCharsetCodingErrorAction))
 #define JavaNioCharsetCodingErrorAction_
 
 /*!
@@ -78,4 +78,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCodingErrorAction)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharsetCodingErrorAction_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCodingErrorAction")

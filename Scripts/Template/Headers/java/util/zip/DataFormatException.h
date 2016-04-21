@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipDataFormatException_INCLUDE_ALL")
-#ifdef JavaUtilZipDataFormatException_RESTRICT
-#define JavaUtilZipDataFormatException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipDataFormatException")
+#ifdef RESTRICT_JavaUtilZipDataFormatException
+#define INCLUDE_ALL_JavaUtilZipDataFormatException 0
 #else
-#define JavaUtilZipDataFormatException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipDataFormatException 1
 #endif
-#undef JavaUtilZipDataFormatException_RESTRICT
+#undef RESTRICT_JavaUtilZipDataFormatException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipDataFormatException_) && (JavaUtilZipDataFormatException_INCLUDE_ALL || defined(JavaUtilZipDataFormatException_INCLUDE))
+#if !defined (JavaUtilZipDataFormatException_) && (INCLUDE_ALL_JavaUtilZipDataFormatException || defined(INCLUDE_JavaUtilZipDataFormatException))
 #define JavaUtilZipDataFormatException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -52,9 +52,13 @@ FOUNDATION_EXPORT void JavaUtilZipDataFormatException_init(JavaUtilZipDataFormat
 
 FOUNDATION_EXPORT JavaUtilZipDataFormatException *new_JavaUtilZipDataFormatException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipDataFormatException *create_JavaUtilZipDataFormatException_init();
+
 FOUNDATION_EXPORT void JavaUtilZipDataFormatException_initWithNSString_(JavaUtilZipDataFormatException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaUtilZipDataFormatException *new_JavaUtilZipDataFormatException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipDataFormatException *create_JavaUtilZipDataFormatException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDataFormatException)
 
@@ -62,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDataFormatException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipDataFormatException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipDataFormatException")

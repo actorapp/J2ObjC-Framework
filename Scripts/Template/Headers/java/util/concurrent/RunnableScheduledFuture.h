@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentRunnableScheduledFuture_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentRunnableScheduledFuture_RESTRICT
-#define JavaUtilConcurrentRunnableScheduledFuture_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentRunnableScheduledFuture")
+#ifdef RESTRICT_JavaUtilConcurrentRunnableScheduledFuture
+#define INCLUDE_ALL_JavaUtilConcurrentRunnableScheduledFuture 0
 #else
-#define JavaUtilConcurrentRunnableScheduledFuture_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentRunnableScheduledFuture 1
 #endif
-#undef JavaUtilConcurrentRunnableScheduledFuture_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentRunnableScheduledFuture
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentRunnableScheduledFuture_) && (JavaUtilConcurrentRunnableScheduledFuture_INCLUDE_ALL || defined(JavaUtilConcurrentRunnableScheduledFuture_INCLUDE))
+#if !defined (JavaUtilConcurrentRunnableScheduledFuture_) && (INCLUDE_ALL_JavaUtilConcurrentRunnableScheduledFuture || defined(INCLUDE_JavaUtilConcurrentRunnableScheduledFuture))
 #define JavaUtilConcurrentRunnableScheduledFuture_
 
-#define JavaUtilConcurrentRunnableFuture_RESTRICT 1
-#define JavaUtilConcurrentRunnableFuture_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentRunnableFuture 1
+#define INCLUDE_JavaUtilConcurrentRunnableFuture 1
 #include "../../../java/util/concurrent/RunnableFuture.h"
 
-#define JavaUtilConcurrentScheduledFuture_RESTRICT 1
-#define JavaUtilConcurrentScheduledFuture_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentScheduledFuture 1
+#define INCLUDE_JavaUtilConcurrentScheduledFuture 1
 #include "../../../java/util/concurrent/ScheduledFuture.h"
 
 /*!
@@ -58,4 +58,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRunnableScheduledFuture)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentRunnableScheduledFuture_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentRunnableScheduledFuture")

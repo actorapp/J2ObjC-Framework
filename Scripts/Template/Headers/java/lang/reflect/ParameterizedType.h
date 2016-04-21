@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectParameterizedType_INCLUDE_ALL")
-#ifdef JavaLangReflectParameterizedType_RESTRICT
-#define JavaLangReflectParameterizedType_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectParameterizedType")
+#ifdef RESTRICT_JavaLangReflectParameterizedType
+#define INCLUDE_ALL_JavaLangReflectParameterizedType 0
 #else
-#define JavaLangReflectParameterizedType_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectParameterizedType 1
 #endif
-#undef JavaLangReflectParameterizedType_RESTRICT
+#undef RESTRICT_JavaLangReflectParameterizedType
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectParameterizedType_) && (JavaLangReflectParameterizedType_INCLUDE_ALL || defined(JavaLangReflectParameterizedType_INCLUDE))
+#if !defined (JavaLangReflectParameterizedType_) && (INCLUDE_ALL_JavaLangReflectParameterizedType || defined(INCLUDE_JavaLangReflectParameterizedType))
 #define JavaLangReflectParameterizedType_
 
-#define JavaLangReflectType_RESTRICT 1
-#define JavaLangReflectType_INCLUDE 1
+#define RESTRICT_JavaLangReflectType 1
+#define INCLUDE_JavaLangReflectType 1
 #include "../../../java/lang/reflect/Type.h"
 
 @class IOSObjectArray;
@@ -85,4 +85,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectParameterizedType)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectParameterizedType_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectParameterizedType")

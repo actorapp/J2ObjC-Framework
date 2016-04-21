@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetPlainServerSocketImpl_INCLUDE_ALL")
-#ifdef JavaNetPlainServerSocketImpl_RESTRICT
-#define JavaNetPlainServerSocketImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetPlainServerSocketImpl")
+#ifdef RESTRICT_JavaNetPlainServerSocketImpl
+#define INCLUDE_ALL_JavaNetPlainServerSocketImpl 0
 #else
-#define JavaNetPlainServerSocketImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetPlainServerSocketImpl 1
 #endif
-#undef JavaNetPlainServerSocketImpl_RESTRICT
+#undef RESTRICT_JavaNetPlainServerSocketImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetPlainServerSocketImpl_) && (JavaNetPlainServerSocketImpl_INCLUDE_ALL || defined(JavaNetPlainServerSocketImpl_INCLUDE))
+#if !defined (JavaNetPlainServerSocketImpl_) && (INCLUDE_ALL_JavaNetPlainServerSocketImpl || defined(INCLUDE_JavaNetPlainServerSocketImpl))
 #define JavaNetPlainServerSocketImpl_
 
-#define JavaNetPlainSocketImpl_RESTRICT 1
-#define JavaNetPlainSocketImpl_INCLUDE 1
+#define RESTRICT_JavaNetPlainSocketImpl 1
+#define INCLUDE_JavaNetPlainSocketImpl 1
 #include "../../java/net/PlainSocketImpl.h"
 
 @class JavaIoFileDescriptor;
@@ -48,9 +48,13 @@ FOUNDATION_EXPORT void JavaNetPlainServerSocketImpl_init(JavaNetPlainServerSocke
 
 FOUNDATION_EXPORT JavaNetPlainServerSocketImpl *new_JavaNetPlainServerSocketImpl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetPlainServerSocketImpl *create_JavaNetPlainServerSocketImpl_init();
+
 FOUNDATION_EXPORT void JavaNetPlainServerSocketImpl_initWithJavaIoFileDescriptor_(JavaNetPlainServerSocketImpl *self, JavaIoFileDescriptor *fd);
 
 FOUNDATION_EXPORT JavaNetPlainServerSocketImpl *new_JavaNetPlainServerSocketImpl_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetPlainServerSocketImpl *create_JavaNetPlainServerSocketImpl_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetPlainServerSocketImpl)
 
@@ -58,4 +62,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetPlainServerSocketImpl)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetPlainServerSocketImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetPlainServerSocketImpl")

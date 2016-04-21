@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFileOutputStream_INCLUDE_ALL")
-#ifdef JavaIoFileOutputStream_RESTRICT
-#define JavaIoFileOutputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFileOutputStream")
+#ifdef RESTRICT_JavaIoFileOutputStream
+#define INCLUDE_ALL_JavaIoFileOutputStream 0
 #else
-#define JavaIoFileOutputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFileOutputStream 1
 #endif
-#undef JavaIoFileOutputStream_RESTRICT
+#undef RESTRICT_JavaIoFileOutputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFileOutputStream_) && (JavaIoFileOutputStream_INCLUDE_ALL || defined(JavaIoFileOutputStream_INCLUDE))
+#if !defined (JavaIoFileOutputStream_) && (INCLUDE_ALL_JavaIoFileOutputStream || defined(INCLUDE_JavaIoFileOutputStream))
 #define JavaIoFileOutputStream_
 
-#define JavaIoOutputStream_RESTRICT 1
-#define JavaIoOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoOutputStream 1
+#define INCLUDE_JavaIoOutputStream 1
 #include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
@@ -117,7 +117,7 @@
 
 #pragma mark Protected
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 @end
 
@@ -127,21 +127,31 @@ FOUNDATION_EXPORT void JavaIoFileOutputStream_initWithJavaIoFile_(JavaIoFileOutp
 
 FOUNDATION_EXPORT JavaIoFileOutputStream *new_JavaIoFileOutputStream_initWithJavaIoFile_(JavaIoFile *file) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileOutputStream *create_JavaIoFileOutputStream_initWithJavaIoFile_(JavaIoFile *file);
+
 FOUNDATION_EXPORT void JavaIoFileOutputStream_initWithJavaIoFile_withBoolean_(JavaIoFileOutputStream *self, JavaIoFile *file, jboolean append);
 
 FOUNDATION_EXPORT JavaIoFileOutputStream *new_JavaIoFileOutputStream_initWithJavaIoFile_withBoolean_(JavaIoFile *file, jboolean append) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoFileOutputStream *create_JavaIoFileOutputStream_initWithJavaIoFile_withBoolean_(JavaIoFile *file, jboolean append);
 
 FOUNDATION_EXPORT void JavaIoFileOutputStream_initWithJavaIoFileDescriptor_(JavaIoFileOutputStream *self, JavaIoFileDescriptor *fd);
 
 FOUNDATION_EXPORT JavaIoFileOutputStream *new_JavaIoFileOutputStream_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileOutputStream *create_JavaIoFileOutputStream_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd);
+
 FOUNDATION_EXPORT void JavaIoFileOutputStream_initWithNSString_(JavaIoFileOutputStream *self, NSString *path);
 
 FOUNDATION_EXPORT JavaIoFileOutputStream *new_JavaIoFileOutputStream_initWithNSString_(NSString *path) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileOutputStream *create_JavaIoFileOutputStream_initWithNSString_(NSString *path);
+
 FOUNDATION_EXPORT void JavaIoFileOutputStream_initWithNSString_withBoolean_(JavaIoFileOutputStream *self, NSString *path, jboolean append);
 
 FOUNDATION_EXPORT JavaIoFileOutputStream *new_JavaIoFileOutputStream_initWithNSString_withBoolean_(NSString *path, jboolean append) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoFileOutputStream *create_JavaIoFileOutputStream_initWithNSString_withBoolean_(NSString *path, jboolean append);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileOutputStream)
 
@@ -149,4 +159,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileOutputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFileOutputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFileOutputStream")

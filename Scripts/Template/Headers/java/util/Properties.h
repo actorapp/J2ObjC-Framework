@@ -5,24 +5,25 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilProperties_INCLUDE_ALL")
-#ifdef JavaUtilProperties_RESTRICT
-#define JavaUtilProperties_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilProperties")
+#ifdef RESTRICT_JavaUtilProperties
+#define INCLUDE_ALL_JavaUtilProperties 0
 #else
-#define JavaUtilProperties_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilProperties 1
 #endif
-#undef JavaUtilProperties_RESTRICT
+#undef RESTRICT_JavaUtilProperties
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilProperties_) && (JavaUtilProperties_INCLUDE_ALL || defined(JavaUtilProperties_INCLUDE))
+#if !defined (JavaUtilProperties_) && (INCLUDE_ALL_JavaUtilProperties || defined(INCLUDE_JavaUtilProperties))
 #define JavaUtilProperties_
 
-#define JavaUtilHashtable_RESTRICT 1
-#define JavaUtilHashtable_INCLUDE 1
+#define RESTRICT_JavaUtilHashtable 1
+#define INCLUDE_JavaUtilHashtable 1
 #include "../../java/util/Hashtable.h"
 
+@class IOSObjectArray;
 @class JavaIoInputStream;
 @class JavaIoOutputStream;
 @class JavaIoPrintStream;
@@ -280,15 +281,19 @@ FOUNDATION_EXPORT void JavaUtilProperties_init(JavaUtilProperties *self);
 
 FOUNDATION_EXPORT JavaUtilProperties *new_JavaUtilProperties_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilProperties *create_JavaUtilProperties_init();
+
 FOUNDATION_EXPORT void JavaUtilProperties_initWithJavaUtilProperties_(JavaUtilProperties *self, JavaUtilProperties *properties);
 
 FOUNDATION_EXPORT JavaUtilProperties *new_JavaUtilProperties_initWithJavaUtilProperties_(JavaUtilProperties *properties) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilProperties *create_JavaUtilProperties_initWithJavaUtilProperties_(JavaUtilProperties *properties);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties)
 
 #endif
 
-#if !defined (JavaUtilProperties_XmlLoader_) && (JavaUtilProperties_INCLUDE_ALL || defined(JavaUtilProperties_XmlLoader_INCLUDE))
+#if !defined (JavaUtilProperties_XmlLoader_) && (INCLUDE_ALL_JavaUtilProperties || defined(INCLUDE_JavaUtilProperties_XmlLoader))
 #define JavaUtilProperties_XmlLoader_
 
 @class JavaIoInputStream;
@@ -324,4 +329,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilProperties_XmlLoader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilProperties_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilProperties")

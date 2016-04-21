@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextNumberFormat_INCLUDE_ALL")
-#ifdef JavaTextNumberFormat_RESTRICT
-#define JavaTextNumberFormat_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextNumberFormat")
+#ifdef RESTRICT_JavaTextNumberFormat
+#define INCLUDE_ALL_JavaTextNumberFormat 0
 #else
-#define JavaTextNumberFormat_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextNumberFormat 1
 #endif
-#undef JavaTextNumberFormat_RESTRICT
+#undef RESTRICT_JavaTextNumberFormat
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextNumberFormat_) && (JavaTextNumberFormat_INCLUDE_ALL || defined(JavaTextNumberFormat_INCLUDE))
+#if !defined (JavaTextNumberFormat_) && (INCLUDE_ALL_JavaTextNumberFormat || defined(INCLUDE_JavaTextNumberFormat))
 #define JavaTextNumberFormat_
 
-#define JavaTextFormat_RESTRICT 1
-#define JavaTextFormat_INCLUDE 1
+#define RESTRICT_JavaTextFormat 1
+#define INCLUDE_JavaTextFormat 1
 #include "../../java/text/Format.h"
 
 @class IOSObjectArray;
@@ -589,11 +589,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextNumberFormat)
 
 #endif
 
-#if !defined (JavaTextNumberFormat_Field_) && (JavaTextNumberFormat_INCLUDE_ALL || defined(JavaTextNumberFormat_Field_INCLUDE))
+#if !defined (JavaTextNumberFormat_Field_) && (INCLUDE_ALL_JavaTextNumberFormat || defined(INCLUDE_JavaTextNumberFormat_Field))
 #define JavaTextNumberFormat_Field_
 
-#define JavaTextFormat_RESTRICT 1
-#define JavaTextFormat_Field_INCLUDE 1
+#define RESTRICT_JavaTextFormat 1
+#define INCLUDE_JavaTextFormat_Field 1
 #include "../../java/text/Format.h"
 
 /*!
@@ -735,10 +735,12 @@ FOUNDATION_EXPORT void JavaTextNumberFormat_Field_initWithNSString_(JavaTextNumb
 
 FOUNDATION_EXPORT JavaTextNumberFormat_Field *new_JavaTextNumberFormat_Field_initWithNSString_(NSString *fieldName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextNumberFormat_Field *create_JavaTextNumberFormat_Field_initWithNSString_(NSString *fieldName);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextNumberFormat_Field)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextNumberFormat_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextNumberFormat")

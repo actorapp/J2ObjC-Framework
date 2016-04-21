@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoObjectStreamField_INCLUDE_ALL")
-#ifdef JavaIoObjectStreamField_RESTRICT
-#define JavaIoObjectStreamField_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoObjectStreamField")
+#ifdef RESTRICT_JavaIoObjectStreamField
+#define INCLUDE_ALL_JavaIoObjectStreamField 0
 #else
-#define JavaIoObjectStreamField_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoObjectStreamField 1
 #endif
-#undef JavaIoObjectStreamField_RESTRICT
+#undef RESTRICT_JavaIoObjectStreamField
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoObjectStreamField_) && (JavaIoObjectStreamField_INCLUDE_ALL || defined(JavaIoObjectStreamField_INCLUDE))
+#if !defined (JavaIoObjectStreamField_) && (INCLUDE_ALL_JavaIoObjectStreamField || defined(INCLUDE_JavaIoObjectStreamField))
 #define JavaIoObjectStreamField_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -197,13 +197,19 @@ FOUNDATION_EXPORT void JavaIoObjectStreamField_initWithNSString_withIOSClass_(Ja
 
 FOUNDATION_EXPORT JavaIoObjectStreamField *new_JavaIoObjectStreamField_initWithNSString_withIOSClass_(NSString *name, IOSClass *cl) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoObjectStreamField *create_JavaIoObjectStreamField_initWithNSString_withIOSClass_(NSString *name, IOSClass *cl);
+
 FOUNDATION_EXPORT void JavaIoObjectStreamField_initWithNSString_withIOSClass_withBoolean_(JavaIoObjectStreamField *self, NSString *name, IOSClass *cl, jboolean unshared);
 
 FOUNDATION_EXPORT JavaIoObjectStreamField *new_JavaIoObjectStreamField_initWithNSString_withIOSClass_withBoolean_(NSString *name, IOSClass *cl, jboolean unshared) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoObjectStreamField *create_JavaIoObjectStreamField_initWithNSString_withIOSClass_withBoolean_(NSString *name, IOSClass *cl, jboolean unshared);
+
 FOUNDATION_EXPORT void JavaIoObjectStreamField_initWithNSString_withNSString_(JavaIoObjectStreamField *self, NSString *signature, NSString *name);
 
 FOUNDATION_EXPORT JavaIoObjectStreamField *new_JavaIoObjectStreamField_initWithNSString_withNSString_(NSString *signature, NSString *name) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoObjectStreamField *create_JavaIoObjectStreamField_initWithNSString_withNSString_(NSString *signature, NSString *name);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamField)
 
@@ -211,4 +217,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamField)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoObjectStreamField_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoObjectStreamField")

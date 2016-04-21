@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL")
-#ifdef JavaxXmlDatatypeDatatypeConstants_RESTRICT
-#define JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlDatatypeDatatypeConstants")
+#ifdef RESTRICT_JavaxXmlDatatypeDatatypeConstants
+#define INCLUDE_ALL_JavaxXmlDatatypeDatatypeConstants 0
 #else
-#define JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlDatatypeDatatypeConstants 1
 #endif
-#undef JavaxXmlDatatypeDatatypeConstants_RESTRICT
+#undef RESTRICT_JavaxXmlDatatypeDatatypeConstants
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlDatatypeDatatypeConstants_) && (JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL || defined(JavaxXmlDatatypeDatatypeConstants_INCLUDE))
+#if !defined (JavaxXmlDatatypeDatatypeConstants_) && (INCLUDE_ALL_JavaxXmlDatatypeDatatypeConstants || defined(INCLUDE_JavaxXmlDatatypeDatatypeConstants))
 #define JavaxXmlDatatypeDatatypeConstants_
 
 @class JavaxXmlDatatypeDatatypeConstants_Field;
@@ -403,7 +403,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDatatypeConstants)
 
 #endif
 
-#if !defined (JavaxXmlDatatypeDatatypeConstants_Field_) && (JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL || defined(JavaxXmlDatatypeDatatypeConstants_Field_INCLUDE))
+#if !defined (JavaxXmlDatatypeDatatypeConstants_Field_) && (INCLUDE_ALL_JavaxXmlDatatypeDatatypeConstants || defined(INCLUDE_JavaxXmlDatatypeDatatypeConstants_Field))
 #define JavaxXmlDatatypeDatatypeConstants_Field_
 
 /*!
@@ -440,4 +440,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDatatypeConstants_Field)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlDatatypeDatatypeConstants_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlDatatypeDatatypeConstants")

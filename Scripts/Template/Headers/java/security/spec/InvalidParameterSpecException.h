@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecInvalidParameterSpecException_INCLUDE_ALL")
-#ifdef JavaSecuritySpecInvalidParameterSpecException_RESTRICT
-#define JavaSecuritySpecInvalidParameterSpecException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecInvalidParameterSpecException")
+#ifdef RESTRICT_JavaSecuritySpecInvalidParameterSpecException
+#define INCLUDE_ALL_JavaSecuritySpecInvalidParameterSpecException 0
 #else
-#define JavaSecuritySpecInvalidParameterSpecException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecInvalidParameterSpecException 1
 #endif
-#undef JavaSecuritySpecInvalidParameterSpecException_RESTRICT
+#undef RESTRICT_JavaSecuritySpecInvalidParameterSpecException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecInvalidParameterSpecException_) && (JavaSecuritySpecInvalidParameterSpecException_INCLUDE_ALL || defined(JavaSecuritySpecInvalidParameterSpecException_INCLUDE))
+#if !defined (JavaSecuritySpecInvalidParameterSpecException_) && (INCLUDE_ALL_JavaSecuritySpecInvalidParameterSpecException || defined(INCLUDE_JavaSecuritySpecInvalidParameterSpecException))
 #define JavaSecuritySpecInvalidParameterSpecException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../../java/security/GeneralSecurityException.h"
 
 /*!
@@ -52,9 +52,13 @@ FOUNDATION_EXPORT void JavaSecuritySpecInvalidParameterSpecException_initWithNSS
 
 FOUNDATION_EXPORT JavaSecuritySpecInvalidParameterSpecException *new_JavaSecuritySpecInvalidParameterSpecException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecInvalidParameterSpecException *create_JavaSecuritySpecInvalidParameterSpecException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecuritySpecInvalidParameterSpecException_init(JavaSecuritySpecInvalidParameterSpecException *self);
 
 FOUNDATION_EXPORT JavaSecuritySpecInvalidParameterSpecException *new_JavaSecuritySpecInvalidParameterSpecException_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecuritySpecInvalidParameterSpecException *create_JavaSecuritySpecInvalidParameterSpecException_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecInvalidParameterSpecException)
 
@@ -62,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecInvalidParameterSpecException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecInvalidParameterSpecException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecInvalidParameterSpecException")

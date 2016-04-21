@@ -5,20 +5,21 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetURLEncoder_INCLUDE_ALL")
-#ifdef JavaNetURLEncoder_RESTRICT
-#define JavaNetURLEncoder_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetURLEncoder")
+#ifdef RESTRICT_JavaNetURLEncoder
+#define INCLUDE_ALL_JavaNetURLEncoder 0
 #else
-#define JavaNetURLEncoder_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetURLEncoder 1
 #endif
-#undef JavaNetURLEncoder_RESTRICT
+#undef RESTRICT_JavaNetURLEncoder
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetURLEncoder_) && (JavaNetURLEncoder_INCLUDE_ALL || defined(JavaNetURLEncoder_INCLUDE))
+#if !defined (JavaNetURLEncoder_) && (INCLUDE_ALL_JavaNetURLEncoder || defined(INCLUDE_JavaNetURLEncoder))
 #define JavaNetURLEncoder_
 
+@class IOSObjectArray;
 @class LibcoreNetUriCodec;
 
 /*!
@@ -68,4 +69,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLEncoder)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetURLEncoder_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetURLEncoder")

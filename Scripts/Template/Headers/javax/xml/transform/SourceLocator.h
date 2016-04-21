@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformSourceLocator_INCLUDE_ALL")
-#ifdef JavaxXmlTransformSourceLocator_RESTRICT
-#define JavaxXmlTransformSourceLocator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformSourceLocator")
+#ifdef RESTRICT_JavaxXmlTransformSourceLocator
+#define INCLUDE_ALL_JavaxXmlTransformSourceLocator 0
 #else
-#define JavaxXmlTransformSourceLocator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformSourceLocator 1
 #endif
-#undef JavaxXmlTransformSourceLocator_RESTRICT
+#undef RESTRICT_JavaxXmlTransformSourceLocator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformSourceLocator_) && (JavaxXmlTransformSourceLocator_INCLUDE_ALL || defined(JavaxXmlTransformSourceLocator_INCLUDE))
+#if !defined (JavaxXmlTransformSourceLocator_) && (INCLUDE_ALL_JavaxXmlTransformSourceLocator || defined(INCLUDE_JavaxXmlTransformSourceLocator))
 #define JavaxXmlTransformSourceLocator_
 
 /*!
@@ -87,4 +87,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSourceLocator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformSourceLocator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformSourceLocator")

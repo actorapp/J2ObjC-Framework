@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlRef_INCLUDE_ALL")
-#ifdef JavaSqlRef_RESTRICT
-#define JavaSqlRef_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlRef")
+#ifdef RESTRICT_JavaSqlRef
+#define INCLUDE_ALL_JavaSqlRef 0
 #else
-#define JavaSqlRef_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlRef 1
 #endif
-#undef JavaSqlRef_RESTRICT
+#undef RESTRICT_JavaSqlRef
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlRef_) && (JavaSqlRef_INCLUDE_ALL || defined(JavaSqlRef_INCLUDE))
+#if !defined (JavaSqlRef_) && (INCLUDE_ALL_JavaSqlRef || defined(INCLUDE_JavaSqlRef))
 #define JavaSqlRef_
 
 @protocol JavaUtilMap;
@@ -88,4 +88,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlRef)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlRef_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlRef")

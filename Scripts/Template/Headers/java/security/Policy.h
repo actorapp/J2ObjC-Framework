@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityPolicy_INCLUDE_ALL")
-#ifdef JavaSecurityPolicy_RESTRICT
-#define JavaSecurityPolicy_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityPolicy")
+#ifdef RESTRICT_JavaSecurityPolicy
+#define INCLUDE_ALL_JavaSecurityPolicy 0
 #else
-#define JavaSecurityPolicy_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityPolicy 1
 #endif
-#undef JavaSecurityPolicy_RESTRICT
+#undef RESTRICT_JavaSecurityPolicy
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityPolicy_) && (JavaSecurityPolicy_INCLUDE_ALL || defined(JavaSecurityPolicy_INCLUDE))
+#if !defined (JavaSecurityPolicy_) && (INCLUDE_ALL_JavaSecurityPolicy || defined(INCLUDE_JavaSecurityPolicy))
 #define JavaSecurityPolicy_
 
 @class JavaSecurityCodeSource;
@@ -92,7 +92,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPolicy)
 
 #endif
 
-#if !defined (JavaSecurityPolicy_Parameters_) && (JavaSecurityPolicy_INCLUDE_ALL || defined(JavaSecurityPolicy_Parameters_INCLUDE))
+#if !defined (JavaSecurityPolicy_Parameters_) && (INCLUDE_ALL_JavaSecurityPolicy || defined(INCLUDE_JavaSecurityPolicy_Parameters))
 #define JavaSecurityPolicy_Parameters_
 
 /*!
@@ -110,4 +110,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPolicy_Parameters)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityPolicy_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityPolicy")

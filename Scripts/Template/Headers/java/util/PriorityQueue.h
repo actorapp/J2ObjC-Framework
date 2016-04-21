@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilPriorityQueue_INCLUDE_ALL")
-#ifdef JavaUtilPriorityQueue_RESTRICT
-#define JavaUtilPriorityQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilPriorityQueue")
+#ifdef RESTRICT_JavaUtilPriorityQueue
+#define INCLUDE_ALL_JavaUtilPriorityQueue 0
 #else
-#define JavaUtilPriorityQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilPriorityQueue 1
 #endif
-#undef JavaUtilPriorityQueue_RESTRICT
+#undef RESTRICT_JavaUtilPriorityQueue
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilPriorityQueue_) && (JavaUtilPriorityQueue_INCLUDE_ALL || defined(JavaUtilPriorityQueue_INCLUDE))
+#if !defined (JavaUtilPriorityQueue_) && (INCLUDE_ALL_JavaUtilPriorityQueue || defined(INCLUDE_JavaUtilPriorityQueue))
 #define JavaUtilPriorityQueue_
 
-#define JavaUtilAbstractQueue_RESTRICT 1
-#define JavaUtilAbstractQueue_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractQueue 1
+#define INCLUDE_JavaUtilAbstractQueue 1
 #include "../../java/util/AbstractQueue.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
@@ -200,25 +200,37 @@ FOUNDATION_EXPORT void JavaUtilPriorityQueue_init(JavaUtilPriorityQueue *self);
 
 FOUNDATION_EXPORT JavaUtilPriorityQueue *new_JavaUtilPriorityQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilPriorityQueue *create_JavaUtilPriorityQueue_init();
+
 FOUNDATION_EXPORT void JavaUtilPriorityQueue_initWithInt_(JavaUtilPriorityQueue *self, jint initialCapacity);
 
 FOUNDATION_EXPORT JavaUtilPriorityQueue *new_JavaUtilPriorityQueue_initWithInt_(jint initialCapacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilPriorityQueue *create_JavaUtilPriorityQueue_initWithInt_(jint initialCapacity);
 
 FOUNDATION_EXPORT void JavaUtilPriorityQueue_initWithInt_withJavaUtilComparator_(JavaUtilPriorityQueue *self, jint initialCapacity, id<JavaUtilComparator> comparator);
 
 FOUNDATION_EXPORT JavaUtilPriorityQueue *new_JavaUtilPriorityQueue_initWithInt_withJavaUtilComparator_(jint initialCapacity, id<JavaUtilComparator> comparator) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilPriorityQueue *create_JavaUtilPriorityQueue_initWithInt_withJavaUtilComparator_(jint initialCapacity, id<JavaUtilComparator> comparator);
+
 FOUNDATION_EXPORT void JavaUtilPriorityQueue_initWithJavaUtilCollection_(JavaUtilPriorityQueue *self, id<JavaUtilCollection> c);
 
 FOUNDATION_EXPORT JavaUtilPriorityQueue *new_JavaUtilPriorityQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilPriorityQueue *create_JavaUtilPriorityQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c);
 
 FOUNDATION_EXPORT void JavaUtilPriorityQueue_initWithJavaUtilPriorityQueue_(JavaUtilPriorityQueue *self, JavaUtilPriorityQueue *c);
 
 FOUNDATION_EXPORT JavaUtilPriorityQueue *new_JavaUtilPriorityQueue_initWithJavaUtilPriorityQueue_(JavaUtilPriorityQueue *c) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilPriorityQueue *create_JavaUtilPriorityQueue_initWithJavaUtilPriorityQueue_(JavaUtilPriorityQueue *c);
+
 FOUNDATION_EXPORT void JavaUtilPriorityQueue_initWithJavaUtilSortedSet_(JavaUtilPriorityQueue *self, id<JavaUtilSortedSet> c);
 
 FOUNDATION_EXPORT JavaUtilPriorityQueue *new_JavaUtilPriorityQueue_initWithJavaUtilSortedSet_(id<JavaUtilSortedSet> c) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilPriorityQueue *create_JavaUtilPriorityQueue_initWithJavaUtilSortedSet_(id<JavaUtilSortedSet> c);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPriorityQueue)
 
@@ -226,4 +238,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPriorityQueue)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilPriorityQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilPriorityQueue")

@@ -5,24 +5,24 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidUtilBase64_INCLUDE_ALL")
-#ifdef AndroidUtilBase64_RESTRICT
-#define AndroidUtilBase64_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidUtilBase64")
+#ifdef RESTRICT_AndroidUtilBase64
+#define INCLUDE_ALL_AndroidUtilBase64 0
 #else
-#define AndroidUtilBase64_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidUtilBase64 1
 #endif
-#undef AndroidUtilBase64_RESTRICT
-#ifdef AndroidUtilBase64_Encoder_INCLUDE
-#define AndroidUtilBase64_Coder_INCLUDE 1
+#undef RESTRICT_AndroidUtilBase64
+#ifdef INCLUDE_AndroidUtilBase64_Encoder
+#define INCLUDE_AndroidUtilBase64_Coder 1
 #endif
-#ifdef AndroidUtilBase64_Decoder_INCLUDE
-#define AndroidUtilBase64_Coder_INCLUDE 1
+#ifdef INCLUDE_AndroidUtilBase64_Decoder
+#define INCLUDE_AndroidUtilBase64_Coder 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidUtilBase64_) && (AndroidUtilBase64_INCLUDE_ALL || defined(AndroidUtilBase64_INCLUDE))
+#if !defined (AndroidUtilBase64_) && (INCLUDE_ALL_AndroidUtilBase64 || defined(INCLUDE_AndroidUtilBase64))
 #define AndroidUtilBase64_
 
 @class IOSByteArray;
@@ -225,7 +225,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64)
 
 #endif
 
-#if !defined (AndroidUtilBase64_Coder_) && (AndroidUtilBase64_INCLUDE_ALL || defined(AndroidUtilBase64_Coder_INCLUDE))
+#if !defined (AndroidUtilBase64_Coder_) && (INCLUDE_ALL_AndroidUtilBase64 || defined(INCLUDE_AndroidUtilBase64_Coder))
 #define AndroidUtilBase64_Coder_
 
 @class IOSByteArray;
@@ -278,7 +278,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Coder)
 
 #endif
 
-#if !defined (AndroidUtilBase64_Decoder_) && (AndroidUtilBase64_INCLUDE_ALL || defined(AndroidUtilBase64_Decoder_INCLUDE))
+#if !defined (AndroidUtilBase64_Decoder_) && (INCLUDE_ALL_AndroidUtilBase64 || defined(INCLUDE_AndroidUtilBase64_Decoder))
 #define AndroidUtilBase64_Decoder_
 
 @class IOSByteArray;
@@ -314,11 +314,13 @@ FOUNDATION_EXPORT void AndroidUtilBase64_Decoder_initWithInt_withByteArray_(Andr
 
 FOUNDATION_EXPORT AndroidUtilBase64_Decoder *new_AndroidUtilBase64_Decoder_initWithInt_withByteArray_(jint flags, IOSByteArray *output) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilBase64_Decoder *create_AndroidUtilBase64_Decoder_initWithInt_withByteArray_(jint flags, IOSByteArray *output);
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Decoder)
 
 #endif
 
-#if !defined (AndroidUtilBase64_Encoder_) && (AndroidUtilBase64_INCLUDE_ALL || defined(AndroidUtilBase64_Encoder_INCLUDE))
+#if !defined (AndroidUtilBase64_Encoder_) && (INCLUDE_ALL_AndroidUtilBase64 || defined(INCLUDE_AndroidUtilBase64_Encoder))
 #define AndroidUtilBase64_Encoder_
 
 @class IOSByteArray;
@@ -367,10 +369,12 @@ FOUNDATION_EXPORT void AndroidUtilBase64_Encoder_initWithInt_withByteArray_(Andr
 
 FOUNDATION_EXPORT AndroidUtilBase64_Encoder *new_AndroidUtilBase64_Encoder_initWithInt_withByteArray_(jint flags, IOSByteArray *output) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilBase64_Encoder *create_AndroidUtilBase64_Encoder_initWithInt_withByteArray_(jint flags, IOSByteArray *output);
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64_Encoder)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidUtilBase64_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidUtilBase64")

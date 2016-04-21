@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangIllegalAccessError_INCLUDE_ALL")
-#ifdef JavaLangIllegalAccessError_RESTRICT
-#define JavaLangIllegalAccessError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangIllegalAccessError")
+#ifdef RESTRICT_JavaLangIllegalAccessError
+#define INCLUDE_ALL_JavaLangIllegalAccessError 0
 #else
-#define JavaLangIllegalAccessError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangIllegalAccessError 1
 #endif
-#undef JavaLangIllegalAccessError_RESTRICT
+#undef RESTRICT_JavaLangIllegalAccessError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangIllegalAccessError_) && (JavaLangIllegalAccessError_INCLUDE_ALL || defined(JavaLangIllegalAccessError_INCLUDE))
+#if !defined (JavaLangIllegalAccessError_) && (INCLUDE_ALL_JavaLangIllegalAccessError || defined(INCLUDE_JavaLangIllegalAccessError))
 #define JavaLangIllegalAccessError_
 
-#define JavaLangIncompatibleClassChangeError_RESTRICT 1
-#define JavaLangIncompatibleClassChangeError_INCLUDE 1
+#define RESTRICT_JavaLangIncompatibleClassChangeError 1
+#define INCLUDE_JavaLangIncompatibleClassChangeError 1
 #include "../../java/lang/IncompatibleClassChangeError.h"
 
 /*!
@@ -55,9 +55,13 @@ FOUNDATION_EXPORT void JavaLangIllegalAccessError_init(JavaLangIllegalAccessErro
 
 FOUNDATION_EXPORT JavaLangIllegalAccessError *new_JavaLangIllegalAccessError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangIllegalAccessError *create_JavaLangIllegalAccessError_init();
+
 FOUNDATION_EXPORT void JavaLangIllegalAccessError_initWithNSString_(JavaLangIllegalAccessError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangIllegalAccessError *new_JavaLangIllegalAccessError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangIllegalAccessError *create_JavaLangIllegalAccessError_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalAccessError)
 
@@ -65,4 +69,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalAccessError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangIllegalAccessError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangIllegalAccessError")

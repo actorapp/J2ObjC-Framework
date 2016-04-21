@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingLevel_INCLUDE_ALL")
-#ifdef JavaUtilLoggingLevel_RESTRICT
-#define JavaUtilLoggingLevel_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingLevel")
+#ifdef RESTRICT_JavaUtilLoggingLevel
+#define INCLUDE_ALL_JavaUtilLoggingLevel 0
 #else
-#define JavaUtilLoggingLevel_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingLevel 1
 #endif
-#undef JavaUtilLoggingLevel_RESTRICT
+#undef RESTRICT_JavaUtilLoggingLevel
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingLevel_) && (JavaUtilLoggingLevel_INCLUDE_ALL || defined(JavaUtilLoggingLevel_INCLUDE))
+#if !defined (JavaUtilLoggingLevel_) && (INCLUDE_ALL_JavaUtilLoggingLevel || defined(INCLUDE_JavaUtilLoggingLevel))
 #define JavaUtilLoggingLevel_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 /*!
@@ -235,9 +235,13 @@ FOUNDATION_EXPORT void JavaUtilLoggingLevel_initWithNSString_withInt_(JavaUtilLo
 
 FOUNDATION_EXPORT JavaUtilLoggingLevel *new_JavaUtilLoggingLevel_initWithNSString_withInt_(NSString *name, jint level) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingLevel *create_JavaUtilLoggingLevel_initWithNSString_withInt_(NSString *name, jint level);
+
 FOUNDATION_EXPORT void JavaUtilLoggingLevel_initWithNSString_withInt_withNSString_(JavaUtilLoggingLevel *self, NSString *name, jint level, NSString *resourceBundleName);
 
 FOUNDATION_EXPORT JavaUtilLoggingLevel *new_JavaUtilLoggingLevel_initWithNSString_withInt_withNSString_(NSString *name, jint level, NSString *resourceBundleName) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLoggingLevel *create_JavaUtilLoggingLevel_initWithNSString_withInt_withNSString_(NSString *name, jint level, NSString *resourceBundleName);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLevel)
 
@@ -245,4 +249,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLevel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingLevel_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLevel")

@@ -5,38 +5,38 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharBuffer_INCLUDE_ALL")
-#ifdef JavaNioCharBuffer_RESTRICT
-#define JavaNioCharBuffer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharBuffer")
+#ifdef RESTRICT_JavaNioCharBuffer
+#define INCLUDE_ALL_JavaNioCharBuffer 0
 #else
-#define JavaNioCharBuffer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharBuffer 1
 #endif
-#undef JavaNioCharBuffer_RESTRICT
+#undef RESTRICT_JavaNioCharBuffer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharBuffer_) && (JavaNioCharBuffer_INCLUDE_ALL || defined(JavaNioCharBuffer_INCLUDE))
+#if !defined (JavaNioCharBuffer_) && (INCLUDE_ALL_JavaNioCharBuffer || defined(INCLUDE_JavaNioCharBuffer))
 #define JavaNioCharBuffer_
 
-#define JavaNioBuffer_RESTRICT 1
-#define JavaNioBuffer_INCLUDE 1
+#define RESTRICT_JavaNioBuffer 1
+#define INCLUDE_JavaNioBuffer 1
 #include "../../java/nio/Buffer.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
-#define JavaLangCharSequence_RESTRICT 1
-#define JavaLangCharSequence_INCLUDE 1
+#define RESTRICT_JavaLangCharSequence 1
+#define INCLUDE_JavaLangCharSequence 1
 #include "../../java/lang/CharSequence.h"
 
-#define JavaLangAppendable_RESTRICT 1
-#define JavaLangAppendable_INCLUDE 1
+#define RESTRICT_JavaLangAppendable 1
+#define INCLUDE_JavaLangAppendable 1
 #include "../../java/lang/Appendable.h"
 
-#define JavaLangReadable_RESTRICT 1
-#define JavaLangReadable_INCLUDE 1
+#define RESTRICT_JavaLangReadable 1
+#define INCLUDE_JavaLangReadable 1
 #include "../../java/lang/Readable.h"
 
 @class IOSCharArray;
@@ -597,4 +597,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharBuffer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharBuffer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharBuffer")

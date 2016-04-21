@@ -5,25 +5,24 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLClientInfoException_INCLUDE_ALL")
-#ifdef JavaSqlSQLClientInfoException_RESTRICT
-#define JavaSqlSQLClientInfoException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLClientInfoException")
+#ifdef RESTRICT_JavaSqlSQLClientInfoException
+#define INCLUDE_ALL_JavaSqlSQLClientInfoException 0
 #else
-#define JavaSqlSQLClientInfoException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLClientInfoException 1
 #endif
-#undef JavaSqlSQLClientInfoException_RESTRICT
+#undef RESTRICT_JavaSqlSQLClientInfoException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLClientInfoException_) && (JavaSqlSQLClientInfoException_INCLUDE_ALL || defined(JavaSqlSQLClientInfoException_INCLUDE))
+#if !defined (JavaSqlSQLClientInfoException_) && (INCLUDE_ALL_JavaSqlSQLClientInfoException || defined(INCLUDE_JavaSqlSQLClientInfoException))
 #define JavaSqlSQLClientInfoException_
 
-#define JavaSqlSQLException_RESTRICT 1
-#define JavaSqlSQLException_INCLUDE 1
+#define RESTRICT_JavaSqlSQLException 1
+#define INCLUDE_JavaSqlSQLException 1
 #include "../../java/sql/SQLException.h"
 
-@class JavaLangThrowable;
 @protocol JavaUtilMap;
 
 /*!
@@ -67,7 +66,7 @@
  SQLException
  */
 - (instancetype)initWithJavaUtilMap:(id<JavaUtilMap>)failedProperties
-              withJavaLangThrowable:(JavaLangThrowable *)cause;
+                    withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLClientInfoException object.
@@ -100,7 +99,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)reason
                  withJavaUtilMap:(id<JavaUtilMap>)failedProperties
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLClientInfoException object.
@@ -147,7 +146,7 @@
                     withNSString:(NSString *)sqlState
                          withInt:(jint)vendorCode
                  withJavaUtilMap:(id<JavaUtilMap>)failedProperties
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLClientInfoException object.
@@ -186,7 +185,7 @@
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
                  withJavaUtilMap:(id<JavaUtilMap>)failedProperties
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief returns that the client info properties which could not be set
@@ -205,37 +204,55 @@ FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_init(JavaSqlSQLClientInfoEx
 
 FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *create_JavaSqlSQLClientInfoException_init();
+
 FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithJavaUtilMap_(JavaSqlSQLClientInfoException *self, id<JavaUtilMap> failedProperties);
 
 FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithJavaUtilMap_(id<JavaUtilMap> failedProperties) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithJavaUtilMap_withJavaLangThrowable_(JavaSqlSQLClientInfoException *self, id<JavaUtilMap> failedProperties, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *create_JavaSqlSQLClientInfoException_initWithJavaUtilMap_(id<JavaUtilMap> failedProperties);
 
-FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithJavaUtilMap_withJavaLangThrowable_(id<JavaUtilMap> failedProperties, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithJavaUtilMap_withNSException_(JavaSqlSQLClientInfoException *self, id<JavaUtilMap> failedProperties, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithJavaUtilMap_withNSException_(id<JavaUtilMap> failedProperties, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *create_JavaSqlSQLClientInfoException_initWithJavaUtilMap_withNSException_(id<JavaUtilMap> failedProperties, NSException *cause);
 
 FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithNSString_withJavaUtilMap_(JavaSqlSQLClientInfoException *self, NSString *reason, id<JavaUtilMap> failedProperties);
 
 FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithNSString_withJavaUtilMap_(NSString *reason, id<JavaUtilMap> failedProperties) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithNSString_withJavaUtilMap_withJavaLangThrowable_(JavaSqlSQLClientInfoException *self, NSString *reason, id<JavaUtilMap> failedProperties, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *create_JavaSqlSQLClientInfoException_initWithNSString_withJavaUtilMap_(NSString *reason, id<JavaUtilMap> failedProperties);
 
-FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithNSString_withJavaUtilMap_withJavaLangThrowable_(NSString *reason, id<JavaUtilMap> failedProperties, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithNSString_withJavaUtilMap_withNSException_(JavaSqlSQLClientInfoException *self, NSString *reason, id<JavaUtilMap> failedProperties, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithNSString_withJavaUtilMap_withNSException_(NSString *reason, id<JavaUtilMap> failedProperties, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *create_JavaSqlSQLClientInfoException_initWithNSString_withJavaUtilMap_withNSException_(NSString *reason, id<JavaUtilMap> failedProperties, NSException *cause);
 
 FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithNSString_withNSString_withInt_withJavaUtilMap_(JavaSqlSQLClientInfoException *self, NSString *reason, NSString *sqlState, jint vendorCode, id<JavaUtilMap> failedProperties);
 
 FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithNSString_withNSString_withInt_withJavaUtilMap_(NSString *reason, NSString *sqlState, jint vendorCode, id<JavaUtilMap> failedProperties) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithNSString_withNSString_withInt_withJavaUtilMap_withJavaLangThrowable_(JavaSqlSQLClientInfoException *self, NSString *reason, NSString *sqlState, jint vendorCode, id<JavaUtilMap> failedProperties, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *create_JavaSqlSQLClientInfoException_initWithNSString_withNSString_withInt_withJavaUtilMap_(NSString *reason, NSString *sqlState, jint vendorCode, id<JavaUtilMap> failedProperties);
 
-FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithNSString_withNSString_withInt_withJavaUtilMap_withJavaLangThrowable_(NSString *reason, NSString *sqlState, jint vendorCode, id<JavaUtilMap> failedProperties, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithNSString_withNSString_withInt_withJavaUtilMap_withNSException_(JavaSqlSQLClientInfoException *self, NSString *reason, NSString *sqlState, jint vendorCode, id<JavaUtilMap> failedProperties, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithNSString_withNSString_withInt_withJavaUtilMap_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, id<JavaUtilMap> failedProperties, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *create_JavaSqlSQLClientInfoException_initWithNSString_withNSString_withInt_withJavaUtilMap_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, id<JavaUtilMap> failedProperties, NSException *cause);
 
 FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithNSString_withNSString_withJavaUtilMap_(JavaSqlSQLClientInfoException *self, NSString *reason, NSString *sqlState, id<JavaUtilMap> failedProperties);
 
 FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithNSString_withNSString_withJavaUtilMap_(NSString *reason, NSString *sqlState, id<JavaUtilMap> failedProperties) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithNSString_withNSString_withJavaUtilMap_withJavaLangThrowable_(JavaSqlSQLClientInfoException *self, NSString *reason, NSString *sqlState, id<JavaUtilMap> failedProperties, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *create_JavaSqlSQLClientInfoException_initWithNSString_withNSString_withJavaUtilMap_(NSString *reason, NSString *sqlState, id<JavaUtilMap> failedProperties);
 
-FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithNSString_withNSString_withJavaUtilMap_withJavaLangThrowable_(NSString *reason, NSString *sqlState, id<JavaUtilMap> failedProperties, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLClientInfoException_initWithNSString_withNSString_withJavaUtilMap_withNSException_(JavaSqlSQLClientInfoException *self, NSString *reason, NSString *sqlState, id<JavaUtilMap> failedProperties, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *new_JavaSqlSQLClientInfoException_initWithNSString_withNSString_withJavaUtilMap_withNSException_(NSString *reason, NSString *sqlState, id<JavaUtilMap> failedProperties, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLClientInfoException *create_JavaSqlSQLClientInfoException_initWithNSString_withNSString_withJavaUtilMap_withNSException_(NSString *reason, NSString *sqlState, id<JavaUtilMap> failedProperties, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLClientInfoException)
 
@@ -243,4 +260,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLClientInfoException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLClientInfoException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLClientInfoException")

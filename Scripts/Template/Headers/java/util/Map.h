@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilMap_INCLUDE_ALL")
-#ifdef JavaUtilMap_RESTRICT
-#define JavaUtilMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilMap")
+#ifdef RESTRICT_JavaUtilMap
+#define INCLUDE_ALL_JavaUtilMap 0
 #else
-#define JavaUtilMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilMap 1
 #endif
-#undef JavaUtilMap_RESTRICT
+#undef RESTRICT_JavaUtilMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilMap_) && (JavaUtilMap_INCLUDE_ALL || defined(JavaUtilMap_INCLUDE))
+#if !defined (JavaUtilMap_) && (INCLUDE_ALL_JavaUtilMap || defined(INCLUDE_JavaUtilMap))
 #define JavaUtilMap_
 
 @protocol JavaUtilCollection;
@@ -204,7 +204,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap)
 
 #endif
 
-#if !defined (JavaUtilMap_Entry_) && (JavaUtilMap_INCLUDE_ALL || defined(JavaUtilMap_Entry_INCLUDE))
+#if !defined (JavaUtilMap_Entry_) && (INCLUDE_ALL_JavaUtilMap || defined(INCLUDE_JavaUtilMap_Entry))
 #define JavaUtilMap_Entry_
 
 /*!
@@ -265,4 +265,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMap_Entry)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilMap")

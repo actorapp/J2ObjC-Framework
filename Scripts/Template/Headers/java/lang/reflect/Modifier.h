@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectModifier_INCLUDE_ALL")
-#ifdef JavaLangReflectModifier_RESTRICT
-#define JavaLangReflectModifier_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectModifier")
+#ifdef RESTRICT_JavaLangReflectModifier
+#define INCLUDE_ALL_JavaLangReflectModifier 0
 #else
-#define JavaLangReflectModifier_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectModifier 1
 #endif
-#undef JavaLangReflectModifier_RESTRICT
+#undef RESTRICT_JavaLangReflectModifier
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectModifier_) && (JavaLangReflectModifier_INCLUDE_ALL || defined(JavaLangReflectModifier_INCLUDE))
+#if !defined (JavaLangReflectModifier_) && (INCLUDE_ALL_JavaLangReflectModifier || defined(INCLUDE_JavaLangReflectModifier))
 #define JavaLangReflectModifier_
 
 /*!
@@ -354,6 +354,8 @@ FOUNDATION_EXPORT void JavaLangReflectModifier_init(JavaLangReflectModifier *sel
 
 FOUNDATION_EXPORT JavaLangReflectModifier *new_JavaLangReflectModifier_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangReflectModifier *create_JavaLangReflectModifier_init();
+
 FOUNDATION_EXPORT jint JavaLangReflectModifier_classModifiers();
 
 FOUNDATION_EXPORT jint JavaLangReflectModifier_constructorModifiers();
@@ -396,4 +398,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectModifier)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectModifier_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectModifier")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxCryptoSecretKey_INCLUDE_ALL")
-#ifdef JavaxCryptoSecretKey_RESTRICT
-#define JavaxCryptoSecretKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxCryptoSecretKey")
+#ifdef RESTRICT_JavaxCryptoSecretKey
+#define INCLUDE_ALL_JavaxCryptoSecretKey 0
 #else
-#define JavaxCryptoSecretKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxCryptoSecretKey 1
 #endif
-#undef JavaxCryptoSecretKey_RESTRICT
+#undef RESTRICT_JavaxCryptoSecretKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxCryptoSecretKey_) && (JavaxCryptoSecretKey_INCLUDE_ALL || defined(JavaxCryptoSecretKey_INCLUDE))
+#if !defined (JavaxCryptoSecretKey_) && (INCLUDE_ALL_JavaxCryptoSecretKey || defined(INCLUDE_JavaxCryptoSecretKey))
 #define JavaxCryptoSecretKey_
 
-#define JavaSecurityKey_RESTRICT 1
-#define JavaSecurityKey_INCLUDE 1
+#define RESTRICT_JavaSecurityKey 1
+#define INCLUDE_JavaSecurityKey 1
 #include "../../java/security/Key.h"
 
 /*!
@@ -59,4 +59,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoSecretKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxCryptoSecretKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxCryptoSecretKey")

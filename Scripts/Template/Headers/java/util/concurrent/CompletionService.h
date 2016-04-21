@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentCompletionService_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentCompletionService_RESTRICT
-#define JavaUtilConcurrentCompletionService_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCompletionService")
+#ifdef RESTRICT_JavaUtilConcurrentCompletionService
+#define INCLUDE_ALL_JavaUtilConcurrentCompletionService 0
 #else
-#define JavaUtilConcurrentCompletionService_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentCompletionService 1
 #endif
-#undef JavaUtilConcurrentCompletionService_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentCompletionService
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentCompletionService_) && (JavaUtilConcurrentCompletionService_INCLUDE_ALL || defined(JavaUtilConcurrentCompletionService_INCLUDE))
+#if !defined (JavaUtilConcurrentCompletionService_) && (INCLUDE_ALL_JavaUtilConcurrentCompletionService || defined(INCLUDE_JavaUtilConcurrentCompletionService))
 #define JavaUtilConcurrentCompletionService_
 
 @class JavaUtilConcurrentTimeUnit;
@@ -120,4 +120,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCompletionService)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentCompletionService_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCompletionService")

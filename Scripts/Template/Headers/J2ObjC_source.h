@@ -22,6 +22,7 @@
 #import "J2ObjC_common.h"
 #import "JavaObject.h"
 #import "NSCopying+JavaCloneable.h"
+#import "NSException+JavaThrowable.h"
 #import "NSNumber+JavaNumber.h"
 #import "NSObject+JavaObject.h"
 #import "NSString+JavaString.h"
@@ -68,6 +69,16 @@ FOUNDATION_EXPORT void JreThrowAssertionError(id __unsafe_unretained msg);
 FOUNDATION_EXPORT void JreRelease(id obj);
 #endif
 
+FOUNDATION_EXPORT void JreFinalize(id self);
+
+__attribute__((always_inline)) inline void JreCheckFinalize(id self, Class cls) {
+  // Use [self getClass].objcClass instead of [self class] in case the object
+  // has it's class swizzled.
+  if ([self getClass].objcClass == cls) {
+    JreFinalize(self);
+  }
+}
+
 /*!
  * Macros that simplify the syntax for loading of static fields.
  *
@@ -94,10 +105,45 @@ FOUNDATION_EXPORT void JreRelease(id obj);
 #define JreEnum(CLASS, VALUE) CLASS##_values_[CLASS##_Enum_##VALUE]
 #define JreLoadEnum(CLASS, VALUE) (CLASS##_initialize(), CLASS##_values_[CLASS##_Enum_##VALUE])
 
-// Defined in JreEmulation.m
-FOUNDATION_EXPORT id GetNonCapturingLambda(Protocol *protocol,
+/*!
+ * The implementations for retaining and releasing constructors.
+ *
+ * @define J2OBJC_NEW_IMPL
+ * @define J2OBJC_CREATE_IMPL
+ * @param CLASS The declaring class
+ * @param NAME The constructor name. (eg. initWithInt_)
+ * @param ... Parameters to be passed to the initializer.
+ */
+#if __has_feature(objc_arc)
+#define J2OBJC_NEW_IMPL(CLASS, NAME, ...) \
+  CLASS *self = [CLASS alloc]; \
+  CLASS##_##NAME(self, ##__VA_ARGS__); \
+  return self;
+#define J2OBJC_CREATE_IMPL(CLASS, NAME, ...) \
+  return new_##CLASS##_##NAME(__VA_ARGS__);
+#else
+#define J2OBJC_NEW_IMPL(CLASS, NAME, ...) \
+  CLASS *self = [CLASS alloc]; \
+  bool needsRelease = true; \
+  @try { \
+    CLASS##_##NAME(self, ##__VA_ARGS__); \
+    needsRelease = false; \
+  } @finally { \
+    if (__builtin_expect(needsRelease, 0)) { \
+      [self autorelease]; \
+    } \
+  } \
+  return self;
+#define J2OBJC_CREATE_IMPL(CLASS, NAME, ...) \
+  CLASS *self = [[CLASS alloc] autorelease]; \
+  CLASS##_##NAME(self, ##__VA_ARGS__); \
+  return self;
+#endif
+
+// Defined in J2ObjC_common.m
+FOUNDATION_EXPORT id GetNonCapturingLambda(Class clazz, Protocol *protocol,
     NSString *blockClassName, SEL methodSelector, id block);
-FOUNDATION_EXPORT id GetCapturingLambda(Protocol *protocol,
+FOUNDATION_EXPORT id GetCapturingLambda(Class clazz, Protocol *protocol,
     NSString *blockClassName, SEL methodSelector, id wrapperBlock, id block);
 
 #define J2OBJC_IGNORE_DESIGNATED_BEGIN \

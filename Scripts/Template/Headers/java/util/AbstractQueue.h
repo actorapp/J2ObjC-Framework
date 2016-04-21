@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilAbstractQueue_INCLUDE_ALL")
-#ifdef JavaUtilAbstractQueue_RESTRICT
-#define JavaUtilAbstractQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilAbstractQueue")
+#ifdef RESTRICT_JavaUtilAbstractQueue
+#define INCLUDE_ALL_JavaUtilAbstractQueue 0
 #else
-#define JavaUtilAbstractQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilAbstractQueue 1
 #endif
-#undef JavaUtilAbstractQueue_RESTRICT
+#undef RESTRICT_JavaUtilAbstractQueue
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilAbstractQueue_) && (JavaUtilAbstractQueue_INCLUDE_ALL || defined(JavaUtilAbstractQueue_INCLUDE))
+#if !defined (JavaUtilAbstractQueue_) && (INCLUDE_ALL_JavaUtilAbstractQueue || defined(INCLUDE_JavaUtilAbstractQueue))
 #define JavaUtilAbstractQueue_
 
-#define JavaUtilAbstractCollection_RESTRICT 1
-#define JavaUtilAbstractCollection_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractCollection 1
+#define INCLUDE_JavaUtilAbstractCollection 1
 #include "../../java/util/AbstractCollection.h"
 
-#define JavaUtilQueue_RESTRICT 1
-#define JavaUtilQueue_INCLUDE 1
+#define RESTRICT_JavaUtilQueue 1
+#define INCLUDE_JavaUtilQueue 1
 #include "../../java/util/Queue.h"
 
 @protocol JavaUtilCollection;
@@ -156,4 +156,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractQueue)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilAbstractQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractQueue")

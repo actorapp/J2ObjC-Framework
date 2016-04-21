@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilListIterator_INCLUDE_ALL")
-#ifdef JavaUtilListIterator_RESTRICT
-#define JavaUtilListIterator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilListIterator")
+#ifdef RESTRICT_JavaUtilListIterator
+#define INCLUDE_ALL_JavaUtilListIterator 0
 #else
-#define JavaUtilListIterator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilListIterator 1
 #endif
-#undef JavaUtilListIterator_RESTRICT
+#undef RESTRICT_JavaUtilListIterator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilListIterator_) && (JavaUtilListIterator_INCLUDE_ALL || defined(JavaUtilListIterator_INCLUDE))
+#if !defined (JavaUtilListIterator_) && (INCLUDE_ALL_JavaUtilListIterator || defined(INCLUDE_JavaUtilListIterator))
 #define JavaUtilListIterator_
 
-#define JavaUtilIterator_RESTRICT 1
-#define JavaUtilIterator_INCLUDE 1
+#define RESTRICT_JavaUtilIterator 1
+#define INCLUDE_JavaUtilIterator 1
 #include "../../java/util/Iterator.h"
 
 /*!
@@ -138,4 +138,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilListIterator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilListIterator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilListIterator")

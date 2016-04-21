@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslX509TrustManager_INCLUDE_ALL")
-#ifdef JavaxNetSslX509TrustManager_RESTRICT
-#define JavaxNetSslX509TrustManager_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslX509TrustManager")
+#ifdef RESTRICT_JavaxNetSslX509TrustManager
+#define INCLUDE_ALL_JavaxNetSslX509TrustManager 0
 #else
-#define JavaxNetSslX509TrustManager_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslX509TrustManager 1
 #endif
-#undef JavaxNetSslX509TrustManager_RESTRICT
+#undef RESTRICT_JavaxNetSslX509TrustManager
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslX509TrustManager_) && (JavaxNetSslX509TrustManager_INCLUDE_ALL || defined(JavaxNetSslX509TrustManager_INCLUDE))
+#if !defined (JavaxNetSslX509TrustManager_) && (INCLUDE_ALL_JavaxNetSslX509TrustManager || defined(INCLUDE_JavaxNetSslX509TrustManager))
 #define JavaxNetSslX509TrustManager_
 
-#define JavaxNetSslTrustManager_RESTRICT 1
-#define JavaxNetSslTrustManager_INCLUDE 1
+#define RESTRICT_JavaxNetSslTrustManager 1
+#define INCLUDE_JavaxNetSslTrustManager 1
 #include "../../../javax/net/ssl/TrustManager.h"
 
 @class IOSObjectArray;
@@ -85,4 +85,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslX509TrustManager)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslX509TrustManager_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslX509TrustManager")

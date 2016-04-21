@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectInvocationHandler_INCLUDE_ALL")
-#ifdef JavaLangReflectInvocationHandler_RESTRICT
-#define JavaLangReflectInvocationHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectInvocationHandler")
+#ifdef RESTRICT_JavaLangReflectInvocationHandler
+#define INCLUDE_ALL_JavaLangReflectInvocationHandler 0
 #else
-#define JavaLangReflectInvocationHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectInvocationHandler 1
 #endif
-#undef JavaLangReflectInvocationHandler_RESTRICT
+#undef RESTRICT_JavaLangReflectInvocationHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectInvocationHandler_) && (JavaLangReflectInvocationHandler_INCLUDE_ALL || defined(JavaLangReflectInvocationHandler_INCLUDE))
+#if !defined (JavaLangReflectInvocationHandler_) && (INCLUDE_ALL_JavaLangReflectInvocationHandler || defined(INCLUDE_JavaLangReflectInvocationHandler))
 #define JavaLangReflectInvocationHandler_
 
 @class IOSObjectArray;
@@ -71,4 +71,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectInvocationHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectInvocationHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectInvocationHandler")

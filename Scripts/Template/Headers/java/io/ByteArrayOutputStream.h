@@ -5,25 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoByteArrayOutputStream_INCLUDE_ALL")
-#ifdef JavaIoByteArrayOutputStream_RESTRICT
-#define JavaIoByteArrayOutputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoByteArrayOutputStream")
+#ifdef RESTRICT_JavaIoByteArrayOutputStream
+#define INCLUDE_ALL_JavaIoByteArrayOutputStream 0
 #else
-#define JavaIoByteArrayOutputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoByteArrayOutputStream 1
 #endif
-#undef JavaIoByteArrayOutputStream_RESTRICT
+#undef RESTRICT_JavaIoByteArrayOutputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoByteArrayOutputStream_) && (JavaIoByteArrayOutputStream_INCLUDE_ALL || defined(JavaIoByteArrayOutputStream_INCLUDE))
+#if !defined (JavaIoByteArrayOutputStream_) && (INCLUDE_ALL_JavaIoByteArrayOutputStream || defined(INCLUDE_JavaIoByteArrayOutputStream))
 #define JavaIoByteArrayOutputStream_
 
-#define JavaIoOutputStream_RESTRICT 1
-#define JavaIoOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoOutputStream 1
+#define INCLUDE_JavaIoOutputStream 1
 #include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
+@class IOSObjectArray;
 
 /*!
  @brief A specialized <code>OutputStream</code> for class for writing content to an
@@ -183,9 +184,13 @@ FOUNDATION_EXPORT void JavaIoByteArrayOutputStream_init(JavaIoByteArrayOutputStr
 
 FOUNDATION_EXPORT JavaIoByteArrayOutputStream *new_JavaIoByteArrayOutputStream_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoByteArrayOutputStream *create_JavaIoByteArrayOutputStream_init();
+
 FOUNDATION_EXPORT void JavaIoByteArrayOutputStream_initWithInt_(JavaIoByteArrayOutputStream *self, jint size);
 
 FOUNDATION_EXPORT JavaIoByteArrayOutputStream *new_JavaIoByteArrayOutputStream_initWithInt_(jint size) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoByteArrayOutputStream *create_JavaIoByteArrayOutputStream_initWithInt_(jint size);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoByteArrayOutputStream)
 
@@ -193,4 +198,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoByteArrayOutputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoByteArrayOutputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoByteArrayOutputStream")

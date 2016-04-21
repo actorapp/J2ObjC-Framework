@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilEventObject_INCLUDE_ALL")
-#ifdef JavaUtilEventObject_RESTRICT
-#define JavaUtilEventObject_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilEventObject")
+#ifdef RESTRICT_JavaUtilEventObject
+#define INCLUDE_ALL_JavaUtilEventObject 0
 #else
-#define JavaUtilEventObject_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilEventObject 1
 #endif
-#undef JavaUtilEventObject_RESTRICT
+#undef RESTRICT_JavaUtilEventObject
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilEventObject_) && (JavaUtilEventObject_INCLUDE_ALL || defined(JavaUtilEventObject_INCLUDE))
+#if !defined (JavaUtilEventObject_) && (INCLUDE_ALL_JavaUtilEventObject || defined(INCLUDE_JavaUtilEventObject))
 #define JavaUtilEventObject_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -63,10 +63,12 @@ FOUNDATION_EXPORT void JavaUtilEventObject_initWithId_(JavaUtilEventObject *self
 
 FOUNDATION_EXPORT JavaUtilEventObject *new_JavaUtilEventObject_initWithId_(id source) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilEventObject *create_JavaUtilEventObject_initWithId_(id source);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEventObject)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilEventObject_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilEventObject")

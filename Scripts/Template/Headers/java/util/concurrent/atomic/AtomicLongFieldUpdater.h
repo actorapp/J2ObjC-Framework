@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicAtomicLongFieldUpdater_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicAtomicLongFieldUpdater_RESTRICT
-#define JavaUtilConcurrentAtomicAtomicLongFieldUpdater_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongFieldUpdater")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicLongFieldUpdater
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongFieldUpdater 0
 #else
-#define JavaUtilConcurrentAtomicAtomicLongFieldUpdater_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongFieldUpdater 1
 #endif
-#undef JavaUtilConcurrentAtomicAtomicLongFieldUpdater_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicAtomicLongFieldUpdater
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicAtomicLongFieldUpdater_) && (JavaUtilConcurrentAtomicAtomicLongFieldUpdater_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicLongFieldUpdater_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicAtomicLongFieldUpdater_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongFieldUpdater || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicLongFieldUpdater))
 #define JavaUtilConcurrentAtomicAtomicLongFieldUpdater_
 
 @class IOSClass;
@@ -208,4 +208,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicLongFieldUpdater)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicAtomicLongFieldUpdater_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicLongFieldUpdater")

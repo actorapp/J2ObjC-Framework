@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharsetUnmappableCharacterException_INCLUDE_ALL")
-#ifdef JavaNioCharsetUnmappableCharacterException_RESTRICT
-#define JavaNioCharsetUnmappableCharacterException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharsetUnmappableCharacterException")
+#ifdef RESTRICT_JavaNioCharsetUnmappableCharacterException
+#define INCLUDE_ALL_JavaNioCharsetUnmappableCharacterException 0
 #else
-#define JavaNioCharsetUnmappableCharacterException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharsetUnmappableCharacterException 1
 #endif
-#undef JavaNioCharsetUnmappableCharacterException_RESTRICT
+#undef RESTRICT_JavaNioCharsetUnmappableCharacterException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharsetUnmappableCharacterException_) && (JavaNioCharsetUnmappableCharacterException_INCLUDE_ALL || defined(JavaNioCharsetUnmappableCharacterException_INCLUDE))
+#if !defined (JavaNioCharsetUnmappableCharacterException_) && (INCLUDE_ALL_JavaNioCharsetUnmappableCharacterException || defined(INCLUDE_JavaNioCharsetUnmappableCharacterException))
 #define JavaNioCharsetUnmappableCharacterException_
 
-#define JavaNioCharsetCharacterCodingException_RESTRICT 1
-#define JavaNioCharsetCharacterCodingException_INCLUDE 1
+#define RESTRICT_JavaNioCharsetCharacterCodingException 1
+#define INCLUDE_JavaNioCharsetCharacterCodingException 1
 #include "../../../java/nio/charset/CharacterCodingException.h"
 
 /*!
@@ -53,10 +53,12 @@ FOUNDATION_EXPORT void JavaNioCharsetUnmappableCharacterException_initWithInt_(J
 
 FOUNDATION_EXPORT JavaNioCharsetUnmappableCharacterException *new_JavaNioCharsetUnmappableCharacterException_initWithInt_(jint length) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioCharsetUnmappableCharacterException *create_JavaNioCharsetUnmappableCharacterException_initWithInt_(jint length);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetUnmappableCharacterException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharsetUnmappableCharacterException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharsetUnmappableCharacterException")

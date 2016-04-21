@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecEllipticCurve_INCLUDE_ALL")
-#ifdef JavaSecuritySpecEllipticCurve_RESTRICT
-#define JavaSecuritySpecEllipticCurve_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecEllipticCurve")
+#ifdef RESTRICT_JavaSecuritySpecEllipticCurve
+#define INCLUDE_ALL_JavaSecuritySpecEllipticCurve 0
 #else
-#define JavaSecuritySpecEllipticCurve_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecEllipticCurve 1
 #endif
-#undef JavaSecuritySpecEllipticCurve_RESTRICT
+#undef RESTRICT_JavaSecuritySpecEllipticCurve
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecEllipticCurve_) && (JavaSecuritySpecEllipticCurve_INCLUDE_ALL || defined(JavaSecuritySpecEllipticCurve_INCLUDE))
+#if !defined (JavaSecuritySpecEllipticCurve_) && (INCLUDE_ALL_JavaSecuritySpecEllipticCurve || defined(INCLUDE_JavaSecuritySpecEllipticCurve))
 #define JavaSecuritySpecEllipticCurve_
 
 @class IOSByteArray;
@@ -113,9 +113,13 @@ FOUNDATION_EXPORT void JavaSecuritySpecEllipticCurve_initWithJavaSecuritySpecECF
 
 FOUNDATION_EXPORT JavaSecuritySpecEllipticCurve *new_JavaSecuritySpecEllipticCurve_initWithJavaSecuritySpecECField_withJavaMathBigInteger_withJavaMathBigInteger_withByteArray_(id<JavaSecuritySpecECField> field, JavaMathBigInteger *a, JavaMathBigInteger *b, IOSByteArray *seed) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecEllipticCurve *create_JavaSecuritySpecEllipticCurve_initWithJavaSecuritySpecECField_withJavaMathBigInteger_withJavaMathBigInteger_withByteArray_(id<JavaSecuritySpecECField> field, JavaMathBigInteger *a, JavaMathBigInteger *b, IOSByteArray *seed);
+
 FOUNDATION_EXPORT void JavaSecuritySpecEllipticCurve_initWithJavaSecuritySpecECField_withJavaMathBigInteger_withJavaMathBigInteger_(JavaSecuritySpecEllipticCurve *self, id<JavaSecuritySpecECField> field, JavaMathBigInteger *a, JavaMathBigInteger *b);
 
 FOUNDATION_EXPORT JavaSecuritySpecEllipticCurve *new_JavaSecuritySpecEllipticCurve_initWithJavaSecuritySpecECField_withJavaMathBigInteger_withJavaMathBigInteger_(id<JavaSecuritySpecECField> field, JavaMathBigInteger *a, JavaMathBigInteger *b) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecuritySpecEllipticCurve *create_JavaSecuritySpecEllipticCurve_initWithJavaSecuritySpecECField_withJavaMathBigInteger_withJavaMathBigInteger_(id<JavaSecuritySpecECField> field, JavaMathBigInteger *a, JavaMathBigInteger *b);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecEllipticCurve)
 
@@ -123,4 +127,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecEllipticCurve)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecEllipticCurve_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecEllipticCurve")

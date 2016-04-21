@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxInputSource_INCLUDE_ALL")
-#ifdef OrgXmlSaxInputSource_RESTRICT
-#define OrgXmlSaxInputSource_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxInputSource")
+#ifdef RESTRICT_OrgXmlSaxInputSource
+#define INCLUDE_ALL_OrgXmlSaxInputSource 0
 #else
-#define OrgXmlSaxInputSource_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxInputSource 1
 #endif
-#undef OrgXmlSaxInputSource_RESTRICT
+#undef RESTRICT_OrgXmlSaxInputSource
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxInputSource_) && (OrgXmlSaxInputSource_INCLUDE_ALL || defined(OrgXmlSaxInputSource_INCLUDE))
+#if !defined (OrgXmlSaxInputSource_) && (INCLUDE_ALL_OrgXmlSaxInputSource || defined(INCLUDE_OrgXmlSaxInputSource))
 #define OrgXmlSaxInputSource_
 
 @class JavaIoInputStream;
@@ -253,17 +253,25 @@ FOUNDATION_EXPORT void OrgXmlSaxInputSource_init(OrgXmlSaxInputSource *self);
 
 FOUNDATION_EXPORT OrgXmlSaxInputSource *new_OrgXmlSaxInputSource_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxInputSource *create_OrgXmlSaxInputSource_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxInputSource_initWithNSString_(OrgXmlSaxInputSource *self, NSString *systemId);
 
 FOUNDATION_EXPORT OrgXmlSaxInputSource *new_OrgXmlSaxInputSource_initWithNSString_(NSString *systemId) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxInputSource *create_OrgXmlSaxInputSource_initWithNSString_(NSString *systemId);
 
 FOUNDATION_EXPORT void OrgXmlSaxInputSource_initWithJavaIoInputStream_(OrgXmlSaxInputSource *self, JavaIoInputStream *byteStream);
 
 FOUNDATION_EXPORT OrgXmlSaxInputSource *new_OrgXmlSaxInputSource_initWithJavaIoInputStream_(JavaIoInputStream *byteStream) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxInputSource *create_OrgXmlSaxInputSource_initWithJavaIoInputStream_(JavaIoInputStream *byteStream);
+
 FOUNDATION_EXPORT void OrgXmlSaxInputSource_initWithJavaIoReader_(OrgXmlSaxInputSource *self, JavaIoReader *characterStream);
 
 FOUNDATION_EXPORT OrgXmlSaxInputSource *new_OrgXmlSaxInputSource_initWithJavaIoReader_(JavaIoReader *characterStream) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxInputSource *create_OrgXmlSaxInputSource_initWithJavaIoReader_(JavaIoReader *characterStream);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxInputSource)
 
@@ -271,4 +279,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxInputSource)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxInputSource_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxInputSource")

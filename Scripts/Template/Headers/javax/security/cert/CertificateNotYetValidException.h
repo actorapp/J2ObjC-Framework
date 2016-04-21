@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityCertCertificateNotYetValidException_INCLUDE_ALL")
-#ifdef JavaxSecurityCertCertificateNotYetValidException_RESTRICT
-#define JavaxSecurityCertCertificateNotYetValidException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityCertCertificateNotYetValidException")
+#ifdef RESTRICT_JavaxSecurityCertCertificateNotYetValidException
+#define INCLUDE_ALL_JavaxSecurityCertCertificateNotYetValidException 0
 #else
-#define JavaxSecurityCertCertificateNotYetValidException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityCertCertificateNotYetValidException 1
 #endif
-#undef JavaxSecurityCertCertificateNotYetValidException_RESTRICT
+#undef RESTRICT_JavaxSecurityCertCertificateNotYetValidException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityCertCertificateNotYetValidException_) && (JavaxSecurityCertCertificateNotYetValidException_INCLUDE_ALL || defined(JavaxSecurityCertCertificateNotYetValidException_INCLUDE))
+#if !defined (JavaxSecurityCertCertificateNotYetValidException_) && (INCLUDE_ALL_JavaxSecurityCertCertificateNotYetValidException || defined(INCLUDE_JavaxSecurityCertCertificateNotYetValidException))
 #define JavaxSecurityCertCertificateNotYetValidException_
 
-#define JavaxSecurityCertCertificateException_RESTRICT 1
-#define JavaxSecurityCertCertificateException_INCLUDE 1
+#define RESTRICT_JavaxSecurityCertCertificateException 1
+#define INCLUDE_JavaxSecurityCertCertificateException 1
 #include "../../../javax/security/cert/CertificateException.h"
 
 /*!
@@ -57,9 +57,13 @@ FOUNDATION_EXPORT void JavaxSecurityCertCertificateNotYetValidException_initWith
 
 FOUNDATION_EXPORT JavaxSecurityCertCertificateNotYetValidException *new_JavaxSecurityCertCertificateNotYetValidException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxSecurityCertCertificateNotYetValidException *create_JavaxSecurityCertCertificateNotYetValidException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaxSecurityCertCertificateNotYetValidException_init(JavaxSecurityCertCertificateNotYetValidException *self);
 
 FOUNDATION_EXPORT JavaxSecurityCertCertificateNotYetValidException *new_JavaxSecurityCertCertificateNotYetValidException_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxSecurityCertCertificateNotYetValidException *create_JavaxSecurityCertCertificateNotYetValidException_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateNotYetValidException)
 
@@ -67,4 +71,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateNotYetValidException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityCertCertificateNotYetValidException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificateNotYetValidException")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangInterruptedException_INCLUDE_ALL")
-#ifdef JavaLangInterruptedException_RESTRICT
-#define JavaLangInterruptedException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangInterruptedException")
+#ifdef RESTRICT_JavaLangInterruptedException
+#define INCLUDE_ALL_JavaLangInterruptedException 0
 #else
-#define JavaLangInterruptedException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangInterruptedException 1
 #endif
-#undef JavaLangInterruptedException_RESTRICT
+#undef RESTRICT_JavaLangInterruptedException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangInterruptedException_) && (JavaLangInterruptedException_INCLUDE_ALL || defined(JavaLangInterruptedException_INCLUDE))
+#if !defined (JavaLangInterruptedException_) && (INCLUDE_ALL_JavaLangInterruptedException || defined(INCLUDE_JavaLangInterruptedException))
 #define JavaLangInterruptedException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangInterruptedException_init(JavaLangInterruptedExce
 
 FOUNDATION_EXPORT JavaLangInterruptedException *new_JavaLangInterruptedException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangInterruptedException *create_JavaLangInterruptedException_init();
+
 FOUNDATION_EXPORT void JavaLangInterruptedException_initWithNSString_(JavaLangInterruptedException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangInterruptedException *new_JavaLangInterruptedException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangInterruptedException *create_JavaLangInterruptedException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangInterruptedException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInterruptedException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangInterruptedException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangInterruptedException")

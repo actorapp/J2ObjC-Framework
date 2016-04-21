@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomCDATASection_INCLUDE_ALL")
-#ifdef OrgW3cDomCDATASection_RESTRICT
-#define OrgW3cDomCDATASection_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomCDATASection")
+#ifdef RESTRICT_OrgW3cDomCDATASection
+#define INCLUDE_ALL_OrgW3cDomCDATASection 0
 #else
-#define OrgW3cDomCDATASection_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomCDATASection 1
 #endif
-#undef OrgW3cDomCDATASection_RESTRICT
+#undef RESTRICT_OrgW3cDomCDATASection
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomCDATASection_) && (OrgW3cDomCDATASection_INCLUDE_ALL || defined(OrgW3cDomCDATASection_INCLUDE))
+#if !defined (OrgW3cDomCDATASection_) && (INCLUDE_ALL_OrgW3cDomCDATASection || defined(INCLUDE_OrgW3cDomCDATASection))
 #define OrgW3cDomCDATASection_
 
-#define OrgW3cDomText_RESTRICT 1
-#define OrgW3cDomText_INCLUDE 1
+#define RESTRICT_OrgW3cDomText 1
+#define INCLUDE_OrgW3cDomText 1
 #include "../../../org/w3c/dom/Text.h"
 
 /*!
@@ -74,4 +74,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomCDATASection)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomCDATASection_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomCDATASection")

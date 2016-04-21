@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityPrivilegedAction_INCLUDE_ALL")
-#ifdef JavaSecurityPrivilegedAction_RESTRICT
-#define JavaSecurityPrivilegedAction_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityPrivilegedAction")
+#ifdef RESTRICT_JavaSecurityPrivilegedAction
+#define INCLUDE_ALL_JavaSecurityPrivilegedAction 0
 #else
-#define JavaSecurityPrivilegedAction_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityPrivilegedAction 1
 #endif
-#undef JavaSecurityPrivilegedAction_RESTRICT
+#undef RESTRICT_JavaSecurityPrivilegedAction
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityPrivilegedAction_) && (JavaSecurityPrivilegedAction_INCLUDE_ALL || defined(JavaSecurityPrivilegedAction_INCLUDE))
+#if !defined (JavaSecurityPrivilegedAction_) && (INCLUDE_ALL_JavaSecurityPrivilegedAction || defined(INCLUDE_JavaSecurityPrivilegedAction))
 #define JavaSecurityPrivilegedAction_
 
 /*!
@@ -36,4 +36,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPrivilegedAction)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityPrivilegedAction_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityPrivilegedAction")

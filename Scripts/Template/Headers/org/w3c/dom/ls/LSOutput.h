@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomLsLSOutput_INCLUDE_ALL")
-#ifdef OrgW3cDomLsLSOutput_RESTRICT
-#define OrgW3cDomLsLSOutput_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomLsLSOutput")
+#ifdef RESTRICT_OrgW3cDomLsLSOutput
+#define INCLUDE_ALL_OrgW3cDomLsLSOutput 0
 #else
-#define OrgW3cDomLsLSOutput_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomLsLSOutput 1
 #endif
-#undef OrgW3cDomLsLSOutput_RESTRICT
+#undef RESTRICT_OrgW3cDomLsLSOutput
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomLsLSOutput_) && (OrgW3cDomLsLSOutput_INCLUDE_ALL || defined(OrgW3cDomLsLSOutput_INCLUDE))
+#if !defined (OrgW3cDomLsLSOutput_) && (INCLUDE_ALL_OrgW3cDomLsLSOutput || defined(INCLUDE_OrgW3cDomLsLSOutput))
 #define OrgW3cDomLsLSOutput_
 
 @class JavaIoOutputStream;
@@ -130,4 +130,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSOutput)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomLsLSOutput_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomLsLSOutput")

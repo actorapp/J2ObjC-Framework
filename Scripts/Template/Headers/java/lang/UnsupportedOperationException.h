@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangUnsupportedOperationException_INCLUDE_ALL")
-#ifdef JavaLangUnsupportedOperationException_RESTRICT
-#define JavaLangUnsupportedOperationException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangUnsupportedOperationException")
+#ifdef RESTRICT_JavaLangUnsupportedOperationException
+#define INCLUDE_ALL_JavaLangUnsupportedOperationException 0
 #else
-#define JavaLangUnsupportedOperationException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangUnsupportedOperationException 1
 #endif
-#undef JavaLangUnsupportedOperationException_RESTRICT
+#undef RESTRICT_JavaLangUnsupportedOperationException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangUnsupportedOperationException_) && (JavaLangUnsupportedOperationException_INCLUDE_ALL || defined(JavaLangUnsupportedOperationException_INCLUDE))
+#if !defined (JavaLangUnsupportedOperationException_) && (INCLUDE_ALL_JavaLangUnsupportedOperationException || defined(INCLUDE_JavaLangUnsupportedOperationException))
 #define JavaLangUnsupportedOperationException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Thrown when an unsupported operation is attempted.
@@ -56,7 +54,7 @@
  @since 1.5
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new <code>UnsupportedOperationException</code> with the current
@@ -65,7 +63,7 @@
  the optional cause of this exception, may be <code>null</code>.
  @since 1.5
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -75,17 +73,25 @@ FOUNDATION_EXPORT void JavaLangUnsupportedOperationException_init(JavaLangUnsupp
 
 FOUNDATION_EXPORT JavaLangUnsupportedOperationException *new_JavaLangUnsupportedOperationException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangUnsupportedOperationException *create_JavaLangUnsupportedOperationException_init();
+
 FOUNDATION_EXPORT void JavaLangUnsupportedOperationException_initWithNSString_(JavaLangUnsupportedOperationException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangUnsupportedOperationException *new_JavaLangUnsupportedOperationException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangUnsupportedOperationException_initWithNSString_withJavaLangThrowable_(JavaLangUnsupportedOperationException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangUnsupportedOperationException *create_JavaLangUnsupportedOperationException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaLangUnsupportedOperationException *new_JavaLangUnsupportedOperationException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangUnsupportedOperationException_initWithNSString_withNSException_(JavaLangUnsupportedOperationException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaLangUnsupportedOperationException_initWithJavaLangThrowable_(JavaLangUnsupportedOperationException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangUnsupportedOperationException *new_JavaLangUnsupportedOperationException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaLangUnsupportedOperationException *new_JavaLangUnsupportedOperationException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaLangUnsupportedOperationException *create_JavaLangUnsupportedOperationException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaLangUnsupportedOperationException_initWithNSException_(JavaLangUnsupportedOperationException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaLangUnsupportedOperationException *new_JavaLangUnsupportedOperationException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangUnsupportedOperationException *create_JavaLangUnsupportedOperationException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangUnsupportedOperationException)
 
@@ -93,4 +99,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangUnsupportedOperationException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangUnsupportedOperationException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangUnsupportedOperationException")

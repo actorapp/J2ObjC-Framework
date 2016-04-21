@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetCookieStoreImpl_INCLUDE_ALL")
-#ifdef JavaNetCookieStoreImpl_RESTRICT
-#define JavaNetCookieStoreImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetCookieStoreImpl")
+#ifdef RESTRICT_JavaNetCookieStoreImpl
+#define INCLUDE_ALL_JavaNetCookieStoreImpl 0
 #else
-#define JavaNetCookieStoreImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetCookieStoreImpl 1
 #endif
-#undef JavaNetCookieStoreImpl_RESTRICT
+#undef RESTRICT_JavaNetCookieStoreImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetCookieStoreImpl_) && (JavaNetCookieStoreImpl_INCLUDE_ALL || defined(JavaNetCookieStoreImpl_INCLUDE))
+#if !defined (JavaNetCookieStoreImpl_) && (INCLUDE_ALL_JavaNetCookieStoreImpl || defined(INCLUDE_JavaNetCookieStoreImpl))
 #define JavaNetCookieStoreImpl_
 
-#define JavaNetCookieStore_RESTRICT 1
-#define JavaNetCookieStore_INCLUDE 1
+#define RESTRICT_JavaNetCookieStore 1
+#define INCLUDE_JavaNetCookieStore 1
 #include "../../java/net/CookieStore.h"
 
 @class JavaNetHttpCookie;
@@ -60,10 +60,12 @@ FOUNDATION_EXPORT void JavaNetCookieStoreImpl_init(JavaNetCookieStoreImpl *self)
 
 FOUNDATION_EXPORT JavaNetCookieStoreImpl *new_JavaNetCookieStoreImpl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetCookieStoreImpl *create_JavaNetCookieStoreImpl_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetCookieStoreImpl)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetCookieStoreImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetCookieStoreImpl")

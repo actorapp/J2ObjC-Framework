@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangIllegalArgumentException_INCLUDE_ALL")
-#ifdef JavaLangIllegalArgumentException_RESTRICT
-#define JavaLangIllegalArgumentException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangIllegalArgumentException")
+#ifdef RESTRICT_JavaLangIllegalArgumentException
+#define INCLUDE_ALL_JavaLangIllegalArgumentException 0
 #else
-#define JavaLangIllegalArgumentException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangIllegalArgumentException 1
 #endif
-#undef JavaLangIllegalArgumentException_RESTRICT
+#undef RESTRICT_JavaLangIllegalArgumentException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangIllegalArgumentException_) && (JavaLangIllegalArgumentException_INCLUDE_ALL || defined(JavaLangIllegalArgumentException_INCLUDE))
+#if !defined (JavaLangIllegalArgumentException_) && (INCLUDE_ALL_JavaLangIllegalArgumentException || defined(INCLUDE_JavaLangIllegalArgumentException))
 #define JavaLangIllegalArgumentException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Thrown when a method is invoked with an argument which it can not reasonably
@@ -57,7 +55,7 @@
  @since 1.5
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new <code>IllegalArgumentException</code> with the current stack
@@ -66,7 +64,7 @@
  the cause of this exception, may be <code>null</code>.
  @since 1.5
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -76,17 +74,25 @@ FOUNDATION_EXPORT void JavaLangIllegalArgumentException_init(JavaLangIllegalArgu
 
 FOUNDATION_EXPORT JavaLangIllegalArgumentException *new_JavaLangIllegalArgumentException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangIllegalArgumentException *create_JavaLangIllegalArgumentException_init();
+
 FOUNDATION_EXPORT void JavaLangIllegalArgumentException_initWithNSString_(JavaLangIllegalArgumentException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangIllegalArgumentException *new_JavaLangIllegalArgumentException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangIllegalArgumentException_initWithNSString_withJavaLangThrowable_(JavaLangIllegalArgumentException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangIllegalArgumentException *create_JavaLangIllegalArgumentException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaLangIllegalArgumentException *new_JavaLangIllegalArgumentException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangIllegalArgumentException_initWithNSString_withNSException_(JavaLangIllegalArgumentException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaLangIllegalArgumentException_initWithJavaLangThrowable_(JavaLangIllegalArgumentException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangIllegalArgumentException *new_JavaLangIllegalArgumentException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaLangIllegalArgumentException *new_JavaLangIllegalArgumentException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaLangIllegalArgumentException *create_JavaLangIllegalArgumentException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaLangIllegalArgumentException_initWithNSException_(JavaLangIllegalArgumentException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaLangIllegalArgumentException *new_JavaLangIllegalArgumentException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangIllegalArgumentException *create_JavaLangIllegalArgumentException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalArgumentException)
 
@@ -94,4 +100,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalArgumentException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangIllegalArgumentException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangIllegalArgumentException")

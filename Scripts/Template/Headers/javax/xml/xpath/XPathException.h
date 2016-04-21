@@ -5,27 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlXpathXPathException_INCLUDE_ALL")
-#ifdef JavaxXmlXpathXPathException_RESTRICT
-#define JavaxXmlXpathXPathException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathException")
+#ifdef RESTRICT_JavaxXmlXpathXPathException
+#define INCLUDE_ALL_JavaxXmlXpathXPathException 0
 #else
-#define JavaxXmlXpathXPathException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlXpathXPathException 1
 #endif
-#undef JavaxXmlXpathXPathException_RESTRICT
+#undef RESTRICT_JavaxXmlXpathXPathException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlXpathXPathException_) && (JavaxXmlXpathXPathException_INCLUDE_ALL || defined(JavaxXmlXpathXPathException_INCLUDE))
+#if !defined (JavaxXmlXpathXPathException_) && (INCLUDE_ALL_JavaxXmlXpathXPathException || defined(INCLUDE_JavaxXmlXpathXPathException))
 #define JavaxXmlXpathXPathException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../java/lang/Exception.h"
 
 @class JavaIoPrintStream;
 @class JavaIoPrintWriter;
-@class JavaLangThrowable;
 
 /*!
  @brief <code>XPathException</code> represents a generic XPath exception.
@@ -55,9 +54,9 @@
  @param cause The cause.
  @throws NullPointerException if <code>cause</code> is <code>null</code>.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
-- (JavaLangThrowable *)getCause;
+- (NSException *)getCause;
 
 - (void)printStackTrace;
 
@@ -73,9 +72,13 @@ FOUNDATION_EXPORT void JavaxXmlXpathXPathException_initWithNSString_(JavaxXmlXpa
 
 FOUNDATION_EXPORT JavaxXmlXpathXPathException *new_JavaxXmlXpathXPathException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaxXmlXpathXPathException_initWithJavaLangThrowable_(JavaxXmlXpathXPathException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaxXmlXpathXPathException *create_JavaxXmlXpathXPathException_initWithNSString_(NSString *message);
 
-FOUNDATION_EXPORT JavaxXmlXpathXPathException *new_JavaxXmlXpathXPathException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaxXmlXpathXPathException_initWithNSException_(JavaxXmlXpathXPathException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaxXmlXpathXPathException *new_JavaxXmlXpathXPathException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlXpathXPathException *create_JavaxXmlXpathXPathException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathException)
 
@@ -83,4 +86,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlXpathXPathException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathException")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLocale_INCLUDE_ALL")
-#ifdef JavaUtilLocale_RESTRICT
-#define JavaUtilLocale_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLocale")
+#ifdef RESTRICT_JavaUtilLocale
+#define INCLUDE_ALL_JavaUtilLocale 0
 #else
-#define JavaUtilLocale_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLocale 1
 #endif
-#undef JavaUtilLocale_RESTRICT
+#undef RESTRICT_JavaUtilLocale
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLocale_) && (JavaUtilLocale_INCLUDE_ALL || defined(JavaUtilLocale_INCLUDE))
+#if !defined (JavaUtilLocale_) && (INCLUDE_ALL_JavaUtilLocale || defined(INCLUDE_JavaUtilLocale))
 #define JavaUtilLocale_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -716,17 +716,25 @@ FOUNDATION_EXPORT void JavaUtilLocale_initWithNSString_(JavaUtilLocale *self, NS
 
 FOUNDATION_EXPORT JavaUtilLocale *new_JavaUtilLocale_initWithNSString_(NSString *language) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLocale *create_JavaUtilLocale_initWithNSString_(NSString *language);
+
 FOUNDATION_EXPORT void JavaUtilLocale_initWithNSString_withNSString_(JavaUtilLocale *self, NSString *language, NSString *country);
 
 FOUNDATION_EXPORT JavaUtilLocale *new_JavaUtilLocale_initWithNSString_withNSString_(NSString *language, NSString *country) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLocale *create_JavaUtilLocale_initWithNSString_withNSString_(NSString *language, NSString *country);
 
 FOUNDATION_EXPORT void JavaUtilLocale_initWithNSString_withNSString_withNSString_withNSString_withJavaUtilSet_withJavaUtilMap_withJavaUtilMap_withBoolean_(JavaUtilLocale *self, NSString *language, NSString *country, NSString *variant, NSString *scriptCode, id<JavaUtilSet> unicodeAttributes, id<JavaUtilMap> unicodeKeywords, id<JavaUtilMap> extensions, jboolean hasValidatedFields);
 
 FOUNDATION_EXPORT JavaUtilLocale *new_JavaUtilLocale_initWithNSString_withNSString_withNSString_withNSString_withJavaUtilSet_withJavaUtilMap_withJavaUtilMap_withBoolean_(NSString *language, NSString *country, NSString *variant, NSString *scriptCode, id<JavaUtilSet> unicodeAttributes, id<JavaUtilMap> unicodeKeywords, id<JavaUtilMap> extensions, jboolean hasValidatedFields) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLocale *create_JavaUtilLocale_initWithNSString_withNSString_withNSString_withNSString_withJavaUtilSet_withJavaUtilMap_withJavaUtilMap_withBoolean_(NSString *language, NSString *country, NSString *variant, NSString *scriptCode, id<JavaUtilSet> unicodeAttributes, id<JavaUtilMap> unicodeKeywords, id<JavaUtilMap> extensions, jboolean hasValidatedFields);
+
 FOUNDATION_EXPORT void JavaUtilLocale_initWithNSString_withNSString_withNSString_(JavaUtilLocale *self, NSString *language, NSString *country, NSString *variant);
 
 FOUNDATION_EXPORT JavaUtilLocale *new_JavaUtilLocale_initWithNSString_withNSString_withNSString_(NSString *language, NSString *country, NSString *variant) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLocale *create_JavaUtilLocale_initWithNSString_withNSString_withNSString_(NSString *language, NSString *country, NSString *variant);
 
 FOUNDATION_EXPORT IOSObjectArray *JavaUtilLocale_getAvailableLocales();
 
@@ -750,7 +758,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLocale)
 
 #endif
 
-#if !defined (JavaUtilLocale_Builder_) && (JavaUtilLocale_INCLUDE_ALL || defined(JavaUtilLocale_Builder_INCLUDE))
+#if !defined (JavaUtilLocale_Builder_) && (INCLUDE_ALL_JavaUtilLocale || defined(INCLUDE_JavaUtilLocale_Builder))
 #define JavaUtilLocale_Builder_
 
 @class JavaUtilLocale;
@@ -971,10 +979,12 @@ FOUNDATION_EXPORT void JavaUtilLocale_Builder_init(JavaUtilLocale_Builder *self)
 
 FOUNDATION_EXPORT JavaUtilLocale_Builder *new_JavaUtilLocale_Builder_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLocale_Builder *create_JavaUtilLocale_Builder_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLocale_Builder)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLocale_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLocale")

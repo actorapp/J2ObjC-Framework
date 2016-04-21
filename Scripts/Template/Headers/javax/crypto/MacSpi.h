@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxCryptoMacSpi_INCLUDE_ALL")
-#ifdef JavaxCryptoMacSpi_RESTRICT
-#define JavaxCryptoMacSpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxCryptoMacSpi")
+#ifdef RESTRICT_JavaxCryptoMacSpi
+#define INCLUDE_ALL_JavaxCryptoMacSpi 0
 #else
-#define JavaxCryptoMacSpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxCryptoMacSpi 1
 #endif
-#undef JavaxCryptoMacSpi_RESTRICT
+#undef RESTRICT_JavaxCryptoMacSpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxCryptoMacSpi_) && (JavaxCryptoMacSpi_INCLUDE_ALL || defined(JavaxCryptoMacSpi_INCLUDE))
+#if !defined (JavaxCryptoMacSpi_) && (INCLUDE_ALL_JavaxCryptoMacSpi || defined(INCLUDE_JavaxCryptoMacSpi))
 #define JavaxCryptoMacSpi_
 
 @class IOSByteArray;
@@ -134,4 +134,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxCryptoMacSpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxCryptoMacSpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxCryptoMacSpi")

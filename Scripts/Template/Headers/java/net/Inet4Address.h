@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetInet4Address_INCLUDE_ALL")
-#ifdef JavaNetInet4Address_RESTRICT
-#define JavaNetInet4Address_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetInet4Address")
+#ifdef RESTRICT_JavaNetInet4Address
+#define INCLUDE_ALL_JavaNetInet4Address 0
 #else
-#define JavaNetInet4Address_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetInet4Address 1
 #endif
-#undef JavaNetInet4Address_RESTRICT
+#undef RESTRICT_JavaNetInet4Address
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetInet4Address_) && (JavaNetInet4Address_INCLUDE_ALL || defined(JavaNetInet4Address_INCLUDE))
+#if !defined (JavaNetInet4Address_) && (INCLUDE_ALL_JavaNetInet4Address || defined(INCLUDE_JavaNetInet4Address))
 #define JavaNetInet4Address_
 
-#define JavaNetInetAddress_RESTRICT 1
-#define JavaNetInetAddress_INCLUDE 1
+#define RESTRICT_JavaNetInetAddress 1
+#define INCLUDE_JavaNetInetAddress 1
 #include "../../java/net/InetAddress.h"
 
 @class IOSByteArray;
@@ -93,10 +93,12 @@ FOUNDATION_EXPORT void JavaNetInet4Address_initWithByteArray_withNSString_(JavaN
 
 FOUNDATION_EXPORT JavaNetInet4Address *new_JavaNetInet4Address_initWithByteArray_withNSString_(IOSByteArray *ipaddress, NSString *hostName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetInet4Address *create_JavaNetInet4Address_initWithByteArray_withNSString_(IOSByteArray *ipaddress, NSString *hostName);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetInet4Address)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetInet4Address_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetInet4Address")

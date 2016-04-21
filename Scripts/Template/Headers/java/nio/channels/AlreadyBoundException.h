@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsAlreadyBoundException_INCLUDE_ALL")
-#ifdef JavaNioChannelsAlreadyBoundException_RESTRICT
-#define JavaNioChannelsAlreadyBoundException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsAlreadyBoundException")
+#ifdef RESTRICT_JavaNioChannelsAlreadyBoundException
+#define INCLUDE_ALL_JavaNioChannelsAlreadyBoundException 0
 #else
-#define JavaNioChannelsAlreadyBoundException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsAlreadyBoundException 1
 #endif
-#undef JavaNioChannelsAlreadyBoundException_RESTRICT
+#undef RESTRICT_JavaNioChannelsAlreadyBoundException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsAlreadyBoundException_) && (JavaNioChannelsAlreadyBoundException_INCLUDE_ALL || defined(JavaNioChannelsAlreadyBoundException_INCLUDE))
+#if !defined (JavaNioChannelsAlreadyBoundException_) && (INCLUDE_ALL_JavaNioChannelsAlreadyBoundException || defined(INCLUDE_JavaNioChannelsAlreadyBoundException))
 #define JavaNioChannelsAlreadyBoundException_
 
-#define JavaLangIllegalStateException_RESTRICT 1
-#define JavaLangIllegalStateException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalStateException 1
+#define INCLUDE_JavaLangIllegalStateException 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -42,10 +42,12 @@ FOUNDATION_EXPORT void JavaNioChannelsAlreadyBoundException_init(JavaNioChannels
 
 FOUNDATION_EXPORT JavaNioChannelsAlreadyBoundException *new_JavaNioChannelsAlreadyBoundException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsAlreadyBoundException *create_JavaNioChannelsAlreadyBoundException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsAlreadyBoundException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsAlreadyBoundException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsAlreadyBoundException")

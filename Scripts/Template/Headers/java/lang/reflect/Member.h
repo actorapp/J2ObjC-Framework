@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectMember_INCLUDE_ALL")
-#ifdef JavaLangReflectMember_RESTRICT
-#define JavaLangReflectMember_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectMember")
+#ifdef RESTRICT_JavaLangReflectMember
+#define INCLUDE_ALL_JavaLangReflectMember 0
 #else
-#define JavaLangReflectMember_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectMember 1
 #endif
-#undef JavaLangReflectMember_RESTRICT
+#undef RESTRICT_JavaLangReflectMember
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectMember_) && (JavaLangReflectMember_INCLUDE_ALL || defined(JavaLangReflectMember_INCLUDE))
+#if !defined (JavaLangReflectMember_) && (INCLUDE_ALL_JavaLangReflectMember || defined(INCLUDE_JavaLangReflectMember))
 #define JavaLangReflectMember_
 
 @class IOSClass;
@@ -91,4 +91,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectMember)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectMember_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectMember")

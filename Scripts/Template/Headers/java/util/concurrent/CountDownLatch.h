@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentCountDownLatch_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentCountDownLatch_RESTRICT
-#define JavaUtilConcurrentCountDownLatch_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCountDownLatch")
+#ifdef RESTRICT_JavaUtilConcurrentCountDownLatch
+#define INCLUDE_ALL_JavaUtilConcurrentCountDownLatch 0
 #else
-#define JavaUtilConcurrentCountDownLatch_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentCountDownLatch 1
 #endif
-#undef JavaUtilConcurrentCountDownLatch_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentCountDownLatch
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentCountDownLatch_) && (JavaUtilConcurrentCountDownLatch_INCLUDE_ALL || defined(JavaUtilConcurrentCountDownLatch_INCLUDE))
+#if !defined (JavaUtilConcurrentCountDownLatch_) && (INCLUDE_ALL_JavaUtilConcurrentCountDownLatch || defined(INCLUDE_JavaUtilConcurrentCountDownLatch))
 #define JavaUtilConcurrentCountDownLatch_
 
 @class JavaUtilConcurrentTimeUnit;
@@ -233,10 +233,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentCountDownLatch_initWithInt_(JavaUtilCon
 
 FOUNDATION_EXPORT JavaUtilConcurrentCountDownLatch *new_JavaUtilConcurrentCountDownLatch_initWithInt_(jint count) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentCountDownLatch *create_JavaUtilConcurrentCountDownLatch_initWithInt_(jint count);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCountDownLatch)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentCountDownLatch_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCountDownLatch")

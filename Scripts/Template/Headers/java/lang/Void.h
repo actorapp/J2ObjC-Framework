@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangVoid_INCLUDE_ALL")
-#ifdef JavaLangVoid_RESTRICT
-#define JavaLangVoid_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangVoid")
+#ifdef RESTRICT_JavaLangVoid
+#define INCLUDE_ALL_JavaLangVoid 0
 #else
-#define JavaLangVoid_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangVoid 1
 #endif
-#undef JavaLangVoid_RESTRICT
+#undef RESTRICT_JavaLangVoid
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangVoid_) && (JavaLangVoid_INCLUDE_ALL || defined(JavaLangVoid_INCLUDE))
+#if !defined (JavaLangVoid_) && (INCLUDE_ALL_JavaLangVoid || defined(INCLUDE_JavaLangVoid))
 #define JavaLangVoid_
 
 @class IOSClass;
@@ -47,4 +47,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangVoid)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangVoid_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangVoid")

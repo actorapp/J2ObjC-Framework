@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("OrgJsonJSON_INCLUDE_ALL")
-#ifdef OrgJsonJSON_RESTRICT
-#define OrgJsonJSON_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgJsonJSON")
+#ifdef RESTRICT_OrgJsonJSON
+#define INCLUDE_ALL_OrgJsonJSON 0
 #else
-#define OrgJsonJSON_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgJsonJSON 1
 #endif
-#undef OrgJsonJSON_RESTRICT
+#undef RESTRICT_OrgJsonJSON
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgJsonJSON_) && (OrgJsonJSON_INCLUDE_ALL || defined(OrgJsonJSON_INCLUDE))
+#if !defined (OrgJsonJSON_) && (INCLUDE_ALL_OrgJsonJSON || defined(INCLUDE_OrgJsonJSON))
 #define OrgJsonJSON_
 
 @class JavaLangBoolean;
@@ -79,10 +79,12 @@ FOUNDATION_EXPORT void OrgJsonJSON_init(OrgJsonJSON *self);
 
 FOUNDATION_EXPORT OrgJsonJSON *new_OrgJsonJSON_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgJsonJSON *create_OrgJsonJSON_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSON)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgJsonJSON_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgJsonJSON")

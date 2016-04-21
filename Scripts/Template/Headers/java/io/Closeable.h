@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoCloseable_INCLUDE_ALL")
-#ifdef JavaIoCloseable_RESTRICT
-#define JavaIoCloseable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoCloseable")
+#ifdef RESTRICT_JavaIoCloseable
+#define INCLUDE_ALL_JavaIoCloseable 0
 #else
-#define JavaIoCloseable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoCloseable 1
 #endif
-#undef JavaIoCloseable_RESTRICT
+#undef RESTRICT_JavaIoCloseable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoCloseable_) && (JavaIoCloseable_INCLUDE_ALL || defined(JavaIoCloseable_INCLUDE))
+#if !defined (JavaIoCloseable_) && (INCLUDE_ALL_JavaIoCloseable || defined(INCLUDE_JavaIoCloseable))
 #define JavaIoCloseable_
 
-#define JavaLangAutoCloseable_RESTRICT 1
-#define JavaLangAutoCloseable_INCLUDE 1
+#define RESTRICT_JavaLangAutoCloseable 1
+#define INCLUDE_JavaLangAutoCloseable 1
 #include "../../java/lang/AutoCloseable.h"
 
 /*!
@@ -47,4 +47,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoCloseable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoCloseable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoCloseable")

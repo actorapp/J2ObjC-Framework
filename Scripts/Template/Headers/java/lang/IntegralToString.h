@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangIntegralToString_INCLUDE_ALL")
-#ifdef JavaLangIntegralToString_RESTRICT
-#define JavaLangIntegralToString_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangIntegralToString")
+#ifdef RESTRICT_JavaLangIntegralToString
+#define INCLUDE_ALL_JavaLangIntegralToString 0
 #else
-#define JavaLangIntegralToString_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangIntegralToString 1
 #endif
-#undef JavaLangIntegralToString_RESTRICT
+#undef RESTRICT_JavaLangIntegralToString
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangIntegralToString_) && (JavaLangIntegralToString_INCLUDE_ALL || defined(JavaLangIntegralToString_INCLUDE))
+#if !defined (JavaLangIntegralToString_) && (INCLUDE_ALL_JavaLangIntegralToString || defined(INCLUDE_JavaLangIntegralToString))
 #define JavaLangIntegralToString_
 
 @class IOSByteArray;
@@ -139,4 +139,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIntegralToString)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangIntegralToString_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangIntegralToString")

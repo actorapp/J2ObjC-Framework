@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharsetCharacterCodingException_INCLUDE_ALL")
-#ifdef JavaNioCharsetCharacterCodingException_RESTRICT
-#define JavaNioCharsetCharacterCodingException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharsetCharacterCodingException")
+#ifdef RESTRICT_JavaNioCharsetCharacterCodingException
+#define INCLUDE_ALL_JavaNioCharsetCharacterCodingException 0
 #else
-#define JavaNioCharsetCharacterCodingException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharsetCharacterCodingException 1
 #endif
-#undef JavaNioCharsetCharacterCodingException_RESTRICT
+#undef RESTRICT_JavaNioCharsetCharacterCodingException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharsetCharacterCodingException_) && (JavaNioCharsetCharacterCodingException_INCLUDE_ALL || defined(JavaNioCharsetCharacterCodingException_INCLUDE))
+#if !defined (JavaNioCharsetCharacterCodingException_) && (INCLUDE_ALL_JavaNioCharsetCharacterCodingException || defined(INCLUDE_JavaNioCharsetCharacterCodingException))
 #define JavaNioCharsetCharacterCodingException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../../java/io/IOException.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioCharsetCharacterCodingException_init(JavaNioCharse
 
 FOUNDATION_EXPORT JavaNioCharsetCharacterCodingException *new_JavaNioCharsetCharacterCodingException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioCharsetCharacterCodingException *create_JavaNioCharsetCharacterCodingException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCharacterCodingException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharsetCharacterCodingException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCharacterCodingException")

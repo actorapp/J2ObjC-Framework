@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityKeyException_INCLUDE_ALL")
-#ifdef JavaSecurityKeyException_RESTRICT
-#define JavaSecurityKeyException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityKeyException")
+#ifdef RESTRICT_JavaSecurityKeyException
+#define INCLUDE_ALL_JavaSecurityKeyException 0
 #else
-#define JavaSecurityKeyException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityKeyException 1
 #endif
-#undef JavaSecurityKeyException_RESTRICT
+#undef RESTRICT_JavaSecurityKeyException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityKeyException_) && (JavaSecurityKeyException_INCLUDE_ALL || defined(JavaSecurityKeyException_INCLUDE))
+#if !defined (JavaSecurityKeyException_) && (INCLUDE_ALL_JavaSecurityKeyException || defined(INCLUDE_JavaSecurityKeyException))
 #define JavaSecurityKeyException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../java/security/GeneralSecurityException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>KeyException</code> is the common superclass of all key related exceptions.
@@ -53,14 +51,14 @@
  the exception which is the cause for this exception.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance of <code>KeyException</code> with the cause.
  @param cause
  the exception which is the cause for this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -70,17 +68,25 @@ FOUNDATION_EXPORT void JavaSecurityKeyException_initWithNSString_(JavaSecurityKe
 
 FOUNDATION_EXPORT JavaSecurityKeyException *new_JavaSecurityKeyException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyException *create_JavaSecurityKeyException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityKeyException_init(JavaSecurityKeyException *self);
 
 FOUNDATION_EXPORT JavaSecurityKeyException *new_JavaSecurityKeyException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityKeyException_initWithNSString_withJavaLangThrowable_(JavaSecurityKeyException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityKeyException *create_JavaSecurityKeyException_init();
 
-FOUNDATION_EXPORT JavaSecurityKeyException *new_JavaSecurityKeyException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityKeyException_initWithNSString_withNSException_(JavaSecurityKeyException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityKeyException_initWithJavaLangThrowable_(JavaSecurityKeyException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityKeyException *new_JavaSecurityKeyException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityKeyException *new_JavaSecurityKeyException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityKeyException *create_JavaSecurityKeyException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityKeyException_initWithNSException_(JavaSecurityKeyException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityKeyException *new_JavaSecurityKeyException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityKeyException *create_JavaSecurityKeyException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyException)
 
@@ -88,4 +94,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityKeyException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityKeyException")

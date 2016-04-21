@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomLsDOMImplementationLS_INCLUDE_ALL")
-#ifdef OrgW3cDomLsDOMImplementationLS_RESTRICT
-#define OrgW3cDomLsDOMImplementationLS_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomLsDOMImplementationLS")
+#ifdef RESTRICT_OrgW3cDomLsDOMImplementationLS
+#define INCLUDE_ALL_OrgW3cDomLsDOMImplementationLS 0
 #else
-#define OrgW3cDomLsDOMImplementationLS_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomLsDOMImplementationLS 1
 #endif
-#undef OrgW3cDomLsDOMImplementationLS_RESTRICT
+#undef RESTRICT_OrgW3cDomLsDOMImplementationLS
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomLsDOMImplementationLS_) && (OrgW3cDomLsDOMImplementationLS_INCLUDE_ALL || defined(OrgW3cDomLsDOMImplementationLS_INCLUDE))
+#if !defined (OrgW3cDomLsDOMImplementationLS_) && (INCLUDE_ALL_OrgW3cDomLsDOMImplementationLS || defined(INCLUDE_OrgW3cDomLsDOMImplementationLS))
 #define OrgW3cDomLsDOMImplementationLS_
 
 @protocol OrgW3cDomLsLSInput;
@@ -152,4 +152,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsDOMImplementationLS)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomLsDOMImplementationLS_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomLsDOMImplementationLS")

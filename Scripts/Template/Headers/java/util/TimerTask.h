@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilTimerTask_INCLUDE_ALL")
-#ifdef JavaUtilTimerTask_RESTRICT
-#define JavaUtilTimerTask_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilTimerTask")
+#ifdef RESTRICT_JavaUtilTimerTask
+#define INCLUDE_ALL_JavaUtilTimerTask 0
 #else
-#define JavaUtilTimerTask_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilTimerTask 1
 #endif
-#undef JavaUtilTimerTask_RESTRICT
+#undef RESTRICT_JavaUtilTimerTask
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilTimerTask_) && (JavaUtilTimerTask_INCLUDE_ALL || defined(JavaUtilTimerTask_INCLUDE))
+#if !defined (JavaUtilTimerTask_) && (INCLUDE_ALL_JavaUtilTimerTask || defined(INCLUDE_JavaUtilTimerTask))
 #define JavaUtilTimerTask_
 
-#define JavaLangRunnable_RESTRICT 1
-#define JavaLangRunnable_INCLUDE 1
+#define RESTRICT_JavaLangRunnable 1
+#define INCLUDE_JavaLangRunnable 1
 #include "../../java/lang/Runnable.h"
 
 /*!
@@ -95,4 +95,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimerTask)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilTimerTask_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilTimerTask")

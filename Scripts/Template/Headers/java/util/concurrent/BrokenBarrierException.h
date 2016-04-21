@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentBrokenBarrierException_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentBrokenBarrierException_RESTRICT
-#define JavaUtilConcurrentBrokenBarrierException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentBrokenBarrierException")
+#ifdef RESTRICT_JavaUtilConcurrentBrokenBarrierException
+#define INCLUDE_ALL_JavaUtilConcurrentBrokenBarrierException 0
 #else
-#define JavaUtilConcurrentBrokenBarrierException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentBrokenBarrierException 1
 #endif
-#undef JavaUtilConcurrentBrokenBarrierException_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentBrokenBarrierException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentBrokenBarrierException_) && (JavaUtilConcurrentBrokenBarrierException_INCLUDE_ALL || defined(JavaUtilConcurrentBrokenBarrierException_INCLUDE))
+#if !defined (JavaUtilConcurrentBrokenBarrierException_) && (INCLUDE_ALL_JavaUtilConcurrentBrokenBarrierException || defined(INCLUDE_JavaUtilConcurrentBrokenBarrierException))
 #define JavaUtilConcurrentBrokenBarrierException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -56,9 +56,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentBrokenBarrierException_init(JavaUtilCon
 
 FOUNDATION_EXPORT JavaUtilConcurrentBrokenBarrierException *new_JavaUtilConcurrentBrokenBarrierException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentBrokenBarrierException *create_JavaUtilConcurrentBrokenBarrierException_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentBrokenBarrierException_initWithNSString_(JavaUtilConcurrentBrokenBarrierException *self, NSString *message);
 
 FOUNDATION_EXPORT JavaUtilConcurrentBrokenBarrierException *new_JavaUtilConcurrentBrokenBarrierException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentBrokenBarrierException *create_JavaUtilConcurrentBrokenBarrierException_initWithNSString_(NSString *message);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentBrokenBarrierException)
 
@@ -66,4 +70,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentBrokenBarrierException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentBrokenBarrierException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentBrokenBarrierException")

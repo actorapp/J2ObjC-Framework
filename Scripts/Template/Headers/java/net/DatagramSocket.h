@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetDatagramSocket_INCLUDE_ALL")
-#ifdef JavaNetDatagramSocket_RESTRICT
-#define JavaNetDatagramSocket_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetDatagramSocket")
+#ifdef RESTRICT_JavaNetDatagramSocket
+#define INCLUDE_ALL_JavaNetDatagramSocket 0
 #else
-#define JavaNetDatagramSocket_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetDatagramSocket 1
 #endif
-#undef JavaNetDatagramSocket_RESTRICT
+#undef RESTRICT_JavaNetDatagramSocket
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetDatagramSocket_) && (JavaNetDatagramSocket_INCLUDE_ALL || defined(JavaNetDatagramSocket_INCLUDE))
+#if !defined (JavaNetDatagramSocket_) && (INCLUDE_ALL_JavaNetDatagramSocket || defined(INCLUDE_JavaNetDatagramSocket))
 #define JavaNetDatagramSocket_
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../java/io/Closeable.h"
 
 @class JavaIoFileDescriptor;
@@ -434,13 +434,19 @@ FOUNDATION_EXPORT void JavaNetDatagramSocket_init(JavaNetDatagramSocket *self);
 
 FOUNDATION_EXPORT JavaNetDatagramSocket *new_JavaNetDatagramSocket_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetDatagramSocket *create_JavaNetDatagramSocket_init();
+
 FOUNDATION_EXPORT void JavaNetDatagramSocket_initWithInt_(JavaNetDatagramSocket *self, jint aPort);
 
 FOUNDATION_EXPORT JavaNetDatagramSocket *new_JavaNetDatagramSocket_initWithInt_(jint aPort) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetDatagramSocket *create_JavaNetDatagramSocket_initWithInt_(jint aPort);
+
 FOUNDATION_EXPORT void JavaNetDatagramSocket_initWithInt_withJavaNetInetAddress_(JavaNetDatagramSocket *self, jint aPort, JavaNetInetAddress *addr);
 
 FOUNDATION_EXPORT JavaNetDatagramSocket *new_JavaNetDatagramSocket_initWithInt_withJavaNetInetAddress_(jint aPort, JavaNetInetAddress *addr) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetDatagramSocket *create_JavaNetDatagramSocket_initWithInt_withJavaNetInetAddress_(jint aPort, JavaNetInetAddress *addr);
 
 FOUNDATION_EXPORT void JavaNetDatagramSocket_setDatagramSocketImplFactoryWithJavaNetDatagramSocketImplFactory_(id<JavaNetDatagramSocketImplFactory> fac);
 
@@ -448,9 +454,13 @@ FOUNDATION_EXPORT void JavaNetDatagramSocket_initWithJavaNetDatagramSocketImpl_(
 
 FOUNDATION_EXPORT JavaNetDatagramSocket *new_JavaNetDatagramSocket_initWithJavaNetDatagramSocketImpl_(JavaNetDatagramSocketImpl *socketImpl) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetDatagramSocket *create_JavaNetDatagramSocket_initWithJavaNetDatagramSocketImpl_(JavaNetDatagramSocketImpl *socketImpl);
+
 FOUNDATION_EXPORT void JavaNetDatagramSocket_initWithJavaNetSocketAddress_(JavaNetDatagramSocket *self, JavaNetSocketAddress *localAddr);
 
 FOUNDATION_EXPORT JavaNetDatagramSocket *new_JavaNetDatagramSocket_initWithJavaNetSocketAddress_(JavaNetSocketAddress *localAddr) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetDatagramSocket *create_JavaNetDatagramSocket_initWithJavaNetSocketAddress_(JavaNetSocketAddress *localAddr);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramSocket)
 
@@ -458,4 +468,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetDatagramSocket)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetDatagramSocket_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetDatagramSocket")

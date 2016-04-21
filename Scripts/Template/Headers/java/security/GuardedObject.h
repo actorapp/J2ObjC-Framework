@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityGuardedObject_INCLUDE_ALL")
-#ifdef JavaSecurityGuardedObject_RESTRICT
-#define JavaSecurityGuardedObject_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityGuardedObject")
+#ifdef RESTRICT_JavaSecurityGuardedObject
+#define INCLUDE_ALL_JavaSecurityGuardedObject 0
 #else
-#define JavaSecurityGuardedObject_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityGuardedObject 1
 #endif
-#undef JavaSecurityGuardedObject_RESTRICT
+#undef RESTRICT_JavaSecurityGuardedObject
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityGuardedObject_) && (JavaSecurityGuardedObject_INCLUDE_ALL || defined(JavaSecurityGuardedObject_INCLUDE))
+#if !defined (JavaSecurityGuardedObject_) && (INCLUDE_ALL_JavaSecurityGuardedObject || defined(INCLUDE_JavaSecurityGuardedObject))
 #define JavaSecurityGuardedObject_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @protocol JavaSecurityGuard;
@@ -64,10 +64,12 @@ FOUNDATION_EXPORT void JavaSecurityGuardedObject_initWithId_withJavaSecurityGuar
 
 FOUNDATION_EXPORT JavaSecurityGuardedObject *new_JavaSecurityGuardedObject_initWithId_withJavaSecurityGuard_(id object, id<JavaSecurityGuard> guard) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityGuardedObject *create_JavaSecurityGuardedObject_initWithId_withJavaSecurityGuard_(id object, id<JavaSecurityGuard> guard);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityGuardedObject)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityGuardedObject_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityGuardedObject")

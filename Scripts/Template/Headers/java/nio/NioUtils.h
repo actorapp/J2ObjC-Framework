@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioNioUtils_INCLUDE_ALL")
-#ifdef JavaNioNioUtils_RESTRICT
-#define JavaNioNioUtils_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioNioUtils")
+#ifdef RESTRICT_JavaNioNioUtils
+#define INCLUDE_ALL_JavaNioNioUtils 0
 #else
-#define JavaNioNioUtils_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioNioUtils 1
 #endif
-#undef JavaNioNioUtils_RESTRICT
+#undef RESTRICT_JavaNioNioUtils
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioNioUtils_) && (JavaNioNioUtils_INCLUDE_ALL || defined(JavaNioNioUtils_INCLUDE))
+#if !defined (JavaNioNioUtils_) && (INCLUDE_ALL_JavaNioNioUtils || defined(INCLUDE_JavaNioNioUtils))
 #define JavaNioNioUtils_
 
 @class IOSByteArray;
@@ -98,7 +98,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioNioUtils)
 
 #endif
 
-#if !defined (JavaNioNioUtils_ChannelFactory_) && (JavaNioNioUtils_INCLUDE_ALL || defined(JavaNioNioUtils_ChannelFactory_INCLUDE))
+#if !defined (JavaNioNioUtils_ChannelFactory_) && (INCLUDE_ALL_JavaNioNioUtils || defined(INCLUDE_JavaNioNioUtils_ChannelFactory))
 #define JavaNioNioUtils_ChannelFactory_
 
 @class JavaIoFileDescriptor;
@@ -131,4 +131,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioNioUtils_ChannelFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioNioUtils_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioNioUtils")

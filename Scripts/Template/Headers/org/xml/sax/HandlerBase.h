@@ -5,37 +5,38 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHandlerBase_INCLUDE_ALL")
-#ifdef OrgXmlSaxHandlerBase_RESTRICT
-#define OrgXmlSaxHandlerBase_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHandlerBase")
+#ifdef RESTRICT_OrgXmlSaxHandlerBase
+#define INCLUDE_ALL_OrgXmlSaxHandlerBase 0
 #else
-#define OrgXmlSaxHandlerBase_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHandlerBase 1
 #endif
-#undef OrgXmlSaxHandlerBase_RESTRICT
+#undef RESTRICT_OrgXmlSaxHandlerBase
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHandlerBase_) && (OrgXmlSaxHandlerBase_INCLUDE_ALL || defined(OrgXmlSaxHandlerBase_INCLUDE))
+#if !defined (OrgXmlSaxHandlerBase_) && (INCLUDE_ALL_OrgXmlSaxHandlerBase || defined(INCLUDE_OrgXmlSaxHandlerBase))
 #define OrgXmlSaxHandlerBase_
 
-#define OrgXmlSaxEntityResolver_RESTRICT 1
-#define OrgXmlSaxEntityResolver_INCLUDE 1
+#define RESTRICT_OrgXmlSaxEntityResolver 1
+#define INCLUDE_OrgXmlSaxEntityResolver 1
 #include "../../../org/xml/sax/EntityResolver.h"
 
-#define OrgXmlSaxDTDHandler_RESTRICT 1
-#define OrgXmlSaxDTDHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxDTDHandler 1
+#define INCLUDE_OrgXmlSaxDTDHandler 1
 #include "../../../org/xml/sax/DTDHandler.h"
 
-#define OrgXmlSaxDocumentHandler_RESTRICT 1
-#define OrgXmlSaxDocumentHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxDocumentHandler 1
+#define INCLUDE_OrgXmlSaxDocumentHandler 1
 #include "../../../org/xml/sax/DocumentHandler.h"
 
-#define OrgXmlSaxErrorHandler_RESTRICT 1
-#define OrgXmlSaxErrorHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxErrorHandler 1
+#define INCLUDE_OrgXmlSaxErrorHandler 1
 #include "../../../org/xml/sax/ErrorHandler.h"
 
 @class IOSCharArray;
+@class IOSObjectArray;
 @class OrgXmlSaxInputSource;
 @class OrgXmlSaxSAXParseException;
 @protocol OrgXmlSaxAttributeList;
@@ -295,10 +296,12 @@ FOUNDATION_EXPORT void OrgXmlSaxHandlerBase_init(OrgXmlSaxHandlerBase *self);
 
 FOUNDATION_EXPORT OrgXmlSaxHandlerBase *new_OrgXmlSaxHandlerBase_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHandlerBase *create_OrgXmlSaxHandlerBase_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHandlerBase)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHandlerBase_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHandlerBase")

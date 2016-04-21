@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicAtomicMarkableReference_RESTRICT
-#define JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicMarkableReference")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicMarkableReference
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicMarkableReference 0
 #else
-#define JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicMarkableReference 1
 #endif
-#undef JavaUtilConcurrentAtomicAtomicMarkableReference_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicAtomicMarkableReference
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicAtomicMarkableReference_) && (JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicAtomicMarkableReference_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicMarkableReference || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicMarkableReference))
 #define JavaUtilConcurrentAtomicAtomicMarkableReference_
 
 @class IOSBooleanArray;
@@ -131,10 +131,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicMarkableReference_initWithI
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicMarkableReference *new_JavaUtilConcurrentAtomicAtomicMarkableReference_initWithId_withBoolean_(id initialRef, jboolean initialMark) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicMarkableReference *create_JavaUtilConcurrentAtomicAtomicMarkableReference_initWithId_withBoolean_(id initialRef, jboolean initialMark);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicMarkableReference)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicAtomicMarkableReference_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicMarkableReference")

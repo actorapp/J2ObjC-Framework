@@ -5,23 +5,25 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlDate_INCLUDE_ALL")
-#ifdef JavaSqlDate_RESTRICT
-#define JavaSqlDate_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlDate")
+#ifdef RESTRICT_JavaSqlDate
+#define INCLUDE_ALL_JavaSqlDate 0
 #else
-#define JavaSqlDate_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlDate 1
 #endif
-#undef JavaSqlDate_RESTRICT
+#undef RESTRICT_JavaSqlDate
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlDate_) && (JavaSqlDate_INCLUDE_ALL || defined(JavaSqlDate_INCLUDE))
+#if !defined (JavaSqlDate_) && (INCLUDE_ALL_JavaSqlDate || defined(INCLUDE_JavaSqlDate))
 #define JavaSqlDate_
 
-#define JavaUtilDate_RESTRICT 1
-#define JavaUtilDate_INCLUDE 1
+#define RESTRICT_JavaUtilDate 1
+#define INCLUDE_JavaUtilDate 1
 #include "../../java/util/Date.h"
+
+@class IOSObjectArray;
 
 /*!
  @brief A class which can consume and produce dates in SQL <code>Date</code> format.
@@ -150,9 +152,13 @@ FOUNDATION_EXPORT void JavaSqlDate_initWithInt_withInt_withInt_(JavaSqlDate *sel
 
 FOUNDATION_EXPORT JavaSqlDate *new_JavaSqlDate_initWithInt_withInt_withInt_(jint theYear, jint theMonth, jint theDay) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlDate *create_JavaSqlDate_initWithInt_withInt_withInt_(jint theYear, jint theMonth, jint theDay);
+
 FOUNDATION_EXPORT void JavaSqlDate_initWithLong_(JavaSqlDate *self, jlong theDate);
 
 FOUNDATION_EXPORT JavaSqlDate *new_JavaSqlDate_initWithLong_(jlong theDate) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlDate *create_JavaSqlDate_initWithLong_(jlong theDate);
 
 FOUNDATION_EXPORT JavaSqlDate *JavaSqlDate_valueOfWithNSString_(NSString *dateString);
 
@@ -162,4 +168,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDate)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlDate_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlDate")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFilterOutputStream_INCLUDE_ALL")
-#ifdef JavaIoFilterOutputStream_RESTRICT
-#define JavaIoFilterOutputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFilterOutputStream")
+#ifdef RESTRICT_JavaIoFilterOutputStream
+#define INCLUDE_ALL_JavaIoFilterOutputStream 0
 #else
-#define JavaIoFilterOutputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFilterOutputStream 1
 #endif
-#undef JavaIoFilterOutputStream_RESTRICT
+#undef RESTRICT_JavaIoFilterOutputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFilterOutputStream_) && (JavaIoFilterOutputStream_INCLUDE_ALL || defined(JavaIoFilterOutputStream_INCLUDE))
+#if !defined (JavaIoFilterOutputStream_) && (INCLUDE_ALL_JavaIoFilterOutputStream || defined(INCLUDE_JavaIoFilterOutputStream))
 #define JavaIoFilterOutputStream_
 
-#define JavaIoOutputStream_RESTRICT 1
-#define JavaIoOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoOutputStream 1
+#define INCLUDE_JavaIoOutputStream 1
 #include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
@@ -111,10 +111,12 @@ FOUNDATION_EXPORT void JavaIoFilterOutputStream_initWithJavaIoOutputStream_(Java
 
 FOUNDATION_EXPORT JavaIoFilterOutputStream *new_JavaIoFilterOutputStream_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFilterOutputStream *create_JavaIoFilterOutputStream_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterOutputStream)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFilterOutputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFilterOutputStream")

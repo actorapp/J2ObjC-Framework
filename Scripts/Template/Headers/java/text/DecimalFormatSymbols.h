@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextDecimalFormatSymbols_INCLUDE_ALL")
-#ifdef JavaTextDecimalFormatSymbols_RESTRICT
-#define JavaTextDecimalFormatSymbols_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextDecimalFormatSymbols")
+#ifdef RESTRICT_JavaTextDecimalFormatSymbols
+#define INCLUDE_ALL_JavaTextDecimalFormatSymbols 0
 #else
-#define JavaTextDecimalFormatSymbols_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextDecimalFormatSymbols 1
 #endif
-#undef JavaTextDecimalFormatSymbols_RESTRICT
+#undef RESTRICT_JavaTextDecimalFormatSymbols
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextDecimalFormatSymbols_) && (JavaTextDecimalFormatSymbols_INCLUDE_ALL || defined(JavaTextDecimalFormatSymbols_INCLUDE))
+#if !defined (JavaTextDecimalFormatSymbols_) && (INCLUDE_ALL_JavaTextDecimalFormatSymbols || defined(INCLUDE_JavaTextDecimalFormatSymbols))
 #define JavaTextDecimalFormatSymbols_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -331,9 +331,13 @@ FOUNDATION_EXPORT void JavaTextDecimalFormatSymbols_init(JavaTextDecimalFormatSy
 
 FOUNDATION_EXPORT JavaTextDecimalFormatSymbols *new_JavaTextDecimalFormatSymbols_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextDecimalFormatSymbols *create_JavaTextDecimalFormatSymbols_init();
+
 FOUNDATION_EXPORT void JavaTextDecimalFormatSymbols_initWithJavaUtilLocale_(JavaTextDecimalFormatSymbols *self, JavaUtilLocale *locale);
 
 FOUNDATION_EXPORT JavaTextDecimalFormatSymbols *new_JavaTextDecimalFormatSymbols_initWithJavaUtilLocale_(JavaUtilLocale *locale) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextDecimalFormatSymbols *create_JavaTextDecimalFormatSymbols_initWithJavaUtilLocale_(JavaUtilLocale *locale);
 
 FOUNDATION_EXPORT JavaTextDecimalFormatSymbols *JavaTextDecimalFormatSymbols_getInstance();
 
@@ -347,4 +351,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDecimalFormatSymbols)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextDecimalFormatSymbols_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextDecimalFormatSymbols")

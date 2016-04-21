@@ -5,29 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlResultSet_INCLUDE_ALL")
-#ifdef JavaSqlResultSet_RESTRICT
-#define JavaSqlResultSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlResultSet")
+#ifdef RESTRICT_JavaSqlResultSet
+#define INCLUDE_ALL_JavaSqlResultSet 0
 #else
-#define JavaSqlResultSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlResultSet 1
 #endif
-#undef JavaSqlResultSet_RESTRICT
+#undef RESTRICT_JavaSqlResultSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlResultSet_) && (JavaSqlResultSet_INCLUDE_ALL || defined(JavaSqlResultSet_INCLUDE))
+#if !defined (JavaSqlResultSet_) && (INCLUDE_ALL_JavaSqlResultSet || defined(INCLUDE_JavaSqlResultSet))
 #define JavaSqlResultSet_
 
-#define JavaSqlWrapper_RESTRICT 1
-#define JavaSqlWrapper_INCLUDE 1
+#define RESTRICT_JavaSqlWrapper 1
+#define INCLUDE_JavaSqlWrapper 1
 #include "../../java/sql/Wrapper.h"
 
-#define JavaLangAutoCloseable_RESTRICT 1
-#define JavaLangAutoCloseable_INCLUDE 1
+#define RESTRICT_JavaLangAutoCloseable 1
+#define INCLUDE_JavaLangAutoCloseable 1
 #include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
+@class IOSObjectArray;
 @class JavaIoInputStream;
 @class JavaIoReader;
 @class JavaMathBigDecimal;
@@ -2311,4 +2312,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlResultSet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlResultSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlResultSet")

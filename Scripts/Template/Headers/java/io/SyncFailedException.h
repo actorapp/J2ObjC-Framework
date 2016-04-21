@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoSyncFailedException_INCLUDE_ALL")
-#ifdef JavaIoSyncFailedException_RESTRICT
-#define JavaIoSyncFailedException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoSyncFailedException")
+#ifdef RESTRICT_JavaIoSyncFailedException
+#define INCLUDE_ALL_JavaIoSyncFailedException 0
 #else
-#define JavaIoSyncFailedException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoSyncFailedException 1
 #endif
-#undef JavaIoSyncFailedException_RESTRICT
+#undef RESTRICT_JavaIoSyncFailedException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoSyncFailedException_) && (JavaIoSyncFailedException_INCLUDE_ALL || defined(JavaIoSyncFailedException_INCLUDE))
+#if !defined (JavaIoSyncFailedException_) && (INCLUDE_ALL_JavaIoSyncFailedException || defined(INCLUDE_JavaIoSyncFailedException))
 #define JavaIoSyncFailedException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -47,10 +47,12 @@ FOUNDATION_EXPORT void JavaIoSyncFailedException_initWithNSString_(JavaIoSyncFai
 
 FOUNDATION_EXPORT JavaIoSyncFailedException *new_JavaIoSyncFailedException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoSyncFailedException *create_JavaIoSyncFailedException_initWithNSString_(NSString *detailMessage);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoSyncFailedException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoSyncFailedException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoSyncFailedException")

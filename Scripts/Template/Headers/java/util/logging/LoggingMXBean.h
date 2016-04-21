@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingLoggingMXBean_INCLUDE_ALL")
-#ifdef JavaUtilLoggingLoggingMXBean_RESTRICT
-#define JavaUtilLoggingLoggingMXBean_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingLoggingMXBean")
+#ifdef RESTRICT_JavaUtilLoggingLoggingMXBean
+#define INCLUDE_ALL_JavaUtilLoggingLoggingMXBean 0
 #else
-#define JavaUtilLoggingLoggingMXBean_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingLoggingMXBean 1
 #endif
-#undef JavaUtilLoggingLoggingMXBean_RESTRICT
+#undef RESTRICT_JavaUtilLoggingLoggingMXBean
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingLoggingMXBean_) && (JavaUtilLoggingLoggingMXBean_INCLUDE_ALL || defined(JavaUtilLoggingLoggingMXBean_INCLUDE))
+#if !defined (JavaUtilLoggingLoggingMXBean_) && (INCLUDE_ALL_JavaUtilLoggingLoggingMXBean || defined(INCLUDE_JavaUtilLoggingLoggingMXBean))
 #define JavaUtilLoggingLoggingMXBean_
 
 @protocol JavaUtilList;
@@ -89,4 +89,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLoggingMXBean)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingLoggingMXBean_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLoggingMXBean")

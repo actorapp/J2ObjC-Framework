@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilMiniEnumSet_INCLUDE_ALL")
-#ifdef JavaUtilMiniEnumSet_RESTRICT
-#define JavaUtilMiniEnumSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilMiniEnumSet")
+#ifdef RESTRICT_JavaUtilMiniEnumSet
+#define INCLUDE_ALL_JavaUtilMiniEnumSet 0
 #else
-#define JavaUtilMiniEnumSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilMiniEnumSet 1
 #endif
-#undef JavaUtilMiniEnumSet_RESTRICT
+#undef RESTRICT_JavaUtilMiniEnumSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilMiniEnumSet_) && (JavaUtilMiniEnumSet_INCLUDE_ALL || defined(JavaUtilMiniEnumSet_INCLUDE))
+#if !defined (JavaUtilMiniEnumSet_) && (INCLUDE_ALL_JavaUtilMiniEnumSet || defined(INCLUDE_JavaUtilMiniEnumSet))
 #define JavaUtilMiniEnumSet_
 
-#define JavaUtilEnumSet_RESTRICT 1
-#define JavaUtilEnumSet_INCLUDE 1
+#define RESTRICT_JavaUtilEnumSet 1
+#define INCLUDE_JavaUtilEnumSet 1
 #include "../../java/util/EnumSet.h"
 
 @class IOSClass;
@@ -82,10 +82,12 @@ FOUNDATION_EXPORT void JavaUtilMiniEnumSet_initWithIOSClass_withJavaLangEnumArra
 
 FOUNDATION_EXPORT JavaUtilMiniEnumSet *new_JavaUtilMiniEnumSet_initWithIOSClass_withJavaLangEnumArray_(IOSClass *elementType, IOSObjectArray *enums) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilMiniEnumSet *create_JavaUtilMiniEnumSet_initWithIOSClass_withJavaLangEnumArray_(IOSClass *elementType, IOSObjectArray *enums);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMiniEnumSet)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilMiniEnumSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilMiniEnumSet")

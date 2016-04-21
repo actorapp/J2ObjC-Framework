@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsConnectionPendingException_INCLUDE_ALL")
-#ifdef JavaNioChannelsConnectionPendingException_RESTRICT
-#define JavaNioChannelsConnectionPendingException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsConnectionPendingException")
+#ifdef RESTRICT_JavaNioChannelsConnectionPendingException
+#define INCLUDE_ALL_JavaNioChannelsConnectionPendingException 0
 #else
-#define JavaNioChannelsConnectionPendingException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsConnectionPendingException 1
 #endif
-#undef JavaNioChannelsConnectionPendingException_RESTRICT
+#undef RESTRICT_JavaNioChannelsConnectionPendingException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsConnectionPendingException_) && (JavaNioChannelsConnectionPendingException_INCLUDE_ALL || defined(JavaNioChannelsConnectionPendingException_INCLUDE))
+#if !defined (JavaNioChannelsConnectionPendingException_) && (INCLUDE_ALL_JavaNioChannelsConnectionPendingException || defined(INCLUDE_JavaNioChannelsConnectionPendingException))
 #define JavaNioChannelsConnectionPendingException_
 
-#define JavaLangIllegalStateException_RESTRICT 1
-#define JavaLangIllegalStateException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalStateException 1
+#define INCLUDE_JavaLangIllegalStateException 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -45,10 +45,12 @@ FOUNDATION_EXPORT void JavaNioChannelsConnectionPendingException_init(JavaNioCha
 
 FOUNDATION_EXPORT JavaNioChannelsConnectionPendingException *new_JavaNioChannelsConnectionPendingException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsConnectionPendingException *create_JavaNioChannelsConnectionPendingException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsConnectionPendingException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsConnectionPendingException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsConnectionPendingException")

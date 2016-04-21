@@ -3,29 +3,28 @@
 //  source: android/libcore/luni/src/main/java/java/awt/font/TextAttribute.java
 //
 
-#include "../../../J2ObjC_header.h"
-
-#pragma push_macro("JavaAwtFontTextAttribute_INCLUDE_ALL")
-#ifdef JavaAwtFontTextAttribute_RESTRICT
-#define JavaAwtFontTextAttribute_INCLUDE_ALL 0
-#else
-#define JavaAwtFontTextAttribute_INCLUDE_ALL 1
-#endif
-#undef JavaAwtFontTextAttribute_RESTRICT
-
-#pragma clang diagnostic push
-#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-
 /*!
  @author Ilya S. Okomin
  @version $Revision$
  */
+#include "../../../J2ObjC_header.h"
 
-#if !defined (JavaAwtFontTextAttribute_) && (JavaAwtFontTextAttribute_INCLUDE_ALL || defined(JavaAwtFontTextAttribute_INCLUDE))
+#pragma push_macro("INCLUDE_ALL_JavaAwtFontTextAttribute")
+#ifdef RESTRICT_JavaAwtFontTextAttribute
+#define INCLUDE_ALL_JavaAwtFontTextAttribute 0
+#else
+#define INCLUDE_ALL_JavaAwtFontTextAttribute 1
+#endif
+#undef RESTRICT_JavaAwtFontTextAttribute
+
+#pragma clang diagnostic push
+#pragma GCC diagnostic ignored "-Wdeprecated-declarations"
+
+#if !defined (JavaAwtFontTextAttribute_) && (INCLUDE_ALL_JavaAwtFontTextAttribute || defined(INCLUDE_JavaAwtFontTextAttribute))
 #define JavaAwtFontTextAttribute_
 
-#define JavaTextAttributedCharacterIterator_RESTRICT 1
-#define JavaTextAttributedCharacterIterator_Attribute_INCLUDE 1
+#define RESTRICT_JavaTextAttributedCharacterIterator 1
+#define INCLUDE_JavaTextAttributedCharacterIterator_Attribute 1
 #include "../../../java/text/AttributedCharacterIterator.h"
 
 @class JavaLangBoolean;
@@ -674,10 +673,12 @@ FOUNDATION_EXPORT void JavaAwtFontTextAttribute_initWithNSString_(JavaAwtFontTex
 
 FOUNDATION_EXPORT JavaAwtFontTextAttribute *new_JavaAwtFontTextAttribute_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaAwtFontTextAttribute *create_JavaAwtFontTextAttribute_initWithNSString_(NSString *name);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaAwtFontTextAttribute)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaAwtFontTextAttribute_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaAwtFontTextAttribute")

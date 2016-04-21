@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentTimeoutException_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentTimeoutException_RESTRICT
-#define JavaUtilConcurrentTimeoutException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentTimeoutException")
+#ifdef RESTRICT_JavaUtilConcurrentTimeoutException
+#define INCLUDE_ALL_JavaUtilConcurrentTimeoutException 0
 #else
-#define JavaUtilConcurrentTimeoutException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentTimeoutException 1
 #endif
-#undef JavaUtilConcurrentTimeoutException_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentTimeoutException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentTimeoutException_) && (JavaUtilConcurrentTimeoutException_INCLUDE_ALL || defined(JavaUtilConcurrentTimeoutException_INCLUDE))
+#if !defined (JavaUtilConcurrentTimeoutException_) && (INCLUDE_ALL_JavaUtilConcurrentTimeoutException || defined(INCLUDE_JavaUtilConcurrentTimeoutException))
 #define JavaUtilConcurrentTimeoutException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -59,9 +59,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentTimeoutException_init(JavaUtilConcurren
 
 FOUNDATION_EXPORT JavaUtilConcurrentTimeoutException *new_JavaUtilConcurrentTimeoutException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentTimeoutException *create_JavaUtilConcurrentTimeoutException_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentTimeoutException_initWithNSString_(JavaUtilConcurrentTimeoutException *self, NSString *message);
 
 FOUNDATION_EXPORT JavaUtilConcurrentTimeoutException *new_JavaUtilConcurrentTimeoutException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentTimeoutException *create_JavaUtilConcurrentTimeoutException_initWithNSString_(NSString *message);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentTimeoutException)
 
@@ -69,4 +73,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentTimeoutException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentTimeoutException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentTimeoutException")

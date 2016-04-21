@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityKeyStoreException_INCLUDE_ALL")
-#ifdef JavaSecurityKeyStoreException_RESTRICT
-#define JavaSecurityKeyStoreException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityKeyStoreException")
+#ifdef RESTRICT_JavaSecurityKeyStoreException
+#define INCLUDE_ALL_JavaSecurityKeyStoreException 0
 #else
-#define JavaSecurityKeyStoreException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityKeyStoreException 1
 #endif
-#undef JavaSecurityKeyStoreException_RESTRICT
+#undef RESTRICT_JavaSecurityKeyStoreException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityKeyStoreException_) && (JavaSecurityKeyStoreException_INCLUDE_ALL || defined(JavaSecurityKeyStoreException_INCLUDE))
+#if !defined (JavaSecurityKeyStoreException_) && (INCLUDE_ALL_JavaSecurityKeyStoreException || defined(INCLUDE_JavaSecurityKeyStoreException))
 #define JavaSecurityKeyStoreException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../java/security/GeneralSecurityException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>KeyStoreException</code> is a general <code>KeyStore</code> exception.
@@ -55,7 +53,7 @@
  the exception which is the cause for this exception.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance of <code>KeyStoreException</code> with the
@@ -63,7 +61,7 @@
  @param cause
  the exception which is the cause for this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -73,17 +71,25 @@ FOUNDATION_EXPORT void JavaSecurityKeyStoreException_initWithNSString_(JavaSecur
 
 FOUNDATION_EXPORT JavaSecurityKeyStoreException *new_JavaSecurityKeyStoreException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyStoreException *create_JavaSecurityKeyStoreException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityKeyStoreException_init(JavaSecurityKeyStoreException *self);
 
 FOUNDATION_EXPORT JavaSecurityKeyStoreException *new_JavaSecurityKeyStoreException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityKeyStoreException_initWithNSString_withJavaLangThrowable_(JavaSecurityKeyStoreException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityKeyStoreException *create_JavaSecurityKeyStoreException_init();
 
-FOUNDATION_EXPORT JavaSecurityKeyStoreException *new_JavaSecurityKeyStoreException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityKeyStoreException_initWithNSString_withNSException_(JavaSecurityKeyStoreException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityKeyStoreException_initWithJavaLangThrowable_(JavaSecurityKeyStoreException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityKeyStoreException *new_JavaSecurityKeyStoreException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityKeyStoreException *new_JavaSecurityKeyStoreException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityKeyStoreException *create_JavaSecurityKeyStoreException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityKeyStoreException_initWithNSException_(JavaSecurityKeyStoreException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityKeyStoreException *new_JavaSecurityKeyStoreException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityKeyStoreException *create_JavaSecurityKeyStoreException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStoreException)
 
@@ -91,4 +97,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyStoreException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityKeyStoreException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityKeyStoreException")

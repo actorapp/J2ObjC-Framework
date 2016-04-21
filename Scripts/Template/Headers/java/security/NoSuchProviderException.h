@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityNoSuchProviderException_INCLUDE_ALL")
-#ifdef JavaSecurityNoSuchProviderException_RESTRICT
-#define JavaSecurityNoSuchProviderException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityNoSuchProviderException")
+#ifdef RESTRICT_JavaSecurityNoSuchProviderException
+#define INCLUDE_ALL_JavaSecurityNoSuchProviderException 0
 #else
-#define JavaSecurityNoSuchProviderException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityNoSuchProviderException 1
 #endif
-#undef JavaSecurityNoSuchProviderException_RESTRICT
+#undef RESTRICT_JavaSecurityNoSuchProviderException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityNoSuchProviderException_) && (JavaSecurityNoSuchProviderException_INCLUDE_ALL || defined(JavaSecurityNoSuchProviderException_INCLUDE))
+#if !defined (JavaSecurityNoSuchProviderException_) && (INCLUDE_ALL_JavaSecurityNoSuchProviderException || defined(INCLUDE_JavaSecurityNoSuchProviderException))
 #define JavaSecurityNoSuchProviderException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../java/security/GeneralSecurityException.h"
 
 /*!
@@ -52,9 +52,13 @@ FOUNDATION_EXPORT void JavaSecurityNoSuchProviderException_initWithNSString_(Jav
 
 FOUNDATION_EXPORT JavaSecurityNoSuchProviderException *new_JavaSecurityNoSuchProviderException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityNoSuchProviderException *create_JavaSecurityNoSuchProviderException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityNoSuchProviderException_init(JavaSecurityNoSuchProviderException *self);
 
 FOUNDATION_EXPORT JavaSecurityNoSuchProviderException *new_JavaSecurityNoSuchProviderException_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityNoSuchProviderException *create_JavaSecurityNoSuchProviderException_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityNoSuchProviderException)
 
@@ -62,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityNoSuchProviderException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityNoSuchProviderException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityNoSuchProviderException")

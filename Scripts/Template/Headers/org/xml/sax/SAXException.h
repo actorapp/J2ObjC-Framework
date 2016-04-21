@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxSAXException_INCLUDE_ALL")
-#ifdef OrgXmlSaxSAXException_RESTRICT
-#define OrgXmlSaxSAXException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxSAXException")
+#ifdef RESTRICT_OrgXmlSaxSAXException
+#define INCLUDE_ALL_OrgXmlSaxSAXException 0
 #else
-#define OrgXmlSaxSAXException_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxSAXException 1
 #endif
-#undef OrgXmlSaxSAXException_RESTRICT
+#undef RESTRICT_OrgXmlSaxSAXException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxSAXException_) && (OrgXmlSaxSAXException_INCLUDE_ALL || defined(OrgXmlSaxSAXException_INCLUDE))
+#if !defined (OrgXmlSaxSAXException_) && (INCLUDE_ALL_OrgXmlSaxSAXException || defined(INCLUDE_OrgXmlSaxSAXException))
 #define OrgXmlSaxSAXException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -110,17 +110,25 @@ FOUNDATION_EXPORT void OrgXmlSaxSAXException_init(OrgXmlSaxSAXException *self);
 
 FOUNDATION_EXPORT OrgXmlSaxSAXException *new_OrgXmlSaxSAXException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxSAXException *create_OrgXmlSaxSAXException_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxSAXException_initWithNSString_(OrgXmlSaxSAXException *self, NSString *message);
 
 FOUNDATION_EXPORT OrgXmlSaxSAXException *new_OrgXmlSaxSAXException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxSAXException *create_OrgXmlSaxSAXException_initWithNSString_(NSString *message);
 
 FOUNDATION_EXPORT void OrgXmlSaxSAXException_initWithJavaLangException_(OrgXmlSaxSAXException *self, JavaLangException *e);
 
 FOUNDATION_EXPORT OrgXmlSaxSAXException *new_OrgXmlSaxSAXException_initWithJavaLangException_(JavaLangException *e) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxSAXException *create_OrgXmlSaxSAXException_initWithJavaLangException_(JavaLangException *e);
+
 FOUNDATION_EXPORT void OrgXmlSaxSAXException_initWithNSString_withJavaLangException_(OrgXmlSaxSAXException *self, NSString *message, JavaLangException *e);
 
 FOUNDATION_EXPORT OrgXmlSaxSAXException *new_OrgXmlSaxSAXException_initWithNSString_withJavaLangException_(NSString *message, JavaLangException *e) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxSAXException *create_OrgXmlSaxSAXException_initWithNSString_withJavaLangException_(NSString *message, JavaLangException *e);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXException)
 
@@ -128,4 +136,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxSAXException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxSAXException")

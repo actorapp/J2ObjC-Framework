@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxSAXNotSupportedException_INCLUDE_ALL")
-#ifdef OrgXmlSaxSAXNotSupportedException_RESTRICT
-#define OrgXmlSaxSAXNotSupportedException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxSAXNotSupportedException")
+#ifdef RESTRICT_OrgXmlSaxSAXNotSupportedException
+#define INCLUDE_ALL_OrgXmlSaxSAXNotSupportedException 0
 #else
-#define OrgXmlSaxSAXNotSupportedException_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxSAXNotSupportedException 1
 #endif
-#undef OrgXmlSaxSAXNotSupportedException_RESTRICT
+#undef RESTRICT_OrgXmlSaxSAXNotSupportedException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxSAXNotSupportedException_) && (OrgXmlSaxSAXNotSupportedException_INCLUDE_ALL || defined(OrgXmlSaxSAXNotSupportedException_INCLUDE))
+#if !defined (OrgXmlSaxSAXNotSupportedException_) && (INCLUDE_ALL_OrgXmlSaxSAXNotSupportedException || defined(INCLUDE_OrgXmlSaxSAXNotSupportedException))
 #define OrgXmlSaxSAXNotSupportedException_
 
-#define OrgXmlSaxSAXException_RESTRICT 1
-#define OrgXmlSaxSAXException_INCLUDE 1
+#define RESTRICT_OrgXmlSaxSAXException 1
+#define INCLUDE_OrgXmlSaxSAXException 1
 #include "../../../org/xml/sax/SAXException.h"
 
 /*!
@@ -63,9 +63,13 @@ FOUNDATION_EXPORT void OrgXmlSaxSAXNotSupportedException_init(OrgXmlSaxSAXNotSup
 
 FOUNDATION_EXPORT OrgXmlSaxSAXNotSupportedException *new_OrgXmlSaxSAXNotSupportedException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxSAXNotSupportedException *create_OrgXmlSaxSAXNotSupportedException_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxSAXNotSupportedException_initWithNSString_(OrgXmlSaxSAXNotSupportedException *self, NSString *message);
 
 FOUNDATION_EXPORT OrgXmlSaxSAXNotSupportedException *new_OrgXmlSaxSAXNotSupportedException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxSAXNotSupportedException *create_OrgXmlSaxSAXNotSupportedException_initWithNSString_(NSString *message);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXNotSupportedException)
 
@@ -73,4 +77,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXNotSupportedException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxSAXNotSupportedException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxSAXNotSupportedException")

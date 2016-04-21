@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilServiceLoader_INCLUDE_ALL")
-#ifdef JavaUtilServiceLoader_RESTRICT
-#define JavaUtilServiceLoader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilServiceLoader")
+#ifdef RESTRICT_JavaUtilServiceLoader
+#define INCLUDE_ALL_JavaUtilServiceLoader 0
 #else
-#define JavaUtilServiceLoader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilServiceLoader 1
 #endif
-#undef JavaUtilServiceLoader_RESTRICT
+#undef RESTRICT_JavaUtilServiceLoader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilServiceLoader_) && (JavaUtilServiceLoader_INCLUDE_ALL || defined(JavaUtilServiceLoader_INCLUDE))
+#if !defined (JavaUtilServiceLoader_) && (INCLUDE_ALL_JavaUtilServiceLoader || defined(INCLUDE_JavaUtilServiceLoader))
 #define JavaUtilServiceLoader_
 
-#define JavaLangIterable_RESTRICT 1
-#define JavaLangIterable_INCLUDE 1
+#define RESTRICT_JavaLangIterable 1
+#define INCLUDE_JavaLangIterable 1
 #include "../../java/lang/Iterable.h"
 
 @class IOSClass;
@@ -147,4 +147,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilServiceLoader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilServiceLoader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilServiceLoader")

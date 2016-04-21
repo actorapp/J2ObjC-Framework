@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangFloat_INCLUDE_ALL")
-#ifdef JavaLangFloat_RESTRICT
-#define JavaLangFloat_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangFloat")
+#ifdef RESTRICT_JavaLangFloat
+#define INCLUDE_ALL_JavaLangFloat 0
 #else
-#define JavaLangFloat_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangFloat 1
 #endif
-#undef JavaLangFloat_RESTRICT
+#undef RESTRICT_JavaLangFloat
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangFloat_) && (JavaLangFloat_INCLUDE_ALL || defined(JavaLangFloat_INCLUDE))
+#if !defined (JavaLangFloat_) && (INCLUDE_ALL_JavaLangFloat || defined(INCLUDE_JavaLangFloat))
 #define JavaLangFloat_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -391,13 +391,19 @@ FOUNDATION_EXPORT void JavaLangFloat_initWithFloat_(JavaLangFloat *self, jfloat 
 
 FOUNDATION_EXPORT JavaLangFloat *new_JavaLangFloat_initWithFloat_(jfloat value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangFloat *create_JavaLangFloat_initWithFloat_(jfloat value);
+
 FOUNDATION_EXPORT void JavaLangFloat_initWithDouble_(JavaLangFloat *self, jdouble value);
 
 FOUNDATION_EXPORT JavaLangFloat *new_JavaLangFloat_initWithDouble_(jdouble value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangFloat *create_JavaLangFloat_initWithDouble_(jdouble value);
+
 FOUNDATION_EXPORT void JavaLangFloat_initWithNSString_(JavaLangFloat *self, NSString *string);
 
 FOUNDATION_EXPORT JavaLangFloat *new_JavaLangFloat_initWithNSString_(NSString *string) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangFloat *create_JavaLangFloat_initWithNSString_(NSString *string);
 
 FOUNDATION_EXPORT jint JavaLangFloat_floatToIntBitsWithFloat_(jfloat value);
 
@@ -431,4 +437,4 @@ BOXED_COMPOUND_ASSIGN_FPMOD(Float, floatValue, jfloat, JavaLangFloat)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangFloat_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangFloat")

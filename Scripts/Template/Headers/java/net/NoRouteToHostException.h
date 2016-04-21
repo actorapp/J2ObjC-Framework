@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetNoRouteToHostException_INCLUDE_ALL")
-#ifdef JavaNetNoRouteToHostException_RESTRICT
-#define JavaNetNoRouteToHostException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetNoRouteToHostException")
+#ifdef RESTRICT_JavaNetNoRouteToHostException
+#define INCLUDE_ALL_JavaNetNoRouteToHostException 0
 #else
-#define JavaNetNoRouteToHostException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetNoRouteToHostException 1
 #endif
-#undef JavaNetNoRouteToHostException_RESTRICT
+#undef RESTRICT_JavaNetNoRouteToHostException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetNoRouteToHostException_) && (JavaNetNoRouteToHostException_INCLUDE_ALL || defined(JavaNetNoRouteToHostException_INCLUDE))
+#if !defined (JavaNetNoRouteToHostException_) && (INCLUDE_ALL_JavaNetNoRouteToHostException || defined(INCLUDE_JavaNetNoRouteToHostException))
 #define JavaNetNoRouteToHostException_
 
-#define JavaNetSocketException_RESTRICT 1
-#define JavaNetSocketException_INCLUDE 1
+#define RESTRICT_JavaNetSocketException 1
+#define INCLUDE_JavaNetSocketException 1
 #include "../../java/net/SocketException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief The <code>NoRouteToHostException</code> will be thrown while attempting to connect
@@ -51,7 +49,7 @@
   internal use only
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 @end
 
@@ -61,13 +59,19 @@ FOUNDATION_EXPORT void JavaNetNoRouteToHostException_init(JavaNetNoRouteToHostEx
 
 FOUNDATION_EXPORT JavaNetNoRouteToHostException *new_JavaNetNoRouteToHostException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetNoRouteToHostException *create_JavaNetNoRouteToHostException_init();
+
 FOUNDATION_EXPORT void JavaNetNoRouteToHostException_initWithNSString_(JavaNetNoRouteToHostException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaNetNoRouteToHostException *new_JavaNetNoRouteToHostException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaNetNoRouteToHostException_initWithNSString_withJavaLangThrowable_(JavaNetNoRouteToHostException *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaNetNoRouteToHostException *create_JavaNetNoRouteToHostException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaNetNoRouteToHostException *new_JavaNetNoRouteToHostException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaNetNoRouteToHostException_initWithNSString_withNSException_(JavaNetNoRouteToHostException *self, NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT JavaNetNoRouteToHostException *new_JavaNetNoRouteToHostException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetNoRouteToHostException *create_JavaNetNoRouteToHostException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetNoRouteToHostException)
 
@@ -75,4 +79,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetNoRouteToHostException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetNoRouteToHostException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetNoRouteToHostException")

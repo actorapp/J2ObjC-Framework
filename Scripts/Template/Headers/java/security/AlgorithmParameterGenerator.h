@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityAlgorithmParameterGenerator_INCLUDE_ALL")
-#ifdef JavaSecurityAlgorithmParameterGenerator_RESTRICT
-#define JavaSecurityAlgorithmParameterGenerator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityAlgorithmParameterGenerator")
+#ifdef RESTRICT_JavaSecurityAlgorithmParameterGenerator
+#define INCLUDE_ALL_JavaSecurityAlgorithmParameterGenerator 0
 #else
-#define JavaSecurityAlgorithmParameterGenerator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityAlgorithmParameterGenerator 1
 #endif
-#undef JavaSecurityAlgorithmParameterGenerator_RESTRICT
+#undef RESTRICT_JavaSecurityAlgorithmParameterGenerator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityAlgorithmParameterGenerator_) && (JavaSecurityAlgorithmParameterGenerator_INCLUDE_ALL || defined(JavaSecurityAlgorithmParameterGenerator_INCLUDE))
+#if !defined (JavaSecurityAlgorithmParameterGenerator_) && (INCLUDE_ALL_JavaSecurityAlgorithmParameterGenerator || defined(INCLUDE_JavaSecurityAlgorithmParameterGenerator))
 #define JavaSecurityAlgorithmParameterGenerator_
 
 @class JavaSecurityAlgorithmParameterGeneratorSpi;
@@ -180,6 +180,8 @@ FOUNDATION_EXPORT void JavaSecurityAlgorithmParameterGenerator_initWithJavaSecur
 
 FOUNDATION_EXPORT JavaSecurityAlgorithmParameterGenerator *new_JavaSecurityAlgorithmParameterGenerator_initWithJavaSecurityAlgorithmParameterGeneratorSpi_withJavaSecurityProvider_withNSString_(JavaSecurityAlgorithmParameterGeneratorSpi *paramGenSpi, JavaSecurityProvider *provider, NSString *algorithm) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityAlgorithmParameterGenerator *create_JavaSecurityAlgorithmParameterGenerator_initWithJavaSecurityAlgorithmParameterGeneratorSpi_withJavaSecurityProvider_withNSString_(JavaSecurityAlgorithmParameterGeneratorSpi *paramGenSpi, JavaSecurityProvider *provider, NSString *algorithm);
+
 FOUNDATION_EXPORT JavaSecurityAlgorithmParameterGenerator *JavaSecurityAlgorithmParameterGenerator_getInstanceWithNSString_(NSString *algorithm);
 
 FOUNDATION_EXPORT JavaSecurityAlgorithmParameterGenerator *JavaSecurityAlgorithmParameterGenerator_getInstanceWithNSString_withNSString_(NSString *algorithm, NSString *provider);
@@ -192,4 +194,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAlgorithmParameterGenerator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityAlgorithmParameterGenerator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityAlgorithmParameterGenerator")

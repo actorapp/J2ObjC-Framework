@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangStackOverflowError_INCLUDE_ALL")
-#ifdef JavaLangStackOverflowError_RESTRICT
-#define JavaLangStackOverflowError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangStackOverflowError")
+#ifdef RESTRICT_JavaLangStackOverflowError
+#define INCLUDE_ALL_JavaLangStackOverflowError 0
 #else
-#define JavaLangStackOverflowError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangStackOverflowError 1
 #endif
-#undef JavaLangStackOverflowError_RESTRICT
+#undef RESTRICT_JavaLangStackOverflowError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangStackOverflowError_) && (JavaLangStackOverflowError_INCLUDE_ALL || defined(JavaLangStackOverflowError_INCLUDE))
+#if !defined (JavaLangStackOverflowError_) && (INCLUDE_ALL_JavaLangStackOverflowError || defined(INCLUDE_JavaLangStackOverflowError))
 #define JavaLangStackOverflowError_
 
-#define JavaLangVirtualMachineError_RESTRICT 1
-#define JavaLangVirtualMachineError_INCLUDE 1
+#define RESTRICT_JavaLangVirtualMachineError 1
+#define INCLUDE_JavaLangVirtualMachineError 1
 #include "../../java/lang/VirtualMachineError.h"
 
 /*!
@@ -56,9 +56,13 @@ FOUNDATION_EXPORT void JavaLangStackOverflowError_init(JavaLangStackOverflowErro
 
 FOUNDATION_EXPORT JavaLangStackOverflowError *new_JavaLangStackOverflowError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangStackOverflowError *create_JavaLangStackOverflowError_init();
+
 FOUNDATION_EXPORT void JavaLangStackOverflowError_initWithNSString_(JavaLangStackOverflowError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangStackOverflowError *new_JavaLangStackOverflowError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangStackOverflowError *create_JavaLangStackOverflowError_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangStackOverflowError)
 
@@ -66,4 +70,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangStackOverflowError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangStackOverflowError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangStackOverflowError")

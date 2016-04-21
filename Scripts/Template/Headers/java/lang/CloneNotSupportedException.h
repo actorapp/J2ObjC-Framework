@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangCloneNotSupportedException_INCLUDE_ALL")
-#ifdef JavaLangCloneNotSupportedException_RESTRICT
-#define JavaLangCloneNotSupportedException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangCloneNotSupportedException")
+#ifdef RESTRICT_JavaLangCloneNotSupportedException
+#define INCLUDE_ALL_JavaLangCloneNotSupportedException 0
 #else
-#define JavaLangCloneNotSupportedException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangCloneNotSupportedException 1
 #endif
-#undef JavaLangCloneNotSupportedException_RESTRICT
+#undef RESTRICT_JavaLangCloneNotSupportedException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangCloneNotSupportedException_) && (JavaLangCloneNotSupportedException_INCLUDE_ALL || defined(JavaLangCloneNotSupportedException_INCLUDE))
+#if !defined (JavaLangCloneNotSupportedException_) && (INCLUDE_ALL_JavaLangCloneNotSupportedException || defined(INCLUDE_JavaLangCloneNotSupportedException))
 #define JavaLangCloneNotSupportedException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -54,9 +54,13 @@ FOUNDATION_EXPORT void JavaLangCloneNotSupportedException_init(JavaLangCloneNotS
 
 FOUNDATION_EXPORT JavaLangCloneNotSupportedException *new_JavaLangCloneNotSupportedException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangCloneNotSupportedException *create_JavaLangCloneNotSupportedException_init();
+
 FOUNDATION_EXPORT void JavaLangCloneNotSupportedException_initWithNSString_(JavaLangCloneNotSupportedException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangCloneNotSupportedException *new_JavaLangCloneNotSupportedException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangCloneNotSupportedException *create_JavaLangCloneNotSupportedException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangCloneNotSupportedException)
 
@@ -64,4 +68,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangCloneNotSupportedException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangCloneNotSupportedException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangCloneNotSupportedException")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE_ALL")
-#ifdef JavaxXmlDatatypeXMLGregorianCalendar_RESTRICT
-#define JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlDatatypeXMLGregorianCalendar")
+#ifdef RESTRICT_JavaxXmlDatatypeXMLGregorianCalendar
+#define INCLUDE_ALL_JavaxXmlDatatypeXMLGregorianCalendar 0
 #else
-#define JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlDatatypeXMLGregorianCalendar 1
 #endif
-#undef JavaxXmlDatatypeXMLGregorianCalendar_RESTRICT
+#undef RESTRICT_JavaxXmlDatatypeXMLGregorianCalendar
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlDatatypeXMLGregorianCalendar_) && (JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE_ALL || defined(JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE))
+#if !defined (JavaxXmlDatatypeXMLGregorianCalendar_) && (INCLUDE_ALL_JavaxXmlDatatypeXMLGregorianCalendar || defined(INCLUDE_JavaxXmlDatatypeXMLGregorianCalendar))
 #define JavaxXmlDatatypeXMLGregorianCalendar_
 
 @class JavaMathBigDecimal;
@@ -889,4 +889,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeXMLGregorianCalendar)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlDatatypeXMLGregorianCalendar_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlDatatypeXMLGregorianCalendar")

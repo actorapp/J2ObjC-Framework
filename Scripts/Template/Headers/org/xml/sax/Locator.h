@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxLocator_INCLUDE_ALL")
-#ifdef OrgXmlSaxLocator_RESTRICT
-#define OrgXmlSaxLocator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxLocator")
+#ifdef RESTRICT_OrgXmlSaxLocator
+#define INCLUDE_ALL_OrgXmlSaxLocator 0
 #else
-#define OrgXmlSaxLocator_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxLocator 1
 #endif
-#undef OrgXmlSaxLocator_RESTRICT
+#undef RESTRICT_OrgXmlSaxLocator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxLocator_) && (OrgXmlSaxLocator_INCLUDE_ALL || defined(OrgXmlSaxLocator_INCLUDE))
+#if !defined (OrgXmlSaxLocator_) && (INCLUDE_ALL_OrgXmlSaxLocator || defined(INCLUDE_OrgXmlSaxLocator))
 #define OrgXmlSaxLocator_
 
 /*!
@@ -132,4 +132,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxLocator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxLocator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxLocator")

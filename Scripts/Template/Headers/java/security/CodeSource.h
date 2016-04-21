@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCodeSource_INCLUDE_ALL")
-#ifdef JavaSecurityCodeSource_RESTRICT
-#define JavaSecurityCodeSource_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCodeSource")
+#ifdef RESTRICT_JavaSecurityCodeSource
+#define INCLUDE_ALL_JavaSecurityCodeSource 0
 #else
-#define JavaSecurityCodeSource_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCodeSource 1
 #endif
-#undef JavaSecurityCodeSource_RESTRICT
+#undef RESTRICT_JavaSecurityCodeSource
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCodeSource_) && (JavaSecurityCodeSource_INCLUDE_ALL || defined(JavaSecurityCodeSource_INCLUDE))
+#if !defined (JavaSecurityCodeSource_) && (INCLUDE_ALL_JavaSecurityCodeSource || defined(INCLUDE_JavaSecurityCodeSource))
 #define JavaSecurityCodeSource_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -51,10 +51,12 @@ FOUNDATION_EXPORT void JavaSecurityCodeSource_init(JavaSecurityCodeSource *self)
 
 FOUNDATION_EXPORT JavaSecurityCodeSource *new_JavaSecurityCodeSource_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityCodeSource *create_JavaSecurityCodeSource_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCodeSource)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCodeSource_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCodeSource")

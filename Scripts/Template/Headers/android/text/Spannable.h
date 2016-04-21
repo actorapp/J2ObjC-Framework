@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextSpannable_INCLUDE_ALL")
-#ifdef AndroidTextSpannable_RESTRICT
-#define AndroidTextSpannable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextSpannable")
+#ifdef RESTRICT_AndroidTextSpannable
+#define INCLUDE_ALL_AndroidTextSpannable 0
 #else
-#define AndroidTextSpannable_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextSpannable 1
 #endif
-#undef AndroidTextSpannable_RESTRICT
+#undef RESTRICT_AndroidTextSpannable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextSpannable_) && (AndroidTextSpannable_INCLUDE_ALL || defined(AndroidTextSpannable_INCLUDE))
+#if !defined (AndroidTextSpannable_) && (INCLUDE_ALL_AndroidTextSpannable || defined(INCLUDE_AndroidTextSpannable))
 #define AndroidTextSpannable_
 
-#define AndroidTextSpanned_RESTRICT 1
-#define AndroidTextSpanned_INCLUDE 1
+#define RESTRICT_AndroidTextSpanned 1
+#define INCLUDE_AndroidTextSpanned 1
 #include "../../android/text/Spanned.h"
 
 /*!
@@ -62,7 +62,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannable)
 
 #endif
 
-#if !defined (AndroidTextSpannable_Factory_) && (AndroidTextSpannable_INCLUDE_ALL || defined(AndroidTextSpannable_Factory_INCLUDE))
+#if !defined (AndroidTextSpannable_Factory_) && (INCLUDE_ALL_AndroidTextSpannable || defined(INCLUDE_AndroidTextSpannable_Factory))
 #define AndroidTextSpannable_Factory_
 
 @protocol AndroidTextSpannable;
@@ -100,10 +100,12 @@ FOUNDATION_EXPORT void AndroidTextSpannable_Factory_init(AndroidTextSpannable_Fa
 
 FOUNDATION_EXPORT AndroidTextSpannable_Factory *new_AndroidTextSpannable_Factory_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextSpannable_Factory *create_AndroidTextSpannable_Factory_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannable_Factory)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextSpannable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextSpannable")

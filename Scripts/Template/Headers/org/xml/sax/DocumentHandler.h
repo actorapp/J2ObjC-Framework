@@ -5,21 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxDocumentHandler_INCLUDE_ALL")
-#ifdef OrgXmlSaxDocumentHandler_RESTRICT
-#define OrgXmlSaxDocumentHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxDocumentHandler")
+#ifdef RESTRICT_OrgXmlSaxDocumentHandler
+#define INCLUDE_ALL_OrgXmlSaxDocumentHandler 0
 #else
-#define OrgXmlSaxDocumentHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxDocumentHandler 1
 #endif
-#undef OrgXmlSaxDocumentHandler_RESTRICT
+#undef RESTRICT_OrgXmlSaxDocumentHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxDocumentHandler_) && (OrgXmlSaxDocumentHandler_INCLUDE_ALL || defined(OrgXmlSaxDocumentHandler_INCLUDE))
+#if !defined (OrgXmlSaxDocumentHandler_) && (INCLUDE_ALL_OrgXmlSaxDocumentHandler || defined(INCLUDE_OrgXmlSaxDocumentHandler))
 #define OrgXmlSaxDocumentHandler_
 
 @class IOSCharArray;
+@class IOSObjectArray;
 @protocol OrgXmlSaxAttributeList;
 @protocol OrgXmlSaxLocator;
 
@@ -214,4 +215,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxDocumentHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxDocumentHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxDocumentHandler")

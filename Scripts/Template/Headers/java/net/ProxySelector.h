@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetProxySelector_INCLUDE_ALL")
-#ifdef JavaNetProxySelector_RESTRICT
-#define JavaNetProxySelector_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetProxySelector")
+#ifdef RESTRICT_JavaNetProxySelector
+#define INCLUDE_ALL_JavaNetProxySelector 0
 #else
-#define JavaNetProxySelector_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetProxySelector 1
 #endif
-#undef JavaNetProxySelector_RESTRICT
+#undef RESTRICT_JavaNetProxySelector
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetProxySelector_) && (JavaNetProxySelector_INCLUDE_ALL || defined(JavaNetProxySelector_INCLUDE))
+#if !defined (JavaNetProxySelector_) && (INCLUDE_ALL_JavaNetProxySelector || defined(INCLUDE_JavaNetProxySelector))
 #define JavaNetProxySelector_
 
 @class JavaIoIOException;
@@ -141,4 +141,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetProxySelector)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetProxySelector_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetProxySelector")

@@ -5,26 +5,25 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingLogRecord_INCLUDE_ALL")
-#ifdef JavaUtilLoggingLogRecord_RESTRICT
-#define JavaUtilLoggingLogRecord_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingLogRecord")
+#ifdef RESTRICT_JavaUtilLoggingLogRecord
+#define INCLUDE_ALL_JavaUtilLoggingLogRecord 0
 #else
-#define JavaUtilLoggingLogRecord_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingLogRecord 1
 #endif
-#undef JavaUtilLoggingLogRecord_RESTRICT
+#undef RESTRICT_JavaUtilLoggingLogRecord
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingLogRecord_) && (JavaUtilLoggingLogRecord_INCLUDE_ALL || defined(JavaUtilLoggingLogRecord_INCLUDE))
+#if !defined (JavaUtilLoggingLogRecord_) && (INCLUDE_ALL_JavaUtilLoggingLogRecord || defined(INCLUDE_JavaUtilLoggingLogRecord))
 #define JavaUtilLoggingLogRecord_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
-@class JavaLangThrowable;
 @class JavaUtilLoggingLevel;
 @class JavaUtilResourceBundle;
 
@@ -146,7 +145,7 @@
  @brief Gets the <code>Throwable</code> object associated with this log record.
  @return the <code>Throwable</code> object associated with this log record.
  */
-- (JavaLangThrowable *)getThrown;
+- (NSException *)getThrown;
 
 /*!
  @brief Sets the logging level.
@@ -242,7 +241,7 @@
  the new <code>Throwable</code> object to associate with this log
  record.
  */
-- (void)setThrownWithJavaLangThrowable:(JavaLangThrowable *)thrown;
+- (void)setThrownWithNSException:(NSException *)thrown;
 
 @end
 
@@ -252,10 +251,12 @@ FOUNDATION_EXPORT void JavaUtilLoggingLogRecord_initWithJavaUtilLoggingLevel_wit
 
 FOUNDATION_EXPORT JavaUtilLoggingLogRecord *new_JavaUtilLoggingLogRecord_initWithJavaUtilLoggingLevel_withNSString_(JavaUtilLoggingLevel *level, NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingLogRecord *create_JavaUtilLoggingLogRecord_initWithJavaUtilLoggingLevel_withNSString_(JavaUtilLoggingLevel *level, NSString *msg);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogRecord)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingLogRecord_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLogRecord")

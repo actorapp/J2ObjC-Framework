@@ -5,38 +5,38 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextSpannableStringBuilder_INCLUDE_ALL")
-#ifdef AndroidTextSpannableStringBuilder_RESTRICT
-#define AndroidTextSpannableStringBuilder_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextSpannableStringBuilder")
+#ifdef RESTRICT_AndroidTextSpannableStringBuilder
+#define INCLUDE_ALL_AndroidTextSpannableStringBuilder 0
 #else
-#define AndroidTextSpannableStringBuilder_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextSpannableStringBuilder 1
 #endif
-#undef AndroidTextSpannableStringBuilder_RESTRICT
+#undef RESTRICT_AndroidTextSpannableStringBuilder
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextSpannableStringBuilder_) && (AndroidTextSpannableStringBuilder_INCLUDE_ALL || defined(AndroidTextSpannableStringBuilder_INCLUDE))
+#if !defined (AndroidTextSpannableStringBuilder_) && (INCLUDE_ALL_AndroidTextSpannableStringBuilder || defined(INCLUDE_AndroidTextSpannableStringBuilder))
 #define AndroidTextSpannableStringBuilder_
 
-#define JavaLangCharSequence_RESTRICT 1
-#define JavaLangCharSequence_INCLUDE 1
+#define RESTRICT_JavaLangCharSequence 1
+#define INCLUDE_JavaLangCharSequence 1
 #include "../../java/lang/CharSequence.h"
 
-#define AndroidTextGetChars_RESTRICT 1
-#define AndroidTextGetChars_INCLUDE 1
+#define RESTRICT_AndroidTextGetChars 1
+#define INCLUDE_AndroidTextGetChars 1
 #include "../../android/text/GetChars.h"
 
-#define AndroidTextSpannable_RESTRICT 1
-#define AndroidTextSpannable_INCLUDE 1
+#define RESTRICT_AndroidTextSpannable 1
+#define INCLUDE_AndroidTextSpannable 1
 #include "../../android/text/Spannable.h"
 
-#define AndroidTextEditable_RESTRICT 1
-#define AndroidTextEditable_INCLUDE 1
+#define RESTRICT_AndroidTextEditable 1
+#define INCLUDE_AndroidTextEditable 1
 #include "../../android/text/Editable.h"
 
-#define JavaLangAppendable_RESTRICT 1
-#define JavaLangAppendable_INCLUDE 1
+#define RESTRICT_JavaLangAppendable 1
+#define INCLUDE_JavaLangAppendable 1
 #include "../../java/lang/Appendable.h"
 
 @class IOSCharArray;
@@ -210,13 +210,19 @@ FOUNDATION_EXPORT void AndroidTextSpannableStringBuilder_init(AndroidTextSpannab
 
 FOUNDATION_EXPORT AndroidTextSpannableStringBuilder *new_AndroidTextSpannableStringBuilder_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextSpannableStringBuilder *create_AndroidTextSpannableStringBuilder_init();
+
 FOUNDATION_EXPORT void AndroidTextSpannableStringBuilder_initWithJavaLangCharSequence_(AndroidTextSpannableStringBuilder *self, id<JavaLangCharSequence> text);
 
 FOUNDATION_EXPORT AndroidTextSpannableStringBuilder *new_AndroidTextSpannableStringBuilder_initWithJavaLangCharSequence_(id<JavaLangCharSequence> text) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextSpannableStringBuilder *create_AndroidTextSpannableStringBuilder_initWithJavaLangCharSequence_(id<JavaLangCharSequence> text);
+
 FOUNDATION_EXPORT void AndroidTextSpannableStringBuilder_initWithJavaLangCharSequence_withInt_withInt_(AndroidTextSpannableStringBuilder *self, id<JavaLangCharSequence> text, jint start, jint end);
 
 FOUNDATION_EXPORT AndroidTextSpannableStringBuilder *new_AndroidTextSpannableStringBuilder_initWithJavaLangCharSequence_withInt_withInt_(id<JavaLangCharSequence> text, jint start, jint end) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT AndroidTextSpannableStringBuilder *create_AndroidTextSpannableStringBuilder_initWithJavaLangCharSequence_withInt_withInt_(id<JavaLangCharSequence> text, jint start, jint end);
 
 FOUNDATION_EXPORT AndroidTextSpannableStringBuilder *AndroidTextSpannableStringBuilder_valueOfWithJavaLangCharSequence_(id<JavaLangCharSequence> source);
 
@@ -226,4 +232,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableStringBuilder)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextSpannableStringBuilder_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextSpannableStringBuilder")

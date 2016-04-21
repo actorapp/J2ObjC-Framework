@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicAtomicBoolean_RESTRICT
-#define JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicBoolean")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicBoolean
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicBoolean 0
 #else
-#define JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicBoolean 1
 #endif
-#undef JavaUtilConcurrentAtomicAtomicBoolean_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicAtomicBoolean
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicAtomicBoolean_) && (JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicAtomicBoolean_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicBoolean || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicBoolean))
 #define JavaUtilConcurrentAtomicAtomicBoolean_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 /*!
@@ -113,9 +113,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicBoolean_initWithBoolean_(Ja
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicBoolean *new_JavaUtilConcurrentAtomicAtomicBoolean_initWithBoolean_(jboolean initialValue) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicBoolean *create_JavaUtilConcurrentAtomicAtomicBoolean_initWithBoolean_(jboolean initialValue);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicBoolean_init(JavaUtilConcurrentAtomicAtomicBoolean *self);
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicBoolean *new_JavaUtilConcurrentAtomicAtomicBoolean_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicBoolean *create_JavaUtilConcurrentAtomicAtomicBoolean_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicBoolean)
 
@@ -123,4 +127,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicBoolean)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicAtomicBoolean_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicBoolean")

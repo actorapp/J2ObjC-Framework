@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextCollationKey_INCLUDE_ALL")
-#ifdef JavaTextCollationKey_RESTRICT
-#define JavaTextCollationKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextCollationKey")
+#ifdef RESTRICT_JavaTextCollationKey
+#define INCLUDE_ALL_JavaTextCollationKey 0
 #else
-#define JavaTextCollationKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextCollationKey 1
 #endif
-#undef JavaTextCollationKey_RESTRICT
+#undef RESTRICT_JavaTextCollationKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextCollationKey_) && (JavaTextCollationKey_INCLUDE_ALL || defined(JavaTextCollationKey_INCLUDE))
+#if !defined (JavaTextCollationKey_) && (INCLUDE_ALL_JavaTextCollationKey || defined(INCLUDE_JavaTextCollationKey))
 #define JavaTextCollationKey_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSByteArray;
@@ -124,4 +124,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextCollationKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextCollationKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextCollationKey")

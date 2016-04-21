@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetProxySelectorImpl_INCLUDE_ALL")
-#ifdef JavaNetProxySelectorImpl_RESTRICT
-#define JavaNetProxySelectorImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetProxySelectorImpl")
+#ifdef RESTRICT_JavaNetProxySelectorImpl
+#define INCLUDE_ALL_JavaNetProxySelectorImpl 0
 #else
-#define JavaNetProxySelectorImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetProxySelectorImpl 1
 #endif
-#undef JavaNetProxySelectorImpl_RESTRICT
+#undef RESTRICT_JavaNetProxySelectorImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetProxySelectorImpl_) && (JavaNetProxySelectorImpl_INCLUDE_ALL || defined(JavaNetProxySelectorImpl_INCLUDE))
+#if !defined (JavaNetProxySelectorImpl_) && (INCLUDE_ALL_JavaNetProxySelectorImpl || defined(INCLUDE_JavaNetProxySelectorImpl))
 #define JavaNetProxySelectorImpl_
 
-#define JavaNetProxySelector_RESTRICT 1
-#define JavaNetProxySelector_INCLUDE 1
+#define RESTRICT_JavaNetProxySelector 1
+#define INCLUDE_JavaNetProxySelector 1
 #include "../../java/net/ProxySelector.h"
 
 @class JavaIoIOException;
@@ -50,10 +50,12 @@ FOUNDATION_EXPORT void JavaNetProxySelectorImpl_init(JavaNetProxySelectorImpl *s
 
 FOUNDATION_EXPORT JavaNetProxySelectorImpl *new_JavaNetProxySelectorImpl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetProxySelectorImpl *create_JavaNetProxySelectorImpl_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetProxySelectorImpl)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetProxySelectorImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetProxySelectorImpl")

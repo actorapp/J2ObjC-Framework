@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityDomainCombiner_INCLUDE_ALL")
-#ifdef JavaSecurityDomainCombiner_RESTRICT
-#define JavaSecurityDomainCombiner_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityDomainCombiner")
+#ifdef RESTRICT_JavaSecurityDomainCombiner
+#define INCLUDE_ALL_JavaSecurityDomainCombiner 0
 #else
-#define JavaSecurityDomainCombiner_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityDomainCombiner 1
 #endif
-#undef JavaSecurityDomainCombiner_RESTRICT
+#undef RESTRICT_JavaSecurityDomainCombiner
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityDomainCombiner_) && (JavaSecurityDomainCombiner_INCLUDE_ALL || defined(JavaSecurityDomainCombiner_INCLUDE))
+#if !defined (JavaSecurityDomainCombiner_) && (INCLUDE_ALL_JavaSecurityDomainCombiner || defined(INCLUDE_JavaSecurityDomainCombiner))
 #define JavaSecurityDomainCombiner_
 
 @class IOSObjectArray;
@@ -51,4 +51,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityDomainCombiner)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityDomainCombiner_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityDomainCombiner")

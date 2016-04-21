@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoUnsupportedEncodingException_INCLUDE_ALL")
-#ifdef JavaIoUnsupportedEncodingException_RESTRICT
-#define JavaIoUnsupportedEncodingException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoUnsupportedEncodingException")
+#ifdef RESTRICT_JavaIoUnsupportedEncodingException
+#define INCLUDE_ALL_JavaIoUnsupportedEncodingException 0
 #else
-#define JavaIoUnsupportedEncodingException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoUnsupportedEncodingException 1
 #endif
-#undef JavaIoUnsupportedEncodingException_RESTRICT
+#undef RESTRICT_JavaIoUnsupportedEncodingException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoUnsupportedEncodingException_) && (JavaIoUnsupportedEncodingException_INCLUDE_ALL || defined(JavaIoUnsupportedEncodingException_INCLUDE))
+#if !defined (JavaIoUnsupportedEncodingException_) && (INCLUDE_ALL_JavaIoUnsupportedEncodingException || defined(INCLUDE_JavaIoUnsupportedEncodingException))
 #define JavaIoUnsupportedEncodingException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaIoUnsupportedEncodingException_init(JavaIoUnsupported
 
 FOUNDATION_EXPORT JavaIoUnsupportedEncodingException *new_JavaIoUnsupportedEncodingException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoUnsupportedEncodingException *create_JavaIoUnsupportedEncodingException_init();
+
 FOUNDATION_EXPORT void JavaIoUnsupportedEncodingException_initWithNSString_(JavaIoUnsupportedEncodingException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoUnsupportedEncodingException *new_JavaIoUnsupportedEncodingException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoUnsupportedEncodingException *create_JavaIoUnsupportedEncodingException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoUnsupportedEncodingException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoUnsupportedEncodingException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoUnsupportedEncodingException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoUnsupportedEncodingException")

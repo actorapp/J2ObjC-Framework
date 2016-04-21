@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicAtomicInteger_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicAtomicInteger_RESTRICT
-#define JavaUtilConcurrentAtomicAtomicInteger_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicInteger")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicInteger
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicInteger 0
 #else
-#define JavaUtilConcurrentAtomicAtomicInteger_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicInteger 1
 #endif
-#undef JavaUtilConcurrentAtomicAtomicInteger_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicAtomicInteger
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicAtomicInteger_) && (JavaUtilConcurrentAtomicAtomicInteger_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicInteger_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicAtomicInteger_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicInteger || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicInteger))
 #define JavaUtilConcurrentAtomicAtomicInteger_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 /*!
@@ -176,9 +176,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicInteger_initWithInt_(JavaUt
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicInteger *new_JavaUtilConcurrentAtomicAtomicInteger_initWithInt_(jint initialValue) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicInteger *create_JavaUtilConcurrentAtomicAtomicInteger_initWithInt_(jint initialValue);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicInteger_init(JavaUtilConcurrentAtomicAtomicInteger *self);
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicInteger *new_JavaUtilConcurrentAtomicAtomicInteger_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicInteger *create_JavaUtilConcurrentAtomicAtomicInteger_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicInteger)
 
@@ -186,4 +190,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicInteger)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicAtomicInteger_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicInteger")

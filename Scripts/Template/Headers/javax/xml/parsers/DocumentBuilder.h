@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlParsersDocumentBuilder_INCLUDE_ALL")
-#ifdef JavaxXmlParsersDocumentBuilder_RESTRICT
-#define JavaxXmlParsersDocumentBuilder_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlParsersDocumentBuilder")
+#ifdef RESTRICT_JavaxXmlParsersDocumentBuilder
+#define INCLUDE_ALL_JavaxXmlParsersDocumentBuilder 0
 #else
-#define JavaxXmlParsersDocumentBuilder_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlParsersDocumentBuilder 1
 #endif
-#undef JavaxXmlParsersDocumentBuilder_RESTRICT
+#undef RESTRICT_JavaxXmlParsersDocumentBuilder
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlParsersDocumentBuilder_) && (JavaxXmlParsersDocumentBuilder_INCLUDE_ALL || defined(JavaxXmlParsersDocumentBuilder_INCLUDE))
+#if !defined (JavaxXmlParsersDocumentBuilder_) && (INCLUDE_ALL_JavaxXmlParsersDocumentBuilder || defined(INCLUDE_JavaxXmlParsersDocumentBuilder))
 #define JavaxXmlParsersDocumentBuilder_
 
 @class JavaIoFile;
@@ -231,4 +231,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersDocumentBuilder)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlParsersDocumentBuilder_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlParsersDocumentBuilder")

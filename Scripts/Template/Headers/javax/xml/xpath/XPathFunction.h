@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlXpathXPathFunction_INCLUDE_ALL")
-#ifdef JavaxXmlXpathXPathFunction_RESTRICT
-#define JavaxXmlXpathXPathFunction_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathFunction")
+#ifdef RESTRICT_JavaxXmlXpathXPathFunction
+#define INCLUDE_ALL_JavaxXmlXpathXPathFunction 0
 #else
-#define JavaxXmlXpathXPathFunction_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlXpathXPathFunction 1
 #endif
-#undef JavaxXmlXpathXPathFunction_RESTRICT
+#undef RESTRICT_JavaxXmlXpathXPathFunction
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlXpathXPathFunction_) && (JavaxXmlXpathXPathFunction_INCLUDE_ALL || defined(JavaxXmlXpathXPathFunction_INCLUDE))
+#if !defined (JavaxXmlXpathXPathFunction_) && (INCLUDE_ALL_JavaxXmlXpathXPathFunction || defined(INCLUDE_JavaxXmlXpathXPathFunction))
 #define JavaxXmlXpathXPathFunction_
 
 @protocol JavaUtilList;
@@ -55,4 +55,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathFunction)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlXpathXPathFunction_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathFunction")

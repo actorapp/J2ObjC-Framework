@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlNamespaceQName_INCLUDE_ALL")
-#ifdef JavaxXmlNamespaceQName_RESTRICT
-#define JavaxXmlNamespaceQName_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlNamespaceQName")
+#ifdef RESTRICT_JavaxXmlNamespaceQName
+#define INCLUDE_ALL_JavaxXmlNamespaceQName 0
 #else
-#define JavaxXmlNamespaceQName_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlNamespaceQName 1
 #endif
-#undef JavaxXmlNamespaceQName_RESTRICT
+#undef RESTRICT_JavaxXmlNamespaceQName
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlNamespaceQName_) && (JavaxXmlNamespaceQName_INCLUDE_ALL || defined(JavaxXmlNamespaceQName_INCLUDE))
+#if !defined (JavaxXmlNamespaceQName_) && (INCLUDE_ALL_JavaxXmlNamespaceQName || defined(INCLUDE_JavaxXmlNamespaceQName))
 #define JavaxXmlNamespaceQName_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 /*!
@@ -285,13 +285,19 @@ FOUNDATION_EXPORT void JavaxXmlNamespaceQName_initWithNSString_withNSString_(Jav
 
 FOUNDATION_EXPORT JavaxXmlNamespaceQName *new_JavaxXmlNamespaceQName_initWithNSString_withNSString_(NSString *namespaceURI, NSString *localPart) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *create_JavaxXmlNamespaceQName_initWithNSString_withNSString_(NSString *namespaceURI, NSString *localPart);
+
 FOUNDATION_EXPORT void JavaxXmlNamespaceQName_initWithNSString_withNSString_withNSString_(JavaxXmlNamespaceQName *self, NSString *namespaceURI, NSString *localPart, NSString *prefix);
 
 FOUNDATION_EXPORT JavaxXmlNamespaceQName *new_JavaxXmlNamespaceQName_initWithNSString_withNSString_withNSString_(NSString *namespaceURI, NSString *localPart, NSString *prefix) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *create_JavaxXmlNamespaceQName_initWithNSString_withNSString_withNSString_(NSString *namespaceURI, NSString *localPart, NSString *prefix);
+
 FOUNDATION_EXPORT void JavaxXmlNamespaceQName_initWithNSString_(JavaxXmlNamespaceQName *self, NSString *localPart);
 
 FOUNDATION_EXPORT JavaxXmlNamespaceQName *new_JavaxXmlNamespaceQName_initWithNSString_(NSString *localPart) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlNamespaceQName *create_JavaxXmlNamespaceQName_initWithNSString_(NSString *localPart);
 
 FOUNDATION_EXPORT JavaxXmlNamespaceQName *JavaxXmlNamespaceQName_valueOfWithNSString_(NSString *qNameAsString);
 
@@ -301,4 +307,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlNamespaceQName)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlNamespaceQName_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlNamespaceQName")

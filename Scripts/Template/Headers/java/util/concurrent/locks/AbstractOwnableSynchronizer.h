@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentLocksAbstractOwnableSynchronizer_RESTRICT
-#define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksAbstractOwnableSynchronizer")
+#ifdef RESTRICT_JavaUtilConcurrentLocksAbstractOwnableSynchronizer
+#define INCLUDE_ALL_JavaUtilConcurrentLocksAbstractOwnableSynchronizer 0
 #else
-#define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentLocksAbstractOwnableSynchronizer 1
 #endif
-#undef JavaUtilConcurrentLocksAbstractOwnableSynchronizer_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentLocksAbstractOwnableSynchronizer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentLocksAbstractOwnableSynchronizer_) && (JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE_ALL || defined(JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksAbstractOwnableSynchronizer_) && (INCLUDE_ALL_JavaUtilConcurrentLocksAbstractOwnableSynchronizer || defined(INCLUDE_JavaUtilConcurrentLocksAbstractOwnableSynchronizer))
 #define JavaUtilConcurrentLocksAbstractOwnableSynchronizer_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 @class JavaLangThread;
@@ -77,4 +77,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksAbstractOwnableSynchronizer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentLocksAbstractOwnableSynchronizer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksAbstractOwnableSynchronizer")

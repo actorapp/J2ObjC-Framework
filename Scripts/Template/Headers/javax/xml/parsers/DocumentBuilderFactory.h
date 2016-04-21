@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlParsersDocumentBuilderFactory_INCLUDE_ALL")
-#ifdef JavaxXmlParsersDocumentBuilderFactory_RESTRICT
-#define JavaxXmlParsersDocumentBuilderFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlParsersDocumentBuilderFactory")
+#ifdef RESTRICT_JavaxXmlParsersDocumentBuilderFactory
+#define INCLUDE_ALL_JavaxXmlParsersDocumentBuilderFactory 0
 #else
-#define JavaxXmlParsersDocumentBuilderFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlParsersDocumentBuilderFactory 1
 #endif
-#undef JavaxXmlParsersDocumentBuilderFactory_RESTRICT
+#undef RESTRICT_JavaxXmlParsersDocumentBuilderFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlParsersDocumentBuilderFactory_) && (JavaxXmlParsersDocumentBuilderFactory_INCLUDE_ALL || defined(JavaxXmlParsersDocumentBuilderFactory_INCLUDE))
+#if !defined (JavaxXmlParsersDocumentBuilderFactory_) && (INCLUDE_ALL_JavaxXmlParsersDocumentBuilderFactory || defined(INCLUDE_JavaxXmlParsersDocumentBuilderFactory))
 #define JavaxXmlParsersDocumentBuilderFactory_
 
 @class JavaLangClassLoader;
@@ -375,4 +375,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersDocumentBuilderFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlParsersDocumentBuilderFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlParsersDocumentBuilderFactory")

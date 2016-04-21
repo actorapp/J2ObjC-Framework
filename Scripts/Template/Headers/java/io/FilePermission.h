@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFilePermission_INCLUDE_ALL")
-#ifdef JavaIoFilePermission_RESTRICT
-#define JavaIoFilePermission_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFilePermission")
+#ifdef RESTRICT_JavaIoFilePermission
+#define INCLUDE_ALL_JavaIoFilePermission 0
 #else
-#define JavaIoFilePermission_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFilePermission 1
 #endif
-#undef JavaIoFilePermission_RESTRICT
+#undef RESTRICT_JavaIoFilePermission
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFilePermission_) && (JavaIoFilePermission_INCLUDE_ALL || defined(JavaIoFilePermission_INCLUDE))
+#if !defined (JavaIoFilePermission_) && (INCLUDE_ALL_JavaIoFilePermission || defined(INCLUDE_JavaIoFilePermission))
 #define JavaIoFilePermission_
 
-#define JavaSecurityPermission_RESTRICT 1
-#define JavaSecurityPermission_INCLUDE 1
+#define RESTRICT_JavaSecurityPermission 1
+#define INCLUDE_JavaSecurityPermission 1
 #include "../../java/security/Permission.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -49,10 +49,12 @@ FOUNDATION_EXPORT void JavaIoFilePermission_initWithNSString_withNSString_(JavaI
 
 FOUNDATION_EXPORT JavaIoFilePermission *new_JavaIoFilePermission_initWithNSString_withNSString_(NSString *path, NSString *actions) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFilePermission *create_JavaIoFilePermission_initWithNSString_withNSString_(NSString *path, NSString *actions);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilePermission)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFilePermission_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFilePermission")

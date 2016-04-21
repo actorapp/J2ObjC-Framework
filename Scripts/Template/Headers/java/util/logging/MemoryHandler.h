@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingMemoryHandler_INCLUDE_ALL")
-#ifdef JavaUtilLoggingMemoryHandler_RESTRICT
-#define JavaUtilLoggingMemoryHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingMemoryHandler")
+#ifdef RESTRICT_JavaUtilLoggingMemoryHandler
+#define INCLUDE_ALL_JavaUtilLoggingMemoryHandler 0
 #else
-#define JavaUtilLoggingMemoryHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingMemoryHandler 1
 #endif
-#undef JavaUtilLoggingMemoryHandler_RESTRICT
+#undef RESTRICT_JavaUtilLoggingMemoryHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingMemoryHandler_) && (JavaUtilLoggingMemoryHandler_INCLUDE_ALL || defined(JavaUtilLoggingMemoryHandler_INCLUDE))
+#if !defined (JavaUtilLoggingMemoryHandler_) && (INCLUDE_ALL_JavaUtilLoggingMemoryHandler || defined(INCLUDE_JavaUtilLoggingMemoryHandler))
 #define JavaUtilLoggingMemoryHandler_
 
-#define JavaUtilLoggingHandler_RESTRICT 1
-#define JavaUtilLoggingHandler_INCLUDE 1
+#define RESTRICT_JavaUtilLoggingHandler 1
+#define INCLUDE_JavaUtilLoggingHandler 1
 #include "../../../java/util/logging/Handler.h"
 
 @class JavaUtilLoggingLevel;
@@ -166,9 +166,13 @@ FOUNDATION_EXPORT void JavaUtilLoggingMemoryHandler_init(JavaUtilLoggingMemoryHa
 
 FOUNDATION_EXPORT JavaUtilLoggingMemoryHandler *new_JavaUtilLoggingMemoryHandler_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingMemoryHandler *create_JavaUtilLoggingMemoryHandler_init();
+
 FOUNDATION_EXPORT void JavaUtilLoggingMemoryHandler_initWithJavaUtilLoggingHandler_withInt_withJavaUtilLoggingLevel_(JavaUtilLoggingMemoryHandler *self, JavaUtilLoggingHandler *target, jint size, JavaUtilLoggingLevel *pushLevel);
 
 FOUNDATION_EXPORT JavaUtilLoggingMemoryHandler *new_JavaUtilLoggingMemoryHandler_initWithJavaUtilLoggingHandler_withInt_withJavaUtilLoggingLevel_(JavaUtilLoggingHandler *target, jint size, JavaUtilLoggingLevel *pushLevel) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLoggingMemoryHandler *create_JavaUtilLoggingMemoryHandler_initWithJavaUtilLoggingHandler_withInt_withJavaUtilLoggingLevel_(JavaUtilLoggingHandler *target, jint size, JavaUtilLoggingLevel *pushLevel);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingMemoryHandler)
 
@@ -176,4 +180,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingMemoryHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingMemoryHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingMemoryHandler")

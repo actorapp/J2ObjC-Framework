@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilJarJarException_INCLUDE_ALL")
-#ifdef JavaUtilJarJarException_RESTRICT
-#define JavaUtilJarJarException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilJarJarException")
+#ifdef RESTRICT_JavaUtilJarJarException
+#define INCLUDE_ALL_JavaUtilJarJarException 0
 #else
-#define JavaUtilJarJarException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilJarJarException 1
 #endif
-#undef JavaUtilJarJarException_RESTRICT
+#undef RESTRICT_JavaUtilJarJarException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilJarJarException_) && (JavaUtilJarJarException_INCLUDE_ALL || defined(JavaUtilJarJarException_INCLUDE))
+#if !defined (JavaUtilJarJarException_) && (INCLUDE_ALL_JavaUtilJarJarException || defined(INCLUDE_JavaUtilJarJarException))
 #define JavaUtilJarJarException_
 
-#define JavaUtilZipZipException_RESTRICT 1
-#define JavaUtilZipZipException_INCLUDE 1
+#define RESTRICT_JavaUtilZipZipException 1
+#define INCLUDE_JavaUtilZipZipException 1
 #include "../../../java/util/zip/ZipException.h"
 
 /*!
@@ -52,9 +52,13 @@ FOUNDATION_EXPORT void JavaUtilJarJarException_init(JavaUtilJarJarException *sel
 
 FOUNDATION_EXPORT JavaUtilJarJarException *new_JavaUtilJarJarException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarException *create_JavaUtilJarJarException_init();
+
 FOUNDATION_EXPORT void JavaUtilJarJarException_initWithNSString_(JavaUtilJarJarException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaUtilJarJarException *new_JavaUtilJarJarException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilJarJarException *create_JavaUtilJarJarException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarException)
 
@@ -62,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilJarJarException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarException")

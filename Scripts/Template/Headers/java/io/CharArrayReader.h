@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoCharArrayReader_INCLUDE_ALL")
-#ifdef JavaIoCharArrayReader_RESTRICT
-#define JavaIoCharArrayReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoCharArrayReader")
+#ifdef RESTRICT_JavaIoCharArrayReader
+#define INCLUDE_ALL_JavaIoCharArrayReader 0
 #else
-#define JavaIoCharArrayReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoCharArrayReader 1
 #endif
-#undef JavaIoCharArrayReader_RESTRICT
+#undef RESTRICT_JavaIoCharArrayReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoCharArrayReader_) && (JavaIoCharArrayReader_INCLUDE_ALL || defined(JavaIoCharArrayReader_INCLUDE))
+#if !defined (JavaIoCharArrayReader_) && (INCLUDE_ALL_JavaIoCharArrayReader || defined(INCLUDE_JavaIoCharArrayReader))
 #define JavaIoCharArrayReader_
 
-#define JavaIoReader_RESTRICT 1
-#define JavaIoReader_INCLUDE 1
+#define RESTRICT_JavaIoReader 1
+#define INCLUDE_JavaIoReader 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -180,9 +180,13 @@ FOUNDATION_EXPORT void JavaIoCharArrayReader_initWithCharArray_(JavaIoCharArrayR
 
 FOUNDATION_EXPORT JavaIoCharArrayReader *new_JavaIoCharArrayReader_initWithCharArray_(IOSCharArray *buf) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoCharArrayReader *create_JavaIoCharArrayReader_initWithCharArray_(IOSCharArray *buf);
+
 FOUNDATION_EXPORT void JavaIoCharArrayReader_initWithCharArray_withInt_withInt_(JavaIoCharArrayReader *self, IOSCharArray *buf, jint offset, jint length);
 
 FOUNDATION_EXPORT JavaIoCharArrayReader *new_JavaIoCharArrayReader_initWithCharArray_withInt_withInt_(IOSCharArray *buf, jint offset, jint length) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoCharArrayReader *create_JavaIoCharArrayReader_initWithCharArray_withInt_withInt_(IOSCharArray *buf, jint offset, jint length);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharArrayReader)
 
@@ -190,4 +194,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoCharArrayReader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoCharArrayReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoCharArrayReader")

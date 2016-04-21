@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityCertCertificateEncodingException_INCLUDE_ALL")
-#ifdef JavaxSecurityCertCertificateEncodingException_RESTRICT
-#define JavaxSecurityCertCertificateEncodingException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityCertCertificateEncodingException")
+#ifdef RESTRICT_JavaxSecurityCertCertificateEncodingException
+#define INCLUDE_ALL_JavaxSecurityCertCertificateEncodingException 0
 #else
-#define JavaxSecurityCertCertificateEncodingException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityCertCertificateEncodingException 1
 #endif
-#undef JavaxSecurityCertCertificateEncodingException_RESTRICT
+#undef RESTRICT_JavaxSecurityCertCertificateEncodingException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityCertCertificateEncodingException_) && (JavaxSecurityCertCertificateEncodingException_INCLUDE_ALL || defined(JavaxSecurityCertCertificateEncodingException_INCLUDE))
+#if !defined (JavaxSecurityCertCertificateEncodingException_) && (INCLUDE_ALL_JavaxSecurityCertCertificateEncodingException || defined(INCLUDE_JavaxSecurityCertCertificateEncodingException))
 #define JavaxSecurityCertCertificateEncodingException_
 
-#define JavaxSecurityCertCertificateException_RESTRICT 1
-#define JavaxSecurityCertCertificateException_INCLUDE 1
+#define RESTRICT_JavaxSecurityCertCertificateException 1
+#define INCLUDE_JavaxSecurityCertCertificateException 1
 #include "../../../javax/security/cert/CertificateException.h"
 
 /*!
@@ -58,9 +58,13 @@ FOUNDATION_EXPORT void JavaxSecurityCertCertificateEncodingException_initWithNSS
 
 FOUNDATION_EXPORT JavaxSecurityCertCertificateEncodingException *new_JavaxSecurityCertCertificateEncodingException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxSecurityCertCertificateEncodingException *create_JavaxSecurityCertCertificateEncodingException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaxSecurityCertCertificateEncodingException_init(JavaxSecurityCertCertificateEncodingException *self);
 
 FOUNDATION_EXPORT JavaxSecurityCertCertificateEncodingException *new_JavaxSecurityCertCertificateEncodingException_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxSecurityCertCertificateEncodingException *create_JavaxSecurityCertCertificateEncodingException_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateEncodingException)
 
@@ -68,4 +72,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateEncodingException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityCertCertificateEncodingException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificateEncodingException")

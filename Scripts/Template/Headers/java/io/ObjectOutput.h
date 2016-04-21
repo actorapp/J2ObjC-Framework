@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoObjectOutput_INCLUDE_ALL")
-#ifdef JavaIoObjectOutput_RESTRICT
-#define JavaIoObjectOutput_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoObjectOutput")
+#ifdef RESTRICT_JavaIoObjectOutput
+#define INCLUDE_ALL_JavaIoObjectOutput 0
 #else
-#define JavaIoObjectOutput_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoObjectOutput 1
 #endif
-#undef JavaIoObjectOutput_RESTRICT
+#undef RESTRICT_JavaIoObjectOutput
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoObjectOutput_) && (JavaIoObjectOutput_INCLUDE_ALL || defined(JavaIoObjectOutput_INCLUDE))
+#if !defined (JavaIoObjectOutput_) && (INCLUDE_ALL_JavaIoObjectOutput || defined(INCLUDE_JavaIoObjectOutput))
 #define JavaIoObjectOutput_
 
-#define JavaIoDataOutput_RESTRICT 1
-#define JavaIoDataOutput_INCLUDE 1
+#define RESTRICT_JavaIoDataOutput 1
+#define INCLUDE_JavaIoDataOutput 1
 #include "../../java/io/DataOutput.h"
 
-#define JavaLangAutoCloseable_RESTRICT 1
-#define JavaLangAutoCloseable_INCLUDE 1
+#define RESTRICT_JavaLangAutoCloseable 1
+#define INCLUDE_JavaLangAutoCloseable 1
 #include "../../java/lang/AutoCloseable.h"
 
 @class IOSByteArray;
@@ -115,4 +115,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectOutput)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoObjectOutput_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoObjectOutput")

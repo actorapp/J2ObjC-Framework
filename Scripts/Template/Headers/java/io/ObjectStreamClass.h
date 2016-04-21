@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoObjectStreamClass_INCLUDE_ALL")
-#ifdef JavaIoObjectStreamClass_RESTRICT
-#define JavaIoObjectStreamClass_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoObjectStreamClass")
+#ifdef RESTRICT_JavaIoObjectStreamClass
+#define INCLUDE_ALL_JavaIoObjectStreamClass 0
 #else
-#define JavaIoObjectStreamClass_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoObjectStreamClass 1
 #endif
-#undef JavaIoObjectStreamClass_RESTRICT
+#undef RESTRICT_JavaIoObjectStreamClass
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoObjectStreamClass_) && (JavaIoObjectStreamClass_INCLUDE_ALL || defined(JavaIoObjectStreamClass_INCLUDE))
+#if !defined (JavaIoObjectStreamClass_) && (INCLUDE_ALL_JavaIoObjectStreamClass || defined(INCLUDE_JavaIoObjectStreamClass))
 #define JavaIoObjectStreamClass_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSClass;
@@ -418,6 +418,8 @@ FOUNDATION_EXPORT void JavaIoObjectStreamClass_init(JavaIoObjectStreamClass *sel
 
 FOUNDATION_EXPORT JavaIoObjectStreamClass *new_JavaIoObjectStreamClass_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoObjectStreamClass *create_JavaIoObjectStreamClass_init();
+
 FOUNDATION_EXPORT JavaLangReflectField *JavaIoObjectStreamClass_fieldSerialPersistentFieldsWithIOSClass_(IOSClass *cl);
 
 FOUNDATION_EXPORT NSString *JavaIoObjectStreamClass_getConstructorSignatureWithJavaLangReflectConstructor_(JavaLangReflectConstructor *c);
@@ -444,7 +446,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamClass)
 
 #endif
 
-#if !defined (JavaIoObjectStreamClass_Digest_) && (JavaIoObjectStreamClass_INCLUDE_ALL || defined(JavaIoObjectStreamClass_Digest_INCLUDE))
+#if !defined (JavaIoObjectStreamClass_Digest_) && (INCLUDE_ALL_JavaIoObjectStreamClass || defined(INCLUDE_JavaIoObjectStreamClass_Digest))
 #define JavaIoObjectStreamClass_Digest_
 
 @class IOSByteArray;
@@ -463,4 +465,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectStreamClass_Digest)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoObjectStreamClass_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoObjectStreamClass")

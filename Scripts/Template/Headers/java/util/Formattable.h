@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilFormattable_INCLUDE_ALL")
-#ifdef JavaUtilFormattable_RESTRICT
-#define JavaUtilFormattable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilFormattable")
+#ifdef RESTRICT_JavaUtilFormattable
+#define INCLUDE_ALL_JavaUtilFormattable 0
 #else
-#define JavaUtilFormattable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilFormattable 1
 #endif
-#undef JavaUtilFormattable_RESTRICT
+#undef RESTRICT_JavaUtilFormattable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilFormattable_) && (JavaUtilFormattable_INCLUDE_ALL || defined(JavaUtilFormattable_INCLUDE))
+#if !defined (JavaUtilFormattable_) && (INCLUDE_ALL_JavaUtilFormattable || defined(INCLUDE_JavaUtilFormattable))
 #define JavaUtilFormattable_
 
 @class JavaUtilFormatter;
@@ -72,4 +72,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormattable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilFormattable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilFormattable")

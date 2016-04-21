@@ -5,24 +5,25 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetHttpURLConnection_INCLUDE_ALL")
-#ifdef JavaNetHttpURLConnection_RESTRICT
-#define JavaNetHttpURLConnection_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetHttpURLConnection")
+#ifdef RESTRICT_JavaNetHttpURLConnection
+#define INCLUDE_ALL_JavaNetHttpURLConnection 0
 #else
-#define JavaNetHttpURLConnection_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetHttpURLConnection 1
 #endif
-#undef JavaNetHttpURLConnection_RESTRICT
+#undef RESTRICT_JavaNetHttpURLConnection
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetHttpURLConnection_) && (JavaNetHttpURLConnection_INCLUDE_ALL || defined(JavaNetHttpURLConnection_INCLUDE))
+#if !defined (JavaNetHttpURLConnection_) && (INCLUDE_ALL_JavaNetHttpURLConnection || defined(INCLUDE_JavaNetHttpURLConnection))
 #define JavaNetHttpURLConnection_
 
-#define JavaNetURLConnection_RESTRICT 1
-#define JavaNetURLConnection_INCLUDE 1
+#define RESTRICT_JavaNetURLConnection 1
+#define INCLUDE_JavaNetURLConnection 1
 #include "../../java/net/URLConnection.h"
 
+@class IOSObjectArray;
 @class JavaIoInputStream;
 @class JavaNetURL;
 @class JavaSecurityPermission;
@@ -843,4 +844,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpURLConnection)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetHttpURLConnection_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetHttpURLConnection")

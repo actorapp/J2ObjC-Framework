@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoIOException_INCLUDE_ALL")
-#ifdef JavaIoIOException_RESTRICT
-#define JavaIoIOException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoIOException")
+#ifdef RESTRICT_JavaIoIOException
+#define INCLUDE_ALL_JavaIoIOException 0
 #else
-#define JavaIoIOException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoIOException 1
 #endif
-#undef JavaIoIOException_RESTRICT
+#undef RESTRICT_JavaIoIOException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoIOException_) && (JavaIoIOException_INCLUDE_ALL || defined(JavaIoIOException_INCLUDE))
+#if !defined (JavaIoIOException_) && (INCLUDE_ALL_JavaIoIOException || defined(INCLUDE_JavaIoIOException))
 #define JavaIoIOException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Signals a general, I/O-related error.
@@ -59,7 +57,7 @@
  @since 1.6
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance of this class with its detail cause filled in.
@@ -67,7 +65,7 @@
  The detail cause for the exception.
  @since 1.6
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -77,17 +75,25 @@ FOUNDATION_EXPORT void JavaIoIOException_init(JavaIoIOException *self);
 
 FOUNDATION_EXPORT JavaIoIOException *new_JavaIoIOException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoIOException *create_JavaIoIOException_init();
+
 FOUNDATION_EXPORT void JavaIoIOException_initWithNSString_(JavaIoIOException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoIOException *new_JavaIoIOException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaIoIOException_initWithNSString_withJavaLangThrowable_(JavaIoIOException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaIoIOException *create_JavaIoIOException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaIoIOException *new_JavaIoIOException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaIoIOException_initWithNSString_withNSException_(JavaIoIOException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaIoIOException_initWithJavaLangThrowable_(JavaIoIOException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaIoIOException *new_JavaIoIOException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaIoIOException *new_JavaIoIOException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaIoIOException *create_JavaIoIOException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaIoIOException_initWithNSException_(JavaIoIOException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaIoIOException *new_JavaIoIOException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoIOException *create_JavaIoIOException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoIOException)
 
@@ -95,4 +101,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoIOException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoIOException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoIOException")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipChecksum_INCLUDE_ALL")
-#ifdef JavaUtilZipChecksum_RESTRICT
-#define JavaUtilZipChecksum_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipChecksum")
+#ifdef RESTRICT_JavaUtilZipChecksum
+#define INCLUDE_ALL_JavaUtilZipChecksum 0
 #else
-#define JavaUtilZipChecksum_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipChecksum 1
 #endif
-#undef JavaUtilZipChecksum_RESTRICT
+#undef RESTRICT_JavaUtilZipChecksum
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipChecksum_) && (JavaUtilZipChecksum_INCLUDE_ALL || defined(JavaUtilZipChecksum_INCLUDE))
+#if !defined (JavaUtilZipChecksum_) && (INCLUDE_ALL_JavaUtilZipChecksum || defined(INCLUDE_JavaUtilZipChecksum))
 #define JavaUtilZipChecksum_
 
 @class IOSByteArray;
@@ -68,4 +68,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipChecksum)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipChecksum_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipChecksum")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxXMLReader_INCLUDE_ALL")
-#ifdef OrgXmlSaxXMLReader_RESTRICT
-#define OrgXmlSaxXMLReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxXMLReader")
+#ifdef RESTRICT_OrgXmlSaxXMLReader
+#define INCLUDE_ALL_OrgXmlSaxXMLReader 0
 #else
-#define OrgXmlSaxXMLReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxXMLReader 1
 #endif
-#undef OrgXmlSaxXMLReader_RESTRICT
+#undef RESTRICT_OrgXmlSaxXMLReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxXMLReader_) && (OrgXmlSaxXMLReader_INCLUDE_ALL || defined(OrgXmlSaxXMLReader_INCLUDE))
+#if !defined (OrgXmlSaxXMLReader_) && (INCLUDE_ALL_OrgXmlSaxXMLReader || defined(INCLUDE_OrgXmlSaxXMLReader))
 #define OrgXmlSaxXMLReader_
 
 @class OrgXmlSaxInputSource;
@@ -343,4 +343,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxXMLReader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxXMLReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxXMLReader")

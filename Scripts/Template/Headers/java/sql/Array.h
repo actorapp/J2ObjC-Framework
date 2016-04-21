@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlArray_INCLUDE_ALL")
-#ifdef JavaSqlArray_RESTRICT
-#define JavaSqlArray_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlArray")
+#ifdef RESTRICT_JavaSqlArray
+#define INCLUDE_ALL_JavaSqlArray 0
 #else
-#define JavaSqlArray_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlArray 1
 #endif
-#undef JavaSqlArray_RESTRICT
+#undef RESTRICT_JavaSqlArray
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlArray_) && (JavaSqlArray_INCLUDE_ALL || defined(JavaSqlArray_INCLUDE))
+#if !defined (JavaSqlArray_) && (INCLUDE_ALL_JavaSqlArray || defined(INCLUDE_JavaSqlArray))
 #define JavaSqlArray_
 
 @protocol JavaSqlResultSet;
@@ -178,4 +178,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlArray)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlArray_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlArray")

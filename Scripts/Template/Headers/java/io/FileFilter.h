@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFileFilter_INCLUDE_ALL")
-#ifdef JavaIoFileFilter_RESTRICT
-#define JavaIoFileFilter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFileFilter")
+#ifdef RESTRICT_JavaIoFileFilter
+#define INCLUDE_ALL_JavaIoFileFilter 0
 #else
-#define JavaIoFileFilter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFileFilter 1
 #endif
-#undef JavaIoFileFilter_RESTRICT
+#undef RESTRICT_JavaIoFileFilter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFileFilter_) && (JavaIoFileFilter_INCLUDE_ALL || defined(JavaIoFileFilter_INCLUDE))
+#if !defined (JavaIoFileFilter_) && (INCLUDE_ALL_JavaIoFileFilter || defined(INCLUDE_JavaIoFileFilter))
 #define JavaIoFileFilter_
 
 @class JavaIoFile;
@@ -47,4 +47,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileFilter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFileFilter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFileFilter")

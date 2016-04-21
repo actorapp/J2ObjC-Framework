@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlParsersFactoryConfigurationError_INCLUDE_ALL")
-#ifdef JavaxXmlParsersFactoryConfigurationError_RESTRICT
-#define JavaxXmlParsersFactoryConfigurationError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlParsersFactoryConfigurationError")
+#ifdef RESTRICT_JavaxXmlParsersFactoryConfigurationError
+#define INCLUDE_ALL_JavaxXmlParsersFactoryConfigurationError 0
 #else
-#define JavaxXmlParsersFactoryConfigurationError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlParsersFactoryConfigurationError 1
 #endif
-#undef JavaxXmlParsersFactoryConfigurationError_RESTRICT
+#undef RESTRICT_JavaxXmlParsersFactoryConfigurationError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlParsersFactoryConfigurationError_) && (JavaxXmlParsersFactoryConfigurationError_INCLUDE_ALL || defined(JavaxXmlParsersFactoryConfigurationError_INCLUDE))
+#if !defined (JavaxXmlParsersFactoryConfigurationError_) && (INCLUDE_ALL_JavaxXmlParsersFactoryConfigurationError || defined(INCLUDE_JavaxXmlParsersFactoryConfigurationError))
 #define JavaxXmlParsersFactoryConfigurationError_
 
-#define JavaLangError_RESTRICT 1
-#define JavaLangError_INCLUDE 1
+#define RESTRICT_JavaLangError 1
+#define INCLUDE_JavaLangError 1
 #include "../../../java/lang/Error.h"
 
 @class JavaLangException;
@@ -95,17 +95,25 @@ FOUNDATION_EXPORT void JavaxXmlParsersFactoryConfigurationError_init(JavaxXmlPar
 
 FOUNDATION_EXPORT JavaxXmlParsersFactoryConfigurationError *new_JavaxXmlParsersFactoryConfigurationError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlParsersFactoryConfigurationError *create_JavaxXmlParsersFactoryConfigurationError_init();
+
 FOUNDATION_EXPORT void JavaxXmlParsersFactoryConfigurationError_initWithNSString_(JavaxXmlParsersFactoryConfigurationError *self, NSString *msg);
 
 FOUNDATION_EXPORT JavaxXmlParsersFactoryConfigurationError *new_JavaxXmlParsersFactoryConfigurationError_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlParsersFactoryConfigurationError *create_JavaxXmlParsersFactoryConfigurationError_initWithNSString_(NSString *msg);
 
 FOUNDATION_EXPORT void JavaxXmlParsersFactoryConfigurationError_initWithJavaLangException_(JavaxXmlParsersFactoryConfigurationError *self, JavaLangException *e);
 
 FOUNDATION_EXPORT JavaxXmlParsersFactoryConfigurationError *new_JavaxXmlParsersFactoryConfigurationError_initWithJavaLangException_(JavaLangException *e) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlParsersFactoryConfigurationError *create_JavaxXmlParsersFactoryConfigurationError_initWithJavaLangException_(JavaLangException *e);
+
 FOUNDATION_EXPORT void JavaxXmlParsersFactoryConfigurationError_initWithJavaLangException_withNSString_(JavaxXmlParsersFactoryConfigurationError *self, JavaLangException *e, NSString *msg);
 
 FOUNDATION_EXPORT JavaxXmlParsersFactoryConfigurationError *new_JavaxXmlParsersFactoryConfigurationError_initWithJavaLangException_withNSString_(JavaLangException *e, NSString *msg) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlParsersFactoryConfigurationError *create_JavaxXmlParsersFactoryConfigurationError_initWithJavaLangException_withNSString_(JavaLangException *e, NSString *msg);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersFactoryConfigurationError)
 
@@ -113,4 +121,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersFactoryConfigurationError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlParsersFactoryConfigurationError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlParsersFactoryConfigurationError")

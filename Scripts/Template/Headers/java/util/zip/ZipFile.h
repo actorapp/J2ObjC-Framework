@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipZipFile_INCLUDE_ALL")
-#ifdef JavaUtilZipZipFile_RESTRICT
-#define JavaUtilZipZipFile_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipZipFile")
+#ifdef RESTRICT_JavaUtilZipZipFile
+#define INCLUDE_ALL_JavaUtilZipZipFile 0
 #else
-#define JavaUtilZipZipFile_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipZipFile 1
 #endif
-#undef JavaUtilZipZipFile_RESTRICT
+#undef RESTRICT_JavaUtilZipZipFile
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipZipFile_) && (JavaUtilZipZipFile_INCLUDE_ALL || defined(JavaUtilZipZipFile_INCLUDE))
+#if !defined (JavaUtilZipZipFile_) && (INCLUDE_ALL_JavaUtilZipZipFile || defined(INCLUDE_JavaUtilZipZipFile))
 #define JavaUtilZipZipFile_
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../../java/io/Closeable.h"
 
-#define JavaUtilZipZipConstants_RESTRICT 1
-#define JavaUtilZipZipConstants_INCLUDE 1
+#define RESTRICT_JavaUtilZipZipConstants 1
+#define INCLUDE_JavaUtilZipZipConstants 1
 #include "../../../java/util/zip/ZipConstants.h"
 
 @class JavaIoFile;
@@ -146,7 +146,7 @@
 
 #pragma mark Protected
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 #pragma mark Package-Private
 
@@ -212,13 +212,19 @@ FOUNDATION_EXPORT void JavaUtilZipZipFile_initWithJavaIoFile_(JavaUtilZipZipFile
 
 FOUNDATION_EXPORT JavaUtilZipZipFile *new_JavaUtilZipZipFile_initWithJavaIoFile_(JavaIoFile *file) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipZipFile *create_JavaUtilZipZipFile_initWithJavaIoFile_(JavaIoFile *file);
+
 FOUNDATION_EXPORT void JavaUtilZipZipFile_initWithNSString_(JavaUtilZipZipFile *self, NSString *name);
 
 FOUNDATION_EXPORT JavaUtilZipZipFile *new_JavaUtilZipZipFile_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipZipFile *create_JavaUtilZipZipFile_initWithNSString_(NSString *name);
+
 FOUNDATION_EXPORT void JavaUtilZipZipFile_initWithJavaIoFile_withInt_(JavaUtilZipZipFile *self, JavaIoFile *file, jint mode);
 
 FOUNDATION_EXPORT JavaUtilZipZipFile *new_JavaUtilZipZipFile_initWithJavaIoFile_withInt_(JavaIoFile *file, jint mode) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipZipFile *create_JavaUtilZipZipFile_initWithJavaIoFile_withInt_(JavaIoFile *file, jint mode);
 
 FOUNDATION_EXPORT void JavaUtilZipZipFile_throwZipExceptionWithNSString_withInt_(NSString *msg, jint magic);
 
@@ -226,7 +232,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipFile)
 
 #endif
 
-#if !defined (JavaUtilZipZipFile_EocdRecord_) && (JavaUtilZipZipFile_INCLUDE_ALL || defined(JavaUtilZipZipFile_EocdRecord_INCLUDE))
+#if !defined (JavaUtilZipZipFile_EocdRecord_) && (INCLUDE_ALL_JavaUtilZipZipFile || defined(INCLUDE_JavaUtilZipZipFile_EocdRecord))
 #define JavaUtilZipZipFile_EocdRecord_
 
 @interface JavaUtilZipZipFile_EocdRecord : NSObject {
@@ -250,15 +256,17 @@ FOUNDATION_EXPORT void JavaUtilZipZipFile_EocdRecord_initWithLong_withLong_withI
 
 FOUNDATION_EXPORT JavaUtilZipZipFile_EocdRecord *new_JavaUtilZipZipFile_EocdRecord_initWithLong_withLong_withInt_(jlong numEntries, jlong centralDirOffset, jint commentLength) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipZipFile_EocdRecord *create_JavaUtilZipZipFile_EocdRecord_initWithLong_withLong_withInt_(jlong numEntries, jlong centralDirOffset, jint commentLength);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipFile_EocdRecord)
 
 #endif
 
-#if !defined (JavaUtilZipZipFile_RAFStream_) && (JavaUtilZipZipFile_INCLUDE_ALL || defined(JavaUtilZipZipFile_RAFStream_INCLUDE))
+#if !defined (JavaUtilZipZipFile_RAFStream_) && (INCLUDE_ALL_JavaUtilZipZipFile || defined(INCLUDE_JavaUtilZipZipFile_RAFStream))
 #define JavaUtilZipZipFile_RAFStream_
 
-#define JavaIoInputStream_RESTRICT 1
-#define JavaIoInputStream_INCLUDE 1
+#define RESTRICT_JavaIoInputStream 1
+#define INCLUDE_JavaIoInputStream 1
 #include "../../../java/io/InputStream.h"
 
 @class IOSByteArray;
@@ -305,19 +313,23 @@ FOUNDATION_EXPORT void JavaUtilZipZipFile_RAFStream_initWithJavaIoRandomAccessFi
 
 FOUNDATION_EXPORT JavaUtilZipZipFile_RAFStream *new_JavaUtilZipZipFile_RAFStream_initWithJavaIoRandomAccessFile_withLong_withLong_(JavaIoRandomAccessFile *raf, jlong initialOffset, jlong endOffset) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipZipFile_RAFStream *create_JavaUtilZipZipFile_RAFStream_initWithJavaIoRandomAccessFile_withLong_withLong_(JavaIoRandomAccessFile *raf, jlong initialOffset, jlong endOffset);
+
 FOUNDATION_EXPORT void JavaUtilZipZipFile_RAFStream_initWithJavaIoRandomAccessFile_withLong_(JavaUtilZipZipFile_RAFStream *self, JavaIoRandomAccessFile *raf, jlong initialOffset);
 
 FOUNDATION_EXPORT JavaUtilZipZipFile_RAFStream *new_JavaUtilZipZipFile_RAFStream_initWithJavaIoRandomAccessFile_withLong_(JavaIoRandomAccessFile *raf, jlong initialOffset) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipZipFile_RAFStream *create_JavaUtilZipZipFile_RAFStream_initWithJavaIoRandomAccessFile_withLong_(JavaIoRandomAccessFile *raf, jlong initialOffset);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipFile_RAFStream)
 
 #endif
 
-#if !defined (JavaUtilZipZipFile_ZipInflaterInputStream_) && (JavaUtilZipZipFile_INCLUDE_ALL || defined(JavaUtilZipZipFile_ZipInflaterInputStream_INCLUDE))
+#if !defined (JavaUtilZipZipFile_ZipInflaterInputStream_) && (INCLUDE_ALL_JavaUtilZipZipFile || defined(INCLUDE_JavaUtilZipZipFile_ZipInflaterInputStream))
 #define JavaUtilZipZipFile_ZipInflaterInputStream_
 
-#define JavaUtilZipInflaterInputStream_RESTRICT 1
-#define JavaUtilZipInflaterInputStream_INCLUDE 1
+#define RESTRICT_JavaUtilZipInflaterInputStream 1
+#define INCLUDE_JavaUtilZipInflaterInputStream 1
 #include "../../../java/util/zip/InflaterInputStream.h"
 
 @class IOSByteArray;
@@ -351,10 +363,12 @@ FOUNDATION_EXPORT void JavaUtilZipZipFile_ZipInflaterInputStream_initWithJavaIoI
 
 FOUNDATION_EXPORT JavaUtilZipZipFile_ZipInflaterInputStream *new_JavaUtilZipZipFile_ZipInflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipInflater_withInt_withJavaUtilZipZipEntry_(JavaIoInputStream *is, JavaUtilZipInflater *inf, jint bsize, JavaUtilZipZipEntry *entry_) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipZipFile_ZipInflaterInputStream *create_JavaUtilZipZipFile_ZipInflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipInflater_withInt_withJavaUtilZipZipEntry_(JavaIoInputStream *is, JavaUtilZipInflater *inf, jint bsize, JavaUtilZipZipEntry *entry_);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipFile_ZipInflaterInputStream)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipZipFile_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipZipFile")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecECFieldFp_INCLUDE_ALL")
-#ifdef JavaSecuritySpecECFieldFp_RESTRICT
-#define JavaSecuritySpecECFieldFp_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECFieldFp")
+#ifdef RESTRICT_JavaSecuritySpecECFieldFp
+#define INCLUDE_ALL_JavaSecuritySpecECFieldFp 0
 #else
-#define JavaSecuritySpecECFieldFp_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecECFieldFp 1
 #endif
-#undef JavaSecuritySpecECFieldFp_RESTRICT
+#undef RESTRICT_JavaSecuritySpecECFieldFp
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecECFieldFp_) && (JavaSecuritySpecECFieldFp_INCLUDE_ALL || defined(JavaSecuritySpecECFieldFp_INCLUDE))
+#if !defined (JavaSecuritySpecECFieldFp_) && (INCLUDE_ALL_JavaSecuritySpecECFieldFp || defined(INCLUDE_JavaSecuritySpecECFieldFp))
 #define JavaSecuritySpecECFieldFp_
 
-#define JavaSecuritySpecECField_RESTRICT 1
-#define JavaSecuritySpecECField_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecECField 1
+#define INCLUDE_JavaSecuritySpecECField 1
 #include "../../../java/security/spec/ECField.h"
 
 @class JavaMathBigInteger;
@@ -78,10 +78,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecECFieldFp_initWithJavaMathBigInteger_(Jav
 
 FOUNDATION_EXPORT JavaSecuritySpecECFieldFp *new_JavaSecuritySpecECFieldFp_initWithJavaMathBigInteger_(JavaMathBigInteger *p) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecECFieldFp *create_JavaSecuritySpecECFieldFp_initWithJavaMathBigInteger_(JavaMathBigInteger *p);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECFieldFp)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecECFieldFp_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECFieldFp")

@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetPortUnreachableException_INCLUDE_ALL")
-#ifdef JavaNetPortUnreachableException_RESTRICT
-#define JavaNetPortUnreachableException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetPortUnreachableException")
+#ifdef RESTRICT_JavaNetPortUnreachableException
+#define INCLUDE_ALL_JavaNetPortUnreachableException 0
 #else
-#define JavaNetPortUnreachableException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetPortUnreachableException 1
 #endif
-#undef JavaNetPortUnreachableException_RESTRICT
+#undef RESTRICT_JavaNetPortUnreachableException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetPortUnreachableException_) && (JavaNetPortUnreachableException_INCLUDE_ALL || defined(JavaNetPortUnreachableException_INCLUDE))
+#if !defined (JavaNetPortUnreachableException_) && (INCLUDE_ALL_JavaNetPortUnreachableException || defined(INCLUDE_JavaNetPortUnreachableException))
 #define JavaNetPortUnreachableException_
 
-#define JavaNetSocketException_RESTRICT 1
-#define JavaNetSocketException_INCLUDE 1
+#define RESTRICT_JavaNetSocketException 1
+#define INCLUDE_JavaNetSocketException 1
 #include "../../java/net/SocketException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief This <code>PortUnreachableException</code> will be thrown if an <code>ICMP_Port_Unreachable</code>
@@ -50,7 +48,7 @@
   internal use only
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 @end
 
@@ -60,13 +58,19 @@ FOUNDATION_EXPORT void JavaNetPortUnreachableException_init(JavaNetPortUnreachab
 
 FOUNDATION_EXPORT JavaNetPortUnreachableException *new_JavaNetPortUnreachableException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetPortUnreachableException *create_JavaNetPortUnreachableException_init();
+
 FOUNDATION_EXPORT void JavaNetPortUnreachableException_initWithNSString_(JavaNetPortUnreachableException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaNetPortUnreachableException *new_JavaNetPortUnreachableException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaNetPortUnreachableException_initWithNSString_withJavaLangThrowable_(JavaNetPortUnreachableException *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaNetPortUnreachableException *create_JavaNetPortUnreachableException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaNetPortUnreachableException *new_JavaNetPortUnreachableException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaNetPortUnreachableException_initWithNSString_withNSException_(JavaNetPortUnreachableException *self, NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT JavaNetPortUnreachableException *new_JavaNetPortUnreachableException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetPortUnreachableException *create_JavaNetPortUnreachableException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetPortUnreachableException)
 
@@ -74,4 +78,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetPortUnreachableException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetPortUnreachableException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetPortUnreachableException")

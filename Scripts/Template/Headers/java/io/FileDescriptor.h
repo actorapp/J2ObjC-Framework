@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFileDescriptor_INCLUDE_ALL")
-#ifdef JavaIoFileDescriptor_RESTRICT
-#define JavaIoFileDescriptor_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFileDescriptor")
+#ifdef RESTRICT_JavaIoFileDescriptor
+#define INCLUDE_ALL_JavaIoFileDescriptor 0
 #else
-#define JavaIoFileDescriptor_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFileDescriptor 1
 #endif
-#undef JavaIoFileDescriptor_RESTRICT
+#undef RESTRICT_JavaIoFileDescriptor
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFileDescriptor_) && (JavaIoFileDescriptor_INCLUDE_ALL || defined(JavaIoFileDescriptor_INCLUDE))
+#if !defined (JavaIoFileDescriptor_) && (INCLUDE_ALL_JavaIoFileDescriptor || defined(INCLUDE_JavaIoFileDescriptor))
 #define JavaIoFileDescriptor_
 
 /*!
@@ -102,10 +102,12 @@ FOUNDATION_EXPORT void JavaIoFileDescriptor_init(JavaIoFileDescriptor *self);
 
 FOUNDATION_EXPORT JavaIoFileDescriptor *new_JavaIoFileDescriptor_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoFileDescriptor *create_JavaIoFileDescriptor_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoFileDescriptor)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFileDescriptor_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFileDescriptor")

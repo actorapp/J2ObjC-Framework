@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextChoiceFormat_INCLUDE_ALL")
-#ifdef JavaTextChoiceFormat_RESTRICT
-#define JavaTextChoiceFormat_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextChoiceFormat")
+#ifdef RESTRICT_JavaTextChoiceFormat
+#define INCLUDE_ALL_JavaTextChoiceFormat 0
 #else
-#define JavaTextChoiceFormat_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextChoiceFormat 1
 #endif
-#undef JavaTextChoiceFormat_RESTRICT
+#undef RESTRICT_JavaTextChoiceFormat
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextChoiceFormat_) && (JavaTextChoiceFormat_INCLUDE_ALL || defined(JavaTextChoiceFormat_INCLUDE))
+#if !defined (JavaTextChoiceFormat_) && (INCLUDE_ALL_JavaTextChoiceFormat || defined(INCLUDE_JavaTextChoiceFormat))
 #define JavaTextChoiceFormat_
 
-#define JavaTextNumberFormat_RESTRICT 1
-#define JavaTextNumberFormat_INCLUDE 1
+#define RESTRICT_JavaTextNumberFormat 1
+#define INCLUDE_JavaTextNumberFormat 1
 #include "../../java/text/NumberFormat.h"
 
 @class IOSDoubleArray;
@@ -297,9 +297,13 @@ FOUNDATION_EXPORT void JavaTextChoiceFormat_initWithDoubleArray_withNSStringArra
 
 FOUNDATION_EXPORT JavaTextChoiceFormat *new_JavaTextChoiceFormat_initWithDoubleArray_withNSStringArray_(IOSDoubleArray *limits, IOSObjectArray *formats) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextChoiceFormat *create_JavaTextChoiceFormat_initWithDoubleArray_withNSStringArray_(IOSDoubleArray *limits, IOSObjectArray *formats);
+
 FOUNDATION_EXPORT void JavaTextChoiceFormat_initWithNSString_(JavaTextChoiceFormat *self, NSString *template_);
 
 FOUNDATION_EXPORT JavaTextChoiceFormat *new_JavaTextChoiceFormat_initWithNSString_(NSString *template_) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextChoiceFormat *create_JavaTextChoiceFormat_initWithNSString_(NSString *template_);
 
 FOUNDATION_EXPORT jdouble JavaTextChoiceFormat_nextDoubleWithDouble_(jdouble value);
 
@@ -313,4 +317,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextChoiceFormat)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextChoiceFormat_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextChoiceFormat")

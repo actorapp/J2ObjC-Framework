@@ -5,23 +5,26 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE_ALL")
-#ifdef AndroidTestSuitebuilderAnnotationLargeTest_RESTRICT
-#define AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTestSuitebuilderAnnotationLargeTest")
+#ifdef RESTRICT_AndroidTestSuitebuilderAnnotationLargeTest
+#define INCLUDE_ALL_AndroidTestSuitebuilderAnnotationLargeTest 0
 #else
-#define AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTestSuitebuilderAnnotationLargeTest 1
 #endif
-#undef AndroidTestSuitebuilderAnnotationLargeTest_RESTRICT
+#undef RESTRICT_AndroidTestSuitebuilderAnnotationLargeTest
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTestSuitebuilderAnnotationLargeTest_) && (AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE_ALL || defined(AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE))
+#if !defined (AndroidTestSuitebuilderAnnotationLargeTest_) && (INCLUDE_ALL_AndroidTestSuitebuilderAnnotationLargeTest || defined(INCLUDE_AndroidTestSuitebuilderAnnotationLargeTest))
 #define AndroidTestSuitebuilderAnnotationLargeTest_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief Marks a test that should run as part of the large tests.
@@ -36,10 +39,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(AndroidTestSuitebuilderAnnotationLargeTest)
 
+FOUNDATION_EXPORT id<AndroidTestSuitebuilderAnnotationLargeTest> create_AndroidTestSuitebuilderAnnotationLargeTest();
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTestSuitebuilderAnnotationLargeTest)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTestSuitebuilderAnnotationLargeTest_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTestSuitebuilderAnnotationLargeTest")

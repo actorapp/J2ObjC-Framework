@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilIdentityHashMap_INCLUDE_ALL")
-#ifdef JavaUtilIdentityHashMap_RESTRICT
-#define JavaUtilIdentityHashMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilIdentityHashMap")
+#ifdef RESTRICT_JavaUtilIdentityHashMap
+#define INCLUDE_ALL_JavaUtilIdentityHashMap 0
 #else
-#define JavaUtilIdentityHashMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilIdentityHashMap 1
 #endif
-#undef JavaUtilIdentityHashMap_RESTRICT
+#undef RESTRICT_JavaUtilIdentityHashMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilIdentityHashMap_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_INCLUDE))
+#if !defined (JavaUtilIdentityHashMap_) && (INCLUDE_ALL_JavaUtilIdentityHashMap || defined(INCLUDE_JavaUtilIdentityHashMap))
 #define JavaUtilIdentityHashMap_
 
-#define JavaUtilAbstractMap_RESTRICT 1
-#define JavaUtilAbstractMap_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractMap 1
+#define INCLUDE_JavaUtilAbstractMap 1
 #include "../../java/util/AbstractMap.h"
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap 1
 #include "../../java/util/Map.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -234,23 +234,29 @@ FOUNDATION_EXPORT void JavaUtilIdentityHashMap_init(JavaUtilIdentityHashMap *sel
 
 FOUNDATION_EXPORT JavaUtilIdentityHashMap *new_JavaUtilIdentityHashMap_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIdentityHashMap *create_JavaUtilIdentityHashMap_init();
+
 FOUNDATION_EXPORT void JavaUtilIdentityHashMap_initWithInt_(JavaUtilIdentityHashMap *self, jint maxSize);
 
 FOUNDATION_EXPORT JavaUtilIdentityHashMap *new_JavaUtilIdentityHashMap_initWithInt_(jint maxSize) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilIdentityHashMap *create_JavaUtilIdentityHashMap_initWithInt_(jint maxSize);
 
 FOUNDATION_EXPORT void JavaUtilIdentityHashMap_initWithJavaUtilMap_(JavaUtilIdentityHashMap *self, id<JavaUtilMap> map);
 
 FOUNDATION_EXPORT JavaUtilIdentityHashMap *new_JavaUtilIdentityHashMap_initWithJavaUtilMap_(id<JavaUtilMap> map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIdentityHashMap *create_JavaUtilIdentityHashMap_initWithJavaUtilMap_(id<JavaUtilMap> map);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap)
 
 #endif
 
-#if !defined (JavaUtilIdentityHashMap_IdentityHashMapEntry_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_IdentityHashMapEntry_INCLUDE))
+#if !defined (JavaUtilIdentityHashMap_IdentityHashMapEntry_) && (INCLUDE_ALL_JavaUtilIdentityHashMap || defined(INCLUDE_JavaUtilIdentityHashMap_IdentityHashMapEntry))
 #define JavaUtilIdentityHashMap_IdentityHashMapEntry_
 
-#define JavaUtilMapEntry_RESTRICT 1
-#define JavaUtilMapEntry_INCLUDE 1
+#define RESTRICT_JavaUtilMapEntry 1
+#define INCLUDE_JavaUtilMapEntry 1
 #include "../../java/util/MapEntry.h"
 
 @class JavaUtilIdentityHashMap;
@@ -283,15 +289,17 @@ FOUNDATION_EXPORT void JavaUtilIdentityHashMap_IdentityHashMapEntry_initWithJava
 
 FOUNDATION_EXPORT JavaUtilIdentityHashMap_IdentityHashMapEntry *new_JavaUtilIdentityHashMap_IdentityHashMapEntry_initWithJavaUtilIdentityHashMap_withId_withId_(JavaUtilIdentityHashMap *map, id theKey, id theValue) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIdentityHashMap_IdentityHashMapEntry *create_JavaUtilIdentityHashMap_IdentityHashMapEntry_initWithJavaUtilIdentityHashMap_withId_withId_(JavaUtilIdentityHashMap *map, id theKey, id theValue);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_IdentityHashMapEntry)
 
 #endif
 
-#if !defined (JavaUtilIdentityHashMap_IdentityHashMapIterator_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_IdentityHashMapIterator_INCLUDE))
+#if !defined (JavaUtilIdentityHashMap_IdentityHashMapIterator_) && (INCLUDE_ALL_JavaUtilIdentityHashMap || defined(INCLUDE_JavaUtilIdentityHashMap_IdentityHashMapIterator))
 #define JavaUtilIdentityHashMap_IdentityHashMapIterator_
 
-#define JavaUtilIterator_RESTRICT 1
-#define JavaUtilIterator_INCLUDE 1
+#define RESTRICT_JavaUtilIterator 1
+#define INCLUDE_JavaUtilIterator 1
 #include "../../java/util/Iterator.h"
 
 @class JavaUtilIdentityHashMap;
@@ -331,15 +339,17 @@ FOUNDATION_EXPORT void JavaUtilIdentityHashMap_IdentityHashMapIterator_initWithJ
 
 FOUNDATION_EXPORT JavaUtilIdentityHashMap_IdentityHashMapIterator *new_JavaUtilIdentityHashMap_IdentityHashMapIterator_initWithJavaUtilMapEntry_Type_withJavaUtilIdentityHashMap_(id<JavaUtilMapEntry_Type> value, JavaUtilIdentityHashMap *hm) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIdentityHashMap_IdentityHashMapIterator *create_JavaUtilIdentityHashMap_IdentityHashMapIterator_initWithJavaUtilMapEntry_Type_withJavaUtilIdentityHashMap_(id<JavaUtilMapEntry_Type> value, JavaUtilIdentityHashMap *hm);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_IdentityHashMapIterator)
 
 #endif
 
-#if !defined (JavaUtilIdentityHashMap_IdentityHashMapEntrySet_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_IdentityHashMapEntrySet_INCLUDE))
+#if !defined (JavaUtilIdentityHashMap_IdentityHashMapEntrySet_) && (INCLUDE_ALL_JavaUtilIdentityHashMap || defined(INCLUDE_JavaUtilIdentityHashMap_IdentityHashMapEntrySet))
 #define JavaUtilIdentityHashMap_IdentityHashMapEntrySet_
 
-#define JavaUtilAbstractSet_RESTRICT 1
-#define JavaUtilAbstractSet_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractSet 1
+#define INCLUDE_JavaUtilAbstractSet 1
 #include "../../java/util/AbstractSet.h"
 
 @class JavaUtilIdentityHashMap;
@@ -373,15 +383,17 @@ FOUNDATION_EXPORT void JavaUtilIdentityHashMap_IdentityHashMapEntrySet_initWithJ
 
 FOUNDATION_EXPORT JavaUtilIdentityHashMap_IdentityHashMapEntrySet *new_JavaUtilIdentityHashMap_IdentityHashMapEntrySet_initWithJavaUtilIdentityHashMap_(JavaUtilIdentityHashMap *hm) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIdentityHashMap_IdentityHashMapEntrySet *create_JavaUtilIdentityHashMap_IdentityHashMapEntrySet_initWithJavaUtilIdentityHashMap_(JavaUtilIdentityHashMap *hm);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_IdentityHashMapEntrySet)
 
 #endif
 
-#if !defined (JavaUtilIdentityHashMap_KeySet_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_KeySet_INCLUDE))
+#if !defined (JavaUtilIdentityHashMap_KeySet_) && (INCLUDE_ALL_JavaUtilIdentityHashMap || defined(INCLUDE_JavaUtilIdentityHashMap_KeySet))
 #define JavaUtilIdentityHashMap_KeySet_
 
-#define JavaUtilAbstractSet_RESTRICT 1
-#define JavaUtilAbstractSet_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractSet 1
+#define INCLUDE_JavaUtilAbstractSet 1
 #include "../../java/util/AbstractSet.h"
 
 @class JavaUtilIdentityHashMap;
@@ -413,15 +425,17 @@ FOUNDATION_EXPORT void JavaUtilIdentityHashMap_KeySet_initWithJavaUtilIdentityHa
 
 FOUNDATION_EXPORT JavaUtilIdentityHashMap_KeySet *new_JavaUtilIdentityHashMap_KeySet_initWithJavaUtilIdentityHashMap_(JavaUtilIdentityHashMap *outer$) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIdentityHashMap_KeySet *create_JavaUtilIdentityHashMap_KeySet_initWithJavaUtilIdentityHashMap_(JavaUtilIdentityHashMap *outer$);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_KeySet)
 
 #endif
 
-#if !defined (JavaUtilIdentityHashMap_ValuesCollection_) && (JavaUtilIdentityHashMap_INCLUDE_ALL || defined(JavaUtilIdentityHashMap_ValuesCollection_INCLUDE))
+#if !defined (JavaUtilIdentityHashMap_ValuesCollection_) && (INCLUDE_ALL_JavaUtilIdentityHashMap || defined(INCLUDE_JavaUtilIdentityHashMap_ValuesCollection))
 #define JavaUtilIdentityHashMap_ValuesCollection_
 
-#define JavaUtilAbstractCollection_RESTRICT 1
-#define JavaUtilAbstractCollection_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractCollection 1
+#define INCLUDE_JavaUtilAbstractCollection 1
 #include "../../java/util/AbstractCollection.h"
 
 @class JavaUtilIdentityHashMap;
@@ -453,10 +467,12 @@ FOUNDATION_EXPORT void JavaUtilIdentityHashMap_ValuesCollection_initWithJavaUtil
 
 FOUNDATION_EXPORT JavaUtilIdentityHashMap_ValuesCollection *new_JavaUtilIdentityHashMap_ValuesCollection_initWithJavaUtilIdentityHashMap_(JavaUtilIdentityHashMap *outer$) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIdentityHashMap_ValuesCollection *create_JavaUtilIdentityHashMap_ValuesCollection_initWithJavaUtilIdentityHashMap_(JavaUtilIdentityHashMap *outer$);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIdentityHashMap_ValuesCollection)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilIdentityHashMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilIdentityHashMap")

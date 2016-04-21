@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxAttributes_INCLUDE_ALL")
-#ifdef OrgXmlSaxAttributes_RESTRICT
-#define OrgXmlSaxAttributes_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxAttributes")
+#ifdef RESTRICT_OrgXmlSaxAttributes
+#define INCLUDE_ALL_OrgXmlSaxAttributes 0
 #else
-#define OrgXmlSaxAttributes_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxAttributes 1
 #endif
-#undef OrgXmlSaxAttributes_RESTRICT
+#undef RESTRICT_OrgXmlSaxAttributes
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxAttributes_) && (OrgXmlSaxAttributes_INCLUDE_ALL || defined(OrgXmlSaxAttributes_INCLUDE))
+#if !defined (OrgXmlSaxAttributes_) && (INCLUDE_ALL_OrgXmlSaxAttributes || defined(INCLUDE_OrgXmlSaxAttributes))
 #define OrgXmlSaxAttributes_
 
 /*!
@@ -223,4 +223,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxAttributes)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxAttributes_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxAttributes")

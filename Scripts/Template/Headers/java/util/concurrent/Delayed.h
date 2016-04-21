@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentDelayed_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentDelayed_RESTRICT
-#define JavaUtilConcurrentDelayed_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentDelayed")
+#ifdef RESTRICT_JavaUtilConcurrentDelayed
+#define INCLUDE_ALL_JavaUtilConcurrentDelayed 0
 #else
-#define JavaUtilConcurrentDelayed_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentDelayed 1
 #endif
-#undef JavaUtilConcurrentDelayed_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentDelayed
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentDelayed_) && (JavaUtilConcurrentDelayed_INCLUDE_ALL || defined(JavaUtilConcurrentDelayed_INCLUDE))
+#if !defined (JavaUtilConcurrentDelayed_) && (INCLUDE_ALL_JavaUtilConcurrentDelayed || defined(INCLUDE_JavaUtilConcurrentDelayed))
 #define JavaUtilConcurrentDelayed_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../../java/lang/Comparable.h"
 
 @class JavaUtilConcurrentTimeUnit;
@@ -55,4 +55,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentDelayed)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentDelayed_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentDelayed")

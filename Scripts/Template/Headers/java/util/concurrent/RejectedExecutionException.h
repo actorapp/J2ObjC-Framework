@@ -5,25 +5,23 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentRejectedExecutionException_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentRejectedExecutionException_RESTRICT
-#define JavaUtilConcurrentRejectedExecutionException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentRejectedExecutionException")
+#ifdef RESTRICT_JavaUtilConcurrentRejectedExecutionException
+#define INCLUDE_ALL_JavaUtilConcurrentRejectedExecutionException 0
 #else
-#define JavaUtilConcurrentRejectedExecutionException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentRejectedExecutionException 1
 #endif
-#undef JavaUtilConcurrentRejectedExecutionException_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentRejectedExecutionException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentRejectedExecutionException_) && (JavaUtilConcurrentRejectedExecutionException_INCLUDE_ALL || defined(JavaUtilConcurrentRejectedExecutionException_INCLUDE))
+#if !defined (JavaUtilConcurrentRejectedExecutionException_) && (INCLUDE_ALL_JavaUtilConcurrentRejectedExecutionException || defined(INCLUDE_JavaUtilConcurrentRejectedExecutionException))
 #define JavaUtilConcurrentRejectedExecutionException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../../java/lang/RuntimeException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Exception thrown by an <code>Executor</code> when a task cannot be
@@ -60,7 +58,7 @@
  <code>getCause()</code> method)
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a <code>RejectedExecutionException</code> with the
@@ -72,7 +70,7 @@
  @param cause the cause (which is saved for later retrieval by the
  <code>getCause()</code> method)
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -82,17 +80,25 @@ FOUNDATION_EXPORT void JavaUtilConcurrentRejectedExecutionException_init(JavaUti
 
 FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *new_JavaUtilConcurrentRejectedExecutionException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *create_JavaUtilConcurrentRejectedExecutionException_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentRejectedExecutionException_initWithNSString_(JavaUtilConcurrentRejectedExecutionException *self, NSString *message);
 
 FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *new_JavaUtilConcurrentRejectedExecutionException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaUtilConcurrentRejectedExecutionException_initWithNSString_withJavaLangThrowable_(JavaUtilConcurrentRejectedExecutionException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *create_JavaUtilConcurrentRejectedExecutionException_initWithNSString_(NSString *message);
 
-FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *new_JavaUtilConcurrentRejectedExecutionException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaUtilConcurrentRejectedExecutionException_initWithNSString_withNSException_(JavaUtilConcurrentRejectedExecutionException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaUtilConcurrentRejectedExecutionException_initWithJavaLangThrowable_(JavaUtilConcurrentRejectedExecutionException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *new_JavaUtilConcurrentRejectedExecutionException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *new_JavaUtilConcurrentRejectedExecutionException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *create_JavaUtilConcurrentRejectedExecutionException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaUtilConcurrentRejectedExecutionException_initWithNSException_(JavaUtilConcurrentRejectedExecutionException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *new_JavaUtilConcurrentRejectedExecutionException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentRejectedExecutionException *create_JavaUtilConcurrentRejectedExecutionException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRejectedExecutionException)
 
@@ -100,4 +106,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRejectedExecutionException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentRejectedExecutionException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentRejectedExecutionException")

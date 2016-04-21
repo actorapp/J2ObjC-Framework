@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipDeflaterInputStream_INCLUDE_ALL")
-#ifdef JavaUtilZipDeflaterInputStream_RESTRICT
-#define JavaUtilZipDeflaterInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipDeflaterInputStream")
+#ifdef RESTRICT_JavaUtilZipDeflaterInputStream
+#define INCLUDE_ALL_JavaUtilZipDeflaterInputStream 0
 #else
-#define JavaUtilZipDeflaterInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipDeflaterInputStream 1
 #endif
-#undef JavaUtilZipDeflaterInputStream_RESTRICT
+#undef RESTRICT_JavaUtilZipDeflaterInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipDeflaterInputStream_) && (JavaUtilZipDeflaterInputStream_INCLUDE_ALL || defined(JavaUtilZipDeflaterInputStream_INCLUDE))
+#if !defined (JavaUtilZipDeflaterInputStream_) && (INCLUDE_ALL_JavaUtilZipDeflaterInputStream || defined(INCLUDE_JavaUtilZipDeflaterInputStream))
 #define JavaUtilZipDeflaterInputStream_
 
-#define JavaIoFilterInputStream_RESTRICT 1
-#define JavaIoFilterInputStream_INCLUDE 1
+#define RESTRICT_JavaIoFilterInputStream 1
+#define INCLUDE_JavaIoFilterInputStream 1
 #include "../../../java/io/FilterInputStream.h"
 
 @class IOSByteArray;
@@ -149,13 +149,19 @@ FOUNDATION_EXPORT void JavaUtilZipDeflaterInputStream_initWithJavaIoInputStream_
 
 FOUNDATION_EXPORT JavaUtilZipDeflaterInputStream *new_JavaUtilZipDeflaterInputStream_initWithJavaIoInputStream_(JavaIoInputStream *inArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipDeflaterInputStream *create_JavaUtilZipDeflaterInputStream_initWithJavaIoInputStream_(JavaIoInputStream *inArg);
+
 FOUNDATION_EXPORT void JavaUtilZipDeflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipDeflater_(JavaUtilZipDeflaterInputStream *self, JavaIoInputStream *inArg, JavaUtilZipDeflater *deflater);
 
 FOUNDATION_EXPORT JavaUtilZipDeflaterInputStream *new_JavaUtilZipDeflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipDeflater_(JavaIoInputStream *inArg, JavaUtilZipDeflater *deflater) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipDeflaterInputStream *create_JavaUtilZipDeflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipDeflater_(JavaIoInputStream *inArg, JavaUtilZipDeflater *deflater);
+
 FOUNDATION_EXPORT void JavaUtilZipDeflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipDeflater_withInt_(JavaUtilZipDeflaterInputStream *self, JavaIoInputStream *inArg, JavaUtilZipDeflater *deflater, jint bufferSize);
 
 FOUNDATION_EXPORT JavaUtilZipDeflaterInputStream *new_JavaUtilZipDeflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipDeflater_withInt_(JavaIoInputStream *inArg, JavaUtilZipDeflater *deflater, jint bufferSize) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipDeflaterInputStream *create_JavaUtilZipDeflaterInputStream_initWithJavaIoInputStream_withJavaUtilZipDeflater_withInt_(JavaIoInputStream *inArg, JavaUtilZipDeflater *deflater, jint bufferSize);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDeflaterInputStream)
 
@@ -163,4 +169,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipDeflaterInputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipDeflaterInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipDeflaterInputStream")

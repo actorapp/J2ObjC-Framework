@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsNotYetConnectedException_INCLUDE_ALL")
-#ifdef JavaNioChannelsNotYetConnectedException_RESTRICT
-#define JavaNioChannelsNotYetConnectedException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsNotYetConnectedException")
+#ifdef RESTRICT_JavaNioChannelsNotYetConnectedException
+#define INCLUDE_ALL_JavaNioChannelsNotYetConnectedException 0
 #else
-#define JavaNioChannelsNotYetConnectedException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsNotYetConnectedException 1
 #endif
-#undef JavaNioChannelsNotYetConnectedException_RESTRICT
+#undef RESTRICT_JavaNioChannelsNotYetConnectedException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsNotYetConnectedException_) && (JavaNioChannelsNotYetConnectedException_INCLUDE_ALL || defined(JavaNioChannelsNotYetConnectedException_INCLUDE))
+#if !defined (JavaNioChannelsNotYetConnectedException_) && (INCLUDE_ALL_JavaNioChannelsNotYetConnectedException || defined(INCLUDE_JavaNioChannelsNotYetConnectedException))
 #define JavaNioChannelsNotYetConnectedException_
 
-#define JavaLangIllegalStateException_RESTRICT 1
-#define JavaLangIllegalStateException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalStateException 1
+#define INCLUDE_JavaLangIllegalStateException 1
 #include "../../../java/lang/IllegalStateException.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioChannelsNotYetConnectedException_init(JavaNioChann
 
 FOUNDATION_EXPORT JavaNioChannelsNotYetConnectedException *new_JavaNioChannelsNotYetConnectedException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsNotYetConnectedException *create_JavaNioChannelsNotYetConnectedException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsNotYetConnectedException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsNotYetConnectedException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsNotYetConnectedException")

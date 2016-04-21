@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE_ALL")
-#ifdef JavaxXmlTransformSaxSAXTransformerFactory_RESTRICT
-#define JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformSaxSAXTransformerFactory")
+#ifdef RESTRICT_JavaxXmlTransformSaxSAXTransformerFactory
+#define INCLUDE_ALL_JavaxXmlTransformSaxSAXTransformerFactory 0
 #else
-#define JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformSaxSAXTransformerFactory 1
 #endif
-#undef JavaxXmlTransformSaxSAXTransformerFactory_RESTRICT
+#undef RESTRICT_JavaxXmlTransformSaxSAXTransformerFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformSaxSAXTransformerFactory_) && (JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE_ALL || defined(JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE))
+#if !defined (JavaxXmlTransformSaxSAXTransformerFactory_) && (INCLUDE_ALL_JavaxXmlTransformSaxSAXTransformerFactory || defined(INCLUDE_JavaxXmlTransformSaxSAXTransformerFactory))
 #define JavaxXmlTransformSaxSAXTransformerFactory_
 
-#define JavaxXmlTransformTransformerFactory_RESTRICT 1
-#define JavaxXmlTransformTransformerFactory_INCLUDE 1
+#define RESTRICT_JavaxXmlTransformTransformerFactory 1
+#define INCLUDE_JavaxXmlTransformTransformerFactory 1
 #include "../../../../javax/xml/transform/TransformerFactory.h"
 
 @protocol JavaxXmlTransformSaxTemplatesHandler;
@@ -153,4 +153,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxSAXTransformerFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformSaxSAXTransformerFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformSaxSAXTransformerFactory")

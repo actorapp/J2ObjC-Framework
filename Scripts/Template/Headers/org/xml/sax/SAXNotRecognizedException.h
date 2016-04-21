@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxSAXNotRecognizedException_INCLUDE_ALL")
-#ifdef OrgXmlSaxSAXNotRecognizedException_RESTRICT
-#define OrgXmlSaxSAXNotRecognizedException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxSAXNotRecognizedException")
+#ifdef RESTRICT_OrgXmlSaxSAXNotRecognizedException
+#define INCLUDE_ALL_OrgXmlSaxSAXNotRecognizedException 0
 #else
-#define OrgXmlSaxSAXNotRecognizedException_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxSAXNotRecognizedException 1
 #endif
-#undef OrgXmlSaxSAXNotRecognizedException_RESTRICT
+#undef RESTRICT_OrgXmlSaxSAXNotRecognizedException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxSAXNotRecognizedException_) && (OrgXmlSaxSAXNotRecognizedException_INCLUDE_ALL || defined(OrgXmlSaxSAXNotRecognizedException_INCLUDE))
+#if !defined (OrgXmlSaxSAXNotRecognizedException_) && (INCLUDE_ALL_OrgXmlSaxSAXNotRecognizedException || defined(INCLUDE_OrgXmlSaxSAXNotRecognizedException))
 #define OrgXmlSaxSAXNotRecognizedException_
 
-#define OrgXmlSaxSAXException_RESTRICT 1
-#define OrgXmlSaxSAXException_INCLUDE 1
+#define RESTRICT_OrgXmlSaxSAXException 1
+#define INCLUDE_OrgXmlSaxSAXException 1
 #include "../../../org/xml/sax/SAXException.h"
 
 /*!
@@ -62,9 +62,13 @@ FOUNDATION_EXPORT void OrgXmlSaxSAXNotRecognizedException_init(OrgXmlSaxSAXNotRe
 
 FOUNDATION_EXPORT OrgXmlSaxSAXNotRecognizedException *new_OrgXmlSaxSAXNotRecognizedException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxSAXNotRecognizedException *create_OrgXmlSaxSAXNotRecognizedException_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxSAXNotRecognizedException_initWithNSString_(OrgXmlSaxSAXNotRecognizedException *self, NSString *message);
 
 FOUNDATION_EXPORT OrgXmlSaxSAXNotRecognizedException *new_OrgXmlSaxSAXNotRecognizedException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxSAXNotRecognizedException *create_OrgXmlSaxSAXNotRecognizedException_initWithNSString_(NSString *message);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXNotRecognizedException)
 
@@ -72,4 +76,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxSAXNotRecognizedException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxSAXNotRecognizedException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxSAXNotRecognizedException")

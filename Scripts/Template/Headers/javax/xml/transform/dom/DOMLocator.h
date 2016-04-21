@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformDomDOMLocator_INCLUDE_ALL")
-#ifdef JavaxXmlTransformDomDOMLocator_RESTRICT
-#define JavaxXmlTransformDomDOMLocator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMLocator")
+#ifdef RESTRICT_JavaxXmlTransformDomDOMLocator
+#define INCLUDE_ALL_JavaxXmlTransformDomDOMLocator 0
 #else
-#define JavaxXmlTransformDomDOMLocator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformDomDOMLocator 1
 #endif
-#undef JavaxXmlTransformDomDOMLocator_RESTRICT
+#undef RESTRICT_JavaxXmlTransformDomDOMLocator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformDomDOMLocator_) && (JavaxXmlTransformDomDOMLocator_INCLUDE_ALL || defined(JavaxXmlTransformDomDOMLocator_INCLUDE))
+#if !defined (JavaxXmlTransformDomDOMLocator_) && (INCLUDE_ALL_JavaxXmlTransformDomDOMLocator || defined(INCLUDE_JavaxXmlTransformDomDOMLocator))
 #define JavaxXmlTransformDomDOMLocator_
 
-#define JavaxXmlTransformSourceLocator_RESTRICT 1
-#define JavaxXmlTransformSourceLocator_INCLUDE 1
+#define RESTRICT_JavaxXmlTransformSourceLocator 1
+#define INCLUDE_JavaxXmlTransformSourceLocator 1
 #include "../../../../javax/xml/transform/SourceLocator.h"
 
 @protocol OrgW3cDomNode;
@@ -52,4 +52,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMLocator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformDomDOMLocator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMLocator")

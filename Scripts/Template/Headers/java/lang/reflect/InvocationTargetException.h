@@ -5,25 +5,23 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectInvocationTargetException_INCLUDE_ALL")
-#ifdef JavaLangReflectInvocationTargetException_RESTRICT
-#define JavaLangReflectInvocationTargetException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectInvocationTargetException")
+#ifdef RESTRICT_JavaLangReflectInvocationTargetException
+#define INCLUDE_ALL_JavaLangReflectInvocationTargetException 0
 #else
-#define JavaLangReflectInvocationTargetException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectInvocationTargetException 1
 #endif
-#undef JavaLangReflectInvocationTargetException_RESTRICT
+#undef RESTRICT_JavaLangReflectInvocationTargetException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectInvocationTargetException_) && (JavaLangReflectInvocationTargetException_INCLUDE_ALL || defined(JavaLangReflectInvocationTargetException_INCLUDE))
+#if !defined (JavaLangReflectInvocationTargetException_) && (INCLUDE_ALL_JavaLangReflectInvocationTargetException || defined(INCLUDE_JavaLangReflectInvocationTargetException))
 #define JavaLangReflectInvocationTargetException_
 
-#define JavaLangReflectiveOperationException_RESTRICT 1
-#define JavaLangReflectiveOperationException_INCLUDE 1
+#define RESTRICT_JavaLangReflectiveOperationException 1
+#define INCLUDE_JavaLangReflectiveOperationException 1
 #include "../../../java/lang/ReflectiveOperationException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief This class provides a wrapper for an exception thrown by a <code>Method</code> or
@@ -42,7 +40,7 @@
  the exception which occurred while running the Method or
  Constructor
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)exception;
+- (instancetype)initWithNSException:(NSException *)exception;
 
 /*!
  @brief Constructs a new <code>InvocationTargetException</code> instance with its
@@ -53,20 +51,20 @@
  the exception which occurred while running the Method or
  Constructor
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)exception
-                             withNSString:(NSString *)detailMessage;
+- (instancetype)initWithNSException:(NSException *)exception
+                       withNSString:(NSString *)detailMessage;
 
 /*!
  @brief Returns the cause of this exception, which may be <code>null</code>.
  @return the cause of this exception
  */
-- (JavaLangThrowable *)getCause;
+- (NSException *)getCause;
 
 /*!
  @brief Returns the target exception, which may be <code>null</code>.
  @return the target exception
  */
-- (JavaLangThrowable *)getTargetException;
+- (NSException *)getTargetException;
 
 #pragma mark Protected
 
@@ -84,13 +82,19 @@ FOUNDATION_EXPORT void JavaLangReflectInvocationTargetException_init(JavaLangRef
 
 FOUNDATION_EXPORT JavaLangReflectInvocationTargetException *new_JavaLangReflectInvocationTargetException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangReflectInvocationTargetException_initWithJavaLangThrowable_(JavaLangReflectInvocationTargetException *self, JavaLangThrowable *exception);
+FOUNDATION_EXPORT JavaLangReflectInvocationTargetException *create_JavaLangReflectInvocationTargetException_init();
 
-FOUNDATION_EXPORT JavaLangReflectInvocationTargetException *new_JavaLangReflectInvocationTargetException_initWithJavaLangThrowable_(JavaLangThrowable *exception) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangReflectInvocationTargetException_initWithNSException_(JavaLangReflectInvocationTargetException *self, NSException *exception);
 
-FOUNDATION_EXPORT void JavaLangReflectInvocationTargetException_initWithJavaLangThrowable_withNSString_(JavaLangReflectInvocationTargetException *self, JavaLangThrowable *exception, NSString *detailMessage);
+FOUNDATION_EXPORT JavaLangReflectInvocationTargetException *new_JavaLangReflectInvocationTargetException_initWithNSException_(NSException *exception) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaLangReflectInvocationTargetException *new_JavaLangReflectInvocationTargetException_initWithJavaLangThrowable_withNSString_(JavaLangThrowable *exception, NSString *detailMessage) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaLangReflectInvocationTargetException *create_JavaLangReflectInvocationTargetException_initWithNSException_(NSException *exception);
+
+FOUNDATION_EXPORT void JavaLangReflectInvocationTargetException_initWithNSException_withNSString_(JavaLangReflectInvocationTargetException *self, NSException *exception, NSString *detailMessage);
+
+FOUNDATION_EXPORT JavaLangReflectInvocationTargetException *new_JavaLangReflectInvocationTargetException_initWithNSException_withNSString_(NSException *exception, NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangReflectInvocationTargetException *create_JavaLangReflectInvocationTargetException_initWithNSException_withNSString_(NSException *exception, NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectInvocationTargetException)
 
@@ -98,4 +102,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectInvocationTargetException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectInvocationTargetException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectInvocationTargetException")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecECField_INCLUDE_ALL")
-#ifdef JavaSecuritySpecECField_RESTRICT
-#define JavaSecuritySpecECField_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECField")
+#ifdef RESTRICT_JavaSecuritySpecECField
+#define INCLUDE_ALL_JavaSecuritySpecECField 0
 #else
-#define JavaSecuritySpecECField_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecECField 1
 #endif
-#undef JavaSecuritySpecECField_RESTRICT
+#undef RESTRICT_JavaSecuritySpecECField
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecECField_) && (JavaSecuritySpecECField_INCLUDE_ALL || defined(JavaSecuritySpecECField_INCLUDE))
+#if !defined (JavaSecuritySpecECField_) && (INCLUDE_ALL_JavaSecuritySpecECField || defined(INCLUDE_JavaSecuritySpecECField))
 #define JavaSecuritySpecECField_
 
 /*!
@@ -40,4 +40,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECField)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecECField_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECField")

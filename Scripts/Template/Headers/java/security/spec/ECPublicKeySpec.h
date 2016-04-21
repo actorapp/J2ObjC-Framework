@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecECPublicKeySpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecECPublicKeySpec_RESTRICT
-#define JavaSecuritySpecECPublicKeySpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECPublicKeySpec")
+#ifdef RESTRICT_JavaSecuritySpecECPublicKeySpec
+#define INCLUDE_ALL_JavaSecuritySpecECPublicKeySpec 0
 #else
-#define JavaSecuritySpecECPublicKeySpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecECPublicKeySpec 1
 #endif
-#undef JavaSecuritySpecECPublicKeySpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecECPublicKeySpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecECPublicKeySpec_) && (JavaSecuritySpecECPublicKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecECPublicKeySpec_INCLUDE))
+#if !defined (JavaSecuritySpecECPublicKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecECPublicKeySpec || defined(INCLUDE_JavaSecuritySpecECPublicKeySpec))
 #define JavaSecuritySpecECPublicKeySpec_
 
-#define JavaSecuritySpecKeySpec_RESTRICT 1
-#define JavaSecuritySpecKeySpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecKeySpec 1
+#define INCLUDE_JavaSecuritySpecKeySpec 1
 #include "../../../java/security/spec/KeySpec.h"
 
 @class JavaSecuritySpecECParameterSpec;
@@ -66,10 +66,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecECPublicKeySpec_initWithJavaSecuritySpecE
 
 FOUNDATION_EXPORT JavaSecuritySpecECPublicKeySpec *new_JavaSecuritySpecECPublicKeySpec_initWithJavaSecuritySpecECPoint_withJavaSecuritySpecECParameterSpec_(JavaSecuritySpecECPoint *w, JavaSecuritySpecECParameterSpec *params) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecECPublicKeySpec *create_JavaSecuritySpecECPublicKeySpec_initWithJavaSecuritySpecECPoint_withJavaSecuritySpecECParameterSpec_(JavaSecuritySpecECPoint *w, JavaSecuritySpecECParameterSpec *params);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECPublicKeySpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecECPublicKeySpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECPublicKeySpec")

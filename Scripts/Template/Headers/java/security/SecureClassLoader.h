@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySecureClassLoader_INCLUDE_ALL")
-#ifdef JavaSecuritySecureClassLoader_RESTRICT
-#define JavaSecuritySecureClassLoader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySecureClassLoader")
+#ifdef RESTRICT_JavaSecuritySecureClassLoader
+#define INCLUDE_ALL_JavaSecuritySecureClassLoader 0
 #else
-#define JavaSecuritySecureClassLoader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySecureClassLoader 1
 #endif
-#undef JavaSecuritySecureClassLoader_RESTRICT
+#undef RESTRICT_JavaSecuritySecureClassLoader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySecureClassLoader_) && (JavaSecuritySecureClassLoader_INCLUDE_ALL || defined(JavaSecuritySecureClassLoader_INCLUDE))
+#if !defined (JavaSecuritySecureClassLoader_) && (INCLUDE_ALL_JavaSecuritySecureClassLoader || defined(INCLUDE_JavaSecuritySecureClassLoader))
 #define JavaSecuritySecureClassLoader_
 
-#define JavaLangClassLoader_RESTRICT 1
-#define JavaLangClassLoader_INCLUDE 1
+#define RESTRICT_JavaLangClassLoader 1
+#define INCLUDE_JavaLangClassLoader 1
 #include "../../java/lang/ClassLoader.h"
 
 @class IOSByteArray;
@@ -122,9 +122,13 @@ FOUNDATION_EXPORT void JavaSecuritySecureClassLoader_init(JavaSecuritySecureClas
 
 FOUNDATION_EXPORT JavaSecuritySecureClassLoader *new_JavaSecuritySecureClassLoader_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySecureClassLoader *create_JavaSecuritySecureClassLoader_init();
+
 FOUNDATION_EXPORT void JavaSecuritySecureClassLoader_initWithJavaLangClassLoader_(JavaSecuritySecureClassLoader *self, JavaLangClassLoader *parent);
 
 FOUNDATION_EXPORT JavaSecuritySecureClassLoader *new_JavaSecuritySecureClassLoader_initWithJavaLangClassLoader_(JavaLangClassLoader *parent) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecuritySecureClassLoader *create_JavaSecuritySecureClassLoader_initWithJavaLangClassLoader_(JavaLangClassLoader *parent);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureClassLoader)
 
@@ -132,4 +136,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecureClassLoader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySecureClassLoader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySecureClassLoader")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingLogManager_INCLUDE_ALL")
-#ifdef JavaUtilLoggingLogManager_RESTRICT
-#define JavaUtilLoggingLogManager_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingLogManager")
+#ifdef RESTRICT_JavaUtilLoggingLogManager
+#define INCLUDE_ALL_JavaUtilLoggingLogManager 0
 #else
-#define JavaUtilLoggingLogManager_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingLogManager 1
 #endif
-#undef JavaUtilLoggingLogManager_RESTRICT
+#undef RESTRICT_JavaUtilLoggingLogManager
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingLogManager_) && (JavaUtilLoggingLogManager_INCLUDE_ALL || defined(JavaUtilLoggingLogManager_INCLUDE))
+#if !defined (JavaUtilLoggingLogManager_) && (INCLUDE_ALL_JavaUtilLoggingLogManager || defined(INCLUDE_JavaUtilLoggingLogManager))
 #define JavaUtilLoggingLogManager_
 
 @class JavaIoInputStream;
@@ -299,6 +299,8 @@ FOUNDATION_EXPORT void JavaUtilLoggingLogManager_init(JavaUtilLoggingLogManager 
 
 FOUNDATION_EXPORT JavaUtilLoggingLogManager *new_JavaUtilLoggingLogManager_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingLogManager *create_JavaUtilLoggingLogManager_init();
+
 FOUNDATION_EXPORT JavaUtilLoggingLogManager *JavaUtilLoggingLogManager_getLogManager();
 
 FOUNDATION_EXPORT id JavaUtilLoggingLogManager_getInstanceByClassWithNSString_(NSString *className_);
@@ -309,4 +311,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogManager)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingLogManager_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLogManager")

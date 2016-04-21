@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsPipe_INCLUDE_ALL")
-#ifdef JavaNioChannelsPipe_RESTRICT
-#define JavaNioChannelsPipe_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsPipe")
+#ifdef RESTRICT_JavaNioChannelsPipe
+#define INCLUDE_ALL_JavaNioChannelsPipe 0
 #else
-#define JavaNioChannelsPipe_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsPipe 1
 #endif
-#undef JavaNioChannelsPipe_RESTRICT
+#undef RESTRICT_JavaNioChannelsPipe
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsPipe_) && (JavaNioChannelsPipe_INCLUDE_ALL || defined(JavaNioChannelsPipe_INCLUDE))
+#if !defined (JavaNioChannelsPipe_) && (INCLUDE_ALL_JavaNioChannelsPipe || defined(INCLUDE_JavaNioChannelsPipe))
 #define JavaNioChannelsPipe_
 
 @class JavaNioChannelsPipe_SinkChannel;
@@ -71,19 +71,19 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsPipe)
 
 #endif
 
-#if !defined (JavaNioChannelsPipe_SinkChannel_) && (JavaNioChannelsPipe_INCLUDE_ALL || defined(JavaNioChannelsPipe_SinkChannel_INCLUDE))
+#if !defined (JavaNioChannelsPipe_SinkChannel_) && (INCLUDE_ALL_JavaNioChannelsPipe || defined(INCLUDE_JavaNioChannelsPipe_SinkChannel))
 #define JavaNioChannelsPipe_SinkChannel_
 
-#define JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT 1
-#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsSpiAbstractSelectableChannel 1
+#define INCLUDE_JavaNioChannelsSpiAbstractSelectableChannel 1
 #include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
 
-#define JavaNioChannelsWritableByteChannel_RESTRICT 1
-#define JavaNioChannelsWritableByteChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsWritableByteChannel 1
+#define INCLUDE_JavaNioChannelsWritableByteChannel 1
 #include "../../../java/nio/channels/WritableByteChannel.h"
 
-#define JavaNioChannelsGatheringByteChannel_RESTRICT 1
-#define JavaNioChannelsGatheringByteChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsGatheringByteChannel 1
+#define INCLUDE_JavaNioChannelsGatheringByteChannel 1
 #include "../../../java/nio/channels/GatheringByteChannel.h"
 
 @class JavaNioChannelsSpiSelectorProvider;
@@ -120,19 +120,19 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsPipe_SinkChannel)
 
 #endif
 
-#if !defined (JavaNioChannelsPipe_SourceChannel_) && (JavaNioChannelsPipe_INCLUDE_ALL || defined(JavaNioChannelsPipe_SourceChannel_INCLUDE))
+#if !defined (JavaNioChannelsPipe_SourceChannel_) && (INCLUDE_ALL_JavaNioChannelsPipe || defined(INCLUDE_JavaNioChannelsPipe_SourceChannel))
 #define JavaNioChannelsPipe_SourceChannel_
 
-#define JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT 1
-#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsSpiAbstractSelectableChannel 1
+#define INCLUDE_JavaNioChannelsSpiAbstractSelectableChannel 1
 #include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
 
-#define JavaNioChannelsReadableByteChannel_RESTRICT 1
-#define JavaNioChannelsReadableByteChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsReadableByteChannel 1
+#define INCLUDE_JavaNioChannelsReadableByteChannel 1
 #include "../../../java/nio/channels/ReadableByteChannel.h"
 
-#define JavaNioChannelsScatteringByteChannel_RESTRICT 1
-#define JavaNioChannelsScatteringByteChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsScatteringByteChannel 1
+#define INCLUDE_JavaNioChannelsScatteringByteChannel 1
 #include "../../../java/nio/channels/ScatteringByteChannel.h"
 
 @class JavaNioChannelsSpiSelectorProvider;
@@ -171,4 +171,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsPipe_SourceChannel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsPipe_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsPipe")

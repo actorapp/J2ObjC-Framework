@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaMathBigDecimal_INCLUDE_ALL")
-#ifdef JavaMathBigDecimal_RESTRICT
-#define JavaMathBigDecimal_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaMathBigDecimal")
+#ifdef RESTRICT_JavaMathBigDecimal
+#define INCLUDE_ALL_JavaMathBigDecimal 0
 #else
-#define JavaMathBigDecimal_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaMathBigDecimal 1
 #endif
-#undef JavaMathBigDecimal_RESTRICT
+#undef RESTRICT_JavaMathBigDecimal
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaMathBigDecimal_) && (JavaMathBigDecimal_INCLUDE_ALL || defined(JavaMathBigDecimal_INCLUDE))
+#if !defined (JavaMathBigDecimal_) && (INCLUDE_ALL_JavaMathBigDecimal || defined(INCLUDE_JavaMathBigDecimal))
 #define JavaMathBigDecimal_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSCharArray;
@@ -1378,65 +1378,97 @@ FOUNDATION_EXPORT void JavaMathBigDecimal_initWithCharArray_withInt_withInt_(Jav
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithCharArray_withInt_withInt_(IOSCharArray *inArg, jint offset, jint len) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithCharArray_withInt_withInt_(IOSCharArray *inArg, jint offset, jint len);
+
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithCharArray_withInt_withInt_withJavaMathMathContext_(JavaMathBigDecimal *self, IOSCharArray *inArg, jint offset, jint len, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithCharArray_withInt_withInt_withJavaMathMathContext_(IOSCharArray *inArg, jint offset, jint len, JavaMathMathContext *mc) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithCharArray_withInt_withInt_withJavaMathMathContext_(IOSCharArray *inArg, jint offset, jint len, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithCharArray_(JavaMathBigDecimal *self, IOSCharArray *inArg);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithCharArray_(IOSCharArray *inArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithCharArray_(IOSCharArray *inArg);
+
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithCharArray_withJavaMathMathContext_(JavaMathBigDecimal *self, IOSCharArray *inArg, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithCharArray_withJavaMathMathContext_(IOSCharArray *inArg, JavaMathMathContext *mc) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithCharArray_withJavaMathMathContext_(IOSCharArray *inArg, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithNSString_(JavaMathBigDecimal *self, NSString *val);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithNSString_(NSString *val) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithNSString_(NSString *val);
+
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithNSString_withJavaMathMathContext_(JavaMathBigDecimal *self, NSString *val, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithNSString_withJavaMathMathContext_(NSString *val, JavaMathMathContext *mc) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithNSString_withJavaMathMathContext_(NSString *val, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithDouble_(JavaMathBigDecimal *self, jdouble val);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithDouble_(jdouble val) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithDouble_(jdouble val);
+
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithDouble_withJavaMathMathContext_(JavaMathBigDecimal *self, jdouble val, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithDouble_withJavaMathMathContext_(jdouble val, JavaMathMathContext *mc) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithDouble_withJavaMathMathContext_(jdouble val, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithJavaMathBigInteger_(JavaMathBigDecimal *self, JavaMathBigInteger *val);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithJavaMathBigInteger_(JavaMathBigInteger *val) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithJavaMathBigInteger_(JavaMathBigInteger *val);
+
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithJavaMathBigInteger_withJavaMathMathContext_(JavaMathBigDecimal *self, JavaMathBigInteger *val, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithJavaMathBigInteger_withJavaMathMathContext_(JavaMathBigInteger *val, JavaMathMathContext *mc) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithJavaMathBigInteger_withJavaMathMathContext_(JavaMathBigInteger *val, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithJavaMathBigInteger_withInt_(JavaMathBigDecimal *self, JavaMathBigInteger *unscaledVal, jint scale_);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithJavaMathBigInteger_withInt_(JavaMathBigInteger *unscaledVal, jint scale_) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithJavaMathBigInteger_withInt_(JavaMathBigInteger *unscaledVal, jint scale_);
+
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithJavaMathBigInteger_withInt_withJavaMathMathContext_(JavaMathBigDecimal *self, JavaMathBigInteger *unscaledVal, jint scale_, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithJavaMathBigInteger_withInt_withJavaMathMathContext_(JavaMathBigInteger *unscaledVal, jint scale_, JavaMathMathContext *mc) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithJavaMathBigInteger_withInt_withJavaMathMathContext_(JavaMathBigInteger *unscaledVal, jint scale_, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithInt_(JavaMathBigDecimal *self, jint val);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithInt_(jint val) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithInt_(jint val);
+
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithInt_withJavaMathMathContext_(JavaMathBigDecimal *self, jint val, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithInt_withJavaMathMathContext_(jint val, JavaMathMathContext *mc) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithInt_withJavaMathMathContext_(jint val, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithLong_(JavaMathBigDecimal *self, jlong val);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithLong_(jlong val) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithLong_(jlong val);
+
 FOUNDATION_EXPORT void JavaMathBigDecimal_initWithLong_withJavaMathMathContext_(JavaMathBigDecimal *self, jlong val, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *new_JavaMathBigDecimal_initWithLong_withJavaMathMathContext_(jlong val, JavaMathMathContext *mc) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigDecimal *create_JavaMathBigDecimal_initWithLong_withJavaMathMathContext_(jlong val, JavaMathMathContext *mc);
 
 FOUNDATION_EXPORT JavaMathBigDecimal *JavaMathBigDecimal_valueOfWithLong_withInt_(jlong unscaledVal, jint scale_);
 
@@ -1450,4 +1482,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaMathBigDecimal)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaMathBigDecimal_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaMathBigDecimal")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangShort_INCLUDE_ALL")
-#ifdef JavaLangShort_RESTRICT
-#define JavaLangShort_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangShort")
+#ifdef RESTRICT_JavaLangShort
+#define INCLUDE_ALL_JavaLangShort 0
 #else
-#define JavaLangShort_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangShort 1
 #endif
-#undef JavaLangShort_RESTRICT
+#undef RESTRICT_JavaLangShort
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangShort_) && (JavaLangShort_INCLUDE_ALL || defined(JavaLangShort_INCLUDE))
+#if !defined (JavaLangShort_) && (INCLUDE_ALL_JavaLangShort || defined(INCLUDE_JavaLangShort))
 #define JavaLangShort_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -265,9 +265,13 @@ FOUNDATION_EXPORT void JavaLangShort_initWithNSString_(JavaLangShort *self, NSSt
 
 FOUNDATION_EXPORT JavaLangShort *new_JavaLangShort_initWithNSString_(NSString *string) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangShort *create_JavaLangShort_initWithNSString_(NSString *string);
+
 FOUNDATION_EXPORT void JavaLangShort_initWithShort_(JavaLangShort *self, jshort value);
 
 FOUNDATION_EXPORT JavaLangShort *new_JavaLangShort_initWithShort_(jshort value) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangShort *create_JavaLangShort_initWithShort_(jshort value);
 
 FOUNDATION_EXPORT jint JavaLangShort_compareWithShort_withShort_(jshort lhs, jshort rhs);
 
@@ -295,4 +299,4 @@ BOXED_INC_AND_DEC(Short, shortValue, JavaLangShort)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangShort_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangShort")

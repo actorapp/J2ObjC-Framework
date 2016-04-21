@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLEngine_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLEngine_RESTRICT
-#define JavaxNetSslSSLEngine_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLEngine")
+#ifdef RESTRICT_JavaxNetSslSSLEngine
+#define INCLUDE_ALL_JavaxNetSslSSLEngine 0
 #else
-#define JavaxNetSslSSLEngine_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLEngine 1
 #endif
-#undef JavaxNetSslSSLEngine_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLEngine
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLEngine_) && (JavaxNetSslSSLEngine_INCLUDE_ALL || defined(JavaxNetSslSSLEngine_INCLUDE))
+#if !defined (JavaxNetSslSSLEngine_) && (INCLUDE_ALL_JavaxNetSslSSLEngine || defined(INCLUDE_JavaxNetSslSSLEngine))
 #define JavaxNetSslSSLEngine_
 
 @class IOSObjectArray;
@@ -1089,4 +1089,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLEngine)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLEngine_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLEngine")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentExchanger_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentExchanger_RESTRICT
-#define JavaUtilConcurrentExchanger_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentExchanger")
+#ifdef RESTRICT_JavaUtilConcurrentExchanger
+#define INCLUDE_ALL_JavaUtilConcurrentExchanger 0
 #else
-#define JavaUtilConcurrentExchanger_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentExchanger 1
 #endif
-#undef JavaUtilConcurrentExchanger_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentExchanger
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentExchanger_) && (JavaUtilConcurrentExchanger_INCLUDE_ALL || defined(JavaUtilConcurrentExchanger_INCLUDE))
+#if !defined (JavaUtilConcurrentExchanger_) && (INCLUDE_ALL_JavaUtilConcurrentExchanger || defined(INCLUDE_JavaUtilConcurrentExchanger))
 #define JavaUtilConcurrentExchanger_
 
 @class JavaUtilConcurrentTimeUnit;
@@ -183,11 +183,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentExchanger_init(JavaUtilConcurrentExchan
 
 FOUNDATION_EXPORT JavaUtilConcurrentExchanger *new_JavaUtilConcurrentExchanger_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentExchanger *create_JavaUtilConcurrentExchanger_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExchanger)
 
 #endif
 
-#if !defined (JavaUtilConcurrentExchanger_Node_) && (JavaUtilConcurrentExchanger_INCLUDE_ALL || defined(JavaUtilConcurrentExchanger_Node_INCLUDE))
+#if !defined (JavaUtilConcurrentExchanger_Node_) && (INCLUDE_ALL_JavaUtilConcurrentExchanger || defined(INCLUDE_JavaUtilConcurrentExchanger_Node))
 #define JavaUtilConcurrentExchanger_Node_
 
 @class JavaLangThread;
@@ -257,15 +259,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentExchanger_Node_init(JavaUtilConcurrentE
 
 FOUNDATION_EXPORT JavaUtilConcurrentExchanger_Node *new_JavaUtilConcurrentExchanger_Node_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentExchanger_Node *create_JavaUtilConcurrentExchanger_Node_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExchanger_Node)
 
 #endif
 
-#if !defined (JavaUtilConcurrentExchanger_Participant_) && (JavaUtilConcurrentExchanger_INCLUDE_ALL || defined(JavaUtilConcurrentExchanger_Participant_INCLUDE))
+#if !defined (JavaUtilConcurrentExchanger_Participant_) && (INCLUDE_ALL_JavaUtilConcurrentExchanger || defined(INCLUDE_JavaUtilConcurrentExchanger_Participant))
 #define JavaUtilConcurrentExchanger_Participant_
 
-#define JavaLangThreadLocal_RESTRICT 1
-#define JavaLangThreadLocal_INCLUDE 1
+#define RESTRICT_JavaLangThreadLocal 1
+#define INCLUDE_JavaLangThreadLocal 1
 #include "../../../java/lang/ThreadLocal.h"
 
 @class JavaUtilConcurrentExchanger_Node;
@@ -291,10 +295,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentExchanger_Participant_init(JavaUtilConc
 
 FOUNDATION_EXPORT JavaUtilConcurrentExchanger_Participant *new_JavaUtilConcurrentExchanger_Participant_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentExchanger_Participant *create_JavaUtilConcurrentExchanger_Participant_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExchanger_Participant)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentExchanger_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentExchanger")

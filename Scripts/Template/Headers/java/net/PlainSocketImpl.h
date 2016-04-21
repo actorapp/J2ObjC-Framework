@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetPlainSocketImpl_INCLUDE_ALL")
-#ifdef JavaNetPlainSocketImpl_RESTRICT
-#define JavaNetPlainSocketImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetPlainSocketImpl")
+#ifdef RESTRICT_JavaNetPlainSocketImpl
+#define INCLUDE_ALL_JavaNetPlainSocketImpl 0
 #else
-#define JavaNetPlainSocketImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetPlainSocketImpl 1
 #endif
-#undef JavaNetPlainSocketImpl_RESTRICT
+#undef RESTRICT_JavaNetPlainSocketImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetPlainSocketImpl_) && (JavaNetPlainSocketImpl_INCLUDE_ALL || defined(JavaNetPlainSocketImpl_INCLUDE))
+#if !defined (JavaNetPlainSocketImpl_) && (INCLUDE_ALL_JavaNetPlainSocketImpl || defined(INCLUDE_JavaNetPlainSocketImpl))
 #define JavaNetPlainSocketImpl_
 
-#define JavaNetSocketImpl_RESTRICT 1
-#define JavaNetSocketImpl_INCLUDE 1
+#define RESTRICT_JavaNetSocketImpl 1
+#define INCLUDE_JavaNetSocketImpl 1
 #include "../../java/net/SocketImpl.h"
 
 @class JavaIoFileDescriptor;
@@ -85,7 +85,7 @@
 
 - (void)createWithBoolean:(jboolean)streaming;
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 - (JavaIoInputStream *)getInputStream;
 
@@ -115,17 +115,25 @@ FOUNDATION_EXPORT void JavaNetPlainSocketImpl_initWithJavaIoFileDescriptor_(Java
 
 FOUNDATION_EXPORT JavaNetPlainSocketImpl *new_JavaNetPlainSocketImpl_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetPlainSocketImpl *create_JavaNetPlainSocketImpl_initWithJavaIoFileDescriptor_(JavaIoFileDescriptor *fd);
+
 FOUNDATION_EXPORT void JavaNetPlainSocketImpl_initWithJavaNetProxy_(JavaNetPlainSocketImpl *self, JavaNetProxy *proxy);
 
 FOUNDATION_EXPORT JavaNetPlainSocketImpl *new_JavaNetPlainSocketImpl_initWithJavaNetProxy_(JavaNetProxy *proxy) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetPlainSocketImpl *create_JavaNetPlainSocketImpl_initWithJavaNetProxy_(JavaNetProxy *proxy);
 
 FOUNDATION_EXPORT void JavaNetPlainSocketImpl_init(JavaNetPlainSocketImpl *self);
 
 FOUNDATION_EXPORT JavaNetPlainSocketImpl *new_JavaNetPlainSocketImpl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetPlainSocketImpl *create_JavaNetPlainSocketImpl_init();
+
 FOUNDATION_EXPORT void JavaNetPlainSocketImpl_initWithJavaIoFileDescriptor_withInt_withJavaNetInetAddress_withInt_(JavaNetPlainSocketImpl *self, JavaIoFileDescriptor *fd, jint localport, JavaNetInetAddress *addr, jint port);
 
 FOUNDATION_EXPORT JavaNetPlainSocketImpl *new_JavaNetPlainSocketImpl_initWithJavaIoFileDescriptor_withInt_withJavaNetInetAddress_withInt_(JavaIoFileDescriptor *fd, jint localport, JavaNetInetAddress *addr, jint port) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetPlainSocketImpl *create_JavaNetPlainSocketImpl_initWithJavaIoFileDescriptor_withInt_withJavaNetInetAddress_withInt_(JavaIoFileDescriptor *fd, jint localport, JavaNetInetAddress *addr, jint port);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetPlainSocketImpl)
 
@@ -133,4 +141,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetPlainSocketImpl)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetPlainSocketImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetPlainSocketImpl")

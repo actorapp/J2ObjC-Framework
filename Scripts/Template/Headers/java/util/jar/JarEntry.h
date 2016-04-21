@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilJarJarEntry_INCLUDE_ALL")
-#ifdef JavaUtilJarJarEntry_RESTRICT
-#define JavaUtilJarJarEntry_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilJarJarEntry")
+#ifdef RESTRICT_JavaUtilJarJarEntry
+#define INCLUDE_ALL_JavaUtilJarJarEntry 0
 #else
-#define JavaUtilJarJarEntry_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilJarJarEntry 1
 #endif
-#undef JavaUtilJarJarEntry_RESTRICT
+#undef RESTRICT_JavaUtilJarJarEntry
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilJarJarEntry_) && (JavaUtilJarJarEntry_INCLUDE_ALL || defined(JavaUtilJarJarEntry_INCLUDE))
+#if !defined (JavaUtilJarJarEntry_) && (INCLUDE_ALL_JavaUtilJarJarEntry || defined(INCLUDE_JavaUtilJarJarEntry))
 #define JavaUtilJarJarEntry_
 
-#define JavaUtilZipZipEntry_RESTRICT 1
-#define JavaUtilZipZipEntry_INCLUDE 1
+#define RESTRICT_JavaUtilZipZipEntry 1
+#define INCLUDE_JavaUtilZipZipEntry 1
 #include "../../../java/util/zip/ZipEntry.h"
 
 @class IOSObjectArray;
@@ -35,7 +35,7 @@
  */
 @interface JavaUtilJarJarEntry : JavaUtilZipZipEntry {
  @public
-  __weak JavaUtilJarJarFile *parentJar_;
+  __unsafe_unretained JavaUtilJarJarFile *parentJar_;
   IOSObjectArray *signers_;
 }
 
@@ -122,17 +122,25 @@ FOUNDATION_EXPORT void JavaUtilJarJarEntry_initWithNSString_(JavaUtilJarJarEntry
 
 FOUNDATION_EXPORT JavaUtilJarJarEntry *new_JavaUtilJarJarEntry_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarEntry *create_JavaUtilJarJarEntry_initWithNSString_(NSString *name);
+
 FOUNDATION_EXPORT void JavaUtilJarJarEntry_initWithJavaUtilZipZipEntry_(JavaUtilJarJarEntry *self, JavaUtilZipZipEntry *entry_);
 
 FOUNDATION_EXPORT JavaUtilJarJarEntry *new_JavaUtilJarJarEntry_initWithJavaUtilZipZipEntry_(JavaUtilZipZipEntry *entry_) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilJarJarEntry *create_JavaUtilJarJarEntry_initWithJavaUtilZipZipEntry_(JavaUtilZipZipEntry *entry_);
 
 FOUNDATION_EXPORT void JavaUtilJarJarEntry_initWithJavaUtilZipZipEntry_withJavaUtilJarJarFile_(JavaUtilJarJarEntry *self, JavaUtilZipZipEntry *entry_, JavaUtilJarJarFile *parentJar);
 
 FOUNDATION_EXPORT JavaUtilJarJarEntry *new_JavaUtilJarJarEntry_initWithJavaUtilZipZipEntry_withJavaUtilJarJarFile_(JavaUtilZipZipEntry *entry_, JavaUtilJarJarFile *parentJar) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarEntry *create_JavaUtilJarJarEntry_initWithJavaUtilZipZipEntry_withJavaUtilJarJarFile_(JavaUtilZipZipEntry *entry_, JavaUtilJarJarFile *parentJar);
+
 FOUNDATION_EXPORT void JavaUtilJarJarEntry_initWithJavaUtilJarJarEntry_(JavaUtilJarJarEntry *self, JavaUtilJarJarEntry *je);
 
 FOUNDATION_EXPORT JavaUtilJarJarEntry *new_JavaUtilJarJarEntry_initWithJavaUtilJarJarEntry_(JavaUtilJarJarEntry *je) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilJarJarEntry *create_JavaUtilJarJarEntry_initWithJavaUtilJarJarEntry_(JavaUtilJarJarEntry *je);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarEntry)
 
@@ -140,4 +148,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarEntry)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilJarJarEntry_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarEntry")

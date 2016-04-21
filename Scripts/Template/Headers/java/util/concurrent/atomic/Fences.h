@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicFences_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicFences_RESTRICT
-#define JavaUtilConcurrentAtomicFences_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicFences")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicFences
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicFences 0
 #else
-#define JavaUtilConcurrentAtomicFences_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicFences 1
 #endif
-#undef JavaUtilConcurrentAtomicFences_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicFences
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicFences_) && (JavaUtilConcurrentAtomicFences_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicFences_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicFences_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicFences || defined(INCLUDE_JavaUtilConcurrentAtomicFences))
 #define JavaUtilConcurrentAtomicFences_
 
 /*!
@@ -481,4 +481,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicFences)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicFences_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicFences")

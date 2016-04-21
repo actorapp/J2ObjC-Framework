@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilWeakHashMap_INCLUDE_ALL")
-#ifdef JavaUtilWeakHashMap_RESTRICT
-#define JavaUtilWeakHashMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilWeakHashMap")
+#ifdef RESTRICT_JavaUtilWeakHashMap
+#define INCLUDE_ALL_JavaUtilWeakHashMap 0
 #else
-#define JavaUtilWeakHashMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilWeakHashMap 1
 #endif
-#undef JavaUtilWeakHashMap_RESTRICT
+#undef RESTRICT_JavaUtilWeakHashMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilWeakHashMap_) && (JavaUtilWeakHashMap_INCLUDE_ALL || defined(JavaUtilWeakHashMap_INCLUDE))
+#if !defined (JavaUtilWeakHashMap_) && (INCLUDE_ALL_JavaUtilWeakHashMap || defined(INCLUDE_JavaUtilWeakHashMap))
 #define JavaUtilWeakHashMap_
 
-#define JavaUtilAbstractMap_RESTRICT 1
-#define JavaUtilAbstractMap_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractMap 1
+#define INCLUDE_JavaUtilAbstractMap 1
 #include "../../java/util/AbstractMap.h"
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap 1
 #include "../../java/util/Map.h"
 
 @class IOSObjectArray;
@@ -226,31 +226,39 @@ FOUNDATION_EXPORT void JavaUtilWeakHashMap_init(JavaUtilWeakHashMap *self);
 
 FOUNDATION_EXPORT JavaUtilWeakHashMap *new_JavaUtilWeakHashMap_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilWeakHashMap *create_JavaUtilWeakHashMap_init();
+
 FOUNDATION_EXPORT void JavaUtilWeakHashMap_initWithInt_(JavaUtilWeakHashMap *self, jint capacity);
 
 FOUNDATION_EXPORT JavaUtilWeakHashMap *new_JavaUtilWeakHashMap_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilWeakHashMap *create_JavaUtilWeakHashMap_initWithInt_(jint capacity);
 
 FOUNDATION_EXPORT void JavaUtilWeakHashMap_initWithInt_withFloat_(JavaUtilWeakHashMap *self, jint capacity, jfloat loadFactor);
 
 FOUNDATION_EXPORT JavaUtilWeakHashMap *new_JavaUtilWeakHashMap_initWithInt_withFloat_(jint capacity, jfloat loadFactor) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilWeakHashMap *create_JavaUtilWeakHashMap_initWithInt_withFloat_(jint capacity, jfloat loadFactor);
+
 FOUNDATION_EXPORT void JavaUtilWeakHashMap_initWithJavaUtilMap_(JavaUtilWeakHashMap *self, id<JavaUtilMap> map);
 
 FOUNDATION_EXPORT JavaUtilWeakHashMap *new_JavaUtilWeakHashMap_initWithJavaUtilMap_(id<JavaUtilMap> map) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilWeakHashMap *create_JavaUtilWeakHashMap_initWithJavaUtilMap_(id<JavaUtilMap> map);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap)
 
 #endif
 
-#if !defined (JavaUtilWeakHashMap_Entry_) && (JavaUtilWeakHashMap_INCLUDE_ALL || defined(JavaUtilWeakHashMap_Entry_INCLUDE))
+#if !defined (JavaUtilWeakHashMap_Entry_) && (INCLUDE_ALL_JavaUtilWeakHashMap || defined(INCLUDE_JavaUtilWeakHashMap_Entry))
 #define JavaUtilWeakHashMap_Entry_
 
-#define JavaLangRefWeakReference_RESTRICT 1
-#define JavaLangRefWeakReference_INCLUDE 1
+#define RESTRICT_JavaLangRefWeakReference 1
+#define INCLUDE_JavaLangRefWeakReference 1
 #include "../../java/lang/ref/WeakReference.h"
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_Entry_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap_Entry 1
 #include "../../java/util/Map.h"
 
 @class JavaLangRefReferenceQueue;
@@ -294,11 +302,13 @@ FOUNDATION_EXPORT void JavaUtilWeakHashMap_Entry_initWithId_withId_withJavaLangR
 
 FOUNDATION_EXPORT JavaUtilWeakHashMap_Entry *new_JavaUtilWeakHashMap_Entry_initWithId_withId_withJavaLangRefReferenceQueue_(id key, id object, JavaLangRefReferenceQueue *queue) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilWeakHashMap_Entry *create_JavaUtilWeakHashMap_Entry_initWithId_withId_withJavaLangRefReferenceQueue_(id key, id object, JavaLangRefReferenceQueue *queue);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_Entry)
 
 #endif
 
-#if !defined (JavaUtilWeakHashMap_Entry_Type_) && (JavaUtilWeakHashMap_INCLUDE_ALL || defined(JavaUtilWeakHashMap_Entry_Type_INCLUDE))
+#if !defined (JavaUtilWeakHashMap_Entry_Type_) && (INCLUDE_ALL_JavaUtilWeakHashMap || defined(INCLUDE_JavaUtilWeakHashMap_Entry_Type))
 #define JavaUtilWeakHashMap_Entry_Type_
 
 @protocol JavaUtilMap_Entry;
@@ -315,11 +325,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_Entry_Type)
 
 #endif
 
-#if !defined (JavaUtilWeakHashMap_HashIterator_) && (JavaUtilWeakHashMap_INCLUDE_ALL || defined(JavaUtilWeakHashMap_HashIterator_INCLUDE))
+#if !defined (JavaUtilWeakHashMap_HashIterator_) && (INCLUDE_ALL_JavaUtilWeakHashMap || defined(INCLUDE_JavaUtilWeakHashMap_HashIterator))
 #define JavaUtilWeakHashMap_HashIterator_
 
-#define JavaUtilIterator_RESTRICT 1
-#define JavaUtilIterator_INCLUDE 1
+#define RESTRICT_JavaUtilIterator 1
+#define INCLUDE_JavaUtilIterator 1
 #include "../../java/util/Iterator.h"
 
 @class JavaUtilWeakHashMap;
@@ -353,10 +363,12 @@ FOUNDATION_EXPORT void JavaUtilWeakHashMap_HashIterator_initWithJavaUtilWeakHash
 
 FOUNDATION_EXPORT JavaUtilWeakHashMap_HashIterator *new_JavaUtilWeakHashMap_HashIterator_initWithJavaUtilWeakHashMap_withJavaUtilWeakHashMap_Entry_Type_(JavaUtilWeakHashMap *outer$, id<JavaUtilWeakHashMap_Entry_Type> type) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilWeakHashMap_HashIterator *create_JavaUtilWeakHashMap_HashIterator_initWithJavaUtilWeakHashMap_withJavaUtilWeakHashMap_Entry_Type_(JavaUtilWeakHashMap *outer$, id<JavaUtilWeakHashMap_Entry_Type> type);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilWeakHashMap_HashIterator)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilWeakHashMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilWeakHashMap")

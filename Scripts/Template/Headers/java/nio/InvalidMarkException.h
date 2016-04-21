@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioInvalidMarkException_INCLUDE_ALL")
-#ifdef JavaNioInvalidMarkException_RESTRICT
-#define JavaNioInvalidMarkException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioInvalidMarkException")
+#ifdef RESTRICT_JavaNioInvalidMarkException
+#define INCLUDE_ALL_JavaNioInvalidMarkException 0
 #else
-#define JavaNioInvalidMarkException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioInvalidMarkException 1
 #endif
-#undef JavaNioInvalidMarkException_RESTRICT
+#undef RESTRICT_JavaNioInvalidMarkException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioInvalidMarkException_) && (JavaNioInvalidMarkException_INCLUDE_ALL || defined(JavaNioInvalidMarkException_INCLUDE))
+#if !defined (JavaNioInvalidMarkException_) && (INCLUDE_ALL_JavaNioInvalidMarkException || defined(INCLUDE_JavaNioInvalidMarkException))
 #define JavaNioInvalidMarkException_
 
-#define JavaLangIllegalStateException_RESTRICT 1
-#define JavaLangIllegalStateException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalStateException 1
+#define INCLUDE_JavaLangIllegalStateException 1
 #include "../../java/lang/IllegalStateException.h"
 
 /*!
@@ -49,9 +49,13 @@ FOUNDATION_EXPORT void JavaNioInvalidMarkException_init(JavaNioInvalidMarkExcept
 
 FOUNDATION_EXPORT JavaNioInvalidMarkException *new_JavaNioInvalidMarkException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioInvalidMarkException *create_JavaNioInvalidMarkException_init();
+
 FOUNDATION_EXPORT void JavaNioInvalidMarkException_initWithNSString_(JavaNioInvalidMarkException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaNioInvalidMarkException *new_JavaNioInvalidMarkException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNioInvalidMarkException *create_JavaNioInvalidMarkException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioInvalidMarkException)
 
@@ -59,4 +63,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioInvalidMarkException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioInvalidMarkException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioInvalidMarkException")

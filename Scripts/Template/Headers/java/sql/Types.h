@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlTypes_INCLUDE_ALL")
-#ifdef JavaSqlTypes_RESTRICT
-#define JavaSqlTypes_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlTypes")
+#ifdef RESTRICT_JavaSqlTypes
+#define INCLUDE_ALL_JavaSqlTypes 0
 #else
-#define JavaSqlTypes_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlTypes 1
 #endif
-#undef JavaSqlTypes_RESTRICT
+#undef RESTRICT_JavaSqlTypes
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlTypes_) && (JavaSqlTypes_INCLUDE_ALL || defined(JavaSqlTypes_INCLUDE))
+#if !defined (JavaSqlTypes_) && (INCLUDE_ALL_JavaSqlTypes || defined(INCLUDE_JavaSqlTypes))
 #define JavaSqlTypes_
 
 /*!
@@ -363,4 +363,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlTypes)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlTypes_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlTypes")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangInternalError_INCLUDE_ALL")
-#ifdef JavaLangInternalError_RESTRICT
-#define JavaLangInternalError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangInternalError")
+#ifdef RESTRICT_JavaLangInternalError
+#define INCLUDE_ALL_JavaLangInternalError 0
 #else
-#define JavaLangInternalError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangInternalError 1
 #endif
-#undef JavaLangInternalError_RESTRICT
+#undef RESTRICT_JavaLangInternalError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangInternalError_) && (JavaLangInternalError_INCLUDE_ALL || defined(JavaLangInternalError_INCLUDE))
+#if !defined (JavaLangInternalError_) && (INCLUDE_ALL_JavaLangInternalError || defined(INCLUDE_JavaLangInternalError))
 #define JavaLangInternalError_
 
-#define JavaLangVirtualMachineError_RESTRICT 1
-#define JavaLangVirtualMachineError_INCLUDE 1
+#define RESTRICT_JavaLangVirtualMachineError 1
+#define INCLUDE_JavaLangVirtualMachineError 1
 #include "../../java/lang/VirtualMachineError.h"
 
 /*!
@@ -52,9 +52,13 @@ FOUNDATION_EXPORT void JavaLangInternalError_init(JavaLangInternalError *self);
 
 FOUNDATION_EXPORT JavaLangInternalError *new_JavaLangInternalError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangInternalError *create_JavaLangInternalError_init();
+
 FOUNDATION_EXPORT void JavaLangInternalError_initWithNSString_(JavaLangInternalError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangInternalError *new_JavaLangInternalError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangInternalError *create_JavaLangInternalError_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangInternalError)
 
@@ -62,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangInternalError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangInternalError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangInternalError")

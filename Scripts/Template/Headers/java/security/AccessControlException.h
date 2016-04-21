@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityAccessControlException_INCLUDE_ALL")
-#ifdef JavaSecurityAccessControlException_RESTRICT
-#define JavaSecurityAccessControlException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityAccessControlException")
+#ifdef RESTRICT_JavaSecurityAccessControlException
+#define INCLUDE_ALL_JavaSecurityAccessControlException 0
 #else
-#define JavaSecurityAccessControlException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityAccessControlException 1
 #endif
-#undef JavaSecurityAccessControlException_RESTRICT
+#undef RESTRICT_JavaSecurityAccessControlException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityAccessControlException_) && (JavaSecurityAccessControlException_INCLUDE_ALL || defined(JavaSecurityAccessControlException_INCLUDE))
+#if !defined (JavaSecurityAccessControlException_) && (INCLUDE_ALL_JavaSecurityAccessControlException || defined(INCLUDE_JavaSecurityAccessControlException))
 #define JavaSecurityAccessControlException_
 
-#define JavaLangSecurityException_RESTRICT 1
-#define JavaLangSecurityException_INCLUDE 1
+#define RESTRICT_JavaLangSecurityException 1
+#define INCLUDE_JavaLangSecurityException 1
 #include "../../java/lang/SecurityException.h"
 
 @class JavaSecurityPermission;
@@ -67,9 +67,13 @@ FOUNDATION_EXPORT void JavaSecurityAccessControlException_initWithNSString_(Java
 
 FOUNDATION_EXPORT JavaSecurityAccessControlException *new_JavaSecurityAccessControlException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityAccessControlException *create_JavaSecurityAccessControlException_initWithNSString_(NSString *message);
+
 FOUNDATION_EXPORT void JavaSecurityAccessControlException_initWithNSString_withJavaSecurityPermission_(JavaSecurityAccessControlException *self, NSString *message, JavaSecurityPermission *perm);
 
 FOUNDATION_EXPORT JavaSecurityAccessControlException *new_JavaSecurityAccessControlException_initWithNSString_withJavaSecurityPermission_(NSString *message, JavaSecurityPermission *perm) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityAccessControlException *create_JavaSecurityAccessControlException_initWithNSString_withJavaSecurityPermission_(NSString *message, JavaSecurityPermission *perm);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAccessControlException)
 
@@ -77,4 +81,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAccessControlException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityAccessControlException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityAccessControlException")

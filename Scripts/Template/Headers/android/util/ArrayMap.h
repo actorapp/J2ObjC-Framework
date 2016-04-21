@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidUtilArrayMap_INCLUDE_ALL")
-#ifdef AndroidUtilArrayMap_RESTRICT
-#define AndroidUtilArrayMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidUtilArrayMap")
+#ifdef RESTRICT_AndroidUtilArrayMap
+#define INCLUDE_ALL_AndroidUtilArrayMap 0
 #else
-#define AndroidUtilArrayMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidUtilArrayMap 1
 #endif
-#undef AndroidUtilArrayMap_RESTRICT
+#undef RESTRICT_AndroidUtilArrayMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidUtilArrayMap_) && (AndroidUtilArrayMap_INCLUDE_ALL || defined(AndroidUtilArrayMap_INCLUDE))
+#if !defined (AndroidUtilArrayMap_) && (INCLUDE_ALL_AndroidUtilArrayMap || defined(INCLUDE_AndroidUtilArrayMap))
 #define AndroidUtilArrayMap_
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap 1
 #include "../../java/util/Map.h"
 
 @class AndroidUtilMapCollections;
@@ -361,13 +361,19 @@ FOUNDATION_EXPORT void AndroidUtilArrayMap_init(AndroidUtilArrayMap *self);
 
 FOUNDATION_EXPORT AndroidUtilArrayMap *new_AndroidUtilArrayMap_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilArrayMap *create_AndroidUtilArrayMap_init();
+
 FOUNDATION_EXPORT void AndroidUtilArrayMap_initWithInt_(AndroidUtilArrayMap *self, jint capacity);
 
 FOUNDATION_EXPORT AndroidUtilArrayMap *new_AndroidUtilArrayMap_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilArrayMap *create_AndroidUtilArrayMap_initWithInt_(jint capacity);
+
 FOUNDATION_EXPORT void AndroidUtilArrayMap_initWithAndroidUtilArrayMap_(AndroidUtilArrayMap *self, AndroidUtilArrayMap *map);
 
 FOUNDATION_EXPORT AndroidUtilArrayMap *new_AndroidUtilArrayMap_initWithAndroidUtilArrayMap_(AndroidUtilArrayMap *map) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT AndroidUtilArrayMap *create_AndroidUtilArrayMap_initWithAndroidUtilArrayMap_(AndroidUtilArrayMap *map);
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilArrayMap)
 
@@ -375,4 +381,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilArrayMap)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidUtilArrayMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidUtilArrayMap")

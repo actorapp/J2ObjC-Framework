@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxExtAttributes2_INCLUDE_ALL")
-#ifdef OrgXmlSaxExtAttributes2_RESTRICT
-#define OrgXmlSaxExtAttributes2_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtAttributes2")
+#ifdef RESTRICT_OrgXmlSaxExtAttributes2
+#define INCLUDE_ALL_OrgXmlSaxExtAttributes2 0
 #else
-#define OrgXmlSaxExtAttributes2_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxExtAttributes2 1
 #endif
-#undef OrgXmlSaxExtAttributes2_RESTRICT
+#undef RESTRICT_OrgXmlSaxExtAttributes2
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxExtAttributes2_) && (OrgXmlSaxExtAttributes2_INCLUDE_ALL || defined(OrgXmlSaxExtAttributes2_INCLUDE))
+#if !defined (OrgXmlSaxExtAttributes2_) && (INCLUDE_ALL_OrgXmlSaxExtAttributes2 || defined(INCLUDE_OrgXmlSaxExtAttributes2))
 #define OrgXmlSaxExtAttributes2_
 
-#define OrgXmlSaxAttributes_RESTRICT 1
-#define OrgXmlSaxAttributes_INCLUDE 1
+#define RESTRICT_OrgXmlSaxAttributes 1
+#define INCLUDE_OrgXmlSaxAttributes 1
 #include "../../../../org/xml/sax/Attributes.h"
 
 /*!
@@ -145,4 +145,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtAttributes2)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxExtAttributes2_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtAttributes2")

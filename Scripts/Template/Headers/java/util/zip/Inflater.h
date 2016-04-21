@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipInflater_INCLUDE_ALL")
-#ifdef JavaUtilZipInflater_RESTRICT
-#define JavaUtilZipInflater_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipInflater")
+#ifdef RESTRICT_JavaUtilZipInflater
+#define INCLUDE_ALL_JavaUtilZipInflater 0
 #else
-#define JavaUtilZipInflater_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipInflater 1
 #endif
-#undef JavaUtilZipInflater_RESTRICT
+#undef RESTRICT_JavaUtilZipInflater
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipInflater_) && (JavaUtilZipInflater_INCLUDE_ALL || defined(JavaUtilZipInflater_INCLUDE))
+#if !defined (JavaUtilZipInflater_) && (INCLUDE_ALL_JavaUtilZipInflater || defined(INCLUDE_JavaUtilZipInflater))
 #define JavaUtilZipInflater_
 
 @class IOSByteArray;
@@ -211,7 +211,7 @@
 
 #pragma mark Protected
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 #pragma mark Package-Private
 
@@ -233,9 +233,13 @@ FOUNDATION_EXPORT void JavaUtilZipInflater_init(JavaUtilZipInflater *self);
 
 FOUNDATION_EXPORT JavaUtilZipInflater *new_JavaUtilZipInflater_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilZipInflater *create_JavaUtilZipInflater_init();
+
 FOUNDATION_EXPORT void JavaUtilZipInflater_initWithBoolean_(JavaUtilZipInflater *self, jboolean noHeader);
 
 FOUNDATION_EXPORT JavaUtilZipInflater *new_JavaUtilZipInflater_initWithBoolean_(jboolean noHeader) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilZipInflater *create_JavaUtilZipInflater_initWithBoolean_(jboolean noHeader);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipInflater)
 
@@ -243,4 +247,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipInflater)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipInflater_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipInflater")

@@ -5,21 +5,21 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilResourceBundle_INCLUDE_ALL")
-#ifdef JavaUtilResourceBundle_RESTRICT
-#define JavaUtilResourceBundle_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilResourceBundle")
+#ifdef RESTRICT_JavaUtilResourceBundle
+#define INCLUDE_ALL_JavaUtilResourceBundle 0
 #else
-#define JavaUtilResourceBundle_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilResourceBundle 1
 #endif
-#undef JavaUtilResourceBundle_RESTRICT
-#ifdef JavaUtilResourceBundle_MissingBundle_INCLUDE
-#define JavaUtilResourceBundle_INCLUDE 1
+#undef RESTRICT_JavaUtilResourceBundle
+#ifdef INCLUDE_JavaUtilResourceBundle_MissingBundle
+#define INCLUDE_JavaUtilResourceBundle 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilResourceBundle_) && (JavaUtilResourceBundle_INCLUDE_ALL || defined(JavaUtilResourceBundle_INCLUDE))
+#if !defined (JavaUtilResourceBundle_) && (INCLUDE_ALL_JavaUtilResourceBundle || defined(INCLUDE_JavaUtilResourceBundle))
 #define JavaUtilResourceBundle_
 
 @class IOSObjectArray;
@@ -321,7 +321,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle)
 
 #endif
 
-#if !defined (JavaUtilResourceBundle_MissingBundle_) && (JavaUtilResourceBundle_INCLUDE_ALL || defined(JavaUtilResourceBundle_MissingBundle_INCLUDE))
+#if !defined (JavaUtilResourceBundle_MissingBundle_) && (INCLUDE_ALL_JavaUtilResourceBundle || defined(INCLUDE_JavaUtilResourceBundle_MissingBundle))
 #define JavaUtilResourceBundle_MissingBundle_
 
 @protocol JavaUtilEnumeration;
@@ -346,11 +346,13 @@ FOUNDATION_EXPORT void JavaUtilResourceBundle_MissingBundle_init(JavaUtilResourc
 
 FOUNDATION_EXPORT JavaUtilResourceBundle_MissingBundle *new_JavaUtilResourceBundle_MissingBundle_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilResourceBundle_MissingBundle *create_JavaUtilResourceBundle_MissingBundle_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_MissingBundle)
 
 #endif
 
-#if !defined (JavaUtilResourceBundle_Control_) && (JavaUtilResourceBundle_INCLUDE_ALL || defined(JavaUtilResourceBundle_Control_INCLUDE))
+#if !defined (JavaUtilResourceBundle_Control_) && (INCLUDE_ALL_JavaUtilResourceBundle || defined(INCLUDE_JavaUtilResourceBundle_Control))
 #define JavaUtilResourceBundle_Control_
 
 @class JavaLangClassLoader;
@@ -597,6 +599,8 @@ FOUNDATION_EXPORT void JavaUtilResourceBundle_Control_init(JavaUtilResourceBundl
 
 FOUNDATION_EXPORT JavaUtilResourceBundle_Control *new_JavaUtilResourceBundle_Control_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilResourceBundle_Control *create_JavaUtilResourceBundle_Control_init();
+
 FOUNDATION_EXPORT JavaUtilResourceBundle_Control *JavaUtilResourceBundle_Control_getControlWithJavaUtilList_(id<JavaUtilList> formats);
 
 FOUNDATION_EXPORT JavaUtilResourceBundle_Control *JavaUtilResourceBundle_Control_getNoFallbackControlWithJavaUtilList_(id<JavaUtilList> formats);
@@ -607,4 +611,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilResourceBundle_Control)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilResourceBundle_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilResourceBundle")

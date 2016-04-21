@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoStreamCorruptedException_INCLUDE_ALL")
-#ifdef JavaIoStreamCorruptedException_RESTRICT
-#define JavaIoStreamCorruptedException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoStreamCorruptedException")
+#ifdef RESTRICT_JavaIoStreamCorruptedException
+#define INCLUDE_ALL_JavaIoStreamCorruptedException 0
 #else
-#define JavaIoStreamCorruptedException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoStreamCorruptedException 1
 #endif
-#undef JavaIoStreamCorruptedException_RESTRICT
+#undef RESTRICT_JavaIoStreamCorruptedException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoStreamCorruptedException_) && (JavaIoStreamCorruptedException_INCLUDE_ALL || defined(JavaIoStreamCorruptedException_INCLUDE))
+#if !defined (JavaIoStreamCorruptedException_) && (INCLUDE_ALL_JavaIoStreamCorruptedException || defined(INCLUDE_JavaIoStreamCorruptedException))
 #define JavaIoStreamCorruptedException_
 
-#define JavaIoObjectStreamException_RESTRICT 1
-#define JavaIoObjectStreamException_INCLUDE 1
+#define RESTRICT_JavaIoObjectStreamException 1
+#define INCLUDE_JavaIoObjectStreamException 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
@@ -57,9 +57,13 @@ FOUNDATION_EXPORT void JavaIoStreamCorruptedException_init(JavaIoStreamCorrupted
 
 FOUNDATION_EXPORT JavaIoStreamCorruptedException *new_JavaIoStreamCorruptedException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoStreamCorruptedException *create_JavaIoStreamCorruptedException_init();
+
 FOUNDATION_EXPORT void JavaIoStreamCorruptedException_initWithNSString_(JavaIoStreamCorruptedException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoStreamCorruptedException *new_JavaIoStreamCorruptedException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoStreamCorruptedException *create_JavaIoStreamCorruptedException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoStreamCorruptedException)
 
@@ -67,4 +71,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoStreamCorruptedException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoStreamCorruptedException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoStreamCorruptedException")

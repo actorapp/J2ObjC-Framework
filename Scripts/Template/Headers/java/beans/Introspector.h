@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansIntrospector_INCLUDE_ALL")
-#ifdef JavaBeansIntrospector_RESTRICT
-#define JavaBeansIntrospector_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansIntrospector")
+#ifdef RESTRICT_JavaBeansIntrospector
+#define INCLUDE_ALL_JavaBeansIntrospector 0
 #else
-#define JavaBeansIntrospector_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansIntrospector 1
 #endif
-#undef JavaBeansIntrospector_RESTRICT
+#undef RESTRICT_JavaBeansIntrospector
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansIntrospector_) && (JavaBeansIntrospector_INCLUDE_ALL || defined(JavaBeansIntrospector_INCLUDE))
+#if !defined (JavaBeansIntrospector_) && (INCLUDE_ALL_JavaBeansIntrospector || defined(INCLUDE_JavaBeansIntrospector))
 #define JavaBeansIntrospector_
 
 @class IOSClass;
@@ -215,4 +215,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIntrospector)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansIntrospector_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansIntrospector")

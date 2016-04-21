@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLData_INCLUDE_ALL")
-#ifdef JavaSqlSQLData_RESTRICT
-#define JavaSqlSQLData_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLData")
+#ifdef RESTRICT_JavaSqlSQLData
+#define INCLUDE_ALL_JavaSqlSQLData 0
 #else
-#define JavaSqlSQLData_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLData 1
 #endif
-#undef JavaSqlSQLData_RESTRICT
+#undef RESTRICT_JavaSqlSQLData
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLData_) && (JavaSqlSQLData_INCLUDE_ALL || defined(JavaSqlSQLData_INCLUDE))
+#if !defined (JavaSqlSQLData_) && (INCLUDE_ALL_JavaSqlSQLData || defined(INCLUDE_JavaSqlSQLData))
 #define JavaSqlSQLData_
 
 @protocol JavaSqlSQLInput;
@@ -128,4 +128,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLData)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLData_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLData")

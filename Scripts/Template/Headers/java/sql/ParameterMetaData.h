@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlParameterMetaData_INCLUDE_ALL")
-#ifdef JavaSqlParameterMetaData_RESTRICT
-#define JavaSqlParameterMetaData_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlParameterMetaData")
+#ifdef RESTRICT_JavaSqlParameterMetaData
+#define INCLUDE_ALL_JavaSqlParameterMetaData 0
 #else
-#define JavaSqlParameterMetaData_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlParameterMetaData 1
 #endif
-#undef JavaSqlParameterMetaData_RESTRICT
+#undef RESTRICT_JavaSqlParameterMetaData
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlParameterMetaData_) && (JavaSqlParameterMetaData_INCLUDE_ALL || defined(JavaSqlParameterMetaData_INCLUDE))
+#if !defined (JavaSqlParameterMetaData_) && (INCLUDE_ALL_JavaSqlParameterMetaData || defined(INCLUDE_JavaSqlParameterMetaData))
 #define JavaSqlParameterMetaData_
 
-#define JavaSqlWrapper_RESTRICT 1
-#define JavaSqlWrapper_INCLUDE 1
+#define RESTRICT_JavaSqlWrapper 1
+#define INCLUDE_JavaSqlWrapper 1
 #include "../../java/sql/Wrapper.h"
 
 /*!
@@ -227,4 +227,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlParameterMetaData)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlParameterMetaData_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlParameterMetaData")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextGetChars_INCLUDE_ALL")
-#ifdef AndroidTextGetChars_RESTRICT
-#define AndroidTextGetChars_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextGetChars")
+#ifdef RESTRICT_AndroidTextGetChars
+#define INCLUDE_ALL_AndroidTextGetChars 0
 #else
-#define AndroidTextGetChars_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextGetChars 1
 #endif
-#undef AndroidTextGetChars_RESTRICT
+#undef RESTRICT_AndroidTextGetChars
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextGetChars_) && (AndroidTextGetChars_INCLUDE_ALL || defined(AndroidTextGetChars_INCLUDE))
+#if !defined (AndroidTextGetChars_) && (INCLUDE_ALL_AndroidTextGetChars || defined(INCLUDE_AndroidTextGetChars))
 #define AndroidTextGetChars_
 
-#define JavaLangCharSequence_RESTRICT 1
-#define JavaLangCharSequence_INCLUDE 1
+#define RESTRICT_JavaLangCharSequence 1
+#define INCLUDE_JavaLangCharSequence 1
 #include "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
@@ -52,4 +52,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextGetChars)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextGetChars_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextGetChars")

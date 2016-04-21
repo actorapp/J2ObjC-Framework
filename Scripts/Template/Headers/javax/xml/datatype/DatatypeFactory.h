@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlDatatypeDatatypeFactory_INCLUDE_ALL")
-#ifdef JavaxXmlDatatypeDatatypeFactory_RESTRICT
-#define JavaxXmlDatatypeDatatypeFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlDatatypeDatatypeFactory")
+#ifdef RESTRICT_JavaxXmlDatatypeDatatypeFactory
+#define INCLUDE_ALL_JavaxXmlDatatypeDatatypeFactory 0
 #else
-#define JavaxXmlDatatypeDatatypeFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlDatatypeDatatypeFactory 1
 #endif
-#undef JavaxXmlDatatypeDatatypeFactory_RESTRICT
+#undef RESTRICT_JavaxXmlDatatypeDatatypeFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlDatatypeDatatypeFactory_) && (JavaxXmlDatatypeDatatypeFactory_INCLUDE_ALL || defined(JavaxXmlDatatypeDatatypeFactory_INCLUDE))
+#if !defined (JavaxXmlDatatypeDatatypeFactory_) && (INCLUDE_ALL_JavaxXmlDatatypeDatatypeFactory || defined(INCLUDE_JavaxXmlDatatypeDatatypeFactory))
 #define JavaxXmlDatatypeDatatypeFactory_
 
 @class JavaLangClassLoader;
@@ -693,4 +693,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlDatatypeDatatypeFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlDatatypeDatatypeFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlDatatypeDatatypeFactory")

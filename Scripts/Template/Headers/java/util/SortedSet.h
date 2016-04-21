@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilSortedSet_INCLUDE_ALL")
-#ifdef JavaUtilSortedSet_RESTRICT
-#define JavaUtilSortedSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilSortedSet")
+#ifdef RESTRICT_JavaUtilSortedSet
+#define INCLUDE_ALL_JavaUtilSortedSet 0
 #else
-#define JavaUtilSortedSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilSortedSet 1
 #endif
-#undef JavaUtilSortedSet_RESTRICT
+#undef RESTRICT_JavaUtilSortedSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilSortedSet_) && (JavaUtilSortedSet_INCLUDE_ALL || defined(JavaUtilSortedSet_INCLUDE))
+#if !defined (JavaUtilSortedSet_) && (INCLUDE_ALL_JavaUtilSortedSet || defined(INCLUDE_JavaUtilSortedSet))
 #define JavaUtilSortedSet_
 
-#define JavaUtilSet_RESTRICT 1
-#define JavaUtilSet_INCLUDE 1
+#define RESTRICT_JavaUtilSet 1
+#define INCLUDE_JavaUtilSet 1
 #include "../../java/util/Set.h"
 
 @protocol JavaUtilComparator;
@@ -134,4 +134,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilSortedSet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilSortedSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilSortedSet")

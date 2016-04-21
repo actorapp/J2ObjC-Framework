@@ -5,30 +5,29 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentForkJoinPool_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentForkJoinPool_RESTRICT
-#define JavaUtilConcurrentForkJoinPool_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentForkJoinPool")
+#ifdef RESTRICT_JavaUtilConcurrentForkJoinPool
+#define INCLUDE_ALL_JavaUtilConcurrentForkJoinPool 0
 #else
-#define JavaUtilConcurrentForkJoinPool_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentForkJoinPool 1
 #endif
-#undef JavaUtilConcurrentForkJoinPool_RESTRICT
-#ifdef JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_INCLUDE
-#define JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_INCLUDE 1
+#undef RESTRICT_JavaUtilConcurrentForkJoinPool
+#ifdef INCLUDE_JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory
+#define INCLUDE_JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentForkJoinPool_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinPool_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinPool || defined(INCLUDE_JavaUtilConcurrentForkJoinPool))
 #define JavaUtilConcurrentForkJoinPool_
 
-#define JavaUtilConcurrentAbstractExecutorService_RESTRICT 1
-#define JavaUtilConcurrentAbstractExecutorService_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentAbstractExecutorService 1
+#define INCLUDE_JavaUtilConcurrentAbstractExecutorService 1
 #include "../../../java/util/concurrent/AbstractExecutorService.h"
 
 @class IOSObjectArray;
 @class JavaLangThreadLocal;
-@class JavaLangThrowable;
 @class JavaUtilConcurrentCountedCompleter;
 @class JavaUtilConcurrentForkJoinPool_WorkQueue;
 @class JavaUtilConcurrentForkJoinTask;
@@ -595,7 +594,7 @@ withJavaLangThread_UncaughtExceptionHandler:(id<JavaLangThread_UncaughtException
  @param ex the exception causing failure, or null if none
  */
 - (void)deregisterWorkerWithJavaUtilConcurrentForkJoinWorkerThread:(JavaUtilConcurrentForkJoinWorkerThread *)wt
-                                             withJavaLangThrowable:(JavaLangThrowable *)ex;
+                                                   withNSException:(NSException *)ex;
 
 - (jint)externalHelpCompleteWithJavaUtilConcurrentCountedCompleter:(JavaUtilConcurrentCountedCompleter *)task;
 
@@ -819,13 +818,19 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_init(JavaUtilConcurrentFor
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool *new_JavaUtilConcurrentForkJoinPool_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool *create_JavaUtilConcurrentForkJoinPool_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_initWithInt_(JavaUtilConcurrentForkJoinPool *self, jint parallelism);
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool *new_JavaUtilConcurrentForkJoinPool_initWithInt_(jint parallelism) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool *create_JavaUtilConcurrentForkJoinPool_initWithInt_(jint parallelism);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_initWithInt_withJavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_withJavaLangThread_UncaughtExceptionHandler_withBoolean_(JavaUtilConcurrentForkJoinPool *self, jint parallelism, id<JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory> factory, id<JavaLangThread_UncaughtExceptionHandler> handler, jboolean asyncMode);
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool *new_JavaUtilConcurrentForkJoinPool_initWithInt_withJavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_withJavaLangThread_UncaughtExceptionHandler_withBoolean_(jint parallelism, id<JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory> factory, id<JavaLangThread_UncaughtExceptionHandler> handler, jboolean asyncMode) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool *create_JavaUtilConcurrentForkJoinPool_initWithInt_withJavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_withJavaLangThread_UncaughtExceptionHandler_withBoolean_(jint parallelism, id<JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory> factory, id<JavaLangThread_UncaughtExceptionHandler> handler, jboolean asyncMode);
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool *JavaUtilConcurrentForkJoinPool_commonPool();
 
@@ -839,7 +844,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool)
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinPool || defined(INCLUDE_JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory))
 #define JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFactory_
 
 @class JavaUtilConcurrentForkJoinPool;
@@ -869,7 +874,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_ForkJoinWorkerThreadFa
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinPool || defined(INCLUDE_JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory))
 #define JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_
 
 @class JavaUtilConcurrentForkJoinPool;
@@ -897,15 +902,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThrea
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory *new_JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory *create_JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_DefaultForkJoinWorkerThreadFactory)
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinPool_EmptyTask_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_EmptyTask_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinPool_EmptyTask_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinPool || defined(INCLUDE_JavaUtilConcurrentForkJoinPool_EmptyTask))
 #define JavaUtilConcurrentForkJoinPool_EmptyTask_
 
-#define JavaUtilConcurrentForkJoinTask_RESTRICT 1
-#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentForkJoinTask 1
+#define INCLUDE_JavaUtilConcurrentForkJoinTask 1
 #include "../../../java/util/concurrent/ForkJoinTask.h"
 
 @class JavaLangVoid;
@@ -939,11 +946,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_EmptyTask_init(JavaUtilCon
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_EmptyTask *new_JavaUtilConcurrentForkJoinPool_EmptyTask_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_EmptyTask *create_JavaUtilConcurrentForkJoinPool_EmptyTask_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_EmptyTask)
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinPool_WorkQueue_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_WorkQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinPool_WorkQueue_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinPool || defined(INCLUDE_JavaUtilConcurrentForkJoinPool_WorkQueue))
 #define JavaUtilConcurrentForkJoinPool_WorkQueue_
 
 @class IOSObjectArray;
@@ -1010,7 +1019,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_EmptyTask)
   volatile_jint base_;
   jint top_;
   IOSObjectArray *array_;
-  __weak JavaUtilConcurrentForkJoinPool *pool_;
+  __unsafe_unretained JavaUtilConcurrentForkJoinPool *pool_;
   JavaUtilConcurrentForkJoinWorkerThread *owner_;
   volatile_id parker_;
   volatile_id currentJoin_;
@@ -1195,11 +1204,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_WorkQueue_initWithJavaUtil
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_WorkQueue *new_JavaUtilConcurrentForkJoinPool_WorkQueue_initWithJavaUtilConcurrentForkJoinPool_withJavaUtilConcurrentForkJoinWorkerThread_withInt_withInt_(JavaUtilConcurrentForkJoinPool *pool, JavaUtilConcurrentForkJoinWorkerThread *owner, jint mode, jint seed) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_WorkQueue *create_JavaUtilConcurrentForkJoinPool_WorkQueue_initWithJavaUtilConcurrentForkJoinPool_withJavaUtilConcurrentForkJoinWorkerThread_withInt_withInt_(JavaUtilConcurrentForkJoinPool *pool, JavaUtilConcurrentForkJoinWorkerThread *owner, jint mode, jint seed);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_WorkQueue)
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinPool_Submitter_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_Submitter_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinPool_Submitter_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinPool || defined(INCLUDE_JavaUtilConcurrentForkJoinPool_Submitter))
 #define JavaUtilConcurrentForkJoinPool_Submitter_
 
 /*!
@@ -1234,11 +1245,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinPool_Submitter_initWithInt_(Jav
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_Submitter *new_JavaUtilConcurrentForkJoinPool_Submitter_initWithInt_(jint s) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinPool_Submitter *create_JavaUtilConcurrentForkJoinPool_Submitter_initWithInt_(jint s);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_Submitter)
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinPool_ManagedBlocker_) && (JavaUtilConcurrentForkJoinPool_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinPool_ManagedBlocker_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinPool_ManagedBlocker_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinPool || defined(INCLUDE_JavaUtilConcurrentForkJoinPool_ManagedBlocker))
 #define JavaUtilConcurrentForkJoinPool_ManagedBlocker_
 
 /*!
@@ -1325,4 +1338,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinPool_ManagedBlocker)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentForkJoinPool_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentForkJoinPool")

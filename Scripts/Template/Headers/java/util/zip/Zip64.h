@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipZip64_INCLUDE_ALL")
-#ifdef JavaUtilZipZip64_RESTRICT
-#define JavaUtilZipZip64_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipZip64")
+#ifdef RESTRICT_JavaUtilZipZip64
+#define INCLUDE_ALL_JavaUtilZipZip64 0
 #else
-#define JavaUtilZipZip64_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipZip64 1
 #endif
-#undef JavaUtilZipZip64_RESTRICT
+#undef RESTRICT_JavaUtilZipZip64
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipZip64_) && (JavaUtilZipZip64_INCLUDE_ALL || defined(JavaUtilZipZip64_INCLUDE))
+#if !defined (JavaUtilZipZip64_) && (INCLUDE_ALL_JavaUtilZipZip64 || defined(INCLUDE_JavaUtilZipZip64))
 #define JavaUtilZipZip64_
 
 @class JavaIoByteArrayOutputStream;
@@ -111,4 +111,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZip64)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipZip64_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipZip64")

@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlStatement_INCLUDE_ALL")
-#ifdef JavaSqlStatement_RESTRICT
-#define JavaSqlStatement_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlStatement")
+#ifdef RESTRICT_JavaSqlStatement
+#define INCLUDE_ALL_JavaSqlStatement 0
 #else
-#define JavaSqlStatement_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlStatement 1
 #endif
-#undef JavaSqlStatement_RESTRICT
+#undef RESTRICT_JavaSqlStatement
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlStatement_) && (JavaSqlStatement_INCLUDE_ALL || defined(JavaSqlStatement_INCLUDE))
+#if !defined (JavaSqlStatement_) && (INCLUDE_ALL_JavaSqlStatement || defined(INCLUDE_JavaSqlStatement))
 #define JavaSqlStatement_
 
-#define JavaSqlWrapper_RESTRICT 1
-#define JavaSqlWrapper_INCLUDE 1
+#define RESTRICT_JavaSqlWrapper 1
+#define INCLUDE_JavaSqlWrapper 1
 #include "../../java/sql/Wrapper.h"
 
-#define JavaLangAutoCloseable_RESTRICT 1
-#define JavaLangAutoCloseable_INCLUDE 1
+#define RESTRICT_JavaLangAutoCloseable 1
+#define INCLUDE_JavaLangAutoCloseable 1
 #include "../../java/lang/AutoCloseable.h"
 
 @class IOSIntArray;
@@ -710,4 +710,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlStatement)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlStatement_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlStatement")

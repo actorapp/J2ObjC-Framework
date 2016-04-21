@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityInvalidKeyException_INCLUDE_ALL")
-#ifdef JavaSecurityInvalidKeyException_RESTRICT
-#define JavaSecurityInvalidKeyException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityInvalidKeyException")
+#ifdef RESTRICT_JavaSecurityInvalidKeyException
+#define INCLUDE_ALL_JavaSecurityInvalidKeyException 0
 #else
-#define JavaSecurityInvalidKeyException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityInvalidKeyException 1
 #endif
-#undef JavaSecurityInvalidKeyException_RESTRICT
+#undef RESTRICT_JavaSecurityInvalidKeyException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityInvalidKeyException_) && (JavaSecurityInvalidKeyException_INCLUDE_ALL || defined(JavaSecurityInvalidKeyException_INCLUDE))
+#if !defined (JavaSecurityInvalidKeyException_) && (INCLUDE_ALL_JavaSecurityInvalidKeyException || defined(INCLUDE_JavaSecurityInvalidKeyException))
 #define JavaSecurityInvalidKeyException_
 
-#define JavaSecurityKeyException_RESTRICT 1
-#define JavaSecurityKeyException_INCLUDE 1
+#define RESTRICT_JavaSecurityKeyException 1
+#define INCLUDE_JavaSecurityKeyException 1
 #include "../../java/security/KeyException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>InvalidKeyException</code> indicates exceptional conditions, caused by an
@@ -55,14 +53,14 @@
  the exception which is the cause for this exception.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance of <code>InvalidKeyException</code> with the cause.
  @param cause
  the exception which is the cause for this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -72,17 +70,25 @@ FOUNDATION_EXPORT void JavaSecurityInvalidKeyException_initWithNSString_(JavaSec
 
 FOUNDATION_EXPORT JavaSecurityInvalidKeyException *new_JavaSecurityInvalidKeyException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityInvalidKeyException *create_JavaSecurityInvalidKeyException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityInvalidKeyException_init(JavaSecurityInvalidKeyException *self);
 
 FOUNDATION_EXPORT JavaSecurityInvalidKeyException *new_JavaSecurityInvalidKeyException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityInvalidKeyException_initWithNSString_withJavaLangThrowable_(JavaSecurityInvalidKeyException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityInvalidKeyException *create_JavaSecurityInvalidKeyException_init();
 
-FOUNDATION_EXPORT JavaSecurityInvalidKeyException *new_JavaSecurityInvalidKeyException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityInvalidKeyException_initWithNSString_withNSException_(JavaSecurityInvalidKeyException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityInvalidKeyException_initWithJavaLangThrowable_(JavaSecurityInvalidKeyException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityInvalidKeyException *new_JavaSecurityInvalidKeyException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityInvalidKeyException *new_JavaSecurityInvalidKeyException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityInvalidKeyException *create_JavaSecurityInvalidKeyException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityInvalidKeyException_initWithNSException_(JavaSecurityInvalidKeyException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityInvalidKeyException *new_JavaSecurityInvalidKeyException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityInvalidKeyException *create_JavaSecurityInvalidKeyException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInvalidKeyException)
 
@@ -90,4 +96,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInvalidKeyException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityInvalidKeyException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityInvalidKeyException")

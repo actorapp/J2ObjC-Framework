@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingFilter_INCLUDE_ALL")
-#ifdef JavaUtilLoggingFilter_RESTRICT
-#define JavaUtilLoggingFilter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingFilter")
+#ifdef RESTRICT_JavaUtilLoggingFilter
+#define INCLUDE_ALL_JavaUtilLoggingFilter 0
 #else
-#define JavaUtilLoggingFilter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingFilter 1
 #endif
-#undef JavaUtilLoggingFilter_RESTRICT
+#undef RESTRICT_JavaUtilLoggingFilter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingFilter_) && (JavaUtilLoggingFilter_INCLUDE_ALL || defined(JavaUtilLoggingFilter_INCLUDE))
+#if !defined (JavaUtilLoggingFilter_) && (INCLUDE_ALL_JavaUtilLoggingFilter || defined(INCLUDE_JavaUtilLoggingFilter))
 #define JavaUtilLoggingFilter_
 
 @class JavaUtilLoggingLogRecord;
@@ -46,4 +46,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingFilter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingFilter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingFilter")

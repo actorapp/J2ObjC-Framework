@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoWriter_INCLUDE_ALL")
-#ifdef JavaIoWriter_RESTRICT
-#define JavaIoWriter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoWriter")
+#ifdef RESTRICT_JavaIoWriter
+#define INCLUDE_ALL_JavaIoWriter 0
 #else
-#define JavaIoWriter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoWriter 1
 #endif
-#undef JavaIoWriter_RESTRICT
+#undef RESTRICT_JavaIoWriter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoWriter_) && (JavaIoWriter_INCLUDE_ALL || defined(JavaIoWriter_INCLUDE))
+#if !defined (JavaIoWriter_) && (INCLUDE_ALL_JavaIoWriter || defined(INCLUDE_JavaIoWriter))
 #define JavaIoWriter_
 
-#define JavaLangAppendable_RESTRICT 1
-#define JavaLangAppendable_INCLUDE 1
+#define RESTRICT_JavaLangAppendable 1
+#define INCLUDE_JavaLangAppendable 1
 #include "../../java/lang/Appendable.h"
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../java/io/Closeable.h"
 
-#define JavaIoFlushable_RESTRICT 1
-#define JavaIoFlushable_INCLUDE 1
+#define RESTRICT_JavaIoFlushable 1
+#define INCLUDE_JavaIoFlushable 1
 #include "../../java/io/Flushable.h"
 
 @class IOSCharArray;
@@ -242,4 +242,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoWriter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoWriter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoWriter")

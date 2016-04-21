@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentLocksReadWriteLock_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentLocksReadWriteLock_RESTRICT
-#define JavaUtilConcurrentLocksReadWriteLock_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReadWriteLock")
+#ifdef RESTRICT_JavaUtilConcurrentLocksReadWriteLock
+#define INCLUDE_ALL_JavaUtilConcurrentLocksReadWriteLock 0
 #else
-#define JavaUtilConcurrentLocksReadWriteLock_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentLocksReadWriteLock 1
 #endif
-#undef JavaUtilConcurrentLocksReadWriteLock_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentLocksReadWriteLock
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentLocksReadWriteLock_) && (JavaUtilConcurrentLocksReadWriteLock_INCLUDE_ALL || defined(JavaUtilConcurrentLocksReadWriteLock_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksReadWriteLock_) && (INCLUDE_ALL_JavaUtilConcurrentLocksReadWriteLock || defined(INCLUDE_JavaUtilConcurrentLocksReadWriteLock))
 #define JavaUtilConcurrentLocksReadWriteLock_
 
 @protocol JavaUtilConcurrentLocksLock;
@@ -115,4 +115,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksReadWriteLock)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentLocksReadWriteLock_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksReadWriteLock")

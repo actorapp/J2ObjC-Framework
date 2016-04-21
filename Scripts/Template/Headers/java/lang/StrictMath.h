@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangStrictMath_INCLUDE_ALL")
-#ifdef JavaLangStrictMath_RESTRICT
-#define JavaLangStrictMath_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangStrictMath")
+#ifdef RESTRICT_JavaLangStrictMath
+#define INCLUDE_ALL_JavaLangStrictMath 0
 #else
-#define JavaLangStrictMath_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangStrictMath 1
 #endif
-#undef JavaLangStrictMath_RESTRICT
+#undef RESTRICT_JavaLangStrictMath
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangStrictMath_) && (JavaLangStrictMath_INCLUDE_ALL || defined(JavaLangStrictMath_INCLUDE))
+#if !defined (JavaLangStrictMath_) && (INCLUDE_ALL_JavaLangStrictMath || defined(INCLUDE_JavaLangStrictMath))
 #define JavaLangStrictMath_
 
 /*!
@@ -1019,4 +1019,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangStrictMath)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangStrictMath_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangStrictMath")

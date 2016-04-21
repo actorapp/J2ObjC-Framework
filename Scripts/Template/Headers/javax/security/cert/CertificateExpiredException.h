@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityCertCertificateExpiredException_INCLUDE_ALL")
-#ifdef JavaxSecurityCertCertificateExpiredException_RESTRICT
-#define JavaxSecurityCertCertificateExpiredException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityCertCertificateExpiredException")
+#ifdef RESTRICT_JavaxSecurityCertCertificateExpiredException
+#define INCLUDE_ALL_JavaxSecurityCertCertificateExpiredException 0
 #else
-#define JavaxSecurityCertCertificateExpiredException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityCertCertificateExpiredException 1
 #endif
-#undef JavaxSecurityCertCertificateExpiredException_RESTRICT
+#undef RESTRICT_JavaxSecurityCertCertificateExpiredException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityCertCertificateExpiredException_) && (JavaxSecurityCertCertificateExpiredException_INCLUDE_ALL || defined(JavaxSecurityCertCertificateExpiredException_INCLUDE))
+#if !defined (JavaxSecurityCertCertificateExpiredException_) && (INCLUDE_ALL_JavaxSecurityCertCertificateExpiredException || defined(INCLUDE_JavaxSecurityCertCertificateExpiredException))
 #define JavaxSecurityCertCertificateExpiredException_
 
-#define JavaxSecurityCertCertificateException_RESTRICT 1
-#define JavaxSecurityCertCertificateException_INCLUDE 1
+#define RESTRICT_JavaxSecurityCertCertificateException 1
+#define INCLUDE_JavaxSecurityCertCertificateException 1
 #include "../../../javax/security/cert/CertificateException.h"
 
 /*!
@@ -57,9 +57,13 @@ FOUNDATION_EXPORT void JavaxSecurityCertCertificateExpiredException_initWithNSSt
 
 FOUNDATION_EXPORT JavaxSecurityCertCertificateExpiredException *new_JavaxSecurityCertCertificateExpiredException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxSecurityCertCertificateExpiredException *create_JavaxSecurityCertCertificateExpiredException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaxSecurityCertCertificateExpiredException_init(JavaxSecurityCertCertificateExpiredException *self);
 
 FOUNDATION_EXPORT JavaxSecurityCertCertificateExpiredException *new_JavaxSecurityCertCertificateExpiredException_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxSecurityCertCertificateExpiredException *create_JavaxSecurityCertCertificateExpiredException_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateExpiredException)
 
@@ -67,4 +71,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificateExpiredException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityCertCertificateExpiredException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificateExpiredException")

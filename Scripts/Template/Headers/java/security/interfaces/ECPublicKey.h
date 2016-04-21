@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityInterfacesECPublicKey_INCLUDE_ALL")
-#ifdef JavaSecurityInterfacesECPublicKey_RESTRICT
-#define JavaSecurityInterfacesECPublicKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityInterfacesECPublicKey")
+#ifdef RESTRICT_JavaSecurityInterfacesECPublicKey
+#define INCLUDE_ALL_JavaSecurityInterfacesECPublicKey 0
 #else
-#define JavaSecurityInterfacesECPublicKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityInterfacesECPublicKey 1
 #endif
-#undef JavaSecurityInterfacesECPublicKey_RESTRICT
+#undef RESTRICT_JavaSecurityInterfacesECPublicKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityInterfacesECPublicKey_) && (JavaSecurityInterfacesECPublicKey_INCLUDE_ALL || defined(JavaSecurityInterfacesECPublicKey_INCLUDE))
+#if !defined (JavaSecurityInterfacesECPublicKey_) && (INCLUDE_ALL_JavaSecurityInterfacesECPublicKey || defined(INCLUDE_JavaSecurityInterfacesECPublicKey))
 #define JavaSecurityInterfacesECPublicKey_
 
-#define JavaSecurityPublicKey_RESTRICT 1
-#define JavaSecurityPublicKey_INCLUDE 1
+#define RESTRICT_JavaSecurityPublicKey 1
+#define INCLUDE_JavaSecurityPublicKey 1
 #include "../../../java/security/PublicKey.h"
 
-#define JavaSecurityInterfacesECKey_RESTRICT 1
-#define JavaSecurityInterfacesECKey_INCLUDE 1
+#define RESTRICT_JavaSecurityInterfacesECKey 1
+#define INCLUDE_JavaSecurityInterfacesECKey 1
 #include "../../../java/security/interfaces/ECKey.h"
 
 @class JavaSecuritySpecECPoint;
@@ -63,4 +63,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesECPublicKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityInterfacesECPublicKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesECPublicKey")

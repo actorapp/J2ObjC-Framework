@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilMissingResourceException_INCLUDE_ALL")
-#ifdef JavaUtilMissingResourceException_RESTRICT
-#define JavaUtilMissingResourceException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilMissingResourceException")
+#ifdef RESTRICT_JavaUtilMissingResourceException
+#define INCLUDE_ALL_JavaUtilMissingResourceException 0
 #else
-#define JavaUtilMissingResourceException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilMissingResourceException 1
 #endif
-#undef JavaUtilMissingResourceException_RESTRICT
+#undef RESTRICT_JavaUtilMissingResourceException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilMissingResourceException_) && (JavaUtilMissingResourceException_INCLUDE_ALL || defined(JavaUtilMissingResourceException_INCLUDE))
+#if !defined (JavaUtilMissingResourceException_) && (INCLUDE_ALL_JavaUtilMissingResourceException || defined(INCLUDE_JavaUtilMissingResourceException))
 #define JavaUtilMissingResourceException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -78,10 +78,12 @@ FOUNDATION_EXPORT void JavaUtilMissingResourceException_initWithNSString_withNSS
 
 FOUNDATION_EXPORT JavaUtilMissingResourceException *new_JavaUtilMissingResourceException_initWithNSString_withNSString_withNSString_(NSString *detailMessage, NSString *className_, NSString *resourceName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilMissingResourceException *create_JavaUtilMissingResourceException_initWithNSString_withNSString_withNSString_(NSString *detailMessage, NSString *className_, NSString *resourceName);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMissingResourceException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilMissingResourceException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilMissingResourceException")

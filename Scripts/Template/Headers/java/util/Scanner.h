@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilScanner_INCLUDE_ALL")
-#ifdef JavaUtilScanner_RESTRICT
-#define JavaUtilScanner_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilScanner")
+#ifdef RESTRICT_JavaUtilScanner
+#define INCLUDE_ALL_JavaUtilScanner 0
 #else
-#define JavaUtilScanner_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilScanner 1
 #endif
-#undef JavaUtilScanner_RESTRICT
+#undef RESTRICT_JavaUtilScanner
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilScanner_) && (JavaUtilScanner_INCLUDE_ALL || defined(JavaUtilScanner_INCLUDE))
+#if !defined (JavaUtilScanner_) && (INCLUDE_ALL_JavaUtilScanner || defined(INCLUDE_JavaUtilScanner))
 #define JavaUtilScanner_
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../java/io/Closeable.h"
 
-#define JavaUtilIterator_RESTRICT 1
-#define JavaUtilIterator_INCLUDE 1
+#define RESTRICT_JavaUtilIterator 1
+#define INCLUDE_JavaUtilIterator 1
 #include "../../java/util/Iterator.h"
 
 @class JavaIoFile;
@@ -915,33 +915,49 @@ FOUNDATION_EXPORT void JavaUtilScanner_initWithJavaIoFile_(JavaUtilScanner *self
 
 FOUNDATION_EXPORT JavaUtilScanner *new_JavaUtilScanner_initWithJavaIoFile_(JavaIoFile *src) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilScanner *create_JavaUtilScanner_initWithJavaIoFile_(JavaIoFile *src);
+
 FOUNDATION_EXPORT void JavaUtilScanner_initWithJavaIoFile_withNSString_(JavaUtilScanner *self, JavaIoFile *src, NSString *charsetName);
 
 FOUNDATION_EXPORT JavaUtilScanner *new_JavaUtilScanner_initWithJavaIoFile_withNSString_(JavaIoFile *src, NSString *charsetName) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilScanner *create_JavaUtilScanner_initWithJavaIoFile_withNSString_(JavaIoFile *src, NSString *charsetName);
 
 FOUNDATION_EXPORT void JavaUtilScanner_initWithNSString_(JavaUtilScanner *self, NSString *src);
 
 FOUNDATION_EXPORT JavaUtilScanner *new_JavaUtilScanner_initWithNSString_(NSString *src) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilScanner *create_JavaUtilScanner_initWithNSString_(NSString *src);
+
 FOUNDATION_EXPORT void JavaUtilScanner_initWithJavaIoInputStream_(JavaUtilScanner *self, JavaIoInputStream *src);
 
 FOUNDATION_EXPORT JavaUtilScanner *new_JavaUtilScanner_initWithJavaIoInputStream_(JavaIoInputStream *src) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilScanner *create_JavaUtilScanner_initWithJavaIoInputStream_(JavaIoInputStream *src);
 
 FOUNDATION_EXPORT void JavaUtilScanner_initWithJavaIoInputStream_withNSString_(JavaUtilScanner *self, JavaIoInputStream *src, NSString *charsetName);
 
 FOUNDATION_EXPORT JavaUtilScanner *new_JavaUtilScanner_initWithJavaIoInputStream_withNSString_(JavaIoInputStream *src, NSString *charsetName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilScanner *create_JavaUtilScanner_initWithJavaIoInputStream_withNSString_(JavaIoInputStream *src, NSString *charsetName);
+
 FOUNDATION_EXPORT void JavaUtilScanner_initWithJavaLangReadable_(JavaUtilScanner *self, id<JavaLangReadable> src);
 
 FOUNDATION_EXPORT JavaUtilScanner *new_JavaUtilScanner_initWithJavaLangReadable_(id<JavaLangReadable> src) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilScanner *create_JavaUtilScanner_initWithJavaLangReadable_(id<JavaLangReadable> src);
 
 FOUNDATION_EXPORT void JavaUtilScanner_initWithJavaNioChannelsReadableByteChannel_(JavaUtilScanner *self, id<JavaNioChannelsReadableByteChannel> src);
 
 FOUNDATION_EXPORT JavaUtilScanner *new_JavaUtilScanner_initWithJavaNioChannelsReadableByteChannel_(id<JavaNioChannelsReadableByteChannel> src) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilScanner *create_JavaUtilScanner_initWithJavaNioChannelsReadableByteChannel_(id<JavaNioChannelsReadableByteChannel> src);
+
 FOUNDATION_EXPORT void JavaUtilScanner_initWithJavaNioChannelsReadableByteChannel_withNSString_(JavaUtilScanner *self, id<JavaNioChannelsReadableByteChannel> src, NSString *charsetName);
 
 FOUNDATION_EXPORT JavaUtilScanner *new_JavaUtilScanner_initWithJavaNioChannelsReadableByteChannel_withNSString_(id<JavaNioChannelsReadableByteChannel> src, NSString *charsetName) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilScanner *create_JavaUtilScanner_initWithJavaNioChannelsReadableByteChannel_withNSString_(id<JavaNioChannelsReadableByteChannel> src, NSString *charsetName);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilScanner)
 
@@ -949,4 +965,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilScanner)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilScanner_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilScanner")

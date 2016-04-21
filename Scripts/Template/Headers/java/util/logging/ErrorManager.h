@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingErrorManager_INCLUDE_ALL")
-#ifdef JavaUtilLoggingErrorManager_RESTRICT
-#define JavaUtilLoggingErrorManager_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingErrorManager")
+#ifdef RESTRICT_JavaUtilLoggingErrorManager
+#define INCLUDE_ALL_JavaUtilLoggingErrorManager 0
 #else
-#define JavaUtilLoggingErrorManager_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingErrorManager 1
 #endif
-#undef JavaUtilLoggingErrorManager_RESTRICT
+#undef RESTRICT_JavaUtilLoggingErrorManager
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingErrorManager_) && (JavaUtilLoggingErrorManager_INCLUDE_ALL || defined(JavaUtilLoggingErrorManager_INCLUDE))
+#if !defined (JavaUtilLoggingErrorManager_) && (INCLUDE_ALL_JavaUtilLoggingErrorManager || defined(INCLUDE_JavaUtilLoggingErrorManager))
 #define JavaUtilLoggingErrorManager_
 
 @class JavaLangException;
@@ -119,10 +119,12 @@ FOUNDATION_EXPORT void JavaUtilLoggingErrorManager_init(JavaUtilLoggingErrorMana
 
 FOUNDATION_EXPORT JavaUtilLoggingErrorManager *new_JavaUtilLoggingErrorManager_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingErrorManager *create_JavaUtilLoggingErrorManager_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingErrorManager)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingErrorManager_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingErrorManager")

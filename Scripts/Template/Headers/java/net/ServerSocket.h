@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetServerSocket_INCLUDE_ALL")
-#ifdef JavaNetServerSocket_RESTRICT
-#define JavaNetServerSocket_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetServerSocket")
+#ifdef RESTRICT_JavaNetServerSocket
+#define INCLUDE_ALL_JavaNetServerSocket 0
 #else
-#define JavaNetServerSocket_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetServerSocket 1
 #endif
-#undef JavaNetServerSocket_RESTRICT
+#undef RESTRICT_JavaNetServerSocket
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetServerSocket_) && (JavaNetServerSocket_INCLUDE_ALL || defined(JavaNetServerSocket_INCLUDE))
+#if !defined (JavaNetServerSocket_) && (INCLUDE_ALL_JavaNetServerSocket || defined(INCLUDE_JavaNetServerSocket))
 #define JavaNetServerSocket_
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../java/io/Closeable.h"
 
 @class JavaNetInetAddress;
@@ -293,17 +293,25 @@ FOUNDATION_EXPORT void JavaNetServerSocket_init(JavaNetServerSocket *self);
 
 FOUNDATION_EXPORT JavaNetServerSocket *new_JavaNetServerSocket_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetServerSocket *create_JavaNetServerSocket_init();
+
 FOUNDATION_EXPORT void JavaNetServerSocket_initWithInt_(JavaNetServerSocket *self, jint port);
 
 FOUNDATION_EXPORT JavaNetServerSocket *new_JavaNetServerSocket_initWithInt_(jint port) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetServerSocket *create_JavaNetServerSocket_initWithInt_(jint port);
 
 FOUNDATION_EXPORT void JavaNetServerSocket_initWithInt_withInt_(JavaNetServerSocket *self, jint port, jint backlog);
 
 FOUNDATION_EXPORT JavaNetServerSocket *new_JavaNetServerSocket_initWithInt_withInt_(jint port, jint backlog) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetServerSocket *create_JavaNetServerSocket_initWithInt_withInt_(jint port, jint backlog);
+
 FOUNDATION_EXPORT void JavaNetServerSocket_initWithInt_withInt_withJavaNetInetAddress_(JavaNetServerSocket *self, jint port, jint backlog, JavaNetInetAddress *localAddress);
 
 FOUNDATION_EXPORT JavaNetServerSocket *new_JavaNetServerSocket_initWithInt_withInt_withJavaNetInetAddress_(jint port, jint backlog, JavaNetInetAddress *localAddress) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetServerSocket *create_JavaNetServerSocket_initWithInt_withInt_withJavaNetInetAddress_(jint port, jint backlog, JavaNetInetAddress *localAddress);
 
 FOUNDATION_EXPORT void JavaNetServerSocket_setSocketFactoryWithJavaNetSocketImplFactory_(id<JavaNetSocketImplFactory> aFactory);
 
@@ -313,4 +321,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetServerSocket)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetServerSocket_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetServerSocket")

@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilTreeSet_INCLUDE_ALL")
-#ifdef JavaUtilTreeSet_RESTRICT
-#define JavaUtilTreeSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilTreeSet")
+#ifdef RESTRICT_JavaUtilTreeSet
+#define INCLUDE_ALL_JavaUtilTreeSet 0
 #else
-#define JavaUtilTreeSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilTreeSet 1
 #endif
-#undef JavaUtilTreeSet_RESTRICT
+#undef RESTRICT_JavaUtilTreeSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilTreeSet_) && (JavaUtilTreeSet_INCLUDE_ALL || defined(JavaUtilTreeSet_INCLUDE))
+#if !defined (JavaUtilTreeSet_) && (INCLUDE_ALL_JavaUtilTreeSet || defined(INCLUDE_JavaUtilTreeSet))
 #define JavaUtilTreeSet_
 
-#define JavaUtilAbstractSet_RESTRICT 1
-#define JavaUtilAbstractSet_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractSet 1
+#define INCLUDE_JavaUtilAbstractSet 1
 #include "../../java/util/AbstractSet.h"
 
-#define JavaUtilNavigableSet_RESTRICT 1
-#define JavaUtilNavigableSet_INCLUDE 1
+#define RESTRICT_JavaUtilNavigableSet 1
+#define INCLUDE_JavaUtilNavigableSet 1
 #include "../../java/util/NavigableSet.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
@@ -348,21 +348,31 @@ FOUNDATION_EXPORT void JavaUtilTreeSet_initWithJavaUtilNavigableMap_(JavaUtilTre
 
 FOUNDATION_EXPORT JavaUtilTreeSet *new_JavaUtilTreeSet_initWithJavaUtilNavigableMap_(id<JavaUtilNavigableMap> map) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilTreeSet *create_JavaUtilTreeSet_initWithJavaUtilNavigableMap_(id<JavaUtilNavigableMap> map);
+
 FOUNDATION_EXPORT void JavaUtilTreeSet_init(JavaUtilTreeSet *self);
 
 FOUNDATION_EXPORT JavaUtilTreeSet *new_JavaUtilTreeSet_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilTreeSet *create_JavaUtilTreeSet_init();
 
 FOUNDATION_EXPORT void JavaUtilTreeSet_initWithJavaUtilCollection_(JavaUtilTreeSet *self, id<JavaUtilCollection> collection);
 
 FOUNDATION_EXPORT JavaUtilTreeSet *new_JavaUtilTreeSet_initWithJavaUtilCollection_(id<JavaUtilCollection> collection) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilTreeSet *create_JavaUtilTreeSet_initWithJavaUtilCollection_(id<JavaUtilCollection> collection);
+
 FOUNDATION_EXPORT void JavaUtilTreeSet_initWithJavaUtilComparator_(JavaUtilTreeSet *self, id<JavaUtilComparator> comparator);
 
 FOUNDATION_EXPORT JavaUtilTreeSet *new_JavaUtilTreeSet_initWithJavaUtilComparator_(id<JavaUtilComparator> comparator) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilTreeSet *create_JavaUtilTreeSet_initWithJavaUtilComparator_(id<JavaUtilComparator> comparator);
+
 FOUNDATION_EXPORT void JavaUtilTreeSet_initWithJavaUtilSortedSet_(JavaUtilTreeSet *self, id<JavaUtilSortedSet> set);
 
 FOUNDATION_EXPORT JavaUtilTreeSet *new_JavaUtilTreeSet_initWithJavaUtilSortedSet_(id<JavaUtilSortedSet> set) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilTreeSet *create_JavaUtilTreeSet_initWithJavaUtilSortedSet_(id<JavaUtilSortedSet> set);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeSet)
 
@@ -370,4 +380,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTreeSet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilTreeSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilTreeSet")

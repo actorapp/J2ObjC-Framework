@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsSelector_INCLUDE_ALL")
-#ifdef JavaNioChannelsSelector_RESTRICT
-#define JavaNioChannelsSelector_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsSelector")
+#ifdef RESTRICT_JavaNioChannelsSelector
+#define INCLUDE_ALL_JavaNioChannelsSelector 0
 #else
-#define JavaNioChannelsSelector_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsSelector 1
 #endif
-#undef JavaNioChannelsSelector_RESTRICT
+#undef RESTRICT_JavaNioChannelsSelector
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsSelector_) && (JavaNioChannelsSelector_INCLUDE_ALL || defined(JavaNioChannelsSelector_INCLUDE))
+#if !defined (JavaNioChannelsSelector_) && (INCLUDE_ALL_JavaNioChannelsSelector || defined(INCLUDE_JavaNioChannelsSelector))
 #define JavaNioChannelsSelector_
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../../java/io/Closeable.h"
 
 @class JavaNioChannelsSpiSelectorProvider;
@@ -182,4 +182,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSelector)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsSelector_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSelector")

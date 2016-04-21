@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangRuntime_INCLUDE_ALL")
-#ifdef JavaLangRuntime_RESTRICT
-#define JavaLangRuntime_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangRuntime")
+#ifdef RESTRICT_JavaLangRuntime
+#define INCLUDE_ALL_JavaLangRuntime 0
 #else
-#define JavaLangRuntime_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangRuntime 1
 #endif
-#undef JavaLangRuntime_RESTRICT
+#undef RESTRICT_JavaLangRuntime
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangRuntime_) && (JavaLangRuntime_INCLUDE_ALL || defined(JavaLangRuntime_INCLUDE))
+#if !defined (JavaLangRuntime_) && (INCLUDE_ALL_JavaLangRuntime || defined(INCLUDE_JavaLangRuntime))
 #define JavaLangRuntime_
 
 @class JavaLangThread;
@@ -88,4 +88,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRuntime)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangRuntime_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangRuntime")

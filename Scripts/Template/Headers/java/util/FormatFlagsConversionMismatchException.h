@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilFormatFlagsConversionMismatchException_INCLUDE_ALL")
-#ifdef JavaUtilFormatFlagsConversionMismatchException_RESTRICT
-#define JavaUtilFormatFlagsConversionMismatchException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilFormatFlagsConversionMismatchException")
+#ifdef RESTRICT_JavaUtilFormatFlagsConversionMismatchException
+#define INCLUDE_ALL_JavaUtilFormatFlagsConversionMismatchException 0
 #else
-#define JavaUtilFormatFlagsConversionMismatchException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilFormatFlagsConversionMismatchException 1
 #endif
-#undef JavaUtilFormatFlagsConversionMismatchException_RESTRICT
+#undef RESTRICT_JavaUtilFormatFlagsConversionMismatchException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilFormatFlagsConversionMismatchException_) && (JavaUtilFormatFlagsConversionMismatchException_INCLUDE_ALL || defined(JavaUtilFormatFlagsConversionMismatchException_INCLUDE))
+#if !defined (JavaUtilFormatFlagsConversionMismatchException_) && (INCLUDE_ALL_JavaUtilFormatFlagsConversionMismatchException || defined(INCLUDE_JavaUtilFormatFlagsConversionMismatchException))
 #define JavaUtilFormatFlagsConversionMismatchException_
 
-#define JavaUtilIllegalFormatException_RESTRICT 1
-#define JavaUtilIllegalFormatException_INCLUDE 1
+#define RESTRICT_JavaUtilIllegalFormatException 1
+#define INCLUDE_JavaUtilIllegalFormatException 1
 #include "../../java/util/IllegalFormatException.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -69,10 +69,12 @@ FOUNDATION_EXPORT void JavaUtilFormatFlagsConversionMismatchException_initWithNS
 
 FOUNDATION_EXPORT JavaUtilFormatFlagsConversionMismatchException *new_JavaUtilFormatFlagsConversionMismatchException_initWithNSString_withChar_(NSString *f, jchar c) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilFormatFlagsConversionMismatchException *create_JavaUtilFormatFlagsConversionMismatchException_initWithNSString_withChar_(NSString *f, jchar c);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormatFlagsConversionMismatchException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilFormatFlagsConversionMismatchException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilFormatFlagsConversionMismatchException")

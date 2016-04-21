@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingConsoleHandler_INCLUDE_ALL")
-#ifdef JavaUtilLoggingConsoleHandler_RESTRICT
-#define JavaUtilLoggingConsoleHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingConsoleHandler")
+#ifdef RESTRICT_JavaUtilLoggingConsoleHandler
+#define INCLUDE_ALL_JavaUtilLoggingConsoleHandler 0
 #else
-#define JavaUtilLoggingConsoleHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingConsoleHandler 1
 #endif
-#undef JavaUtilLoggingConsoleHandler_RESTRICT
+#undef RESTRICT_JavaUtilLoggingConsoleHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingConsoleHandler_) && (JavaUtilLoggingConsoleHandler_INCLUDE_ALL || defined(JavaUtilLoggingConsoleHandler_INCLUDE))
+#if !defined (JavaUtilLoggingConsoleHandler_) && (INCLUDE_ALL_JavaUtilLoggingConsoleHandler || defined(INCLUDE_JavaUtilLoggingConsoleHandler))
 #define JavaUtilLoggingConsoleHandler_
 
-#define JavaUtilLoggingStreamHandler_RESTRICT 1
-#define JavaUtilLoggingStreamHandler_INCLUDE 1
+#define RESTRICT_JavaUtilLoggingStreamHandler 1
+#define INCLUDE_JavaUtilLoggingStreamHandler 1
 #include "../../../java/util/logging/StreamHandler.h"
 
 @class JavaUtilLoggingLogRecord;
@@ -80,10 +80,12 @@ FOUNDATION_EXPORT void JavaUtilLoggingConsoleHandler_init(JavaUtilLoggingConsole
 
 FOUNDATION_EXPORT JavaUtilLoggingConsoleHandler *new_JavaUtilLoggingConsoleHandler_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingConsoleHandler *create_JavaUtilLoggingConsoleHandler_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingConsoleHandler)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingConsoleHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingConsoleHandler")

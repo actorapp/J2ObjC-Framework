@@ -5,21 +5,21 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangClassLoader_INCLUDE_ALL")
-#ifdef JavaLangClassLoader_RESTRICT
-#define JavaLangClassLoader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangClassLoader")
+#ifdef RESTRICT_JavaLangClassLoader
+#define INCLUDE_ALL_JavaLangClassLoader 0
 #else
-#define JavaLangClassLoader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangClassLoader 1
 #endif
-#undef JavaLangClassLoader_RESTRICT
-#ifdef JavaLangSystemClassLoader_INCLUDE
-#define JavaLangClassLoader_INCLUDE 1
+#undef RESTRICT_JavaLangClassLoader
+#ifdef INCLUDE_JavaLangSystemClassLoader
+#define INCLUDE_JavaLangClassLoader 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangClassLoader_) && (JavaLangClassLoader_INCLUDE_ALL || defined(JavaLangClassLoader_INCLUDE))
+#if !defined (JavaLangClassLoader_) && (INCLUDE_ALL_JavaLangClassLoader || defined(INCLUDE_JavaLangClassLoader))
 #define JavaLangClassLoader_
 
 @class IOSByteArray;
@@ -542,11 +542,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangClassLoader)
 
 #endif
 
-#if !defined (JavaLangTwoEnumerationsInOne_) && (JavaLangClassLoader_INCLUDE_ALL || defined(JavaLangTwoEnumerationsInOne_INCLUDE))
+#if !defined (JavaLangTwoEnumerationsInOne_) && (INCLUDE_ALL_JavaLangClassLoader || defined(INCLUDE_JavaLangTwoEnumerationsInOne))
 #define JavaLangTwoEnumerationsInOne_
 
-#define JavaUtilEnumeration_RESTRICT 1
-#define JavaUtilEnumeration_INCLUDE 1
+#define RESTRICT_JavaUtilEnumeration 1
+#define INCLUDE_JavaUtilEnumeration 1
 #include "../../java/util/Enumeration.h"
 
 @class JavaNetURL;
@@ -570,11 +570,13 @@ FOUNDATION_EXPORT void JavaLangTwoEnumerationsInOne_initWithJavaUtilEnumeration_
 
 FOUNDATION_EXPORT JavaLangTwoEnumerationsInOne *new_JavaLangTwoEnumerationsInOne_initWithJavaUtilEnumeration_withJavaUtilEnumeration_(id<JavaUtilEnumeration> first, id<JavaUtilEnumeration> second) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangTwoEnumerationsInOne *create_JavaLangTwoEnumerationsInOne_initWithJavaUtilEnumeration_withJavaUtilEnumeration_(id<JavaUtilEnumeration> first, id<JavaUtilEnumeration> second);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangTwoEnumerationsInOne)
 
 #endif
 
-#if !defined (JavaLangSystemClassLoader_) && (JavaLangClassLoader_INCLUDE_ALL || defined(JavaLangSystemClassLoader_INCLUDE))
+#if !defined (JavaLangSystemClassLoader_) && (INCLUDE_ALL_JavaLangClassLoader || defined(INCLUDE_JavaLangSystemClassLoader))
 #define JavaLangSystemClassLoader_
 
 @class IOSClass;
@@ -629,10 +631,12 @@ FOUNDATION_EXPORT void JavaLangSystemClassLoader_init(JavaLangSystemClassLoader 
 
 FOUNDATION_EXPORT JavaLangSystemClassLoader *new_JavaLangSystemClassLoader_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangSystemClassLoader *create_JavaLangSystemClassLoader_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangSystemClassLoader)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangClassLoader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangClassLoader")

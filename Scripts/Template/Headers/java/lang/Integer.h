@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangInteger_INCLUDE_ALL")
-#ifdef JavaLangInteger_RESTRICT
-#define JavaLangInteger_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangInteger")
+#ifdef RESTRICT_JavaLangInteger
+#define INCLUDE_ALL_JavaLangInteger 0
 #else
-#define JavaLangInteger_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangInteger 1
 #endif
-#undef JavaLangInteger_RESTRICT
+#undef RESTRICT_JavaLangInteger
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangInteger_) && (JavaLangInteger_INCLUDE_ALL || defined(JavaLangInteger_INCLUDE))
+#if !defined (JavaLangInteger_) && (INCLUDE_ALL_JavaLangInteger || defined(INCLUDE_JavaLangInteger))
 #define JavaLangInteger_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -471,9 +471,13 @@ FOUNDATION_EXPORT void JavaLangInteger_initWithInt_(JavaLangInteger *self, jint 
 
 FOUNDATION_EXPORT JavaLangInteger *new_JavaLangInteger_initWithInt_(jint value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangInteger *create_JavaLangInteger_initWithInt_(jint value);
+
 FOUNDATION_EXPORT void JavaLangInteger_initWithNSString_(JavaLangInteger *self, NSString *string);
 
 FOUNDATION_EXPORT JavaLangInteger *new_JavaLangInteger_initWithNSString_(NSString *string) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangInteger *create_JavaLangInteger_initWithNSString_(NSString *string);
 
 FOUNDATION_EXPORT jint JavaLangInteger_compareWithInt_withInt_(jint lhs, jint rhs);
 
@@ -537,4 +541,4 @@ BOXED_SHIFT_ASSIGN_32(Int, intValue, jint, JavaLangInteger)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangInteger_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangInteger")

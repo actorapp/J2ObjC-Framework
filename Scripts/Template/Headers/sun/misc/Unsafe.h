@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("SunMiscUnsafe_INCLUDE_ALL")
-#ifdef SunMiscUnsafe_RESTRICT
-#define SunMiscUnsafe_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_SunMiscUnsafe")
+#ifdef RESTRICT_SunMiscUnsafe
+#define INCLUDE_ALL_SunMiscUnsafe 0
 #else
-#define SunMiscUnsafe_INCLUDE_ALL 1
+#define INCLUDE_ALL_SunMiscUnsafe 1
 #endif
-#undef SunMiscUnsafe_RESTRICT
+#undef RESTRICT_SunMiscUnsafe
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (SunMiscUnsafe_) && (SunMiscUnsafe_INCLUDE_ALL || defined(SunMiscUnsafe_INCLUDE))
+#if !defined (SunMiscUnsafe_) && (INCLUDE_ALL_SunMiscUnsafe || defined(INCLUDE_SunMiscUnsafe))
 #define SunMiscUnsafe_
 
 @class IOSClass;
@@ -102,6 +102,136 @@
                                 withId:(id)newValue;
 
 /*!
+ @brief Gets a <code>boolean</code> field from the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jboolean)getBooleanWithId:(id)obj
+                    withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>boolean</code> field from the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jboolean)getBooleanVolatileWithId:(id)obj
+                            withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>byte</code> field from the given address.
+ @param address the pointer address of the field
+ @return the retrieved value
+ */
+- (jbyte)getByteWithLong:(jlong)address;
+
+/*!
+ @brief Gets a <code>byte</code> field from the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jbyte)getByteWithId:(id)obj
+              withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>byte</code> field from the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jbyte)getByteVolatileWithId:(id)obj
+                      withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>char</code> field from the given address.
+ @param address the pointer address of the field
+ @return the retrieved value
+ */
+- (jchar)getCharWithLong:(jlong)address;
+
+/*!
+ @brief Gets a <code>char</code> field from the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jchar)getCharWithId:(id)obj
+              withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>char</code> field from the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jchar)getCharVolatileWithId:(id)obj
+                      withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>double</code> field from the given address.
+ @param address the pointer address of the field
+ @return the retrieved value
+ */
+- (jdouble)getDoubleWithLong:(jlong)address;
+
+/*!
+ @brief Gets a <code>double</code> field from the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jdouble)getDoubleWithId:(id)obj
+                  withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>double</code> field from the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jdouble)getDoubleVolatileWithId:(id)obj
+                          withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>float</code> field from the given address.
+ @param address the pointer address of the field
+ @return the retrieved value
+ */
+- (jfloat)getFloatWithLong:(jlong)address;
+
+/*!
+ @brief Gets a <code>float</code> field from the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jfloat)getFloatWithId:(id)obj
+                withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>float</code> field from the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jfloat)getFloatVolatileWithId:(id)obj
+                        withLong:(jlong)offset;
+
+/*!
+ @brief Gets an <code>int</code> field from the given address.
+ @param address the pointer address of the field
+ @return the retrieved value
+ */
+- (jint)getIntWithLong:(jlong)address;
+
+/*!
  @brief Gets an <code>int</code> field from the given object.
  @param obj non-null; object containing the field
  @param offset offset to the field within <code>obj</code>
@@ -119,6 +249,13 @@
  */
 - (jint)getIntVolatileWithId:(id)obj
                     withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>long</code> field from the given address.
+ @param address the pointer address of the field
+ @return the retrieved value
+ */
+- (jlong)getLongWithLong:(jlong)address;
 
 /*!
  @brief Gets a <code>long</code> field from the given object.
@@ -159,6 +296,32 @@
                      withLong:(jlong)offset;
 
 /*!
+ @brief Gets a <code>short</code> field from the given address.
+ @param address the pointer address of the field
+ @return the retrieved value
+ */
+- (jshort)getShortWithLong:(jlong)address;
+
+/*!
+ @brief Gets a <code>short</code> field from the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jshort)getShortWithId:(id)obj
+                withLong:(jlong)offset;
+
+/*!
+ @brief Gets a <code>short</code> field from the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @return the retrieved value
+ */
+- (jshort)getShortVolatileWithId:(id)obj
+                        withLong:(jlong)offset;
+
+/*!
  @brief Gets the unique instance of this class.
  This is only allowed in
  very limited situations.
@@ -192,6 +355,151 @@
                withLong:(jlong)time;
 
 /*!
+ @brief Stores a <code>boolean</code> field into the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putBooleanWithId:(id)obj
+                withLong:(jlong)offset
+             withBoolean:(jboolean)newValue;
+
+/*!
+ @brief Stores a <code>boolean</code> field into the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putBooleanVolatileWithId:(id)obj
+                        withLong:(jlong)offset
+                     withBoolean:(jboolean)newValue;
+
+/*!
+ @brief Stores a <code>byte</code> field into the given address.
+ @param address the pointer address of the field
+ @param newValue the value to store
+ */
+- (void)putByteWithLong:(jlong)address
+               withByte:(jbyte)newValue;
+
+/*!
+ @brief Stores a <code>byte</code> field into the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putByteWithId:(id)obj
+             withLong:(jlong)offset
+             withByte:(jbyte)newValue;
+
+/*!
+ @brief Stores a <code>byte</code> field into the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putByteVolatileWithId:(id)obj
+                     withLong:(jlong)offset
+                     withByte:(jbyte)newValue;
+
+/*!
+ @brief Stores a <code>char</code> field into the given address.
+ @param address the pointer address of the field
+ @param newValue the value to store
+ */
+- (void)putCharWithLong:(jlong)address
+               withChar:(jchar)newValue;
+
+/*!
+ @brief Stores a <code>char</code> field into the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putCharWithId:(id)obj
+             withLong:(jlong)offset
+             withChar:(jchar)newValue;
+
+/*!
+ @brief Stores a <code>char</code> field into the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putCharVolatileWithId:(id)obj
+                     withLong:(jlong)offset
+                     withChar:(jchar)newValue;
+
+/*!
+ @brief Stores a <code>double</code> field into the given address.
+ @param address the pointer address of the field
+ @param newValue the value to store
+ */
+- (void)putDoubleWithLong:(jlong)address
+               withDouble:(jdouble)newValue;
+
+/*!
+ @brief Stores a <code>double</code> field into the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putDoubleWithId:(id)obj
+               withLong:(jlong)offset
+             withDouble:(jdouble)newValue;
+
+/*!
+ @brief Stores a <code>double</code> field into the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putDoubleVolatileWithId:(id)obj
+                       withLong:(jlong)offset
+                     withDouble:(jdouble)newValue;
+
+/*!
+ @brief Stores a <code>float</code> field into the given address.
+ @param address the pointer address of the field
+ @param newValue the value to store
+ */
+- (void)putFloatWithLong:(jlong)address
+               withFloat:(jfloat)newValue;
+
+/*!
+ @brief Stores a <code>float</code> field into the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putFloatWithId:(id)obj
+              withLong:(jlong)offset
+             withFloat:(jfloat)newValue;
+
+/*!
+ @brief Stores a <code>float</code> field into the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putFloatVolatileWithId:(id)obj
+                      withLong:(jlong)offset
+                     withFloat:(jfloat)newValue;
+
+/*!
+ @brief Stores an <code>int</code> field into the given address.
+ @param address the pointer address of the field
+ @param newValue the value to store
+ */
+- (void)putIntWithLong:(jlong)address
+               withInt:(jint)newValue;
+
+/*!
  @brief Stores an <code>int</code> field into the given object.
  @param obj non-null; object containing the field
  @param offset offset to the field within <code>obj</code>
@@ -211,6 +519,14 @@
 - (void)putIntVolatileWithId:(id)obj
                     withLong:(jlong)offset
                      withInt:(jint)newValue;
+
+/*!
+ @brief Stores a <code>long</code> field into the given address.
+ @param address the pointer address of the field
+ @param newValue the value to store
+ */
+- (void)putLongWithLong:(jlong)address
+               withLong:(jlong)newValue;
 
 /*!
  @brief Stores a <code>long</code> field into the given object.
@@ -276,6 +592,35 @@
                         withId:(id)newValue;
 
 /*!
+ @brief Stores a <code>short</code> field into the given address.
+ @param address the pointer address of the field
+ @param newValue the value to store
+ */
+- (void)putShortWithLong:(jlong)address
+               withShort:(jshort)newValue;
+
+/*!
+ @brief Stores a <code>short</code> field into the given object.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putShortWithId:(id)obj
+              withLong:(jlong)offset
+             withShort:(jshort)newValue;
+
+/*!
+ @brief Stores a <code>short</code> field into the given object,
+ using <code>volatile</code> semantics.
+ @param obj non-null; object containing the field
+ @param offset offset to the field within <code>obj</code>
+ @param newValue the value to store
+ */
+- (void)putShortVolatileWithId:(id)obj
+                      withLong:(jlong)offset
+                     withShort:(jshort)newValue;
+
+/*!
  @brief Unparks the given object, which must be a <code>Thread</code>.
  <p>See <code>java.util.concurrent.locks.LockSupport</code> for more
  in-depth information of the behavior of this method.</p>
@@ -297,4 +642,4 @@ J2OBJC_TYPE_LITERAL_HEADER(SunMiscUnsafe)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("SunMiscUnsafe_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_SunMiscUnsafe")

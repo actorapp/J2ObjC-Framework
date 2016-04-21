@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilZipZipConstants_INCLUDE_ALL")
-#ifdef JavaUtilZipZipConstants_RESTRICT
-#define JavaUtilZipZipConstants_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilZipZipConstants")
+#ifdef RESTRICT_JavaUtilZipZipConstants
+#define INCLUDE_ALL_JavaUtilZipZipConstants 0
 #else
-#define JavaUtilZipZipConstants_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilZipZipConstants 1
 #endif
-#undef JavaUtilZipZipConstants_RESTRICT
+#undef RESTRICT_JavaUtilZipZipConstants
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilZipZipConstants_) && (JavaUtilZipZipConstants_INCLUDE_ALL || defined(JavaUtilZipZipConstants_INCLUDE))
+#if !defined (JavaUtilZipZipConstants_) && (INCLUDE_ALL_JavaUtilZipZipConstants || defined(INCLUDE_JavaUtilZipZipConstants))
 #define JavaUtilZipZipConstants_
 
 /*!
@@ -281,4 +281,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilZipZipConstants)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilZipZipConstants_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilZipZipConstants")

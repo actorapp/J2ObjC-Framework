@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityCertCertificate_INCLUDE_ALL")
-#ifdef JavaxSecurityCertCertificate_RESTRICT
-#define JavaxSecurityCertCertificate_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityCertCertificate")
+#ifdef RESTRICT_JavaxSecurityCertCertificate
+#define INCLUDE_ALL_JavaxSecurityCertCertificate 0
 #else
-#define JavaxSecurityCertCertificate_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityCertCertificate 1
 #endif
-#undef JavaxSecurityCertCertificate_RESTRICT
+#undef RESTRICT_JavaxSecurityCertCertificate
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityCertCertificate_) && (JavaxSecurityCertCertificate_INCLUDE_ALL || defined(JavaxSecurityCertCertificate_INCLUDE))
+#if !defined (JavaxSecurityCertCertificate_) && (INCLUDE_ALL_JavaxSecurityCertCertificate || defined(INCLUDE_JavaxSecurityCertCertificate))
 #define JavaxSecurityCertCertificate_
 
 @class IOSByteArray;
@@ -137,4 +137,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityCertCertificate)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityCertCertificate_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityCertCertificate")

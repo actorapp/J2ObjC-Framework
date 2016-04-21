@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCodeSigner_INCLUDE_ALL")
-#ifdef JavaSecurityCodeSigner_RESTRICT
-#define JavaSecurityCodeSigner_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCodeSigner")
+#ifdef RESTRICT_JavaSecurityCodeSigner
+#define INCLUDE_ALL_JavaSecurityCodeSigner 0
 #else
-#define JavaSecurityCodeSigner_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCodeSigner 1
 #endif
-#undef JavaSecurityCodeSigner_RESTRICT
+#undef RESTRICT_JavaSecurityCodeSigner
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCodeSigner_) && (JavaSecurityCodeSigner_INCLUDE_ALL || defined(JavaSecurityCodeSigner_INCLUDE))
+#if !defined (JavaSecurityCodeSigner_) && (INCLUDE_ALL_JavaSecurityCodeSigner || defined(INCLUDE_JavaSecurityCodeSigner))
 #define JavaSecurityCodeSigner_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class JavaSecurityCertCertPath;
@@ -100,10 +100,12 @@ FOUNDATION_EXPORT void JavaSecurityCodeSigner_initWithJavaSecurityCertCertPath_w
 
 FOUNDATION_EXPORT JavaSecurityCodeSigner *new_JavaSecurityCodeSigner_initWithJavaSecurityCertCertPath_withJavaSecurityTimestamp_(JavaSecurityCertCertPath *signerCertPath, JavaSecurityTimestamp *timestamp) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityCodeSigner *create_JavaSecurityCodeSigner_initWithJavaSecurityCertCertPath_withJavaSecurityTimestamp_(JavaSecurityCertCertPath *signerCertPath, JavaSecurityTimestamp *timestamp);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCodeSigner)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCodeSigner_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCodeSigner")

@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxLangModelElementModifier_INCLUDE_ALL")
-#ifdef JavaxLangModelElementModifier_RESTRICT
-#define JavaxLangModelElementModifier_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxLangModelElementModifier")
+#ifdef RESTRICT_JavaxLangModelElementModifier
+#define INCLUDE_ALL_JavaxLangModelElementModifier 0
 #else
-#define JavaxLangModelElementModifier_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxLangModelElementModifier 1
 #endif
-#undef JavaxLangModelElementModifier_RESTRICT
+#undef RESTRICT_JavaxLangModelElementModifier
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxLangModelElementModifier_) && (JavaxLangModelElementModifier_INCLUDE_ALL || defined(JavaxLangModelElementModifier_INCLUDE))
+#if !defined (JavaxLangModelElementModifier_) && (INCLUDE_ALL_JavaxLangModelElementModifier || defined(INCLUDE_JavaxLangModelElementModifier))
 #define JavaxLangModelElementModifier_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaxLangModelElementModifier_Enum) {
@@ -126,4 +126,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxLangModelElementModifier)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxLangModelElementModifier_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxLangModelElementModifier")

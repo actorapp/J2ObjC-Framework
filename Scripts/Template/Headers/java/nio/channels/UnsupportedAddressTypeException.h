@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsUnsupportedAddressTypeException_INCLUDE_ALL")
-#ifdef JavaNioChannelsUnsupportedAddressTypeException_RESTRICT
-#define JavaNioChannelsUnsupportedAddressTypeException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsUnsupportedAddressTypeException")
+#ifdef RESTRICT_JavaNioChannelsUnsupportedAddressTypeException
+#define INCLUDE_ALL_JavaNioChannelsUnsupportedAddressTypeException 0
 #else
-#define JavaNioChannelsUnsupportedAddressTypeException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsUnsupportedAddressTypeException 1
 #endif
-#undef JavaNioChannelsUnsupportedAddressTypeException_RESTRICT
+#undef RESTRICT_JavaNioChannelsUnsupportedAddressTypeException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsUnsupportedAddressTypeException_) && (JavaNioChannelsUnsupportedAddressTypeException_INCLUDE_ALL || defined(JavaNioChannelsUnsupportedAddressTypeException_INCLUDE))
+#if !defined (JavaNioChannelsUnsupportedAddressTypeException_) && (INCLUDE_ALL_JavaNioChannelsUnsupportedAddressTypeException || defined(INCLUDE_JavaNioChannelsUnsupportedAddressTypeException))
 #define JavaNioChannelsUnsupportedAddressTypeException_
 
-#define JavaLangIllegalArgumentException_RESTRICT 1
-#define JavaLangIllegalArgumentException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalArgumentException 1
+#define INCLUDE_JavaLangIllegalArgumentException 1
 #include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioChannelsUnsupportedAddressTypeException_init(JavaN
 
 FOUNDATION_EXPORT JavaNioChannelsUnsupportedAddressTypeException *new_JavaNioChannelsUnsupportedAddressTypeException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsUnsupportedAddressTypeException *create_JavaNioChannelsUnsupportedAddressTypeException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsUnsupportedAddressTypeException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsUnsupportedAddressTypeException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsUnsupportedAddressTypeException")

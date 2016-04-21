@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilNoSuchElementException_INCLUDE_ALL")
-#ifdef JavaUtilNoSuchElementException_RESTRICT
-#define JavaUtilNoSuchElementException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilNoSuchElementException")
+#ifdef RESTRICT_JavaUtilNoSuchElementException
+#define INCLUDE_ALL_JavaUtilNoSuchElementException 0
 #else
-#define JavaUtilNoSuchElementException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilNoSuchElementException 1
 #endif
-#undef JavaUtilNoSuchElementException_RESTRICT
+#undef RESTRICT_JavaUtilNoSuchElementException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilNoSuchElementException_) && (JavaUtilNoSuchElementException_INCLUDE_ALL || defined(JavaUtilNoSuchElementException_INCLUDE))
+#if !defined (JavaUtilNoSuchElementException_) && (INCLUDE_ALL_JavaUtilNoSuchElementException || defined(INCLUDE_JavaUtilNoSuchElementException))
 #define JavaUtilNoSuchElementException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaUtilNoSuchElementException_init(JavaUtilNoSuchElement
 
 FOUNDATION_EXPORT JavaUtilNoSuchElementException *new_JavaUtilNoSuchElementException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilNoSuchElementException *create_JavaUtilNoSuchElementException_init();
+
 FOUNDATION_EXPORT void JavaUtilNoSuchElementException_initWithNSString_(JavaUtilNoSuchElementException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaUtilNoSuchElementException *new_JavaUtilNoSuchElementException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilNoSuchElementException *create_JavaUtilNoSuchElementException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilNoSuchElementException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilNoSuchElementException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilNoSuchElementException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilNoSuchElementException")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsClosedChannelException_INCLUDE_ALL")
-#ifdef JavaNioChannelsClosedChannelException_RESTRICT
-#define JavaNioChannelsClosedChannelException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsClosedChannelException")
+#ifdef RESTRICT_JavaNioChannelsClosedChannelException
+#define INCLUDE_ALL_JavaNioChannelsClosedChannelException 0
 #else
-#define JavaNioChannelsClosedChannelException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsClosedChannelException 1
 #endif
-#undef JavaNioChannelsClosedChannelException_RESTRICT
+#undef RESTRICT_JavaNioChannelsClosedChannelException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsClosedChannelException_) && (JavaNioChannelsClosedChannelException_INCLUDE_ALL || defined(JavaNioChannelsClosedChannelException_INCLUDE))
+#if !defined (JavaNioChannelsClosedChannelException_) && (INCLUDE_ALL_JavaNioChannelsClosedChannelException || defined(INCLUDE_JavaNioChannelsClosedChannelException))
 #define JavaNioChannelsClosedChannelException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../../java/io/IOException.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioChannelsClosedChannelException_init(JavaNioChannel
 
 FOUNDATION_EXPORT JavaNioChannelsClosedChannelException *new_JavaNioChannelsClosedChannelException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsClosedChannelException *create_JavaNioChannelsClosedChannelException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsClosedChannelException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsClosedChannelException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsClosedChannelException")

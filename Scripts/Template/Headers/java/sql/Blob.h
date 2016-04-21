@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlBlob_INCLUDE_ALL")
-#ifdef JavaSqlBlob_RESTRICT
-#define JavaSqlBlob_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlBlob")
+#ifdef RESTRICT_JavaSqlBlob
+#define INCLUDE_ALL_JavaSqlBlob 0
 #else
-#define JavaSqlBlob_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlBlob 1
 #endif
-#undef JavaSqlBlob_RESTRICT
+#undef RESTRICT_JavaSqlBlob
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlBlob_) && (JavaSqlBlob_INCLUDE_ALL || defined(JavaSqlBlob_INCLUDE))
+#if !defined (JavaSqlBlob_) && (INCLUDE_ALL_JavaSqlBlob || defined(INCLUDE_JavaSqlBlob))
 #define JavaSqlBlob_
 
 @class IOSByteArray;
@@ -201,4 +201,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlBlob)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlBlob_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlBlob")

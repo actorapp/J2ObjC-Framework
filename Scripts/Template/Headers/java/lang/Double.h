@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangDouble_INCLUDE_ALL")
-#ifdef JavaLangDouble_RESTRICT
-#define JavaLangDouble_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangDouble")
+#ifdef RESTRICT_JavaLangDouble
+#define INCLUDE_ALL_JavaLangDouble 0
 #else
-#define JavaLangDouble_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangDouble 1
 #endif
-#undef JavaLangDouble_RESTRICT
+#undef RESTRICT_JavaLangDouble
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangDouble_) && (JavaLangDouble_INCLUDE_ALL || defined(JavaLangDouble_INCLUDE))
+#if !defined (JavaLangDouble_) && (INCLUDE_ALL_JavaLangDouble || defined(INCLUDE_JavaLangDouble))
 #define JavaLangDouble_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -392,9 +392,13 @@ FOUNDATION_EXPORT void JavaLangDouble_initWithDouble_(JavaLangDouble *self, jdou
 
 FOUNDATION_EXPORT JavaLangDouble *new_JavaLangDouble_initWithDouble_(jdouble value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangDouble *create_JavaLangDouble_initWithDouble_(jdouble value);
+
 FOUNDATION_EXPORT void JavaLangDouble_initWithNSString_(JavaLangDouble *self, NSString *string);
 
 FOUNDATION_EXPORT JavaLangDouble *new_JavaLangDouble_initWithNSString_(NSString *string) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangDouble *create_JavaLangDouble_initWithNSString_(NSString *string);
 
 FOUNDATION_EXPORT jlong JavaLangDouble_doubleToLongBitsWithDouble_(jdouble value);
 
@@ -428,4 +432,4 @@ BOXED_COMPOUND_ASSIGN_FPMOD(Double, doubleValue, jdouble, JavaLangDouble)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangDouble_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangDouble")

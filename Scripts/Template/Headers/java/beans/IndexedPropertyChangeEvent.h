@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansIndexedPropertyChangeEvent_INCLUDE_ALL")
-#ifdef JavaBeansIndexedPropertyChangeEvent_RESTRICT
-#define JavaBeansIndexedPropertyChangeEvent_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansIndexedPropertyChangeEvent")
+#ifdef RESTRICT_JavaBeansIndexedPropertyChangeEvent
+#define INCLUDE_ALL_JavaBeansIndexedPropertyChangeEvent 0
 #else
-#define JavaBeansIndexedPropertyChangeEvent_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansIndexedPropertyChangeEvent 1
 #endif
-#undef JavaBeansIndexedPropertyChangeEvent_RESTRICT
+#undef RESTRICT_JavaBeansIndexedPropertyChangeEvent
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansIndexedPropertyChangeEvent_) && (JavaBeansIndexedPropertyChangeEvent_INCLUDE_ALL || defined(JavaBeansIndexedPropertyChangeEvent_INCLUDE))
+#if !defined (JavaBeansIndexedPropertyChangeEvent_) && (INCLUDE_ALL_JavaBeansIndexedPropertyChangeEvent || defined(INCLUDE_JavaBeansIndexedPropertyChangeEvent))
 #define JavaBeansIndexedPropertyChangeEvent_
 
-#define JavaBeansPropertyChangeEvent_RESTRICT 1
-#define JavaBeansPropertyChangeEvent_INCLUDE 1
+#define RESTRICT_JavaBeansPropertyChangeEvent 1
+#define INCLUDE_JavaBeansPropertyChangeEvent 1
 #include "../../java/beans/PropertyChangeEvent.h"
 
 /*!
@@ -69,10 +69,12 @@ FOUNDATION_EXPORT void JavaBeansIndexedPropertyChangeEvent_initWithId_withNSStri
 
 FOUNDATION_EXPORT JavaBeansIndexedPropertyChangeEvent *new_JavaBeansIndexedPropertyChangeEvent_initWithId_withNSString_withId_withId_withInt_(id source, NSString *propertyName, id oldValue, id newValue, jint index) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansIndexedPropertyChangeEvent *create_JavaBeansIndexedPropertyChangeEvent_initWithId_withNSString_withId_withId_withInt_(id source, NSString *propertyName, id oldValue, id newValue, jint index);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIndexedPropertyChangeEvent)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansIndexedPropertyChangeEvent_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansIndexedPropertyChangeEvent")

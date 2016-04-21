@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicAtomicReference_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicAtomicReference_RESTRICT
-#define JavaUtilConcurrentAtomicAtomicReference_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReference")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicReference
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReference 0
 #else
-#define JavaUtilConcurrentAtomicAtomicReference_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReference 1
 #endif
-#undef JavaUtilConcurrentAtomicAtomicReference_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicAtomicReference
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicAtomicReference_) && (JavaUtilConcurrentAtomicAtomicReference_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicReference_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicAtomicReference_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReference || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicReference))
 #define JavaUtilConcurrentAtomicAtomicReference_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 /*!
@@ -110,9 +110,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicReference_initWithId_(JavaU
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicReference *new_JavaUtilConcurrentAtomicAtomicReference_initWithId_(id initialValue) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicReference *create_JavaUtilConcurrentAtomicAtomicReference_initWithId_(id initialValue);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicReference_init(JavaUtilConcurrentAtomicAtomicReference *self);
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicReference *new_JavaUtilConcurrentAtomicAtomicReference_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicReference *create_JavaUtilConcurrentAtomicAtomicReference_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicReference)
 
@@ -120,4 +124,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicReference)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicAtomicReference_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReference")

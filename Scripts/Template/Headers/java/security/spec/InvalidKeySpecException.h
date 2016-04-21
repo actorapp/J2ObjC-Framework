@@ -5,25 +5,23 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecInvalidKeySpecException_INCLUDE_ALL")
-#ifdef JavaSecuritySpecInvalidKeySpecException_RESTRICT
-#define JavaSecuritySpecInvalidKeySpecException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecInvalidKeySpecException")
+#ifdef RESTRICT_JavaSecuritySpecInvalidKeySpecException
+#define INCLUDE_ALL_JavaSecuritySpecInvalidKeySpecException 0
 #else
-#define JavaSecuritySpecInvalidKeySpecException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecInvalidKeySpecException 1
 #endif
-#undef JavaSecuritySpecInvalidKeySpecException_RESTRICT
+#undef RESTRICT_JavaSecuritySpecInvalidKeySpecException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecInvalidKeySpecException_) && (JavaSecuritySpecInvalidKeySpecException_INCLUDE_ALL || defined(JavaSecuritySpecInvalidKeySpecException_INCLUDE))
+#if !defined (JavaSecuritySpecInvalidKeySpecException_) && (INCLUDE_ALL_JavaSecuritySpecInvalidKeySpecException || defined(INCLUDE_JavaSecuritySpecInvalidKeySpecException))
 #define JavaSecuritySpecInvalidKeySpecException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../../java/security/GeneralSecurityException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief The exception that is thrown when an invalid key specification is
@@ -54,14 +52,14 @@
  the cause of this exception.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates a new <code>InvalidKeySpecException</code> with the specified cause.
  @param cause
  the cause of this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -71,17 +69,25 @@ FOUNDATION_EXPORT void JavaSecuritySpecInvalidKeySpecException_initWithNSString_
 
 FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *new_JavaSecuritySpecInvalidKeySpecException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *create_JavaSecuritySpecInvalidKeySpecException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecuritySpecInvalidKeySpecException_init(JavaSecuritySpecInvalidKeySpecException *self);
 
 FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *new_JavaSecuritySpecInvalidKeySpecException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecuritySpecInvalidKeySpecException_initWithNSString_withJavaLangThrowable_(JavaSecuritySpecInvalidKeySpecException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *create_JavaSecuritySpecInvalidKeySpecException_init();
 
-FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *new_JavaSecuritySpecInvalidKeySpecException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecuritySpecInvalidKeySpecException_initWithNSString_withNSException_(JavaSecuritySpecInvalidKeySpecException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecuritySpecInvalidKeySpecException_initWithJavaLangThrowable_(JavaSecuritySpecInvalidKeySpecException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *new_JavaSecuritySpecInvalidKeySpecException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *new_JavaSecuritySpecInvalidKeySpecException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *create_JavaSecuritySpecInvalidKeySpecException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecuritySpecInvalidKeySpecException_initWithNSException_(JavaSecuritySpecInvalidKeySpecException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *new_JavaSecuritySpecInvalidKeySpecException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecuritySpecInvalidKeySpecException *create_JavaSecuritySpecInvalidKeySpecException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecInvalidKeySpecException)
 
@@ -89,4 +95,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecInvalidKeySpecException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecInvalidKeySpecException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecInvalidKeySpecException")

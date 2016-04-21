@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetContentHandlerFactory_INCLUDE_ALL")
-#ifdef JavaNetContentHandlerFactory_RESTRICT
-#define JavaNetContentHandlerFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetContentHandlerFactory")
+#ifdef RESTRICT_JavaNetContentHandlerFactory
+#define INCLUDE_ALL_JavaNetContentHandlerFactory 0
 #else
-#define JavaNetContentHandlerFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetContentHandlerFactory 1
 #endif
-#undef JavaNetContentHandlerFactory_RESTRICT
+#undef RESTRICT_JavaNetContentHandlerFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetContentHandlerFactory_) && (JavaNetContentHandlerFactory_INCLUDE_ALL || defined(JavaNetContentHandlerFactory_INCLUDE))
+#if !defined (JavaNetContentHandlerFactory_) && (INCLUDE_ALL_JavaNetContentHandlerFactory || defined(INCLUDE_JavaNetContentHandlerFactory))
 #define JavaNetContentHandlerFactory_
 
 @class JavaNetContentHandler;
@@ -46,4 +46,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetContentHandlerFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetContentHandlerFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetContentHandlerFactory")

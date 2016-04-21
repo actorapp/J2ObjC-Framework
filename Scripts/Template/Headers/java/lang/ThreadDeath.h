@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangThreadDeath_INCLUDE_ALL")
-#ifdef JavaLangThreadDeath_RESTRICT
-#define JavaLangThreadDeath_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangThreadDeath")
+#ifdef RESTRICT_JavaLangThreadDeath
+#define INCLUDE_ALL_JavaLangThreadDeath 0
 #else
-#define JavaLangThreadDeath_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangThreadDeath 1
 #endif
-#undef JavaLangThreadDeath_RESTRICT
+#undef RESTRICT_JavaLangThreadDeath
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangThreadDeath_) && (JavaLangThreadDeath_INCLUDE_ALL || defined(JavaLangThreadDeath_INCLUDE))
+#if !defined (JavaLangThreadDeath_) && (INCLUDE_ALL_JavaLangThreadDeath || defined(INCLUDE_JavaLangThreadDeath))
 #define JavaLangThreadDeath_
 
-#define JavaLangError_RESTRICT 1
-#define JavaLangError_INCLUDE 1
+#define RESTRICT_JavaLangError 1
+#define INCLUDE_JavaLangError 1
 #include "../../java/lang/Error.h"
 
 /*!
@@ -48,10 +48,12 @@ FOUNDATION_EXPORT void JavaLangThreadDeath_init(JavaLangThreadDeath *self);
 
 FOUNDATION_EXPORT JavaLangThreadDeath *new_JavaLangThreadDeath_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangThreadDeath *create_JavaLangThreadDeath_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadDeath)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangThreadDeath_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangThreadDeath")

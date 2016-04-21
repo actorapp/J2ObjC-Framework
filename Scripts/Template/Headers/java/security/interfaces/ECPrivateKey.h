@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityInterfacesECPrivateKey_INCLUDE_ALL")
-#ifdef JavaSecurityInterfacesECPrivateKey_RESTRICT
-#define JavaSecurityInterfacesECPrivateKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityInterfacesECPrivateKey")
+#ifdef RESTRICT_JavaSecurityInterfacesECPrivateKey
+#define INCLUDE_ALL_JavaSecurityInterfacesECPrivateKey 0
 #else
-#define JavaSecurityInterfacesECPrivateKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityInterfacesECPrivateKey 1
 #endif
-#undef JavaSecurityInterfacesECPrivateKey_RESTRICT
+#undef RESTRICT_JavaSecurityInterfacesECPrivateKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityInterfacesECPrivateKey_) && (JavaSecurityInterfacesECPrivateKey_INCLUDE_ALL || defined(JavaSecurityInterfacesECPrivateKey_INCLUDE))
+#if !defined (JavaSecurityInterfacesECPrivateKey_) && (INCLUDE_ALL_JavaSecurityInterfacesECPrivateKey || defined(INCLUDE_JavaSecurityInterfacesECPrivateKey))
 #define JavaSecurityInterfacesECPrivateKey_
 
-#define JavaSecurityPrivateKey_RESTRICT 1
-#define JavaSecurityPrivateKey_INCLUDE 1
+#define RESTRICT_JavaSecurityPrivateKey 1
+#define INCLUDE_JavaSecurityPrivateKey 1
 #include "../../../java/security/PrivateKey.h"
 
-#define JavaSecurityInterfacesECKey_RESTRICT 1
-#define JavaSecurityInterfacesECKey_INCLUDE 1
+#define RESTRICT_JavaSecurityInterfacesECKey 1
+#define INCLUDE_JavaSecurityInterfacesECKey 1
 #include "../../../java/security/interfaces/ECKey.h"
 
 @class JavaMathBigInteger;
@@ -63,4 +63,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesECPrivateKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityInterfacesECPrivateKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesECPrivateKey")

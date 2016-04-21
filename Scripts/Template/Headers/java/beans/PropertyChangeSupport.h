@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansPropertyChangeSupport_INCLUDE_ALL")
-#ifdef JavaBeansPropertyChangeSupport_RESTRICT
-#define JavaBeansPropertyChangeSupport_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansPropertyChangeSupport")
+#ifdef RESTRICT_JavaBeansPropertyChangeSupport
+#define INCLUDE_ALL_JavaBeansPropertyChangeSupport 0
 #else
-#define JavaBeansPropertyChangeSupport_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansPropertyChangeSupport 1
 #endif
-#undef JavaBeansPropertyChangeSupport_RESTRICT
+#undef RESTRICT_JavaBeansPropertyChangeSupport
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansPropertyChangeSupport_) && (JavaBeansPropertyChangeSupport_INCLUDE_ALL || defined(JavaBeansPropertyChangeSupport_INCLUDE))
+#if !defined (JavaBeansPropertyChangeSupport_) && (INCLUDE_ALL_JavaBeansPropertyChangeSupport || defined(INCLUDE_JavaBeansPropertyChangeSupport))
 #define JavaBeansPropertyChangeSupport_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -231,10 +231,12 @@ FOUNDATION_EXPORT void JavaBeansPropertyChangeSupport_initWithId_(JavaBeansPrope
 
 FOUNDATION_EXPORT JavaBeansPropertyChangeSupport *new_JavaBeansPropertyChangeSupport_initWithId_(id sourceBean) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansPropertyChangeSupport *create_JavaBeansPropertyChangeSupport_initWithId_(id sourceBean);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyChangeSupport)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansPropertyChangeSupport_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansPropertyChangeSupport")

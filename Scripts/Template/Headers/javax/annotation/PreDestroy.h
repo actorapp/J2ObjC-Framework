@@ -5,23 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxAnnotationPreDestroy_INCLUDE_ALL")
-#ifdef JavaxAnnotationPreDestroy_RESTRICT
-#define JavaxAnnotationPreDestroy_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxAnnotationPreDestroy")
+#ifdef RESTRICT_JavaxAnnotationPreDestroy
+#define INCLUDE_ALL_JavaxAnnotationPreDestroy 0
 #else
-#define JavaxAnnotationPreDestroy_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxAnnotationPreDestroy 1
 #endif
-#undef JavaxAnnotationPreDestroy_RESTRICT
+#undef RESTRICT_JavaxAnnotationPreDestroy
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxAnnotationPreDestroy_) && (JavaxAnnotationPreDestroy_INCLUDE_ALL || defined(JavaxAnnotationPreDestroy_INCLUDE))
+#if !defined (JavaxAnnotationPreDestroy_) && (INCLUDE_ALL_JavaxAnnotationPreDestroy || defined(INCLUDE_JavaxAnnotationPreDestroy))
 #define JavaxAnnotationPreDestroy_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief javax.annotation.PreDestroy annotation.
@@ -38,10 +41,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxAnnotationPreDestroy)
 
+FOUNDATION_EXPORT id<JavaxAnnotationPreDestroy> create_JavaxAnnotationPreDestroy();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxAnnotationPreDestroy)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxAnnotationPreDestroy_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxAnnotationPreDestroy")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilNavigableMap_INCLUDE_ALL")
-#ifdef JavaUtilNavigableMap_RESTRICT
-#define JavaUtilNavigableMap_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilNavigableMap")
+#ifdef RESTRICT_JavaUtilNavigableMap
+#define INCLUDE_ALL_JavaUtilNavigableMap 0
 #else
-#define JavaUtilNavigableMap_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilNavigableMap 1
 #endif
-#undef JavaUtilNavigableMap_RESTRICT
+#undef RESTRICT_JavaUtilNavigableMap
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilNavigableMap_) && (JavaUtilNavigableMap_INCLUDE_ALL || defined(JavaUtilNavigableMap_INCLUDE))
+#if !defined (JavaUtilNavigableMap_) && (INCLUDE_ALL_JavaUtilNavigableMap || defined(INCLUDE_JavaUtilNavigableMap))
 #define JavaUtilNavigableMap_
 
-#define JavaUtilSortedMap_RESTRICT 1
-#define JavaUtilSortedMap_INCLUDE 1
+#define RESTRICT_JavaUtilSortedMap 1
+#define INCLUDE_JavaUtilSortedMap 1
 #include "../../java/util/SortedMap.h"
 
 @protocol JavaUtilMap_Entry;
@@ -394,4 +394,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilNavigableMap)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilNavigableMap_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilNavigableMap")

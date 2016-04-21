@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangEnum_INCLUDE_ALL")
-#ifdef JavaLangEnum_RESTRICT
-#define JavaLangEnum_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangEnum")
+#ifdef RESTRICT_JavaLangEnum
+#define INCLUDE_ALL_JavaLangEnum 0
 #else
-#define JavaLangEnum_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangEnum 1
 #endif
-#undef JavaLangEnum_RESTRICT
+#undef RESTRICT_JavaLangEnum
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangEnum_) && (JavaLangEnum_INCLUDE_ALL || defined(JavaLangEnum_INCLUDE))
+#if !defined (JavaLangEnum_) && (INCLUDE_ALL_JavaLangEnum || defined(INCLUDE_JavaLangEnum))
 #define JavaLangEnum_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -152,7 +152,7 @@
  @brief Enum types may not have finalizers.
  @since 1.6
  */
-- (void)dealloc;
+- (void)javaFinalize;
 
 #pragma mark Package-Private
 
@@ -172,4 +172,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangEnum)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangEnum_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangEnum")

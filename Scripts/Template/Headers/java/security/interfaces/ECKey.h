@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityInterfacesECKey_INCLUDE_ALL")
-#ifdef JavaSecurityInterfacesECKey_RESTRICT
-#define JavaSecurityInterfacesECKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityInterfacesECKey")
+#ifdef RESTRICT_JavaSecurityInterfacesECKey
+#define INCLUDE_ALL_JavaSecurityInterfacesECKey 0
 #else
-#define JavaSecurityInterfacesECKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityInterfacesECKey 1
 #endif
-#undef JavaSecurityInterfacesECKey_RESTRICT
+#undef RESTRICT_JavaSecurityInterfacesECKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityInterfacesECKey_) && (JavaSecurityInterfacesECKey_INCLUDE_ALL || defined(JavaSecurityInterfacesECKey_INCLUDE))
+#if !defined (JavaSecurityInterfacesECKey_) && (INCLUDE_ALL_JavaSecurityInterfacesECKey || defined(INCLUDE_JavaSecurityInterfacesECKey))
 #define JavaSecurityInterfacesECKey_
 
 @class JavaSecuritySpecECParameterSpec;
@@ -42,4 +42,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInterfacesECKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityInterfacesECKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityInterfacesECKey")

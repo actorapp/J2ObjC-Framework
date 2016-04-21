@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityGuard_INCLUDE_ALL")
-#ifdef JavaSecurityGuard_RESTRICT
-#define JavaSecurityGuard_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityGuard")
+#ifdef RESTRICT_JavaSecurityGuard
+#define INCLUDE_ALL_JavaSecurityGuard 0
 #else
-#define JavaSecurityGuard_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityGuard 1
 #endif
-#undef JavaSecurityGuard_RESTRICT
+#undef RESTRICT_JavaSecurityGuard
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityGuard_) && (JavaSecurityGuard_INCLUDE_ALL || defined(JavaSecurityGuard_INCLUDE))
+#if !defined (JavaSecurityGuard_) && (INCLUDE_ALL_JavaSecurityGuard || defined(INCLUDE_JavaSecurityGuard))
 #define JavaSecurityGuard_
 
 /*!
@@ -45,4 +45,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityGuard)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityGuard_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityGuard")

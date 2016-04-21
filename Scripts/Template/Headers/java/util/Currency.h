@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilCurrency_INCLUDE_ALL")
-#ifdef JavaUtilCurrency_RESTRICT
-#define JavaUtilCurrency_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilCurrency")
+#ifdef RESTRICT_JavaUtilCurrency
+#define INCLUDE_ALL_JavaUtilCurrency 0
 #else
-#define JavaUtilCurrency_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilCurrency 1
 #endif
-#undef JavaUtilCurrency_RESTRICT
+#undef RESTRICT_JavaUtilCurrency
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilCurrency_) && (JavaUtilCurrency_INCLUDE_ALL || defined(JavaUtilCurrency_INCLUDE))
+#if !defined (JavaUtilCurrency_) && (INCLUDE_ALL_JavaUtilCurrency || defined(INCLUDE_JavaUtilCurrency))
 #define JavaUtilCurrency_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class JavaUtilLocale;
@@ -120,4 +120,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilCurrency)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilCurrency_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilCurrency")

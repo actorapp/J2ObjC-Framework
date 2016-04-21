@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilObservable_INCLUDE_ALL")
-#ifdef JavaUtilObservable_RESTRICT
-#define JavaUtilObservable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilObservable")
+#ifdef RESTRICT_JavaUtilObservable
+#define INCLUDE_ALL_JavaUtilObservable 0
 #else
-#define JavaUtilObservable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilObservable 1
 #endif
-#undef JavaUtilObservable_RESTRICT
+#undef RESTRICT_JavaUtilObservable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilObservable_) && (JavaUtilObservable_INCLUDE_ALL || defined(JavaUtilObservable_INCLUDE))
+#if !defined (JavaUtilObservable_) && (INCLUDE_ALL_JavaUtilObservable || defined(INCLUDE_JavaUtilObservable))
 #define JavaUtilObservable_
 
 @protocol JavaUtilList;
@@ -128,10 +128,12 @@ FOUNDATION_EXPORT void JavaUtilObservable_init(JavaUtilObservable *self);
 
 FOUNDATION_EXPORT JavaUtilObservable *new_JavaUtilObservable_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilObservable *create_JavaUtilObservable_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilObservable)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilObservable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilObservable")

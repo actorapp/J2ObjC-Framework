@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityAuthDestroyable_INCLUDE_ALL")
-#ifdef JavaxSecurityAuthDestroyable_RESTRICT
-#define JavaxSecurityAuthDestroyable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityAuthDestroyable")
+#ifdef RESTRICT_JavaxSecurityAuthDestroyable
+#define INCLUDE_ALL_JavaxSecurityAuthDestroyable 0
 #else
-#define JavaxSecurityAuthDestroyable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityAuthDestroyable 1
 #endif
-#undef JavaxSecurityAuthDestroyable_RESTRICT
+#undef RESTRICT_JavaxSecurityAuthDestroyable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityAuthDestroyable_) && (JavaxSecurityAuthDestroyable_INCLUDE_ALL || defined(JavaxSecurityAuthDestroyable_INCLUDE))
+#if !defined (JavaxSecurityAuthDestroyable_) && (INCLUDE_ALL_JavaxSecurityAuthDestroyable || defined(INCLUDE_JavaxSecurityAuthDestroyable))
 #define JavaxSecurityAuthDestroyable_
 
 /*!
@@ -51,4 +51,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthDestroyable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityAuthDestroyable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityAuthDestroyable")

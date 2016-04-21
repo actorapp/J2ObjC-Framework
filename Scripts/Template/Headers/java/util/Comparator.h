@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilComparator_INCLUDE_ALL")
-#ifdef JavaUtilComparator_RESTRICT
-#define JavaUtilComparator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilComparator")
+#ifdef RESTRICT_JavaUtilComparator
+#define INCLUDE_ALL_JavaUtilComparator 0
 #else
-#define JavaUtilComparator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilComparator 1
 #endif
-#undef JavaUtilComparator_RESTRICT
+#undef RESTRICT_JavaUtilComparator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilComparator_) && (JavaUtilComparator_INCLUDE_ALL || defined(JavaUtilComparator_INCLUDE))
+#if !defined (JavaUtilComparator_) && (INCLUDE_ALL_JavaUtilComparator || defined(INCLUDE_JavaUtilComparator))
 #define JavaUtilComparator_
 
 /*!
@@ -85,4 +85,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilComparator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilComparator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilComparator")

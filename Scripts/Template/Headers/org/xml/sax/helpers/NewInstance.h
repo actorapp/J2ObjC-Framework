@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHelpersNewInstance_INCLUDE_ALL")
-#ifdef OrgXmlSaxHelpersNewInstance_RESTRICT
-#define OrgXmlSaxHelpersNewInstance_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersNewInstance")
+#ifdef RESTRICT_OrgXmlSaxHelpersNewInstance
+#define INCLUDE_ALL_OrgXmlSaxHelpersNewInstance 0
 #else
-#define OrgXmlSaxHelpersNewInstance_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHelpersNewInstance 1
 #endif
-#undef OrgXmlSaxHelpersNewInstance_RESTRICT
+#undef RESTRICT_OrgXmlSaxHelpersNewInstance
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHelpersNewInstance_) && (OrgXmlSaxHelpersNewInstance_INCLUDE_ALL || defined(OrgXmlSaxHelpersNewInstance_INCLUDE))
+#if !defined (OrgXmlSaxHelpersNewInstance_) && (INCLUDE_ALL_OrgXmlSaxHelpersNewInstance || defined(INCLUDE_OrgXmlSaxHelpersNewInstance))
 #define OrgXmlSaxHelpersNewInstance_
 
 @class JavaLangClassLoader;
@@ -69,10 +69,12 @@ FOUNDATION_EXPORT void OrgXmlSaxHelpersNewInstance_init(OrgXmlSaxHelpersNewInsta
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersNewInstance *new_OrgXmlSaxHelpersNewInstance_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHelpersNewInstance *create_OrgXmlSaxHelpersNewInstance_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersNewInstance)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHelpersNewInstance_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersNewInstance")

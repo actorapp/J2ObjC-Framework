@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaMathBigInteger_INCLUDE_ALL")
-#ifdef JavaMathBigInteger_RESTRICT
-#define JavaMathBigInteger_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaMathBigInteger")
+#ifdef RESTRICT_JavaMathBigInteger
+#define INCLUDE_ALL_JavaMathBigInteger 0
 #else
-#define JavaMathBigInteger_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaMathBigInteger 1
 #endif
-#undef JavaMathBigInteger_RESTRICT
+#undef RESTRICT_JavaMathBigInteger
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaMathBigInteger_) && (JavaMathBigInteger_INCLUDE_ALL || defined(JavaMathBigInteger_INCLUDE))
+#if !defined (JavaMathBigInteger_) && (INCLUDE_ALL_JavaMathBigInteger || defined(INCLUDE_JavaMathBigInteger))
 #define JavaMathBigInteger_
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -882,41 +882,61 @@ FOUNDATION_EXPORT void JavaMathBigInteger_initWithInt_withJavaUtilRandom_(JavaMa
 
 FOUNDATION_EXPORT JavaMathBigInteger *new_JavaMathBigInteger_initWithInt_withJavaUtilRandom_(jint numBits, JavaUtilRandom *rnd) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigInteger *create_JavaMathBigInteger_initWithInt_withJavaUtilRandom_(jint numBits, JavaUtilRandom *rnd);
+
 FOUNDATION_EXPORT void JavaMathBigInteger_initWithInt_withInt_withJavaUtilRandom_(JavaMathBigInteger *self, jint bitLength, jint certainty, JavaUtilRandom *rnd);
 
 FOUNDATION_EXPORT JavaMathBigInteger *new_JavaMathBigInteger_initWithInt_withInt_withJavaUtilRandom_(jint bitLength, jint certainty, JavaUtilRandom *rnd) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigInteger *create_JavaMathBigInteger_initWithInt_withInt_withJavaUtilRandom_(jint bitLength, jint certainty, JavaUtilRandom *rnd);
 
 FOUNDATION_EXPORT void JavaMathBigInteger_initWithNSString_(JavaMathBigInteger *self, NSString *val);
 
 FOUNDATION_EXPORT JavaMathBigInteger *new_JavaMathBigInteger_initWithNSString_(NSString *val) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigInteger *create_JavaMathBigInteger_initWithNSString_(NSString *val);
+
 FOUNDATION_EXPORT void JavaMathBigInteger_initWithNSString_withInt_(JavaMathBigInteger *self, NSString *val, jint radix);
 
 FOUNDATION_EXPORT JavaMathBigInteger *new_JavaMathBigInteger_initWithNSString_withInt_(NSString *val, jint radix) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigInteger *create_JavaMathBigInteger_initWithNSString_withInt_(NSString *val, jint radix);
 
 FOUNDATION_EXPORT void JavaMathBigInteger_initWithInt_withByteArray_(JavaMathBigInteger *self, jint signum, IOSByteArray *magnitude);
 
 FOUNDATION_EXPORT JavaMathBigInteger *new_JavaMathBigInteger_initWithInt_withByteArray_(jint signum, IOSByteArray *magnitude) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigInteger *create_JavaMathBigInteger_initWithInt_withByteArray_(jint signum, IOSByteArray *magnitude);
+
 FOUNDATION_EXPORT void JavaMathBigInteger_initWithByteArray_(JavaMathBigInteger *self, IOSByteArray *val);
 
 FOUNDATION_EXPORT JavaMathBigInteger *new_JavaMathBigInteger_initWithByteArray_(IOSByteArray *val) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigInteger *create_JavaMathBigInteger_initWithByteArray_(IOSByteArray *val);
 
 FOUNDATION_EXPORT void JavaMathBigInteger_initWithInt_withInt_(JavaMathBigInteger *self, jint sign, jint value);
 
 FOUNDATION_EXPORT JavaMathBigInteger *new_JavaMathBigInteger_initWithInt_withInt_(jint sign, jint value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigInteger *create_JavaMathBigInteger_initWithInt_withInt_(jint sign, jint value);
+
 FOUNDATION_EXPORT void JavaMathBigInteger_initWithInt_withInt_withIntArray_(JavaMathBigInteger *self, jint sign, jint numberLength, IOSIntArray *digits);
 
 FOUNDATION_EXPORT JavaMathBigInteger *new_JavaMathBigInteger_initWithInt_withInt_withIntArray_(jint sign, jint numberLength, IOSIntArray *digits) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigInteger *create_JavaMathBigInteger_initWithInt_withInt_withIntArray_(jint sign, jint numberLength, IOSIntArray *digits);
 
 FOUNDATION_EXPORT void JavaMathBigInteger_initWithInt_withLong_(JavaMathBigInteger *self, jint sign, jlong val);
 
 FOUNDATION_EXPORT JavaMathBigInteger *new_JavaMathBigInteger_initWithInt_withLong_(jint sign, jlong val) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaMathBigInteger *create_JavaMathBigInteger_initWithInt_withLong_(jint sign, jlong val);
+
 FOUNDATION_EXPORT void JavaMathBigInteger_initWithInt_withIntArray_(JavaMathBigInteger *self, jint signum, IOSIntArray *digits);
 
 FOUNDATION_EXPORT JavaMathBigInteger *new_JavaMathBigInteger_initWithInt_withIntArray_(jint signum, IOSIntArray *digits) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaMathBigInteger *create_JavaMathBigInteger_initWithInt_withIntArray_(jint signum, IOSIntArray *digits);
 
 FOUNDATION_EXPORT JavaMathBigInteger *JavaMathBigInteger_valueOfWithLong_(jlong val);
 
@@ -930,4 +950,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaMathBigInteger)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaMathBigInteger_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaMathBigInteger")

@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoReader_INCLUDE_ALL")
-#ifdef JavaIoReader_RESTRICT
-#define JavaIoReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoReader")
+#ifdef RESTRICT_JavaIoReader
+#define INCLUDE_ALL_JavaIoReader 0
 #else
-#define JavaIoReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoReader 1
 #endif
-#undef JavaIoReader_RESTRICT
+#undef RESTRICT_JavaIoReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoReader_) && (JavaIoReader_INCLUDE_ALL || defined(JavaIoReader_INCLUDE))
+#if !defined (JavaIoReader_) && (INCLUDE_ALL_JavaIoReader || defined(INCLUDE_JavaIoReader))
 #define JavaIoReader_
 
-#define JavaLangReadable_RESTRICT 1
-#define JavaLangReadable_INCLUDE 1
+#define RESTRICT_JavaLangReadable 1
+#define INCLUDE_JavaLangReadable 1
 #include "../../java/lang/Readable.h"
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../java/io/Closeable.h"
 
 @class IOSCharArray;
@@ -223,4 +223,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoReader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoReader")

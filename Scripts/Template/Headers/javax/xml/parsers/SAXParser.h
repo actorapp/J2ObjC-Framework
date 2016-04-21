@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlParsersSAXParser_INCLUDE_ALL")
-#ifdef JavaxXmlParsersSAXParser_RESTRICT
-#define JavaxXmlParsersSAXParser_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlParsersSAXParser")
+#ifdef RESTRICT_JavaxXmlParsersSAXParser
+#define INCLUDE_ALL_JavaxXmlParsersSAXParser 0
 #else
-#define JavaxXmlParsersSAXParser_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlParsersSAXParser 1
 #endif
-#undef JavaxXmlParsersSAXParser_RESTRICT
+#undef RESTRICT_JavaxXmlParsersSAXParser
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlParsersSAXParser_) && (JavaxXmlParsersSAXParser_INCLUDE_ALL || defined(JavaxXmlParsersSAXParser_INCLUDE))
+#if !defined (JavaxXmlParsersSAXParser_) && (INCLUDE_ALL_JavaxXmlParsersSAXParser || defined(INCLUDE_JavaxXmlParsersSAXParser))
 #define JavaxXmlParsersSAXParser_
 
 @class JavaIoFile;
@@ -347,4 +347,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersSAXParser)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlParsersSAXParser_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlParsersSAXParser")

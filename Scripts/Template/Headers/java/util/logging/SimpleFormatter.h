@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingSimpleFormatter_INCLUDE_ALL")
-#ifdef JavaUtilLoggingSimpleFormatter_RESTRICT
-#define JavaUtilLoggingSimpleFormatter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingSimpleFormatter")
+#ifdef RESTRICT_JavaUtilLoggingSimpleFormatter
+#define INCLUDE_ALL_JavaUtilLoggingSimpleFormatter 0
 #else
-#define JavaUtilLoggingSimpleFormatter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingSimpleFormatter 1
 #endif
-#undef JavaUtilLoggingSimpleFormatter_RESTRICT
+#undef RESTRICT_JavaUtilLoggingSimpleFormatter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingSimpleFormatter_) && (JavaUtilLoggingSimpleFormatter_INCLUDE_ALL || defined(JavaUtilLoggingSimpleFormatter_INCLUDE))
+#if !defined (JavaUtilLoggingSimpleFormatter_) && (INCLUDE_ALL_JavaUtilLoggingSimpleFormatter || defined(INCLUDE_JavaUtilLoggingSimpleFormatter))
 #define JavaUtilLoggingSimpleFormatter_
 
-#define JavaUtilLoggingFormatter_RESTRICT 1
-#define JavaUtilLoggingFormatter_INCLUDE 1
+#define RESTRICT_JavaUtilLoggingFormatter 1
+#define INCLUDE_JavaUtilLoggingFormatter 1
 #include "../../../java/util/logging/Formatter.h"
 
 @class JavaUtilLoggingLogRecord;
@@ -55,10 +55,12 @@ FOUNDATION_EXPORT void JavaUtilLoggingSimpleFormatter_init(JavaUtilLoggingSimple
 
 FOUNDATION_EXPORT JavaUtilLoggingSimpleFormatter *new_JavaUtilLoggingSimpleFormatter_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingSimpleFormatter *create_JavaUtilLoggingSimpleFormatter_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingSimpleFormatter)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingSimpleFormatter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingSimpleFormatter")

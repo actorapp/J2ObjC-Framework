@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityProvider_INCLUDE_ALL")
-#ifdef JavaSecurityProvider_RESTRICT
-#define JavaSecurityProvider_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityProvider")
+#ifdef RESTRICT_JavaSecurityProvider
+#define INCLUDE_ALL_JavaSecurityProvider 0
 #else
-#define JavaSecurityProvider_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityProvider 1
 #endif
-#undef JavaSecurityProvider_RESTRICT
+#undef RESTRICT_JavaSecurityProvider
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityProvider_) && (JavaSecurityProvider_INCLUDE_ALL || defined(JavaSecurityProvider_INCLUDE))
+#if !defined (JavaSecurityProvider_) && (INCLUDE_ALL_JavaSecurityProvider || defined(INCLUDE_JavaSecurityProvider))
 #define JavaSecurityProvider_
 
-#define JavaUtilProperties_RESTRICT 1
-#define JavaUtilProperties_INCLUDE 1
+#define RESTRICT_JavaUtilProperties 1
+#define INCLUDE_JavaUtilProperties 1
 #include "../../java/util/Properties.h"
 
 @class JavaIoInputStream;
@@ -214,7 +214,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProvider)
 
 #endif
 
-#if !defined (JavaSecurityProvider_Service_) && (JavaSecurityProvider_INCLUDE_ALL || defined(JavaSecurityProvider_Service_INCLUDE))
+#if !defined (JavaSecurityProvider_Service_) && (INCLUDE_ALL_JavaSecurityProvider || defined(INCLUDE_JavaSecurityProvider_Service))
 #define JavaSecurityProvider_Service_
 
 @class JavaSecurityProvider;
@@ -358,10 +358,12 @@ FOUNDATION_EXPORT void JavaSecurityProvider_Service_initWithJavaSecurityProvider
 
 FOUNDATION_EXPORT JavaSecurityProvider_Service *new_JavaSecurityProvider_Service_initWithJavaSecurityProvider_withNSString_withNSString_withNSString_withJavaUtilList_withJavaUtilMap_(JavaSecurityProvider *provider, NSString *type, NSString *algorithm, NSString *className_, id<JavaUtilList> aliases, id<JavaUtilMap> attributes) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityProvider_Service *create_JavaSecurityProvider_Service_initWithJavaSecurityProvider_withNSString_withNSString_withNSString_withJavaUtilList_withJavaUtilMap_(JavaSecurityProvider *provider, NSString *type, NSString *algorithm, NSString *className_, id<JavaUtilList> aliases, id<JavaUtilMap> attributes);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityProvider_Service)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityProvider_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityProvider")

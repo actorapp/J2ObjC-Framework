@@ -5,23 +5,25 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlTime_INCLUDE_ALL")
-#ifdef JavaSqlTime_RESTRICT
-#define JavaSqlTime_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlTime")
+#ifdef RESTRICT_JavaSqlTime
+#define INCLUDE_ALL_JavaSqlTime 0
 #else
-#define JavaSqlTime_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlTime 1
 #endif
-#undef JavaSqlTime_RESTRICT
+#undef RESTRICT_JavaSqlTime
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlTime_) && (JavaSqlTime_INCLUDE_ALL || defined(JavaSqlTime_INCLUDE))
+#if !defined (JavaSqlTime_) && (INCLUDE_ALL_JavaSqlTime || defined(INCLUDE_JavaSqlTime))
 #define JavaSqlTime_
 
-#define JavaUtilDate_RESTRICT 1
-#define JavaUtilDate_INCLUDE 1
+#define RESTRICT_JavaUtilDate 1
+#define INCLUDE_JavaUtilDate 1
 #include "../../java/util/Date.h"
+
+@class IOSObjectArray;
 
 /*!
  @brief Java representation of an SQL <code>TIME</code> value.
@@ -151,9 +153,13 @@ FOUNDATION_EXPORT void JavaSqlTime_initWithInt_withInt_withInt_(JavaSqlTime *sel
 
 FOUNDATION_EXPORT JavaSqlTime *new_JavaSqlTime_initWithInt_withInt_withInt_(jint theHour, jint theMinute, jint theSecond) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlTime *create_JavaSqlTime_initWithInt_withInt_withInt_(jint theHour, jint theMinute, jint theSecond);
+
 FOUNDATION_EXPORT void JavaSqlTime_initWithLong_(JavaSqlTime *self, jlong theTime);
 
 FOUNDATION_EXPORT JavaSqlTime *new_JavaSqlTime_initWithLong_(jlong theTime) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlTime *create_JavaSqlTime_initWithLong_(jlong theTime);
 
 FOUNDATION_EXPORT JavaSqlTime *JavaSqlTime_valueOfWithNSString_(NSString *timeString);
 
@@ -163,4 +169,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlTime)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlTime_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlTime")

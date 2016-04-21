@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityMessageDigest_INCLUDE_ALL")
-#ifdef JavaSecurityMessageDigest_RESTRICT
-#define JavaSecurityMessageDigest_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityMessageDigest")
+#ifdef RESTRICT_JavaSecurityMessageDigest
+#define INCLUDE_ALL_JavaSecurityMessageDigest 0
 #else
-#define JavaSecurityMessageDigest_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityMessageDigest 1
 #endif
-#undef JavaSecurityMessageDigest_RESTRICT
+#undef RESTRICT_JavaSecurityMessageDigest
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityMessageDigest_) && (JavaSecurityMessageDigest_INCLUDE_ALL || defined(JavaSecurityMessageDigest_INCLUDE))
+#if !defined (JavaSecurityMessageDigest_) && (INCLUDE_ALL_JavaSecurityMessageDigest || defined(INCLUDE_JavaSecurityMessageDigest))
 #define JavaSecurityMessageDigest_
 
-#define JavaSecurityMessageDigestSpi_RESTRICT 1
-#define JavaSecurityMessageDigestSpi_INCLUDE 1
+#define RESTRICT_JavaSecurityMessageDigestSpi 1
+#define INCLUDE_JavaSecurityMessageDigestSpi 1
 #include "../../java/security/MessageDigestSpi.h"
 
 @class IOSByteArray;
@@ -269,4 +269,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityMessageDigest)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityMessageDigest_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityMessageDigest")

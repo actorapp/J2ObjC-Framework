@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoOutputStreamWriter_INCLUDE_ALL")
-#ifdef JavaIoOutputStreamWriter_RESTRICT
-#define JavaIoOutputStreamWriter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoOutputStreamWriter")
+#ifdef RESTRICT_JavaIoOutputStreamWriter
+#define INCLUDE_ALL_JavaIoOutputStreamWriter 0
 #else
-#define JavaIoOutputStreamWriter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoOutputStreamWriter 1
 #endif
-#undef JavaIoOutputStreamWriter_RESTRICT
+#undef RESTRICT_JavaIoOutputStreamWriter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoOutputStreamWriter_) && (JavaIoOutputStreamWriter_INCLUDE_ALL || defined(JavaIoOutputStreamWriter_INCLUDE))
+#if !defined (JavaIoOutputStreamWriter_) && (INCLUDE_ALL_JavaIoOutputStreamWriter || defined(INCLUDE_JavaIoOutputStreamWriter))
 #define JavaIoOutputStreamWriter_
 
-#define JavaIoWriter_RESTRICT 1
-#define JavaIoWriter_INCLUDE 1
+#define RESTRICT_JavaIoWriter 1
+#define INCLUDE_JavaIoWriter 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -198,17 +198,25 @@ FOUNDATION_EXPORT void JavaIoOutputStreamWriter_initWithJavaIoOutputStream_(Java
 
 FOUNDATION_EXPORT JavaIoOutputStreamWriter *new_JavaIoOutputStreamWriter_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoOutputStreamWriter *create_JavaIoOutputStreamWriter_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg);
+
 FOUNDATION_EXPORT void JavaIoOutputStreamWriter_initWithJavaIoOutputStream_withNSString_(JavaIoOutputStreamWriter *self, JavaIoOutputStream *outArg, NSString *charsetName);
 
 FOUNDATION_EXPORT JavaIoOutputStreamWriter *new_JavaIoOutputStreamWriter_initWithJavaIoOutputStream_withNSString_(JavaIoOutputStream *outArg, NSString *charsetName) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoOutputStreamWriter *create_JavaIoOutputStreamWriter_initWithJavaIoOutputStream_withNSString_(JavaIoOutputStream *outArg, NSString *charsetName);
 
 FOUNDATION_EXPORT void JavaIoOutputStreamWriter_initWithJavaIoOutputStream_withJavaNioCharsetCharset_(JavaIoOutputStreamWriter *self, JavaIoOutputStream *outArg, JavaNioCharsetCharset *cs);
 
 FOUNDATION_EXPORT JavaIoOutputStreamWriter *new_JavaIoOutputStreamWriter_initWithJavaIoOutputStream_withJavaNioCharsetCharset_(JavaIoOutputStream *outArg, JavaNioCharsetCharset *cs) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoOutputStreamWriter *create_JavaIoOutputStreamWriter_initWithJavaIoOutputStream_withJavaNioCharsetCharset_(JavaIoOutputStream *outArg, JavaNioCharsetCharset *cs);
+
 FOUNDATION_EXPORT void JavaIoOutputStreamWriter_initWithJavaIoOutputStream_withJavaNioCharsetCharsetEncoder_(JavaIoOutputStreamWriter *self, JavaIoOutputStream *outArg, JavaNioCharsetCharsetEncoder *charsetEncoder);
 
 FOUNDATION_EXPORT JavaIoOutputStreamWriter *new_JavaIoOutputStreamWriter_initWithJavaIoOutputStream_withJavaNioCharsetCharsetEncoder_(JavaIoOutputStream *outArg, JavaNioCharsetCharsetEncoder *charsetEncoder) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoOutputStreamWriter *create_JavaIoOutputStreamWriter_initWithJavaIoOutputStream_withJavaNioCharsetCharsetEncoder_(JavaIoOutputStream *outArg, JavaNioCharsetCharsetEncoder *charsetEncoder);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoOutputStreamWriter)
 
@@ -216,4 +224,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoOutputStreamWriter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoOutputStreamWriter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoOutputStreamWriter")

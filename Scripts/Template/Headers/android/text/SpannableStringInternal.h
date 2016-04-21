@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextSpannableStringInternal_INCLUDE_ALL")
-#ifdef AndroidTextSpannableStringInternal_RESTRICT
-#define AndroidTextSpannableStringInternal_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextSpannableStringInternal")
+#ifdef RESTRICT_AndroidTextSpannableStringInternal
+#define INCLUDE_ALL_AndroidTextSpannableStringInternal 0
 #else
-#define AndroidTextSpannableStringInternal_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextSpannableStringInternal 1
 #endif
-#undef AndroidTextSpannableStringInternal_RESTRICT
+#undef RESTRICT_AndroidTextSpannableStringInternal
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextSpannableStringInternal_) && (AndroidTextSpannableStringInternal_INCLUDE_ALL || defined(AndroidTextSpannableStringInternal_INCLUDE))
+#if !defined (AndroidTextSpannableStringInternal_) && (INCLUDE_ALL_AndroidTextSpannableStringInternal || defined(INCLUDE_AndroidTextSpannableStringInternal))
 #define AndroidTextSpannableStringInternal_
 
-#define JavaLangCharSequence_RESTRICT 1
-#define JavaLangCharSequence_INCLUDE 1
+#define RESTRICT_JavaLangCharSequence 1
+#define INCLUDE_JavaLangCharSequence 1
 #include "../../java/lang/CharSequence.h"
 
 @class IOSCharArray;
@@ -92,4 +92,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSpannableStringInternal)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextSpannableStringInternal_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextSpannableStringInternal")

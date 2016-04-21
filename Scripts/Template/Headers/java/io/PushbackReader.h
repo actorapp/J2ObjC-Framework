@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoPushbackReader_INCLUDE_ALL")
-#ifdef JavaIoPushbackReader_RESTRICT
-#define JavaIoPushbackReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoPushbackReader")
+#ifdef RESTRICT_JavaIoPushbackReader
+#define INCLUDE_ALL_JavaIoPushbackReader 0
 #else
-#define JavaIoPushbackReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoPushbackReader 1
 #endif
-#undef JavaIoPushbackReader_RESTRICT
+#undef RESTRICT_JavaIoPushbackReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoPushbackReader_) && (JavaIoPushbackReader_INCLUDE_ALL || defined(JavaIoPushbackReader_INCLUDE))
+#if !defined (JavaIoPushbackReader_) && (INCLUDE_ALL_JavaIoPushbackReader || defined(INCLUDE_JavaIoPushbackReader))
 #define JavaIoPushbackReader_
 
-#define JavaIoFilterReader_RESTRICT 1
-#define JavaIoFilterReader_INCLUDE 1
+#define RESTRICT_JavaIoFilterReader 1
+#define INCLUDE_JavaIoFilterReader 1
 #include "../../java/io/FilterReader.h"
 
 @class IOSCharArray;
@@ -256,9 +256,13 @@ FOUNDATION_EXPORT void JavaIoPushbackReader_initWithJavaIoReader_(JavaIoPushback
 
 FOUNDATION_EXPORT JavaIoPushbackReader *new_JavaIoPushbackReader_initWithJavaIoReader_(JavaIoReader *inArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPushbackReader *create_JavaIoPushbackReader_initWithJavaIoReader_(JavaIoReader *inArg);
+
 FOUNDATION_EXPORT void JavaIoPushbackReader_initWithJavaIoReader_withInt_(JavaIoPushbackReader *self, JavaIoReader *inArg, jint size);
 
 FOUNDATION_EXPORT JavaIoPushbackReader *new_JavaIoPushbackReader_initWithJavaIoReader_withInt_(JavaIoReader *inArg, jint size) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPushbackReader *create_JavaIoPushbackReader_initWithJavaIoReader_withInt_(JavaIoReader *inArg, jint size);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPushbackReader)
 
@@ -266,4 +270,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPushbackReader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoPushbackReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoPushbackReader")

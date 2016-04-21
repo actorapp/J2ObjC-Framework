@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsSeekableByteChannel_INCLUDE_ALL")
-#ifdef JavaNioChannelsSeekableByteChannel_RESTRICT
-#define JavaNioChannelsSeekableByteChannel_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsSeekableByteChannel")
+#ifdef RESTRICT_JavaNioChannelsSeekableByteChannel
+#define INCLUDE_ALL_JavaNioChannelsSeekableByteChannel 0
 #else
-#define JavaNioChannelsSeekableByteChannel_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsSeekableByteChannel 1
 #endif
-#undef JavaNioChannelsSeekableByteChannel_RESTRICT
+#undef RESTRICT_JavaNioChannelsSeekableByteChannel
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsSeekableByteChannel_) && (JavaNioChannelsSeekableByteChannel_INCLUDE_ALL || defined(JavaNioChannelsSeekableByteChannel_INCLUDE))
+#if !defined (JavaNioChannelsSeekableByteChannel_) && (INCLUDE_ALL_JavaNioChannelsSeekableByteChannel || defined(INCLUDE_JavaNioChannelsSeekableByteChannel))
 #define JavaNioChannelsSeekableByteChannel_
 
-#define JavaNioChannelsByteChannel_RESTRICT 1
-#define JavaNioChannelsByteChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsByteChannel 1
+#define INCLUDE_JavaNioChannelsByteChannel 1
 #include "../../../java/nio/channels/ByteChannel.h"
 
 @class JavaNioByteBuffer;
@@ -159,4 +159,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSeekableByteChannel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsSeekableByteChannel_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSeekableByteChannel")

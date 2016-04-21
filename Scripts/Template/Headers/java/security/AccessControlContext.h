@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityAccessControlContext_INCLUDE_ALL")
-#ifdef JavaSecurityAccessControlContext_RESTRICT
-#define JavaSecurityAccessControlContext_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityAccessControlContext")
+#ifdef RESTRICT_JavaSecurityAccessControlContext
+#define INCLUDE_ALL_JavaSecurityAccessControlContext 0
 #else
-#define JavaSecurityAccessControlContext_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityAccessControlContext 1
 #endif
-#undef JavaSecurityAccessControlContext_RESTRICT
+#undef RESTRICT_JavaSecurityAccessControlContext
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityAccessControlContext_) && (JavaSecurityAccessControlContext_INCLUDE_ALL || defined(JavaSecurityAccessControlContext_INCLUDE))
+#if !defined (JavaSecurityAccessControlContext_) && (INCLUDE_ALL_JavaSecurityAccessControlContext || defined(INCLUDE_JavaSecurityAccessControlContext))
 #define JavaSecurityAccessControlContext_
 
 @class IOSObjectArray;
@@ -47,9 +47,13 @@ FOUNDATION_EXPORT void JavaSecurityAccessControlContext_initWithJavaSecurityAcce
 
 FOUNDATION_EXPORT JavaSecurityAccessControlContext *new_JavaSecurityAccessControlContext_initWithJavaSecurityAccessControlContext_withJavaSecurityDomainCombiner_(JavaSecurityAccessControlContext *acc, id<JavaSecurityDomainCombiner> combiner) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityAccessControlContext *create_JavaSecurityAccessControlContext_initWithJavaSecurityAccessControlContext_withJavaSecurityDomainCombiner_(JavaSecurityAccessControlContext *acc, id<JavaSecurityDomainCombiner> combiner);
+
 FOUNDATION_EXPORT void JavaSecurityAccessControlContext_initWithJavaSecurityProtectionDomainArray_(JavaSecurityAccessControlContext *self, IOSObjectArray *context);
 
 FOUNDATION_EXPORT JavaSecurityAccessControlContext *new_JavaSecurityAccessControlContext_initWithJavaSecurityProtectionDomainArray_(IOSObjectArray *context) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityAccessControlContext *create_JavaSecurityAccessControlContext_initWithJavaSecurityProtectionDomainArray_(IOSObjectArray *context);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAccessControlContext)
 
@@ -57,4 +61,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAccessControlContext)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityAccessControlContext_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityAccessControlContext")

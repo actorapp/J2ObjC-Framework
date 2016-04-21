@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformStreamFilePathToURI_INCLUDE_ALL")
-#ifdef JavaxXmlTransformStreamFilePathToURI_RESTRICT
-#define JavaxXmlTransformStreamFilePathToURI_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformStreamFilePathToURI")
+#ifdef RESTRICT_JavaxXmlTransformStreamFilePathToURI
+#define INCLUDE_ALL_JavaxXmlTransformStreamFilePathToURI 0
 #else
-#define JavaxXmlTransformStreamFilePathToURI_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformStreamFilePathToURI 1
 #endif
-#undef JavaxXmlTransformStreamFilePathToURI_RESTRICT
+#undef RESTRICT_JavaxXmlTransformStreamFilePathToURI
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformStreamFilePathToURI_) && (JavaxXmlTransformStreamFilePathToURI_INCLUDE_ALL || defined(JavaxXmlTransformStreamFilePathToURI_INCLUDE))
+#if !defined (JavaxXmlTransformStreamFilePathToURI_) && (INCLUDE_ALL_JavaxXmlTransformStreamFilePathToURI || defined(INCLUDE_JavaxXmlTransformStreamFilePathToURI))
 #define JavaxXmlTransformStreamFilePathToURI_
 
 @interface JavaxXmlTransformStreamFilePathToURI : NSObject
@@ -39,10 +39,12 @@ FOUNDATION_EXPORT void JavaxXmlTransformStreamFilePathToURI_init(JavaxXmlTransfo
 
 FOUNDATION_EXPORT JavaxXmlTransformStreamFilePathToURI *new_JavaxXmlTransformStreamFilePathToURI_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformStreamFilePathToURI *create_JavaxXmlTransformStreamFilePathToURI_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformStreamFilePathToURI)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformStreamFilePathToURI_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformStreamFilePathToURI")

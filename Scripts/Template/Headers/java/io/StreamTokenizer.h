@@ -5,20 +5,21 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoStreamTokenizer_INCLUDE_ALL")
-#ifdef JavaIoStreamTokenizer_RESTRICT
-#define JavaIoStreamTokenizer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoStreamTokenizer")
+#ifdef RESTRICT_JavaIoStreamTokenizer
+#define INCLUDE_ALL_JavaIoStreamTokenizer 0
 #else
-#define JavaIoStreamTokenizer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoStreamTokenizer 1
 #endif
-#undef JavaIoStreamTokenizer_RESTRICT
+#undef RESTRICT_JavaIoStreamTokenizer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoStreamTokenizer_) && (JavaIoStreamTokenizer_INCLUDE_ALL || defined(JavaIoStreamTokenizer_INCLUDE))
+#if !defined (JavaIoStreamTokenizer_) && (INCLUDE_ALL_JavaIoStreamTokenizer || defined(INCLUDE_JavaIoStreamTokenizer))
 #define JavaIoStreamTokenizer_
 
+@class IOSObjectArray;
 @class JavaIoInputStream;
 @class JavaIoReader;
 
@@ -280,9 +281,13 @@ FOUNDATION_EXPORT void JavaIoStreamTokenizer_initWithJavaIoInputStream_(JavaIoSt
 
 FOUNDATION_EXPORT JavaIoStreamTokenizer *new_JavaIoStreamTokenizer_initWithJavaIoInputStream_(JavaIoInputStream *is) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoStreamTokenizer *create_JavaIoStreamTokenizer_initWithJavaIoInputStream_(JavaIoInputStream *is);
+
 FOUNDATION_EXPORT void JavaIoStreamTokenizer_initWithJavaIoReader_(JavaIoStreamTokenizer *self, JavaIoReader *r);
 
 FOUNDATION_EXPORT JavaIoStreamTokenizer *new_JavaIoStreamTokenizer_initWithJavaIoReader_(JavaIoReader *r) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoStreamTokenizer *create_JavaIoStreamTokenizer_initWithJavaIoReader_(JavaIoReader *r);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoStreamTokenizer)
 
@@ -290,4 +295,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoStreamTokenizer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoStreamTokenizer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoStreamTokenizer")

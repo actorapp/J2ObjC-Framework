@@ -5,38 +5,38 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsSocketChannel_INCLUDE_ALL")
-#ifdef JavaNioChannelsSocketChannel_RESTRICT
-#define JavaNioChannelsSocketChannel_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsSocketChannel")
+#ifdef RESTRICT_JavaNioChannelsSocketChannel
+#define INCLUDE_ALL_JavaNioChannelsSocketChannel 0
 #else
-#define JavaNioChannelsSocketChannel_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsSocketChannel 1
 #endif
-#undef JavaNioChannelsSocketChannel_RESTRICT
+#undef RESTRICT_JavaNioChannelsSocketChannel
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsSocketChannel_) && (JavaNioChannelsSocketChannel_INCLUDE_ALL || defined(JavaNioChannelsSocketChannel_INCLUDE))
+#if !defined (JavaNioChannelsSocketChannel_) && (INCLUDE_ALL_JavaNioChannelsSocketChannel || defined(INCLUDE_JavaNioChannelsSocketChannel))
 #define JavaNioChannelsSocketChannel_
 
-#define JavaNioChannelsSpiAbstractSelectableChannel_RESTRICT 1
-#define JavaNioChannelsSpiAbstractSelectableChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsSpiAbstractSelectableChannel 1
+#define INCLUDE_JavaNioChannelsSpiAbstractSelectableChannel 1
 #include "../../../java/nio/channels/spi/AbstractSelectableChannel.h"
 
-#define JavaNioChannelsByteChannel_RESTRICT 1
-#define JavaNioChannelsByteChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsByteChannel 1
+#define INCLUDE_JavaNioChannelsByteChannel 1
 #include "../../../java/nio/channels/ByteChannel.h"
 
-#define JavaNioChannelsScatteringByteChannel_RESTRICT 1
-#define JavaNioChannelsScatteringByteChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsScatteringByteChannel 1
+#define INCLUDE_JavaNioChannelsScatteringByteChannel 1
 #include "../../../java/nio/channels/ScatteringByteChannel.h"
 
-#define JavaNioChannelsGatheringByteChannel_RESTRICT 1
-#define JavaNioChannelsGatheringByteChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsGatheringByteChannel 1
+#define INCLUDE_JavaNioChannelsGatheringByteChannel 1
 #include "../../../java/nio/channels/GatheringByteChannel.h"
 
-#define JavaNioChannelsNetworkChannel_RESTRICT 1
-#define JavaNioChannelsNetworkChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsNetworkChannel 1
+#define INCLUDE_JavaNioChannelsNetworkChannel 1
 #include "../../../java/nio/channels/NetworkChannel.h"
 
 @class IOSObjectArray;
@@ -467,4 +467,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSocketChannel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsSocketChannel_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSocketChannel")

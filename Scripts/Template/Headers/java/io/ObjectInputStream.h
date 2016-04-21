@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoObjectInputStream_INCLUDE_ALL")
-#ifdef JavaIoObjectInputStream_RESTRICT
-#define JavaIoObjectInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoObjectInputStream")
+#ifdef RESTRICT_JavaIoObjectInputStream
+#define INCLUDE_ALL_JavaIoObjectInputStream 0
 #else
-#define JavaIoObjectInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoObjectInputStream 1
 #endif
-#undef JavaIoObjectInputStream_RESTRICT
+#undef RESTRICT_JavaIoObjectInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoObjectInputStream_) && (JavaIoObjectInputStream_INCLUDE_ALL || defined(JavaIoObjectInputStream_INCLUDE))
+#if !defined (JavaIoObjectInputStream_) && (INCLUDE_ALL_JavaIoObjectInputStream || defined(INCLUDE_JavaIoObjectInputStream))
 #define JavaIoObjectInputStream_
 
-#define JavaIoInputStream_RESTRICT 1
-#define JavaIoInputStream_INCLUDE 1
+#define RESTRICT_JavaIoInputStream 1
+#define INCLUDE_JavaIoInputStream 1
 #include "../../java/io/InputStream.h"
 
-#define JavaIoObjectInput_RESTRICT 1
-#define JavaIoObjectInput_INCLUDE 1
+#define RESTRICT_JavaIoObjectInput 1
+#define INCLUDE_JavaIoObjectInput 1
 #include "../../java/io/ObjectInput.h"
 
-#define JavaIoObjectStreamConstants_RESTRICT 1
-#define JavaIoObjectStreamConstants_INCLUDE 1
+#define RESTRICT_JavaIoObjectStreamConstants 1
+#define INCLUDE_JavaIoObjectStreamConstants 1
 #include "../../java/io/ObjectStreamConstants.h"
 
 @class IOSByteArray;
@@ -492,15 +492,19 @@ FOUNDATION_EXPORT void JavaIoObjectInputStream_init(JavaIoObjectInputStream *sel
 
 FOUNDATION_EXPORT JavaIoObjectInputStream *new_JavaIoObjectInputStream_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoObjectInputStream *create_JavaIoObjectInputStream_init();
+
 FOUNDATION_EXPORT void JavaIoObjectInputStream_initWithJavaIoInputStream_(JavaIoObjectInputStream *self, JavaIoInputStream *input);
 
 FOUNDATION_EXPORT JavaIoObjectInputStream *new_JavaIoObjectInputStream_initWithJavaIoInputStream_(JavaIoInputStream *input) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoObjectInputStream *create_JavaIoObjectInputStream_initWithJavaIoInputStream_(JavaIoInputStream *input);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInputStream)
 
 #endif
 
-#if !defined (JavaIoObjectInputStream_InputValidationDesc_) && (JavaIoObjectInputStream_INCLUDE_ALL || defined(JavaIoObjectInputStream_InputValidationDesc_INCLUDE))
+#if !defined (JavaIoObjectInputStream_InputValidationDesc_) && (INCLUDE_ALL_JavaIoObjectInputStream || defined(INCLUDE_JavaIoObjectInputStream_InputValidationDesc))
 #define JavaIoObjectInputStream_InputValidationDesc_
 
 @protocol JavaIoObjectInputValidation;
@@ -525,11 +529,13 @@ FOUNDATION_EXPORT void JavaIoObjectInputStream_InputValidationDesc_init(JavaIoOb
 
 FOUNDATION_EXPORT JavaIoObjectInputStream_InputValidationDesc *new_JavaIoObjectInputStream_InputValidationDesc_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoObjectInputStream_InputValidationDesc *create_JavaIoObjectInputStream_InputValidationDesc_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInputStream_InputValidationDesc)
 
 #endif
 
-#if !defined (JavaIoObjectInputStream_GetField_) && (JavaIoObjectInputStream_INCLUDE_ALL || defined(JavaIoObjectInputStream_GetField_INCLUDE))
+#if !defined (JavaIoObjectInputStream_GetField_) && (INCLUDE_ALL_JavaIoObjectInputStream || defined(INCLUDE_JavaIoObjectInputStream_GetField))
 #define JavaIoObjectInputStream_GetField_
 
 @class JavaIoObjectStreamClass;
@@ -749,4 +755,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoObjectInputStream_GetField)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoObjectInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoObjectInputStream")

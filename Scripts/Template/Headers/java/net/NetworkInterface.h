@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetNetworkInterface_INCLUDE_ALL")
-#ifdef JavaNetNetworkInterface_RESTRICT
-#define JavaNetNetworkInterface_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetNetworkInterface")
+#ifdef RESTRICT_JavaNetNetworkInterface
+#define INCLUDE_ALL_JavaNetNetworkInterface 0
 #else
-#define JavaNetNetworkInterface_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetNetworkInterface 1
 #endif
-#undef JavaNetNetworkInterface_RESTRICT
+#undef RESTRICT_JavaNetNetworkInterface
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetNetworkInterface_) && (JavaNetNetworkInterface_INCLUDE_ALL || defined(JavaNetNetworkInterface_INCLUDE))
+#if !defined (JavaNetNetworkInterface_) && (INCLUDE_ALL_JavaNetNetworkInterface || defined(INCLUDE_JavaNetNetworkInterface))
 #define JavaNetNetworkInterface_
 
 @class IOSByteArray;
@@ -230,4 +230,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetNetworkInterface)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetNetworkInterface_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetNetworkInterface")

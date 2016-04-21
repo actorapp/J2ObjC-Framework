@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilBitSet_INCLUDE_ALL")
-#ifdef JavaUtilBitSet_RESTRICT
-#define JavaUtilBitSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilBitSet")
+#ifdef RESTRICT_JavaUtilBitSet
+#define INCLUDE_ALL_JavaUtilBitSet 0
 #else
-#define JavaUtilBitSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilBitSet 1
 #endif
-#undef JavaUtilBitSet_RESTRICT
+#undef RESTRICT_JavaUtilBitSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilBitSet_) && (JavaUtilBitSet_INCLUDE_ALL || defined(JavaUtilBitSet_INCLUDE))
+#if !defined (JavaUtilBitSet_) && (INCLUDE_ALL_JavaUtilBitSet || defined(INCLUDE_JavaUtilBitSet))
 #define JavaUtilBitSet_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -285,9 +285,13 @@ FOUNDATION_EXPORT void JavaUtilBitSet_init(JavaUtilBitSet *self);
 
 FOUNDATION_EXPORT JavaUtilBitSet *new_JavaUtilBitSet_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilBitSet *create_JavaUtilBitSet_init();
+
 FOUNDATION_EXPORT void JavaUtilBitSet_initWithInt_(JavaUtilBitSet *self, jint bitCount);
 
 FOUNDATION_EXPORT JavaUtilBitSet *new_JavaUtilBitSet_initWithInt_(jint bitCount) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilBitSet *create_JavaUtilBitSet_initWithInt_(jint bitCount);
 
 FOUNDATION_EXPORT JavaUtilBitSet *JavaUtilBitSet_valueOfWithLongArray_(IOSLongArray *longs);
 
@@ -303,4 +307,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilBitSet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilBitSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilBitSet")

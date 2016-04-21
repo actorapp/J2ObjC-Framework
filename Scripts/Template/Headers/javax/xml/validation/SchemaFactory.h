@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlValidationSchemaFactory_INCLUDE_ALL")
-#ifdef JavaxXmlValidationSchemaFactory_RESTRICT
-#define JavaxXmlValidationSchemaFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlValidationSchemaFactory")
+#ifdef RESTRICT_JavaxXmlValidationSchemaFactory
+#define INCLUDE_ALL_JavaxXmlValidationSchemaFactory 0
 #else
-#define JavaxXmlValidationSchemaFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlValidationSchemaFactory 1
 #endif
-#undef JavaxXmlValidationSchemaFactory_RESTRICT
+#undef RESTRICT_JavaxXmlValidationSchemaFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlValidationSchemaFactory_) && (JavaxXmlValidationSchemaFactory_INCLUDE_ALL || defined(JavaxXmlValidationSchemaFactory_INCLUDE))
+#if !defined (JavaxXmlValidationSchemaFactory_) && (INCLUDE_ALL_JavaxXmlValidationSchemaFactory || defined(INCLUDE_JavaxXmlValidationSchemaFactory))
 #define JavaxXmlValidationSchemaFactory_
 
 @class IOSObjectArray;
@@ -547,4 +547,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlValidationSchemaFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlValidationSchemaFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlValidationSchemaFactory")

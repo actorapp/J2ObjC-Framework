@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityKeyPair_INCLUDE_ALL")
-#ifdef JavaSecurityKeyPair_RESTRICT
-#define JavaSecurityKeyPair_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityKeyPair")
+#ifdef RESTRICT_JavaSecurityKeyPair
+#define INCLUDE_ALL_JavaSecurityKeyPair 0
 #else
-#define JavaSecurityKeyPair_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityKeyPair 1
 #endif
-#undef JavaSecurityKeyPair_RESTRICT
+#undef RESTRICT_JavaSecurityKeyPair
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityKeyPair_) && (JavaSecurityKeyPair_INCLUDE_ALL || defined(JavaSecurityKeyPair_INCLUDE))
+#if !defined (JavaSecurityKeyPair_) && (INCLUDE_ALL_JavaSecurityKeyPair || defined(INCLUDE_JavaSecurityKeyPair))
 #define JavaSecurityKeyPair_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @protocol JavaSecurityPrivateKey;
@@ -68,10 +68,12 @@ FOUNDATION_EXPORT void JavaSecurityKeyPair_initWithJavaSecurityPublicKey_withJav
 
 FOUNDATION_EXPORT JavaSecurityKeyPair *new_JavaSecurityKeyPair_initWithJavaSecurityPublicKey_withJavaSecurityPrivateKey_(id<JavaSecurityPublicKey> publicKey, id<JavaSecurityPrivateKey> privateKey) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyPair *create_JavaSecurityKeyPair_initWithJavaSecurityPublicKey_withJavaSecurityPrivateKey_(id<JavaSecurityPublicKey> publicKey, id<JavaSecurityPrivateKey> privateKey);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyPair)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityKeyPair_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityKeyPair")

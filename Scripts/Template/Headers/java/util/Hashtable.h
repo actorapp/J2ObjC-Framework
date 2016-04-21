@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilHashtable_INCLUDE_ALL")
-#ifdef JavaUtilHashtable_RESTRICT
-#define JavaUtilHashtable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilHashtable")
+#ifdef RESTRICT_JavaUtilHashtable
+#define INCLUDE_ALL_JavaUtilHashtable 0
 #else
-#define JavaUtilHashtable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilHashtable 1
 #endif
-#undef JavaUtilHashtable_RESTRICT
+#undef RESTRICT_JavaUtilHashtable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilHashtable_) && (JavaUtilHashtable_INCLUDE_ALL || defined(JavaUtilHashtable_INCLUDE))
+#if !defined (JavaUtilHashtable_) && (INCLUDE_ALL_JavaUtilHashtable || defined(INCLUDE_JavaUtilHashtable))
 #define JavaUtilHashtable_
 
-#define JavaUtilDictionary_RESTRICT 1
-#define JavaUtilDictionary_INCLUDE 1
+#define RESTRICT_JavaUtilDictionary 1
+#define INCLUDE_JavaUtilDictionary 1
 #include "../../java/util/Dictionary.h"
 
-#define JavaUtilMap_RESTRICT 1
-#define JavaUtilMap_INCLUDE 1
+#define RESTRICT_JavaUtilMap 1
+#define INCLUDE_JavaUtilMap 1
 #include "../../java/util/Map.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @protocol JavaUtilCollection;
@@ -281,17 +281,25 @@ FOUNDATION_EXPORT void JavaUtilHashtable_init(JavaUtilHashtable *self);
 
 FOUNDATION_EXPORT JavaUtilHashtable *new_JavaUtilHashtable_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilHashtable *create_JavaUtilHashtable_init();
+
 FOUNDATION_EXPORT void JavaUtilHashtable_initWithInt_(JavaUtilHashtable *self, jint capacity);
 
 FOUNDATION_EXPORT JavaUtilHashtable *new_JavaUtilHashtable_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilHashtable *create_JavaUtilHashtable_initWithInt_(jint capacity);
 
 FOUNDATION_EXPORT void JavaUtilHashtable_initWithInt_withFloat_(JavaUtilHashtable *self, jint capacity, jfloat loadFactor);
 
 FOUNDATION_EXPORT JavaUtilHashtable *new_JavaUtilHashtable_initWithInt_withFloat_(jint capacity, jfloat loadFactor) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilHashtable *create_JavaUtilHashtable_initWithInt_withFloat_(jint capacity, jfloat loadFactor);
+
 FOUNDATION_EXPORT void JavaUtilHashtable_initWithJavaUtilMap_(JavaUtilHashtable *self, id<JavaUtilMap> map);
 
 FOUNDATION_EXPORT JavaUtilHashtable *new_JavaUtilHashtable_initWithJavaUtilMap_(id<JavaUtilMap> map) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilHashtable *create_JavaUtilHashtable_initWithJavaUtilMap_(id<JavaUtilMap> map);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashtable)
 
@@ -299,4 +307,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashtable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilHashtable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilHashtable")

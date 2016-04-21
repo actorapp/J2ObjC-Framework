@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextFieldPosition_INCLUDE_ALL")
-#ifdef JavaTextFieldPosition_RESTRICT
-#define JavaTextFieldPosition_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextFieldPosition")
+#ifdef RESTRICT_JavaTextFieldPosition
+#define INCLUDE_ALL_JavaTextFieldPosition 0
 #else
-#define JavaTextFieldPosition_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextFieldPosition 1
 #endif
-#undef JavaTextFieldPosition_RESTRICT
+#undef RESTRICT_JavaTextFieldPosition
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextFieldPosition_) && (JavaTextFieldPosition_INCLUDE_ALL || defined(JavaTextFieldPosition_INCLUDE))
+#if !defined (JavaTextFieldPosition_) && (INCLUDE_ALL_JavaTextFieldPosition || defined(INCLUDE_JavaTextFieldPosition))
 #define JavaTextFieldPosition_
 
 @class JavaTextFormat_Field;
@@ -105,13 +105,19 @@ FOUNDATION_EXPORT void JavaTextFieldPosition_initWithInt_(JavaTextFieldPosition 
 
 FOUNDATION_EXPORT JavaTextFieldPosition *new_JavaTextFieldPosition_initWithInt_(jint field) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextFieldPosition *create_JavaTextFieldPosition_initWithInt_(jint field);
+
 FOUNDATION_EXPORT void JavaTextFieldPosition_initWithJavaTextFormat_Field_(JavaTextFieldPosition *self, JavaTextFormat_Field *attribute);
 
 FOUNDATION_EXPORT JavaTextFieldPosition *new_JavaTextFieldPosition_initWithJavaTextFormat_Field_(JavaTextFormat_Field *attribute) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextFieldPosition *create_JavaTextFieldPosition_initWithJavaTextFormat_Field_(JavaTextFormat_Field *attribute);
+
 FOUNDATION_EXPORT void JavaTextFieldPosition_initWithJavaTextFormat_Field_withInt_(JavaTextFieldPosition *self, JavaTextFormat_Field *attribute, jint field);
 
 FOUNDATION_EXPORT JavaTextFieldPosition *new_JavaTextFieldPosition_initWithJavaTextFormat_Field_withInt_(JavaTextFormat_Field *attribute, jint field) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextFieldPosition *create_JavaTextFieldPosition_initWithJavaTextFormat_Field_withInt_(JavaTextFormat_Field *attribute, jint field);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextFieldPosition)
 
@@ -119,4 +125,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextFieldPosition)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextFieldPosition_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextFieldPosition")

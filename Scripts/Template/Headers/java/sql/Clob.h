@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlClob_INCLUDE_ALL")
-#ifdef JavaSqlClob_RESTRICT
-#define JavaSqlClob_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlClob")
+#ifdef RESTRICT_JavaSqlClob
+#define INCLUDE_ALL_JavaSqlClob 0
 #else
-#define JavaSqlClob_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlClob 1
 #endif
-#undef JavaSqlClob_RESTRICT
+#undef RESTRICT_JavaSqlClob
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlClob_) && (JavaSqlClob_INCLUDE_ALL || defined(JavaSqlClob_INCLUDE))
+#if !defined (JavaSqlClob_) && (INCLUDE_ALL_JavaSqlClob || defined(INCLUDE_JavaSqlClob))
 #define JavaSqlClob_
 
 @class JavaIoInputStream;
@@ -200,4 +200,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlClob)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlClob_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlClob")

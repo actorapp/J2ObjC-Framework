@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilPropertyResourceBundle_INCLUDE_ALL")
-#ifdef JavaUtilPropertyResourceBundle_RESTRICT
-#define JavaUtilPropertyResourceBundle_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilPropertyResourceBundle")
+#ifdef RESTRICT_JavaUtilPropertyResourceBundle
+#define INCLUDE_ALL_JavaUtilPropertyResourceBundle 0
 #else
-#define JavaUtilPropertyResourceBundle_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilPropertyResourceBundle 1
 #endif
-#undef JavaUtilPropertyResourceBundle_RESTRICT
+#undef RESTRICT_JavaUtilPropertyResourceBundle
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilPropertyResourceBundle_) && (JavaUtilPropertyResourceBundle_INCLUDE_ALL || defined(JavaUtilPropertyResourceBundle_INCLUDE))
+#if !defined (JavaUtilPropertyResourceBundle_) && (INCLUDE_ALL_JavaUtilPropertyResourceBundle || defined(INCLUDE_JavaUtilPropertyResourceBundle))
 #define JavaUtilPropertyResourceBundle_
 
-#define JavaUtilResourceBundle_RESTRICT 1
-#define JavaUtilResourceBundle_INCLUDE 1
+#define RESTRICT_JavaUtilResourceBundle 1
+#define INCLUDE_JavaUtilResourceBundle 1
 #include "../../java/util/ResourceBundle.h"
 
 @class JavaIoInputStream;
@@ -82,9 +82,13 @@ FOUNDATION_EXPORT void JavaUtilPropertyResourceBundle_initWithJavaIoInputStream_
 
 FOUNDATION_EXPORT JavaUtilPropertyResourceBundle *new_JavaUtilPropertyResourceBundle_initWithJavaIoInputStream_(JavaIoInputStream *stream) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilPropertyResourceBundle *create_JavaUtilPropertyResourceBundle_initWithJavaIoInputStream_(JavaIoInputStream *stream);
+
 FOUNDATION_EXPORT void JavaUtilPropertyResourceBundle_initWithJavaIoReader_(JavaUtilPropertyResourceBundle *self, JavaIoReader *reader);
 
 FOUNDATION_EXPORT JavaUtilPropertyResourceBundle *new_JavaUtilPropertyResourceBundle_initWithJavaIoReader_(JavaIoReader *reader) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilPropertyResourceBundle *create_JavaUtilPropertyResourceBundle_initWithJavaIoReader_(JavaIoReader *reader);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPropertyResourceBundle)
 
@@ -92,4 +96,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPropertyResourceBundle)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilPropertyResourceBundle_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilPropertyResourceBundle")

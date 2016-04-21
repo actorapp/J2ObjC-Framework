@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("OrgJsonJSONTokener_INCLUDE_ALL")
-#ifdef OrgJsonJSONTokener_RESTRICT
-#define OrgJsonJSONTokener_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgJsonJSONTokener")
+#ifdef RESTRICT_OrgJsonJSONTokener
+#define INCLUDE_ALL_OrgJsonJSONTokener 0
 #else
-#define OrgJsonJSONTokener_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgJsonJSONTokener 1
 #endif
-#undef OrgJsonJSONTokener_RESTRICT
+#undef RESTRICT_OrgJsonJSONTokener
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgJsonJSONTokener_) && (OrgJsonJSONTokener_INCLUDE_ALL || defined(OrgJsonJSONTokener_INCLUDE))
+#if !defined (OrgJsonJSONTokener_) && (INCLUDE_ALL_OrgJsonJSONTokener || defined(INCLUDE_OrgJsonJSONTokener))
 #define OrgJsonJSONTokener_
 
 @class OrgJsonJSONException;
@@ -206,6 +206,8 @@ FOUNDATION_EXPORT void OrgJsonJSONTokener_initWithNSString_(OrgJsonJSONTokener *
 
 FOUNDATION_EXPORT OrgJsonJSONTokener *new_OrgJsonJSONTokener_initWithNSString_(NSString *inArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgJsonJSONTokener *create_OrgJsonJSONTokener_initWithNSString_(NSString *inArg);
+
 FOUNDATION_EXPORT jint OrgJsonJSONTokener_dehexcharWithChar_(jchar hex);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONTokener)
@@ -214,4 +216,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONTokener)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgJsonJSONTokener_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgJsonJSONTokener")

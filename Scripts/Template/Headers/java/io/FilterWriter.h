@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoFilterWriter_INCLUDE_ALL")
-#ifdef JavaIoFilterWriter_RESTRICT
-#define JavaIoFilterWriter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoFilterWriter")
+#ifdef RESTRICT_JavaIoFilterWriter
+#define INCLUDE_ALL_JavaIoFilterWriter 0
 #else
-#define JavaIoFilterWriter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoFilterWriter 1
 #endif
-#undef JavaIoFilterWriter_RESTRICT
+#undef RESTRICT_JavaIoFilterWriter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoFilterWriter_) && (JavaIoFilterWriter_INCLUDE_ALL || defined(JavaIoFilterWriter_INCLUDE))
+#if !defined (JavaIoFilterWriter_) && (INCLUDE_ALL_JavaIoFilterWriter || defined(INCLUDE_JavaIoFilterWriter))
 #define JavaIoFilterWriter_
 
-#define JavaIoWriter_RESTRICT 1
-#define JavaIoWriter_INCLUDE 1
+#define RESTRICT_JavaIoWriter 1
+#define INCLUDE_JavaIoWriter 1
 #include "../../java/io/Writer.h"
 
 @class IOSCharArray;
@@ -132,4 +132,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoFilterWriter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoFilterWriter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoFilterWriter")

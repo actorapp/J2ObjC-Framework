@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilServiceConfigurationError_INCLUDE_ALL")
-#ifdef JavaUtilServiceConfigurationError_RESTRICT
-#define JavaUtilServiceConfigurationError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilServiceConfigurationError")
+#ifdef RESTRICT_JavaUtilServiceConfigurationError
+#define INCLUDE_ALL_JavaUtilServiceConfigurationError 0
 #else
-#define JavaUtilServiceConfigurationError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilServiceConfigurationError 1
 #endif
-#undef JavaUtilServiceConfigurationError_RESTRICT
+#undef RESTRICT_JavaUtilServiceConfigurationError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilServiceConfigurationError_) && (JavaUtilServiceConfigurationError_INCLUDE_ALL || defined(JavaUtilServiceConfigurationError_INCLUDE))
+#if !defined (JavaUtilServiceConfigurationError_) && (INCLUDE_ALL_JavaUtilServiceConfigurationError || defined(INCLUDE_JavaUtilServiceConfigurationError))
 #define JavaUtilServiceConfigurationError_
 
-#define JavaLangError_RESTRICT 1
-#define JavaLangError_INCLUDE 1
+#define RESTRICT_JavaLangError 1
+#define INCLUDE_JavaLangError 1
 #include "../../java/lang/Error.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Thrown when a service provider can't be loaded by <code>ServiceLoader</code>.
@@ -45,7 +43,7 @@
  @param cause the cause, null
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 @end
 
@@ -55,9 +53,13 @@ FOUNDATION_EXPORT void JavaUtilServiceConfigurationError_initWithNSString_(JavaU
 
 FOUNDATION_EXPORT JavaUtilServiceConfigurationError *new_JavaUtilServiceConfigurationError_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaUtilServiceConfigurationError_initWithNSString_withJavaLangThrowable_(JavaUtilServiceConfigurationError *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaUtilServiceConfigurationError *create_JavaUtilServiceConfigurationError_initWithNSString_(NSString *message);
 
-FOUNDATION_EXPORT JavaUtilServiceConfigurationError *new_JavaUtilServiceConfigurationError_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaUtilServiceConfigurationError_initWithNSString_withNSException_(JavaUtilServiceConfigurationError *self, NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT JavaUtilServiceConfigurationError *new_JavaUtilServiceConfigurationError_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilServiceConfigurationError *create_JavaUtilServiceConfigurationError_initWithNSString_withNSException_(NSString *message, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilServiceConfigurationError)
 
@@ -65,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilServiceConfigurationError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilServiceConfigurationError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilServiceConfigurationError")

@@ -19,14 +19,14 @@
 // Foundation exceptions.
 //
 
-#ifndef JavaLangThrowable_H
-#define JavaLangThrowable_H
+#ifndef _NSException_JavaThrowable_H_
+#define _NSException_JavaThrowable_H_
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#include "../../J2ObjC_header.h"
-#include "../../java/io/Serializable.h"
+#include "J2ObjC_header.h"
+#include "java/io/Serializable.h"
 
 @class IOSObjectArray;
 @class JavaIoPrintStream;
@@ -49,14 +49,9 @@
  @see Exception
  @see RuntimeException
  */
-@interface JavaLangThrowable : NSException < JavaIoSerializable >
+@interface NSException(JavaLangThrowable) <JavaIoSerializable>
 
 #pragma mark Public
-
-/*!
- @brief Constructs a new <code>Throwable</code> that includes the current stack trace.
- */
-- (instancetype)init;
 
 /*!
  @brief Constructs a new <code>Throwable</code> with the current stack trace and the
@@ -69,13 +64,13 @@
  given detail message and cause.
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new <code>Throwable</code> with the current stack trace and the
  given cause.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 /*!
  @brief Adds <code>throwable</code> to the list of throwables suppressed by this.
@@ -85,7 +80,7 @@
  @throws NullPointerException if <code>throwable == null</code>.
  @since 1.7
  */
-- (void)addSuppressedWithJavaLangThrowable:(JavaLangThrowable *)throwable;
+- (void)addSuppressedWithNSException:(NSException *)throwable;
 
 /*!
  @brief Records the stack trace from the point where this method has been called
@@ -101,13 +96,13 @@
  language to avoid paying for something it doesn't need.
  @return this <code>Throwable</code> instance.
  */
-- (JavaLangThrowable *)fillInStackTrace;
+- (NSException *)fillInStackTrace;
 
 /*!
  @brief Returns the cause of this <code>Throwable</code>, or <code>null</code> if there is
  no cause.
  */
-- (JavaLangThrowable *)getCause;
+- (NSException *)getCause;
 
 /*!
  @brief Returns the detail message which was provided when this
@@ -154,7 +149,7 @@
  @throws IllegalStateException
  if the cause has already been initialized.
  */
-- (JavaLangThrowable *)initCauseWithJavaLangThrowable:(JavaLangThrowable *)throwable
+- (NSException *)initCauseWithNSException:(NSException *)throwable
     OBJC_METHOD_FAMILY_NONE;
 
 /*!
@@ -215,47 +210,52 @@
  @since 1.7
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause
+                 withNSException:(NSException *)cause
                      withBoolean:(jboolean)enableSuppression
                      withBoolean:(jboolean)writableStackTrace;
 
 @end
 
-J2OBJC_EMPTY_STATIC_INIT(JavaLangThrowable)
+J2OBJC_EMPTY_STATIC_INIT(NSException)
 
-FOUNDATION_EXPORT void JavaLangThrowable_init(JavaLangThrowable *self);
+CF_EXTERN_C_BEGIN
 
-FOUNDATION_EXPORT JavaLangThrowable *new_JavaLangThrowable_init() NS_RETURNS_RETAINED;
+void NSException_init(NSException *self);
+NSException *new_NSException_init() NS_RETURNS_RETAINED;
+NSException *create_NSException_init();
 
-FOUNDATION_EXPORT void JavaLangThrowable_initWithNSString_(
-    JavaLangThrowable *self, NSString *detailMessage);
+void NSException_initWithNSString_(NSException *self, NSString *detailMessage);
+NSException *new_NSException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+NSException *create_NSException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaLangThrowable *new_JavaLangThrowable_initWithNSString_(
-     NSString *detailMessage) NS_RETURNS_RETAINED;
+void NSException_initWithNSString_withNSException_(
+    NSException *self, NSString *detailMessage, NSException *cause);
+NSException *new_NSException_initWithNSString_withNSException_(
+    NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
+NSException *create_NSException_initWithNSString_withNSException_(
+    NSString *detailMessage, NSException *cause);
 
-FOUNDATION_EXPORT void JavaLangThrowable_initWithNSString_withJavaLangThrowable_(
-     JavaLangThrowable *self, NSString *detailMessage, JavaLangThrowable *cause);
+void NSException_initWithNSException_(NSException *self, NSException *cause);
+NSException *new_NSException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+NSException *create_NSException_initWithNSException_(NSException *cause);
 
-FOUNDATION_EXPORT JavaLangThrowable *new_JavaLangThrowable_initWithNSString_withJavaLangThrowable_(
-     NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
-
-FOUNDATION_EXPORT void JavaLangThrowable_initWithJavaLangThrowable_(
-     JavaLangThrowable *self, JavaLangThrowable *cause);
-
-FOUNDATION_EXPORT JavaLangThrowable *new_JavaLangThrowable_initWithJavaLangThrowable_(
-     JavaLangThrowable *cause) NS_RETURNS_RETAINED;
-
-FOUNDATION_EXPORT void
-JavaLangThrowable_initWithNSString_withJavaLangThrowable_withBoolean_withBoolean_(
-    JavaLangThrowable *self, NSString *detailMessage, JavaLangThrowable *cause,
-    jboolean enableSuppression, jboolean writableStackTrace);
-
-FOUNDATION_EXPORT JavaLangThrowable *
-new_JavaLangThrowable_initWithNSString_withJavaLangThrowable_withBoolean_withBoolean_(
-    NSString *detailMessage, JavaLangThrowable *cause, jboolean enableSuppression,
+void NSException_initWithNSString_withNSException_withBoolean_withBoolean_(
+    NSException *self, NSString *detailMessage, NSException *cause, jboolean enableSuppression,
+    jboolean writableStackTrace);
+NSException *new_NSException_initWithNSString_withNSException_withBoolean_withBoolean_(
+    NSString *detailMessage, NSException *cause, jboolean enableSuppression,
     jboolean writableStackTrace) NS_RETURNS_RETAINED;
+NSException *create_NSException_initWithNSString_withNSException_withBoolean_withBoolean_(
+    NSString *detailMessage, NSException *cause, jboolean enableSuppression,
+    jboolean writableStackTrace);
 
-J2OBJC_TYPE_LITERAL_HEADER(JavaLangThrowable)
+CF_EXTERN_C_END
+
+J2OBJC_TYPE_LITERAL_HEADER(NSException)
+
+// Empty class to force category to be loaded.
+@interface JreThrowableCategoryDummy : NSObject
+@end
 
 #pragma clang diagnostic pop
-#endif // JavaLangThrowable_H
+#endif // _NSException_JavaThrowable_H_

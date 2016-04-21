@@ -5,30 +5,30 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentConcurrentLinkedQueue_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentConcurrentLinkedQueue_RESTRICT
-#define JavaUtilConcurrentConcurrentLinkedQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedQueue")
+#ifdef RESTRICT_JavaUtilConcurrentConcurrentLinkedQueue
+#define INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedQueue 0
 #else
-#define JavaUtilConcurrentConcurrentLinkedQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedQueue 1
 #endif
-#undef JavaUtilConcurrentConcurrentLinkedQueue_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentConcurrentLinkedQueue
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentConcurrentLinkedQueue_) && (JavaUtilConcurrentConcurrentLinkedQueue_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentLinkedQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentLinkedQueue_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedQueue || defined(INCLUDE_JavaUtilConcurrentConcurrentLinkedQueue))
 #define JavaUtilConcurrentConcurrentLinkedQueue_
 
-#define JavaUtilAbstractQueue_RESTRICT 1
-#define JavaUtilAbstractQueue_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractQueue 1
+#define INCLUDE_JavaUtilAbstractQueue 1
 #include "../../../java/util/AbstractQueue.h"
 
-#define JavaUtilQueue_RESTRICT 1
-#define JavaUtilQueue_INCLUDE 1
+#define RESTRICT_JavaUtilQueue 1
+#define INCLUDE_JavaUtilQueue 1
 #include "../../../java/util/Queue.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -275,15 +275,19 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentLinkedQueue_init(JavaUtilConc
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentLinkedQueue *new_JavaUtilConcurrentConcurrentLinkedQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentLinkedQueue *create_JavaUtilConcurrentConcurrentLinkedQueue_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentLinkedQueue_initWithJavaUtilCollection_(JavaUtilConcurrentConcurrentLinkedQueue *self, id<JavaUtilCollection> c);
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentLinkedQueue *new_JavaUtilConcurrentConcurrentLinkedQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentLinkedQueue *create_JavaUtilConcurrentConcurrentLinkedQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedQueue)
 
 #endif
 
-#if !defined (JavaUtilConcurrentConcurrentLinkedQueue_Node_) && (JavaUtilConcurrentConcurrentLinkedQueue_INCLUDE_ALL || defined(JavaUtilConcurrentConcurrentLinkedQueue_Node_INCLUDE))
+#if !defined (JavaUtilConcurrentConcurrentLinkedQueue_Node_) && (INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedQueue || defined(INCLUDE_JavaUtilConcurrentConcurrentLinkedQueue_Node))
 #define JavaUtilConcurrentConcurrentLinkedQueue_Node_
 
 @interface JavaUtilConcurrentConcurrentLinkedQueue_Node : NSObject {
@@ -320,10 +324,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentConcurrentLinkedQueue_Node_initWithId_(
 
 FOUNDATION_EXPORT JavaUtilConcurrentConcurrentLinkedQueue_Node *new_JavaUtilConcurrentConcurrentLinkedQueue_Node_initWithId_(id item) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentConcurrentLinkedQueue_Node *create_JavaUtilConcurrentConcurrentLinkedQueue_Node_initWithId_(id item);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentConcurrentLinkedQueue_Node)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentConcurrentLinkedQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentConcurrentLinkedQueue")

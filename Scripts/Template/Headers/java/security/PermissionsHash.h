@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityPermissionsHash_INCLUDE_ALL")
-#ifdef JavaSecurityPermissionsHash_RESTRICT
-#define JavaSecurityPermissionsHash_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityPermissionsHash")
+#ifdef RESTRICT_JavaSecurityPermissionsHash
+#define INCLUDE_ALL_JavaSecurityPermissionsHash 0
 #else
-#define JavaSecurityPermissionsHash_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityPermissionsHash 1
 #endif
-#undef JavaSecurityPermissionsHash_RESTRICT
+#undef RESTRICT_JavaSecurityPermissionsHash
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityPermissionsHash_) && (JavaSecurityPermissionsHash_INCLUDE_ALL || defined(JavaSecurityPermissionsHash_INCLUDE))
+#if !defined (JavaSecurityPermissionsHash_) && (INCLUDE_ALL_JavaSecurityPermissionsHash || defined(INCLUDE_JavaSecurityPermissionsHash))
 #define JavaSecurityPermissionsHash_
 
-#define JavaSecurityPermissionCollection_RESTRICT 1
-#define JavaSecurityPermissionCollection_INCLUDE 1
+#define RESTRICT_JavaSecurityPermissionCollection 1
+#define INCLUDE_JavaSecurityPermissionCollection 1
 #include "../../java/security/PermissionCollection.h"
 
 @class JavaSecurityPermission;
@@ -74,10 +74,12 @@ FOUNDATION_EXPORT void JavaSecurityPermissionsHash_init(JavaSecurityPermissionsH
 
 FOUNDATION_EXPORT JavaSecurityPermissionsHash *new_JavaSecurityPermissionsHash_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityPermissionsHash *create_JavaSecurityPermissionsHash_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityPermissionsHash)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityPermissionsHash_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityPermissionsHash")

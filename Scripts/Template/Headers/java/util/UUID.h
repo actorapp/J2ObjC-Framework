@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilUUID_INCLUDE_ALL")
-#ifdef JavaUtilUUID_RESTRICT
-#define JavaUtilUUID_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilUUID")
+#ifdef RESTRICT_JavaUtilUUID
+#define INCLUDE_ALL_JavaUtilUUID 0
 #else
-#define JavaUtilUUID_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilUUID 1
 #endif
-#undef JavaUtilUUID_RESTRICT
+#undef RESTRICT_JavaUtilUUID
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilUUID_) && (JavaUtilUUID_INCLUDE_ALL || defined(JavaUtilUUID_INCLUDE))
+#if !defined (JavaUtilUUID_) && (INCLUDE_ALL_JavaUtilUUID || defined(INCLUDE_JavaUtilUUID))
 #define JavaUtilUUID_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSByteArray;
@@ -230,6 +230,8 @@ FOUNDATION_EXPORT void JavaUtilUUID_initWithLong_withLong_(JavaUtilUUID *self, j
 
 FOUNDATION_EXPORT JavaUtilUUID *new_JavaUtilUUID_initWithLong_withLong_(jlong mostSigBits, jlong leastSigBits) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilUUID *create_JavaUtilUUID_initWithLong_withLong_(jlong mostSigBits, jlong leastSigBits);
+
 FOUNDATION_EXPORT JavaUtilUUID *JavaUtilUUID_randomUUID();
 
 FOUNDATION_EXPORT JavaUtilUUID *JavaUtilUUID_nameUUIDFromBytesWithByteArray_(IOSByteArray *name);
@@ -242,4 +244,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilUUID)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilUUID_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilUUID")

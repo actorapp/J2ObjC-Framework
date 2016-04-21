@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformSaxTemplatesHandler_INCLUDE_ALL")
-#ifdef JavaxXmlTransformSaxTemplatesHandler_RESTRICT
-#define JavaxXmlTransformSaxTemplatesHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformSaxTemplatesHandler")
+#ifdef RESTRICT_JavaxXmlTransformSaxTemplatesHandler
+#define INCLUDE_ALL_JavaxXmlTransformSaxTemplatesHandler 0
 #else
-#define JavaxXmlTransformSaxTemplatesHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformSaxTemplatesHandler 1
 #endif
-#undef JavaxXmlTransformSaxTemplatesHandler_RESTRICT
+#undef RESTRICT_JavaxXmlTransformSaxTemplatesHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformSaxTemplatesHandler_) && (JavaxXmlTransformSaxTemplatesHandler_INCLUDE_ALL || defined(JavaxXmlTransformSaxTemplatesHandler_INCLUDE))
+#if !defined (JavaxXmlTransformSaxTemplatesHandler_) && (INCLUDE_ALL_JavaxXmlTransformSaxTemplatesHandler || defined(INCLUDE_JavaxXmlTransformSaxTemplatesHandler))
 #define JavaxXmlTransformSaxTemplatesHandler_
 
-#define OrgXmlSaxContentHandler_RESTRICT 1
-#define OrgXmlSaxContentHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxContentHandler 1
+#define INCLUDE_OrgXmlSaxContentHandler 1
 #include "../../../../org/xml/sax/ContentHandler.h"
 
 @protocol JavaxXmlTransformTemplates;
@@ -69,4 +69,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxTemplatesHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformSaxTemplatesHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformSaxTemplatesHandler")

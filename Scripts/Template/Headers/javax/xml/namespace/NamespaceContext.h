@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlNamespaceNamespaceContext_INCLUDE_ALL")
-#ifdef JavaxXmlNamespaceNamespaceContext_RESTRICT
-#define JavaxXmlNamespaceNamespaceContext_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlNamespaceNamespaceContext")
+#ifdef RESTRICT_JavaxXmlNamespaceNamespaceContext
+#define INCLUDE_ALL_JavaxXmlNamespaceNamespaceContext 0
 #else
-#define JavaxXmlNamespaceNamespaceContext_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlNamespaceNamespaceContext 1
 #endif
-#undef JavaxXmlNamespaceNamespaceContext_RESTRICT
+#undef RESTRICT_JavaxXmlNamespaceNamespaceContext
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlNamespaceNamespaceContext_) && (JavaxXmlNamespaceNamespaceContext_INCLUDE_ALL || defined(JavaxXmlNamespaceNamespaceContext_INCLUDE))
+#if !defined (JavaxXmlNamespaceNamespaceContext_) && (INCLUDE_ALL_JavaxXmlNamespaceNamespaceContext || defined(INCLUDE_JavaxXmlNamespaceNamespaceContext))
 #define JavaxXmlNamespaceNamespaceContext_
 
 @protocol JavaUtilIterator;
@@ -254,4 +254,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlNamespaceNamespaceContext)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlNamespaceNamespaceContext_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlNamespaceNamespaceContext")

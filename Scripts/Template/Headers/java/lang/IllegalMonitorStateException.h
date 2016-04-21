@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangIllegalMonitorStateException_INCLUDE_ALL")
-#ifdef JavaLangIllegalMonitorStateException_RESTRICT
-#define JavaLangIllegalMonitorStateException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangIllegalMonitorStateException")
+#ifdef RESTRICT_JavaLangIllegalMonitorStateException
+#define INCLUDE_ALL_JavaLangIllegalMonitorStateException 0
 #else
-#define JavaLangIllegalMonitorStateException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangIllegalMonitorStateException 1
 #endif
-#undef JavaLangIllegalMonitorStateException_RESTRICT
+#undef RESTRICT_JavaLangIllegalMonitorStateException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangIllegalMonitorStateException_) && (JavaLangIllegalMonitorStateException_INCLUDE_ALL || defined(JavaLangIllegalMonitorStateException_INCLUDE))
+#if !defined (JavaLangIllegalMonitorStateException_) && (INCLUDE_ALL_JavaLangIllegalMonitorStateException || defined(INCLUDE_JavaLangIllegalMonitorStateException))
 #define JavaLangIllegalMonitorStateException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -54,9 +54,13 @@ FOUNDATION_EXPORT void JavaLangIllegalMonitorStateException_init(JavaLangIllegal
 
 FOUNDATION_EXPORT JavaLangIllegalMonitorStateException *new_JavaLangIllegalMonitorStateException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangIllegalMonitorStateException *create_JavaLangIllegalMonitorStateException_init();
+
 FOUNDATION_EXPORT void JavaLangIllegalMonitorStateException_initWithNSString_(JavaLangIllegalMonitorStateException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangIllegalMonitorStateException *new_JavaLangIllegalMonitorStateException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangIllegalMonitorStateException *create_JavaLangIllegalMonitorStateException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalMonitorStateException)
 
@@ -64,4 +68,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIllegalMonitorStateException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangIllegalMonitorStateException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangIllegalMonitorStateException")

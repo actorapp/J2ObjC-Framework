@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilInputMismatchException_INCLUDE_ALL")
-#ifdef JavaUtilInputMismatchException_RESTRICT
-#define JavaUtilInputMismatchException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilInputMismatchException")
+#ifdef RESTRICT_JavaUtilInputMismatchException
+#define INCLUDE_ALL_JavaUtilInputMismatchException 0
 #else
-#define JavaUtilInputMismatchException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilInputMismatchException 1
 #endif
-#undef JavaUtilInputMismatchException_RESTRICT
+#undef RESTRICT_JavaUtilInputMismatchException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilInputMismatchException_) && (JavaUtilInputMismatchException_INCLUDE_ALL || defined(JavaUtilInputMismatchException_INCLUDE))
+#if !defined (JavaUtilInputMismatchException_) && (INCLUDE_ALL_JavaUtilInputMismatchException || defined(INCLUDE_JavaUtilInputMismatchException))
 #define JavaUtilInputMismatchException_
 
-#define JavaUtilNoSuchElementException_RESTRICT 1
-#define JavaUtilNoSuchElementException_INCLUDE 1
+#define RESTRICT_JavaUtilNoSuchElementException 1
+#define INCLUDE_JavaUtilNoSuchElementException 1
 #include "../../java/util/NoSuchElementException.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -60,9 +60,13 @@ FOUNDATION_EXPORT void JavaUtilInputMismatchException_init(JavaUtilInputMismatch
 
 FOUNDATION_EXPORT JavaUtilInputMismatchException *new_JavaUtilInputMismatchException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilInputMismatchException *create_JavaUtilInputMismatchException_init();
+
 FOUNDATION_EXPORT void JavaUtilInputMismatchException_initWithNSString_(JavaUtilInputMismatchException *self, NSString *msg);
 
 FOUNDATION_EXPORT JavaUtilInputMismatchException *new_JavaUtilInputMismatchException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilInputMismatchException *create_JavaUtilInputMismatchException_initWithNSString_(NSString *msg);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilInputMismatchException)
 
@@ -70,4 +74,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilInputMismatchException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilInputMismatchException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilInputMismatchException")

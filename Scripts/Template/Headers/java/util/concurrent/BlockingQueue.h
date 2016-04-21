@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentBlockingQueue_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentBlockingQueue_RESTRICT
-#define JavaUtilConcurrentBlockingQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentBlockingQueue")
+#ifdef RESTRICT_JavaUtilConcurrentBlockingQueue
+#define INCLUDE_ALL_JavaUtilConcurrentBlockingQueue 0
 #else
-#define JavaUtilConcurrentBlockingQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentBlockingQueue 1
 #endif
-#undef JavaUtilConcurrentBlockingQueue_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentBlockingQueue
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentBlockingQueue_) && (JavaUtilConcurrentBlockingQueue_INCLUDE_ALL || defined(JavaUtilConcurrentBlockingQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentBlockingQueue_) && (INCLUDE_ALL_JavaUtilConcurrentBlockingQueue || defined(INCLUDE_JavaUtilConcurrentBlockingQueue))
 #define JavaUtilConcurrentBlockingQueue_
 
-#define JavaUtilQueue_RESTRICT 1
-#define JavaUtilQueue_INCLUDE 1
+#define RESTRICT_JavaUtilQueue 1
+#define INCLUDE_JavaUtilQueue 1
 #include "../../../java/util/Queue.h"
 
 @class JavaUtilConcurrentTimeUnit;
@@ -353,4 +353,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentBlockingQueue)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentBlockingQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentBlockingQueue")

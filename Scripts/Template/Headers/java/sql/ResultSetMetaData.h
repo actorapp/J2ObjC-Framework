@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlResultSetMetaData_INCLUDE_ALL")
-#ifdef JavaSqlResultSetMetaData_RESTRICT
-#define JavaSqlResultSetMetaData_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlResultSetMetaData")
+#ifdef RESTRICT_JavaSqlResultSetMetaData
+#define INCLUDE_ALL_JavaSqlResultSetMetaData 0
 #else
-#define JavaSqlResultSetMetaData_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlResultSetMetaData 1
 #endif
-#undef JavaSqlResultSetMetaData_RESTRICT
+#undef RESTRICT_JavaSqlResultSetMetaData
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlResultSetMetaData_) && (JavaSqlResultSetMetaData_INCLUDE_ALL || defined(JavaSqlResultSetMetaData_INCLUDE))
+#if !defined (JavaSqlResultSetMetaData_) && (INCLUDE_ALL_JavaSqlResultSetMetaData || defined(INCLUDE_JavaSqlResultSetMetaData))
 #define JavaSqlResultSetMetaData_
 
-#define JavaSqlWrapper_RESTRICT 1
-#define JavaSqlWrapper_INCLUDE 1
+#define RESTRICT_JavaSqlWrapper 1
+#define INCLUDE_JavaSqlWrapper 1
 #include "../../java/sql/Wrapper.h"
 
 /*!
@@ -291,4 +291,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlResultSetMetaData)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlResultSetMetaData_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlResultSetMetaData")

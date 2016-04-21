@@ -5,38 +5,38 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHelpersXMLFilterImpl_INCLUDE_ALL")
-#ifdef OrgXmlSaxHelpersXMLFilterImpl_RESTRICT
-#define OrgXmlSaxHelpersXMLFilterImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersXMLFilterImpl")
+#ifdef RESTRICT_OrgXmlSaxHelpersXMLFilterImpl
+#define INCLUDE_ALL_OrgXmlSaxHelpersXMLFilterImpl 0
 #else
-#define OrgXmlSaxHelpersXMLFilterImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHelpersXMLFilterImpl 1
 #endif
-#undef OrgXmlSaxHelpersXMLFilterImpl_RESTRICT
+#undef RESTRICT_OrgXmlSaxHelpersXMLFilterImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHelpersXMLFilterImpl_) && (OrgXmlSaxHelpersXMLFilterImpl_INCLUDE_ALL || defined(OrgXmlSaxHelpersXMLFilterImpl_INCLUDE))
+#if !defined (OrgXmlSaxHelpersXMLFilterImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersXMLFilterImpl || defined(INCLUDE_OrgXmlSaxHelpersXMLFilterImpl))
 #define OrgXmlSaxHelpersXMLFilterImpl_
 
-#define OrgXmlSaxXMLFilter_RESTRICT 1
-#define OrgXmlSaxXMLFilter_INCLUDE 1
+#define RESTRICT_OrgXmlSaxXMLFilter 1
+#define INCLUDE_OrgXmlSaxXMLFilter 1
 #include "../../../../org/xml/sax/XMLFilter.h"
 
-#define OrgXmlSaxEntityResolver_RESTRICT 1
-#define OrgXmlSaxEntityResolver_INCLUDE 1
+#define RESTRICT_OrgXmlSaxEntityResolver 1
+#define INCLUDE_OrgXmlSaxEntityResolver 1
 #include "../../../../org/xml/sax/EntityResolver.h"
 
-#define OrgXmlSaxDTDHandler_RESTRICT 1
-#define OrgXmlSaxDTDHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxDTDHandler 1
+#define INCLUDE_OrgXmlSaxDTDHandler 1
 #include "../../../../org/xml/sax/DTDHandler.h"
 
-#define OrgXmlSaxContentHandler_RESTRICT 1
-#define OrgXmlSaxContentHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxContentHandler 1
+#define INCLUDE_OrgXmlSaxContentHandler 1
 #include "../../../../org/xml/sax/ContentHandler.h"
 
-#define OrgXmlSaxErrorHandler_RESTRICT 1
-#define OrgXmlSaxErrorHandler_INCLUDE 1
+#define RESTRICT_OrgXmlSaxErrorHandler 1
+#define INCLUDE_OrgXmlSaxErrorHandler 1
 #include "../../../../org/xml/sax/ErrorHandler.h"
 
 @class IOSCharArray;
@@ -416,9 +416,13 @@ FOUNDATION_EXPORT void OrgXmlSaxHelpersXMLFilterImpl_init(OrgXmlSaxHelpersXMLFil
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersXMLFilterImpl *new_OrgXmlSaxHelpersXMLFilterImpl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHelpersXMLFilterImpl *create_OrgXmlSaxHelpersXMLFilterImpl_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxHelpersXMLFilterImpl_initWithOrgXmlSaxXMLReader_(OrgXmlSaxHelpersXMLFilterImpl *self, id<OrgXmlSaxXMLReader> parent);
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersXMLFilterImpl *new_OrgXmlSaxHelpersXMLFilterImpl_initWithOrgXmlSaxXMLReader_(id<OrgXmlSaxXMLReader> parent) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxHelpersXMLFilterImpl *create_OrgXmlSaxHelpersXMLFilterImpl_initWithOrgXmlSaxXMLReader_(id<OrgXmlSaxXMLReader> parent);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLFilterImpl)
 
@@ -426,4 +430,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersXMLFilterImpl)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHelpersXMLFilterImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersXMLFilterImpl")

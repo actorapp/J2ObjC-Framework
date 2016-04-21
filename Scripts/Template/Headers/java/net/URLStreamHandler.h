@@ -5,20 +5,21 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetURLStreamHandler_INCLUDE_ALL")
-#ifdef JavaNetURLStreamHandler_RESTRICT
-#define JavaNetURLStreamHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetURLStreamHandler")
+#ifdef RESTRICT_JavaNetURLStreamHandler
+#define INCLUDE_ALL_JavaNetURLStreamHandler 0
 #else
-#define JavaNetURLStreamHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetURLStreamHandler 1
 #endif
-#undef JavaNetURLStreamHandler_RESTRICT
+#undef RESTRICT_JavaNetURLStreamHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetURLStreamHandler_) && (JavaNetURLStreamHandler_INCLUDE_ALL || defined(JavaNetURLStreamHandler_INCLUDE))
+#if !defined (JavaNetURLStreamHandler_) && (INCLUDE_ALL_JavaNetURLStreamHandler || defined(INCLUDE_JavaNetURLStreamHandler))
 #define JavaNetURLStreamHandler_
 
+@class IOSObjectArray;
 @class JavaNetInetAddress;
 @class JavaNetProxy;
 @class JavaNetURL;
@@ -197,4 +198,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetURLStreamHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetURLStreamHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetURLStreamHandler")

@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangAutoCloseable_INCLUDE_ALL")
-#ifdef JavaLangAutoCloseable_RESTRICT
-#define JavaLangAutoCloseable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangAutoCloseable")
+#ifdef RESTRICT_JavaLangAutoCloseable
+#define INCLUDE_ALL_JavaLangAutoCloseable 0
 #else
-#define JavaLangAutoCloseable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangAutoCloseable 1
 #endif
-#undef JavaLangAutoCloseable_RESTRICT
+#undef RESTRICT_JavaLangAutoCloseable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangAutoCloseable_) && (JavaLangAutoCloseable_INCLUDE_ALL || defined(JavaLangAutoCloseable_INCLUDE))
+#if !defined (JavaLangAutoCloseable_) && (INCLUDE_ALL_JavaLangAutoCloseable || defined(INCLUDE_JavaLangAutoCloseable))
 #define JavaLangAutoCloseable_
 
 /*!
@@ -56,4 +56,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAutoCloseable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangAutoCloseable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangAutoCloseable")

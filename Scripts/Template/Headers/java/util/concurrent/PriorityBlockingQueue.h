@@ -5,30 +5,30 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentPriorityBlockingQueue_RESTRICT
-#define JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentPriorityBlockingQueue")
+#ifdef RESTRICT_JavaUtilConcurrentPriorityBlockingQueue
+#define INCLUDE_ALL_JavaUtilConcurrentPriorityBlockingQueue 0
 #else
-#define JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentPriorityBlockingQueue 1
 #endif
-#undef JavaUtilConcurrentPriorityBlockingQueue_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentPriorityBlockingQueue
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentPriorityBlockingQueue_) && (JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL || defined(JavaUtilConcurrentPriorityBlockingQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentPriorityBlockingQueue_) && (INCLUDE_ALL_JavaUtilConcurrentPriorityBlockingQueue || defined(INCLUDE_JavaUtilConcurrentPriorityBlockingQueue))
 #define JavaUtilConcurrentPriorityBlockingQueue_
 
-#define JavaUtilAbstractQueue_RESTRICT 1
-#define JavaUtilAbstractQueue_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractQueue 1
+#define INCLUDE_JavaUtilAbstractQueue 1
 #include "../../../java/util/AbstractQueue.h"
 
-#define JavaUtilConcurrentBlockingQueue_RESTRICT 1
-#define JavaUtilConcurrentBlockingQueue_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentBlockingQueue 1
+#define INCLUDE_JavaUtilConcurrentBlockingQueue 1
 #include "../../../java/util/concurrent/BlockingQueue.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -341,27 +341,35 @@ FOUNDATION_EXPORT void JavaUtilConcurrentPriorityBlockingQueue_init(JavaUtilConc
 
 FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue *new_JavaUtilConcurrentPriorityBlockingQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue *create_JavaUtilConcurrentPriorityBlockingQueue_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentPriorityBlockingQueue_initWithInt_(JavaUtilConcurrentPriorityBlockingQueue *self, jint initialCapacity);
 
 FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue *new_JavaUtilConcurrentPriorityBlockingQueue_initWithInt_(jint initialCapacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue *create_JavaUtilConcurrentPriorityBlockingQueue_initWithInt_(jint initialCapacity);
 
 FOUNDATION_EXPORT void JavaUtilConcurrentPriorityBlockingQueue_initWithInt_withJavaUtilComparator_(JavaUtilConcurrentPriorityBlockingQueue *self, jint initialCapacity, id<JavaUtilComparator> comparator);
 
 FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue *new_JavaUtilConcurrentPriorityBlockingQueue_initWithInt_withJavaUtilComparator_(jint initialCapacity, id<JavaUtilComparator> comparator) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue *create_JavaUtilConcurrentPriorityBlockingQueue_initWithInt_withJavaUtilComparator_(jint initialCapacity, id<JavaUtilComparator> comparator);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentPriorityBlockingQueue_initWithJavaUtilCollection_(JavaUtilConcurrentPriorityBlockingQueue *self, id<JavaUtilCollection> c);
 
 FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue *new_JavaUtilConcurrentPriorityBlockingQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue *create_JavaUtilConcurrentPriorityBlockingQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPriorityBlockingQueue)
 
 #endif
 
-#if !defined (JavaUtilConcurrentPriorityBlockingQueue_Itr_) && (JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL || defined(JavaUtilConcurrentPriorityBlockingQueue_Itr_INCLUDE))
+#if !defined (JavaUtilConcurrentPriorityBlockingQueue_Itr_) && (INCLUDE_ALL_JavaUtilConcurrentPriorityBlockingQueue || defined(INCLUDE_JavaUtilConcurrentPriorityBlockingQueue_Itr))
 #define JavaUtilConcurrentPriorityBlockingQueue_Itr_
 
-#define JavaUtilIterator_RESTRICT 1
-#define JavaUtilIterator_INCLUDE 1
+#define RESTRICT_JavaUtilIterator 1
+#define INCLUDE_JavaUtilIterator 1
 #include "../../../java/util/Iterator.h"
 
 @class IOSObjectArray;
@@ -400,10 +408,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentPriorityBlockingQueue_Itr_initWithJavaU
 
 FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue_Itr *new_JavaUtilConcurrentPriorityBlockingQueue_Itr_initWithJavaUtilConcurrentPriorityBlockingQueue_withNSObjectArray_(JavaUtilConcurrentPriorityBlockingQueue *outer$, IOSObjectArray *array) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentPriorityBlockingQueue_Itr *create_JavaUtilConcurrentPriorityBlockingQueue_Itr_initWithJavaUtilConcurrentPriorityBlockingQueue_withNSObjectArray_(JavaUtilConcurrentPriorityBlockingQueue *outer$, IOSObjectArray *array);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPriorityBlockingQueue_Itr)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentPriorityBlockingQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentPriorityBlockingQueue")

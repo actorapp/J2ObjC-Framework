@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectWildcardType_INCLUDE_ALL")
-#ifdef JavaLangReflectWildcardType_RESTRICT
-#define JavaLangReflectWildcardType_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectWildcardType")
+#ifdef RESTRICT_JavaLangReflectWildcardType
+#define INCLUDE_ALL_JavaLangReflectWildcardType 0
 #else
-#define JavaLangReflectWildcardType_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectWildcardType 1
 #endif
-#undef JavaLangReflectWildcardType_RESTRICT
+#undef RESTRICT_JavaLangReflectWildcardType
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectWildcardType_) && (JavaLangReflectWildcardType_INCLUDE_ALL || defined(JavaLangReflectWildcardType_INCLUDE))
+#if !defined (JavaLangReflectWildcardType_) && (INCLUDE_ALL_JavaLangReflectWildcardType || defined(INCLUDE_JavaLangReflectWildcardType))
 #define JavaLangReflectWildcardType_
 
-#define JavaLangReflectType_RESTRICT 1
-#define JavaLangReflectType_INCLUDE 1
+#define RESTRICT_JavaLangReflectType 1
+#define INCLUDE_JavaLangReflectType 1
 #include "../../../java/lang/reflect/Type.h"
 
 @class IOSObjectArray;
@@ -80,4 +80,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectWildcardType)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectWildcardType_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectWildcardType")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilListResourceBundle_INCLUDE_ALL")
-#ifdef JavaUtilListResourceBundle_RESTRICT
-#define JavaUtilListResourceBundle_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilListResourceBundle")
+#ifdef RESTRICT_JavaUtilListResourceBundle
+#define INCLUDE_ALL_JavaUtilListResourceBundle 0
 #else
-#define JavaUtilListResourceBundle_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilListResourceBundle 1
 #endif
-#undef JavaUtilListResourceBundle_RESTRICT
+#undef RESTRICT_JavaUtilListResourceBundle
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilListResourceBundle_) && (JavaUtilListResourceBundle_INCLUDE_ALL || defined(JavaUtilListResourceBundle_INCLUDE))
+#if !defined (JavaUtilListResourceBundle_) && (INCLUDE_ALL_JavaUtilListResourceBundle || defined(INCLUDE_JavaUtilListResourceBundle))
 #define JavaUtilListResourceBundle_
 
-#define JavaUtilResourceBundle_RESTRICT 1
-#define JavaUtilResourceBundle_INCLUDE 1
+#define RESTRICT_JavaUtilResourceBundle 1
+#define INCLUDE_JavaUtilResourceBundle 1
 #include "../../java/util/ResourceBundle.h"
 
 @class IOSObjectArray;
@@ -84,4 +84,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilListResourceBundle)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilListResourceBundle_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilListResourceBundle")

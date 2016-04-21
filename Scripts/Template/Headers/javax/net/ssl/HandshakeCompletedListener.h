@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslHandshakeCompletedListener_INCLUDE_ALL")
-#ifdef JavaxNetSslHandshakeCompletedListener_RESTRICT
-#define JavaxNetSslHandshakeCompletedListener_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslHandshakeCompletedListener")
+#ifdef RESTRICT_JavaxNetSslHandshakeCompletedListener
+#define INCLUDE_ALL_JavaxNetSslHandshakeCompletedListener 0
 #else
-#define JavaxNetSslHandshakeCompletedListener_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslHandshakeCompletedListener 1
 #endif
-#undef JavaxNetSslHandshakeCompletedListener_RESTRICT
+#undef RESTRICT_JavaxNetSslHandshakeCompletedListener
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslHandshakeCompletedListener_) && (JavaxNetSslHandshakeCompletedListener_INCLUDE_ALL || defined(JavaxNetSslHandshakeCompletedListener_INCLUDE))
+#if !defined (JavaxNetSslHandshakeCompletedListener_) && (INCLUDE_ALL_JavaxNetSslHandshakeCompletedListener || defined(INCLUDE_JavaxNetSslHandshakeCompletedListener))
 #define JavaxNetSslHandshakeCompletedListener_
 
-#define JavaUtilEventListener_RESTRICT 1
-#define JavaUtilEventListener_INCLUDE 1
+#define RESTRICT_JavaUtilEventListener 1
+#define INCLUDE_JavaUtilEventListener 1
 #include "../../../java/util/EventListener.h"
 
 @class JavaxNetSslHandshakeCompletedEvent;
@@ -48,4 +48,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHandshakeCompletedListener)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslHandshakeCompletedListener_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslHandshakeCompletedListener")

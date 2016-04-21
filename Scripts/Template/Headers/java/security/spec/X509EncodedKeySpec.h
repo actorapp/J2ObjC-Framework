@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecX509EncodedKeySpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecX509EncodedKeySpec_RESTRICT
-#define JavaSecuritySpecX509EncodedKeySpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecX509EncodedKeySpec")
+#ifdef RESTRICT_JavaSecuritySpecX509EncodedKeySpec
+#define INCLUDE_ALL_JavaSecuritySpecX509EncodedKeySpec 0
 #else
-#define JavaSecuritySpecX509EncodedKeySpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecX509EncodedKeySpec 1
 #endif
-#undef JavaSecuritySpecX509EncodedKeySpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecX509EncodedKeySpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecX509EncodedKeySpec_) && (JavaSecuritySpecX509EncodedKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecX509EncodedKeySpec_INCLUDE))
+#if !defined (JavaSecuritySpecX509EncodedKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecX509EncodedKeySpec || defined(INCLUDE_JavaSecuritySpecX509EncodedKeySpec))
 #define JavaSecuritySpecX509EncodedKeySpec_
 
-#define JavaSecuritySpecEncodedKeySpec_RESTRICT 1
-#define JavaSecuritySpecEncodedKeySpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecEncodedKeySpec 1
+#define INCLUDE_JavaSecuritySpecEncodedKeySpec 1
 #include "../../../java/security/spec/EncodedKeySpec.h"
 
 @class IOSByteArray;
@@ -61,10 +61,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecX509EncodedKeySpec_initWithByteArray_(Jav
 
 FOUNDATION_EXPORT JavaSecuritySpecX509EncodedKeySpec *new_JavaSecuritySpecX509EncodedKeySpec_initWithByteArray_(IOSByteArray *encodedKey) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecX509EncodedKeySpec *create_JavaSecuritySpecX509EncodedKeySpec_initWithByteArray_(IOSByteArray *encodedKey);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecX509EncodedKeySpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecX509EncodedKeySpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecX509EncodedKeySpec")

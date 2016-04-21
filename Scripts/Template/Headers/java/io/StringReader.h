@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoStringReader_INCLUDE_ALL")
-#ifdef JavaIoStringReader_RESTRICT
-#define JavaIoStringReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoStringReader")
+#ifdef RESTRICT_JavaIoStringReader
+#define INCLUDE_ALL_JavaIoStringReader 0
 #else
-#define JavaIoStringReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoStringReader 1
 #endif
-#undef JavaIoStringReader_RESTRICT
+#undef RESTRICT_JavaIoStringReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoStringReader_) && (JavaIoStringReader_INCLUDE_ALL || defined(JavaIoStringReader_INCLUDE))
+#if !defined (JavaIoStringReader_) && (INCLUDE_ALL_JavaIoStringReader || defined(INCLUDE_JavaIoStringReader))
 #define JavaIoStringReader_
 
-#define JavaIoReader_RESTRICT 1
-#define JavaIoReader_INCLUDE 1
+#define RESTRICT_JavaIoReader 1
+#define INCLUDE_JavaIoReader 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -158,10 +158,12 @@ FOUNDATION_EXPORT void JavaIoStringReader_initWithNSString_(JavaIoStringReader *
 
 FOUNDATION_EXPORT JavaIoStringReader *new_JavaIoStringReader_initWithNSString_(NSString *str) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoStringReader *create_JavaIoStringReader_initWithNSString_(NSString *str);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoStringReader)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoStringReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoStringReader")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCertificateFactorySpi_INCLUDE_ALL")
-#ifdef JavaSecurityCertCertificateFactorySpi_RESTRICT
-#define JavaSecurityCertCertificateFactorySpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertificateFactorySpi")
+#ifdef RESTRICT_JavaSecurityCertCertificateFactorySpi
+#define INCLUDE_ALL_JavaSecurityCertCertificateFactorySpi 0
 #else
-#define JavaSecurityCertCertificateFactorySpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCertificateFactorySpi 1
 #endif
-#undef JavaSecurityCertCertificateFactorySpi_RESTRICT
+#undef RESTRICT_JavaSecurityCertCertificateFactorySpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCertificateFactorySpi_) && (JavaSecurityCertCertificateFactorySpi_INCLUDE_ALL || defined(JavaSecurityCertCertificateFactorySpi_INCLUDE))
+#if !defined (JavaSecurityCertCertificateFactorySpi_) && (INCLUDE_ALL_JavaSecurityCertCertificateFactorySpi || defined(INCLUDE_JavaSecurityCertCertificateFactorySpi))
 #define JavaSecurityCertCertificateFactorySpi_
 
 @class JavaIoInputStream;
@@ -147,4 +147,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificateFactorySpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCertificateFactorySpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertificateFactorySpi")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioReadOnlyBufferException_INCLUDE_ALL")
-#ifdef JavaNioReadOnlyBufferException_RESTRICT
-#define JavaNioReadOnlyBufferException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioReadOnlyBufferException")
+#ifdef RESTRICT_JavaNioReadOnlyBufferException
+#define INCLUDE_ALL_JavaNioReadOnlyBufferException 0
 #else
-#define JavaNioReadOnlyBufferException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioReadOnlyBufferException 1
 #endif
-#undef JavaNioReadOnlyBufferException_RESTRICT
+#undef RESTRICT_JavaNioReadOnlyBufferException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioReadOnlyBufferException_) && (JavaNioReadOnlyBufferException_INCLUDE_ALL || defined(JavaNioReadOnlyBufferException_INCLUDE))
+#if !defined (JavaNioReadOnlyBufferException_) && (INCLUDE_ALL_JavaNioReadOnlyBufferException || defined(INCLUDE_JavaNioReadOnlyBufferException))
 #define JavaNioReadOnlyBufferException_
 
-#define JavaLangUnsupportedOperationException_RESTRICT 1
-#define JavaLangUnsupportedOperationException_INCLUDE 1
+#define RESTRICT_JavaLangUnsupportedOperationException 1
+#define INCLUDE_JavaLangUnsupportedOperationException 1
 #include "../../java/lang/UnsupportedOperationException.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioReadOnlyBufferException_init(JavaNioReadOnlyBuffer
 
 FOUNDATION_EXPORT JavaNioReadOnlyBufferException *new_JavaNioReadOnlyBufferException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioReadOnlyBufferException *create_JavaNioReadOnlyBufferException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioReadOnlyBufferException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioReadOnlyBufferException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioReadOnlyBufferException")

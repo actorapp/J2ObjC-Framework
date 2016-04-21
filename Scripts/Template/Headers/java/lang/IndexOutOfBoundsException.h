@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangIndexOutOfBoundsException_INCLUDE_ALL")
-#ifdef JavaLangIndexOutOfBoundsException_RESTRICT
-#define JavaLangIndexOutOfBoundsException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangIndexOutOfBoundsException")
+#ifdef RESTRICT_JavaLangIndexOutOfBoundsException
+#define INCLUDE_ALL_JavaLangIndexOutOfBoundsException 0
 #else
-#define JavaLangIndexOutOfBoundsException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangIndexOutOfBoundsException 1
 #endif
-#undef JavaLangIndexOutOfBoundsException_RESTRICT
+#undef RESTRICT_JavaLangIndexOutOfBoundsException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangIndexOutOfBoundsException_) && (JavaLangIndexOutOfBoundsException_INCLUDE_ALL || defined(JavaLangIndexOutOfBoundsException_INCLUDE))
+#if !defined (JavaLangIndexOutOfBoundsException_) && (INCLUDE_ALL_JavaLangIndexOutOfBoundsException || defined(INCLUDE_JavaLangIndexOutOfBoundsException))
 #define JavaLangIndexOutOfBoundsException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangIndexOutOfBoundsException_init(JavaLangIndexOutOf
 
 FOUNDATION_EXPORT JavaLangIndexOutOfBoundsException *new_JavaLangIndexOutOfBoundsException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangIndexOutOfBoundsException *create_JavaLangIndexOutOfBoundsException_init();
+
 FOUNDATION_EXPORT void JavaLangIndexOutOfBoundsException_initWithNSString_(JavaLangIndexOutOfBoundsException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangIndexOutOfBoundsException *new_JavaLangIndexOutOfBoundsException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangIndexOutOfBoundsException *create_JavaLangIndexOutOfBoundsException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangIndexOutOfBoundsException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangIndexOutOfBoundsException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangIndexOutOfBoundsException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangIndexOutOfBoundsException")

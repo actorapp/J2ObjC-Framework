@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangAbstractMethodError_INCLUDE_ALL")
-#ifdef JavaLangAbstractMethodError_RESTRICT
-#define JavaLangAbstractMethodError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangAbstractMethodError")
+#ifdef RESTRICT_JavaLangAbstractMethodError
+#define INCLUDE_ALL_JavaLangAbstractMethodError 0
 #else
-#define JavaLangAbstractMethodError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangAbstractMethodError 1
 #endif
-#undef JavaLangAbstractMethodError_RESTRICT
+#undef RESTRICT_JavaLangAbstractMethodError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangAbstractMethodError_) && (JavaLangAbstractMethodError_INCLUDE_ALL || defined(JavaLangAbstractMethodError_INCLUDE))
+#if !defined (JavaLangAbstractMethodError_) && (INCLUDE_ALL_JavaLangAbstractMethodError || defined(INCLUDE_JavaLangAbstractMethodError))
 #define JavaLangAbstractMethodError_
 
-#define JavaLangIncompatibleClassChangeError_RESTRICT 1
-#define JavaLangIncompatibleClassChangeError_INCLUDE 1
+#define RESTRICT_JavaLangIncompatibleClassChangeError 1
+#define INCLUDE_JavaLangIncompatibleClassChangeError 1
 #include "../../java/lang/IncompatibleClassChangeError.h"
 
 /*!
@@ -55,9 +55,13 @@ FOUNDATION_EXPORT void JavaLangAbstractMethodError_init(JavaLangAbstractMethodEr
 
 FOUNDATION_EXPORT JavaLangAbstractMethodError *new_JavaLangAbstractMethodError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangAbstractMethodError *create_JavaLangAbstractMethodError_init();
+
 FOUNDATION_EXPORT void JavaLangAbstractMethodError_initWithNSString_(JavaLangAbstractMethodError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangAbstractMethodError *new_JavaLangAbstractMethodError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangAbstractMethodError *create_JavaLangAbstractMethodError_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangAbstractMethodError)
 
@@ -65,4 +69,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangAbstractMethodError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangAbstractMethodError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangAbstractMethodError")

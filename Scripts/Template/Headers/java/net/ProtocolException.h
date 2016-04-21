@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetProtocolException_INCLUDE_ALL")
-#ifdef JavaNetProtocolException_RESTRICT
-#define JavaNetProtocolException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetProtocolException")
+#ifdef RESTRICT_JavaNetProtocolException
+#define INCLUDE_ALL_JavaNetProtocolException 0
 #else
-#define JavaNetProtocolException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetProtocolException 1
 #endif
-#undef JavaNetProtocolException_RESTRICT
+#undef RESTRICT_JavaNetProtocolException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetProtocolException_) && (JavaNetProtocolException_INCLUDE_ALL || defined(JavaNetProtocolException_INCLUDE))
+#if !defined (JavaNetProtocolException_) && (INCLUDE_ALL_JavaNetProtocolException || defined(INCLUDE_JavaNetProtocolException))
 #define JavaNetProtocolException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Signals that either a connection attempt to a socket of the wrong type, the
@@ -49,7 +47,7 @@
   internal use only
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 @end
 
@@ -59,13 +57,19 @@ FOUNDATION_EXPORT void JavaNetProtocolException_init(JavaNetProtocolException *s
 
 FOUNDATION_EXPORT JavaNetProtocolException *new_JavaNetProtocolException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetProtocolException *create_JavaNetProtocolException_init();
+
 FOUNDATION_EXPORT void JavaNetProtocolException_initWithNSString_(JavaNetProtocolException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaNetProtocolException *new_JavaNetProtocolException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaNetProtocolException_initWithNSString_withJavaLangThrowable_(JavaNetProtocolException *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaNetProtocolException *create_JavaNetProtocolException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaNetProtocolException *new_JavaNetProtocolException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaNetProtocolException_initWithNSString_withNSException_(JavaNetProtocolException *self, NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT JavaNetProtocolException *new_JavaNetProtocolException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetProtocolException *create_JavaNetProtocolException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetProtocolException)
 
@@ -73,4 +77,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetProtocolException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetProtocolException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetProtocolException")

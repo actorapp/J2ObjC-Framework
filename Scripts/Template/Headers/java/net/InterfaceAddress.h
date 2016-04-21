@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetInterfaceAddress_INCLUDE_ALL")
-#ifdef JavaNetInterfaceAddress_RESTRICT
-#define JavaNetInterfaceAddress_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetInterfaceAddress")
+#ifdef RESTRICT_JavaNetInterfaceAddress
+#define INCLUDE_ALL_JavaNetInterfaceAddress 0
 #else
-#define JavaNetInterfaceAddress_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetInterfaceAddress 1
 #endif
-#undef JavaNetInterfaceAddress_RESTRICT
+#undef RESTRICT_JavaNetInterfaceAddress
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetInterfaceAddress_) && (JavaNetInterfaceAddress_INCLUDE_ALL || defined(JavaNetInterfaceAddress_INCLUDE))
+#if !defined (JavaNetInterfaceAddress_) && (INCLUDE_ALL_JavaNetInterfaceAddress || defined(INCLUDE_JavaNetInterfaceAddress))
 #define JavaNetInterfaceAddress_
 
 @class JavaNetInet4Address;
@@ -91,9 +91,13 @@ FOUNDATION_EXPORT void JavaNetInterfaceAddress_initWithJavaNetInet4Address_withJ
 
 FOUNDATION_EXPORT JavaNetInterfaceAddress *new_JavaNetInterfaceAddress_initWithJavaNetInet4Address_withJavaNetInet4Address_withJavaNetInet4Address_(JavaNetInet4Address *address, JavaNetInet4Address *broadcastAddress, JavaNetInet4Address *mask) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetInterfaceAddress *create_JavaNetInterfaceAddress_initWithJavaNetInet4Address_withJavaNetInet4Address_withJavaNetInet4Address_(JavaNetInet4Address *address, JavaNetInet4Address *broadcastAddress, JavaNetInet4Address *mask);
+
 FOUNDATION_EXPORT void JavaNetInterfaceAddress_initWithJavaNetInet6Address_withShort_(JavaNetInterfaceAddress *self, JavaNetInet6Address *address, jshort prefixLength);
 
 FOUNDATION_EXPORT JavaNetInterfaceAddress *new_JavaNetInterfaceAddress_initWithJavaNetInet6Address_withShort_(JavaNetInet6Address *address, jshort prefixLength) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetInterfaceAddress *create_JavaNetInterfaceAddress_initWithJavaNetInet6Address_withShort_(JavaNetInet6Address *address, jshort prefixLength);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetInterfaceAddress)
 
@@ -101,4 +105,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetInterfaceAddress)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetInterfaceAddress_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetInterfaceAddress")

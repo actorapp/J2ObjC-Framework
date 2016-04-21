@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextDateFormatSymbols_INCLUDE_ALL")
-#ifdef JavaTextDateFormatSymbols_RESTRICT
-#define JavaTextDateFormatSymbols_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextDateFormatSymbols")
+#ifdef RESTRICT_JavaTextDateFormatSymbols
+#define INCLUDE_ALL_JavaTextDateFormatSymbols 0
 #else
-#define JavaTextDateFormatSymbols_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextDateFormatSymbols 1
 #endif
-#undef JavaTextDateFormatSymbols_RESTRICT
+#undef RESTRICT_JavaTextDateFormatSymbols
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextDateFormatSymbols_) && (JavaTextDateFormatSymbols_INCLUDE_ALL || defined(JavaTextDateFormatSymbols_INCLUDE))
+#if !defined (JavaTextDateFormatSymbols_) && (INCLUDE_ALL_JavaTextDateFormatSymbols || defined(INCLUDE_JavaTextDateFormatSymbols))
 #define JavaTextDateFormatSymbols_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -318,9 +318,13 @@ FOUNDATION_EXPORT void JavaTextDateFormatSymbols_init(JavaTextDateFormatSymbols 
 
 FOUNDATION_EXPORT JavaTextDateFormatSymbols *new_JavaTextDateFormatSymbols_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextDateFormatSymbols *create_JavaTextDateFormatSymbols_init();
+
 FOUNDATION_EXPORT void JavaTextDateFormatSymbols_initWithJavaUtilLocale_(JavaTextDateFormatSymbols *self, JavaUtilLocale *locale);
 
 FOUNDATION_EXPORT JavaTextDateFormatSymbols *new_JavaTextDateFormatSymbols_initWithJavaUtilLocale_(JavaUtilLocale *locale) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextDateFormatSymbols *create_JavaTextDateFormatSymbols_initWithJavaUtilLocale_(JavaUtilLocale *locale);
 
 FOUNDATION_EXPORT JavaTextDateFormatSymbols *JavaTextDateFormatSymbols_getInstance();
 
@@ -334,4 +338,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDateFormatSymbols)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextDateFormatSymbols_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextDateFormatSymbols")

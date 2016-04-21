@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharsetCoderMalfunctionError_INCLUDE_ALL")
-#ifdef JavaNioCharsetCoderMalfunctionError_RESTRICT
-#define JavaNioCharsetCoderMalfunctionError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharsetCoderMalfunctionError")
+#ifdef RESTRICT_JavaNioCharsetCoderMalfunctionError
+#define INCLUDE_ALL_JavaNioCharsetCoderMalfunctionError 0
 #else
-#define JavaNioCharsetCoderMalfunctionError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharsetCoderMalfunctionError 1
 #endif
-#undef JavaNioCharsetCoderMalfunctionError_RESTRICT
+#undef RESTRICT_JavaNioCharsetCoderMalfunctionError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharsetCoderMalfunctionError_) && (JavaNioCharsetCoderMalfunctionError_INCLUDE_ALL || defined(JavaNioCharsetCoderMalfunctionError_INCLUDE))
+#if !defined (JavaNioCharsetCoderMalfunctionError_) && (INCLUDE_ALL_JavaNioCharsetCoderMalfunctionError || defined(INCLUDE_JavaNioCharsetCoderMalfunctionError))
 #define JavaNioCharsetCoderMalfunctionError_
 
-#define JavaLangError_RESTRICT 1
-#define JavaLangError_INCLUDE 1
+#define RESTRICT_JavaLangError 1
+#define INCLUDE_JavaLangError 1
 #include "../../../java/lang/Error.h"
 
 @class JavaLangException;
@@ -48,10 +48,12 @@ FOUNDATION_EXPORT void JavaNioCharsetCoderMalfunctionError_initWithJavaLangExcep
 
 FOUNDATION_EXPORT JavaNioCharsetCoderMalfunctionError *new_JavaNioCharsetCoderMalfunctionError_initWithJavaLangException_(JavaLangException *ex) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioCharsetCoderMalfunctionError *create_JavaNioCharsetCoderMalfunctionError_initWithJavaLangException_(JavaLangException *ex);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetCoderMalfunctionError)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharsetCoderMalfunctionError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharsetCoderMalfunctionError")

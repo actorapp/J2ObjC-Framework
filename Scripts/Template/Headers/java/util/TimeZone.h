@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilTimeZone_INCLUDE_ALL")
-#ifdef JavaUtilTimeZone_RESTRICT
-#define JavaUtilTimeZone_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilTimeZone")
+#ifdef RESTRICT_JavaUtilTimeZone
+#define INCLUDE_ALL_JavaUtilTimeZone 0
 #else
-#define JavaUtilTimeZone_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilTimeZone 1
 #endif
-#undef JavaUtilTimeZone_RESTRICT
+#undef RESTRICT_JavaUtilTimeZone
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilTimeZone_) && (JavaUtilTimeZone_INCLUDE_ALL || defined(JavaUtilTimeZone_INCLUDE))
+#if !defined (JavaUtilTimeZone_) && (INCLUDE_ALL_JavaUtilTimeZone || defined(INCLUDE_JavaUtilTimeZone))
 #define JavaUtilTimeZone_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -314,4 +314,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimeZone)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilTimeZone_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilTimeZone")

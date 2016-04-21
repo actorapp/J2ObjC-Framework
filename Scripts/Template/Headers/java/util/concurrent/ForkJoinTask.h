@@ -5,42 +5,41 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentForkJoinTask_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentForkJoinTask_RESTRICT
-#define JavaUtilConcurrentForkJoinTask_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentForkJoinTask")
+#ifdef RESTRICT_JavaUtilConcurrentForkJoinTask
+#define INCLUDE_ALL_JavaUtilConcurrentForkJoinTask 0
 #else
-#define JavaUtilConcurrentForkJoinTask_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentForkJoinTask 1
 #endif
-#undef JavaUtilConcurrentForkJoinTask_RESTRICT
-#ifdef JavaUtilConcurrentForkJoinTask_AdaptedCallable_INCLUDE
-#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#undef RESTRICT_JavaUtilConcurrentForkJoinTask
+#ifdef INCLUDE_JavaUtilConcurrentForkJoinTask_AdaptedCallable
+#define INCLUDE_JavaUtilConcurrentForkJoinTask 1
 #endif
-#ifdef JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_INCLUDE
-#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentForkJoinTask_RunnableExecuteAction
+#define INCLUDE_JavaUtilConcurrentForkJoinTask 1
 #endif
-#ifdef JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_INCLUDE
-#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction
+#define INCLUDE_JavaUtilConcurrentForkJoinTask 1
 #endif
-#ifdef JavaUtilConcurrentForkJoinTask_AdaptedRunnable_INCLUDE
-#define JavaUtilConcurrentForkJoinTask_INCLUDE 1
+#ifdef INCLUDE_JavaUtilConcurrentForkJoinTask_AdaptedRunnable
+#define INCLUDE_JavaUtilConcurrentForkJoinTask 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentForkJoinTask_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinTask_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinTask || defined(INCLUDE_JavaUtilConcurrentForkJoinTask))
 #define JavaUtilConcurrentForkJoinTask_
 
-#define JavaUtilConcurrentFuture_RESTRICT 1
-#define JavaUtilConcurrentFuture_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentFuture 1
+#define INCLUDE_JavaUtilConcurrentFuture 1
 #include "../../../java/util/concurrent/Future.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
-@class JavaLangThrowable;
 @class JavaUtilConcurrentForkJoinPool;
 @class JavaUtilConcurrentTimeUnit;
 @protocol JavaLangRunnable;
@@ -313,7 +312,7 @@
  <code>RuntimeException</code> or <code>Error</code>, the actual exception
  thrown will be a <code>RuntimeException</code> with cause <code>ex</code>.
  */
-- (void)completeExceptionallyWithJavaLangThrowable:(JavaLangThrowable *)ex;
+- (void)completeExceptionallyWithNSException:(NSException *)ex;
 
 /*!
  @brief Arranges to asynchronously execute this task in the pool the
@@ -366,7 +365,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
  none or if the method has not yet completed.
  @return the exception, or <code>null</code> if none
  */
-- (JavaLangThrowable *)getException;
+- (NSException *)getException;
 
 /*!
  @brief Returns the tag for this task.
@@ -695,18 +694,18 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
 /*!
  @brief Hook for exception propagation support for tasks with completers.
  */
-- (void)internalPropagateExceptionWithJavaLangThrowable:(JavaLangThrowable *)ex;
+- (void)internalPropagateExceptionWithNSException:(NSException *)ex;
 
 /*!
  @brief Records exception and sets status.
  @return status on exit
  */
-- (jint)recordExceptionalCompletionWithJavaLangThrowable:(JavaLangThrowable *)ex;
+- (jint)recordExceptionalCompletionWithNSException:(NSException *)ex;
 
 /*!
  @brief A version of "sneaky throw" to relay exceptions
  */
-+ (void)rethrowWithJavaLangThrowable:(JavaLangThrowable *)ex;
++ (void)rethrowWithNSException:(NSException *)ex;
 
 /*!
  @brief Tries to set SIGNAL status unless already completed.
@@ -722,7 +721,7 @@ withJavaUtilConcurrentTimeUnit:(JavaUtilConcurrentTimeUnit *)unit;
  limitations to evade compiler complaints about rethrowing
  unchecked exceptions
  */
-+ (void)uncheckedThrowWithJavaLangThrowable:(JavaLangThrowable *)t;
++ (void)uncheckedThrowWithNSException:(NSException *)t;
 
 @end
 
@@ -756,9 +755,9 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_cancelIgnoringExceptionsWi
 
 FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_helpExpungeStaleExceptions();
 
-FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_rethrowWithJavaLangThrowable_(JavaLangThrowable *ex);
+FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_rethrowWithNSException_(NSException *ex);
 
-FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_uncheckedThrowWithJavaLangThrowable_(JavaLangThrowable *t);
+FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_uncheckedThrowWithNSException_(NSException *t);
 
 FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_invokeAllWithJavaUtilConcurrentForkJoinTask_withJavaUtilConcurrentForkJoinTask_(JavaUtilConcurrentForkJoinTask *t1, JavaUtilConcurrentForkJoinTask *t2);
 
@@ -794,14 +793,13 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask)
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinTask_ExceptionNode_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_ExceptionNode_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinTask_ExceptionNode_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinTask || defined(INCLUDE_JavaUtilConcurrentForkJoinTask_ExceptionNode))
 #define JavaUtilConcurrentForkJoinTask_ExceptionNode_
 
-#define JavaLangRefWeakReference_RESTRICT 1
-#define JavaLangRefWeakReference_INCLUDE 1
+#define RESTRICT_JavaLangRefWeakReference 1
+#define INCLUDE_JavaLangRefWeakReference 1
 #include "../../../java/lang/ref/WeakReference.h"
 
-@class JavaLangThrowable;
 @class JavaUtilConcurrentForkJoinTask;
 
 /*!
@@ -819,7 +817,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask)
  */
 @interface JavaUtilConcurrentForkJoinTask_ExceptionNode : JavaLangRefWeakReference {
  @public
-  JavaLangThrowable *ex_;
+  NSException *ex_;
   JavaUtilConcurrentForkJoinTask_ExceptionNode *next_;
   jlong thrower_;
   jint hashCode_;
@@ -828,29 +826,31 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask)
 #pragma mark Package-Private
 
 - (instancetype)initWithJavaUtilConcurrentForkJoinTask:(JavaUtilConcurrentForkJoinTask *)task
-                                 withJavaLangThrowable:(JavaLangThrowable *)ex
+                                       withNSException:(NSException *)ex
       withJavaUtilConcurrentForkJoinTask_ExceptionNode:(JavaUtilConcurrentForkJoinTask_ExceptionNode *)next;
 
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaUtilConcurrentForkJoinTask_ExceptionNode)
 
-J2OBJC_FIELD_SETTER(JavaUtilConcurrentForkJoinTask_ExceptionNode, ex_, JavaLangThrowable *)
+J2OBJC_FIELD_SETTER(JavaUtilConcurrentForkJoinTask_ExceptionNode, ex_, NSException *)
 J2OBJC_FIELD_SETTER(JavaUtilConcurrentForkJoinTask_ExceptionNode, next_, JavaUtilConcurrentForkJoinTask_ExceptionNode *)
 
-FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_ExceptionNode_initWithJavaUtilConcurrentForkJoinTask_withJavaLangThrowable_withJavaUtilConcurrentForkJoinTask_ExceptionNode_(JavaUtilConcurrentForkJoinTask_ExceptionNode *self, JavaUtilConcurrentForkJoinTask *task, JavaLangThrowable *ex, JavaUtilConcurrentForkJoinTask_ExceptionNode *next);
+FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_ExceptionNode_initWithJavaUtilConcurrentForkJoinTask_withNSException_withJavaUtilConcurrentForkJoinTask_ExceptionNode_(JavaUtilConcurrentForkJoinTask_ExceptionNode *self, JavaUtilConcurrentForkJoinTask *task, NSException *ex, JavaUtilConcurrentForkJoinTask_ExceptionNode *next);
 
-FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_ExceptionNode *new_JavaUtilConcurrentForkJoinTask_ExceptionNode_initWithJavaUtilConcurrentForkJoinTask_withJavaLangThrowable_withJavaUtilConcurrentForkJoinTask_ExceptionNode_(JavaUtilConcurrentForkJoinTask *task, JavaLangThrowable *ex, JavaUtilConcurrentForkJoinTask_ExceptionNode *next) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_ExceptionNode *new_JavaUtilConcurrentForkJoinTask_ExceptionNode_initWithJavaUtilConcurrentForkJoinTask_withNSException_withJavaUtilConcurrentForkJoinTask_ExceptionNode_(JavaUtilConcurrentForkJoinTask *task, NSException *ex, JavaUtilConcurrentForkJoinTask_ExceptionNode *next) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_ExceptionNode *create_JavaUtilConcurrentForkJoinTask_ExceptionNode_initWithJavaUtilConcurrentForkJoinTask_withNSException_withJavaUtilConcurrentForkJoinTask_ExceptionNode_(JavaUtilConcurrentForkJoinTask *task, NSException *ex, JavaUtilConcurrentForkJoinTask_ExceptionNode *next);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_ExceptionNode)
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinTask_AdaptedRunnable_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_AdaptedRunnable_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinTask_AdaptedRunnable_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinTask || defined(INCLUDE_JavaUtilConcurrentForkJoinTask_AdaptedRunnable))
 #define JavaUtilConcurrentForkJoinTask_AdaptedRunnable_
 
-#define JavaUtilConcurrentRunnableFuture_RESTRICT 1
-#define JavaUtilConcurrentRunnableFuture_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentRunnableFuture 1
+#define INCLUDE_JavaUtilConcurrentRunnableFuture 1
 #include "../../../java/util/concurrent/RunnableFuture.h"
 
 @protocol JavaLangRunnable;
@@ -893,15 +893,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_AdaptedRunnable_initWithJa
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_AdaptedRunnable *new_JavaUtilConcurrentForkJoinTask_AdaptedRunnable_initWithJavaLangRunnable_withId_(id<JavaLangRunnable> runnable, id result) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_AdaptedRunnable *create_JavaUtilConcurrentForkJoinTask_AdaptedRunnable_initWithJavaLangRunnable_withId_(id<JavaLangRunnable> runnable, id result);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_AdaptedRunnable)
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinTask || defined(INCLUDE_JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction))
 #define JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_
 
-#define JavaUtilConcurrentRunnableFuture_RESTRICT 1
-#define JavaUtilConcurrentRunnableFuture_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentRunnableFuture 1
+#define INCLUDE_JavaUtilConcurrentRunnableFuture 1
 #include "../../../java/util/concurrent/RunnableFuture.h"
 
 @class JavaLangVoid;
@@ -939,14 +941,15 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_init
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction *new_JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_initWithJavaLangRunnable_(id<JavaLangRunnable> runnable) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction *create_JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction_initWithJavaLangRunnable_(id<JavaLangRunnable> runnable);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction)
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinTask || defined(INCLUDE_JavaUtilConcurrentForkJoinTask_RunnableExecuteAction))
 #define JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_
 
-@class JavaLangThrowable;
 @class JavaLangVoid;
 @protocol JavaLangRunnable;
 
@@ -970,7 +973,7 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_AdaptedRunnableAction)
 
 - (instancetype)initWithJavaLangRunnable:(id<JavaLangRunnable>)runnable;
 
-- (void)internalPropagateExceptionWithJavaLangThrowable:(JavaLangThrowable *)ex;
+- (void)internalPropagateExceptionWithNSException:(NSException *)ex;
 
 @end
 
@@ -982,15 +985,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_init
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_RunnableExecuteAction *new_JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_initWithJavaLangRunnable_(id<JavaLangRunnable> runnable) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_RunnableExecuteAction *create_JavaUtilConcurrentForkJoinTask_RunnableExecuteAction_initWithJavaLangRunnable_(id<JavaLangRunnable> runnable);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_RunnableExecuteAction)
 
 #endif
 
-#if !defined (JavaUtilConcurrentForkJoinTask_AdaptedCallable_) && (JavaUtilConcurrentForkJoinTask_INCLUDE_ALL || defined(JavaUtilConcurrentForkJoinTask_AdaptedCallable_INCLUDE))
+#if !defined (JavaUtilConcurrentForkJoinTask_AdaptedCallable_) && (INCLUDE_ALL_JavaUtilConcurrentForkJoinTask || defined(INCLUDE_JavaUtilConcurrentForkJoinTask_AdaptedCallable))
 #define JavaUtilConcurrentForkJoinTask_AdaptedCallable_
 
-#define JavaUtilConcurrentRunnableFuture_RESTRICT 1
-#define JavaUtilConcurrentRunnableFuture_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentRunnableFuture 1
+#define INCLUDE_JavaUtilConcurrentRunnableFuture 1
 #include "../../../java/util/concurrent/RunnableFuture.h"
 
 @protocol JavaUtilConcurrentCallable;
@@ -1029,10 +1034,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentForkJoinTask_AdaptedCallable_initWithJa
 
 FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_AdaptedCallable *new_JavaUtilConcurrentForkJoinTask_AdaptedCallable_initWithJavaUtilConcurrentCallable_(id<JavaUtilConcurrentCallable> callable) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentForkJoinTask_AdaptedCallable *create_JavaUtilConcurrentForkJoinTask_AdaptedCallable_initWithJavaUtilConcurrentCallable_(id<JavaUtilConcurrentCallable> callable);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentForkJoinTask_AdaptedCallable)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentForkJoinTask_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentForkJoinTask")

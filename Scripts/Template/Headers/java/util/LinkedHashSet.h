@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLinkedHashSet_INCLUDE_ALL")
-#ifdef JavaUtilLinkedHashSet_RESTRICT
-#define JavaUtilLinkedHashSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLinkedHashSet")
+#ifdef RESTRICT_JavaUtilLinkedHashSet
+#define INCLUDE_ALL_JavaUtilLinkedHashSet 0
 #else
-#define JavaUtilLinkedHashSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLinkedHashSet 1
 #endif
-#undef JavaUtilLinkedHashSet_RESTRICT
+#undef RESTRICT_JavaUtilLinkedHashSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLinkedHashSet_) && (JavaUtilLinkedHashSet_INCLUDE_ALL || defined(JavaUtilLinkedHashSet_INCLUDE))
+#if !defined (JavaUtilLinkedHashSet_) && (INCLUDE_ALL_JavaUtilLinkedHashSet || defined(INCLUDE_JavaUtilLinkedHashSet))
 #define JavaUtilLinkedHashSet_
 
-#define JavaUtilHashSet_RESTRICT 1
-#define JavaUtilHashSet_INCLUDE 1
+#define RESTRICT_JavaUtilHashSet 1
+#define INCLUDE_JavaUtilHashSet 1
 #include "../../java/util/HashSet.h"
 
-#define JavaUtilSet_RESTRICT 1
-#define JavaUtilSet_INCLUDE 1
+#define RESTRICT_JavaUtilSet 1
+#define INCLUDE_JavaUtilSet 1
 #include "../../java/util/Set.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class JavaUtilHashMap;
@@ -96,17 +96,25 @@ FOUNDATION_EXPORT void JavaUtilLinkedHashSet_init(JavaUtilLinkedHashSet *self);
 
 FOUNDATION_EXPORT JavaUtilLinkedHashSet *new_JavaUtilLinkedHashSet_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLinkedHashSet *create_JavaUtilLinkedHashSet_init();
+
 FOUNDATION_EXPORT void JavaUtilLinkedHashSet_initWithInt_(JavaUtilLinkedHashSet *self, jint capacity);
 
 FOUNDATION_EXPORT JavaUtilLinkedHashSet *new_JavaUtilLinkedHashSet_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLinkedHashSet *create_JavaUtilLinkedHashSet_initWithInt_(jint capacity);
 
 FOUNDATION_EXPORT void JavaUtilLinkedHashSet_initWithInt_withFloat_(JavaUtilLinkedHashSet *self, jint capacity, jfloat loadFactor);
 
 FOUNDATION_EXPORT JavaUtilLinkedHashSet *new_JavaUtilLinkedHashSet_initWithInt_withFloat_(jint capacity, jfloat loadFactor) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLinkedHashSet *create_JavaUtilLinkedHashSet_initWithInt_withFloat_(jint capacity, jfloat loadFactor);
+
 FOUNDATION_EXPORT void JavaUtilLinkedHashSet_initWithJavaUtilCollection_(JavaUtilLinkedHashSet *self, id<JavaUtilCollection> collection);
 
 FOUNDATION_EXPORT JavaUtilLinkedHashSet *new_JavaUtilLinkedHashSet_initWithJavaUtilCollection_(id<JavaUtilCollection> collection) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLinkedHashSet *create_JavaUtilLinkedHashSet_initWithJavaUtilCollection_(id<JavaUtilCollection> collection);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashSet)
 
@@ -114,4 +122,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedHashSet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLinkedHashSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLinkedHashSet")

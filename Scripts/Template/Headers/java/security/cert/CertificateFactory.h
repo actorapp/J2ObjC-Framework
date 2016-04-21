@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCertificateFactory_INCLUDE_ALL")
-#ifdef JavaSecurityCertCertificateFactory_RESTRICT
-#define JavaSecurityCertCertificateFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertificateFactory")
+#ifdef RESTRICT_JavaSecurityCertCertificateFactory
+#define INCLUDE_ALL_JavaSecurityCertCertificateFactory 0
 #else
-#define JavaSecurityCertCertificateFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCertificateFactory 1
 #endif
-#undef JavaSecurityCertCertificateFactory_RESTRICT
+#undef RESTRICT_JavaSecurityCertCertificateFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCertificateFactory_) && (JavaSecurityCertCertificateFactory_INCLUDE_ALL || defined(JavaSecurityCertCertificateFactory_INCLUDE))
+#if !defined (JavaSecurityCertCertificateFactory_) && (INCLUDE_ALL_JavaSecurityCertCertificateFactory || defined(INCLUDE_JavaSecurityCertCertificateFactory))
 #define JavaSecurityCertCertificateFactory_
 
 @class JavaIoInputStream;
@@ -224,6 +224,8 @@ FOUNDATION_EXPORT void JavaSecurityCertCertificateFactory_initWithJavaSecurityCe
 
 FOUNDATION_EXPORT JavaSecurityCertCertificateFactory *new_JavaSecurityCertCertificateFactory_initWithJavaSecurityCertCertificateFactorySpi_withJavaSecurityProvider_withNSString_(JavaSecurityCertCertificateFactorySpi *certFacSpi, JavaSecurityProvider *provider, NSString *type) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityCertCertificateFactory *create_JavaSecurityCertCertificateFactory_initWithJavaSecurityCertCertificateFactorySpi_withJavaSecurityProvider_withNSString_(JavaSecurityCertCertificateFactorySpi *certFacSpi, JavaSecurityProvider *provider, NSString *type);
+
 FOUNDATION_EXPORT JavaSecurityCertCertificateFactory *JavaSecurityCertCertificateFactory_getInstanceWithNSString_(NSString *type);
 
 FOUNDATION_EXPORT JavaSecurityCertCertificateFactory *JavaSecurityCertCertificateFactory_getInstanceWithNSString_withNSString_(NSString *type, NSString *provider);
@@ -236,4 +238,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertificateFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCertificateFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertificateFactory")

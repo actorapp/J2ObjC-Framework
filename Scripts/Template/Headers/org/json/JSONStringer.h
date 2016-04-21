@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("OrgJsonJSONStringer_INCLUDE_ALL")
-#ifdef OrgJsonJSONStringer_RESTRICT
-#define OrgJsonJSONStringer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgJsonJSONStringer")
+#ifdef RESTRICT_OrgJsonJSONStringer
+#define INCLUDE_ALL_OrgJsonJSONStringer 0
 #else
-#define OrgJsonJSONStringer_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgJsonJSONStringer 1
 #endif
-#undef OrgJsonJSONStringer_RESTRICT
+#undef RESTRICT_OrgJsonJSONStringer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgJsonJSONStringer_) && (OrgJsonJSONStringer_INCLUDE_ALL || defined(OrgJsonJSONStringer_INCLUDE))
+#if !defined (OrgJsonJSONStringer_) && (INCLUDE_ALL_OrgJsonJSONStringer || defined(INCLUDE_OrgJsonJSONStringer))
 #define OrgJsonJSONStringer_
 
 @class JavaLangStringBuilder;
@@ -173,19 +173,23 @@ FOUNDATION_EXPORT void OrgJsonJSONStringer_init(OrgJsonJSONStringer *self);
 
 FOUNDATION_EXPORT OrgJsonJSONStringer *new_OrgJsonJSONStringer_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgJsonJSONStringer *create_OrgJsonJSONStringer_init();
+
 FOUNDATION_EXPORT void OrgJsonJSONStringer_initWithInt_(OrgJsonJSONStringer *self, jint indentSpaces);
 
 FOUNDATION_EXPORT OrgJsonJSONStringer *new_OrgJsonJSONStringer_initWithInt_(jint indentSpaces) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgJsonJSONStringer *create_OrgJsonJSONStringer_initWithInt_(jint indentSpaces);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONStringer)
 
 #endif
 
-#if !defined (OrgJsonJSONStringer_Scope_) && (OrgJsonJSONStringer_INCLUDE_ALL || defined(OrgJsonJSONStringer_Scope_INCLUDE))
+#if !defined (OrgJsonJSONStringer_Scope_) && (INCLUDE_ALL_OrgJsonJSONStringer || defined(INCLUDE_OrgJsonJSONStringer_Scope))
 #define OrgJsonJSONStringer_Scope_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, OrgJsonJSONStringer_Scope_Enum) {
@@ -288,4 +292,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONStringer_Scope)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgJsonJSONStringer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgJsonJSONStringer")

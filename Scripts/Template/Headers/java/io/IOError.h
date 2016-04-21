@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoIOError_INCLUDE_ALL")
-#ifdef JavaIoIOError_RESTRICT
-#define JavaIoIOError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoIOError")
+#ifdef RESTRICT_JavaIoIOError
+#define INCLUDE_ALL_JavaIoIOError 0
 #else
-#define JavaIoIOError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoIOError 1
 #endif
-#undef JavaIoIOError_RESTRICT
+#undef RESTRICT_JavaIoIOError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoIOError_) && (JavaIoIOError_INCLUDE_ALL || defined(JavaIoIOError_INCLUDE))
+#if !defined (JavaIoIOError_) && (INCLUDE_ALL_JavaIoIOError || defined(INCLUDE_JavaIoIOError))
 #define JavaIoIOError_
 
-#define JavaLangError_RESTRICT 1
-#define JavaLangError_INCLUDE 1
+#define RESTRICT_JavaLangError 1
+#define INCLUDE_JavaLangError 1
 #include "../../java/lang/Error.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief This error is thrown when a severe I/O error has happened.
@@ -38,15 +36,17 @@
  @param cause
  The detail cause for the error.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaIoIOError)
 
-FOUNDATION_EXPORT void JavaIoIOError_initWithJavaLangThrowable_(JavaIoIOError *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT void JavaIoIOError_initWithNSException_(JavaIoIOError *self, NSException *cause);
 
-FOUNDATION_EXPORT JavaIoIOError *new_JavaIoIOError_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaIoIOError *new_JavaIoIOError_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoIOError *create_JavaIoIOError_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoIOError)
 
@@ -54,4 +54,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoIOError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoIOError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoIOError")

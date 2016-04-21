@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLContextSpi_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLContextSpi_RESTRICT
-#define JavaxNetSslSSLContextSpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLContextSpi")
+#ifdef RESTRICT_JavaxNetSslSSLContextSpi
+#define INCLUDE_ALL_JavaxNetSslSSLContextSpi 0
 #else
-#define JavaxNetSslSSLContextSpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLContextSpi 1
 #endif
-#undef JavaxNetSslSSLContextSpi_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLContextSpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLContextSpi_) && (JavaxNetSslSSLContextSpi_INCLUDE_ALL || defined(JavaxNetSslSSLContextSpi_INCLUDE))
+#if !defined (JavaxNetSslSSLContextSpi_) && (INCLUDE_ALL_JavaxNetSslSSLContextSpi || defined(INCLUDE_JavaxNetSslSSLContextSpi))
 #define JavaxNetSslSSLContextSpi_
 
 @class IOSObjectArray;
@@ -142,4 +142,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLContextSpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLContextSpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLContextSpi")

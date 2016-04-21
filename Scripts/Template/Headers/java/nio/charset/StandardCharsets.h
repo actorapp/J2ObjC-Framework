@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioCharsetStandardCharsets_INCLUDE_ALL")
-#ifdef JavaNioCharsetStandardCharsets_RESTRICT
-#define JavaNioCharsetStandardCharsets_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioCharsetStandardCharsets")
+#ifdef RESTRICT_JavaNioCharsetStandardCharsets
+#define INCLUDE_ALL_JavaNioCharsetStandardCharsets 0
 #else
-#define JavaNioCharsetStandardCharsets_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioCharsetStandardCharsets 1
 #endif
-#undef JavaNioCharsetStandardCharsets_RESTRICT
+#undef RESTRICT_JavaNioCharsetStandardCharsets
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioCharsetStandardCharsets_) && (JavaNioCharsetStandardCharsets_INCLUDE_ALL || defined(JavaNioCharsetStandardCharsets_INCLUDE))
+#if !defined (JavaNioCharsetStandardCharsets_) && (INCLUDE_ALL_JavaNioCharsetStandardCharsets || defined(INCLUDE_JavaNioCharsetStandardCharsets))
 #define JavaNioCharsetStandardCharsets_
 
 @class JavaNioCharsetCharset;
@@ -79,4 +79,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioCharsetStandardCharsets)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioCharsetStandardCharsets_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioCharsetStandardCharsets")

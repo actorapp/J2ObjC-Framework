@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangSecurityManager_INCLUDE_ALL")
-#ifdef JavaLangSecurityManager_RESTRICT
-#define JavaLangSecurityManager_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangSecurityManager")
+#ifdef RESTRICT_JavaLangSecurityManager
+#define INCLUDE_ALL_JavaLangSecurityManager 0
 #else
-#define JavaLangSecurityManager_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangSecurityManager 1
 #endif
-#undef JavaLangSecurityManager_RESTRICT
+#undef RESTRICT_JavaLangSecurityManager
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangSecurityManager_) && (JavaLangSecurityManager_INCLUDE_ALL || defined(JavaLangSecurityManager_INCLUDE))
+#if !defined (JavaLangSecurityManager_) && (INCLUDE_ALL_JavaLangSecurityManager || defined(INCLUDE_JavaLangSecurityManager))
 #define JavaLangSecurityManager_
 
 @class IOSClass;
@@ -156,10 +156,12 @@ FOUNDATION_EXPORT void JavaLangSecurityManager_init(JavaLangSecurityManager *sel
 
 FOUNDATION_EXPORT JavaLangSecurityManager *new_JavaLangSecurityManager_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangSecurityManager *create_JavaLangSecurityManager_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangSecurityManager)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangSecurityManager_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangSecurityManager")

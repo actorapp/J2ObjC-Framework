@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoInvalidClassException_INCLUDE_ALL")
-#ifdef JavaIoInvalidClassException_RESTRICT
-#define JavaIoInvalidClassException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoInvalidClassException")
+#ifdef RESTRICT_JavaIoInvalidClassException
+#define INCLUDE_ALL_JavaIoInvalidClassException 0
 #else
-#define JavaIoInvalidClassException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoInvalidClassException 1
 #endif
-#undef JavaIoInvalidClassException_RESTRICT
+#undef RESTRICT_JavaIoInvalidClassException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoInvalidClassException_) && (JavaIoInvalidClassException_INCLUDE_ALL || defined(JavaIoInvalidClassException_INCLUDE))
+#if !defined (JavaIoInvalidClassException_) && (INCLUDE_ALL_JavaIoInvalidClassException || defined(INCLUDE_JavaIoInvalidClassException))
 #define JavaIoInvalidClassException_
 
-#define JavaIoObjectStreamException_RESTRICT 1
-#define JavaIoObjectStreamException_INCLUDE 1
+#define RESTRICT_JavaIoObjectStreamException 1
+#define INCLUDE_JavaIoObjectStreamException 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
@@ -88,9 +88,13 @@ FOUNDATION_EXPORT void JavaIoInvalidClassException_initWithNSString_(JavaIoInval
 
 FOUNDATION_EXPORT JavaIoInvalidClassException *new_JavaIoInvalidClassException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoInvalidClassException *create_JavaIoInvalidClassException_initWithNSString_(NSString *detailMessage);
+
 FOUNDATION_EXPORT void JavaIoInvalidClassException_initWithNSString_withNSString_(JavaIoInvalidClassException *self, NSString *className_, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoInvalidClassException *new_JavaIoInvalidClassException_initWithNSString_withNSString_(NSString *className_, NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoInvalidClassException *create_JavaIoInvalidClassException_initWithNSString_withNSString_(NSString *className_, NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoInvalidClassException)
 
@@ -98,4 +102,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoInvalidClassException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoInvalidClassException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoInvalidClassException")

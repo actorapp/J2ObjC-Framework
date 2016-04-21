@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextUtilRfc822Token_INCLUDE_ALL")
-#ifdef AndroidTextUtilRfc822Token_RESTRICT
-#define AndroidTextUtilRfc822Token_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextUtilRfc822Token")
+#ifdef RESTRICT_AndroidTextUtilRfc822Token
+#define INCLUDE_ALL_AndroidTextUtilRfc822Token 0
 #else
-#define AndroidTextUtilRfc822Token_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextUtilRfc822Token 1
 #endif
-#undef AndroidTextUtilRfc822Token_RESTRICT
+#undef RESTRICT_AndroidTextUtilRfc822Token
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextUtilRfc822Token_) && (AndroidTextUtilRfc822Token_INCLUDE_ALL || defined(AndroidTextUtilRfc822Token_INCLUDE))
+#if !defined (AndroidTextUtilRfc822Token_) && (INCLUDE_ALL_AndroidTextUtilRfc822Token || defined(INCLUDE_AndroidTextUtilRfc822Token))
 #define AndroidTextUtilRfc822Token_
 
 /*!
@@ -107,6 +107,8 @@ FOUNDATION_EXPORT void AndroidTextUtilRfc822Token_initWithNSString_withNSString_
 
 FOUNDATION_EXPORT AndroidTextUtilRfc822Token *new_AndroidTextUtilRfc822Token_initWithNSString_withNSString_withNSString_(NSString *name, NSString *address, NSString *comment) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextUtilRfc822Token *create_AndroidTextUtilRfc822Token_initWithNSString_withNSString_withNSString_(NSString *name, NSString *address, NSString *comment);
+
 FOUNDATION_EXPORT NSString *AndroidTextUtilRfc822Token_quoteNameIfNecessaryWithNSString_(NSString *name);
 
 FOUNDATION_EXPORT NSString *AndroidTextUtilRfc822Token_quoteNameWithNSString_(NSString *name);
@@ -119,4 +121,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextUtilRfc822Token)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextUtilRfc822Token_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextUtilRfc822Token")

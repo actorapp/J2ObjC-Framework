@@ -5,24 +5,25 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxAnnotationResources_INCLUDE_ALL")
-#ifdef JavaxAnnotationResources_RESTRICT
-#define JavaxAnnotationResources_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxAnnotationResources")
+#ifdef RESTRICT_JavaxAnnotationResources
+#define INCLUDE_ALL_JavaxAnnotationResources 0
 #else
-#define JavaxAnnotationResources_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxAnnotationResources 1
 #endif
-#undef JavaxAnnotationResources_RESTRICT
+#undef RESTRICT_JavaxAnnotationResources
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxAnnotationResources_) && (JavaxAnnotationResources_INCLUDE_ALL || defined(JavaxAnnotationResources_INCLUDE))
+#if !defined (JavaxAnnotationResources_) && (INCLUDE_ALL_JavaxAnnotationResources || defined(INCLUDE_JavaxAnnotationResources))
 #define JavaxAnnotationResources_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../java/lang/annotation/Annotation.h"
 
+@class IOSClass;
 @class IOSObjectArray;
 
 /*!
@@ -37,15 +38,15 @@
 @end
 
 @interface JavaxAnnotationResources : NSObject < JavaxAnnotationResources > {
- @private
+ @public
   IOSObjectArray *value_;
 }
-
-- (instancetype)initWithValue:(IOSObjectArray *)value__;
 
 @end
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxAnnotationResources)
+
+FOUNDATION_EXPORT id<JavaxAnnotationResources> create_JavaxAnnotationResources(IOSObjectArray *value);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxAnnotationResources)
 
@@ -53,4 +54,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxAnnotationResources)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxAnnotationResources_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxAnnotationResources")

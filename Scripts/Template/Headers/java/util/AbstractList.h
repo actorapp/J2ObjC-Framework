@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilAbstractList_INCLUDE_ALL")
-#ifdef JavaUtilAbstractList_RESTRICT
-#define JavaUtilAbstractList_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilAbstractList")
+#ifdef RESTRICT_JavaUtilAbstractList
+#define INCLUDE_ALL_JavaUtilAbstractList 0
 #else
-#define JavaUtilAbstractList_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilAbstractList 1
 #endif
-#undef JavaUtilAbstractList_RESTRICT
+#undef RESTRICT_JavaUtilAbstractList
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilAbstractList_) && (JavaUtilAbstractList_INCLUDE_ALL || defined(JavaUtilAbstractList_INCLUDE))
+#if !defined (JavaUtilAbstractList_) && (INCLUDE_ALL_JavaUtilAbstractList || defined(INCLUDE_JavaUtilAbstractList))
 #define JavaUtilAbstractList_
 
-#define JavaUtilAbstractCollection_RESTRICT 1
-#define JavaUtilAbstractCollection_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractCollection 1
+#define INCLUDE_JavaUtilAbstractCollection 1
 #include "../../java/util/AbstractCollection.h"
 
-#define JavaUtilList_RESTRICT 1
-#define JavaUtilList_INCLUDE 1
+#define RESTRICT_JavaUtilList 1
+#define INCLUDE_JavaUtilList 1
 #include "../../java/util/List.h"
 
 @protocol JavaUtilCollection;
@@ -322,4 +322,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilAbstractList)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilAbstractList_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilAbstractList")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsInterruptibleChannel_INCLUDE_ALL")
-#ifdef JavaNioChannelsInterruptibleChannel_RESTRICT
-#define JavaNioChannelsInterruptibleChannel_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsInterruptibleChannel")
+#ifdef RESTRICT_JavaNioChannelsInterruptibleChannel
+#define INCLUDE_ALL_JavaNioChannelsInterruptibleChannel 0
 #else
-#define JavaNioChannelsInterruptibleChannel_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsInterruptibleChannel 1
 #endif
-#undef JavaNioChannelsInterruptibleChannel_RESTRICT
+#undef RESTRICT_JavaNioChannelsInterruptibleChannel
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsInterruptibleChannel_) && (JavaNioChannelsInterruptibleChannel_INCLUDE_ALL || defined(JavaNioChannelsInterruptibleChannel_INCLUDE))
+#if !defined (JavaNioChannelsInterruptibleChannel_) && (INCLUDE_ALL_JavaNioChannelsInterruptibleChannel || defined(INCLUDE_JavaNioChannelsInterruptibleChannel))
 #define JavaNioChannelsInterruptibleChannel_
 
-#define JavaNioChannelsChannel_RESTRICT 1
-#define JavaNioChannelsChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsChannel 1
+#define INCLUDE_JavaNioChannelsChannel 1
 #include "../../../java/nio/channels/Channel.h"
 
 /*!
@@ -63,4 +63,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsInterruptibleChannel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsInterruptibleChannel_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsInterruptibleChannel")

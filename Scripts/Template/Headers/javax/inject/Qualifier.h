@@ -5,23 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxInjectQualifier_INCLUDE_ALL")
-#ifdef JavaxInjectQualifier_RESTRICT
-#define JavaxInjectQualifier_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxInjectQualifier")
+#ifdef RESTRICT_JavaxInjectQualifier
+#define INCLUDE_ALL_JavaxInjectQualifier 0
 #else
-#define JavaxInjectQualifier_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxInjectQualifier 1
 #endif
-#undef JavaxInjectQualifier_RESTRICT
+#undef RESTRICT_JavaxInjectQualifier
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxInjectQualifier_) && (JavaxInjectQualifier_INCLUDE_ALL || defined(JavaxInjectQualifier_INCLUDE))
+#if !defined (JavaxInjectQualifier_) && (INCLUDE_ALL_JavaxInjectQualifier || defined(INCLUDE_JavaxInjectQualifier))
 #define JavaxInjectQualifier_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief Identifies qualifier annotations.
@@ -62,10 +65,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxInjectQualifier)
 
+FOUNDATION_EXPORT id<JavaxInjectQualifier> create_JavaxInjectQualifier();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxInjectQualifier)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxInjectQualifier_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxInjectQualifier")

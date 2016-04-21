@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangArrayStoreException_INCLUDE_ALL")
-#ifdef JavaLangArrayStoreException_RESTRICT
-#define JavaLangArrayStoreException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangArrayStoreException")
+#ifdef RESTRICT_JavaLangArrayStoreException
+#define INCLUDE_ALL_JavaLangArrayStoreException 0
 #else
-#define JavaLangArrayStoreException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangArrayStoreException 1
 #endif
-#undef JavaLangArrayStoreException_RESTRICT
+#undef RESTRICT_JavaLangArrayStoreException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangArrayStoreException_) && (JavaLangArrayStoreException_INCLUDE_ALL || defined(JavaLangArrayStoreException_INCLUDE))
+#if !defined (JavaLangArrayStoreException_) && (INCLUDE_ALL_JavaLangArrayStoreException || defined(INCLUDE_JavaLangArrayStoreException))
 #define JavaLangArrayStoreException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangArrayStoreException_init(JavaLangArrayStoreExcept
 
 FOUNDATION_EXPORT JavaLangArrayStoreException *new_JavaLangArrayStoreException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangArrayStoreException *create_JavaLangArrayStoreException_init();
+
 FOUNDATION_EXPORT void JavaLangArrayStoreException_initWithNSString_(JavaLangArrayStoreException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangArrayStoreException *new_JavaLangArrayStoreException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangArrayStoreException *create_JavaLangArrayStoreException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangArrayStoreException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangArrayStoreException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangArrayStoreException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangArrayStoreException")

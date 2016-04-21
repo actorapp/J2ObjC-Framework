@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoSequenceInputStream_INCLUDE_ALL")
-#ifdef JavaIoSequenceInputStream_RESTRICT
-#define JavaIoSequenceInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoSequenceInputStream")
+#ifdef RESTRICT_JavaIoSequenceInputStream
+#define INCLUDE_ALL_JavaIoSequenceInputStream 0
 #else
-#define JavaIoSequenceInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoSequenceInputStream 1
 #endif
-#undef JavaIoSequenceInputStream_RESTRICT
+#undef RESTRICT_JavaIoSequenceInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoSequenceInputStream_) && (JavaIoSequenceInputStream_INCLUDE_ALL || defined(JavaIoSequenceInputStream_INCLUDE))
+#if !defined (JavaIoSequenceInputStream_) && (INCLUDE_ALL_JavaIoSequenceInputStream || defined(INCLUDE_JavaIoSequenceInputStream))
 #define JavaIoSequenceInputStream_
 
-#define JavaIoInputStream_RESTRICT 1
-#define JavaIoInputStream_INCLUDE 1
+#define RESTRICT_JavaIoInputStream 1
+#define INCLUDE_JavaIoInputStream 1
 #include "../../java/io/InputStream.h"
 
 @class IOSByteArray;
@@ -132,9 +132,13 @@ FOUNDATION_EXPORT void JavaIoSequenceInputStream_initWithJavaIoInputStream_withJ
 
 FOUNDATION_EXPORT JavaIoSequenceInputStream *new_JavaIoSequenceInputStream_initWithJavaIoInputStream_withJavaIoInputStream_(JavaIoInputStream *s1, JavaIoInputStream *s2) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoSequenceInputStream *create_JavaIoSequenceInputStream_initWithJavaIoInputStream_withJavaIoInputStream_(JavaIoInputStream *s1, JavaIoInputStream *s2);
+
 FOUNDATION_EXPORT void JavaIoSequenceInputStream_initWithJavaUtilEnumeration_(JavaIoSequenceInputStream *self, id<JavaUtilEnumeration> e);
 
 FOUNDATION_EXPORT JavaIoSequenceInputStream *new_JavaIoSequenceInputStream_initWithJavaUtilEnumeration_(id<JavaUtilEnumeration> e) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoSequenceInputStream *create_JavaIoSequenceInputStream_initWithJavaUtilEnumeration_(id<JavaUtilEnumeration> e);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoSequenceInputStream)
 
@@ -142,4 +146,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoSequenceInputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoSequenceInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoSequenceInputStream")

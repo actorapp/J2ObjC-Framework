@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentPhaser_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentPhaser_RESTRICT
-#define JavaUtilConcurrentPhaser_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentPhaser")
+#ifdef RESTRICT_JavaUtilConcurrentPhaser
+#define INCLUDE_ALL_JavaUtilConcurrentPhaser 0
 #else
-#define JavaUtilConcurrentPhaser_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentPhaser 1
 #endif
-#undef JavaUtilConcurrentPhaser_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentPhaser
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentPhaser_) && (JavaUtilConcurrentPhaser_INCLUDE_ALL || defined(JavaUtilConcurrentPhaser_INCLUDE))
+#if !defined (JavaUtilConcurrentPhaser_) && (INCLUDE_ALL_JavaUtilConcurrentPhaser || defined(INCLUDE_JavaUtilConcurrentPhaser))
 #define JavaUtilConcurrentPhaser_
 
 @class JavaUtilConcurrentTimeUnit;
@@ -552,27 +552,35 @@ FOUNDATION_EXPORT void JavaUtilConcurrentPhaser_init(JavaUtilConcurrentPhaser *s
 
 FOUNDATION_EXPORT JavaUtilConcurrentPhaser *new_JavaUtilConcurrentPhaser_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentPhaser *create_JavaUtilConcurrentPhaser_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentPhaser_initWithInt_(JavaUtilConcurrentPhaser *self, jint parties);
 
 FOUNDATION_EXPORT JavaUtilConcurrentPhaser *new_JavaUtilConcurrentPhaser_initWithInt_(jint parties) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentPhaser *create_JavaUtilConcurrentPhaser_initWithInt_(jint parties);
 
 FOUNDATION_EXPORT void JavaUtilConcurrentPhaser_initWithJavaUtilConcurrentPhaser_(JavaUtilConcurrentPhaser *self, JavaUtilConcurrentPhaser *parent);
 
 FOUNDATION_EXPORT JavaUtilConcurrentPhaser *new_JavaUtilConcurrentPhaser_initWithJavaUtilConcurrentPhaser_(JavaUtilConcurrentPhaser *parent) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentPhaser *create_JavaUtilConcurrentPhaser_initWithJavaUtilConcurrentPhaser_(JavaUtilConcurrentPhaser *parent);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentPhaser_initWithJavaUtilConcurrentPhaser_withInt_(JavaUtilConcurrentPhaser *self, JavaUtilConcurrentPhaser *parent, jint parties);
 
 FOUNDATION_EXPORT JavaUtilConcurrentPhaser *new_JavaUtilConcurrentPhaser_initWithJavaUtilConcurrentPhaser_withInt_(JavaUtilConcurrentPhaser *parent, jint parties) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentPhaser *create_JavaUtilConcurrentPhaser_initWithJavaUtilConcurrentPhaser_withInt_(JavaUtilConcurrentPhaser *parent, jint parties);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPhaser)
 
 #endif
 
-#if !defined (JavaUtilConcurrentPhaser_QNode_) && (JavaUtilConcurrentPhaser_INCLUDE_ALL || defined(JavaUtilConcurrentPhaser_QNode_INCLUDE))
+#if !defined (JavaUtilConcurrentPhaser_QNode_) && (INCLUDE_ALL_JavaUtilConcurrentPhaser || defined(INCLUDE_JavaUtilConcurrentPhaser_QNode))
 #define JavaUtilConcurrentPhaser_QNode_
 
-#define JavaUtilConcurrentForkJoinPool_RESTRICT 1
-#define JavaUtilConcurrentForkJoinPool_ManagedBlocker_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentForkJoinPool 1
+#define INCLUDE_JavaUtilConcurrentForkJoinPool_ManagedBlocker 1
 #include "../../../java/util/concurrent/ForkJoinPool.h"
 
 @class JavaLangThread;
@@ -620,10 +628,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentPhaser_QNode_initWithJavaUtilConcurrent
 
 FOUNDATION_EXPORT JavaUtilConcurrentPhaser_QNode *new_JavaUtilConcurrentPhaser_QNode_initWithJavaUtilConcurrentPhaser_withInt_withBoolean_withBoolean_withLong_(JavaUtilConcurrentPhaser *phaser, jint phase, jboolean interruptible, jboolean timed, jlong nanos) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentPhaser_QNode *create_JavaUtilConcurrentPhaser_QNode_initWithJavaUtilConcurrentPhaser_withInt_withBoolean_withBoolean_withLong_(JavaUtilConcurrentPhaser *phaser, jint phase, jboolean interruptible, jboolean timed, jlong nanos);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentPhaser_QNode)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentPhaser_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentPhaser")

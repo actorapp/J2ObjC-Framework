@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextSimpleDateFormat_INCLUDE_ALL")
-#ifdef JavaTextSimpleDateFormat_RESTRICT
-#define JavaTextSimpleDateFormat_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextSimpleDateFormat")
+#ifdef RESTRICT_JavaTextSimpleDateFormat
+#define INCLUDE_ALL_JavaTextSimpleDateFormat 0
 #else
-#define JavaTextSimpleDateFormat_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextSimpleDateFormat 1
 #endif
-#undef JavaTextSimpleDateFormat_RESTRICT
+#undef RESTRICT_JavaTextSimpleDateFormat
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextSimpleDateFormat_) && (JavaTextSimpleDateFormat_INCLUDE_ALL || defined(JavaTextSimpleDateFormat_INCLUDE))
+#if !defined (JavaTextSimpleDateFormat_) && (INCLUDE_ALL_JavaTextSimpleDateFormat || defined(INCLUDE_JavaTextSimpleDateFormat))
 #define JavaTextSimpleDateFormat_
 
-#define JavaTextDateFormat_RESTRICT 1
-#define JavaTextDateFormat_INCLUDE 1
+#define RESTRICT_JavaTextDateFormat 1
+#define INCLUDE_JavaTextDateFormat 1
 #include "../../java/text/DateFormat.h"
 
 @class JavaLangStringBuffer;
@@ -417,17 +417,25 @@ FOUNDATION_EXPORT void JavaTextSimpleDateFormat_init(JavaTextSimpleDateFormat *s
 
 FOUNDATION_EXPORT JavaTextSimpleDateFormat *new_JavaTextSimpleDateFormat_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextSimpleDateFormat *create_JavaTextSimpleDateFormat_init();
+
 FOUNDATION_EXPORT void JavaTextSimpleDateFormat_initWithNSString_(JavaTextSimpleDateFormat *self, NSString *pattern);
 
 FOUNDATION_EXPORT JavaTextSimpleDateFormat *new_JavaTextSimpleDateFormat_initWithNSString_(NSString *pattern) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextSimpleDateFormat *create_JavaTextSimpleDateFormat_initWithNSString_(NSString *pattern);
 
 FOUNDATION_EXPORT void JavaTextSimpleDateFormat_initWithNSString_withJavaTextDateFormatSymbols_(JavaTextSimpleDateFormat *self, NSString *template_, JavaTextDateFormatSymbols *value);
 
 FOUNDATION_EXPORT JavaTextSimpleDateFormat *new_JavaTextSimpleDateFormat_initWithNSString_withJavaTextDateFormatSymbols_(NSString *template_, JavaTextDateFormatSymbols *value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextSimpleDateFormat *create_JavaTextSimpleDateFormat_initWithNSString_withJavaTextDateFormatSymbols_(NSString *template_, JavaTextDateFormatSymbols *value);
+
 FOUNDATION_EXPORT void JavaTextSimpleDateFormat_initWithNSString_withJavaUtilLocale_(JavaTextSimpleDateFormat *self, NSString *template_, JavaUtilLocale *locale);
 
 FOUNDATION_EXPORT JavaTextSimpleDateFormat *new_JavaTextSimpleDateFormat_initWithNSString_withJavaUtilLocale_(NSString *template_, JavaUtilLocale *locale) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextSimpleDateFormat *create_JavaTextSimpleDateFormat_initWithNSString_withJavaUtilLocale_(NSString *template_, JavaUtilLocale *locale);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextSimpleDateFormat)
 
@@ -435,4 +443,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextSimpleDateFormat)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextSimpleDateFormat_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextSimpleDateFormat")

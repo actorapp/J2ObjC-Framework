@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentRunnableFuture_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentRunnableFuture_RESTRICT
-#define JavaUtilConcurrentRunnableFuture_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentRunnableFuture")
+#ifdef RESTRICT_JavaUtilConcurrentRunnableFuture
+#define INCLUDE_ALL_JavaUtilConcurrentRunnableFuture 0
 #else
-#define JavaUtilConcurrentRunnableFuture_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentRunnableFuture 1
 #endif
-#undef JavaUtilConcurrentRunnableFuture_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentRunnableFuture
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentRunnableFuture_) && (JavaUtilConcurrentRunnableFuture_INCLUDE_ALL || defined(JavaUtilConcurrentRunnableFuture_INCLUDE))
+#if !defined (JavaUtilConcurrentRunnableFuture_) && (INCLUDE_ALL_JavaUtilConcurrentRunnableFuture || defined(INCLUDE_JavaUtilConcurrentRunnableFuture))
 #define JavaUtilConcurrentRunnableFuture_
 
-#define JavaLangRunnable_RESTRICT 1
-#define JavaLangRunnable_INCLUDE 1
+#define RESTRICT_JavaLangRunnable 1
+#define INCLUDE_JavaLangRunnable 1
 #include "../../../java/lang/Runnable.h"
 
-#define JavaUtilConcurrentFuture_RESTRICT 1
-#define JavaUtilConcurrentFuture_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentFuture 1
+#define INCLUDE_JavaUtilConcurrentFuture 1
 #include "../../../java/util/concurrent/Future.h"
 
 /*!
@@ -55,4 +55,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentRunnableFuture)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentRunnableFuture_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentRunnableFuture")

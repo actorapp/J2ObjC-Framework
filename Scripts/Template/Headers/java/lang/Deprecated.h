@@ -5,23 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangDeprecated_INCLUDE_ALL")
-#ifdef JavaLangDeprecated_RESTRICT
-#define JavaLangDeprecated_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangDeprecated")
+#ifdef RESTRICT_JavaLangDeprecated
+#define INCLUDE_ALL_JavaLangDeprecated 0
 #else
-#define JavaLangDeprecated_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangDeprecated 1
 #endif
-#undef JavaLangDeprecated_RESTRICT
+#undef RESTRICT_JavaLangDeprecated
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangDeprecated_) && (JavaLangDeprecated_INCLUDE_ALL || defined(JavaLangDeprecated_INCLUDE))
+#if !defined (JavaLangDeprecated_) && (INCLUDE_ALL_JavaLangDeprecated || defined(INCLUDE_JavaLangDeprecated))
 #define JavaLangDeprecated_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief Annotation type used to mark program elements that should no longer be used
@@ -40,10 +43,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaLangDeprecated)
 
+FOUNDATION_EXPORT id<JavaLangDeprecated> create_JavaLangDeprecated();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangDeprecated)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangDeprecated_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangDeprecated")

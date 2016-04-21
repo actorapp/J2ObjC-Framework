@@ -5,27 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformTransformerException_INCLUDE_ALL")
-#ifdef JavaxXmlTransformTransformerException_RESTRICT
-#define JavaxXmlTransformTransformerException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformTransformerException")
+#ifdef RESTRICT_JavaxXmlTransformTransformerException
+#define INCLUDE_ALL_JavaxXmlTransformTransformerException 0
 #else
-#define JavaxXmlTransformTransformerException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformTransformerException 1
 #endif
-#undef JavaxXmlTransformTransformerException_RESTRICT
+#undef RESTRICT_JavaxXmlTransformTransformerException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformTransformerException_) && (JavaxXmlTransformTransformerException_INCLUDE_ALL || defined(JavaxXmlTransformTransformerException_INCLUDE))
+#if !defined (JavaxXmlTransformTransformerException_) && (INCLUDE_ALL_JavaxXmlTransformTransformerException || defined(INCLUDE_JavaxXmlTransformTransformerException))
 #define JavaxXmlTransformTransformerException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../java/lang/Exception.h"
 
 @class JavaIoPrintStream;
 @class JavaIoPrintWriter;
-@class JavaLangThrowable;
 @protocol JavaxXmlTransformSourceLocator;
 
 /*!
@@ -42,7 +41,7 @@
    @brief Field containedException specifies a wrapped exception.
    May be null. 
    */
-  JavaLangThrowable *containedException_;
+  NSException *containedException_;
 }
 
 #pragma mark Public
@@ -73,7 +72,7 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator;
  */
 - (instancetype)initWithNSString:(NSString *)message
 withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
-           withJavaLangThrowable:(JavaLangThrowable *)e;
+                 withNSException:(NSException *)e;
 
 /*!
  @brief Wrap an existing exception in a TransformerException.
@@ -84,13 +83,13 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
  @param e Any exception
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)e;
+                 withNSException:(NSException *)e;
 
 /*!
  @brief Create a new TransformerException wrapping an existing exception.
  @param e The exception to be wrapped.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)e;
+- (instancetype)initWithNSException:(NSException *)e;
 
 /*!
  @brief Returns the cause of this throwable or <code>null</code> if the
@@ -98,14 +97,14 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
  (The cause is the throwable that
  caused this throwable to get thrown.)
  */
-- (JavaLangThrowable *)getCause;
+- (NSException *)getCause;
 
 /*!
  @brief This method retrieves an exception that this exception wraps.
  @return An Throwable object, or null.
  - seealso: #getCause
  */
-- (JavaLangThrowable *)getException;
+- (NSException *)getException;
 
 /*!
  @brief Get the location information as a string.
@@ -151,7 +150,7 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
  <code>TransformerException(String,Throwable)</code>, or this method has already
  been called on this throwable.
  */
-- (JavaLangThrowable *)initCauseWithJavaLangThrowable:(JavaLangThrowable *)cause OBJC_METHOD_FAMILY_NONE;
+- (NSException *)initCauseWithNSException:(NSException *)cause OBJC_METHOD_FAMILY_NONE;
 
 /*!
  @brief Print the the trace of methods from where the error
@@ -191,27 +190,37 @@ withJavaxXmlTransformSourceLocator:(id<JavaxXmlTransformSourceLocator>)locator
 J2OBJC_EMPTY_STATIC_INIT(JavaxXmlTransformTransformerException)
 
 J2OBJC_FIELD_SETTER(JavaxXmlTransformTransformerException, locator_, id<JavaxXmlTransformSourceLocator>)
-J2OBJC_FIELD_SETTER(JavaxXmlTransformTransformerException, containedException_, JavaLangThrowable *)
+J2OBJC_FIELD_SETTER(JavaxXmlTransformTransformerException, containedException_, NSException *)
 
 FOUNDATION_EXPORT void JavaxXmlTransformTransformerException_initWithNSString_(JavaxXmlTransformTransformerException *self, NSString *message);
 
 FOUNDATION_EXPORT JavaxXmlTransformTransformerException *new_JavaxXmlTransformTransformerException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaxXmlTransformTransformerException_initWithJavaLangThrowable_(JavaxXmlTransformTransformerException *self, JavaLangThrowable *e);
+FOUNDATION_EXPORT JavaxXmlTransformTransformerException *create_JavaxXmlTransformTransformerException_initWithNSString_(NSString *message);
 
-FOUNDATION_EXPORT JavaxXmlTransformTransformerException *new_JavaxXmlTransformTransformerException_initWithJavaLangThrowable_(JavaLangThrowable *e) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaxXmlTransformTransformerException_initWithNSException_(JavaxXmlTransformTransformerException *self, NSException *e);
 
-FOUNDATION_EXPORT void JavaxXmlTransformTransformerException_initWithNSString_withJavaLangThrowable_(JavaxXmlTransformTransformerException *self, NSString *message, JavaLangThrowable *e);
+FOUNDATION_EXPORT JavaxXmlTransformTransformerException *new_JavaxXmlTransformTransformerException_initWithNSException_(NSException *e) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaxXmlTransformTransformerException *new_JavaxXmlTransformTransformerException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *e) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaxXmlTransformTransformerException *create_JavaxXmlTransformTransformerException_initWithNSException_(NSException *e);
+
+FOUNDATION_EXPORT void JavaxXmlTransformTransformerException_initWithNSString_withNSException_(JavaxXmlTransformTransformerException *self, NSString *message, NSException *e);
+
+FOUNDATION_EXPORT JavaxXmlTransformTransformerException *new_JavaxXmlTransformTransformerException_initWithNSString_withNSException_(NSString *message, NSException *e) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformTransformerException *create_JavaxXmlTransformTransformerException_initWithNSString_withNSException_(NSString *message, NSException *e);
 
 FOUNDATION_EXPORT void JavaxXmlTransformTransformerException_initWithNSString_withJavaxXmlTransformSourceLocator_(JavaxXmlTransformTransformerException *self, NSString *message, id<JavaxXmlTransformSourceLocator> locator);
 
 FOUNDATION_EXPORT JavaxXmlTransformTransformerException *new_JavaxXmlTransformTransformerException_initWithNSString_withJavaxXmlTransformSourceLocator_(NSString *message, id<JavaxXmlTransformSourceLocator> locator) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaxXmlTransformTransformerException_initWithNSString_withJavaxXmlTransformSourceLocator_withJavaLangThrowable_(JavaxXmlTransformTransformerException *self, NSString *message, id<JavaxXmlTransformSourceLocator> locator, JavaLangThrowable *e);
+FOUNDATION_EXPORT JavaxXmlTransformTransformerException *create_JavaxXmlTransformTransformerException_initWithNSString_withJavaxXmlTransformSourceLocator_(NSString *message, id<JavaxXmlTransformSourceLocator> locator);
 
-FOUNDATION_EXPORT JavaxXmlTransformTransformerException *new_JavaxXmlTransformTransformerException_initWithNSString_withJavaxXmlTransformSourceLocator_withJavaLangThrowable_(NSString *message, id<JavaxXmlTransformSourceLocator> locator, JavaLangThrowable *e) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaxXmlTransformTransformerException_initWithNSString_withJavaxXmlTransformSourceLocator_withNSException_(JavaxXmlTransformTransformerException *self, NSString *message, id<JavaxXmlTransformSourceLocator> locator, NSException *e);
+
+FOUNDATION_EXPORT JavaxXmlTransformTransformerException *new_JavaxXmlTransformTransformerException_initWithNSString_withJavaxXmlTransformSourceLocator_withNSException_(NSString *message, id<JavaxXmlTransformSourceLocator> locator, NSException *e) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformTransformerException *create_JavaxXmlTransformTransformerException_initWithNSString_withJavaxXmlTransformSourceLocator_withNSException_(NSString *message, id<JavaxXmlTransformSourceLocator> locator, NSException *e);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformerException)
 
@@ -219,4 +228,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformTransformerException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformTransformerException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformTransformerException")

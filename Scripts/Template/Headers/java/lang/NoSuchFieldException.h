@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangNoSuchFieldException_INCLUDE_ALL")
-#ifdef JavaLangNoSuchFieldException_RESTRICT
-#define JavaLangNoSuchFieldException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangNoSuchFieldException")
+#ifdef RESTRICT_JavaLangNoSuchFieldException
+#define INCLUDE_ALL_JavaLangNoSuchFieldException 0
 #else
-#define JavaLangNoSuchFieldException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangNoSuchFieldException 1
 #endif
-#undef JavaLangNoSuchFieldException_RESTRICT
+#undef RESTRICT_JavaLangNoSuchFieldException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangNoSuchFieldException_) && (JavaLangNoSuchFieldException_INCLUDE_ALL || defined(JavaLangNoSuchFieldException_INCLUDE))
+#if !defined (JavaLangNoSuchFieldException_) && (INCLUDE_ALL_JavaLangNoSuchFieldException || defined(INCLUDE_JavaLangNoSuchFieldException))
 #define JavaLangNoSuchFieldException_
 
-#define JavaLangReflectiveOperationException_RESTRICT 1
-#define JavaLangReflectiveOperationException_INCLUDE 1
+#define RESTRICT_JavaLangReflectiveOperationException 1
+#define INCLUDE_JavaLangReflectiveOperationException 1
 #include "../../java/lang/ReflectiveOperationException.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangNoSuchFieldException_init(JavaLangNoSuchFieldExce
 
 FOUNDATION_EXPORT JavaLangNoSuchFieldException *new_JavaLangNoSuchFieldException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangNoSuchFieldException *create_JavaLangNoSuchFieldException_init();
+
 FOUNDATION_EXPORT void JavaLangNoSuchFieldException_initWithNSString_(JavaLangNoSuchFieldException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangNoSuchFieldException *new_JavaLangNoSuchFieldException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangNoSuchFieldException *create_JavaLangNoSuchFieldException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoSuchFieldException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoSuchFieldException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangNoSuchFieldException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangNoSuchFieldException")

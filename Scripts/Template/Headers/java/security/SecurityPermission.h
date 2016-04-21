@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySecurityPermission_INCLUDE_ALL")
-#ifdef JavaSecuritySecurityPermission_RESTRICT
-#define JavaSecuritySecurityPermission_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySecurityPermission")
+#ifdef RESTRICT_JavaSecuritySecurityPermission
+#define INCLUDE_ALL_JavaSecuritySecurityPermission 0
 #else
-#define JavaSecuritySecurityPermission_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySecurityPermission 1
 #endif
-#undef JavaSecuritySecurityPermission_RESTRICT
+#undef RESTRICT_JavaSecuritySecurityPermission
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySecurityPermission_) && (JavaSecuritySecurityPermission_INCLUDE_ALL || defined(JavaSecuritySecurityPermission_INCLUDE))
+#if !defined (JavaSecuritySecurityPermission_) && (INCLUDE_ALL_JavaSecuritySecurityPermission || defined(INCLUDE_JavaSecuritySecurityPermission))
 #define JavaSecuritySecurityPermission_
 
-#define JavaSecurityBasicPermission_RESTRICT 1
-#define JavaSecurityBasicPermission_INCLUDE 1
+#define RESTRICT_JavaSecurityBasicPermission 1
+#define INCLUDE_JavaSecurityBasicPermission 1
 #include "../../java/security/BasicPermission.h"
 
 @class JavaSecurityPermission;
@@ -49,9 +49,13 @@ FOUNDATION_EXPORT void JavaSecuritySecurityPermission_initWithNSString_(JavaSecu
 
 FOUNDATION_EXPORT JavaSecuritySecurityPermission *new_JavaSecuritySecurityPermission_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySecurityPermission *create_JavaSecuritySecurityPermission_initWithNSString_(NSString *name);
+
 FOUNDATION_EXPORT void JavaSecuritySecurityPermission_initWithNSString_withNSString_(JavaSecuritySecurityPermission *self, NSString *name, NSString *action);
 
 FOUNDATION_EXPORT JavaSecuritySecurityPermission *new_JavaSecuritySecurityPermission_initWithNSString_withNSString_(NSString *name, NSString *action) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecuritySecurityPermission *create_JavaSecuritySecurityPermission_initWithNSString_withNSString_(NSString *name, NSString *action);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecurityPermission)
 
@@ -59,4 +63,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySecurityPermission)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySecurityPermission_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySecurityPermission")

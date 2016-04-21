@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityInvalidAlgorithmParameterException_INCLUDE_ALL")
-#ifdef JavaSecurityInvalidAlgorithmParameterException_RESTRICT
-#define JavaSecurityInvalidAlgorithmParameterException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityInvalidAlgorithmParameterException")
+#ifdef RESTRICT_JavaSecurityInvalidAlgorithmParameterException
+#define INCLUDE_ALL_JavaSecurityInvalidAlgorithmParameterException 0
 #else
-#define JavaSecurityInvalidAlgorithmParameterException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityInvalidAlgorithmParameterException 1
 #endif
-#undef JavaSecurityInvalidAlgorithmParameterException_RESTRICT
+#undef RESTRICT_JavaSecurityInvalidAlgorithmParameterException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityInvalidAlgorithmParameterException_) && (JavaSecurityInvalidAlgorithmParameterException_INCLUDE_ALL || defined(JavaSecurityInvalidAlgorithmParameterException_INCLUDE))
+#if !defined (JavaSecurityInvalidAlgorithmParameterException_) && (INCLUDE_ALL_JavaSecurityInvalidAlgorithmParameterException || defined(INCLUDE_JavaSecurityInvalidAlgorithmParameterException))
 #define JavaSecurityInvalidAlgorithmParameterException_
 
-#define JavaSecurityGeneralSecurityException_RESTRICT 1
-#define JavaSecurityGeneralSecurityException_INCLUDE 1
+#define RESTRICT_JavaSecurityGeneralSecurityException 1
+#define INCLUDE_JavaSecurityGeneralSecurityException 1
 #include "../../java/security/GeneralSecurityException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>InvalidAlgorithmParameterException</code> indicates the occurrence of
@@ -55,7 +53,7 @@
  the exception which is the cause for this exception.
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new instance of <code>InvalidAlgorithmParameterException</code>
@@ -63,7 +61,7 @@
  @param cause
  the exception which is the cause for this exception.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -73,17 +71,25 @@ FOUNDATION_EXPORT void JavaSecurityInvalidAlgorithmParameterException_initWithNS
 
 FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *new_JavaSecurityInvalidAlgorithmParameterException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *create_JavaSecurityInvalidAlgorithmParameterException_initWithNSString_(NSString *msg);
+
 FOUNDATION_EXPORT void JavaSecurityInvalidAlgorithmParameterException_init(JavaSecurityInvalidAlgorithmParameterException *self);
 
 FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *new_JavaSecurityInvalidAlgorithmParameterException_init() NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSecurityInvalidAlgorithmParameterException_initWithNSString_withJavaLangThrowable_(JavaSecurityInvalidAlgorithmParameterException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *create_JavaSecurityInvalidAlgorithmParameterException_init();
 
-FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *new_JavaSecurityInvalidAlgorithmParameterException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSecurityInvalidAlgorithmParameterException_initWithNSString_withNSException_(JavaSecurityInvalidAlgorithmParameterException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSecurityInvalidAlgorithmParameterException_initWithJavaLangThrowable_(JavaSecurityInvalidAlgorithmParameterException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *new_JavaSecurityInvalidAlgorithmParameterException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *new_JavaSecurityInvalidAlgorithmParameterException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *create_JavaSecurityInvalidAlgorithmParameterException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSecurityInvalidAlgorithmParameterException_initWithNSException_(JavaSecurityInvalidAlgorithmParameterException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *new_JavaSecurityInvalidAlgorithmParameterException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityInvalidAlgorithmParameterException *create_JavaSecurityInvalidAlgorithmParameterException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInvalidAlgorithmParameterException)
 
@@ -91,4 +97,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityInvalidAlgorithmParameterException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityInvalidAlgorithmParameterException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityInvalidAlgorithmParameterException")

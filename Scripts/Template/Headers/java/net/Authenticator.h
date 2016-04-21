@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetAuthenticator_INCLUDE_ALL")
-#ifdef JavaNetAuthenticator_RESTRICT
-#define JavaNetAuthenticator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetAuthenticator")
+#ifdef RESTRICT_JavaNetAuthenticator
+#define INCLUDE_ALL_JavaNetAuthenticator 0
 #else
-#define JavaNetAuthenticator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetAuthenticator 1
 #endif
-#undef JavaNetAuthenticator_RESTRICT
+#undef RESTRICT_JavaNetAuthenticator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetAuthenticator_) && (JavaNetAuthenticator_INCLUDE_ALL || defined(JavaNetAuthenticator_INCLUDE))
+#if !defined (JavaNetAuthenticator_) && (INCLUDE_ALL_JavaNetAuthenticator || defined(INCLUDE_JavaNetAuthenticator))
 #define JavaNetAuthenticator_
 
 @class JavaNetAuthenticator_RequestorType;
@@ -211,11 +211,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetAuthenticator)
 
 #endif
 
-#if !defined (JavaNetAuthenticator_RequestorType_) && (JavaNetAuthenticator_INCLUDE_ALL || defined(JavaNetAuthenticator_RequestorType_INCLUDE))
+#if !defined (JavaNetAuthenticator_RequestorType_) && (INCLUDE_ALL_JavaNetAuthenticator || defined(INCLUDE_JavaNetAuthenticator_RequestorType))
 #define JavaNetAuthenticator_RequestorType_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaNetAuthenticator_RequestorType_Enum) {
@@ -272,4 +272,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetAuthenticator_RequestorType)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetAuthenticator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetAuthenticator")

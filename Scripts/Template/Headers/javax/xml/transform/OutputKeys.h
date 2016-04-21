@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformOutputKeys_INCLUDE_ALL")
-#ifdef JavaxXmlTransformOutputKeys_RESTRICT
-#define JavaxXmlTransformOutputKeys_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformOutputKeys")
+#ifdef RESTRICT_JavaxXmlTransformOutputKeys
+#define INCLUDE_ALL_JavaxXmlTransformOutputKeys 0
 #else
-#define JavaxXmlTransformOutputKeys_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformOutputKeys 1
 #endif
-#undef JavaxXmlTransformOutputKeys_RESTRICT
+#undef RESTRICT_JavaxXmlTransformOutputKeys
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformOutputKeys_) && (JavaxXmlTransformOutputKeys_INCLUDE_ALL || defined(JavaxXmlTransformOutputKeys_INCLUDE))
+#if !defined (JavaxXmlTransformOutputKeys_) && (INCLUDE_ALL_JavaxXmlTransformOutputKeys || defined(INCLUDE_JavaxXmlTransformOutputKeys))
 #define JavaxXmlTransformOutputKeys_
 
 /*!
@@ -231,4 +231,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformOutputKeys)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformOutputKeys_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformOutputKeys")

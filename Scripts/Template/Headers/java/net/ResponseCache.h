@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetResponseCache_INCLUDE_ALL")
-#ifdef JavaNetResponseCache_RESTRICT
-#define JavaNetResponseCache_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetResponseCache")
+#ifdef RESTRICT_JavaNetResponseCache
+#define INCLUDE_ALL_JavaNetResponseCache 0
 #else
-#define JavaNetResponseCache_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetResponseCache 1
 #endif
-#undef JavaNetResponseCache_RESTRICT
+#undef RESTRICT_JavaNetResponseCache
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetResponseCache_) && (JavaNetResponseCache_INCLUDE_ALL || defined(JavaNetResponseCache_INCLUDE))
+#if !defined (JavaNetResponseCache_) && (INCLUDE_ALL_JavaNetResponseCache || defined(INCLUDE_JavaNetResponseCache))
 #define JavaNetResponseCache_
 
 @class JavaNetCacheRequest;
@@ -106,4 +106,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetResponseCache)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetResponseCache_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetResponseCache")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangRefWeakReference_INCLUDE_ALL")
-#ifdef JavaLangRefWeakReference_RESTRICT
-#define JavaLangRefWeakReference_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangRefWeakReference")
+#ifdef RESTRICT_JavaLangRefWeakReference
+#define INCLUDE_ALL_JavaLangRefWeakReference 0
 #else
-#define JavaLangRefWeakReference_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangRefWeakReference 1
 #endif
-#undef JavaLangRefWeakReference_RESTRICT
+#undef RESTRICT_JavaLangRefWeakReference
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangRefWeakReference_) && (JavaLangRefWeakReference_INCLUDE_ALL || defined(JavaLangRefWeakReference_INCLUDE))
+#if !defined (JavaLangRefWeakReference_) && (INCLUDE_ALL_JavaLangRefWeakReference || defined(INCLUDE_JavaLangRefWeakReference))
 #define JavaLangRefWeakReference_
 
-#define JavaLangRefReference_RESTRICT 1
-#define JavaLangRefReference_INCLUDE 1
+#define RESTRICT_JavaLangRefReference 1
+#define INCLUDE_JavaLangRefReference 1
 #include "../../../java/lang/ref/Reference.h"
 
 @class JavaLangRefReferenceQueue;
@@ -106,9 +106,13 @@ FOUNDATION_EXPORT void JavaLangRefWeakReference_initWithId_(JavaLangRefWeakRefer
 
 FOUNDATION_EXPORT JavaLangRefWeakReference *new_JavaLangRefWeakReference_initWithId_(id r) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangRefWeakReference *create_JavaLangRefWeakReference_initWithId_(id r);
+
 FOUNDATION_EXPORT void JavaLangRefWeakReference_initWithId_withJavaLangRefReferenceQueue_(JavaLangRefWeakReference *self, id r, JavaLangRefReferenceQueue *q);
 
 FOUNDATION_EXPORT JavaLangRefWeakReference *new_JavaLangRefWeakReference_initWithId_withJavaLangRefReferenceQueue_(id r, JavaLangRefReferenceQueue *q) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangRefWeakReference *create_JavaLangRefWeakReference_initWithId_withJavaLangRefReferenceQueue_(id r, JavaLangRefReferenceQueue *q);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefWeakReference)
 
@@ -116,4 +120,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefWeakReference)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangRefWeakReference_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangRefWeakReference")

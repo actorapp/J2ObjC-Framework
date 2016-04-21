@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityBasicPermission_INCLUDE_ALL")
-#ifdef JavaSecurityBasicPermission_RESTRICT
-#define JavaSecurityBasicPermission_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityBasicPermission")
+#ifdef RESTRICT_JavaSecurityBasicPermission
+#define INCLUDE_ALL_JavaSecurityBasicPermission 0
 #else
-#define JavaSecurityBasicPermission_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityBasicPermission 1
 #endif
-#undef JavaSecurityBasicPermission_RESTRICT
+#undef RESTRICT_JavaSecurityBasicPermission
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityBasicPermission_) && (JavaSecurityBasicPermission_INCLUDE_ALL || defined(JavaSecurityBasicPermission_INCLUDE))
+#if !defined (JavaSecurityBasicPermission_) && (INCLUDE_ALL_JavaSecurityBasicPermission || defined(INCLUDE_JavaSecurityBasicPermission))
 #define JavaSecurityBasicPermission_
 
-#define JavaSecurityPermission_RESTRICT 1
-#define JavaSecurityPermission_INCLUDE 1
+#define RESTRICT_JavaSecurityPermission 1
+#define INCLUDE_JavaSecurityPermission 1
 #include "../../java/security/Permission.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -57,4 +57,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityBasicPermission)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityBasicPermission_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityBasicPermission")

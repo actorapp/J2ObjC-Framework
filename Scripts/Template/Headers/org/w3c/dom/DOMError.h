@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomDOMError_INCLUDE_ALL")
-#ifdef OrgW3cDomDOMError_RESTRICT
-#define OrgW3cDomDOMError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomDOMError")
+#ifdef RESTRICT_OrgW3cDomDOMError
+#define INCLUDE_ALL_OrgW3cDomDOMError 0
 #else
-#define OrgW3cDomDOMError_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomDOMError 1
 #endif
-#undef OrgW3cDomDOMError_RESTRICT
+#undef RESTRICT_OrgW3cDomDOMError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomDOMError_) && (OrgW3cDomDOMError_INCLUDE_ALL || defined(OrgW3cDomDOMError_INCLUDE))
+#if !defined (OrgW3cDomDOMError_) && (INCLUDE_ALL_OrgW3cDomDOMError || defined(INCLUDE_OrgW3cDomDOMError))
 #define OrgW3cDomDOMError_
 
 @protocol OrgW3cDomDOMLocator;
@@ -125,4 +125,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomDOMError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomDOMError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomDOMError")

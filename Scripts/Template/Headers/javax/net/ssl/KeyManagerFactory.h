@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslKeyManagerFactory_INCLUDE_ALL")
-#ifdef JavaxNetSslKeyManagerFactory_RESTRICT
-#define JavaxNetSslKeyManagerFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslKeyManagerFactory")
+#ifdef RESTRICT_JavaxNetSslKeyManagerFactory
+#define INCLUDE_ALL_JavaxNetSslKeyManagerFactory 0
 #else
-#define JavaxNetSslKeyManagerFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslKeyManagerFactory 1
 #endif
-#undef JavaxNetSslKeyManagerFactory_RESTRICT
+#undef RESTRICT_JavaxNetSslKeyManagerFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslKeyManagerFactory_) && (JavaxNetSslKeyManagerFactory_INCLUDE_ALL || defined(JavaxNetSslKeyManagerFactory_INCLUDE))
+#if !defined (JavaxNetSslKeyManagerFactory_) && (INCLUDE_ALL_JavaxNetSslKeyManagerFactory || defined(INCLUDE_JavaxNetSslKeyManagerFactory))
 #define JavaxNetSslKeyManagerFactory_
 
 @class IOSCharArray;
@@ -171,10 +171,12 @@ FOUNDATION_EXPORT void JavaxNetSslKeyManagerFactory_initWithJavaxNetSslKeyManage
 
 FOUNDATION_EXPORT JavaxNetSslKeyManagerFactory *new_JavaxNetSslKeyManagerFactory_initWithJavaxNetSslKeyManagerFactorySpi_withJavaSecurityProvider_withNSString_(JavaxNetSslKeyManagerFactorySpi *factorySpi, JavaSecurityProvider *provider, NSString *algorithm) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslKeyManagerFactory *create_JavaxNetSslKeyManagerFactory_initWithJavaxNetSslKeyManagerFactorySpi_withJavaSecurityProvider_withNSString_(JavaxNetSslKeyManagerFactorySpi *factorySpi, JavaSecurityProvider *provider, NSString *algorithm);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslKeyManagerFactory)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslKeyManagerFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslKeyManagerFactory")

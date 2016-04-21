@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansFeatureDescriptor_INCLUDE_ALL")
-#ifdef JavaBeansFeatureDescriptor_RESTRICT
-#define JavaBeansFeatureDescriptor_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansFeatureDescriptor")
+#ifdef RESTRICT_JavaBeansFeatureDescriptor
+#define INCLUDE_ALL_JavaBeansFeatureDescriptor 0
 #else
-#define JavaBeansFeatureDescriptor_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansFeatureDescriptor 1
 #endif
-#undef JavaBeansFeatureDescriptor_RESTRICT
+#undef RESTRICT_JavaBeansFeatureDescriptor
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansFeatureDescriptor_) && (JavaBeansFeatureDescriptor_INCLUDE_ALL || defined(JavaBeansFeatureDescriptor_INCLUDE))
+#if !defined (JavaBeansFeatureDescriptor_) && (INCLUDE_ALL_JavaBeansFeatureDescriptor || defined(INCLUDE_JavaBeansFeatureDescriptor))
 #define JavaBeansFeatureDescriptor_
 
 @protocol JavaUtilEnumeration;
@@ -190,10 +190,12 @@ FOUNDATION_EXPORT void JavaBeansFeatureDescriptor_init(JavaBeansFeatureDescripto
 
 FOUNDATION_EXPORT JavaBeansFeatureDescriptor *new_JavaBeansFeatureDescriptor_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansFeatureDescriptor *create_JavaBeansFeatureDescriptor_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansFeatureDescriptor)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansFeatureDescriptor_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansFeatureDescriptor")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecECPoint_INCLUDE_ALL")
-#ifdef JavaSecuritySpecECPoint_RESTRICT
-#define JavaSecuritySpecECPoint_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecECPoint")
+#ifdef RESTRICT_JavaSecuritySpecECPoint
+#define INCLUDE_ALL_JavaSecuritySpecECPoint 0
 #else
-#define JavaSecuritySpecECPoint_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecECPoint 1
 #endif
-#undef JavaSecuritySpecECPoint_RESTRICT
+#undef RESTRICT_JavaSecuritySpecECPoint
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecECPoint_) && (JavaSecuritySpecECPoint_INCLUDE_ALL || defined(JavaSecuritySpecECPoint_INCLUDE))
+#if !defined (JavaSecuritySpecECPoint_) && (INCLUDE_ALL_JavaSecuritySpecECPoint || defined(INCLUDE_JavaSecuritySpecECPoint))
 #define JavaSecuritySpecECPoint_
 
 @class JavaMathBigInteger;
@@ -84,10 +84,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecECPoint_initWithJavaMathBigInteger_withJa
 
 FOUNDATION_EXPORT JavaSecuritySpecECPoint *new_JavaSecuritySpecECPoint_initWithJavaMathBigInteger_withJavaMathBigInteger_(JavaMathBigInteger *affineX, JavaMathBigInteger *affineY) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecECPoint *create_JavaSecuritySpecECPoint_initWithJavaMathBigInteger_withJavaMathBigInteger_(JavaMathBigInteger *affineX, JavaMathBigInteger *affineY);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecECPoint)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecECPoint_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecECPoint")

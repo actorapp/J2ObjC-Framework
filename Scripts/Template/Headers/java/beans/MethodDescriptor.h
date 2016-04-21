@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansMethodDescriptor_INCLUDE_ALL")
-#ifdef JavaBeansMethodDescriptor_RESTRICT
-#define JavaBeansMethodDescriptor_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansMethodDescriptor")
+#ifdef RESTRICT_JavaBeansMethodDescriptor
+#define INCLUDE_ALL_JavaBeansMethodDescriptor 0
 #else
-#define JavaBeansMethodDescriptor_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansMethodDescriptor 1
 #endif
-#undef JavaBeansMethodDescriptor_RESTRICT
+#undef RESTRICT_JavaBeansMethodDescriptor
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansMethodDescriptor_) && (JavaBeansMethodDescriptor_INCLUDE_ALL || defined(JavaBeansMethodDescriptor_INCLUDE))
+#if !defined (JavaBeansMethodDescriptor_) && (INCLUDE_ALL_JavaBeansMethodDescriptor || defined(INCLUDE_JavaBeansMethodDescriptor))
 #define JavaBeansMethodDescriptor_
 
-#define JavaBeansFeatureDescriptor_RESTRICT 1
-#define JavaBeansFeatureDescriptor_INCLUDE 1
+#define RESTRICT_JavaBeansFeatureDescriptor 1
+#define INCLUDE_JavaBeansFeatureDescriptor 1
 #include "../../java/beans/FeatureDescriptor.h"
 
 @class IOSObjectArray;
@@ -89,9 +89,13 @@ FOUNDATION_EXPORT void JavaBeansMethodDescriptor_initWithJavaLangReflectMethod_w
 
 FOUNDATION_EXPORT JavaBeansMethodDescriptor *new_JavaBeansMethodDescriptor_initWithJavaLangReflectMethod_withJavaBeansParameterDescriptorArray_(JavaLangReflectMethod *method, IOSObjectArray *parameterDescriptors) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansMethodDescriptor *create_JavaBeansMethodDescriptor_initWithJavaLangReflectMethod_withJavaBeansParameterDescriptorArray_(JavaLangReflectMethod *method, IOSObjectArray *parameterDescriptors);
+
 FOUNDATION_EXPORT void JavaBeansMethodDescriptor_initWithJavaLangReflectMethod_(JavaBeansMethodDescriptor *self, JavaLangReflectMethod *method);
 
 FOUNDATION_EXPORT JavaBeansMethodDescriptor *new_JavaBeansMethodDescriptor_initWithJavaLangReflectMethod_(JavaLangReflectMethod *method) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaBeansMethodDescriptor *create_JavaBeansMethodDescriptor_initWithJavaLangReflectMethod_(JavaLangReflectMethod *method);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansMethodDescriptor)
 
@@ -99,4 +103,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansMethodDescriptor)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansMethodDescriptor_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansMethodDescriptor")

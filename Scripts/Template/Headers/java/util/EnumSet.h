@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilEnumSet_INCLUDE_ALL")
-#ifdef JavaUtilEnumSet_RESTRICT
-#define JavaUtilEnumSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilEnumSet")
+#ifdef RESTRICT_JavaUtilEnumSet
+#define INCLUDE_ALL_JavaUtilEnumSet 0
 #else
-#define JavaUtilEnumSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilEnumSet 1
 #endif
-#undef JavaUtilEnumSet_RESTRICT
+#undef RESTRICT_JavaUtilEnumSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilEnumSet_) && (JavaUtilEnumSet_INCLUDE_ALL || defined(JavaUtilEnumSet_INCLUDE))
+#if !defined (JavaUtilEnumSet_) && (INCLUDE_ALL_JavaUtilEnumSet || defined(INCLUDE_JavaUtilEnumSet))
 #define JavaUtilEnumSet_
 
-#define JavaUtilAbstractSet_RESTRICT 1
-#define JavaUtilAbstractSet_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractSet 1
+#define INCLUDE_JavaUtilAbstractSet 1
 #include "../../java/util/AbstractSet.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSClass;
@@ -301,4 +301,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEnumSet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilEnumSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilEnumSet")

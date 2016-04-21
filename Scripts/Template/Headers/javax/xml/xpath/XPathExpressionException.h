@@ -5,25 +5,23 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlXpathXPathExpressionException_INCLUDE_ALL")
-#ifdef JavaxXmlXpathXPathExpressionException_RESTRICT
-#define JavaxXmlXpathXPathExpressionException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathExpressionException")
+#ifdef RESTRICT_JavaxXmlXpathXPathExpressionException
+#define INCLUDE_ALL_JavaxXmlXpathXPathExpressionException 0
 #else
-#define JavaxXmlXpathXPathExpressionException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlXpathXPathExpressionException 1
 #endif
-#undef JavaxXmlXpathXPathExpressionException_RESTRICT
+#undef RESTRICT_JavaxXmlXpathXPathExpressionException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlXpathXPathExpressionException_) && (JavaxXmlXpathXPathExpressionException_INCLUDE_ALL || defined(JavaxXmlXpathXPathExpressionException_INCLUDE))
+#if !defined (JavaxXmlXpathXPathExpressionException_) && (INCLUDE_ALL_JavaxXmlXpathXPathExpressionException || defined(INCLUDE_JavaxXmlXpathXPathExpressionException))
 #define JavaxXmlXpathXPathExpressionException_
 
-#define JavaxXmlXpathXPathException_RESTRICT 1
-#define JavaxXmlXpathXPathException_INCLUDE 1
+#define RESTRICT_JavaxXmlXpathXPathException 1
+#define INCLUDE_JavaxXmlXpathXPathException 1
 #include "../../../javax/xml/xpath/XPathException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief <code>XPathExpressionException</code> represents an error in an XPath expression.
@@ -53,7 +51,7 @@
  @param cause The cause.
  @throws NullPointerException if <code>cause</code> is <code>null</code>.
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -63,9 +61,13 @@ FOUNDATION_EXPORT void JavaxXmlXpathXPathExpressionException_initWithNSString_(J
 
 FOUNDATION_EXPORT JavaxXmlXpathXPathExpressionException *new_JavaxXmlXpathXPathExpressionException_initWithNSString_(NSString *message) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaxXmlXpathXPathExpressionException_initWithJavaLangThrowable_(JavaxXmlXpathXPathExpressionException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaxXmlXpathXPathExpressionException *create_JavaxXmlXpathXPathExpressionException_initWithNSString_(NSString *message);
 
-FOUNDATION_EXPORT JavaxXmlXpathXPathExpressionException *new_JavaxXmlXpathXPathExpressionException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaxXmlXpathXPathExpressionException_initWithNSException_(JavaxXmlXpathXPathExpressionException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaxXmlXpathXPathExpressionException *new_JavaxXmlXpathXPathExpressionException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlXpathXPathExpressionException *create_JavaxXmlXpathXPathExpressionException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathExpressionException)
 
@@ -73,4 +75,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathExpressionException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlXpathXPathExpressionException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathExpressionException")

@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidUtilSparseLongArray_INCLUDE_ALL")
-#ifdef AndroidUtilSparseLongArray_RESTRICT
-#define AndroidUtilSparseLongArray_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidUtilSparseLongArray")
+#ifdef RESTRICT_AndroidUtilSparseLongArray
+#define INCLUDE_ALL_AndroidUtilSparseLongArray 0
 #else
-#define AndroidUtilSparseLongArray_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidUtilSparseLongArray 1
 #endif
-#undef AndroidUtilSparseLongArray_RESTRICT
+#undef RESTRICT_AndroidUtilSparseLongArray
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidUtilSparseLongArray_) && (AndroidUtilSparseLongArray_INCLUDE_ALL || defined(AndroidUtilSparseLongArray_INCLUDE))
+#if !defined (AndroidUtilSparseLongArray_) && (INCLUDE_ALL_AndroidUtilSparseLongArray || defined(INCLUDE_AndroidUtilSparseLongArray))
 #define AndroidUtilSparseLongArray_
 
 /*!
@@ -163,9 +163,13 @@ FOUNDATION_EXPORT void AndroidUtilSparseLongArray_init(AndroidUtilSparseLongArra
 
 FOUNDATION_EXPORT AndroidUtilSparseLongArray *new_AndroidUtilSparseLongArray_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilSparseLongArray *create_AndroidUtilSparseLongArray_init();
+
 FOUNDATION_EXPORT void AndroidUtilSparseLongArray_initWithInt_(AndroidUtilSparseLongArray *self, jint initialCapacity);
 
 FOUNDATION_EXPORT AndroidUtilSparseLongArray *new_AndroidUtilSparseLongArray_initWithInt_(jint initialCapacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT AndroidUtilSparseLongArray *create_AndroidUtilSparseLongArray_initWithInt_(jint initialCapacity);
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilSparseLongArray)
 
@@ -173,4 +177,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilSparseLongArray)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidUtilSparseLongArray_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidUtilSparseLongArray")

@@ -5,20 +5,21 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxParser_INCLUDE_ALL")
-#ifdef OrgXmlSaxParser_RESTRICT
-#define OrgXmlSaxParser_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxParser")
+#ifdef RESTRICT_OrgXmlSaxParser
+#define INCLUDE_ALL_OrgXmlSaxParser 0
 #else
-#define OrgXmlSaxParser_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxParser 1
 #endif
-#undef OrgXmlSaxParser_RESTRICT
+#undef RESTRICT_OrgXmlSaxParser
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxParser_) && (OrgXmlSaxParser_INCLUDE_ALL || defined(OrgXmlSaxParser_INCLUDE))
+#if !defined (OrgXmlSaxParser_) && (INCLUDE_ALL_OrgXmlSaxParser || defined(INCLUDE_OrgXmlSaxParser))
 #define OrgXmlSaxParser_
 
+@class IOSObjectArray;
 @class JavaUtilLocale;
 @class OrgXmlSaxInputSource;
 @protocol OrgXmlSaxDTDHandler;
@@ -194,4 +195,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxParser)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxParser_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxParser")

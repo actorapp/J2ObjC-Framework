@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoInterruptedIOException_INCLUDE_ALL")
-#ifdef JavaIoInterruptedIOException_RESTRICT
-#define JavaIoInterruptedIOException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoInterruptedIOException")
+#ifdef RESTRICT_JavaIoInterruptedIOException
+#define INCLUDE_ALL_JavaIoInterruptedIOException 0
 #else
-#define JavaIoInterruptedIOException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoInterruptedIOException 1
 #endif
-#undef JavaIoInterruptedIOException_RESTRICT
+#undef RESTRICT_JavaIoInterruptedIOException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoInterruptedIOException_) && (JavaIoInterruptedIOException_INCLUDE_ALL || defined(JavaIoInterruptedIOException_INCLUDE))
+#if !defined (JavaIoInterruptedIOException_) && (INCLUDE_ALL_JavaIoInterruptedIOException || defined(INCLUDE_JavaIoInterruptedIOException))
 #define JavaIoInterruptedIOException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Signals that a blocking I/O operation has been interrupted.
@@ -56,7 +54,7 @@
   internal use only
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 @end
 
@@ -66,13 +64,19 @@ FOUNDATION_EXPORT void JavaIoInterruptedIOException_init(JavaIoInterruptedIOExce
 
 FOUNDATION_EXPORT JavaIoInterruptedIOException *new_JavaIoInterruptedIOException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoInterruptedIOException *create_JavaIoInterruptedIOException_init();
+
 FOUNDATION_EXPORT void JavaIoInterruptedIOException_initWithNSString_(JavaIoInterruptedIOException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoInterruptedIOException *new_JavaIoInterruptedIOException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaIoInterruptedIOException_initWithNSString_withJavaLangThrowable_(JavaIoInterruptedIOException *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaIoInterruptedIOException *create_JavaIoInterruptedIOException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaIoInterruptedIOException *new_JavaIoInterruptedIOException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaIoInterruptedIOException_initWithNSString_withNSException_(JavaIoInterruptedIOException *self, NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT JavaIoInterruptedIOException *new_JavaIoInterruptedIOException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoInterruptedIOException *create_JavaIoInterruptedIOException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoInterruptedIOException)
 
@@ -80,4 +84,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoInterruptedIOException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoInterruptedIOException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoInterruptedIOException")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansPropertyVetoException_INCLUDE_ALL")
-#ifdef JavaBeansPropertyVetoException_RESTRICT
-#define JavaBeansPropertyVetoException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansPropertyVetoException")
+#ifdef RESTRICT_JavaBeansPropertyVetoException
+#define INCLUDE_ALL_JavaBeansPropertyVetoException 0
 #else
-#define JavaBeansPropertyVetoException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansPropertyVetoException 1
 #endif
-#undef JavaBeansPropertyVetoException_RESTRICT
+#undef RESTRICT_JavaBeansPropertyVetoException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansPropertyVetoException_) && (JavaBeansPropertyVetoException_INCLUDE_ALL || defined(JavaBeansPropertyVetoException_INCLUDE))
+#if !defined (JavaBeansPropertyVetoException_) && (INCLUDE_ALL_JavaBeansPropertyVetoException || defined(INCLUDE_JavaBeansPropertyVetoException))
 #define JavaBeansPropertyVetoException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
 
 @class JavaBeansPropertyChangeEvent;
@@ -60,10 +60,12 @@ FOUNDATION_EXPORT void JavaBeansPropertyVetoException_initWithNSString_withJavaB
 
 FOUNDATION_EXPORT JavaBeansPropertyVetoException *new_JavaBeansPropertyVetoException_initWithNSString_withJavaBeansPropertyChangeEvent_(NSString *message, JavaBeansPropertyChangeEvent *event) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansPropertyVetoException *create_JavaBeansPropertyVetoException_initWithNSString_withJavaBeansPropertyChangeEvent_(NSString *message, JavaBeansPropertyChangeEvent *event);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyVetoException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansPropertyVetoException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansPropertyVetoException")

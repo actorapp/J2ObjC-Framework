@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetSecureCacheResponse_INCLUDE_ALL")
-#ifdef JavaNetSecureCacheResponse_RESTRICT
-#define JavaNetSecureCacheResponse_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetSecureCacheResponse")
+#ifdef RESTRICT_JavaNetSecureCacheResponse
+#define INCLUDE_ALL_JavaNetSecureCacheResponse 0
 #else
-#define JavaNetSecureCacheResponse_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetSecureCacheResponse 1
 #endif
-#undef JavaNetSecureCacheResponse_RESTRICT
+#undef RESTRICT_JavaNetSecureCacheResponse
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetSecureCacheResponse_) && (JavaNetSecureCacheResponse_INCLUDE_ALL || defined(JavaNetSecureCacheResponse_INCLUDE))
+#if !defined (JavaNetSecureCacheResponse_) && (INCLUDE_ALL_JavaNetSecureCacheResponse || defined(INCLUDE_JavaNetSecureCacheResponse))
 #define JavaNetSecureCacheResponse_
 
-#define JavaNetCacheResponse_RESTRICT 1
-#define JavaNetCacheResponse_INCLUDE 1
+#define RESTRICT_JavaNetCacheResponse 1
+#define INCLUDE_JavaNetCacheResponse 1
 #include "../../java/net/CacheResponse.h"
 
 @protocol JavaSecurityPrincipal;
@@ -106,4 +106,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSecureCacheResponse)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetSecureCacheResponse_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetSecureCacheResponse")

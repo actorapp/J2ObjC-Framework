@@ -5,24 +5,25 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetSocket_INCLUDE_ALL")
-#ifdef JavaNetSocket_RESTRICT
-#define JavaNetSocket_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetSocket")
+#ifdef RESTRICT_JavaNetSocket
+#define INCLUDE_ALL_JavaNetSocket 0
 #else
-#define JavaNetSocket_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetSocket 1
 #endif
-#undef JavaNetSocket_RESTRICT
+#undef RESTRICT_JavaNetSocket
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetSocket_) && (JavaNetSocket_INCLUDE_ALL || defined(JavaNetSocket_INCLUDE))
+#if !defined (JavaNetSocket_) && (INCLUDE_ALL_JavaNetSocket || defined(INCLUDE_JavaNetSocket))
 #define JavaNetSocket_
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../java/io/Closeable.h"
 
+@class IOSObjectArray;
 @class JavaIoFileDescriptor;
 @class JavaIoInputStream;
 @class JavaIoOutputStream;
@@ -593,37 +594,55 @@ FOUNDATION_EXPORT void JavaNetSocket_init(JavaNetSocket *self);
 
 FOUNDATION_EXPORT JavaNetSocket *new_JavaNetSocket_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetSocket *create_JavaNetSocket_init();
+
 FOUNDATION_EXPORT void JavaNetSocket_initWithJavaNetProxy_(JavaNetSocket *self, JavaNetProxy *proxy);
 
 FOUNDATION_EXPORT JavaNetSocket *new_JavaNetSocket_initWithJavaNetProxy_(JavaNetProxy *proxy) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetSocket *create_JavaNetSocket_initWithJavaNetProxy_(JavaNetProxy *proxy);
 
 FOUNDATION_EXPORT void JavaNetSocket_initWithNSString_withInt_(JavaNetSocket *self, NSString *dstName, jint dstPort);
 
 FOUNDATION_EXPORT JavaNetSocket *new_JavaNetSocket_initWithNSString_withInt_(NSString *dstName, jint dstPort) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetSocket *create_JavaNetSocket_initWithNSString_withInt_(NSString *dstName, jint dstPort);
+
 FOUNDATION_EXPORT void JavaNetSocket_initWithNSString_withInt_withJavaNetInetAddress_withInt_(JavaNetSocket *self, NSString *dstName, jint dstPort, JavaNetInetAddress *localAddress, jint localPort);
 
 FOUNDATION_EXPORT JavaNetSocket *new_JavaNetSocket_initWithNSString_withInt_withJavaNetInetAddress_withInt_(NSString *dstName, jint dstPort, JavaNetInetAddress *localAddress, jint localPort) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetSocket *create_JavaNetSocket_initWithNSString_withInt_withJavaNetInetAddress_withInt_(NSString *dstName, jint dstPort, JavaNetInetAddress *localAddress, jint localPort);
 
 FOUNDATION_EXPORT void JavaNetSocket_initWithNSString_withInt_withBoolean_(JavaNetSocket *self, NSString *hostName, jint port, jboolean streaming);
 
 FOUNDATION_EXPORT JavaNetSocket *new_JavaNetSocket_initWithNSString_withInt_withBoolean_(NSString *hostName, jint port, jboolean streaming) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetSocket *create_JavaNetSocket_initWithNSString_withInt_withBoolean_(NSString *hostName, jint port, jboolean streaming);
+
 FOUNDATION_EXPORT void JavaNetSocket_initWithJavaNetInetAddress_withInt_(JavaNetSocket *self, JavaNetInetAddress *dstAddress, jint dstPort);
 
 FOUNDATION_EXPORT JavaNetSocket *new_JavaNetSocket_initWithJavaNetInetAddress_withInt_(JavaNetInetAddress *dstAddress, jint dstPort) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetSocket *create_JavaNetSocket_initWithJavaNetInetAddress_withInt_(JavaNetInetAddress *dstAddress, jint dstPort);
 
 FOUNDATION_EXPORT void JavaNetSocket_initWithJavaNetInetAddress_withInt_withJavaNetInetAddress_withInt_(JavaNetSocket *self, JavaNetInetAddress *dstAddress, jint dstPort, JavaNetInetAddress *localAddress, jint localPort);
 
 FOUNDATION_EXPORT JavaNetSocket *new_JavaNetSocket_initWithJavaNetInetAddress_withInt_withJavaNetInetAddress_withInt_(JavaNetInetAddress *dstAddress, jint dstPort, JavaNetInetAddress *localAddress, jint localPort) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetSocket *create_JavaNetSocket_initWithJavaNetInetAddress_withInt_withJavaNetInetAddress_withInt_(JavaNetInetAddress *dstAddress, jint dstPort, JavaNetInetAddress *localAddress, jint localPort);
+
 FOUNDATION_EXPORT void JavaNetSocket_initWithJavaNetInetAddress_withInt_withBoolean_(JavaNetSocket *self, JavaNetInetAddress *addr, jint port, jboolean streaming);
 
 FOUNDATION_EXPORT JavaNetSocket *new_JavaNetSocket_initWithJavaNetInetAddress_withInt_withBoolean_(JavaNetInetAddress *addr, jint port, jboolean streaming) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetSocket *create_JavaNetSocket_initWithJavaNetInetAddress_withInt_withBoolean_(JavaNetInetAddress *addr, jint port, jboolean streaming);
+
 FOUNDATION_EXPORT void JavaNetSocket_initWithJavaNetSocketImpl_(JavaNetSocket *self, JavaNetSocketImpl *impl);
 
 FOUNDATION_EXPORT JavaNetSocket *new_JavaNetSocket_initWithJavaNetSocketImpl_(JavaNetSocketImpl *impl) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetSocket *create_JavaNetSocket_initWithJavaNetSocketImpl_(JavaNetSocketImpl *impl);
 
 FOUNDATION_EXPORT void JavaNetSocket_setSocketImplFactoryWithJavaNetSocketImplFactory_(id<JavaNetSocketImplFactory> fac);
 
@@ -633,4 +652,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocket)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetSocket_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetSocket")

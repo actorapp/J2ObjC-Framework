@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsSpiAbstractSelectionKey_INCLUDE_ALL")
-#ifdef JavaNioChannelsSpiAbstractSelectionKey_RESTRICT
-#define JavaNioChannelsSpiAbstractSelectionKey_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsSpiAbstractSelectionKey")
+#ifdef RESTRICT_JavaNioChannelsSpiAbstractSelectionKey
+#define INCLUDE_ALL_JavaNioChannelsSpiAbstractSelectionKey 0
 #else
-#define JavaNioChannelsSpiAbstractSelectionKey_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsSpiAbstractSelectionKey 1
 #endif
-#undef JavaNioChannelsSpiAbstractSelectionKey_RESTRICT
+#undef RESTRICT_JavaNioChannelsSpiAbstractSelectionKey
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsSpiAbstractSelectionKey_) && (JavaNioChannelsSpiAbstractSelectionKey_INCLUDE_ALL || defined(JavaNioChannelsSpiAbstractSelectionKey_INCLUDE))
+#if !defined (JavaNioChannelsSpiAbstractSelectionKey_) && (INCLUDE_ALL_JavaNioChannelsSpiAbstractSelectionKey || defined(INCLUDE_JavaNioChannelsSpiAbstractSelectionKey))
 #define JavaNioChannelsSpiAbstractSelectionKey_
 
-#define JavaNioChannelsSelectionKey_RESTRICT 1
-#define JavaNioChannelsSelectionKey_INCLUDE 1
+#define RESTRICT_JavaNioChannelsSelectionKey 1
+#define INCLUDE_JavaNioChannelsSelectionKey 1
 #include "../../../../java/nio/channels/SelectionKey.h"
 
 /*!
@@ -70,4 +70,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSpiAbstractSelectionKey)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsSpiAbstractSelectionKey_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSpiAbstractSelectionKey")

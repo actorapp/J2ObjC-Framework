@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangReflectTypeVariable_INCLUDE_ALL")
-#ifdef JavaLangReflectTypeVariable_RESTRICT
-#define JavaLangReflectTypeVariable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangReflectTypeVariable")
+#ifdef RESTRICT_JavaLangReflectTypeVariable
+#define INCLUDE_ALL_JavaLangReflectTypeVariable 0
 #else
-#define JavaLangReflectTypeVariable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangReflectTypeVariable 1
 #endif
-#undef JavaLangReflectTypeVariable_RESTRICT
+#undef RESTRICT_JavaLangReflectTypeVariable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangReflectTypeVariable_) && (JavaLangReflectTypeVariable_INCLUDE_ALL || defined(JavaLangReflectTypeVariable_INCLUDE))
+#if !defined (JavaLangReflectTypeVariable_) && (INCLUDE_ALL_JavaLangReflectTypeVariable || defined(INCLUDE_JavaLangReflectTypeVariable))
 #define JavaLangReflectTypeVariable_
 
-#define JavaLangReflectType_RESTRICT 1
-#define JavaLangReflectType_INCLUDE 1
+#define RESTRICT_JavaLangReflectType 1
+#define INCLUDE_JavaLangReflectType 1
 #include "../../../java/lang/reflect/Type.h"
 
 @class IOSObjectArray;
@@ -71,4 +71,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangReflectTypeVariable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangReflectTypeVariable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangReflectTypeVariable")

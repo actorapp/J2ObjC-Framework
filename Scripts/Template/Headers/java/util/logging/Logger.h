@@ -5,22 +5,21 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingLogger_INCLUDE_ALL")
-#ifdef JavaUtilLoggingLogger_RESTRICT
-#define JavaUtilLoggingLogger_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingLogger")
+#ifdef RESTRICT_JavaUtilLoggingLogger
+#define INCLUDE_ALL_JavaUtilLoggingLogger 0
 #else
-#define JavaUtilLoggingLogger_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingLogger 1
 #endif
-#undef JavaUtilLoggingLogger_RESTRICT
+#undef RESTRICT_JavaUtilLoggingLogger
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingLogger_) && (JavaUtilLoggingLogger_INCLUDE_ALL || defined(JavaUtilLoggingLogger_INCLUDE))
+#if !defined (JavaUtilLoggingLogger_) && (INCLUDE_ALL_JavaUtilLoggingLogger || defined(INCLUDE_JavaUtilLoggingLogger))
 #define JavaUtilLoggingLogger_
 
 @class IOSObjectArray;
-@class JavaLangThrowable;
 @class JavaUtilLoggingHandler;
 @class JavaUtilLoggingLevel;
 @class JavaUtilLoggingLogManager;
@@ -74,7 +73,7 @@
   /*!
    @brief The parent logger of this logger.
    */
-  __weak JavaUtilLoggingLogger *parent_;
+  __unsafe_unretained JavaUtilLoggingLogger *parent_;
   /*!
    @brief The logging level of this logger, or null if none is set.
    */
@@ -422,7 +421,7 @@
  */
 - (void)logWithJavaUtilLoggingLevel:(JavaUtilLoggingLevel *)logLevel
                        withNSString:(NSString *)msg
-              withJavaLangThrowable:(JavaLangThrowable *)thrown;
+                    withNSException:(NSException *)thrown;
 
 /*!
  @brief Logs a given log record.
@@ -516,7 +515,7 @@
                         withNSString:(NSString *)sourceClass
                         withNSString:(NSString *)sourceMethod
                         withNSString:(NSString *)msg
-               withJavaLangThrowable:(JavaLangThrowable *)thrown;
+                     withNSException:(NSException *)thrown;
 
 /*!
  @brief Logs a message of the given level with the specified source class name
@@ -617,7 +616,7 @@
                          withNSString:(NSString *)sourceMethod
                          withNSString:(NSString *)bundleName
                          withNSString:(NSString *)msg
-                withJavaLangThrowable:(JavaLangThrowable *)thrown;
+                      withNSException:(NSException *)thrown;
 
 /*!
  @brief Removes a handler from this logger.
@@ -684,7 +683,7 @@
  */
 - (void)throwingWithNSString:(NSString *)sourceClass
                 withNSString:(NSString *)sourceMethod
-       withJavaLangThrowable:(JavaLangThrowable *)thrown;
+             withNSException:(NSException *)thrown;
 
 /*!
  @brief Logs a message of level <code>Level.WARNING</code>; the message is
@@ -763,6 +762,8 @@ FOUNDATION_EXPORT void JavaUtilLoggingLogger_initWithNSString_withNSString_(Java
 
 FOUNDATION_EXPORT JavaUtilLoggingLogger *new_JavaUtilLoggingLogger_initWithNSString_withNSString_(NSString *name, NSString *resourceBundleName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingLogger *create_JavaUtilLoggingLogger_initWithNSString_withNSString_(NSString *name, NSString *resourceBundleName);
+
 FOUNDATION_EXPORT JavaUtilResourceBundle *JavaUtilLoggingLogger_loadResourceBundleWithNSString_(NSString *resourceBundleName);
 
 FOUNDATION_EXPORT JavaUtilLoggingLogger *JavaUtilLoggingLogger_getAnonymousLogger();
@@ -781,4 +782,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingLogger)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingLogger_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingLogger")

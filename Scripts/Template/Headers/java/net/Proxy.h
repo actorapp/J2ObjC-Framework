@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetProxy_INCLUDE_ALL")
-#ifdef JavaNetProxy_RESTRICT
-#define JavaNetProxy_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetProxy")
+#ifdef RESTRICT_JavaNetProxy
+#define INCLUDE_ALL_JavaNetProxy 0
 #else
-#define JavaNetProxy_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetProxy 1
 #endif
-#undef JavaNetProxy_RESTRICT
+#undef RESTRICT_JavaNetProxy
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetProxy_) && (JavaNetProxy_INCLUDE_ALL || defined(JavaNetProxy_INCLUDE))
+#if !defined (JavaNetProxy_) && (INCLUDE_ALL_JavaNetProxy || defined(INCLUDE_JavaNetProxy))
 #define JavaNetProxy_
 
 @class JavaNetProxy_Type;
@@ -118,15 +118,17 @@ FOUNDATION_EXPORT void JavaNetProxy_initWithJavaNetProxy_Type_withJavaNetSocketA
 
 FOUNDATION_EXPORT JavaNetProxy *new_JavaNetProxy_initWithJavaNetProxy_Type_withJavaNetSocketAddress_(JavaNetProxy_Type *type, JavaNetSocketAddress *sa) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetProxy *create_JavaNetProxy_initWithJavaNetProxy_Type_withJavaNetSocketAddress_(JavaNetProxy_Type *type, JavaNetSocketAddress *sa);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetProxy)
 
 #endif
 
-#if !defined (JavaNetProxy_Type_) && (JavaNetProxy_INCLUDE_ALL || defined(JavaNetProxy_Type_INCLUDE))
+#if !defined (JavaNetProxy_Type_) && (INCLUDE_ALL_JavaNetProxy || defined(INCLUDE_JavaNetProxy_Type))
 #define JavaNetProxy_Type_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaNetProxy_Type_Enum) {
@@ -197,4 +199,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetProxy_Type)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetProxy_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetProxy")

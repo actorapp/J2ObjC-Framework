@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicAtomicStampedReference_RESTRICT
-#define JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicStampedReference")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicStampedReference
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicStampedReference 0
 #else
-#define JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicStampedReference 1
 #endif
-#undef JavaUtilConcurrentAtomicAtomicStampedReference_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicAtomicStampedReference
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicAtomicStampedReference_) && (JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicAtomicStampedReference_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicStampedReference || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicStampedReference))
 #define JavaUtilConcurrentAtomicAtomicStampedReference_
 
 @class IOSIntArray;
@@ -131,10 +131,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicStampedReference_initWithId
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicStampedReference *new_JavaUtilConcurrentAtomicAtomicStampedReference_initWithId_withInt_(id initialRef, jint initialStamp) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicStampedReference *create_JavaUtilConcurrentAtomicAtomicStampedReference_initWithId_withInt_(id initialRef, jint initialStamp);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicStampedReference)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicAtomicStampedReference_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicStampedReference")

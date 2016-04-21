@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilRandom_INCLUDE_ALL")
-#ifdef JavaUtilRandom_RESTRICT
-#define JavaUtilRandom_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilRandom")
+#ifdef RESTRICT_JavaUtilRandom
+#define INCLUDE_ALL_JavaUtilRandom 0
 #else
-#define JavaUtilRandom_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilRandom 1
 #endif
-#undef JavaUtilRandom_RESTRICT
+#undef RESTRICT_JavaUtilRandom
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilRandom_) && (JavaUtilRandom_INCLUDE_ALL || defined(JavaUtilRandom_INCLUDE))
+#if !defined (JavaUtilRandom_) && (INCLUDE_ALL_JavaUtilRandom || defined(INCLUDE_JavaUtilRandom))
 #define JavaUtilRandom_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSByteArray;
@@ -127,9 +127,13 @@ FOUNDATION_EXPORT void JavaUtilRandom_init(JavaUtilRandom *self);
 
 FOUNDATION_EXPORT JavaUtilRandom *new_JavaUtilRandom_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilRandom *create_JavaUtilRandom_init();
+
 FOUNDATION_EXPORT void JavaUtilRandom_initWithLong_(JavaUtilRandom *self, jlong seed);
 
 FOUNDATION_EXPORT JavaUtilRandom *new_JavaUtilRandom_initWithLong_(jlong seed) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilRandom *create_JavaUtilRandom_initWithLong_(jlong seed);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandom)
 
@@ -137,4 +141,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRandom)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilRandom_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilRandom")

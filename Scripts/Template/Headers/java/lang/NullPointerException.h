@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangNullPointerException_INCLUDE_ALL")
-#ifdef JavaLangNullPointerException_RESTRICT
-#define JavaLangNullPointerException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangNullPointerException")
+#ifdef RESTRICT_JavaLangNullPointerException
+#define INCLUDE_ALL_JavaLangNullPointerException 0
 #else
-#define JavaLangNullPointerException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangNullPointerException 1
 #endif
-#undef JavaLangNullPointerException_RESTRICT
+#undef RESTRICT_JavaLangNullPointerException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangNullPointerException_) && (JavaLangNullPointerException_INCLUDE_ALL || defined(JavaLangNullPointerException_INCLUDE))
+#if !defined (JavaLangNullPointerException_) && (INCLUDE_ALL_JavaLangNullPointerException || defined(INCLUDE_JavaLangNullPointerException))
 #define JavaLangNullPointerException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -57,9 +57,13 @@ FOUNDATION_EXPORT void JavaLangNullPointerException_init(JavaLangNullPointerExce
 
 FOUNDATION_EXPORT JavaLangNullPointerException *new_JavaLangNullPointerException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangNullPointerException *create_JavaLangNullPointerException_init();
+
 FOUNDATION_EXPORT void JavaLangNullPointerException_initWithNSString_(JavaLangNullPointerException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangNullPointerException *new_JavaLangNullPointerException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangNullPointerException *create_JavaLangNullPointerException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNullPointerException)
 
@@ -67,4 +71,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangNullPointerException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangNullPointerException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangNullPointerException")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoExternalizable_INCLUDE_ALL")
-#ifdef JavaIoExternalizable_RESTRICT
-#define JavaIoExternalizable_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoExternalizable")
+#ifdef RESTRICT_JavaIoExternalizable
+#define INCLUDE_ALL_JavaIoExternalizable 0
 #else
-#define JavaIoExternalizable_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoExternalizable 1
 #endif
-#undef JavaIoExternalizable_RESTRICT
+#undef RESTRICT_JavaIoExternalizable
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoExternalizable_) && (JavaIoExternalizable_INCLUDE_ALL || defined(JavaIoExternalizable_INCLUDE))
+#if !defined (JavaIoExternalizable_) && (INCLUDE_ALL_JavaIoExternalizable || defined(INCLUDE_JavaIoExternalizable))
 #define JavaIoExternalizable_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @protocol JavaIoObjectInput;
@@ -62,4 +62,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoExternalizable)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoExternalizable_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoExternalizable")

@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsSelectableChannel_INCLUDE_ALL")
-#ifdef JavaNioChannelsSelectableChannel_RESTRICT
-#define JavaNioChannelsSelectableChannel_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsSelectableChannel")
+#ifdef RESTRICT_JavaNioChannelsSelectableChannel
+#define INCLUDE_ALL_JavaNioChannelsSelectableChannel 0
 #else
-#define JavaNioChannelsSelectableChannel_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsSelectableChannel 1
 #endif
-#undef JavaNioChannelsSelectableChannel_RESTRICT
+#undef RESTRICT_JavaNioChannelsSelectableChannel
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsSelectableChannel_) && (JavaNioChannelsSelectableChannel_INCLUDE_ALL || defined(JavaNioChannelsSelectableChannel_INCLUDE))
+#if !defined (JavaNioChannelsSelectableChannel_) && (INCLUDE_ALL_JavaNioChannelsSelectableChannel || defined(INCLUDE_JavaNioChannelsSelectableChannel))
 #define JavaNioChannelsSelectableChannel_
 
-#define JavaNioChannelsSpiAbstractInterruptibleChannel_RESTRICT 1
-#define JavaNioChannelsSpiAbstractInterruptibleChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsSpiAbstractInterruptibleChannel 1
+#define INCLUDE_JavaNioChannelsSpiAbstractInterruptibleChannel 1
 #include "../../../java/nio/channels/spi/AbstractInterruptibleChannel.h"
 
-#define JavaNioChannelsChannel_RESTRICT 1
-#define JavaNioChannelsChannel_INCLUDE 1
+#define RESTRICT_JavaNioChannelsChannel 1
+#define INCLUDE_JavaNioChannelsChannel 1
 #include "../../../java/nio/channels/Channel.h"
 
 @class JavaNioChannelsSelectionKey;
@@ -205,4 +205,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsSelectableChannel)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsSelectableChannel_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsSelectableChannel")

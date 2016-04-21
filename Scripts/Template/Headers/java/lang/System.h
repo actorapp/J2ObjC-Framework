@@ -5,25 +5,24 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangSystem_INCLUDE_ALL")
-#ifdef JavaLangSystem_RESTRICT
-#define JavaLangSystem_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangSystem")
+#ifdef RESTRICT_JavaLangSystem
+#define INCLUDE_ALL_JavaLangSystem 0
 #else
-#define JavaLangSystem_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangSystem 1
 #endif
-#undef JavaLangSystem_RESTRICT
+#undef RESTRICT_JavaLangSystem
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangSystem_) && (JavaLangSystem_INCLUDE_ALL || defined(JavaLangSystem_INCLUDE))
+#if !defined (JavaLangSystem_) && (INCLUDE_ALL_JavaLangSystem || defined(INCLUDE_JavaLangSystem))
 #define JavaLangSystem_
 
 @class JavaIoConsole;
 @class JavaIoInputStream;
 @class JavaIoPrintStream;
 @class JavaLangSecurityManager;
-@class JavaLangThrowable;
 @class JavaUtilProperties;
 @protocol JavaUtilMap;
 
@@ -113,7 +112,7 @@
   internal use only
  */
 + (void)logEWithNSString:(NSString *)message
-   withJavaLangThrowable:(JavaLangThrowable *)th;
+         withNSException:(NSException *)th;
 
 /*!
   internal use only
@@ -124,7 +123,7 @@
   internal use only
  */
 + (void)logIWithNSString:(NSString *)message
-   withJavaLangThrowable:(JavaLangThrowable *)th;
+         withNSException:(NSException *)th;
 
 /*!
   internal use only
@@ -135,7 +134,7 @@
   internal use only
  */
 + (void)logWWithNSString:(NSString *)message
-   withJavaLangThrowable:(JavaLangThrowable *)th;
+         withNSException:(NSException *)th;
 
 + (jlong)nanoTime;
 
@@ -231,19 +230,21 @@ FOUNDATION_EXPORT JavaIoConsole *JavaLangSystem_console();
 
 FOUNDATION_EXPORT void JavaLangSystem_logEWithNSString_(NSString *message);
 
-FOUNDATION_EXPORT void JavaLangSystem_logEWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *th);
+FOUNDATION_EXPORT void JavaLangSystem_logEWithNSString_withNSException_(NSString *message, NSException *th);
 
 FOUNDATION_EXPORT void JavaLangSystem_logIWithNSString_(NSString *message);
 
-FOUNDATION_EXPORT void JavaLangSystem_logIWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *th);
+FOUNDATION_EXPORT void JavaLangSystem_logIWithNSString_withNSException_(NSString *message, NSException *th);
 
 FOUNDATION_EXPORT void JavaLangSystem_logWWithNSString_(NSString *message);
 
-FOUNDATION_EXPORT void JavaLangSystem_logWWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *th);
+FOUNDATION_EXPORT void JavaLangSystem_logWWithNSString_withNSException_(NSString *message, NSException *th);
 
 FOUNDATION_EXPORT void JavaLangSystem_init(JavaLangSystem *self);
 
 FOUNDATION_EXPORT JavaLangSystem *new_JavaLangSystem_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangSystem *create_JavaLangSystem_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangSystem)
 
@@ -251,4 +252,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangSystem)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangSystem_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangSystem")

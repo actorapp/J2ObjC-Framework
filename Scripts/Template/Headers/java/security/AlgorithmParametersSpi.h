@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityAlgorithmParametersSpi_INCLUDE_ALL")
-#ifdef JavaSecurityAlgorithmParametersSpi_RESTRICT
-#define JavaSecurityAlgorithmParametersSpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityAlgorithmParametersSpi")
+#ifdef RESTRICT_JavaSecurityAlgorithmParametersSpi
+#define INCLUDE_ALL_JavaSecurityAlgorithmParametersSpi 0
 #else
-#define JavaSecurityAlgorithmParametersSpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityAlgorithmParametersSpi 1
 #endif
-#undef JavaSecurityAlgorithmParametersSpi_RESTRICT
+#undef RESTRICT_JavaSecurityAlgorithmParametersSpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityAlgorithmParametersSpi_) && (JavaSecurityAlgorithmParametersSpi_INCLUDE_ALL || defined(JavaSecurityAlgorithmParametersSpi_INCLUDE))
+#if !defined (JavaSecurityAlgorithmParametersSpi_) && (INCLUDE_ALL_JavaSecurityAlgorithmParametersSpi || defined(INCLUDE_JavaSecurityAlgorithmParametersSpi))
 #define JavaSecurityAlgorithmParametersSpi_
 
 @class IOSByteArray;
@@ -132,4 +132,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAlgorithmParametersSpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityAlgorithmParametersSpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityAlgorithmParametersSpi")

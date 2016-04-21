@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLProtocolException_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLProtocolException_RESTRICT
-#define JavaxNetSslSSLProtocolException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLProtocolException")
+#ifdef RESTRICT_JavaxNetSslSSLProtocolException
+#define INCLUDE_ALL_JavaxNetSslSSLProtocolException 0
 #else
-#define JavaxNetSslSSLProtocolException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLProtocolException 1
 #endif
-#undef JavaxNetSslSSLProtocolException_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLProtocolException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLProtocolException_) && (JavaxNetSslSSLProtocolException_INCLUDE_ALL || defined(JavaxNetSslSSLProtocolException_INCLUDE))
+#if !defined (JavaxNetSslSSLProtocolException_) && (INCLUDE_ALL_JavaxNetSslSSLProtocolException || defined(INCLUDE_JavaxNetSslSSLProtocolException))
 #define JavaxNetSslSSLProtocolException_
 
-#define JavaxNetSslSSLException_RESTRICT 1
-#define JavaxNetSslSSLException_INCLUDE 1
+#define RESTRICT_JavaxNetSslSSLException 1
+#define INCLUDE_JavaxNetSslSSLException 1
 #include "../../../javax/net/ssl/SSLException.h"
 
 /*!
@@ -46,10 +46,12 @@ FOUNDATION_EXPORT void JavaxNetSslSSLProtocolException_initWithNSString_(JavaxNe
 
 FOUNDATION_EXPORT JavaxNetSslSSLProtocolException *new_JavaxNetSslSSLProtocolException_initWithNSString_(NSString *reason) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslSSLProtocolException *create_JavaxNetSslSSLProtocolException_initWithNSString_(NSString *reason);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLProtocolException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLProtocolException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLProtocolException")

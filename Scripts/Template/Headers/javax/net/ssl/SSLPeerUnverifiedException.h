@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslSSLPeerUnverifiedException_INCLUDE_ALL")
-#ifdef JavaxNetSslSSLPeerUnverifiedException_RESTRICT
-#define JavaxNetSslSSLPeerUnverifiedException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslSSLPeerUnverifiedException")
+#ifdef RESTRICT_JavaxNetSslSSLPeerUnverifiedException
+#define INCLUDE_ALL_JavaxNetSslSSLPeerUnverifiedException 0
 #else
-#define JavaxNetSslSSLPeerUnverifiedException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslSSLPeerUnverifiedException 1
 #endif
-#undef JavaxNetSslSSLPeerUnverifiedException_RESTRICT
+#undef RESTRICT_JavaxNetSslSSLPeerUnverifiedException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslSSLPeerUnverifiedException_) && (JavaxNetSslSSLPeerUnverifiedException_INCLUDE_ALL || defined(JavaxNetSslSSLPeerUnverifiedException_INCLUDE))
+#if !defined (JavaxNetSslSSLPeerUnverifiedException_) && (INCLUDE_ALL_JavaxNetSslSSLPeerUnverifiedException || defined(INCLUDE_JavaxNetSslSSLPeerUnverifiedException))
 #define JavaxNetSslSSLPeerUnverifiedException_
 
-#define JavaxNetSslSSLException_RESTRICT 1
-#define JavaxNetSslSSLException_INCLUDE 1
+#define RESTRICT_JavaxNetSslSSLException 1
+#define INCLUDE_JavaxNetSslSSLException 1
 #include "../../../javax/net/ssl/SSLException.h"
 
 /*!
@@ -47,10 +47,12 @@ FOUNDATION_EXPORT void JavaxNetSslSSLPeerUnverifiedException_initWithNSString_(J
 
 FOUNDATION_EXPORT JavaxNetSslSSLPeerUnverifiedException *new_JavaxNetSslSSLPeerUnverifiedException_initWithNSString_(NSString *reason) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxNetSslSSLPeerUnverifiedException *create_JavaxNetSslSSLPeerUnverifiedException_initWithNSString_(NSString *reason);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslSSLPeerUnverifiedException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslSSLPeerUnverifiedException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslSSLPeerUnverifiedException")

@@ -5,29 +5,27 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlDataTruncation_INCLUDE_ALL")
-#ifdef JavaSqlDataTruncation_RESTRICT
-#define JavaSqlDataTruncation_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlDataTruncation")
+#ifdef RESTRICT_JavaSqlDataTruncation
+#define INCLUDE_ALL_JavaSqlDataTruncation 0
 #else
-#define JavaSqlDataTruncation_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlDataTruncation 1
 #endif
-#undef JavaSqlDataTruncation_RESTRICT
+#undef RESTRICT_JavaSqlDataTruncation
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlDataTruncation_) && (JavaSqlDataTruncation_INCLUDE_ALL || defined(JavaSqlDataTruncation_INCLUDE))
+#if !defined (JavaSqlDataTruncation_) && (INCLUDE_ALL_JavaSqlDataTruncation || defined(INCLUDE_JavaSqlDataTruncation))
 #define JavaSqlDataTruncation_
 
-#define JavaSqlSQLWarning_RESTRICT 1
-#define JavaSqlSQLWarning_INCLUDE 1
+#define RESTRICT_JavaSqlSQLWarning 1
+#define INCLUDE_JavaSqlSQLWarning 1
 #include "../../java/sql/SQLWarning.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief An exception which is thrown when a JDBC driver unexpectedly truncates a data
@@ -93,7 +91,7 @@
                 withBoolean:(jboolean)read
                     withInt:(jint)dataSize
                     withInt:(jint)transferSize
-      withJavaLangThrowable:(JavaLangThrowable *)cause;
+            withNSException:(NSException *)cause;
 
 /*!
  @brief Gets the number of bytes of data that should have been read/written.
@@ -140,9 +138,13 @@ FOUNDATION_EXPORT void JavaSqlDataTruncation_initWithInt_withBoolean_withBoolean
 
 FOUNDATION_EXPORT JavaSqlDataTruncation *new_JavaSqlDataTruncation_initWithInt_withBoolean_withBoolean_withInt_withInt_(jint index, jboolean parameter, jboolean read, jint dataSize, jint transferSize) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlDataTruncation_initWithInt_withBoolean_withBoolean_withInt_withInt_withJavaLangThrowable_(JavaSqlDataTruncation *self, jint index, jboolean parameter, jboolean read, jint dataSize, jint transferSize, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlDataTruncation *create_JavaSqlDataTruncation_initWithInt_withBoolean_withBoolean_withInt_withInt_(jint index, jboolean parameter, jboolean read, jint dataSize, jint transferSize);
 
-FOUNDATION_EXPORT JavaSqlDataTruncation *new_JavaSqlDataTruncation_initWithInt_withBoolean_withBoolean_withInt_withInt_withJavaLangThrowable_(jint index, jboolean parameter, jboolean read, jint dataSize, jint transferSize, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlDataTruncation_initWithInt_withBoolean_withBoolean_withInt_withInt_withNSException_(JavaSqlDataTruncation *self, jint index, jboolean parameter, jboolean read, jint dataSize, jint transferSize, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlDataTruncation *new_JavaSqlDataTruncation_initWithInt_withBoolean_withBoolean_withInt_withInt_withNSException_(jint index, jboolean parameter, jboolean read, jint dataSize, jint transferSize, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlDataTruncation *create_JavaSqlDataTruncation_initWithInt_withBoolean_withBoolean_withInt_withInt_withNSException_(jint index, jboolean parameter, jboolean read, jint dataSize, jint transferSize, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDataTruncation)
 
@@ -150,4 +152,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlDataTruncation)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlDataTruncation_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlDataTruncation")

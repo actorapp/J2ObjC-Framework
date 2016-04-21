@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLTransientException_INCLUDE_ALL")
-#ifdef JavaSqlSQLTransientException_RESTRICT
-#define JavaSqlSQLTransientException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLTransientException")
+#ifdef RESTRICT_JavaSqlSQLTransientException
+#define INCLUDE_ALL_JavaSqlSQLTransientException 0
 #else
-#define JavaSqlSQLTransientException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLTransientException 1
 #endif
-#undef JavaSqlSQLTransientException_RESTRICT
+#undef RESTRICT_JavaSqlSQLTransientException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLTransientException_) && (JavaSqlSQLTransientException_INCLUDE_ALL || defined(JavaSqlSQLTransientException_INCLUDE))
+#if !defined (JavaSqlSQLTransientException_) && (INCLUDE_ALL_JavaSqlSQLTransientException || defined(INCLUDE_JavaSqlSQLTransientException))
 #define JavaSqlSQLTransientException_
 
-#define JavaSqlSQLException_RESTRICT 1
-#define JavaSqlSQLException_INCLUDE 1
+#define RESTRICT_JavaSqlSQLException 1
+#define INCLUDE_JavaSqlSQLException 1
 #include "../../java/sql/SQLException.h"
-
-@class JavaLangThrowable;
 
 @interface JavaSqlSQLTransientException : JavaSqlSQLException
 
@@ -94,7 +92,7 @@
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
                          withInt:(jint)vendorCode
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLTransientException object.
@@ -112,7 +110,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLTransientException object.
@@ -126,7 +124,7 @@
  SQLException
  */
 - (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLTransientException object.
@@ -137,7 +135,7 @@
  the Throwable object for the underlying reason this
  SQLException
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 #pragma mark Package-Private
 
@@ -149,33 +147,49 @@ FOUNDATION_EXPORT void JavaSqlSQLTransientException_init(JavaSqlSQLTransientExce
 
 FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLTransientException *create_JavaSqlSQLTransientException_init();
+
 FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithNSString_(JavaSqlSQLTransientException *self, NSString *reason);
 
 FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithNSString_(NSString *reason) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLTransientException *create_JavaSqlSQLTransientException_initWithNSString_(NSString *reason);
 
 FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithNSString_withNSString_(JavaSqlSQLTransientException *self, NSString *reason, NSString *sqlState);
 
 FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLTransientException *create_JavaSqlSQLTransientException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState);
+
 FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithNSString_withNSString_withInt_(JavaSqlSQLTransientException *self, NSString *reason, NSString *sqlState, jint vendorCode);
 
 FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithJavaLangThrowable_(JavaSqlSQLTransientException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLTransientException *create_JavaSqlSQLTransientException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode);
 
-FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithNSException_(JavaSqlSQLTransientException *self, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithNSString_withJavaLangThrowable_(JavaSqlSQLTransientException *self, NSString *reason, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithNSString_withJavaLangThrowable_(NSString *reason, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLTransientException *create_JavaSqlSQLTransientException_initWithNSException_(NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithNSString_withNSString_withJavaLangThrowable_(JavaSqlSQLTransientException *self, NSString *reason, NSString *sqlState, JavaLangThrowable *cause);
+FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithNSString_withNSException_(JavaSqlSQLTransientException *self, NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithNSString_withNSString_withJavaLangThrowable_(NSString *reason, NSString *sqlState, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithNSString_withNSException_(NSString *reason, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(JavaSqlSQLTransientException *self, NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLTransientException *create_JavaSqlSQLTransientException_initWithNSString_withNSException_(NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithNSString_withNSString_withNSException_(JavaSqlSQLTransientException *self, NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLTransientException *create_JavaSqlSQLTransientException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSqlSQLTransientException_initWithNSString_withNSString_withInt_withNSException_(JavaSqlSQLTransientException *self, NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLTransientException *new_JavaSqlSQLTransientException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLTransientException *create_JavaSqlSQLTransientException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLTransientException)
 
@@ -183,4 +197,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLTransientException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLTransientException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLTransientException")

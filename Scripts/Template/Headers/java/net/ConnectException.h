@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetConnectException_INCLUDE_ALL")
-#ifdef JavaNetConnectException_RESTRICT
-#define JavaNetConnectException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetConnectException")
+#ifdef RESTRICT_JavaNetConnectException
+#define INCLUDE_ALL_JavaNetConnectException 0
 #else
-#define JavaNetConnectException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetConnectException 1
 #endif
-#undef JavaNetConnectException_RESTRICT
+#undef RESTRICT_JavaNetConnectException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetConnectException_) && (JavaNetConnectException_INCLUDE_ALL || defined(JavaNetConnectException_INCLUDE))
+#if !defined (JavaNetConnectException_) && (INCLUDE_ALL_JavaNetConnectException || defined(INCLUDE_JavaNetConnectException))
 #define JavaNetConnectException_
 
-#define JavaNetSocketException_RESTRICT 1
-#define JavaNetSocketException_INCLUDE 1
+#define RESTRICT_JavaNetSocketException 1
+#define INCLUDE_JavaNetSocketException 1
 #include "../../java/net/SocketException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief A <code>ConnectException</code> is thrown if a connection cannot be established to
@@ -49,7 +47,7 @@
  @brief Constructs a new instance with the given detail message and cause.
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 @end
 
@@ -59,13 +57,19 @@ FOUNDATION_EXPORT void JavaNetConnectException_init(JavaNetConnectException *sel
 
 FOUNDATION_EXPORT JavaNetConnectException *new_JavaNetConnectException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetConnectException *create_JavaNetConnectException_init();
+
 FOUNDATION_EXPORT void JavaNetConnectException_initWithNSString_(JavaNetConnectException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaNetConnectException *new_JavaNetConnectException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaNetConnectException_initWithNSString_withJavaLangThrowable_(JavaNetConnectException *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaNetConnectException *create_JavaNetConnectException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaNetConnectException *new_JavaNetConnectException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaNetConnectException_initWithNSString_withNSException_(JavaNetConnectException *self, NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT JavaNetConnectException *new_JavaNetConnectException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetConnectException *create_JavaNetConnectException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetConnectException)
 
@@ -73,4 +77,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetConnectException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetConnectException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetConnectException")

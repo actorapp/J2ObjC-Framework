@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextDecimalFormat_INCLUDE_ALL")
-#ifdef JavaTextDecimalFormat_RESTRICT
-#define JavaTextDecimalFormat_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextDecimalFormat")
+#ifdef RESTRICT_JavaTextDecimalFormat
+#define INCLUDE_ALL_JavaTextDecimalFormat 0
 #else
-#define JavaTextDecimalFormat_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextDecimalFormat 1
 #endif
-#undef JavaTextDecimalFormat_RESTRICT
+#undef RESTRICT_JavaTextDecimalFormat
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextDecimalFormat_) && (JavaTextDecimalFormat_INCLUDE_ALL || defined(JavaTextDecimalFormat_INCLUDE))
+#if !defined (JavaTextDecimalFormat_) && (INCLUDE_ALL_JavaTextDecimalFormat || defined(INCLUDE_JavaTextDecimalFormat))
 #define JavaTextDecimalFormat_
 
-#define JavaTextNumberFormat_RESTRICT 1
-#define JavaTextNumberFormat_INCLUDE 1
+#define RESTRICT_JavaTextNumberFormat 1
+#define INCLUDE_JavaTextNumberFormat 1
 #include "../../java/text/NumberFormat.h"
 
 @class JavaLangStringBuffer;
@@ -884,17 +884,25 @@ FOUNDATION_EXPORT void JavaTextDecimalFormat_init(JavaTextDecimalFormat *self);
 
 FOUNDATION_EXPORT JavaTextDecimalFormat *new_JavaTextDecimalFormat_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextDecimalFormat *create_JavaTextDecimalFormat_init();
+
 FOUNDATION_EXPORT void JavaTextDecimalFormat_initWithNSString_(JavaTextDecimalFormat *self, NSString *pattern);
 
 FOUNDATION_EXPORT JavaTextDecimalFormat *new_JavaTextDecimalFormat_initWithNSString_(NSString *pattern) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextDecimalFormat *create_JavaTextDecimalFormat_initWithNSString_(NSString *pattern);
 
 FOUNDATION_EXPORT void JavaTextDecimalFormat_initWithNSString_withJavaTextDecimalFormatSymbols_(JavaTextDecimalFormat *self, NSString *pattern, JavaTextDecimalFormatSymbols *value);
 
 FOUNDATION_EXPORT JavaTextDecimalFormat *new_JavaTextDecimalFormat_initWithNSString_withJavaTextDecimalFormatSymbols_(NSString *pattern, JavaTextDecimalFormatSymbols *value) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextDecimalFormat *create_JavaTextDecimalFormat_initWithNSString_withJavaTextDecimalFormatSymbols_(NSString *pattern, JavaTextDecimalFormatSymbols *value);
+
 FOUNDATION_EXPORT void JavaTextDecimalFormat_initWithNSString_withJavaUtilLocale_(JavaTextDecimalFormat *self, NSString *pattern, JavaUtilLocale *locale);
 
 FOUNDATION_EXPORT JavaTextDecimalFormat *new_JavaTextDecimalFormat_initWithNSString_withJavaUtilLocale_(NSString *pattern, JavaUtilLocale *locale) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextDecimalFormat *create_JavaTextDecimalFormat_initWithNSString_withJavaUtilLocale_(NSString *pattern, JavaUtilLocale *locale);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextDecimalFormat)
 
@@ -902,4 +910,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextDecimalFormat)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextDecimalFormat_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextDecimalFormat")

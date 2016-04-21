@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangArithmeticException_INCLUDE_ALL")
-#ifdef JavaLangArithmeticException_RESTRICT
-#define JavaLangArithmeticException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangArithmeticException")
+#ifdef RESTRICT_JavaLangArithmeticException
+#define INCLUDE_ALL_JavaLangArithmeticException 0
 #else
-#define JavaLangArithmeticException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangArithmeticException 1
 #endif
-#undef JavaLangArithmeticException_RESTRICT
+#undef RESTRICT_JavaLangArithmeticException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangArithmeticException_) && (JavaLangArithmeticException_INCLUDE_ALL || defined(JavaLangArithmeticException_INCLUDE))
+#if !defined (JavaLangArithmeticException_) && (INCLUDE_ALL_JavaLangArithmeticException || defined(INCLUDE_JavaLangArithmeticException))
 #define JavaLangArithmeticException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -52,9 +52,13 @@ FOUNDATION_EXPORT void JavaLangArithmeticException_init(JavaLangArithmeticExcept
 
 FOUNDATION_EXPORT JavaLangArithmeticException *new_JavaLangArithmeticException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangArithmeticException *create_JavaLangArithmeticException_init();
+
 FOUNDATION_EXPORT void JavaLangArithmeticException_initWithNSString_(JavaLangArithmeticException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangArithmeticException *new_JavaLangArithmeticException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangArithmeticException *create_JavaLangArithmeticException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangArithmeticException)
 
@@ -62,4 +66,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangArithmeticException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangArithmeticException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangArithmeticException")

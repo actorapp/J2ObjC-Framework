@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilHashSet_INCLUDE_ALL")
-#ifdef JavaUtilHashSet_RESTRICT
-#define JavaUtilHashSet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilHashSet")
+#ifdef RESTRICT_JavaUtilHashSet
+#define INCLUDE_ALL_JavaUtilHashSet 0
 #else
-#define JavaUtilHashSet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilHashSet 1
 #endif
-#undef JavaUtilHashSet_RESTRICT
+#undef RESTRICT_JavaUtilHashSet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilHashSet_) && (JavaUtilHashSet_INCLUDE_ALL || defined(JavaUtilHashSet_INCLUDE))
+#if !defined (JavaUtilHashSet_) && (INCLUDE_ALL_JavaUtilHashSet || defined(INCLUDE_JavaUtilHashSet))
 #define JavaUtilHashSet_
 
-#define JavaUtilAbstractSet_RESTRICT 1
-#define JavaUtilAbstractSet_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractSet 1
+#define INCLUDE_JavaUtilAbstractSet 1
 #include "../../java/util/AbstractSet.h"
 
-#define JavaUtilSet_RESTRICT 1
-#define JavaUtilSet_INCLUDE 1
+#define RESTRICT_JavaUtilSet 1
+#define INCLUDE_JavaUtilSet 1
 #include "../../java/util/Set.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class JavaUtilHashMap;
@@ -157,21 +157,31 @@ FOUNDATION_EXPORT void JavaUtilHashSet_init(JavaUtilHashSet *self);
 
 FOUNDATION_EXPORT JavaUtilHashSet *new_JavaUtilHashSet_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilHashSet *create_JavaUtilHashSet_init();
+
 FOUNDATION_EXPORT void JavaUtilHashSet_initWithInt_(JavaUtilHashSet *self, jint capacity);
 
 FOUNDATION_EXPORT JavaUtilHashSet *new_JavaUtilHashSet_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilHashSet *create_JavaUtilHashSet_initWithInt_(jint capacity);
 
 FOUNDATION_EXPORT void JavaUtilHashSet_initWithInt_withFloat_(JavaUtilHashSet *self, jint capacity, jfloat loadFactor);
 
 FOUNDATION_EXPORT JavaUtilHashSet *new_JavaUtilHashSet_initWithInt_withFloat_(jint capacity, jfloat loadFactor) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilHashSet *create_JavaUtilHashSet_initWithInt_withFloat_(jint capacity, jfloat loadFactor);
+
 FOUNDATION_EXPORT void JavaUtilHashSet_initWithJavaUtilCollection_(JavaUtilHashSet *self, id<JavaUtilCollection> collection);
 
 FOUNDATION_EXPORT JavaUtilHashSet *new_JavaUtilHashSet_initWithJavaUtilCollection_(id<JavaUtilCollection> collection) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilHashSet *create_JavaUtilHashSet_initWithJavaUtilCollection_(id<JavaUtilCollection> collection);
+
 FOUNDATION_EXPORT void JavaUtilHashSet_initWithJavaUtilHashMap_(JavaUtilHashSet *self, JavaUtilHashMap *backingMap);
 
 FOUNDATION_EXPORT JavaUtilHashSet *new_JavaUtilHashSet_initWithJavaUtilHashMap_(JavaUtilHashMap *backingMap) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilHashSet *create_JavaUtilHashSet_initWithJavaUtilHashMap_(JavaUtilHashMap *backingMap);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashSet)
 
@@ -179,4 +189,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilHashSet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilHashSet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilHashSet")

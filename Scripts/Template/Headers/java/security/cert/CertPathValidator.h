@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCertPathValidator_INCLUDE_ALL")
-#ifdef JavaSecurityCertCertPathValidator_RESTRICT
-#define JavaSecurityCertCertPathValidator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidator")
+#ifdef RESTRICT_JavaSecurityCertCertPathValidator
+#define INCLUDE_ALL_JavaSecurityCertCertPathValidator 0
 #else
-#define JavaSecurityCertCertPathValidator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCertPathValidator 1
 #endif
-#undef JavaSecurityCertCertPathValidator_RESTRICT
+#undef RESTRICT_JavaSecurityCertCertPathValidator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCertPathValidator_) && (JavaSecurityCertCertPathValidator_INCLUDE_ALL || defined(JavaSecurityCertCertPathValidator_INCLUDE))
+#if !defined (JavaSecurityCertCertPathValidator_) && (INCLUDE_ALL_JavaSecurityCertCertPathValidator || defined(INCLUDE_JavaSecurityCertCertPathValidator))
 #define JavaSecurityCertCertPathValidator_
 
 @class JavaSecurityCertCertPath;
@@ -150,6 +150,8 @@ FOUNDATION_EXPORT void JavaSecurityCertCertPathValidator_initWithJavaSecurityCer
 
 FOUNDATION_EXPORT JavaSecurityCertCertPathValidator *new_JavaSecurityCertCertPathValidator_initWithJavaSecurityCertCertPathValidatorSpi_withJavaSecurityProvider_withNSString_(JavaSecurityCertCertPathValidatorSpi *validatorSpi, JavaSecurityProvider *provider, NSString *algorithm) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityCertCertPathValidator *create_JavaSecurityCertCertPathValidator_initWithJavaSecurityCertCertPathValidatorSpi_withJavaSecurityProvider_withNSString_(JavaSecurityCertCertPathValidatorSpi *validatorSpi, JavaSecurityProvider *provider, NSString *algorithm);
+
 FOUNDATION_EXPORT JavaSecurityCertCertPathValidator *JavaSecurityCertCertPathValidator_getInstanceWithNSString_(NSString *algorithm);
 
 FOUNDATION_EXPORT JavaSecurityCertCertPathValidator *JavaSecurityCertCertPathValidator_getInstanceWithNSString_withNSString_(NSString *algorithm, NSString *provider);
@@ -164,4 +166,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCertPathValidator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCertPathValidator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCertPathValidator")

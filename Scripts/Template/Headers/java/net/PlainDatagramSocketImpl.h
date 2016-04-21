@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetPlainDatagramSocketImpl_INCLUDE_ALL")
-#ifdef JavaNetPlainDatagramSocketImpl_RESTRICT
-#define JavaNetPlainDatagramSocketImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetPlainDatagramSocketImpl")
+#ifdef RESTRICT_JavaNetPlainDatagramSocketImpl
+#define INCLUDE_ALL_JavaNetPlainDatagramSocketImpl 0
 #else
-#define JavaNetPlainDatagramSocketImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetPlainDatagramSocketImpl 1
 #endif
-#undef JavaNetPlainDatagramSocketImpl_RESTRICT
+#undef RESTRICT_JavaNetPlainDatagramSocketImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetPlainDatagramSocketImpl_) && (JavaNetPlainDatagramSocketImpl_INCLUDE_ALL || defined(JavaNetPlainDatagramSocketImpl_INCLUDE))
+#if !defined (JavaNetPlainDatagramSocketImpl_) && (INCLUDE_ALL_JavaNetPlainDatagramSocketImpl || defined(INCLUDE_JavaNetPlainDatagramSocketImpl))
 #define JavaNetPlainDatagramSocketImpl_
 
-#define JavaNetDatagramSocketImpl_RESTRICT 1
-#define JavaNetDatagramSocketImpl_INCLUDE 1
+#define RESTRICT_JavaNetDatagramSocketImpl 1
+#define INCLUDE_JavaNetDatagramSocketImpl 1
 #include "../../java/net/DatagramSocketImpl.h"
 
 @class JavaIoFileDescriptor;
@@ -84,7 +84,7 @@ withJavaNetInetAddress:(JavaNetInetAddress *)address;
 
 #pragma mark Protected
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 - (jint)peekWithJavaNetInetAddress:(JavaNetInetAddress *)sender;
 
@@ -96,9 +96,13 @@ FOUNDATION_EXPORT void JavaNetPlainDatagramSocketImpl_initWithJavaIoFileDescript
 
 FOUNDATION_EXPORT JavaNetPlainDatagramSocketImpl *new_JavaNetPlainDatagramSocketImpl_initWithJavaIoFileDescriptor_withInt_(JavaIoFileDescriptor *fd, jint localPort) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetPlainDatagramSocketImpl *create_JavaNetPlainDatagramSocketImpl_initWithJavaIoFileDescriptor_withInt_(JavaIoFileDescriptor *fd, jint localPort);
+
 FOUNDATION_EXPORT void JavaNetPlainDatagramSocketImpl_init(JavaNetPlainDatagramSocketImpl *self);
 
 FOUNDATION_EXPORT JavaNetPlainDatagramSocketImpl *new_JavaNetPlainDatagramSocketImpl_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetPlainDatagramSocketImpl *create_JavaNetPlainDatagramSocketImpl_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetPlainDatagramSocketImpl)
 
@@ -106,4 +110,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetPlainDatagramSocketImpl)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetPlainDatagramSocketImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetPlainDatagramSocketImpl")

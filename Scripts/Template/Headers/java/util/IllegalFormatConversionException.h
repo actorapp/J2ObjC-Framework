@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilIllegalFormatConversionException_INCLUDE_ALL")
-#ifdef JavaUtilIllegalFormatConversionException_RESTRICT
-#define JavaUtilIllegalFormatConversionException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilIllegalFormatConversionException")
+#ifdef RESTRICT_JavaUtilIllegalFormatConversionException
+#define INCLUDE_ALL_JavaUtilIllegalFormatConversionException 0
 #else
-#define JavaUtilIllegalFormatConversionException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilIllegalFormatConversionException 1
 #endif
-#undef JavaUtilIllegalFormatConversionException_RESTRICT
+#undef RESTRICT_JavaUtilIllegalFormatConversionException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilIllegalFormatConversionException_) && (JavaUtilIllegalFormatConversionException_INCLUDE_ALL || defined(JavaUtilIllegalFormatConversionException_INCLUDE))
+#if !defined (JavaUtilIllegalFormatConversionException_) && (INCLUDE_ALL_JavaUtilIllegalFormatConversionException || defined(INCLUDE_JavaUtilIllegalFormatConversionException))
 #define JavaUtilIllegalFormatConversionException_
 
-#define JavaUtilIllegalFormatException_RESTRICT 1
-#define JavaUtilIllegalFormatException_INCLUDE 1
+#define RESTRICT_JavaUtilIllegalFormatException 1
+#define INCLUDE_JavaUtilIllegalFormatException 1
 #include "../../java/util/IllegalFormatException.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSClass;
@@ -72,10 +72,12 @@ FOUNDATION_EXPORT void JavaUtilIllegalFormatConversionException_initWithChar_wit
 
 FOUNDATION_EXPORT JavaUtilIllegalFormatConversionException *new_JavaUtilIllegalFormatConversionException_initWithChar_withIOSClass_(jchar c, IOSClass *arg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIllegalFormatConversionException *create_JavaUtilIllegalFormatConversionException_initWithChar_withIOSClass_(jchar c, IOSClass *arg);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatConversionException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilIllegalFormatConversionException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilIllegalFormatConversionException")

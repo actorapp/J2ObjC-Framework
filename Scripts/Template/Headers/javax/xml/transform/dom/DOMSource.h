@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformDomDOMSource_INCLUDE_ALL")
-#ifdef JavaxXmlTransformDomDOMSource_RESTRICT
-#define JavaxXmlTransformDomDOMSource_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMSource")
+#ifdef RESTRICT_JavaxXmlTransformDomDOMSource
+#define INCLUDE_ALL_JavaxXmlTransformDomDOMSource 0
 #else
-#define JavaxXmlTransformDomDOMSource_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformDomDOMSource 1
 #endif
-#undef JavaxXmlTransformDomDOMSource_RESTRICT
+#undef RESTRICT_JavaxXmlTransformDomDOMSource
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformDomDOMSource_) && (JavaxXmlTransformDomDOMSource_INCLUDE_ALL || defined(JavaxXmlTransformDomDOMSource_INCLUDE))
+#if !defined (JavaxXmlTransformDomDOMSource_) && (INCLUDE_ALL_JavaxXmlTransformDomDOMSource || defined(INCLUDE_JavaxXmlTransformDomDOMSource))
 #define JavaxXmlTransformDomDOMSource_
 
-#define JavaxXmlTransformSource_RESTRICT 1
-#define JavaxXmlTransformSource_INCLUDE 1
+#define RESTRICT_JavaxXmlTransformSource 1
+#define INCLUDE_JavaxXmlTransformSource 1
 #include "../../../../javax/xml/transform/Source.h"
 
 @protocol OrgW3cDomNode;
@@ -118,13 +118,19 @@ FOUNDATION_EXPORT void JavaxXmlTransformDomDOMSource_init(JavaxXmlTransformDomDO
 
 FOUNDATION_EXPORT JavaxXmlTransformDomDOMSource *new_JavaxXmlTransformDomDOMSource_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformDomDOMSource *create_JavaxXmlTransformDomDOMSource_init();
+
 FOUNDATION_EXPORT void JavaxXmlTransformDomDOMSource_initWithOrgW3cDomNode_(JavaxXmlTransformDomDOMSource *self, id<OrgW3cDomNode> n);
 
 FOUNDATION_EXPORT JavaxXmlTransformDomDOMSource *new_JavaxXmlTransformDomDOMSource_initWithOrgW3cDomNode_(id<OrgW3cDomNode> n) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformDomDOMSource *create_JavaxXmlTransformDomDOMSource_initWithOrgW3cDomNode_(id<OrgW3cDomNode> n);
+
 FOUNDATION_EXPORT void JavaxXmlTransformDomDOMSource_initWithOrgW3cDomNode_withNSString_(JavaxXmlTransformDomDOMSource *self, id<OrgW3cDomNode> node, NSString *systemID);
 
 FOUNDATION_EXPORT JavaxXmlTransformDomDOMSource *new_JavaxXmlTransformDomDOMSource_initWithOrgW3cDomNode_withNSString_(id<OrgW3cDomNode> node, NSString *systemID) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformDomDOMSource *create_JavaxXmlTransformDomDOMSource_initWithOrgW3cDomNode_withNSString_(id<OrgW3cDomNode> node, NSString *systemID);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMSource)
 
@@ -132,4 +138,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformDomDOMSource)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformDomDOMSource_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformDomDOMSource")

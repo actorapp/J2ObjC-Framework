@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLTimeoutException_INCLUDE_ALL")
-#ifdef JavaSqlSQLTimeoutException_RESTRICT
-#define JavaSqlSQLTimeoutException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLTimeoutException")
+#ifdef RESTRICT_JavaSqlSQLTimeoutException
+#define INCLUDE_ALL_JavaSqlSQLTimeoutException 0
 #else
-#define JavaSqlSQLTimeoutException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLTimeoutException 1
 #endif
-#undef JavaSqlSQLTimeoutException_RESTRICT
+#undef RESTRICT_JavaSqlSQLTimeoutException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLTimeoutException_) && (JavaSqlSQLTimeoutException_INCLUDE_ALL || defined(JavaSqlSQLTimeoutException_INCLUDE))
+#if !defined (JavaSqlSQLTimeoutException_) && (INCLUDE_ALL_JavaSqlSQLTimeoutException || defined(INCLUDE_JavaSqlSQLTimeoutException))
 #define JavaSqlSQLTimeoutException_
 
-#define JavaSqlSQLTransientException_RESTRICT 1
-#define JavaSqlSQLTransientException_INCLUDE 1
+#define RESTRICT_JavaSqlSQLTransientException 1
+#define INCLUDE_JavaSqlSQLTransientException 1
 #include "../../java/sql/SQLTransientException.h"
-
-@class JavaLangThrowable;
 
 @interface JavaSqlSQLTimeoutException : JavaSqlSQLTransientException
 
@@ -94,7 +92,7 @@
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
                          withInt:(jint)vendorCode
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLTimeoutException object.
@@ -112,7 +110,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)reason
                     withNSString:(NSString *)sqlState
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLTimeoutException object.
@@ -126,7 +124,7 @@
  SQLException
  */
 - (instancetype)initWithNSString:(NSString *)reason
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Creates an SQLTimeoutException object.
@@ -137,7 +135,7 @@
  the Throwable object for the underlying reason this
  SQLException
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 #pragma mark Package-Private
 
@@ -149,33 +147,49 @@ FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_init(JavaSqlSQLTimeoutExceptio
 
 FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *create_JavaSqlSQLTimeoutException_init();
+
 FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithNSString_(JavaSqlSQLTimeoutException *self, NSString *reason);
 
 FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithNSString_(NSString *reason) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *create_JavaSqlSQLTimeoutException_initWithNSString_(NSString *reason);
 
 FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithNSString_withNSString_(JavaSqlSQLTimeoutException *self, NSString *reason, NSString *sqlState);
 
 FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *create_JavaSqlSQLTimeoutException_initWithNSString_withNSString_(NSString *reason, NSString *sqlState);
+
 FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithNSString_withNSString_withInt_(JavaSqlSQLTimeoutException *self, NSString *reason, NSString *sqlState, jint vendorCode);
 
 FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithJavaLangThrowable_(JavaSqlSQLTimeoutException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *create_JavaSqlSQLTimeoutException_initWithNSString_withNSString_withInt_(NSString *reason, NSString *sqlState, jint vendorCode);
 
-FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithNSException_(JavaSqlSQLTimeoutException *self, NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithNSString_withJavaLangThrowable_(JavaSqlSQLTimeoutException *self, NSString *reason, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithNSString_withJavaLangThrowable_(NSString *reason, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *create_JavaSqlSQLTimeoutException_initWithNSException_(NSException *cause);
 
-FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithNSString_withNSString_withJavaLangThrowable_(JavaSqlSQLTimeoutException *self, NSString *reason, NSString *sqlState, JavaLangThrowable *cause);
+FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithNSString_withNSException_(JavaSqlSQLTimeoutException *self, NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithNSString_withNSString_withJavaLangThrowable_(NSString *reason, NSString *sqlState, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithNSString_withNSException_(NSString *reason, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(JavaSqlSQLTimeoutException *self, NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *create_JavaSqlSQLTimeoutException_initWithNSString_withNSException_(NSString *reason, NSException *cause);
 
-FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(NSString *reason, NSString *sqlState, jint vendorCode, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithNSString_withNSString_withNSException_(JavaSqlSQLTimeoutException *self, NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *create_JavaSqlSQLTimeoutException_initWithNSString_withNSString_withNSException_(NSString *reason, NSString *sqlState, NSException *cause);
+
+FOUNDATION_EXPORT void JavaSqlSQLTimeoutException_initWithNSString_withNSString_withInt_withNSException_(JavaSqlSQLTimeoutException *self, NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
+
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *new_JavaSqlSQLTimeoutException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLTimeoutException *create_JavaSqlSQLTimeoutException_initWithNSString_withNSString_withInt_withNSException_(NSString *reason, NSString *sqlState, jint vendorCode, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLTimeoutException)
 
@@ -183,4 +197,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLTimeoutException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLTimeoutException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLTimeoutException")

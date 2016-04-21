@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlXpathXPathConstants_INCLUDE_ALL")
-#ifdef JavaxXmlXpathXPathConstants_RESTRICT
-#define JavaxXmlXpathXPathConstants_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlXpathXPathConstants")
+#ifdef RESTRICT_JavaxXmlXpathXPathConstants
+#define INCLUDE_ALL_JavaxXmlXpathXPathConstants 0
 #else
-#define JavaxXmlXpathXPathConstants_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlXpathXPathConstants 1
 #endif
-#undef JavaxXmlXpathXPathConstants_RESTRICT
+#undef RESTRICT_JavaxXmlXpathXPathConstants
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlXpathXPathConstants_) && (JavaxXmlXpathXPathConstants_INCLUDE_ALL || defined(JavaxXmlXpathXPathConstants_INCLUDE))
+#if !defined (JavaxXmlXpathXPathConstants_) && (INCLUDE_ALL_JavaxXmlXpathXPathConstants || defined(INCLUDE_JavaxXmlXpathXPathConstants))
 #define JavaxXmlXpathXPathConstants_
 
 @class JavaxXmlNamespaceQName;
@@ -112,4 +112,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlXpathXPathConstants)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlXpathXPathConstants_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlXpathXPathConstants")

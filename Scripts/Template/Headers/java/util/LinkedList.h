@@ -5,38 +5,38 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLinkedList_INCLUDE_ALL")
-#ifdef JavaUtilLinkedList_RESTRICT
-#define JavaUtilLinkedList_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLinkedList")
+#ifdef RESTRICT_JavaUtilLinkedList
+#define INCLUDE_ALL_JavaUtilLinkedList 0
 #else
-#define JavaUtilLinkedList_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLinkedList 1
 #endif
-#undef JavaUtilLinkedList_RESTRICT
+#undef RESTRICT_JavaUtilLinkedList
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLinkedList_) && (JavaUtilLinkedList_INCLUDE_ALL || defined(JavaUtilLinkedList_INCLUDE))
+#if !defined (JavaUtilLinkedList_) && (INCLUDE_ALL_JavaUtilLinkedList || defined(INCLUDE_JavaUtilLinkedList))
 #define JavaUtilLinkedList_
 
-#define JavaUtilAbstractSequentialList_RESTRICT 1
-#define JavaUtilAbstractSequentialList_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractSequentialList 1
+#define INCLUDE_JavaUtilAbstractSequentialList 1
 #include "../../java/util/AbstractSequentialList.h"
 
-#define JavaUtilList_RESTRICT 1
-#define JavaUtilList_INCLUDE 1
+#define RESTRICT_JavaUtilList 1
+#define INCLUDE_JavaUtilList 1
 #include "../../java/util/List.h"
 
-#define JavaUtilDeque_RESTRICT 1
-#define JavaUtilDeque_INCLUDE 1
+#define RESTRICT_JavaUtilDeque 1
+#define INCLUDE_JavaUtilDeque 1
 #include "../../java/util/Deque.h"
 
-#define JavaUtilQueue_RESTRICT 1
-#define JavaUtilQueue_INCLUDE 1
+#define RESTRICT_JavaUtilQueue 1
+#define INCLUDE_JavaUtilQueue 1
 #include "../../java/util/Queue.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -380,7 +380,7 @@
 
 #pragma mark Protected
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 #pragma mark Package-Private
 
@@ -394,21 +394,25 @@ FOUNDATION_EXPORT void JavaUtilLinkedList_init(JavaUtilLinkedList *self);
 
 FOUNDATION_EXPORT JavaUtilLinkedList *new_JavaUtilLinkedList_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLinkedList *create_JavaUtilLinkedList_init();
+
 FOUNDATION_EXPORT void JavaUtilLinkedList_initWithJavaUtilCollection_(JavaUtilLinkedList *self, id<JavaUtilCollection> collection);
 
 FOUNDATION_EXPORT JavaUtilLinkedList *new_JavaUtilLinkedList_initWithJavaUtilCollection_(id<JavaUtilCollection> collection) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilLinkedList *create_JavaUtilLinkedList_initWithJavaUtilCollection_(id<JavaUtilCollection> collection);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList)
 
 #endif
 
-#if !defined (JavaUtilLinkedList_Link_) && (JavaUtilLinkedList_INCLUDE_ALL || defined(JavaUtilLinkedList_Link_INCLUDE))
+#if !defined (JavaUtilLinkedList_Link_) && (INCLUDE_ALL_JavaUtilLinkedList || defined(INCLUDE_JavaUtilLinkedList_Link))
 #define JavaUtilLinkedList_Link_
 
 @interface JavaUtilLinkedList_Link : NSObject {
  @public
   id data_;
-  __weak JavaUtilLinkedList_Link *previous_;
+  __unsafe_unretained JavaUtilLinkedList_Link *previous_;
   JavaUtilLinkedList_Link *next_;
 }
 
@@ -429,10 +433,12 @@ FOUNDATION_EXPORT void JavaUtilLinkedList_Link_initWithId_withJavaUtilLinkedList
 
 FOUNDATION_EXPORT JavaUtilLinkedList_Link *new_JavaUtilLinkedList_Link_initWithId_withJavaUtilLinkedList_Link_withJavaUtilLinkedList_Link_(id o, JavaUtilLinkedList_Link *p, JavaUtilLinkedList_Link *n) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLinkedList_Link *create_JavaUtilLinkedList_Link_initWithId_withJavaUtilLinkedList_Link_withJavaUtilLinkedList_Link_(id o, JavaUtilLinkedList_Link *p, JavaUtilLinkedList_Link *n);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLinkedList_Link)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLinkedList_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLinkedList")

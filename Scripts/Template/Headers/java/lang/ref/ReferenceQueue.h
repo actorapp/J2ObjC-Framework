@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangRefReferenceQueue_INCLUDE_ALL")
-#ifdef JavaLangRefReferenceQueue_RESTRICT
-#define JavaLangRefReferenceQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangRefReferenceQueue")
+#ifdef RESTRICT_JavaLangRefReferenceQueue
+#define INCLUDE_ALL_JavaLangRefReferenceQueue 0
 #else
-#define JavaLangRefReferenceQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangRefReferenceQueue 1
 #endif
-#undef JavaLangRefReferenceQueue_RESTRICT
+#undef RESTRICT_JavaLangRefReferenceQueue
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangRefReferenceQueue_) && (JavaLangRefReferenceQueue_INCLUDE_ALL || defined(JavaLangRefReferenceQueue_INCLUDE))
+#if !defined (JavaLangRefReferenceQueue_) && (INCLUDE_ALL_JavaLangRefReferenceQueue || defined(INCLUDE_JavaLangRefReferenceQueue))
 #define JavaLangRefReferenceQueue_
 
 @class JavaLangRefReference;
@@ -100,6 +100,8 @@ FOUNDATION_EXPORT void JavaLangRefReferenceQueue_init(JavaLangRefReferenceQueue 
 
 FOUNDATION_EXPORT JavaLangRefReferenceQueue *new_JavaLangRefReferenceQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangRefReferenceQueue *create_JavaLangRefReferenceQueue_init();
+
 FOUNDATION_EXPORT void JavaLangRefReferenceQueue_addWithJavaLangRefReference_(JavaLangRefReference *list);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefReferenceQueue)
@@ -108,4 +110,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefReferenceQueue)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangRefReferenceQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangRefReferenceQueue")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangArrayIndexOutOfBoundsException_INCLUDE_ALL")
-#ifdef JavaLangArrayIndexOutOfBoundsException_RESTRICT
-#define JavaLangArrayIndexOutOfBoundsException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangArrayIndexOutOfBoundsException")
+#ifdef RESTRICT_JavaLangArrayIndexOutOfBoundsException
+#define INCLUDE_ALL_JavaLangArrayIndexOutOfBoundsException 0
 #else
-#define JavaLangArrayIndexOutOfBoundsException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangArrayIndexOutOfBoundsException 1
 #endif
-#undef JavaLangArrayIndexOutOfBoundsException_RESTRICT
+#undef RESTRICT_JavaLangArrayIndexOutOfBoundsException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangArrayIndexOutOfBoundsException_) && (JavaLangArrayIndexOutOfBoundsException_INCLUDE_ALL || defined(JavaLangArrayIndexOutOfBoundsException_INCLUDE))
+#if !defined (JavaLangArrayIndexOutOfBoundsException_) && (INCLUDE_ALL_JavaLangArrayIndexOutOfBoundsException || defined(INCLUDE_JavaLangArrayIndexOutOfBoundsException))
 #define JavaLangArrayIndexOutOfBoundsException_
 
-#define JavaLangIndexOutOfBoundsException_RESTRICT 1
-#define JavaLangIndexOutOfBoundsException_INCLUDE 1
+#define RESTRICT_JavaLangIndexOutOfBoundsException 1
+#define INCLUDE_JavaLangIndexOutOfBoundsException 1
 #include "../../java/lang/IndexOutOfBoundsException.h"
 
 /*!
@@ -75,21 +75,31 @@ FOUNDATION_EXPORT void JavaLangArrayIndexOutOfBoundsException_init(JavaLangArray
 
 FOUNDATION_EXPORT JavaLangArrayIndexOutOfBoundsException *new_JavaLangArrayIndexOutOfBoundsException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangArrayIndexOutOfBoundsException *create_JavaLangArrayIndexOutOfBoundsException_init();
+
 FOUNDATION_EXPORT void JavaLangArrayIndexOutOfBoundsException_initWithInt_(JavaLangArrayIndexOutOfBoundsException *self, jint index);
 
 FOUNDATION_EXPORT JavaLangArrayIndexOutOfBoundsException *new_JavaLangArrayIndexOutOfBoundsException_initWithInt_(jint index) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangArrayIndexOutOfBoundsException *create_JavaLangArrayIndexOutOfBoundsException_initWithInt_(jint index);
 
 FOUNDATION_EXPORT void JavaLangArrayIndexOutOfBoundsException_initWithNSString_(JavaLangArrayIndexOutOfBoundsException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangArrayIndexOutOfBoundsException *new_JavaLangArrayIndexOutOfBoundsException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangArrayIndexOutOfBoundsException *create_JavaLangArrayIndexOutOfBoundsException_initWithNSString_(NSString *detailMessage);
+
 FOUNDATION_EXPORT void JavaLangArrayIndexOutOfBoundsException_initWithInt_withInt_(JavaLangArrayIndexOutOfBoundsException *self, jint sourceLength, jint index);
 
 FOUNDATION_EXPORT JavaLangArrayIndexOutOfBoundsException *new_JavaLangArrayIndexOutOfBoundsException_initWithInt_withInt_(jint sourceLength, jint index) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangArrayIndexOutOfBoundsException *create_JavaLangArrayIndexOutOfBoundsException_initWithInt_withInt_(jint sourceLength, jint index);
+
 FOUNDATION_EXPORT void JavaLangArrayIndexOutOfBoundsException_initWithInt_withInt_withInt_(JavaLangArrayIndexOutOfBoundsException *self, jint sourceLength, jint offset, jint count);
 
 FOUNDATION_EXPORT JavaLangArrayIndexOutOfBoundsException *new_JavaLangArrayIndexOutOfBoundsException_initWithInt_withInt_withInt_(jint sourceLength, jint offset, jint count) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangArrayIndexOutOfBoundsException *create_JavaLangArrayIndexOutOfBoundsException_initWithInt_withInt_withInt_(jint sourceLength, jint offset, jint count);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangArrayIndexOutOfBoundsException)
 
@@ -97,4 +107,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangArrayIndexOutOfBoundsException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangArrayIndexOutOfBoundsException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangArrayIndexOutOfBoundsException")

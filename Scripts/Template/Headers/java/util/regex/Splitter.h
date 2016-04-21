@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilRegexSplitter_INCLUDE_ALL")
-#ifdef JavaUtilRegexSplitter_RESTRICT
-#define JavaUtilRegexSplitter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilRegexSplitter")
+#ifdef RESTRICT_JavaUtilRegexSplitter
+#define INCLUDE_ALL_JavaUtilRegexSplitter 0
 #else
-#define JavaUtilRegexSplitter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilRegexSplitter 1
 #endif
-#undef JavaUtilRegexSplitter_RESTRICT
+#undef RESTRICT_JavaUtilRegexSplitter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilRegexSplitter_) && (JavaUtilRegexSplitter_INCLUDE_ALL || defined(JavaUtilRegexSplitter_INCLUDE))
+#if !defined (JavaUtilRegexSplitter_) && (INCLUDE_ALL_JavaUtilRegexSplitter || defined(INCLUDE_JavaUtilRegexSplitter))
 #define JavaUtilRegexSplitter_
 
 @class IOSObjectArray;
@@ -57,4 +57,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilRegexSplitter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilRegexSplitter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilRegexSplitter")

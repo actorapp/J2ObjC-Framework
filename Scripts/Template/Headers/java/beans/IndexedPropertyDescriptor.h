@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansIndexedPropertyDescriptor_INCLUDE_ALL")
-#ifdef JavaBeansIndexedPropertyDescriptor_RESTRICT
-#define JavaBeansIndexedPropertyDescriptor_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor")
+#ifdef RESTRICT_JavaBeansIndexedPropertyDescriptor
+#define INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor 0
 #else
-#define JavaBeansIndexedPropertyDescriptor_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor 1
 #endif
-#undef JavaBeansIndexedPropertyDescriptor_RESTRICT
+#undef RESTRICT_JavaBeansIndexedPropertyDescriptor
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansIndexedPropertyDescriptor_) && (JavaBeansIndexedPropertyDescriptor_INCLUDE_ALL || defined(JavaBeansIndexedPropertyDescriptor_INCLUDE))
+#if !defined (JavaBeansIndexedPropertyDescriptor_) && (INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor || defined(INCLUDE_JavaBeansIndexedPropertyDescriptor))
 #define JavaBeansIndexedPropertyDescriptor_
 
-#define JavaBeansPropertyDescriptor_RESTRICT 1
-#define JavaBeansPropertyDescriptor_INCLUDE 1
+#define RESTRICT_JavaBeansPropertyDescriptor 1
+#define INCLUDE_JavaBeansPropertyDescriptor 1
 #include "../../java/beans/PropertyDescriptor.h"
 
 @class IOSClass;
@@ -143,13 +143,19 @@ FOUNDATION_EXPORT void JavaBeansIndexedPropertyDescriptor_initWithNSString_withI
 
 FOUNDATION_EXPORT JavaBeansIndexedPropertyDescriptor *new_JavaBeansIndexedPropertyDescriptor_initWithNSString_withIOSClass_withNSString_withNSString_withNSString_withNSString_(NSString *propertyName, IOSClass *beanClass, NSString *getterName, NSString *setterName, NSString *indexedGetterName, NSString *indexedSetterName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansIndexedPropertyDescriptor *create_JavaBeansIndexedPropertyDescriptor_initWithNSString_withIOSClass_withNSString_withNSString_withNSString_withNSString_(NSString *propertyName, IOSClass *beanClass, NSString *getterName, NSString *setterName, NSString *indexedGetterName, NSString *indexedSetterName);
+
 FOUNDATION_EXPORT void JavaBeansIndexedPropertyDescriptor_initWithNSString_withJavaLangReflectMethod_withJavaLangReflectMethod_withJavaLangReflectMethod_withJavaLangReflectMethod_(JavaBeansIndexedPropertyDescriptor *self, NSString *propertyName, JavaLangReflectMethod *getter, JavaLangReflectMethod *setter, JavaLangReflectMethod *indexedGetter, JavaLangReflectMethod *indexedSetter);
 
 FOUNDATION_EXPORT JavaBeansIndexedPropertyDescriptor *new_JavaBeansIndexedPropertyDescriptor_initWithNSString_withJavaLangReflectMethod_withJavaLangReflectMethod_withJavaLangReflectMethod_withJavaLangReflectMethod_(NSString *propertyName, JavaLangReflectMethod *getter, JavaLangReflectMethod *setter, JavaLangReflectMethod *indexedGetter, JavaLangReflectMethod *indexedSetter) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansIndexedPropertyDescriptor *create_JavaBeansIndexedPropertyDescriptor_initWithNSString_withJavaLangReflectMethod_withJavaLangReflectMethod_withJavaLangReflectMethod_withJavaLangReflectMethod_(NSString *propertyName, JavaLangReflectMethod *getter, JavaLangReflectMethod *setter, JavaLangReflectMethod *indexedGetter, JavaLangReflectMethod *indexedSetter);
+
 FOUNDATION_EXPORT void JavaBeansIndexedPropertyDescriptor_initWithNSString_withIOSClass_(JavaBeansIndexedPropertyDescriptor *self, NSString *propertyName, IOSClass *beanClass);
 
 FOUNDATION_EXPORT JavaBeansIndexedPropertyDescriptor *new_JavaBeansIndexedPropertyDescriptor_initWithNSString_withIOSClass_(NSString *propertyName, IOSClass *beanClass) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaBeansIndexedPropertyDescriptor *create_JavaBeansIndexedPropertyDescriptor_initWithNSString_withIOSClass_(NSString *propertyName, IOSClass *beanClass);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIndexedPropertyDescriptor)
 
@@ -157,4 +163,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansIndexedPropertyDescriptor)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansIndexedPropertyDescriptor_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansIndexedPropertyDescriptor")

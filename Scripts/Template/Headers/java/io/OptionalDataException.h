@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoOptionalDataException_INCLUDE_ALL")
-#ifdef JavaIoOptionalDataException_RESTRICT
-#define JavaIoOptionalDataException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoOptionalDataException")
+#ifdef RESTRICT_JavaIoOptionalDataException
+#define INCLUDE_ALL_JavaIoOptionalDataException 0
 #else
-#define JavaIoOptionalDataException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoOptionalDataException 1
 #endif
-#undef JavaIoOptionalDataException_RESTRICT
+#undef RESTRICT_JavaIoOptionalDataException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoOptionalDataException_) && (JavaIoOptionalDataException_INCLUDE_ALL || defined(JavaIoOptionalDataException_INCLUDE))
+#if !defined (JavaIoOptionalDataException_) && (INCLUDE_ALL_JavaIoOptionalDataException || defined(INCLUDE_JavaIoOptionalDataException))
 #define JavaIoOptionalDataException_
 
-#define JavaIoObjectStreamException_RESTRICT 1
-#define JavaIoObjectStreamException_INCLUDE 1
+#define RESTRICT_JavaIoObjectStreamException 1
+#define INCLUDE_JavaIoObjectStreamException 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
@@ -68,9 +68,13 @@ FOUNDATION_EXPORT void JavaIoOptionalDataException_init(JavaIoOptionalDataExcept
 
 FOUNDATION_EXPORT JavaIoOptionalDataException *new_JavaIoOptionalDataException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoOptionalDataException *create_JavaIoOptionalDataException_init();
+
 FOUNDATION_EXPORT void JavaIoOptionalDataException_initWithNSString_(JavaIoOptionalDataException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoOptionalDataException *new_JavaIoOptionalDataException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoOptionalDataException *create_JavaIoOptionalDataException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoOptionalDataException)
 
@@ -78,4 +82,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoOptionalDataException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoOptionalDataException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoOptionalDataException")

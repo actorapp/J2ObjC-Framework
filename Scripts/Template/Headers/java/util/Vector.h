@@ -5,34 +5,34 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilVector_INCLUDE_ALL")
-#ifdef JavaUtilVector_RESTRICT
-#define JavaUtilVector_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilVector")
+#ifdef RESTRICT_JavaUtilVector
+#define INCLUDE_ALL_JavaUtilVector 0
 #else
-#define JavaUtilVector_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilVector 1
 #endif
-#undef JavaUtilVector_RESTRICT
+#undef RESTRICT_JavaUtilVector
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilVector_) && (JavaUtilVector_INCLUDE_ALL || defined(JavaUtilVector_INCLUDE))
+#if !defined (JavaUtilVector_) && (INCLUDE_ALL_JavaUtilVector || defined(INCLUDE_JavaUtilVector))
 #define JavaUtilVector_
 
-#define JavaUtilAbstractList_RESTRICT 1
-#define JavaUtilAbstractList_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractList 1
+#define INCLUDE_JavaUtilAbstractList 1
 #include "../../java/util/AbstractList.h"
 
-#define JavaUtilList_RESTRICT 1
-#define JavaUtilList_INCLUDE 1
+#define RESTRICT_JavaUtilList 1
+#define INCLUDE_JavaUtilList 1
 #include "../../java/util/List.h"
 
-#define JavaUtilRandomAccess_RESTRICT 1
-#define JavaUtilRandomAccess_INCLUDE 1
+#define RESTRICT_JavaUtilRandomAccess 1
+#define INCLUDE_JavaUtilRandomAccess 1
 #include "../../java/util/RandomAccess.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -627,17 +627,25 @@ FOUNDATION_EXPORT void JavaUtilVector_init(JavaUtilVector *self);
 
 FOUNDATION_EXPORT JavaUtilVector *new_JavaUtilVector_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilVector *create_JavaUtilVector_init();
+
 FOUNDATION_EXPORT void JavaUtilVector_initWithInt_(JavaUtilVector *self, jint capacity);
 
 FOUNDATION_EXPORT JavaUtilVector *new_JavaUtilVector_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilVector *create_JavaUtilVector_initWithInt_(jint capacity);
 
 FOUNDATION_EXPORT void JavaUtilVector_initWithInt_withInt_(JavaUtilVector *self, jint capacity, jint capacityIncrement);
 
 FOUNDATION_EXPORT JavaUtilVector *new_JavaUtilVector_initWithInt_withInt_(jint capacity, jint capacityIncrement) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilVector *create_JavaUtilVector_initWithInt_withInt_(jint capacity, jint capacityIncrement);
+
 FOUNDATION_EXPORT void JavaUtilVector_initWithJavaUtilCollection_(JavaUtilVector *self, id<JavaUtilCollection> collection);
 
 FOUNDATION_EXPORT JavaUtilVector *new_JavaUtilVector_initWithJavaUtilCollection_(id<JavaUtilCollection> collection) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilVector *create_JavaUtilVector_initWithJavaUtilCollection_(id<JavaUtilCollection> collection);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector)
 
@@ -645,4 +653,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilVector)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilVector_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilVector")

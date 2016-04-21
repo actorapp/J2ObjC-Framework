@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetIDN_INCLUDE_ALL")
-#ifdef JavaNetIDN_RESTRICT
-#define JavaNetIDN_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetIDN")
+#ifdef RESTRICT_JavaNetIDN
+#define INCLUDE_ALL_JavaNetIDN 0
 #else
-#define JavaNetIDN_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetIDN 1
 #endif
-#undef JavaNetIDN_RESTRICT
+#undef RESTRICT_JavaNetIDN
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetIDN_) && (JavaNetIDN_INCLUDE_ALL || defined(JavaNetIDN_INCLUDE))
+#if !defined (JavaNetIDN_) && (INCLUDE_ALL_JavaNetIDN || defined(INCLUDE_JavaNetIDN))
 #define JavaNetIDN_
 
 /*!
@@ -115,4 +115,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetIDN)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetIDN_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetIDN")

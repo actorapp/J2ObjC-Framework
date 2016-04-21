@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE_ALL")
-#ifdef JavaSecuritySpecRSAOtherPrimeInfo_RESTRICT
-#define JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecRSAOtherPrimeInfo")
+#ifdef RESTRICT_JavaSecuritySpecRSAOtherPrimeInfo
+#define INCLUDE_ALL_JavaSecuritySpecRSAOtherPrimeInfo 0
 #else
-#define JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecRSAOtherPrimeInfo 1
 #endif
-#undef JavaSecuritySpecRSAOtherPrimeInfo_RESTRICT
+#undef RESTRICT_JavaSecuritySpecRSAOtherPrimeInfo
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecRSAOtherPrimeInfo_) && (JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE_ALL || defined(JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE))
+#if !defined (JavaSecuritySpecRSAOtherPrimeInfo_) && (INCLUDE_ALL_JavaSecuritySpecRSAOtherPrimeInfo || defined(INCLUDE_JavaSecuritySpecRSAOtherPrimeInfo))
 #define JavaSecuritySpecRSAOtherPrimeInfo_
 
 @class JavaMathBigInteger;
@@ -73,10 +73,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecRSAOtherPrimeInfo_initWithJavaMathBigInte
 
 FOUNDATION_EXPORT JavaSecuritySpecRSAOtherPrimeInfo *new_JavaSecuritySpecRSAOtherPrimeInfo_initWithJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_(JavaMathBigInteger *prime, JavaMathBigInteger *primeExponent, JavaMathBigInteger *crtCoefficient) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecRSAOtherPrimeInfo *create_JavaSecuritySpecRSAOtherPrimeInfo_initWithJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_(JavaMathBigInteger *prime, JavaMathBigInteger *primeExponent, JavaMathBigInteger *crtCoefficient);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAOtherPrimeInfo)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecRSAOtherPrimeInfo_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAOtherPrimeInfo")

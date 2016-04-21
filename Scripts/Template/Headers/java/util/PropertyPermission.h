@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilPropertyPermission_INCLUDE_ALL")
-#ifdef JavaUtilPropertyPermission_RESTRICT
-#define JavaUtilPropertyPermission_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilPropertyPermission")
+#ifdef RESTRICT_JavaUtilPropertyPermission
+#define INCLUDE_ALL_JavaUtilPropertyPermission 0
 #else
-#define JavaUtilPropertyPermission_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilPropertyPermission 1
 #endif
-#undef JavaUtilPropertyPermission_RESTRICT
+#undef RESTRICT_JavaUtilPropertyPermission
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilPropertyPermission_) && (JavaUtilPropertyPermission_INCLUDE_ALL || defined(JavaUtilPropertyPermission_INCLUDE))
+#if !defined (JavaUtilPropertyPermission_) && (INCLUDE_ALL_JavaUtilPropertyPermission || defined(INCLUDE_JavaUtilPropertyPermission))
 #define JavaUtilPropertyPermission_
 
-#define JavaSecurityBasicPermission_RESTRICT 1
-#define JavaSecurityBasicPermission_INCLUDE 1
+#define RESTRICT_JavaSecurityBasicPermission 1
+#define INCLUDE_JavaSecurityBasicPermission 1
 #include "../../java/security/BasicPermission.h"
 
 @class JavaSecurityPermission;
@@ -47,10 +47,12 @@ FOUNDATION_EXPORT void JavaUtilPropertyPermission_initWithNSString_withNSString_
 
 FOUNDATION_EXPORT JavaUtilPropertyPermission *new_JavaUtilPropertyPermission_initWithNSString_withNSString_(NSString *name, NSString *actions) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilPropertyPermission *create_JavaUtilPropertyPermission_initWithNSString_withNSString_(NSString *name, NSString *actions);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilPropertyPermission)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilPropertyPermission_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilPropertyPermission")

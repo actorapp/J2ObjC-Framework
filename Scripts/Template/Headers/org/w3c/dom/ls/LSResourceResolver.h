@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomLsLSResourceResolver_INCLUDE_ALL")
-#ifdef OrgW3cDomLsLSResourceResolver_RESTRICT
-#define OrgW3cDomLsLSResourceResolver_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomLsLSResourceResolver")
+#ifdef RESTRICT_OrgW3cDomLsLSResourceResolver
+#define INCLUDE_ALL_OrgW3cDomLsLSResourceResolver 0
 #else
-#define OrgW3cDomLsLSResourceResolver_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomLsLSResourceResolver 1
 #endif
-#undef OrgW3cDomLsLSResourceResolver_RESTRICT
+#undef RESTRICT_OrgW3cDomLsLSResourceResolver
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomLsLSResourceResolver_) && (OrgW3cDomLsLSResourceResolver_INCLUDE_ALL || defined(OrgW3cDomLsLSResourceResolver_INCLUDE))
+#if !defined (OrgW3cDomLsLSResourceResolver_) && (INCLUDE_ALL_OrgW3cDomLsLSResourceResolver || defined(INCLUDE_OrgW3cDomLsLSResourceResolver))
 #define OrgW3cDomLsLSResourceResolver_
 
 @protocol OrgW3cDomLsLSInput;
@@ -98,4 +98,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSResourceResolver)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomLsLSResourceResolver_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomLsLSResourceResolver")

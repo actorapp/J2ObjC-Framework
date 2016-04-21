@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilDuplicateFormatFlagsException_INCLUDE_ALL")
-#ifdef JavaUtilDuplicateFormatFlagsException_RESTRICT
-#define JavaUtilDuplicateFormatFlagsException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilDuplicateFormatFlagsException")
+#ifdef RESTRICT_JavaUtilDuplicateFormatFlagsException
+#define INCLUDE_ALL_JavaUtilDuplicateFormatFlagsException 0
 #else
-#define JavaUtilDuplicateFormatFlagsException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilDuplicateFormatFlagsException 1
 #endif
-#undef JavaUtilDuplicateFormatFlagsException_RESTRICT
+#undef RESTRICT_JavaUtilDuplicateFormatFlagsException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilDuplicateFormatFlagsException_) && (JavaUtilDuplicateFormatFlagsException_INCLUDE_ALL || defined(JavaUtilDuplicateFormatFlagsException_INCLUDE))
+#if !defined (JavaUtilDuplicateFormatFlagsException_) && (INCLUDE_ALL_JavaUtilDuplicateFormatFlagsException || defined(INCLUDE_JavaUtilDuplicateFormatFlagsException))
 #define JavaUtilDuplicateFormatFlagsException_
 
-#define JavaUtilIllegalFormatException_RESTRICT 1
-#define JavaUtilIllegalFormatException_INCLUDE 1
+#define RESTRICT_JavaUtilIllegalFormatException 1
+#define INCLUDE_JavaUtilIllegalFormatException 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
@@ -56,10 +56,12 @@ FOUNDATION_EXPORT void JavaUtilDuplicateFormatFlagsException_initWithNSString_(J
 
 FOUNDATION_EXPORT JavaUtilDuplicateFormatFlagsException *new_JavaUtilDuplicateFormatFlagsException_initWithNSString_(NSString *f) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilDuplicateFormatFlagsException *create_JavaUtilDuplicateFormatFlagsException_initWithNSString_(NSString *f);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDuplicateFormatFlagsException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilDuplicateFormatFlagsException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilDuplicateFormatFlagsException")

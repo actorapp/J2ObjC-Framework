@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilDictionary_INCLUDE_ALL")
-#ifdef JavaUtilDictionary_RESTRICT
-#define JavaUtilDictionary_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilDictionary")
+#ifdef RESTRICT_JavaUtilDictionary
+#define INCLUDE_ALL_JavaUtilDictionary 0
 #else
-#define JavaUtilDictionary_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilDictionary 1
 #endif
-#undef JavaUtilDictionary_RESTRICT
+#undef RESTRICT_JavaUtilDictionary
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilDictionary_) && (JavaUtilDictionary_INCLUDE_ALL || defined(JavaUtilDictionary_INCLUDE))
+#if !defined (JavaUtilDictionary_) && (INCLUDE_ALL_JavaUtilDictionary || defined(INCLUDE_JavaUtilDictionary))
 #define JavaUtilDictionary_
 
 @protocol JavaUtilEnumeration;
@@ -126,4 +126,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilDictionary)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilDictionary_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilDictionary")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetSocketAddress_INCLUDE_ALL")
-#ifdef JavaNetSocketAddress_RESTRICT
-#define JavaNetSocketAddress_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetSocketAddress")
+#ifdef RESTRICT_JavaNetSocketAddress
+#define INCLUDE_ALL_JavaNetSocketAddress 0
 #else
-#define JavaNetSocketAddress_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetSocketAddress 1
 #endif
-#undef JavaNetSocketAddress_RESTRICT
+#undef RESTRICT_JavaNetSocketAddress
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetSocketAddress_) && (JavaNetSocketAddress_INCLUDE_ALL || defined(JavaNetSocketAddress_INCLUDE))
+#if !defined (JavaNetSocketAddress_) && (INCLUDE_ALL_JavaNetSocketAddress || defined(INCLUDE_JavaNetSocketAddress))
 #define JavaNetSocketAddress_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 /*!
@@ -50,4 +50,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetSocketAddress)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetSocketAddress_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetSocketAddress")

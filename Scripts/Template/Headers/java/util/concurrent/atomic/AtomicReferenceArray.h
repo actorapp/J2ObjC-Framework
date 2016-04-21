@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentAtomicAtomicReferenceArray_RESTRICT
-#define JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReferenceArray")
+#ifdef RESTRICT_JavaUtilConcurrentAtomicAtomicReferenceArray
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReferenceArray 0
 #else
-#define JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReferenceArray 1
 #endif
-#undef JavaUtilConcurrentAtomicAtomicReferenceArray_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentAtomicAtomicReferenceArray
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentAtomicAtomicReferenceArray_) && (JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE_ALL || defined(JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE))
+#if !defined (JavaUtilConcurrentAtomicAtomicReferenceArray_) && (INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReferenceArray || defined(INCLUDE_JavaUtilConcurrentAtomicAtomicReferenceArray))
 #define JavaUtilConcurrentAtomicAtomicReferenceArray_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -137,9 +137,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicReferenceArray_initWithInt_
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicReferenceArray *new_JavaUtilConcurrentAtomicAtomicReferenceArray_initWithInt_(jint length) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicReferenceArray *create_JavaUtilConcurrentAtomicAtomicReferenceArray_initWithInt_(jint length);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentAtomicAtomicReferenceArray_initWithNSObjectArray_(JavaUtilConcurrentAtomicAtomicReferenceArray *self, IOSObjectArray *array);
 
 FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicReferenceArray *new_JavaUtilConcurrentAtomicAtomicReferenceArray_initWithNSObjectArray_(IOSObjectArray *array) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentAtomicAtomicReferenceArray *create_JavaUtilConcurrentAtomicAtomicReferenceArray_initWithNSObjectArray_(IOSObjectArray *array);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicReferenceArray)
 
@@ -147,4 +151,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentAtomicAtomicReferenceArray)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentAtomicAtomicReferenceArray_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentAtomicAtomicReferenceArray")

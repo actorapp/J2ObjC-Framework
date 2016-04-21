@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslHttpsURLConnection_INCLUDE_ALL")
-#ifdef JavaxNetSslHttpsURLConnection_RESTRICT
-#define JavaxNetSslHttpsURLConnection_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslHttpsURLConnection")
+#ifdef RESTRICT_JavaxNetSslHttpsURLConnection
+#define INCLUDE_ALL_JavaxNetSslHttpsURLConnection 0
 #else
-#define JavaxNetSslHttpsURLConnection_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslHttpsURLConnection 1
 #endif
-#undef JavaxNetSslHttpsURLConnection_RESTRICT
+#undef RESTRICT_JavaxNetSslHttpsURLConnection
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslHttpsURLConnection_) && (JavaxNetSslHttpsURLConnection_INCLUDE_ALL || defined(JavaxNetSslHttpsURLConnection_INCLUDE))
+#if !defined (JavaxNetSslHttpsURLConnection_) && (INCLUDE_ALL_JavaxNetSslHttpsURLConnection || defined(INCLUDE_JavaxNetSslHttpsURLConnection))
 #define JavaxNetSslHttpsURLConnection_
 
-#define JavaNetHttpURLConnection_RESTRICT 1
-#define JavaNetHttpURLConnection_INCLUDE 1
+#define RESTRICT_JavaNetHttpURLConnection 1
+#define INCLUDE_JavaNetHttpURLConnection 1
 #include "../../../java/net/HttpURLConnection.h"
 
 @class IOSObjectArray;
@@ -254,4 +254,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslHttpsURLConnection)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslHttpsURLConnection_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslHttpsURLConnection")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidUtilBase64OutputStream_INCLUDE_ALL")
-#ifdef AndroidUtilBase64OutputStream_RESTRICT
-#define AndroidUtilBase64OutputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidUtilBase64OutputStream")
+#ifdef RESTRICT_AndroidUtilBase64OutputStream
+#define INCLUDE_ALL_AndroidUtilBase64OutputStream 0
 #else
-#define AndroidUtilBase64OutputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidUtilBase64OutputStream 1
 #endif
-#undef AndroidUtilBase64OutputStream_RESTRICT
+#undef RESTRICT_AndroidUtilBase64OutputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidUtilBase64OutputStream_) && (AndroidUtilBase64OutputStream_INCLUDE_ALL || defined(AndroidUtilBase64OutputStream_INCLUDE))
+#if !defined (AndroidUtilBase64OutputStream_) && (INCLUDE_ALL_AndroidUtilBase64OutputStream || defined(INCLUDE_AndroidUtilBase64OutputStream))
 #define AndroidUtilBase64OutputStream_
 
-#define JavaIoFilterOutputStream_RESTRICT 1
-#define JavaIoFilterOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoFilterOutputStream 1
+#define INCLUDE_JavaIoFilterOutputStream 1
 #include "../../java/io/FilterOutputStream.h"
 
 @class IOSByteArray;
@@ -73,9 +73,13 @@ FOUNDATION_EXPORT void AndroidUtilBase64OutputStream_initWithJavaIoOutputStream_
 
 FOUNDATION_EXPORT AndroidUtilBase64OutputStream *new_AndroidUtilBase64OutputStream_initWithJavaIoOutputStream_withInt_(JavaIoOutputStream *outArg, jint flags) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilBase64OutputStream *create_AndroidUtilBase64OutputStream_initWithJavaIoOutputStream_withInt_(JavaIoOutputStream *outArg, jint flags);
+
 FOUNDATION_EXPORT void AndroidUtilBase64OutputStream_initWithJavaIoOutputStream_withInt_withBoolean_(AndroidUtilBase64OutputStream *self, JavaIoOutputStream *outArg, jint flags, jboolean encode);
 
 FOUNDATION_EXPORT AndroidUtilBase64OutputStream *new_AndroidUtilBase64OutputStream_initWithJavaIoOutputStream_withInt_withBoolean_(JavaIoOutputStream *outArg, jint flags, jboolean encode) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT AndroidUtilBase64OutputStream *create_AndroidUtilBase64OutputStream_initWithJavaIoOutputStream_withInt_withBoolean_(JavaIoOutputStream *outArg, jint flags, jboolean encode);
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64OutputStream)
 
@@ -83,4 +87,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilBase64OutputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidUtilBase64OutputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidUtilBase64OutputStream")

@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioDoubleBuffer_INCLUDE_ALL")
-#ifdef JavaNioDoubleBuffer_RESTRICT
-#define JavaNioDoubleBuffer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioDoubleBuffer")
+#ifdef RESTRICT_JavaNioDoubleBuffer
+#define INCLUDE_ALL_JavaNioDoubleBuffer 0
 #else
-#define JavaNioDoubleBuffer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioDoubleBuffer 1
 #endif
-#undef JavaNioDoubleBuffer_RESTRICT
+#undef RESTRICT_JavaNioDoubleBuffer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioDoubleBuffer_) && (JavaNioDoubleBuffer_INCLUDE_ALL || defined(JavaNioDoubleBuffer_INCLUDE))
+#if !defined (JavaNioDoubleBuffer_) && (INCLUDE_ALL_JavaNioDoubleBuffer || defined(INCLUDE_JavaNioDoubleBuffer))
 #define JavaNioDoubleBuffer_
 
-#define JavaNioBuffer_RESTRICT 1
-#define JavaNioBuffer_INCLUDE 1
+#define RESTRICT_JavaNioBuffer 1
+#define INCLUDE_JavaNioBuffer 1
 #include "../../java/nio/Buffer.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSDoubleArray;
@@ -393,4 +393,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioDoubleBuffer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioDoubleBuffer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioDoubleBuffer")

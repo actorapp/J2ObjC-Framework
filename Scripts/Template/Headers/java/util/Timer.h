@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilTimer_INCLUDE_ALL")
-#ifdef JavaUtilTimer_RESTRICT
-#define JavaUtilTimer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilTimer")
+#ifdef RESTRICT_JavaUtilTimer
+#define INCLUDE_ALL_JavaUtilTimer 0
 #else
-#define JavaUtilTimer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilTimer 1
 #endif
-#undef JavaUtilTimer_RESTRICT
+#undef RESTRICT_JavaUtilTimer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilTimer_) && (JavaUtilTimer_INCLUDE_ALL || defined(JavaUtilTimer_INCLUDE))
+#if !defined (JavaUtilTimer_) && (INCLUDE_ALL_JavaUtilTimer || defined(INCLUDE_JavaUtilTimer))
 #define JavaUtilTimer_
 
 @class JavaUtilDate;
@@ -214,17 +214,25 @@ FOUNDATION_EXPORT void JavaUtilTimer_initWithNSString_withBoolean_(JavaUtilTimer
 
 FOUNDATION_EXPORT JavaUtilTimer *new_JavaUtilTimer_initWithNSString_withBoolean_(NSString *name, jboolean isDaemon) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilTimer *create_JavaUtilTimer_initWithNSString_withBoolean_(NSString *name, jboolean isDaemon);
+
 FOUNDATION_EXPORT void JavaUtilTimer_initWithNSString_(JavaUtilTimer *self, NSString *name);
 
 FOUNDATION_EXPORT JavaUtilTimer *new_JavaUtilTimer_initWithNSString_(NSString *name) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilTimer *create_JavaUtilTimer_initWithNSString_(NSString *name);
 
 FOUNDATION_EXPORT void JavaUtilTimer_initWithBoolean_(JavaUtilTimer *self, jboolean isDaemon);
 
 FOUNDATION_EXPORT JavaUtilTimer *new_JavaUtilTimer_initWithBoolean_(jboolean isDaemon) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilTimer *create_JavaUtilTimer_initWithBoolean_(jboolean isDaemon);
+
 FOUNDATION_EXPORT void JavaUtilTimer_init(JavaUtilTimer *self);
 
 FOUNDATION_EXPORT JavaUtilTimer *new_JavaUtilTimer_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilTimer *create_JavaUtilTimer_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimer)
 
@@ -232,4 +240,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTimer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilTimer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilTimer")

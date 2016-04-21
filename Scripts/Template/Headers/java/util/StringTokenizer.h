@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilStringTokenizer_INCLUDE_ALL")
-#ifdef JavaUtilStringTokenizer_RESTRICT
-#define JavaUtilStringTokenizer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilStringTokenizer")
+#ifdef RESTRICT_JavaUtilStringTokenizer
+#define INCLUDE_ALL_JavaUtilStringTokenizer 0
 #else
-#define JavaUtilStringTokenizer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilStringTokenizer 1
 #endif
-#undef JavaUtilStringTokenizer_RESTRICT
+#undef RESTRICT_JavaUtilStringTokenizer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilStringTokenizer_) && (JavaUtilStringTokenizer_INCLUDE_ALL || defined(JavaUtilStringTokenizer_INCLUDE))
+#if !defined (JavaUtilStringTokenizer_) && (INCLUDE_ALL_JavaUtilStringTokenizer || defined(INCLUDE_JavaUtilStringTokenizer))
 #define JavaUtilStringTokenizer_
 
-#define JavaUtilEnumeration_RESTRICT 1
-#define JavaUtilEnumeration_INCLUDE 1
+#define RESTRICT_JavaUtilEnumeration 1
+#define INCLUDE_JavaUtilEnumeration 1
 #include "../../java/util/Enumeration.h"
 
 /*!
@@ -148,13 +148,19 @@ FOUNDATION_EXPORT void JavaUtilStringTokenizer_initWithNSString_(JavaUtilStringT
 
 FOUNDATION_EXPORT JavaUtilStringTokenizer *new_JavaUtilStringTokenizer_initWithNSString_(NSString *string) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilStringTokenizer *create_JavaUtilStringTokenizer_initWithNSString_(NSString *string);
+
 FOUNDATION_EXPORT void JavaUtilStringTokenizer_initWithNSString_withNSString_(JavaUtilStringTokenizer *self, NSString *string, NSString *delimiters);
 
 FOUNDATION_EXPORT JavaUtilStringTokenizer *new_JavaUtilStringTokenizer_initWithNSString_withNSString_(NSString *string, NSString *delimiters) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilStringTokenizer *create_JavaUtilStringTokenizer_initWithNSString_withNSString_(NSString *string, NSString *delimiters);
+
 FOUNDATION_EXPORT void JavaUtilStringTokenizer_initWithNSString_withNSString_withBoolean_(JavaUtilStringTokenizer *self, NSString *string, NSString *delimiters, jboolean returnDelimiters);
 
 FOUNDATION_EXPORT JavaUtilStringTokenizer *new_JavaUtilStringTokenizer_initWithNSString_withNSString_withBoolean_(NSString *string, NSString *delimiters, jboolean returnDelimiters) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilStringTokenizer *create_JavaUtilStringTokenizer_initWithNSString_withNSString_withBoolean_(NSString *string, NSString *delimiters, jboolean returnDelimiters);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStringTokenizer)
 
@@ -162,4 +168,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilStringTokenizer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilStringTokenizer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilStringTokenizer")

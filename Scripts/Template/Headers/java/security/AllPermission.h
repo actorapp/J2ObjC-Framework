@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityAllPermission_INCLUDE_ALL")
-#ifdef JavaSecurityAllPermission_RESTRICT
-#define JavaSecurityAllPermission_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityAllPermission")
+#ifdef RESTRICT_JavaSecurityAllPermission
+#define INCLUDE_ALL_JavaSecurityAllPermission 0
 #else
-#define JavaSecurityAllPermission_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityAllPermission 1
 #endif
-#undef JavaSecurityAllPermission_RESTRICT
+#undef RESTRICT_JavaSecurityAllPermission
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityAllPermission_) && (JavaSecurityAllPermission_INCLUDE_ALL || defined(JavaSecurityAllPermission_INCLUDE))
+#if !defined (JavaSecurityAllPermission_) && (INCLUDE_ALL_JavaSecurityAllPermission || defined(INCLUDE_JavaSecurityAllPermission))
 #define JavaSecurityAllPermission_
 
-#define JavaSecurityPermission_RESTRICT 1
-#define JavaSecurityPermission_INCLUDE 1
+#define RESTRICT_JavaSecurityPermission 1
+#define INCLUDE_JavaSecurityPermission 1
 #include "../../java/security/Permission.h"
 
 /*!
@@ -47,9 +47,13 @@ FOUNDATION_EXPORT void JavaSecurityAllPermission_initWithNSString_withNSString_(
 
 FOUNDATION_EXPORT JavaSecurityAllPermission *new_JavaSecurityAllPermission_initWithNSString_withNSString_(NSString *name, NSString *actions) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityAllPermission *create_JavaSecurityAllPermission_initWithNSString_withNSString_(NSString *name, NSString *actions);
+
 FOUNDATION_EXPORT void JavaSecurityAllPermission_init(JavaSecurityAllPermission *self);
 
 FOUNDATION_EXPORT JavaSecurityAllPermission *new_JavaSecurityAllPermission_init() NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSecurityAllPermission *create_JavaSecurityAllPermission_init();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAllPermission)
 
@@ -57,4 +61,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityAllPermission)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityAllPermission_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityAllPermission")

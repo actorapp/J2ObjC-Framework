@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilJarJarInputStream_INCLUDE_ALL")
-#ifdef JavaUtilJarJarInputStream_RESTRICT
-#define JavaUtilJarJarInputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilJarJarInputStream")
+#ifdef RESTRICT_JavaUtilJarJarInputStream
+#define INCLUDE_ALL_JavaUtilJarJarInputStream 0
 #else
-#define JavaUtilJarJarInputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilJarJarInputStream 1
 #endif
-#undef JavaUtilJarJarInputStream_RESTRICT
+#undef RESTRICT_JavaUtilJarJarInputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilJarJarInputStream_) && (JavaUtilJarJarInputStream_INCLUDE_ALL || defined(JavaUtilJarJarInputStream_INCLUDE))
+#if !defined (JavaUtilJarJarInputStream_) && (INCLUDE_ALL_JavaUtilJarJarInputStream || defined(INCLUDE_JavaUtilJarJarInputStream))
 #define JavaUtilJarJarInputStream_
 
-#define JavaUtilZipZipInputStream_RESTRICT 1
-#define JavaUtilZipZipInputStream_INCLUDE 1
+#define RESTRICT_JavaUtilZipZipInputStream 1
+#define INCLUDE_JavaUtilZipZipInputStream 1
 #include "../../../java/util/zip/ZipInputStream.h"
 
 @class IOSByteArray;
@@ -112,9 +112,13 @@ FOUNDATION_EXPORT void JavaUtilJarJarInputStream_initWithJavaIoInputStream_withB
 
 FOUNDATION_EXPORT JavaUtilJarJarInputStream *new_JavaUtilJarJarInputStream_initWithJavaIoInputStream_withBoolean_(JavaIoInputStream *stream, jboolean verify) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilJarJarInputStream *create_JavaUtilJarJarInputStream_initWithJavaIoInputStream_withBoolean_(JavaIoInputStream *stream, jboolean verify);
+
 FOUNDATION_EXPORT void JavaUtilJarJarInputStream_initWithJavaIoInputStream_(JavaUtilJarJarInputStream *self, JavaIoInputStream *stream);
 
 FOUNDATION_EXPORT JavaUtilJarJarInputStream *new_JavaUtilJarJarInputStream_initWithJavaIoInputStream_(JavaIoInputStream *stream) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilJarJarInputStream *create_JavaUtilJarJarInputStream_initWithJavaIoInputStream_(JavaIoInputStream *stream);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarInputStream)
 
@@ -122,4 +126,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilJarJarInputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilJarJarInputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilJarJarInputStream")

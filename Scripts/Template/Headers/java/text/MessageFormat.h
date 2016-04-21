@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextMessageFormat_INCLUDE_ALL")
-#ifdef JavaTextMessageFormat_RESTRICT
-#define JavaTextMessageFormat_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextMessageFormat")
+#ifdef RESTRICT_JavaTextMessageFormat
+#define INCLUDE_ALL_JavaTextMessageFormat 0
 #else
-#define JavaTextMessageFormat_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextMessageFormat 1
 #endif
-#undef JavaTextMessageFormat_RESTRICT
+#undef RESTRICT_JavaTextMessageFormat
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextMessageFormat_) && (JavaTextMessageFormat_INCLUDE_ALL || defined(JavaTextMessageFormat_INCLUDE))
+#if !defined (JavaTextMessageFormat_) && (INCLUDE_ALL_JavaTextMessageFormat || defined(INCLUDE_JavaTextMessageFormat))
 #define JavaTextMessageFormat_
 
-#define JavaTextFormat_RESTRICT 1
-#define JavaTextFormat_INCLUDE 1
+#define RESTRICT_JavaTextFormat 1
+#define INCLUDE_JavaTextFormat 1
 #include "../../java/text/Format.h"
 
 @class IOSObjectArray;
@@ -607,9 +607,13 @@ FOUNDATION_EXPORT void JavaTextMessageFormat_initWithNSString_withJavaUtilLocale
 
 FOUNDATION_EXPORT JavaTextMessageFormat *new_JavaTextMessageFormat_initWithNSString_withJavaUtilLocale_(NSString *template_, JavaUtilLocale *locale) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextMessageFormat *create_JavaTextMessageFormat_initWithNSString_withJavaUtilLocale_(NSString *template_, JavaUtilLocale *locale);
+
 FOUNDATION_EXPORT void JavaTextMessageFormat_initWithNSString_(JavaTextMessageFormat *self, NSString *template_);
 
 FOUNDATION_EXPORT JavaTextMessageFormat *new_JavaTextMessageFormat_initWithNSString_(NSString *template_) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextMessageFormat *create_JavaTextMessageFormat_initWithNSString_(NSString *template_);
 
 FOUNDATION_EXPORT NSString *JavaTextMessageFormat_formatWithNSString_withNSObjectArray_(NSString *format, IOSObjectArray *args);
 
@@ -617,11 +621,11 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat)
 
 #endif
 
-#if !defined (JavaTextMessageFormat_Field_) && (JavaTextMessageFormat_INCLUDE_ALL || defined(JavaTextMessageFormat_Field_INCLUDE))
+#if !defined (JavaTextMessageFormat_Field_) && (INCLUDE_ALL_JavaTextMessageFormat || defined(INCLUDE_JavaTextMessageFormat_Field))
 #define JavaTextMessageFormat_Field_
 
-#define JavaTextFormat_RESTRICT 1
-#define JavaTextFormat_Field_INCLUDE 1
+#define RESTRICT_JavaTextFormat 1
+#define INCLUDE_JavaTextFormat_Field 1
 #include "../../java/text/Format.h"
 
 /*!
@@ -662,10 +666,12 @@ FOUNDATION_EXPORT void JavaTextMessageFormat_Field_initWithNSString_(JavaTextMes
 
 FOUNDATION_EXPORT JavaTextMessageFormat_Field *new_JavaTextMessageFormat_Field_initWithNSString_(NSString *fieldName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextMessageFormat_Field *create_JavaTextMessageFormat_Field_initWithNSString_(NSString *fieldName);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextMessageFormat_Field)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextMessageFormat_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextMessageFormat")

@@ -5,26 +5,26 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxSecurityAuthCallbackPasswordCallback_INCLUDE_ALL")
-#ifdef JavaxSecurityAuthCallbackPasswordCallback_RESTRICT
-#define JavaxSecurityAuthCallbackPasswordCallback_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxSecurityAuthCallbackPasswordCallback")
+#ifdef RESTRICT_JavaxSecurityAuthCallbackPasswordCallback
+#define INCLUDE_ALL_JavaxSecurityAuthCallbackPasswordCallback 0
 #else
-#define JavaxSecurityAuthCallbackPasswordCallback_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxSecurityAuthCallbackPasswordCallback 1
 #endif
-#undef JavaxSecurityAuthCallbackPasswordCallback_RESTRICT
+#undef RESTRICT_JavaxSecurityAuthCallbackPasswordCallback
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxSecurityAuthCallbackPasswordCallback_) && (JavaxSecurityAuthCallbackPasswordCallback_INCLUDE_ALL || defined(JavaxSecurityAuthCallbackPasswordCallback_INCLUDE))
+#if !defined (JavaxSecurityAuthCallbackPasswordCallback_) && (INCLUDE_ALL_JavaxSecurityAuthCallbackPasswordCallback || defined(INCLUDE_JavaxSecurityAuthCallbackPasswordCallback))
 #define JavaxSecurityAuthCallbackPasswordCallback_
 
-#define JavaxSecurityAuthCallbackCallback_RESTRICT 1
-#define JavaxSecurityAuthCallbackCallback_INCLUDE 1
+#define RESTRICT_JavaxSecurityAuthCallbackCallback 1
+#define INCLUDE_JavaxSecurityAuthCallbackCallback 1
 #include "../../../../javax/security/auth/callback/Callback.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../../java/io/Serializable.h"
 
 @class IOSCharArray;
@@ -98,10 +98,12 @@ FOUNDATION_EXPORT void JavaxSecurityAuthCallbackPasswordCallback_initWithNSStrin
 
 FOUNDATION_EXPORT JavaxSecurityAuthCallbackPasswordCallback *new_JavaxSecurityAuthCallbackPasswordCallback_initWithNSString_withBoolean_(NSString *prompt, jboolean echoOn) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxSecurityAuthCallbackPasswordCallback *create_JavaxSecurityAuthCallbackPasswordCallback_initWithNSString_withBoolean_(NSString *prompt, jboolean echoOn);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxSecurityAuthCallbackPasswordCallback)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxSecurityAuthCallbackPasswordCallback_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxSecurityAuthCallbackPasswordCallback")

@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetUnknownServiceException_INCLUDE_ALL")
-#ifdef JavaNetUnknownServiceException_RESTRICT
-#define JavaNetUnknownServiceException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetUnknownServiceException")
+#ifdef RESTRICT_JavaNetUnknownServiceException
+#define INCLUDE_ALL_JavaNetUnknownServiceException 0
 #else
-#define JavaNetUnknownServiceException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetUnknownServiceException 1
 #endif
-#undef JavaNetUnknownServiceException_RESTRICT
+#undef RESTRICT_JavaNetUnknownServiceException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetUnknownServiceException_) && (JavaNetUnknownServiceException_INCLUDE_ALL || defined(JavaNetUnknownServiceException_INCLUDE))
+#if !defined (JavaNetUnknownServiceException_) && (INCLUDE_ALL_JavaNetUnknownServiceException || defined(INCLUDE_JavaNetUnknownServiceException))
 #define JavaNetUnknownServiceException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Is thrown if no appropriate <code>ContentHandler</code> could be found for a
@@ -51,7 +49,7 @@
   internal use only
  */
 - (instancetype)initWithNSString:(NSString *)detailMessage
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 @end
 
@@ -61,13 +59,19 @@ FOUNDATION_EXPORT void JavaNetUnknownServiceException_init(JavaNetUnknownService
 
 FOUNDATION_EXPORT JavaNetUnknownServiceException *new_JavaNetUnknownServiceException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetUnknownServiceException *create_JavaNetUnknownServiceException_init();
+
 FOUNDATION_EXPORT void JavaNetUnknownServiceException_initWithNSString_(JavaNetUnknownServiceException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaNetUnknownServiceException *new_JavaNetUnknownServiceException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaNetUnknownServiceException_initWithNSString_withJavaLangThrowable_(JavaNetUnknownServiceException *self, NSString *detailMessage, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaNetUnknownServiceException *create_JavaNetUnknownServiceException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaNetUnknownServiceException *new_JavaNetUnknownServiceException_initWithNSString_withJavaLangThrowable_(NSString *detailMessage, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaNetUnknownServiceException_initWithNSString_withNSException_(JavaNetUnknownServiceException *self, NSString *detailMessage, NSException *cause);
+
+FOUNDATION_EXPORT JavaNetUnknownServiceException *new_JavaNetUnknownServiceException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetUnknownServiceException *create_JavaNetUnknownServiceException_initWithNSString_withNSException_(NSString *detailMessage, NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetUnknownServiceException)
 
@@ -75,4 +79,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetUnknownServiceException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetUnknownServiceException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetUnknownServiceException")

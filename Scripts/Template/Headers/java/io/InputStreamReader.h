@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoInputStreamReader_INCLUDE_ALL")
-#ifdef JavaIoInputStreamReader_RESTRICT
-#define JavaIoInputStreamReader_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoInputStreamReader")
+#ifdef RESTRICT_JavaIoInputStreamReader
+#define INCLUDE_ALL_JavaIoInputStreamReader 0
 #else
-#define JavaIoInputStreamReader_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoInputStreamReader 1
 #endif
-#undef JavaIoInputStreamReader_RESTRICT
+#undef RESTRICT_JavaIoInputStreamReader
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoInputStreamReader_) && (JavaIoInputStreamReader_INCLUDE_ALL || defined(JavaIoInputStreamReader_INCLUDE))
+#if !defined (JavaIoInputStreamReader_) && (INCLUDE_ALL_JavaIoInputStreamReader || defined(INCLUDE_JavaIoInputStreamReader))
 #define JavaIoInputStreamReader_
 
-#define JavaIoReader_RESTRICT 1
-#define JavaIoReader_INCLUDE 1
+#define RESTRICT_JavaIoReader 1
+#define INCLUDE_JavaIoReader 1
 #include "../../java/io/Reader.h"
 
 @class IOSCharArray;
@@ -165,17 +165,25 @@ FOUNDATION_EXPORT void JavaIoInputStreamReader_initWithJavaIoInputStream_(JavaIo
 
 FOUNDATION_EXPORT JavaIoInputStreamReader *new_JavaIoInputStreamReader_initWithJavaIoInputStream_(JavaIoInputStream *inArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoInputStreamReader *create_JavaIoInputStreamReader_initWithJavaIoInputStream_(JavaIoInputStream *inArg);
+
 FOUNDATION_EXPORT void JavaIoInputStreamReader_initWithJavaIoInputStream_withNSString_(JavaIoInputStreamReader *self, JavaIoInputStream *inArg, NSString *charsetName);
 
 FOUNDATION_EXPORT JavaIoInputStreamReader *new_JavaIoInputStreamReader_initWithJavaIoInputStream_withNSString_(JavaIoInputStream *inArg, NSString *charsetName) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoInputStreamReader *create_JavaIoInputStreamReader_initWithJavaIoInputStream_withNSString_(JavaIoInputStream *inArg, NSString *charsetName);
 
 FOUNDATION_EXPORT void JavaIoInputStreamReader_initWithJavaIoInputStream_withJavaNioCharsetCharsetDecoder_(JavaIoInputStreamReader *self, JavaIoInputStream *inArg, JavaNioCharsetCharsetDecoder *dec);
 
 FOUNDATION_EXPORT JavaIoInputStreamReader *new_JavaIoInputStreamReader_initWithJavaIoInputStream_withJavaNioCharsetCharsetDecoder_(JavaIoInputStream *inArg, JavaNioCharsetCharsetDecoder *dec) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoInputStreamReader *create_JavaIoInputStreamReader_initWithJavaIoInputStream_withJavaNioCharsetCharsetDecoder_(JavaIoInputStream *inArg, JavaNioCharsetCharsetDecoder *dec);
+
 FOUNDATION_EXPORT void JavaIoInputStreamReader_initWithJavaIoInputStream_withJavaNioCharsetCharset_(JavaIoInputStreamReader *self, JavaIoInputStream *inArg, JavaNioCharsetCharset *charset);
 
 FOUNDATION_EXPORT JavaIoInputStreamReader *new_JavaIoInputStreamReader_initWithJavaIoInputStream_withJavaNioCharsetCharset_(JavaIoInputStream *inArg, JavaNioCharsetCharset *charset) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoInputStreamReader *create_JavaIoInputStreamReader_initWithJavaIoInputStream_withJavaNioCharsetCharset_(JavaIoInputStream *inArg, JavaNioCharsetCharset *charset);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoInputStreamReader)
 
@@ -183,4 +191,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoInputStreamReader)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoInputStreamReader_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoInputStreamReader")

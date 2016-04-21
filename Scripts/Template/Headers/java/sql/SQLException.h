@@ -5,33 +5,32 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlSQLException_INCLUDE_ALL")
-#ifdef JavaSqlSQLException_RESTRICT
-#define JavaSqlSQLException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlSQLException")
+#ifdef RESTRICT_JavaSqlSQLException
+#define INCLUDE_ALL_JavaSqlSQLException 0
 #else
-#define JavaSqlSQLException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlSQLException 1
 #endif
-#undef JavaSqlSQLException_RESTRICT
+#undef RESTRICT_JavaSqlSQLException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlSQLException_) && (JavaSqlSQLException_INCLUDE_ALL || defined(JavaSqlSQLException_INCLUDE))
+#if !defined (JavaSqlSQLException_) && (INCLUDE_ALL_JavaSqlSQLException || defined(INCLUDE_JavaSqlSQLException))
 #define JavaSqlSQLException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
-#define JavaLangIterable_RESTRICT 1
-#define JavaLangIterable_INCLUDE 1
+#define RESTRICT_JavaLangIterable 1
+#define INCLUDE_JavaLangIterable 1
 #include "../../java/lang/Iterable.h"
 
-@class JavaLangThrowable;
 @protocol JavaUtilIterator;
 
 /*!
@@ -121,7 +120,7 @@
 - (instancetype)initWithNSString:(NSString *)theReason
                     withNSString:(NSString *)theSQLState
                          withInt:(jint)theErrorCode
-           withJavaLangThrowable:(JavaLangThrowable *)theCause;
+                 withNSException:(NSException *)theCause;
 
 /*!
  @brief Creates an SQLException object.
@@ -140,7 +139,7 @@
  */
 - (instancetype)initWithNSString:(NSString *)theReason
                     withNSString:(NSString *)theSQLState
-           withJavaLangThrowable:(JavaLangThrowable *)theCause;
+                 withNSException:(NSException *)theCause;
 
 /*!
  @brief Creates an SQLException object.
@@ -154,7 +153,7 @@
  @since 1.6
  */
 - (instancetype)initWithNSString:(NSString *)theReason
-           withJavaLangThrowable:(JavaLangThrowable *)theCause;
+                 withNSException:(NSException *)theCause;
 
 /*!
  @brief Creates an SQLException object.
@@ -166,7 +165,7 @@
  SQLException
  @since 1.6
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)theCause;
+- (instancetype)initWithNSException:(NSException *)theCause;
 
 /*!
  @brief Returns the integer error code for this <code>SQLException</code>.
@@ -221,33 +220,49 @@ FOUNDATION_EXPORT void JavaSqlSQLException_init(JavaSqlSQLException *self);
 
 FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLException *create_JavaSqlSQLException_init();
+
 FOUNDATION_EXPORT void JavaSqlSQLException_initWithNSString_(JavaSqlSQLException *self, NSString *theReason);
 
 FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSString_(NSString *theReason) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLException *create_JavaSqlSQLException_initWithNSString_(NSString *theReason);
 
 FOUNDATION_EXPORT void JavaSqlSQLException_initWithNSString_withNSString_(JavaSqlSQLException *self, NSString *theReason, NSString *theSQLState);
 
 FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSString_withNSString_(NSString *theReason, NSString *theSQLState) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSqlSQLException *create_JavaSqlSQLException_initWithNSString_withNSString_(NSString *theReason, NSString *theSQLState);
+
 FOUNDATION_EXPORT void JavaSqlSQLException_initWithNSString_withNSString_withInt_(JavaSqlSQLException *self, NSString *theReason, NSString *theSQLState, jint theErrorCode);
 
 FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSString_withNSString_withInt_(NSString *theReason, NSString *theSQLState, jint theErrorCode) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLException_initWithJavaLangThrowable_(JavaSqlSQLException *self, JavaLangThrowable *theCause);
+FOUNDATION_EXPORT JavaSqlSQLException *create_JavaSqlSQLException_initWithNSString_withNSString_withInt_(NSString *theReason, NSString *theSQLState, jint theErrorCode);
 
-FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithJavaLangThrowable_(JavaLangThrowable *theCause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLException_initWithNSException_(JavaSqlSQLException *self, NSException *theCause);
 
-FOUNDATION_EXPORT void JavaSqlSQLException_initWithNSString_withJavaLangThrowable_(JavaSqlSQLException *self, NSString *theReason, JavaLangThrowable *theCause);
+FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSException_(NSException *theCause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSString_withJavaLangThrowable_(NSString *theReason, JavaLangThrowable *theCause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLException *create_JavaSqlSQLException_initWithNSException_(NSException *theCause);
 
-FOUNDATION_EXPORT void JavaSqlSQLException_initWithNSString_withNSString_withJavaLangThrowable_(JavaSqlSQLException *self, NSString *theReason, NSString *theSQLState, JavaLangThrowable *theCause);
+FOUNDATION_EXPORT void JavaSqlSQLException_initWithNSString_withNSException_(JavaSqlSQLException *self, NSString *theReason, NSException *theCause);
 
-FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSString_withNSString_withJavaLangThrowable_(NSString *theReason, NSString *theSQLState, JavaLangThrowable *theCause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSString_withNSException_(NSString *theReason, NSException *theCause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaSqlSQLException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(JavaSqlSQLException *self, NSString *theReason, NSString *theSQLState, jint theErrorCode, JavaLangThrowable *theCause);
+FOUNDATION_EXPORT JavaSqlSQLException *create_JavaSqlSQLException_initWithNSString_withNSException_(NSString *theReason, NSException *theCause);
 
-FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSString_withNSString_withInt_withJavaLangThrowable_(NSString *theReason, NSString *theSQLState, jint theErrorCode, JavaLangThrowable *theCause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaSqlSQLException_initWithNSString_withNSString_withNSException_(JavaSqlSQLException *self, NSString *theReason, NSString *theSQLState, NSException *theCause);
+
+FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSString_withNSString_withNSException_(NSString *theReason, NSString *theSQLState, NSException *theCause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLException *create_JavaSqlSQLException_initWithNSString_withNSString_withNSException_(NSString *theReason, NSString *theSQLState, NSException *theCause);
+
+FOUNDATION_EXPORT void JavaSqlSQLException_initWithNSString_withNSString_withInt_withNSException_(JavaSqlSQLException *self, NSString *theReason, NSString *theSQLState, jint theErrorCode, NSException *theCause);
+
+FOUNDATION_EXPORT JavaSqlSQLException *new_JavaSqlSQLException_initWithNSString_withNSString_withInt_withNSException_(NSString *theReason, NSString *theSQLState, jint theErrorCode, NSException *theCause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaSqlSQLException *create_JavaSqlSQLException_initWithNSString_withNSString_withInt_withNSException_(NSString *theReason, NSString *theSQLState, jint theErrorCode, NSException *theCause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLException)
 
@@ -255,4 +270,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlSQLException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlSQLException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlSQLException")

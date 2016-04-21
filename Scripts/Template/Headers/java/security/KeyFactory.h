@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityKeyFactory_INCLUDE_ALL")
-#ifdef JavaSecurityKeyFactory_RESTRICT
-#define JavaSecurityKeyFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityKeyFactory")
+#ifdef RESTRICT_JavaSecurityKeyFactory
+#define INCLUDE_ALL_JavaSecurityKeyFactory 0
 #else
-#define JavaSecurityKeyFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityKeyFactory 1
 #endif
-#undef JavaSecurityKeyFactory_RESTRICT
+#undef RESTRICT_JavaSecurityKeyFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityKeyFactory_) && (JavaSecurityKeyFactory_INCLUDE_ALL || defined(JavaSecurityKeyFactory_INCLUDE))
+#if !defined (JavaSecurityKeyFactory_) && (INCLUDE_ALL_JavaSecurityKeyFactory || defined(INCLUDE_JavaSecurityKeyFactory))
 #define JavaSecurityKeyFactory_
 
 @class IOSClass;
@@ -170,6 +170,8 @@ FOUNDATION_EXPORT void JavaSecurityKeyFactory_initWithJavaSecurityKeyFactorySpi_
 
 FOUNDATION_EXPORT JavaSecurityKeyFactory *new_JavaSecurityKeyFactory_initWithJavaSecurityKeyFactorySpi_withJavaSecurityProvider_withNSString_(JavaSecurityKeyFactorySpi *keyFacSpi, JavaSecurityProvider *provider, NSString *algorithm) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecurityKeyFactory *create_JavaSecurityKeyFactory_initWithJavaSecurityKeyFactorySpi_withJavaSecurityProvider_withNSString_(JavaSecurityKeyFactorySpi *keyFacSpi, JavaSecurityProvider *provider, NSString *algorithm);
+
 FOUNDATION_EXPORT JavaSecurityKeyFactory *JavaSecurityKeyFactory_getInstanceWithNSString_(NSString *algorithm);
 
 FOUNDATION_EXPORT JavaSecurityKeyFactory *JavaSecurityKeyFactory_getInstanceWithNSString_withNSString_(NSString *algorithm, NSString *provider);
@@ -182,4 +184,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityKeyFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityKeyFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityKeyFactory")

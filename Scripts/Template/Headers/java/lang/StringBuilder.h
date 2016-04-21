@@ -5,34 +5,34 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangStringBuilder_INCLUDE_ALL")
-#ifdef JavaLangStringBuilder_RESTRICT
-#define JavaLangStringBuilder_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangStringBuilder")
+#ifdef RESTRICT_JavaLangStringBuilder
+#define INCLUDE_ALL_JavaLangStringBuilder 0
 #else
-#define JavaLangStringBuilder_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangStringBuilder 1
 #endif
-#undef JavaLangStringBuilder_RESTRICT
+#undef RESTRICT_JavaLangStringBuilder
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangStringBuilder_) && (JavaLangStringBuilder_INCLUDE_ALL || defined(JavaLangStringBuilder_INCLUDE))
+#if !defined (JavaLangStringBuilder_) && (INCLUDE_ALL_JavaLangStringBuilder || defined(INCLUDE_JavaLangStringBuilder))
 #define JavaLangStringBuilder_
 
-#define JavaLangAbstractStringBuilder_RESTRICT 1
-#define JavaLangAbstractStringBuilder_INCLUDE 1
+#define RESTRICT_JavaLangAbstractStringBuilder 1
+#define INCLUDE_JavaLangAbstractStringBuilder 1
 #include "../../java/lang/AbstractStringBuilder.h"
 
-#define JavaLangAppendable_RESTRICT 1
-#define JavaLangAppendable_INCLUDE 1
+#define RESTRICT_JavaLangAppendable 1
+#define INCLUDE_JavaLangAppendable 1
 #include "../../java/lang/Appendable.h"
 
-#define JavaLangCharSequence_RESTRICT 1
-#define JavaLangCharSequence_INCLUDE 1
+#define RESTRICT_JavaLangCharSequence 1
+#define INCLUDE_JavaLangCharSequence 1
 #include "../../java/lang/CharSequence.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
 @class IOSCharArray;
@@ -580,17 +580,25 @@ FOUNDATION_EXPORT void JavaLangStringBuilder_init(JavaLangStringBuilder *self);
 
 FOUNDATION_EXPORT JavaLangStringBuilder *new_JavaLangStringBuilder_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangStringBuilder *create_JavaLangStringBuilder_init();
+
 FOUNDATION_EXPORT void JavaLangStringBuilder_initWithInt_(JavaLangStringBuilder *self, jint capacity);
 
 FOUNDATION_EXPORT JavaLangStringBuilder *new_JavaLangStringBuilder_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangStringBuilder *create_JavaLangStringBuilder_initWithInt_(jint capacity);
 
 FOUNDATION_EXPORT void JavaLangStringBuilder_initWithJavaLangCharSequence_(JavaLangStringBuilder *self, id<JavaLangCharSequence> seq);
 
 FOUNDATION_EXPORT JavaLangStringBuilder *new_JavaLangStringBuilder_initWithJavaLangCharSequence_(id<JavaLangCharSequence> seq) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangStringBuilder *create_JavaLangStringBuilder_initWithJavaLangCharSequence_(id<JavaLangCharSequence> seq);
+
 FOUNDATION_EXPORT void JavaLangStringBuilder_initWithNSString_(JavaLangStringBuilder *self, NSString *str);
 
 FOUNDATION_EXPORT JavaLangStringBuilder *new_JavaLangStringBuilder_initWithNSString_(NSString *str) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangStringBuilder *create_JavaLangStringBuilder_initWithNSString_(NSString *str);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangStringBuilder)
 
@@ -598,4 +606,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangStringBuilder)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangStringBuilder_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangStringBuilder")

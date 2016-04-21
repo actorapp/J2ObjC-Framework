@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilFormatter_INCLUDE_ALL")
-#ifdef JavaUtilFormatter_RESTRICT
-#define JavaUtilFormatter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilFormatter")
+#ifdef RESTRICT_JavaUtilFormatter
+#define INCLUDE_ALL_JavaUtilFormatter 0
 #else
-#define JavaUtilFormatter_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilFormatter 1
 #endif
-#undef JavaUtilFormatter_RESTRICT
+#undef RESTRICT_JavaUtilFormatter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilFormatter_) && (JavaUtilFormatter_INCLUDE_ALL || defined(JavaUtilFormatter_INCLUDE))
+#if !defined (JavaUtilFormatter_) && (INCLUDE_ALL_JavaUtilFormatter || defined(INCLUDE_JavaUtilFormatter))
 #define JavaUtilFormatter_
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../java/io/Closeable.h"
 
-#define JavaIoFlushable_RESTRICT 1
-#define JavaIoFlushable_INCLUDE 1
+#define RESTRICT_JavaIoFlushable 1
+#define INCLUDE_JavaIoFlushable 1
 #include "../../java/io/Flushable.h"
 
 @class IOSObjectArray;
@@ -886,67 +886,95 @@ FOUNDATION_EXPORT void JavaUtilFormatter_init(JavaUtilFormatter *self);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_init();
+
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithJavaLangAppendable_(JavaUtilFormatter *self, id<JavaLangAppendable> a);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaLangAppendable_(id<JavaLangAppendable> a) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithJavaLangAppendable_(id<JavaLangAppendable> a);
 
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithJavaUtilLocale_(JavaUtilFormatter *self, JavaUtilLocale *l);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaUtilLocale_(JavaUtilLocale *l) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithJavaUtilLocale_(JavaUtilLocale *l);
+
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithJavaLangAppendable_withJavaUtilLocale_(JavaUtilFormatter *self, id<JavaLangAppendable> a, JavaUtilLocale *l);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaLangAppendable_withJavaUtilLocale_(id<JavaLangAppendable> a, JavaUtilLocale *l) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithJavaLangAppendable_withJavaUtilLocale_(id<JavaLangAppendable> a, JavaUtilLocale *l);
 
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithNSString_(JavaUtilFormatter *self, NSString *fileName);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithNSString_(NSString *fileName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithNSString_(NSString *fileName);
+
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithNSString_withNSString_(JavaUtilFormatter *self, NSString *fileName, NSString *csn);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithNSString_withNSString_(NSString *fileName, NSString *csn) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithNSString_withNSString_(NSString *fileName, NSString *csn);
 
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithNSString_withNSString_withJavaUtilLocale_(JavaUtilFormatter *self, NSString *fileName, NSString *csn, JavaUtilLocale *l);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithNSString_withNSString_withJavaUtilLocale_(NSString *fileName, NSString *csn, JavaUtilLocale *l) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithNSString_withNSString_withJavaUtilLocale_(NSString *fileName, NSString *csn, JavaUtilLocale *l);
+
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithJavaIoFile_(JavaUtilFormatter *self, JavaIoFile *file);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaIoFile_(JavaIoFile *file) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithJavaIoFile_(JavaIoFile *file);
 
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithJavaIoFile_withNSString_(JavaUtilFormatter *self, JavaIoFile *file, NSString *csn);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaIoFile_withNSString_(JavaIoFile *file, NSString *csn) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithJavaIoFile_withNSString_(JavaIoFile *file, NSString *csn);
+
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithJavaIoFile_withNSString_withJavaUtilLocale_(JavaUtilFormatter *self, JavaIoFile *file, NSString *csn, JavaUtilLocale *l);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaIoFile_withNSString_withJavaUtilLocale_(JavaIoFile *file, NSString *csn, JavaUtilLocale *l) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithJavaIoFile_withNSString_withJavaUtilLocale_(JavaIoFile *file, NSString *csn, JavaUtilLocale *l);
 
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithJavaIoOutputStream_(JavaUtilFormatter *self, JavaIoOutputStream *os);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaIoOutputStream_(JavaIoOutputStream *os) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithJavaIoOutputStream_(JavaIoOutputStream *os);
+
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithJavaIoOutputStream_withNSString_(JavaUtilFormatter *self, JavaIoOutputStream *os, NSString *csn);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaIoOutputStream_withNSString_(JavaIoOutputStream *os, NSString *csn) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithJavaIoOutputStream_withNSString_(JavaIoOutputStream *os, NSString *csn);
 
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithJavaIoOutputStream_withNSString_withJavaUtilLocale_(JavaUtilFormatter *self, JavaIoOutputStream *os, NSString *csn, JavaUtilLocale *l);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaIoOutputStream_withNSString_withJavaUtilLocale_(JavaIoOutputStream *os, NSString *csn, JavaUtilLocale *l) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithJavaIoOutputStream_withNSString_withJavaUtilLocale_(JavaIoOutputStream *os, NSString *csn, JavaUtilLocale *l);
+
 FOUNDATION_EXPORT void JavaUtilFormatter_initWithJavaIoPrintStream_(JavaUtilFormatter *self, JavaIoPrintStream *ps);
 
 FOUNDATION_EXPORT JavaUtilFormatter *new_JavaUtilFormatter_initWithJavaIoPrintStream_(JavaIoPrintStream *ps) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilFormatter *create_JavaUtilFormatter_initWithJavaIoPrintStream_(JavaIoPrintStream *ps);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormatter)
 
 #endif
 
-#if !defined (JavaUtilFormatter_BigDecimalLayoutForm_) && (JavaUtilFormatter_INCLUDE_ALL || defined(JavaUtilFormatter_BigDecimalLayoutForm_INCLUDE))
+#if !defined (JavaUtilFormatter_BigDecimalLayoutForm_) && (INCLUDE_ALL_JavaUtilFormatter || defined(INCLUDE_JavaUtilFormatter_BigDecimalLayoutForm))
 #define JavaUtilFormatter_BigDecimalLayoutForm_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaUtilFormatter_BigDecimalLayoutForm_Enum) {
@@ -1004,4 +1032,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilFormatter_BigDecimalLayoutForm)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilFormatter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilFormatter")

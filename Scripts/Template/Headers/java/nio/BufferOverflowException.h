@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioBufferOverflowException_INCLUDE_ALL")
-#ifdef JavaNioBufferOverflowException_RESTRICT
-#define JavaNioBufferOverflowException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioBufferOverflowException")
+#ifdef RESTRICT_JavaNioBufferOverflowException
+#define INCLUDE_ALL_JavaNioBufferOverflowException 0
 #else
-#define JavaNioBufferOverflowException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioBufferOverflowException 1
 #endif
-#undef JavaNioBufferOverflowException_RESTRICT
+#undef RESTRICT_JavaNioBufferOverflowException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioBufferOverflowException_) && (JavaNioBufferOverflowException_INCLUDE_ALL || defined(JavaNioBufferOverflowException_INCLUDE))
+#if !defined (JavaNioBufferOverflowException_) && (INCLUDE_ALL_JavaNioBufferOverflowException || defined(INCLUDE_JavaNioBufferOverflowException))
 #define JavaNioBufferOverflowException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioBufferOverflowException_init(JavaNioBufferOverflow
 
 FOUNDATION_EXPORT JavaNioBufferOverflowException *new_JavaNioBufferOverflowException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioBufferOverflowException *create_JavaNioBufferOverflowException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioBufferOverflowException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioBufferOverflowException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioBufferOverflowException")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentThreadLocalRandom_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentThreadLocalRandom_RESTRICT
-#define JavaUtilConcurrentThreadLocalRandom_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentThreadLocalRandom")
+#ifdef RESTRICT_JavaUtilConcurrentThreadLocalRandom
+#define INCLUDE_ALL_JavaUtilConcurrentThreadLocalRandom 0
 #else
-#define JavaUtilConcurrentThreadLocalRandom_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentThreadLocalRandom 1
 #endif
-#undef JavaUtilConcurrentThreadLocalRandom_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentThreadLocalRandom
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentThreadLocalRandom_) && (JavaUtilConcurrentThreadLocalRandom_INCLUDE_ALL || defined(JavaUtilConcurrentThreadLocalRandom_INCLUDE))
+#if !defined (JavaUtilConcurrentThreadLocalRandom_) && (INCLUDE_ALL_JavaUtilConcurrentThreadLocalRandom || defined(INCLUDE_JavaUtilConcurrentThreadLocalRandom))
 #define JavaUtilConcurrentThreadLocalRandom_
 
-#define JavaUtilRandom_RESTRICT 1
-#define JavaUtilRandom_INCLUDE 1
+#define RESTRICT_JavaUtilRandom 1
+#define INCLUDE_JavaUtilRandom 1
 #include "../../../java/util/Random.h"
 
 /*!
@@ -148,6 +148,8 @@ FOUNDATION_EXPORT void JavaUtilConcurrentThreadLocalRandom_init(JavaUtilConcurre
 
 FOUNDATION_EXPORT JavaUtilConcurrentThreadLocalRandom *new_JavaUtilConcurrentThreadLocalRandom_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentThreadLocalRandom *create_JavaUtilConcurrentThreadLocalRandom_init();
+
 FOUNDATION_EXPORT JavaUtilConcurrentThreadLocalRandom *JavaUtilConcurrentThreadLocalRandom_current();
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadLocalRandom)
@@ -156,4 +158,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentThreadLocalRandom)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentThreadLocalRandom_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentThreadLocalRandom")

@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlStruct_INCLUDE_ALL")
-#ifdef JavaSqlStruct_RESTRICT
-#define JavaSqlStruct_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlStruct")
+#ifdef RESTRICT_JavaSqlStruct
+#define INCLUDE_ALL_JavaSqlStruct 0
 #else
-#define JavaSqlStruct_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlStruct 1
 #endif
-#undef JavaSqlStruct_RESTRICT
+#undef RESTRICT_JavaSqlStruct
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlStruct_) && (JavaSqlStruct_INCLUDE_ALL || defined(JavaSqlStruct_INCLUDE))
+#if !defined (JavaSqlStruct_) && (INCLUDE_ALL_JavaSqlStruct || defined(INCLUDE_JavaSqlStruct))
 #define JavaSqlStruct_
 
 @class IOSObjectArray;
@@ -78,4 +78,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlStruct)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlStruct_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlStruct")

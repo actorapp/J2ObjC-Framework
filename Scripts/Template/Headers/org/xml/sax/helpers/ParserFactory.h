@@ -5,20 +5,21 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHelpersParserFactory_INCLUDE_ALL")
-#ifdef OrgXmlSaxHelpersParserFactory_RESTRICT
-#define OrgXmlSaxHelpersParserFactory_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersParserFactory")
+#ifdef RESTRICT_OrgXmlSaxHelpersParserFactory
+#define INCLUDE_ALL_OrgXmlSaxHelpersParserFactory 0
 #else
-#define OrgXmlSaxHelpersParserFactory_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHelpersParserFactory 1
 #endif
-#undef OrgXmlSaxHelpersParserFactory_RESTRICT
+#undef RESTRICT_OrgXmlSaxHelpersParserFactory
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHelpersParserFactory_) && (OrgXmlSaxHelpersParserFactory_INCLUDE_ALL || defined(OrgXmlSaxHelpersParserFactory_INCLUDE))
+#if !defined (OrgXmlSaxHelpersParserFactory_) && (INCLUDE_ALL_OrgXmlSaxHelpersParserFactory || defined(INCLUDE_OrgXmlSaxHelpersParserFactory))
 #define OrgXmlSaxHelpersParserFactory_
 
+@class IOSObjectArray;
 @protocol OrgXmlSaxParser;
 
 /*!
@@ -108,4 +109,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersParserFactory)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHelpersParserFactory_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersParserFactory")

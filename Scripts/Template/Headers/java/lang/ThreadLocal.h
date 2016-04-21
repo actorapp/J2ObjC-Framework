@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangThreadLocal_INCLUDE_ALL")
-#ifdef JavaLangThreadLocal_RESTRICT
-#define JavaLangThreadLocal_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangThreadLocal")
+#ifdef RESTRICT_JavaLangThreadLocal
+#define INCLUDE_ALL_JavaLangThreadLocal 0
 #else
-#define JavaLangThreadLocal_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangThreadLocal 1
 #endif
-#undef JavaLangThreadLocal_RESTRICT
+#undef RESTRICT_JavaLangThreadLocal
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangThreadLocal_) && (JavaLangThreadLocal_INCLUDE_ALL || defined(JavaLangThreadLocal_INCLUDE))
+#if !defined (JavaLangThreadLocal_) && (INCLUDE_ALL_JavaLangThreadLocal || defined(INCLUDE_JavaLangThreadLocal))
 #define JavaLangThreadLocal_
 
 @class JavaLangThread;
@@ -99,11 +99,13 @@ FOUNDATION_EXPORT void JavaLangThreadLocal_init(JavaLangThreadLocal *self);
 
 FOUNDATION_EXPORT JavaLangThreadLocal *new_JavaLangThreadLocal_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangThreadLocal *create_JavaLangThreadLocal_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadLocal)
 
 #endif
 
-#if !defined (JavaLangThreadLocal_Values_) && (JavaLangThreadLocal_INCLUDE_ALL || defined(JavaLangThreadLocal_Values_INCLUDE))
+#if !defined (JavaLangThreadLocal_Values_) && (INCLUDE_ALL_JavaLangThreadLocal || defined(INCLUDE_JavaLangThreadLocal_Values))
 #define JavaLangThreadLocal_Values_
 
 @class JavaLangThreadLocal;
@@ -160,9 +162,13 @@ FOUNDATION_EXPORT void JavaLangThreadLocal_Values_init(JavaLangThreadLocal_Value
 
 FOUNDATION_EXPORT JavaLangThreadLocal_Values *new_JavaLangThreadLocal_Values_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangThreadLocal_Values *create_JavaLangThreadLocal_Values_init();
+
 FOUNDATION_EXPORT void JavaLangThreadLocal_Values_initWithJavaLangThreadLocal_Values_(JavaLangThreadLocal_Values *self, JavaLangThreadLocal_Values *fromParent);
 
 FOUNDATION_EXPORT JavaLangThreadLocal_Values *new_JavaLangThreadLocal_Values_initWithJavaLangThreadLocal_Values_(JavaLangThreadLocal_Values *fromParent) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangThreadLocal_Values *create_JavaLangThreadLocal_Values_initWithJavaLangThreadLocal_Values_(JavaLangThreadLocal_Values *fromParent);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadLocal_Values)
 
@@ -170,4 +176,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangThreadLocal_Values)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangThreadLocal_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangThreadLocal")

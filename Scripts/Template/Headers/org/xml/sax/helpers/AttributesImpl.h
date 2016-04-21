@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxHelpersAttributesImpl_INCLUDE_ALL")
-#ifdef OrgXmlSaxHelpersAttributesImpl_RESTRICT
-#define OrgXmlSaxHelpersAttributesImpl_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxHelpersAttributesImpl")
+#ifdef RESTRICT_OrgXmlSaxHelpersAttributesImpl
+#define INCLUDE_ALL_OrgXmlSaxHelpersAttributesImpl 0
 #else
-#define OrgXmlSaxHelpersAttributesImpl_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxHelpersAttributesImpl 1
 #endif
-#undef OrgXmlSaxHelpersAttributesImpl_RESTRICT
+#undef RESTRICT_OrgXmlSaxHelpersAttributesImpl
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxHelpersAttributesImpl_) && (OrgXmlSaxHelpersAttributesImpl_INCLUDE_ALL || defined(OrgXmlSaxHelpersAttributesImpl_INCLUDE))
+#if !defined (OrgXmlSaxHelpersAttributesImpl_) && (INCLUDE_ALL_OrgXmlSaxHelpersAttributesImpl || defined(INCLUDE_OrgXmlSaxHelpersAttributesImpl))
 #define OrgXmlSaxHelpersAttributesImpl_
 
-#define OrgXmlSaxAttributes_RESTRICT 1
-#define OrgXmlSaxAttributes_INCLUDE 1
+#define RESTRICT_OrgXmlSaxAttributes 1
+#define INCLUDE_OrgXmlSaxAttributes 1
 #include "../../../../org/xml/sax/Attributes.h"
 
 @class IOSObjectArray;
@@ -328,9 +328,13 @@ FOUNDATION_EXPORT void OrgXmlSaxHelpersAttributesImpl_init(OrgXmlSaxHelpersAttri
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersAttributesImpl *new_OrgXmlSaxHelpersAttributesImpl_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgXmlSaxHelpersAttributesImpl *create_OrgXmlSaxHelpersAttributesImpl_init();
+
 FOUNDATION_EXPORT void OrgXmlSaxHelpersAttributesImpl_initWithOrgXmlSaxAttributes_(OrgXmlSaxHelpersAttributesImpl *self, id<OrgXmlSaxAttributes> atts);
 
 FOUNDATION_EXPORT OrgXmlSaxHelpersAttributesImpl *new_OrgXmlSaxHelpersAttributesImpl_initWithOrgXmlSaxAttributes_(id<OrgXmlSaxAttributes> atts) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgXmlSaxHelpersAttributesImpl *create_OrgXmlSaxHelpersAttributesImpl_initWithOrgXmlSaxAttributes_(id<OrgXmlSaxAttributes> atts);
 
 J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersAttributesImpl)
 
@@ -338,4 +342,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxHelpersAttributesImpl)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxHelpersAttributesImpl_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxHelpersAttributesImpl")

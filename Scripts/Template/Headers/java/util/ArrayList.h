@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilArrayList_INCLUDE_ALL")
-#ifdef JavaUtilArrayList_RESTRICT
-#define JavaUtilArrayList_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilArrayList")
+#ifdef RESTRICT_JavaUtilArrayList
+#define INCLUDE_ALL_JavaUtilArrayList 0
 #else
-#define JavaUtilArrayList_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilArrayList 1
 #endif
-#undef JavaUtilArrayList_RESTRICT
+#undef RESTRICT_JavaUtilArrayList
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilArrayList_) && (JavaUtilArrayList_INCLUDE_ALL || defined(JavaUtilArrayList_INCLUDE))
+#if !defined (JavaUtilArrayList_) && (INCLUDE_ALL_JavaUtilArrayList || defined(INCLUDE_JavaUtilArrayList))
 #define JavaUtilArrayList_
 
-#define JavaUtilAbstractList_RESTRICT 1
-#define JavaUtilAbstractList_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractList 1
+#define INCLUDE_JavaUtilAbstractList 1
 #include "../../java/util/AbstractList.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
-#define JavaUtilRandomAccess_RESTRICT 1
-#define JavaUtilRandomAccess_INCLUDE 1
+#define RESTRICT_JavaUtilRandomAccess 1
+#define INCLUDE_JavaUtilRandomAccess 1
 #include "../../java/util/RandomAccess.h"
 
 @class IOSObjectArray;
@@ -266,13 +266,19 @@ FOUNDATION_EXPORT void JavaUtilArrayList_initWithInt_(JavaUtilArrayList *self, j
 
 FOUNDATION_EXPORT JavaUtilArrayList *new_JavaUtilArrayList_initWithInt_(jint capacity) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilArrayList *create_JavaUtilArrayList_initWithInt_(jint capacity);
+
 FOUNDATION_EXPORT void JavaUtilArrayList_init(JavaUtilArrayList *self);
 
 FOUNDATION_EXPORT JavaUtilArrayList *new_JavaUtilArrayList_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilArrayList *create_JavaUtilArrayList_init();
+
 FOUNDATION_EXPORT void JavaUtilArrayList_initWithJavaUtilCollection_(JavaUtilArrayList *self, id<JavaUtilCollection> collection);
 
 FOUNDATION_EXPORT JavaUtilArrayList *new_JavaUtilArrayList_initWithJavaUtilCollection_(id<JavaUtilCollection> collection) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilArrayList *create_JavaUtilArrayList_initWithJavaUtilCollection_(id<JavaUtilCollection> collection);
 
 FOUNDATION_EXPORT JavaLangIndexOutOfBoundsException *JavaUtilArrayList_throwIndexOutOfBoundsExceptionWithInt_withInt_(jint index, jint size);
 
@@ -282,4 +288,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilArrayList)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilArrayList_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilArrayList")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilIllegalFormatPrecisionException_INCLUDE_ALL")
-#ifdef JavaUtilIllegalFormatPrecisionException_RESTRICT
-#define JavaUtilIllegalFormatPrecisionException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilIllegalFormatPrecisionException")
+#ifdef RESTRICT_JavaUtilIllegalFormatPrecisionException
+#define INCLUDE_ALL_JavaUtilIllegalFormatPrecisionException 0
 #else
-#define JavaUtilIllegalFormatPrecisionException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilIllegalFormatPrecisionException 1
 #endif
-#undef JavaUtilIllegalFormatPrecisionException_RESTRICT
+#undef RESTRICT_JavaUtilIllegalFormatPrecisionException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilIllegalFormatPrecisionException_) && (JavaUtilIllegalFormatPrecisionException_INCLUDE_ALL || defined(JavaUtilIllegalFormatPrecisionException_INCLUDE))
+#if !defined (JavaUtilIllegalFormatPrecisionException_) && (INCLUDE_ALL_JavaUtilIllegalFormatPrecisionException || defined(INCLUDE_JavaUtilIllegalFormatPrecisionException))
 #define JavaUtilIllegalFormatPrecisionException_
 
-#define JavaUtilIllegalFormatException_RESTRICT 1
-#define JavaUtilIllegalFormatException_INCLUDE 1
+#define RESTRICT_JavaUtilIllegalFormatException 1
+#define INCLUDE_JavaUtilIllegalFormatException 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
@@ -56,10 +56,12 @@ FOUNDATION_EXPORT void JavaUtilIllegalFormatPrecisionException_initWithInt_(Java
 
 FOUNDATION_EXPORT JavaUtilIllegalFormatPrecisionException *new_JavaUtilIllegalFormatPrecisionException_initWithInt_(jint p) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilIllegalFormatPrecisionException *create_JavaUtilIllegalFormatPrecisionException_initWithInt_(jint p);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilIllegalFormatPrecisionException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilIllegalFormatPrecisionException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilIllegalFormatPrecisionException")

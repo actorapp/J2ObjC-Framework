@@ -5,18 +5,18 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentLocksCondition_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentLocksCondition_RESTRICT
-#define JavaUtilConcurrentLocksCondition_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLocksCondition")
+#ifdef RESTRICT_JavaUtilConcurrentLocksCondition
+#define INCLUDE_ALL_JavaUtilConcurrentLocksCondition 0
 #else
-#define JavaUtilConcurrentLocksCondition_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentLocksCondition 1
 #endif
-#undef JavaUtilConcurrentLocksCondition_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentLocksCondition
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentLocksCondition_) && (JavaUtilConcurrentLocksCondition_INCLUDE_ALL || defined(JavaUtilConcurrentLocksCondition_INCLUDE))
+#if !defined (JavaUtilConcurrentLocksCondition_) && (INCLUDE_ALL_JavaUtilConcurrentLocksCondition || defined(INCLUDE_JavaUtilConcurrentLocksCondition))
 #define JavaUtilConcurrentLocksCondition_
 
 @class JavaUtilConcurrentTimeUnit;
@@ -434,4 +434,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLocksCondition)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentLocksCondition_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLocksCondition")

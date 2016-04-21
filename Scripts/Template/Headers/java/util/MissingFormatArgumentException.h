@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilMissingFormatArgumentException_INCLUDE_ALL")
-#ifdef JavaUtilMissingFormatArgumentException_RESTRICT
-#define JavaUtilMissingFormatArgumentException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilMissingFormatArgumentException")
+#ifdef RESTRICT_JavaUtilMissingFormatArgumentException
+#define INCLUDE_ALL_JavaUtilMissingFormatArgumentException 0
 #else
-#define JavaUtilMissingFormatArgumentException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilMissingFormatArgumentException 1
 #endif
-#undef JavaUtilMissingFormatArgumentException_RESTRICT
+#undef RESTRICT_JavaUtilMissingFormatArgumentException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilMissingFormatArgumentException_) && (JavaUtilMissingFormatArgumentException_INCLUDE_ALL || defined(JavaUtilMissingFormatArgumentException_INCLUDE))
+#if !defined (JavaUtilMissingFormatArgumentException_) && (INCLUDE_ALL_JavaUtilMissingFormatArgumentException || defined(INCLUDE_JavaUtilMissingFormatArgumentException))
 #define JavaUtilMissingFormatArgumentException_
 
-#define JavaUtilIllegalFormatException_RESTRICT 1
-#define JavaUtilIllegalFormatException_INCLUDE 1
+#define RESTRICT_JavaUtilIllegalFormatException 1
+#define INCLUDE_JavaUtilIllegalFormatException 1
 #include "../../java/util/IllegalFormatException.h"
 
 /*!
@@ -57,10 +57,12 @@ FOUNDATION_EXPORT void JavaUtilMissingFormatArgumentException_initWithNSString_(
 
 FOUNDATION_EXPORT JavaUtilMissingFormatArgumentException *new_JavaUtilMissingFormatArgumentException_initWithNSString_(NSString *s) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilMissingFormatArgumentException *create_JavaUtilMissingFormatArgumentException_initWithNSString_(NSString *s);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilMissingFormatArgumentException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilMissingFormatArgumentException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilMissingFormatArgumentException")

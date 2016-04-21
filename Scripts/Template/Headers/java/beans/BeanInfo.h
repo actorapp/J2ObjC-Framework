@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansBeanInfo_INCLUDE_ALL")
-#ifdef JavaBeansBeanInfo_RESTRICT
-#define JavaBeansBeanInfo_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansBeanInfo")
+#ifdef RESTRICT_JavaBeansBeanInfo
+#define INCLUDE_ALL_JavaBeansBeanInfo 0
 #else
-#define JavaBeansBeanInfo_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansBeanInfo 1
 #endif
-#undef JavaBeansBeanInfo_RESTRICT
+#undef RESTRICT_JavaBeansBeanInfo
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansBeanInfo_) && (JavaBeansBeanInfo_INCLUDE_ALL || defined(JavaBeansBeanInfo_INCLUDE))
+#if !defined (JavaBeansBeanInfo_) && (INCLUDE_ALL_JavaBeansBeanInfo || defined(INCLUDE_JavaBeansBeanInfo))
 #define JavaBeansBeanInfo_
 
 @class IOSObjectArray;
@@ -76,4 +76,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansBeanInfo)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansBeanInfo_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansBeanInfo")

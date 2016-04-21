@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlParsersFilePathToURI_INCLUDE_ALL")
-#ifdef JavaxXmlParsersFilePathToURI_RESTRICT
-#define JavaxXmlParsersFilePathToURI_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlParsersFilePathToURI")
+#ifdef RESTRICT_JavaxXmlParsersFilePathToURI
+#define INCLUDE_ALL_JavaxXmlParsersFilePathToURI 0
 #else
-#define JavaxXmlParsersFilePathToURI_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlParsersFilePathToURI 1
 #endif
-#undef JavaxXmlParsersFilePathToURI_RESTRICT
+#undef RESTRICT_JavaxXmlParsersFilePathToURI
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlParsersFilePathToURI_) && (JavaxXmlParsersFilePathToURI_INCLUDE_ALL || defined(JavaxXmlParsersFilePathToURI_INCLUDE))
+#if !defined (JavaxXmlParsersFilePathToURI_) && (INCLUDE_ALL_JavaxXmlParsersFilePathToURI || defined(INCLUDE_JavaxXmlParsersFilePathToURI))
 #define JavaxXmlParsersFilePathToURI_
 
 @interface JavaxXmlParsersFilePathToURI : NSObject
@@ -39,10 +39,12 @@ FOUNDATION_EXPORT void JavaxXmlParsersFilePathToURI_init(JavaxXmlParsersFilePath
 
 FOUNDATION_EXPORT JavaxXmlParsersFilePathToURI *new_JavaxXmlParsersFilePathToURI_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlParsersFilePathToURI *create_JavaxXmlParsersFilePathToURI_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersFilePathToURI)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlParsersFilePathToURI_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlParsersFilePathToURI")

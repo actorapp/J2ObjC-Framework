@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoSerializablePermission_INCLUDE_ALL")
-#ifdef JavaIoSerializablePermission_RESTRICT
-#define JavaIoSerializablePermission_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoSerializablePermission")
+#ifdef RESTRICT_JavaIoSerializablePermission
+#define INCLUDE_ALL_JavaIoSerializablePermission 0
 #else
-#define JavaIoSerializablePermission_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoSerializablePermission 1
 #endif
-#undef JavaIoSerializablePermission_RESTRICT
+#undef RESTRICT_JavaIoSerializablePermission
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoSerializablePermission_) && (JavaIoSerializablePermission_INCLUDE_ALL || defined(JavaIoSerializablePermission_INCLUDE))
+#if !defined (JavaIoSerializablePermission_) && (INCLUDE_ALL_JavaIoSerializablePermission || defined(INCLUDE_JavaIoSerializablePermission))
 #define JavaIoSerializablePermission_
 
-#define JavaSecurityBasicPermission_RESTRICT 1
-#define JavaSecurityBasicPermission_INCLUDE 1
+#define RESTRICT_JavaSecurityBasicPermission 1
+#define INCLUDE_JavaSecurityBasicPermission 1
 #include "../../java/security/BasicPermission.h"
 
 @class JavaSecurityPermission;
@@ -49,9 +49,13 @@ FOUNDATION_EXPORT void JavaIoSerializablePermission_initWithNSString_(JavaIoSeri
 
 FOUNDATION_EXPORT JavaIoSerializablePermission *new_JavaIoSerializablePermission_initWithNSString_(NSString *permissionName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoSerializablePermission *create_JavaIoSerializablePermission_initWithNSString_(NSString *permissionName);
+
 FOUNDATION_EXPORT void JavaIoSerializablePermission_initWithNSString_withNSString_(JavaIoSerializablePermission *self, NSString *name, NSString *actions);
 
 FOUNDATION_EXPORT JavaIoSerializablePermission *new_JavaIoSerializablePermission_initWithNSString_withNSString_(NSString *name, NSString *actions) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoSerializablePermission *create_JavaIoSerializablePermission_initWithNSString_withNSString_(NSString *name, NSString *actions);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoSerializablePermission)
 
@@ -59,4 +63,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoSerializablePermission)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoSerializablePermission_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoSerializablePermission")

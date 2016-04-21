@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlTransformSaxSAXResult_INCLUDE_ALL")
-#ifdef JavaxXmlTransformSaxSAXResult_RESTRICT
-#define JavaxXmlTransformSaxSAXResult_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlTransformSaxSAXResult")
+#ifdef RESTRICT_JavaxXmlTransformSaxSAXResult
+#define INCLUDE_ALL_JavaxXmlTransformSaxSAXResult 0
 #else
-#define JavaxXmlTransformSaxSAXResult_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlTransformSaxSAXResult 1
 #endif
-#undef JavaxXmlTransformSaxSAXResult_RESTRICT
+#undef RESTRICT_JavaxXmlTransformSaxSAXResult
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlTransformSaxSAXResult_) && (JavaxXmlTransformSaxSAXResult_INCLUDE_ALL || defined(JavaxXmlTransformSaxSAXResult_INCLUDE))
+#if !defined (JavaxXmlTransformSaxSAXResult_) && (INCLUDE_ALL_JavaxXmlTransformSaxSAXResult || defined(INCLUDE_JavaxXmlTransformSaxSAXResult))
 #define JavaxXmlTransformSaxSAXResult_
 
-#define JavaxXmlTransformResult_RESTRICT 1
-#define JavaxXmlTransformResult_INCLUDE 1
+#define RESTRICT_JavaxXmlTransformResult 1
+#define INCLUDE_JavaxXmlTransformResult 1
 #include "../../../../javax/xml/transform/Result.h"
 
 @protocol OrgXmlSaxContentHandler;
@@ -109,9 +109,13 @@ FOUNDATION_EXPORT void JavaxXmlTransformSaxSAXResult_init(JavaxXmlTransformSaxSA
 
 FOUNDATION_EXPORT JavaxXmlTransformSaxSAXResult *new_JavaxXmlTransformSaxSAXResult_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlTransformSaxSAXResult *create_JavaxXmlTransformSaxSAXResult_init();
+
 FOUNDATION_EXPORT void JavaxXmlTransformSaxSAXResult_initWithOrgXmlSaxContentHandler_(JavaxXmlTransformSaxSAXResult *self, id<OrgXmlSaxContentHandler> handler);
 
 FOUNDATION_EXPORT JavaxXmlTransformSaxSAXResult *new_JavaxXmlTransformSaxSAXResult_initWithOrgXmlSaxContentHandler_(id<OrgXmlSaxContentHandler> handler) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlTransformSaxSAXResult *create_JavaxXmlTransformSaxSAXResult_initWithOrgXmlSaxContentHandler_(id<OrgXmlSaxContentHandler> handler);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxSAXResult)
 
@@ -119,4 +123,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlTransformSaxSAXResult)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlTransformSaxSAXResult_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlTransformSaxSAXResult")

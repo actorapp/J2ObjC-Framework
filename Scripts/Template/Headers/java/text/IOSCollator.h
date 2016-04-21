@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextIOSCollator_INCLUDE_ALL")
-#ifdef JavaTextIOSCollator_RESTRICT
-#define JavaTextIOSCollator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextIOSCollator")
+#ifdef RESTRICT_JavaTextIOSCollator
+#define INCLUDE_ALL_JavaTextIOSCollator 0
 #else
-#define JavaTextIOSCollator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextIOSCollator 1
 #endif
-#undef JavaTextIOSCollator_RESTRICT
+#undef RESTRICT_JavaTextIOSCollator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextIOSCollator_) && (JavaTextIOSCollator_INCLUDE_ALL || defined(JavaTextIOSCollator_INCLUDE))
+#if !defined (JavaTextIOSCollator_) && (INCLUDE_ALL_JavaTextIOSCollator || defined(INCLUDE_JavaTextIOSCollator))
 #define JavaTextIOSCollator_
 
-#define JavaTextCollator_RESTRICT 1
-#define JavaTextCollator_INCLUDE 1
+#define RESTRICT_JavaTextCollator 1
+#define INCLUDE_JavaTextCollator 1
 #include "../../java/text/Collator.h"
 
 @class JavaTextCollationKey;
@@ -73,15 +73,17 @@ FOUNDATION_EXPORT void JavaTextIOSCollator_initWithJavaUtilLocale_(JavaTextIOSCo
 
 FOUNDATION_EXPORT JavaTextIOSCollator *new_JavaTextIOSCollator_initWithJavaUtilLocale_(JavaUtilLocale *locale) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextIOSCollator *create_JavaTextIOSCollator_initWithJavaUtilLocale_(JavaUtilLocale *locale);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextIOSCollator)
 
 #endif
 
-#if !defined (JavaTextIOSCollator_IOSCollationKey_) && (JavaTextIOSCollator_INCLUDE_ALL || defined(JavaTextIOSCollator_IOSCollationKey_INCLUDE))
+#if !defined (JavaTextIOSCollator_IOSCollationKey_) && (INCLUDE_ALL_JavaTextIOSCollator || defined(INCLUDE_JavaTextIOSCollator_IOSCollationKey))
 #define JavaTextIOSCollator_IOSCollationKey_
 
-#define JavaTextCollationKey_RESTRICT 1
-#define JavaTextCollationKey_INCLUDE 1
+#define RESTRICT_JavaTextCollationKey 1
+#define INCLUDE_JavaTextCollationKey 1
 #include "../../java/text/CollationKey.h"
 
 @class IOSByteArray;
@@ -106,10 +108,12 @@ FOUNDATION_EXPORT void JavaTextIOSCollator_IOSCollationKey_initWithNSString_(Jav
 
 FOUNDATION_EXPORT JavaTextIOSCollator_IOSCollationKey *new_JavaTextIOSCollator_IOSCollationKey_initWithNSString_(NSString *source) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextIOSCollator_IOSCollationKey *create_JavaTextIOSCollator_IOSCollationKey_initWithNSString_(NSString *source);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextIOSCollator_IOSCollationKey)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextIOSCollator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextIOSCollator")

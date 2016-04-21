@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetInetSocketAddress_INCLUDE_ALL")
-#ifdef JavaNetInetSocketAddress_RESTRICT
-#define JavaNetInetSocketAddress_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetInetSocketAddress")
+#ifdef RESTRICT_JavaNetInetSocketAddress
+#define INCLUDE_ALL_JavaNetInetSocketAddress 0
 #else
-#define JavaNetInetSocketAddress_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetInetSocketAddress 1
 #endif
-#undef JavaNetInetSocketAddress_RESTRICT
+#undef RESTRICT_JavaNetInetSocketAddress
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetInetSocketAddress_) && (JavaNetInetSocketAddress_INCLUDE_ALL || defined(JavaNetInetSocketAddress_INCLUDE))
+#if !defined (JavaNetInetSocketAddress_) && (INCLUDE_ALL_JavaNetInetSocketAddress || defined(INCLUDE_JavaNetInetSocketAddress))
 #define JavaNetInetSocketAddress_
 
-#define JavaNetSocketAddress_RESTRICT 1
-#define JavaNetSocketAddress_INCLUDE 1
+#define RESTRICT_JavaNetSocketAddress 1
+#define INCLUDE_JavaNetSocketAddress 1
 #include "../../java/net/SocketAddress.h"
 
 @class JavaNetInetAddress;
@@ -161,21 +161,31 @@ FOUNDATION_EXPORT void JavaNetInetSocketAddress_init(JavaNetInetSocketAddress *s
 
 FOUNDATION_EXPORT JavaNetInetSocketAddress *new_JavaNetInetSocketAddress_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetInetSocketAddress *create_JavaNetInetSocketAddress_init();
+
 FOUNDATION_EXPORT void JavaNetInetSocketAddress_initWithInt_(JavaNetInetSocketAddress *self, jint port);
 
 FOUNDATION_EXPORT JavaNetInetSocketAddress *new_JavaNetInetSocketAddress_initWithInt_(jint port) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetInetSocketAddress *create_JavaNetInetSocketAddress_initWithInt_(jint port);
 
 FOUNDATION_EXPORT void JavaNetInetSocketAddress_initWithJavaNetInetAddress_withInt_(JavaNetInetSocketAddress *self, JavaNetInetAddress *address, jint port);
 
 FOUNDATION_EXPORT JavaNetInetSocketAddress *new_JavaNetInetSocketAddress_initWithJavaNetInetAddress_withInt_(JavaNetInetAddress *address, jint port) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetInetSocketAddress *create_JavaNetInetSocketAddress_initWithJavaNetInetAddress_withInt_(JavaNetInetAddress *address, jint port);
+
 FOUNDATION_EXPORT void JavaNetInetSocketAddress_initWithNSString_withInt_(JavaNetInetSocketAddress *self, NSString *host, jint port);
 
 FOUNDATION_EXPORT JavaNetInetSocketAddress *new_JavaNetInetSocketAddress_initWithNSString_withInt_(NSString *host, jint port) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetInetSocketAddress *create_JavaNetInetSocketAddress_initWithNSString_withInt_(NSString *host, jint port);
+
 FOUNDATION_EXPORT void JavaNetInetSocketAddress_initWithNSString_withInt_withBoolean_(JavaNetInetSocketAddress *self, NSString *hostname, jint port, jboolean needResolved);
 
 FOUNDATION_EXPORT JavaNetInetSocketAddress *new_JavaNetInetSocketAddress_initWithNSString_withInt_withBoolean_(NSString *hostname, jint port, jboolean needResolved) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetInetSocketAddress *create_JavaNetInetSocketAddress_initWithNSString_withInt_withBoolean_(NSString *hostname, jint port, jboolean needResolved);
 
 FOUNDATION_EXPORT JavaNetInetSocketAddress *JavaNetInetSocketAddress_createUnresolvedWithNSString_withInt_(NSString *host, jint port);
 
@@ -185,4 +195,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetInetSocketAddress)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetInetSocketAddress_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetInetSocketAddress")

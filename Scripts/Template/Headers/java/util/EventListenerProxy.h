@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilEventListenerProxy_INCLUDE_ALL")
-#ifdef JavaUtilEventListenerProxy_RESTRICT
-#define JavaUtilEventListenerProxy_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilEventListenerProxy")
+#ifdef RESTRICT_JavaUtilEventListenerProxy
+#define INCLUDE_ALL_JavaUtilEventListenerProxy 0
 #else
-#define JavaUtilEventListenerProxy_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilEventListenerProxy 1
 #endif
-#undef JavaUtilEventListenerProxy_RESTRICT
+#undef RESTRICT_JavaUtilEventListenerProxy
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilEventListenerProxy_) && (JavaUtilEventListenerProxy_INCLUDE_ALL || defined(JavaUtilEventListenerProxy_INCLUDE))
+#if !defined (JavaUtilEventListenerProxy_) && (INCLUDE_ALL_JavaUtilEventListenerProxy || defined(INCLUDE_JavaUtilEventListenerProxy))
 #define JavaUtilEventListenerProxy_
 
-#define JavaUtilEventListener_RESTRICT 1
-#define JavaUtilEventListener_INCLUDE 1
+#define RESTRICT_JavaUtilEventListener 1
+#define INCLUDE_JavaUtilEventListener 1
 #include "../../java/util/EventListener.h"
 
 /*!
@@ -55,4 +55,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilEventListenerProxy)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilEventListenerProxy_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilEventListenerProxy")

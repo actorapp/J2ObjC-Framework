@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentScheduledFuture_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentScheduledFuture_RESTRICT
-#define JavaUtilConcurrentScheduledFuture_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentScheduledFuture")
+#ifdef RESTRICT_JavaUtilConcurrentScheduledFuture
+#define INCLUDE_ALL_JavaUtilConcurrentScheduledFuture 0
 #else
-#define JavaUtilConcurrentScheduledFuture_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentScheduledFuture 1
 #endif
-#undef JavaUtilConcurrentScheduledFuture_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentScheduledFuture
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentScheduledFuture_) && (JavaUtilConcurrentScheduledFuture_INCLUDE_ALL || defined(JavaUtilConcurrentScheduledFuture_INCLUDE))
+#if !defined (JavaUtilConcurrentScheduledFuture_) && (INCLUDE_ALL_JavaUtilConcurrentScheduledFuture || defined(INCLUDE_JavaUtilConcurrentScheduledFuture))
 #define JavaUtilConcurrentScheduledFuture_
 
-#define JavaUtilConcurrentDelayed_RESTRICT 1
-#define JavaUtilConcurrentDelayed_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentDelayed 1
+#define INCLUDE_JavaUtilConcurrentDelayed 1
 #include "../../../java/util/concurrent/Delayed.h"
 
-#define JavaUtilConcurrentFuture_RESTRICT 1
-#define JavaUtilConcurrentFuture_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentFuture 1
+#define INCLUDE_JavaUtilConcurrentFuture 1
 #include "../../../java/util/concurrent/Future.h"
 
 /*!
@@ -46,4 +46,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentScheduledFuture)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentScheduledFuture_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentScheduledFuture")

@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgW3cDomLsLSSerializerFilter_INCLUDE_ALL")
-#ifdef OrgW3cDomLsLSSerializerFilter_RESTRICT
-#define OrgW3cDomLsLSSerializerFilter_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgW3cDomLsLSSerializerFilter")
+#ifdef RESTRICT_OrgW3cDomLsLSSerializerFilter
+#define INCLUDE_ALL_OrgW3cDomLsLSSerializerFilter 0
 #else
-#define OrgW3cDomLsLSSerializerFilter_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgW3cDomLsLSSerializerFilter 1
 #endif
-#undef OrgW3cDomLsLSSerializerFilter_RESTRICT
+#undef RESTRICT_OrgW3cDomLsLSSerializerFilter
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgW3cDomLsLSSerializerFilter_) && (OrgW3cDomLsLSSerializerFilter_INCLUDE_ALL || defined(OrgW3cDomLsLSSerializerFilter_INCLUDE))
+#if !defined (OrgW3cDomLsLSSerializerFilter_) && (INCLUDE_ALL_OrgW3cDomLsLSSerializerFilter || defined(INCLUDE_OrgW3cDomLsLSSerializerFilter))
 #define OrgW3cDomLsLSSerializerFilter_
 
-#define OrgW3cDomTraversalNodeFilter_RESTRICT 1
-#define OrgW3cDomTraversalNodeFilter_INCLUDE 1
+#define RESTRICT_OrgW3cDomTraversalNodeFilter 1
+#define INCLUDE_OrgW3cDomTraversalNodeFilter 1
 #include "../../../../org/w3c/dom/traversal/NodeFilter.h"
 
 /*!
@@ -82,4 +82,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgW3cDomLsLSSerializerFilter)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgW3cDomLsLSSerializerFilter_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgW3cDomLsLSSerializerFilter")

@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaBeansPropertyDescriptor_INCLUDE_ALL")
-#ifdef JavaBeansPropertyDescriptor_RESTRICT
-#define JavaBeansPropertyDescriptor_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaBeansPropertyDescriptor")
+#ifdef RESTRICT_JavaBeansPropertyDescriptor
+#define INCLUDE_ALL_JavaBeansPropertyDescriptor 0
 #else
-#define JavaBeansPropertyDescriptor_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaBeansPropertyDescriptor 1
 #endif
-#undef JavaBeansPropertyDescriptor_RESTRICT
+#undef RESTRICT_JavaBeansPropertyDescriptor
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaBeansPropertyDescriptor_) && (JavaBeansPropertyDescriptor_INCLUDE_ALL || defined(JavaBeansPropertyDescriptor_INCLUDE))
+#if !defined (JavaBeansPropertyDescriptor_) && (INCLUDE_ALL_JavaBeansPropertyDescriptor || defined(INCLUDE_JavaBeansPropertyDescriptor))
 #define JavaBeansPropertyDescriptor_
 
-#define JavaBeansFeatureDescriptor_RESTRICT 1
-#define JavaBeansFeatureDescriptor_INCLUDE 1
+#define RESTRICT_JavaBeansFeatureDescriptor 1
+#define INCLUDE_JavaBeansFeatureDescriptor 1
 #include "../../java/beans/FeatureDescriptor.h"
 
 @class IOSClass;
@@ -92,13 +92,19 @@ FOUNDATION_EXPORT void JavaBeansPropertyDescriptor_initWithNSString_withIOSClass
 
 FOUNDATION_EXPORT JavaBeansPropertyDescriptor *new_JavaBeansPropertyDescriptor_initWithNSString_withIOSClass_withNSString_withNSString_(NSString *propertyName, IOSClass *beanClass, NSString *getterName, NSString *setterName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansPropertyDescriptor *create_JavaBeansPropertyDescriptor_initWithNSString_withIOSClass_withNSString_withNSString_(NSString *propertyName, IOSClass *beanClass, NSString *getterName, NSString *setterName);
+
 FOUNDATION_EXPORT void JavaBeansPropertyDescriptor_initWithNSString_withJavaLangReflectMethod_withJavaLangReflectMethod_(JavaBeansPropertyDescriptor *self, NSString *propertyName, JavaLangReflectMethod *getter, JavaLangReflectMethod *setter);
 
 FOUNDATION_EXPORT JavaBeansPropertyDescriptor *new_JavaBeansPropertyDescriptor_initWithNSString_withJavaLangReflectMethod_withJavaLangReflectMethod_(NSString *propertyName, JavaLangReflectMethod *getter, JavaLangReflectMethod *setter) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaBeansPropertyDescriptor *create_JavaBeansPropertyDescriptor_initWithNSString_withJavaLangReflectMethod_withJavaLangReflectMethod_(NSString *propertyName, JavaLangReflectMethod *getter, JavaLangReflectMethod *setter);
+
 FOUNDATION_EXPORT void JavaBeansPropertyDescriptor_initWithNSString_withIOSClass_(JavaBeansPropertyDescriptor *self, NSString *propertyName, IOSClass *beanClass);
 
 FOUNDATION_EXPORT JavaBeansPropertyDescriptor *new_JavaBeansPropertyDescriptor_initWithNSString_withIOSClass_(NSString *propertyName, IOSClass *beanClass) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaBeansPropertyDescriptor *create_JavaBeansPropertyDescriptor_initWithNSString_withIOSClass_(NSString *propertyName, IOSClass *beanClass);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyDescriptor)
 
@@ -106,4 +112,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaBeansPropertyDescriptor)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaBeansPropertyDescriptor_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaBeansPropertyDescriptor")

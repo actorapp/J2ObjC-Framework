@@ -5,22 +5,22 @@
 
 #include "../../../../J2ObjC_header.h"
 
-#pragma push_macro("OrgXmlSaxExtEntityResolver2_INCLUDE_ALL")
-#ifdef OrgXmlSaxExtEntityResolver2_RESTRICT
-#define OrgXmlSaxExtEntityResolver2_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgXmlSaxExtEntityResolver2")
+#ifdef RESTRICT_OrgXmlSaxExtEntityResolver2
+#define INCLUDE_ALL_OrgXmlSaxExtEntityResolver2 0
 #else
-#define OrgXmlSaxExtEntityResolver2_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgXmlSaxExtEntityResolver2 1
 #endif
-#undef OrgXmlSaxExtEntityResolver2_RESTRICT
+#undef RESTRICT_OrgXmlSaxExtEntityResolver2
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgXmlSaxExtEntityResolver2_) && (OrgXmlSaxExtEntityResolver2_INCLUDE_ALL || defined(OrgXmlSaxExtEntityResolver2_INCLUDE))
+#if !defined (OrgXmlSaxExtEntityResolver2_) && (INCLUDE_ALL_OrgXmlSaxExtEntityResolver2 || defined(INCLUDE_OrgXmlSaxExtEntityResolver2))
 #define OrgXmlSaxExtEntityResolver2_
 
-#define OrgXmlSaxEntityResolver_RESTRICT 1
-#define OrgXmlSaxEntityResolver_INCLUDE 1
+#define RESTRICT_OrgXmlSaxEntityResolver 1
+#define INCLUDE_OrgXmlSaxEntityResolver 1
 #include "../../../../org/xml/sax/EntityResolver.h"
 
 @class OrgXmlSaxInputSource;
@@ -199,4 +199,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgXmlSaxExtEntityResolver2)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgXmlSaxExtEntityResolver2_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgXmlSaxExtEntityResolver2")

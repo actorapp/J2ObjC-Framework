@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetHttpRetryException_INCLUDE_ALL")
-#ifdef JavaNetHttpRetryException_RESTRICT
-#define JavaNetHttpRetryException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetHttpRetryException")
+#ifdef RESTRICT_JavaNetHttpRetryException
+#define INCLUDE_ALL_JavaNetHttpRetryException 0
 #else
-#define JavaNetHttpRetryException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetHttpRetryException 1
 #endif
-#undef JavaNetHttpRetryException_RESTRICT
+#undef RESTRICT_JavaNetHttpRetryException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetHttpRetryException_) && (JavaNetHttpRetryException_INCLUDE_ALL || defined(JavaNetHttpRetryException_INCLUDE))
+#if !defined (JavaNetHttpRetryException_) && (INCLUDE_ALL_JavaNetHttpRetryException || defined(INCLUDE_JavaNetHttpRetryException))
 #define JavaNetHttpRetryException_
 
-#define JavaIoIOException_RESTRICT 1
-#define JavaIoIOException_INCLUDE 1
+#define RESTRICT_JavaIoIOException 1
+#define INCLUDE_JavaIoIOException 1
 #include "../../java/io/IOException.h"
 
 /*!
@@ -83,9 +83,13 @@ FOUNDATION_EXPORT void JavaNetHttpRetryException_initWithNSString_withInt_(JavaN
 
 FOUNDATION_EXPORT JavaNetHttpRetryException *new_JavaNetHttpRetryException_initWithNSString_withInt_(NSString *detail, jint code) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetHttpRetryException *create_JavaNetHttpRetryException_initWithNSString_withInt_(NSString *detail, jint code);
+
 FOUNDATION_EXPORT void JavaNetHttpRetryException_initWithNSString_withInt_withNSString_(JavaNetHttpRetryException *self, NSString *detail, jint code, NSString *location);
 
 FOUNDATION_EXPORT JavaNetHttpRetryException *new_JavaNetHttpRetryException_initWithNSString_withInt_withNSString_(NSString *detail, jint code, NSString *location) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetHttpRetryException *create_JavaNetHttpRetryException_initWithNSString_withInt_withNSString_(NSString *detail, jint code, NSString *location);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpRetryException)
 
@@ -93,4 +97,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetHttpRetryException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetHttpRetryException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetHttpRetryException")

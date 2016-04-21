@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextCharacterIterator_INCLUDE_ALL")
-#ifdef JavaTextCharacterIterator_RESTRICT
-#define JavaTextCharacterIterator_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextCharacterIterator")
+#ifdef RESTRICT_JavaTextCharacterIterator
+#define INCLUDE_ALL_JavaTextCharacterIterator 0
 #else
-#define JavaTextCharacterIterator_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextCharacterIterator 1
 #endif
-#undef JavaTextCharacterIterator_RESTRICT
+#undef RESTRICT_JavaTextCharacterIterator
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextCharacterIterator_) && (JavaTextCharacterIterator_INCLUDE_ALL || defined(JavaTextCharacterIterator_INCLUDE))
+#if !defined (JavaTextCharacterIterator_) && (INCLUDE_ALL_JavaTextCharacterIterator || defined(INCLUDE_JavaTextCharacterIterator))
 #define JavaTextCharacterIterator_
 
 /*!
@@ -124,4 +124,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextCharacterIterator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextCharacterIterator_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextCharacterIterator")

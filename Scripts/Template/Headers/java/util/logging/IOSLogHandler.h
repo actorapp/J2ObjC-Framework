@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilLoggingIOSLogHandler_INCLUDE_ALL")
-#ifdef JavaUtilLoggingIOSLogHandler_RESTRICT
-#define JavaUtilLoggingIOSLogHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilLoggingIOSLogHandler")
+#ifdef RESTRICT_JavaUtilLoggingIOSLogHandler
+#define INCLUDE_ALL_JavaUtilLoggingIOSLogHandler 0
 #else
-#define JavaUtilLoggingIOSLogHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilLoggingIOSLogHandler 1
 #endif
-#undef JavaUtilLoggingIOSLogHandler_RESTRICT
+#undef RESTRICT_JavaUtilLoggingIOSLogHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilLoggingIOSLogHandler_) && (JavaUtilLoggingIOSLogHandler_INCLUDE_ALL || defined(JavaUtilLoggingIOSLogHandler_INCLUDE))
+#if !defined (JavaUtilLoggingIOSLogHandler_) && (INCLUDE_ALL_JavaUtilLoggingIOSLogHandler || defined(INCLUDE_JavaUtilLoggingIOSLogHandler))
 #define JavaUtilLoggingIOSLogHandler_
 
-#define JavaUtilLoggingHandler_RESTRICT 1
-#define JavaUtilLoggingHandler_INCLUDE 1
+#define RESTRICT_JavaUtilLoggingHandler 1
+#define INCLUDE_JavaUtilLoggingHandler 1
 #include "../../../java/util/logging/Handler.h"
 
 @class JavaUtilLoggingLogRecord;
@@ -56,15 +56,17 @@ FOUNDATION_EXPORT void JavaUtilLoggingIOSLogHandler_init(JavaUtilLoggingIOSLogHa
 
 FOUNDATION_EXPORT JavaUtilLoggingIOSLogHandler *new_JavaUtilLoggingIOSLogHandler_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingIOSLogHandler *create_JavaUtilLoggingIOSLogHandler_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingIOSLogHandler)
 
 #endif
 
-#if !defined (JavaUtilLoggingIOSLogHandler_IOSLogFormatter_) && (JavaUtilLoggingIOSLogHandler_INCLUDE_ALL || defined(JavaUtilLoggingIOSLogHandler_IOSLogFormatter_INCLUDE))
+#if !defined (JavaUtilLoggingIOSLogHandler_IOSLogFormatter_) && (INCLUDE_ALL_JavaUtilLoggingIOSLogHandler || defined(INCLUDE_JavaUtilLoggingIOSLogHandler_IOSLogFormatter))
 #define JavaUtilLoggingIOSLogHandler_IOSLogFormatter_
 
-#define JavaUtilLoggingFormatter_RESTRICT 1
-#define JavaUtilLoggingFormatter_INCLUDE 1
+#define RESTRICT_JavaUtilLoggingFormatter 1
+#define INCLUDE_JavaUtilLoggingFormatter 1
 #include "../../../java/util/logging/Formatter.h"
 
 @class JavaUtilLoggingLogRecord;
@@ -90,10 +92,12 @@ FOUNDATION_EXPORT void JavaUtilLoggingIOSLogHandler_IOSLogFormatter_init(JavaUti
 
 FOUNDATION_EXPORT JavaUtilLoggingIOSLogHandler_IOSLogFormatter *new_JavaUtilLoggingIOSLogHandler_IOSLogFormatter_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilLoggingIOSLogHandler_IOSLogFormatter *create_JavaUtilLoggingIOSLogHandler_IOSLogFormatter_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilLoggingIOSLogHandler_IOSLogFormatter)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilLoggingIOSLogHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilLoggingIOSLogHandler")

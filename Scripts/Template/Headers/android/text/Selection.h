@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextSelection_INCLUDE_ALL")
-#ifdef AndroidTextSelection_RESTRICT
-#define AndroidTextSelection_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextSelection")
+#ifdef RESTRICT_AndroidTextSelection
+#define INCLUDE_ALL_AndroidTextSelection 0
 #else
-#define AndroidTextSelection_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextSelection 1
 #endif
-#undef AndroidTextSelection_RESTRICT
+#undef RESTRICT_AndroidTextSelection
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextSelection_) && (AndroidTextSelection_INCLUDE_ALL || defined(AndroidTextSelection_INCLUDE))
+#if !defined (AndroidTextSelection_) && (INCLUDE_ALL_AndroidTextSelection || defined(INCLUDE_AndroidTextSelection))
 #define AndroidTextSelection_
 
 @protocol AndroidTextSpannable;
@@ -110,4 +110,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextSelection)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextSelection_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextSelection")

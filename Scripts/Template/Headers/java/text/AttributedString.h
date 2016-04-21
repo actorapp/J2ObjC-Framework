@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaTextAttributedString_INCLUDE_ALL")
-#ifdef JavaTextAttributedString_RESTRICT
-#define JavaTextAttributedString_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaTextAttributedString")
+#ifdef RESTRICT_JavaTextAttributedString
+#define INCLUDE_ALL_JavaTextAttributedString 0
 #else
-#define JavaTextAttributedString_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaTextAttributedString 1
 #endif
-#undef JavaTextAttributedString_RESTRICT
+#undef RESTRICT_JavaTextAttributedString
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaTextAttributedString_) && (JavaTextAttributedString_INCLUDE_ALL || defined(JavaTextAttributedString_INCLUDE))
+#if !defined (JavaTextAttributedString_) && (INCLUDE_ALL_JavaTextAttributedString || defined(INCLUDE_JavaTextAttributedString))
 #define JavaTextAttributedString_
 
 @class IOSObjectArray;
@@ -221,27 +221,37 @@ FOUNDATION_EXPORT void JavaTextAttributedString_initWithJavaTextAttributedCharac
 
 FOUNDATION_EXPORT JavaTextAttributedString *new_JavaTextAttributedString_initWithJavaTextAttributedCharacterIterator_(id<JavaTextAttributedCharacterIterator> iterator) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextAttributedString *create_JavaTextAttributedString_initWithJavaTextAttributedCharacterIterator_(id<JavaTextAttributedCharacterIterator> iterator);
+
 FOUNDATION_EXPORT void JavaTextAttributedString_initWithJavaTextAttributedCharacterIterator_withInt_withInt_(JavaTextAttributedString *self, id<JavaTextAttributedCharacterIterator> iterator, jint start, jint end);
 
 FOUNDATION_EXPORT JavaTextAttributedString *new_JavaTextAttributedString_initWithJavaTextAttributedCharacterIterator_withInt_withInt_(id<JavaTextAttributedCharacterIterator> iterator, jint start, jint end) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextAttributedString *create_JavaTextAttributedString_initWithJavaTextAttributedCharacterIterator_withInt_withInt_(id<JavaTextAttributedCharacterIterator> iterator, jint start, jint end);
 
 FOUNDATION_EXPORT void JavaTextAttributedString_initWithJavaTextAttributedCharacterIterator_withInt_withInt_withJavaTextAttributedCharacterIterator_AttributeArray_(JavaTextAttributedString *self, id<JavaTextAttributedCharacterIterator> iterator, jint start, jint end, IOSObjectArray *attributes);
 
 FOUNDATION_EXPORT JavaTextAttributedString *new_JavaTextAttributedString_initWithJavaTextAttributedCharacterIterator_withInt_withInt_withJavaTextAttributedCharacterIterator_AttributeArray_(id<JavaTextAttributedCharacterIterator> iterator, jint start, jint end, IOSObjectArray *attributes) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextAttributedString *create_JavaTextAttributedString_initWithJavaTextAttributedCharacterIterator_withInt_withInt_withJavaTextAttributedCharacterIterator_AttributeArray_(id<JavaTextAttributedCharacterIterator> iterator, jint start, jint end, IOSObjectArray *attributes);
+
 FOUNDATION_EXPORT void JavaTextAttributedString_initWithNSString_(JavaTextAttributedString *self, NSString *value);
 
 FOUNDATION_EXPORT JavaTextAttributedString *new_JavaTextAttributedString_initWithNSString_(NSString *value) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextAttributedString *create_JavaTextAttributedString_initWithNSString_(NSString *value);
 
 FOUNDATION_EXPORT void JavaTextAttributedString_initWithNSString_withJavaUtilMap_(JavaTextAttributedString *self, NSString *value, id<JavaUtilMap> attributes);
 
 FOUNDATION_EXPORT JavaTextAttributedString *new_JavaTextAttributedString_initWithNSString_withJavaUtilMap_(NSString *value, id<JavaUtilMap> attributes) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextAttributedString *create_JavaTextAttributedString_initWithNSString_withJavaUtilMap_(NSString *value, id<JavaUtilMap> attributes);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedString)
 
 #endif
 
-#if !defined (JavaTextAttributedString_Range_) && (JavaTextAttributedString_INCLUDE_ALL || defined(JavaTextAttributedString_Range_INCLUDE))
+#if !defined (JavaTextAttributedString_Range_) && (INCLUDE_ALL_JavaTextAttributedString || defined(INCLUDE_JavaTextAttributedString_Range))
 #define JavaTextAttributedString_Range_
 
 @interface JavaTextAttributedString_Range : NSObject {
@@ -267,15 +277,17 @@ FOUNDATION_EXPORT void JavaTextAttributedString_Range_initWithInt_withInt_withId
 
 FOUNDATION_EXPORT JavaTextAttributedString_Range *new_JavaTextAttributedString_Range_initWithInt_withInt_withId_(jint s, jint e, id v) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextAttributedString_Range *create_JavaTextAttributedString_Range_initWithInt_withInt_withId_(jint s, jint e, id v);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedString_Range)
 
 #endif
 
-#if !defined (JavaTextAttributedString_AttributedIterator_) && (JavaTextAttributedString_INCLUDE_ALL || defined(JavaTextAttributedString_AttributedIterator_INCLUDE))
+#if !defined (JavaTextAttributedString_AttributedIterator_) && (INCLUDE_ALL_JavaTextAttributedString || defined(INCLUDE_JavaTextAttributedString_AttributedIterator))
 #define JavaTextAttributedString_AttributedIterator_
 
-#define JavaTextAttributedCharacterIterator_RESTRICT 1
-#define JavaTextAttributedCharacterIterator_INCLUDE 1
+#define RESTRICT_JavaTextAttributedCharacterIterator 1
+#define INCLUDE_JavaTextAttributedCharacterIterator 1
 #include "../../java/text/AttributedCharacterIterator.h"
 
 @class IOSObjectArray;
@@ -366,9 +378,13 @@ FOUNDATION_EXPORT void JavaTextAttributedString_AttributedIterator_initWithJavaT
 
 FOUNDATION_EXPORT JavaTextAttributedString_AttributedIterator *new_JavaTextAttributedString_AttributedIterator_initWithJavaTextAttributedString_(JavaTextAttributedString *attrString) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaTextAttributedString_AttributedIterator *create_JavaTextAttributedString_AttributedIterator_initWithJavaTextAttributedString_(JavaTextAttributedString *attrString);
+
 FOUNDATION_EXPORT void JavaTextAttributedString_AttributedIterator_initWithJavaTextAttributedString_withJavaTextAttributedCharacterIterator_AttributeArray_withInt_withInt_(JavaTextAttributedString_AttributedIterator *self, JavaTextAttributedString *attrString, IOSObjectArray *attributes, jint begin, jint end);
 
 FOUNDATION_EXPORT JavaTextAttributedString_AttributedIterator *new_JavaTextAttributedString_AttributedIterator_initWithJavaTextAttributedString_withJavaTextAttributedCharacterIterator_AttributeArray_withInt_withInt_(JavaTextAttributedString *attrString, IOSObjectArray *attributes, jint begin, jint end) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaTextAttributedString_AttributedIterator *create_JavaTextAttributedString_AttributedIterator_initWithJavaTextAttributedString_withJavaTextAttributedCharacterIterator_AttributeArray_withInt_withInt_(JavaTextAttributedString *attrString, IOSObjectArray *attributes, jint begin, jint end);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedString_AttributedIterator)
 
@@ -376,4 +392,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaTextAttributedString_AttributedIterator)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaTextAttributedString_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaTextAttributedString")

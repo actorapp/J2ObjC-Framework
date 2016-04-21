@@ -5,30 +5,30 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoPrintStream_INCLUDE_ALL")
-#ifdef JavaIoPrintStream_RESTRICT
-#define JavaIoPrintStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoPrintStream")
+#ifdef RESTRICT_JavaIoPrintStream
+#define INCLUDE_ALL_JavaIoPrintStream 0
 #else
-#define JavaIoPrintStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoPrintStream 1
 #endif
-#undef JavaIoPrintStream_RESTRICT
+#undef RESTRICT_JavaIoPrintStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoPrintStream_) && (JavaIoPrintStream_INCLUDE_ALL || defined(JavaIoPrintStream_INCLUDE))
+#if !defined (JavaIoPrintStream_) && (INCLUDE_ALL_JavaIoPrintStream || defined(INCLUDE_JavaIoPrintStream))
 #define JavaIoPrintStream_
 
-#define JavaIoFilterOutputStream_RESTRICT 1
-#define JavaIoFilterOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoFilterOutputStream 1
+#define INCLUDE_JavaIoFilterOutputStream 1
 #include "../../java/io/FilterOutputStream.h"
 
-#define JavaLangAppendable_RESTRICT 1
-#define JavaLangAppendable_INCLUDE 1
+#define RESTRICT_JavaLangAppendable 1
+#define INCLUDE_JavaLangAppendable 1
 #include "../../java/lang/Appendable.h"
 
-#define JavaIoCloseable_RESTRICT 1
-#define JavaIoCloseable_INCLUDE 1
+#define RESTRICT_JavaIoCloseable 1
+#define INCLUDE_JavaIoCloseable 1
 #include "../../java/io/Closeable.h"
 
 @class IOSByteArray;
@@ -478,29 +478,43 @@ FOUNDATION_EXPORT void JavaIoPrintStream_initWithJavaIoOutputStream_(JavaIoPrint
 
 FOUNDATION_EXPORT JavaIoPrintStream *new_JavaIoPrintStream_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPrintStream *create_JavaIoPrintStream_initWithJavaIoOutputStream_(JavaIoOutputStream *outArg);
+
 FOUNDATION_EXPORT void JavaIoPrintStream_initWithJavaIoOutputStream_withBoolean_(JavaIoPrintStream *self, JavaIoOutputStream *outArg, jboolean autoFlush);
 
 FOUNDATION_EXPORT JavaIoPrintStream *new_JavaIoPrintStream_initWithJavaIoOutputStream_withBoolean_(JavaIoOutputStream *outArg, jboolean autoFlush) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPrintStream *create_JavaIoPrintStream_initWithJavaIoOutputStream_withBoolean_(JavaIoOutputStream *outArg, jboolean autoFlush);
 
 FOUNDATION_EXPORT void JavaIoPrintStream_initWithJavaIoOutputStream_withBoolean_withNSString_(JavaIoPrintStream *self, JavaIoOutputStream *outArg, jboolean autoFlush, NSString *charsetName);
 
 FOUNDATION_EXPORT JavaIoPrintStream *new_JavaIoPrintStream_initWithJavaIoOutputStream_withBoolean_withNSString_(JavaIoOutputStream *outArg, jboolean autoFlush, NSString *charsetName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPrintStream *create_JavaIoPrintStream_initWithJavaIoOutputStream_withBoolean_withNSString_(JavaIoOutputStream *outArg, jboolean autoFlush, NSString *charsetName);
+
 FOUNDATION_EXPORT void JavaIoPrintStream_initWithJavaIoFile_(JavaIoPrintStream *self, JavaIoFile *file);
 
 FOUNDATION_EXPORT JavaIoPrintStream *new_JavaIoPrintStream_initWithJavaIoFile_(JavaIoFile *file) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPrintStream *create_JavaIoPrintStream_initWithJavaIoFile_(JavaIoFile *file);
 
 FOUNDATION_EXPORT void JavaIoPrintStream_initWithJavaIoFile_withNSString_(JavaIoPrintStream *self, JavaIoFile *file, NSString *charsetName);
 
 FOUNDATION_EXPORT JavaIoPrintStream *new_JavaIoPrintStream_initWithJavaIoFile_withNSString_(JavaIoFile *file, NSString *charsetName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPrintStream *create_JavaIoPrintStream_initWithJavaIoFile_withNSString_(JavaIoFile *file, NSString *charsetName);
+
 FOUNDATION_EXPORT void JavaIoPrintStream_initWithNSString_(JavaIoPrintStream *self, NSString *fileName);
 
 FOUNDATION_EXPORT JavaIoPrintStream *new_JavaIoPrintStream_initWithNSString_(NSString *fileName) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPrintStream *create_JavaIoPrintStream_initWithNSString_(NSString *fileName);
+
 FOUNDATION_EXPORT void JavaIoPrintStream_initWithNSString_withNSString_(JavaIoPrintStream *self, NSString *fileName, NSString *charsetName);
 
 FOUNDATION_EXPORT JavaIoPrintStream *new_JavaIoPrintStream_initWithNSString_withNSString_(NSString *fileName, NSString *charsetName) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPrintStream *create_JavaIoPrintStream_initWithNSString_withNSString_(NSString *fileName, NSString *charsetName);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPrintStream)
 
@@ -508,4 +522,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPrintStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoPrintStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoPrintStream")

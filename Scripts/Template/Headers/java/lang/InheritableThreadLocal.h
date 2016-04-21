@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangInheritableThreadLocal_INCLUDE_ALL")
-#ifdef JavaLangInheritableThreadLocal_RESTRICT
-#define JavaLangInheritableThreadLocal_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangInheritableThreadLocal")
+#ifdef RESTRICT_JavaLangInheritableThreadLocal
+#define INCLUDE_ALL_JavaLangInheritableThreadLocal 0
 #else
-#define JavaLangInheritableThreadLocal_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangInheritableThreadLocal 1
 #endif
-#undef JavaLangInheritableThreadLocal_RESTRICT
+#undef RESTRICT_JavaLangInheritableThreadLocal
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangInheritableThreadLocal_) && (JavaLangInheritableThreadLocal_INCLUDE_ALL || defined(JavaLangInheritableThreadLocal_INCLUDE))
+#if !defined (JavaLangInheritableThreadLocal_) && (INCLUDE_ALL_JavaLangInheritableThreadLocal || defined(INCLUDE_JavaLangInheritableThreadLocal))
 #define JavaLangInheritableThreadLocal_
 
-#define JavaLangThreadLocal_RESTRICT 1
-#define JavaLangThreadLocal_INCLUDE 1
+#define RESTRICT_JavaLangThreadLocal 1
+#define INCLUDE_JavaLangThreadLocal 1
 #include "../../java/lang/ThreadLocal.h"
 
 @class JavaLangThread;
@@ -73,10 +73,12 @@ FOUNDATION_EXPORT void JavaLangInheritableThreadLocal_init(JavaLangInheritableTh
 
 FOUNDATION_EXPORT JavaLangInheritableThreadLocal *new_JavaLangInheritableThreadLocal_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangInheritableThreadLocal *create_JavaLangInheritableThreadLocal_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangInheritableThreadLocal)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangInheritableThreadLocal_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangInheritableThreadLocal")

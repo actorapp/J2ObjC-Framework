@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlClientInfoStatus_INCLUDE_ALL")
-#ifdef JavaSqlClientInfoStatus_RESTRICT
-#define JavaSqlClientInfoStatus_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlClientInfoStatus")
+#ifdef RESTRICT_JavaSqlClientInfoStatus
+#define INCLUDE_ALL_JavaSqlClientInfoStatus 0
 #else
-#define JavaSqlClientInfoStatus_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlClientInfoStatus 1
 #endif
-#undef JavaSqlClientInfoStatus_RESTRICT
+#undef RESTRICT_JavaSqlClientInfoStatus
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlClientInfoStatus_) && (JavaSqlClientInfoStatus_INCLUDE_ALL || defined(JavaSqlClientInfoStatus_INCLUDE))
+#if !defined (JavaSqlClientInfoStatus_) && (INCLUDE_ALL_JavaSqlClientInfoStatus || defined(INCLUDE_JavaSqlClientInfoStatus))
 #define JavaSqlClientInfoStatus_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaSqlClientInfoStatus_Enum) {
@@ -85,4 +85,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlClientInfoStatus)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlClientInfoStatus_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlClientInfoStatus")

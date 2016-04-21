@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSqlRowIdLifetime_INCLUDE_ALL")
-#ifdef JavaSqlRowIdLifetime_RESTRICT
-#define JavaSqlRowIdLifetime_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSqlRowIdLifetime")
+#ifdef RESTRICT_JavaSqlRowIdLifetime
+#define INCLUDE_ALL_JavaSqlRowIdLifetime 0
 #else
-#define JavaSqlRowIdLifetime_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSqlRowIdLifetime 1
 #endif
-#undef JavaSqlRowIdLifetime_RESTRICT
+#undef RESTRICT_JavaSqlRowIdLifetime
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSqlRowIdLifetime_) && (JavaSqlRowIdLifetime_INCLUDE_ALL || defined(JavaSqlRowIdLifetime_INCLUDE))
+#if !defined (JavaSqlRowIdLifetime_) && (INCLUDE_ALL_JavaSqlRowIdLifetime || defined(INCLUDE_JavaSqlRowIdLifetime))
 #define JavaSqlRowIdLifetime_
 
-#define JavaLangEnum_RESTRICT 1
-#define JavaLangEnum_INCLUDE 1
+#define RESTRICT_JavaLangEnum 1
+#define INCLUDE_JavaLangEnum 1
 #include "../../java/lang/Enum.h"
 
 typedef NS_ENUM(NSUInteger, JavaSqlRowIdLifetime_Enum) {
@@ -90,4 +90,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSqlRowIdLifetime)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSqlRowIdLifetime_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSqlRowIdLifetime")

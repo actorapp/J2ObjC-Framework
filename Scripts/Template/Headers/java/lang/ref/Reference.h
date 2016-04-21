@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangRefReference_INCLUDE_ALL")
-#ifdef JavaLangRefReference_RESTRICT
-#define JavaLangRefReference_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangRefReference")
+#ifdef RESTRICT_JavaLangRefReference
+#define INCLUDE_ALL_JavaLangRefReference 0
 #else
-#define JavaLangRefReference_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangRefReference 1
 #endif
-#undef JavaLangRefReference_RESTRICT
+#undef RESTRICT_JavaLangRefReference
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangRefReference_) && (JavaLangRefReference_INCLUDE_ALL || defined(JavaLangRefReference_INCLUDE))
+#if !defined (JavaLangRefReference_) && (INCLUDE_ALL_JavaLangRefReference || defined(INCLUDE_JavaLangRefReference))
 #define JavaLangRefReference_
 
 @class JavaLangRefReferenceQueue;
@@ -150,7 +150,7 @@
 
 #pragma mark Protected
 
-- (void)dealloc;
+- (void)javaFinalize;
 
 #pragma mark Package-Private
 
@@ -179,4 +179,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefReference)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangRefReference_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangRefReference")

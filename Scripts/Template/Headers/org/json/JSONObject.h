@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("OrgJsonJSONObject_INCLUDE_ALL")
-#ifdef OrgJsonJSONObject_RESTRICT
-#define OrgJsonJSONObject_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_OrgJsonJSONObject")
+#ifdef RESTRICT_OrgJsonJSONObject
+#define INCLUDE_ALL_OrgJsonJSONObject 0
 #else
-#define OrgJsonJSONObject_INCLUDE_ALL 1
+#define INCLUDE_ALL_OrgJsonJSONObject 1
 #endif
-#undef OrgJsonJSONObject_RESTRICT
+#undef RESTRICT_OrgJsonJSONObject
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (OrgJsonJSONObject_) && (OrgJsonJSONObject_INCLUDE_ALL || defined(OrgJsonJSONObject_INCLUDE))
+#if !defined (OrgJsonJSONObject_) && (INCLUDE_ALL_OrgJsonJSONObject || defined(INCLUDE_OrgJsonJSONObject))
 #define OrgJsonJSONObject_
 
 @class IOSObjectArray;
@@ -511,21 +511,31 @@ FOUNDATION_EXPORT void OrgJsonJSONObject_init(OrgJsonJSONObject *self);
 
 FOUNDATION_EXPORT OrgJsonJSONObject *new_OrgJsonJSONObject_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgJsonJSONObject *create_OrgJsonJSONObject_init();
+
 FOUNDATION_EXPORT void OrgJsonJSONObject_initWithJavaUtilMap_(OrgJsonJSONObject *self, id<JavaUtilMap> copyFrom);
 
 FOUNDATION_EXPORT OrgJsonJSONObject *new_OrgJsonJSONObject_initWithJavaUtilMap_(id<JavaUtilMap> copyFrom) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgJsonJSONObject *create_OrgJsonJSONObject_initWithJavaUtilMap_(id<JavaUtilMap> copyFrom);
 
 FOUNDATION_EXPORT void OrgJsonJSONObject_initWithOrgJsonJSONTokener_(OrgJsonJSONObject *self, OrgJsonJSONTokener *readFrom);
 
 FOUNDATION_EXPORT OrgJsonJSONObject *new_OrgJsonJSONObject_initWithOrgJsonJSONTokener_(OrgJsonJSONTokener *readFrom) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgJsonJSONObject *create_OrgJsonJSONObject_initWithOrgJsonJSONTokener_(OrgJsonJSONTokener *readFrom);
+
 FOUNDATION_EXPORT void OrgJsonJSONObject_initWithNSString_(OrgJsonJSONObject *self, NSString *json);
 
 FOUNDATION_EXPORT OrgJsonJSONObject *new_OrgJsonJSONObject_initWithNSString_(NSString *json) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT OrgJsonJSONObject *create_OrgJsonJSONObject_initWithNSString_(NSString *json);
+
 FOUNDATION_EXPORT void OrgJsonJSONObject_initWithOrgJsonJSONObject_withNSStringArray_(OrgJsonJSONObject *self, OrgJsonJSONObject *copyFrom, IOSObjectArray *names);
 
 FOUNDATION_EXPORT OrgJsonJSONObject *new_OrgJsonJSONObject_initWithOrgJsonJSONObject_withNSStringArray_(OrgJsonJSONObject *copyFrom, IOSObjectArray *names) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT OrgJsonJSONObject *create_OrgJsonJSONObject_initWithOrgJsonJSONObject_withNSStringArray_(OrgJsonJSONObject *copyFrom, IOSObjectArray *names);
 
 FOUNDATION_EXPORT NSString *OrgJsonJSONObject_numberToStringWithNSNumber_(NSNumber *number);
 
@@ -539,4 +549,4 @@ J2OBJC_TYPE_LITERAL_HEADER(OrgJsonJSONObject)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("OrgJsonJSONObject_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_OrgJsonJSONObject")

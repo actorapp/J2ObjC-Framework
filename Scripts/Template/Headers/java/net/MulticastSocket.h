@@ -5,24 +5,25 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetMulticastSocket_INCLUDE_ALL")
-#ifdef JavaNetMulticastSocket_RESTRICT
-#define JavaNetMulticastSocket_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetMulticastSocket")
+#ifdef RESTRICT_JavaNetMulticastSocket
+#define INCLUDE_ALL_JavaNetMulticastSocket 0
 #else
-#define JavaNetMulticastSocket_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetMulticastSocket 1
 #endif
-#undef JavaNetMulticastSocket_RESTRICT
+#undef RESTRICT_JavaNetMulticastSocket
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetMulticastSocket_) && (JavaNetMulticastSocket_INCLUDE_ALL || defined(JavaNetMulticastSocket_INCLUDE))
+#if !defined (JavaNetMulticastSocket_) && (INCLUDE_ALL_JavaNetMulticastSocket || defined(INCLUDE_JavaNetMulticastSocket))
 #define JavaNetMulticastSocket_
 
-#define JavaNetDatagramSocket_RESTRICT 1
-#define JavaNetDatagramSocket_INCLUDE 1
+#define RESTRICT_JavaNetDatagramSocket 1
+#define INCLUDE_JavaNetDatagramSocket 1
 #include "../../java/net/DatagramSocket.h"
 
+@class IOSObjectArray;
 @class JavaNetDatagramPacket;
 @class JavaNetInetAddress;
 @class JavaNetNetworkInterface;
@@ -210,13 +211,19 @@ FOUNDATION_EXPORT void JavaNetMulticastSocket_init(JavaNetMulticastSocket *self)
 
 FOUNDATION_EXPORT JavaNetMulticastSocket *new_JavaNetMulticastSocket_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetMulticastSocket *create_JavaNetMulticastSocket_init();
+
 FOUNDATION_EXPORT void JavaNetMulticastSocket_initWithInt_(JavaNetMulticastSocket *self, jint port);
 
 FOUNDATION_EXPORT JavaNetMulticastSocket *new_JavaNetMulticastSocket_initWithInt_(jint port) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetMulticastSocket *create_JavaNetMulticastSocket_initWithInt_(jint port);
+
 FOUNDATION_EXPORT void JavaNetMulticastSocket_initWithJavaNetSocketAddress_(JavaNetMulticastSocket *self, JavaNetSocketAddress *localAddress);
 
 FOUNDATION_EXPORT JavaNetMulticastSocket *new_JavaNetMulticastSocket_initWithJavaNetSocketAddress_(JavaNetSocketAddress *localAddress) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetMulticastSocket *create_JavaNetMulticastSocket_initWithJavaNetSocketAddress_(JavaNetSocketAddress *localAddress);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaNetMulticastSocket)
 
@@ -224,4 +231,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetMulticastSocket)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetMulticastSocket_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetMulticastSocket")

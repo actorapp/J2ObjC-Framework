@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioChannelsIllegalSelectorException_INCLUDE_ALL")
-#ifdef JavaNioChannelsIllegalSelectorException_RESTRICT
-#define JavaNioChannelsIllegalSelectorException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioChannelsIllegalSelectorException")
+#ifdef RESTRICT_JavaNioChannelsIllegalSelectorException
+#define INCLUDE_ALL_JavaNioChannelsIllegalSelectorException 0
 #else
-#define JavaNioChannelsIllegalSelectorException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioChannelsIllegalSelectorException 1
 #endif
-#undef JavaNioChannelsIllegalSelectorException_RESTRICT
+#undef RESTRICT_JavaNioChannelsIllegalSelectorException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioChannelsIllegalSelectorException_) && (JavaNioChannelsIllegalSelectorException_INCLUDE_ALL || defined(JavaNioChannelsIllegalSelectorException_INCLUDE))
+#if !defined (JavaNioChannelsIllegalSelectorException_) && (INCLUDE_ALL_JavaNioChannelsIllegalSelectorException || defined(INCLUDE_JavaNioChannelsIllegalSelectorException))
 #define JavaNioChannelsIllegalSelectorException_
 
-#define JavaLangIllegalArgumentException_RESTRICT 1
-#define JavaLangIllegalArgumentException_INCLUDE 1
+#define RESTRICT_JavaLangIllegalArgumentException 1
+#define INCLUDE_JavaLangIllegalArgumentException 1
 #include "../../../java/lang/IllegalArgumentException.h"
 
 /*!
@@ -44,10 +44,12 @@ FOUNDATION_EXPORT void JavaNioChannelsIllegalSelectorException_init(JavaNioChann
 
 FOUNDATION_EXPORT JavaNioChannelsIllegalSelectorException *new_JavaNioChannelsIllegalSelectorException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNioChannelsIllegalSelectorException *create_JavaNioChannelsIllegalSelectorException_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaNioChannelsIllegalSelectorException)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioChannelsIllegalSelectorException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioChannelsIllegalSelectorException")

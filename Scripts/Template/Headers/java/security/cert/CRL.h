@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecurityCertCRL_INCLUDE_ALL")
-#ifdef JavaSecurityCertCRL_RESTRICT
-#define JavaSecurityCertCRL_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecurityCertCRL")
+#ifdef RESTRICT_JavaSecurityCertCRL
+#define INCLUDE_ALL_JavaSecurityCertCRL 0
 #else
-#define JavaSecurityCertCRL_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecurityCertCRL 1
 #endif
-#undef JavaSecurityCertCRL_RESTRICT
+#undef RESTRICT_JavaSecurityCertCRL
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecurityCertCRL_) && (JavaSecurityCertCRL_INCLUDE_ALL || defined(JavaSecurityCertCRL_INCLUDE))
+#if !defined (JavaSecurityCertCRL_) && (INCLUDE_ALL_JavaSecurityCertCRL || defined(INCLUDE_JavaSecurityCertCRL))
 #define JavaSecurityCertCRL_
 
 @class JavaSecurityCertCertificate;
@@ -74,4 +74,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaSecurityCertCRL)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecurityCertCRL_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecurityCertCRL")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslTrustManager_INCLUDE_ALL")
-#ifdef JavaxNetSslTrustManager_RESTRICT
-#define JavaxNetSslTrustManager_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslTrustManager")
+#ifdef RESTRICT_JavaxNetSslTrustManager
+#define INCLUDE_ALL_JavaxNetSslTrustManager 0
 #else
-#define JavaxNetSslTrustManager_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslTrustManager 1
 #endif
-#undef JavaxNetSslTrustManager_RESTRICT
+#undef RESTRICT_JavaxNetSslTrustManager
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslTrustManager_) && (JavaxNetSslTrustManager_INCLUDE_ALL || defined(JavaxNetSslTrustManager_INCLUDE))
+#if !defined (JavaxNetSslTrustManager_) && (INCLUDE_ALL_JavaxNetSslTrustManager || defined(INCLUDE_JavaxNetSslTrustManager))
 #define JavaxNetSslTrustManager_
 
 /*!
@@ -39,4 +39,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslTrustManager)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslTrustManager_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslTrustManager")

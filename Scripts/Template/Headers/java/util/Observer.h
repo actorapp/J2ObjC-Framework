@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilObserver_INCLUDE_ALL")
-#ifdef JavaUtilObserver_RESTRICT
-#define JavaUtilObserver_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilObserver")
+#ifdef RESTRICT_JavaUtilObserver
+#define INCLUDE_ALL_JavaUtilObserver 0
 #else
-#define JavaUtilObserver_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilObserver 1
 #endif
-#undef JavaUtilObserver_RESTRICT
+#undef RESTRICT_JavaUtilObserver
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilObserver_) && (JavaUtilObserver_INCLUDE_ALL || defined(JavaUtilObserver_INCLUDE))
+#if !defined (JavaUtilObserver_) && (INCLUDE_ALL_JavaUtilObserver || defined(INCLUDE_JavaUtilObserver))
 #define JavaUtilObserver_
 
 @class JavaUtilObservable;
@@ -50,4 +50,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilObserver)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilObserver_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilObserver")

@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNioShortBuffer_INCLUDE_ALL")
-#ifdef JavaNioShortBuffer_RESTRICT
-#define JavaNioShortBuffer_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNioShortBuffer")
+#ifdef RESTRICT_JavaNioShortBuffer
+#define INCLUDE_ALL_JavaNioShortBuffer 0
 #else
-#define JavaNioShortBuffer_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNioShortBuffer 1
 #endif
-#undef JavaNioShortBuffer_RESTRICT
+#undef RESTRICT_JavaNioShortBuffer
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNioShortBuffer_) && (JavaNioShortBuffer_INCLUDE_ALL || defined(JavaNioShortBuffer_INCLUDE))
+#if !defined (JavaNioShortBuffer_) && (INCLUDE_ALL_JavaNioShortBuffer || defined(INCLUDE_JavaNioShortBuffer))
 #define JavaNioShortBuffer_
 
-#define JavaNioBuffer_RESTRICT 1
-#define JavaNioBuffer_INCLUDE 1
+#define RESTRICT_JavaNioBuffer 1
+#define INCLUDE_JavaNioBuffer 1
 #include "../../java/nio/Buffer.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSShortArray;
@@ -388,4 +388,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNioShortBuffer)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNioShortBuffer_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNioShortBuffer")

@@ -5,25 +5,23 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangSecurityException_INCLUDE_ALL")
-#ifdef JavaLangSecurityException_RESTRICT
-#define JavaLangSecurityException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangSecurityException")
+#ifdef RESTRICT_JavaLangSecurityException
+#define INCLUDE_ALL_JavaLangSecurityException 0
 #else
-#define JavaLangSecurityException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangSecurityException 1
 #endif
-#undef JavaLangSecurityException_RESTRICT
+#undef RESTRICT_JavaLangSecurityException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangSecurityException_) && (JavaLangSecurityException_INCLUDE_ALL || defined(JavaLangSecurityException_INCLUDE))
+#if !defined (JavaLangSecurityException_) && (INCLUDE_ALL_JavaLangSecurityException || defined(INCLUDE_JavaLangSecurityException))
 #define JavaLangSecurityException_
 
-#define JavaLangRuntimeException_RESTRICT 1
-#define JavaLangRuntimeException_INCLUDE 1
+#define RESTRICT_JavaLangRuntimeException 1
+#define INCLUDE_JavaLangRuntimeException 1
 #include "../../java/lang/RuntimeException.h"
-
-@class JavaLangThrowable;
 
 /*!
  @brief Thrown when a security manager check fails.
@@ -56,7 +54,7 @@
  @since 1.5
  */
 - (instancetype)initWithNSString:(NSString *)message
-           withJavaLangThrowable:(JavaLangThrowable *)cause;
+                 withNSException:(NSException *)cause;
 
 /*!
  @brief Constructs a new <code>SecurityException</code> with the current stack trace
@@ -65,7 +63,7 @@
  the optional cause of this exception, may be <code>null</code>.
  @since 1.5
  */
-- (instancetype)initWithJavaLangThrowable:(JavaLangThrowable *)cause;
+- (instancetype)initWithNSException:(NSException *)cause;
 
 @end
 
@@ -75,17 +73,25 @@ FOUNDATION_EXPORT void JavaLangSecurityException_init(JavaLangSecurityException 
 
 FOUNDATION_EXPORT JavaLangSecurityException *new_JavaLangSecurityException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangSecurityException *create_JavaLangSecurityException_init();
+
 FOUNDATION_EXPORT void JavaLangSecurityException_initWithNSString_(JavaLangSecurityException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangSecurityException *new_JavaLangSecurityException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT void JavaLangSecurityException_initWithNSString_withJavaLangThrowable_(JavaLangSecurityException *self, NSString *message, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangSecurityException *create_JavaLangSecurityException_initWithNSString_(NSString *detailMessage);
 
-FOUNDATION_EXPORT JavaLangSecurityException *new_JavaLangSecurityException_initWithNSString_withJavaLangThrowable_(NSString *message, JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT void JavaLangSecurityException_initWithNSString_withNSException_(JavaLangSecurityException *self, NSString *message, NSException *cause);
 
-FOUNDATION_EXPORT void JavaLangSecurityException_initWithJavaLangThrowable_(JavaLangSecurityException *self, JavaLangThrowable *cause);
+FOUNDATION_EXPORT JavaLangSecurityException *new_JavaLangSecurityException_initWithNSString_withNSException_(NSString *message, NSException *cause) NS_RETURNS_RETAINED;
 
-FOUNDATION_EXPORT JavaLangSecurityException *new_JavaLangSecurityException_initWithJavaLangThrowable_(JavaLangThrowable *cause) NS_RETURNS_RETAINED;
+FOUNDATION_EXPORT JavaLangSecurityException *create_JavaLangSecurityException_initWithNSString_withNSException_(NSString *message, NSException *cause);
+
+FOUNDATION_EXPORT void JavaLangSecurityException_initWithNSException_(JavaLangSecurityException *self, NSException *cause);
+
+FOUNDATION_EXPORT JavaLangSecurityException *new_JavaLangSecurityException_initWithNSException_(NSException *cause) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangSecurityException *create_JavaLangSecurityException_initWithNSException_(NSException *cause);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangSecurityException)
 
@@ -93,4 +99,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangSecurityException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangSecurityException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangSecurityException")

@@ -5,26 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangBoolean_INCLUDE_ALL")
-#ifdef JavaLangBoolean_RESTRICT
-#define JavaLangBoolean_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangBoolean")
+#ifdef RESTRICT_JavaLangBoolean
+#define INCLUDE_ALL_JavaLangBoolean 0
 #else
-#define JavaLangBoolean_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangBoolean 1
 #endif
-#undef JavaLangBoolean_RESTRICT
+#undef RESTRICT_JavaLangBoolean
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangBoolean_) && (JavaLangBoolean_INCLUDE_ALL || defined(JavaLangBoolean_INCLUDE))
+#if !defined (JavaLangBoolean_) && (INCLUDE_ALL_JavaLangBoolean || defined(INCLUDE_JavaLangBoolean))
 #define JavaLangBoolean_
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../java/io/Serializable.h"
 
-#define JavaLangComparable_RESTRICT 1
-#define JavaLangComparable_INCLUDE 1
+#define RESTRICT_JavaLangComparable 1
+#define INCLUDE_JavaLangComparable 1
 #include "../../java/lang/Comparable.h"
 
 @class IOSClass;
@@ -210,9 +210,13 @@ FOUNDATION_EXPORT void JavaLangBoolean_initWithNSString_(JavaLangBoolean *self, 
 
 FOUNDATION_EXPORT JavaLangBoolean *new_JavaLangBoolean_initWithNSString_(NSString *string) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangBoolean *create_JavaLangBoolean_initWithNSString_(NSString *string);
+
 FOUNDATION_EXPORT void JavaLangBoolean_initWithBoolean_(JavaLangBoolean *self, jboolean value);
 
 FOUNDATION_EXPORT JavaLangBoolean *new_JavaLangBoolean_initWithBoolean_(jboolean value) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangBoolean *create_JavaLangBoolean_initWithBoolean_(jboolean value);
 
 FOUNDATION_EXPORT jint JavaLangBoolean_compareWithBoolean_withBoolean_(jboolean lhs, jboolean rhs);
 
@@ -232,4 +236,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangBoolean)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangBoolean_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangBoolean")

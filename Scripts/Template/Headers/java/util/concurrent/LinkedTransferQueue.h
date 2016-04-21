@@ -5,30 +5,30 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentLinkedTransferQueue_RESTRICT
-#define JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedTransferQueue")
+#ifdef RESTRICT_JavaUtilConcurrentLinkedTransferQueue
+#define INCLUDE_ALL_JavaUtilConcurrentLinkedTransferQueue 0
 #else
-#define JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentLinkedTransferQueue 1
 #endif
-#undef JavaUtilConcurrentLinkedTransferQueue_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentLinkedTransferQueue
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentLinkedTransferQueue_) && (JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedTransferQueue_INCLUDE))
+#if !defined (JavaUtilConcurrentLinkedTransferQueue_) && (INCLUDE_ALL_JavaUtilConcurrentLinkedTransferQueue || defined(INCLUDE_JavaUtilConcurrentLinkedTransferQueue))
 #define JavaUtilConcurrentLinkedTransferQueue_
 
-#define JavaUtilAbstractQueue_RESTRICT 1
-#define JavaUtilAbstractQueue_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractQueue 1
+#define INCLUDE_JavaUtilAbstractQueue 1
 #include "../../../java/util/AbstractQueue.h"
 
-#define JavaUtilConcurrentTransferQueue_RESTRICT 1
-#define JavaUtilConcurrentTransferQueue_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentTransferQueue 1
+#define INCLUDE_JavaUtilConcurrentTransferQueue 1
 #include "../../../java/util/concurrent/TransferQueue.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class JavaUtilConcurrentLinkedTransferQueue_Node;
@@ -301,15 +301,19 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLinkedTransferQueue_init(JavaUtilConcur
 
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue *new_JavaUtilConcurrentLinkedTransferQueue_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue *create_JavaUtilConcurrentLinkedTransferQueue_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentLinkedTransferQueue_initWithJavaUtilCollection_(JavaUtilConcurrentLinkedTransferQueue *self, id<JavaUtilCollection> c);
 
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue *new_JavaUtilConcurrentLinkedTransferQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue *create_JavaUtilConcurrentLinkedTransferQueue_initWithJavaUtilCollection_(id<JavaUtilCollection> c);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLinkedTransferQueue_Node_) && (JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedTransferQueue_Node_INCLUDE))
+#if !defined (JavaUtilConcurrentLinkedTransferQueue_Node_) && (INCLUDE_ALL_JavaUtilConcurrentLinkedTransferQueue || defined(INCLUDE_JavaUtilConcurrentLinkedTransferQueue_Node))
 #define JavaUtilConcurrentLinkedTransferQueue_Node_
 
 @class JavaLangThread;
@@ -399,15 +403,17 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLinkedTransferQueue_Node_initWithId_wit
 
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue_Node *new_JavaUtilConcurrentLinkedTransferQueue_Node_initWithId_withBoolean_(id item, jboolean isData) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue_Node *create_JavaUtilConcurrentLinkedTransferQueue_Node_initWithId_withBoolean_(id item, jboolean isData);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue_Node)
 
 #endif
 
-#if !defined (JavaUtilConcurrentLinkedTransferQueue_Itr_) && (JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL || defined(JavaUtilConcurrentLinkedTransferQueue_Itr_INCLUDE))
+#if !defined (JavaUtilConcurrentLinkedTransferQueue_Itr_) && (INCLUDE_ALL_JavaUtilConcurrentLinkedTransferQueue || defined(INCLUDE_JavaUtilConcurrentLinkedTransferQueue_Itr))
 #define JavaUtilConcurrentLinkedTransferQueue_Itr_
 
-#define JavaUtilIterator_RESTRICT 1
-#define JavaUtilIterator_INCLUDE 1
+#define RESTRICT_JavaUtilIterator 1
+#define INCLUDE_JavaUtilIterator 1
 #include "../../../java/util/Iterator.h"
 
 @class JavaUtilConcurrentLinkedTransferQueue;
@@ -434,10 +440,12 @@ FOUNDATION_EXPORT void JavaUtilConcurrentLinkedTransferQueue_Itr_initWithJavaUti
 
 FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue_Itr *new_JavaUtilConcurrentLinkedTransferQueue_Itr_initWithJavaUtilConcurrentLinkedTransferQueue_(JavaUtilConcurrentLinkedTransferQueue *outer$) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentLinkedTransferQueue_Itr *create_JavaUtilConcurrentLinkedTransferQueue_Itr_initWithJavaUtilConcurrentLinkedTransferQueue_(JavaUtilConcurrentLinkedTransferQueue *outer$);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentLinkedTransferQueue_Itr)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentLinkedTransferQueue_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentLinkedTransferQueue")

@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentExecutorCompletionService_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentExecutorCompletionService_RESTRICT
-#define JavaUtilConcurrentExecutorCompletionService_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentExecutorCompletionService")
+#ifdef RESTRICT_JavaUtilConcurrentExecutorCompletionService
+#define INCLUDE_ALL_JavaUtilConcurrentExecutorCompletionService 0
 #else
-#define JavaUtilConcurrentExecutorCompletionService_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentExecutorCompletionService 1
 #endif
-#undef JavaUtilConcurrentExecutorCompletionService_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentExecutorCompletionService
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentExecutorCompletionService_) && (JavaUtilConcurrentExecutorCompletionService_INCLUDE_ALL || defined(JavaUtilConcurrentExecutorCompletionService_INCLUDE))
+#if !defined (JavaUtilConcurrentExecutorCompletionService_) && (INCLUDE_ALL_JavaUtilConcurrentExecutorCompletionService || defined(INCLUDE_JavaUtilConcurrentExecutorCompletionService))
 #define JavaUtilConcurrentExecutorCompletionService_
 
-#define JavaUtilConcurrentCompletionService_RESTRICT 1
-#define JavaUtilConcurrentCompletionService_INCLUDE 1
+#define RESTRICT_JavaUtilConcurrentCompletionService 1
+#define INCLUDE_JavaUtilConcurrentCompletionService 1
 #include "../../../java/util/concurrent/CompletionService.h"
 
 @class JavaUtilConcurrentTimeUnit;
@@ -143,9 +143,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentExecutorCompletionService_initWithJavaU
 
 FOUNDATION_EXPORT JavaUtilConcurrentExecutorCompletionService *new_JavaUtilConcurrentExecutorCompletionService_initWithJavaUtilConcurrentExecutor_(id<JavaUtilConcurrentExecutor> executor) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentExecutorCompletionService *create_JavaUtilConcurrentExecutorCompletionService_initWithJavaUtilConcurrentExecutor_(id<JavaUtilConcurrentExecutor> executor);
+
 FOUNDATION_EXPORT void JavaUtilConcurrentExecutorCompletionService_initWithJavaUtilConcurrentExecutor_withJavaUtilConcurrentBlockingQueue_(JavaUtilConcurrentExecutorCompletionService *self, id<JavaUtilConcurrentExecutor> executor, id<JavaUtilConcurrentBlockingQueue> completionQueue);
 
 FOUNDATION_EXPORT JavaUtilConcurrentExecutorCompletionService *new_JavaUtilConcurrentExecutorCompletionService_initWithJavaUtilConcurrentExecutor_withJavaUtilConcurrentBlockingQueue_(id<JavaUtilConcurrentExecutor> executor, id<JavaUtilConcurrentBlockingQueue> completionQueue) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentExecutorCompletionService *create_JavaUtilConcurrentExecutorCompletionService_initWithJavaUtilConcurrentExecutor_withJavaUtilConcurrentBlockingQueue_(id<JavaUtilConcurrentExecutor> executor, id<JavaUtilConcurrentBlockingQueue> completionQueue);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutorCompletionService)
 
@@ -153,4 +157,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentExecutorCompletionService)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentExecutorCompletionService_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentExecutorCompletionService")

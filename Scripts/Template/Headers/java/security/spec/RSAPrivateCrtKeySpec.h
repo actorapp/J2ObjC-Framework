@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecRSAPrivateCrtKeySpec_RESTRICT
-#define JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecRSAPrivateCrtKeySpec")
+#ifdef RESTRICT_JavaSecuritySpecRSAPrivateCrtKeySpec
+#define INCLUDE_ALL_JavaSecuritySpecRSAPrivateCrtKeySpec 0
 #else
-#define JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecRSAPrivateCrtKeySpec 1
 #endif
-#undef JavaSecuritySpecRSAPrivateCrtKeySpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecRSAPrivateCrtKeySpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecRSAPrivateCrtKeySpec_) && (JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE))
+#if !defined (JavaSecuritySpecRSAPrivateCrtKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecRSAPrivateCrtKeySpec || defined(INCLUDE_JavaSecuritySpecRSAPrivateCrtKeySpec))
 #define JavaSecuritySpecRSAPrivateCrtKeySpec_
 
-#define JavaSecuritySpecRSAPrivateKeySpec_RESTRICT 1
-#define JavaSecuritySpecRSAPrivateKeySpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecRSAPrivateKeySpec 1
+#define INCLUDE_JavaSecuritySpecRSAPrivateKeySpec 1
 #include "../../../java/security/spec/RSAPrivateKeySpec.h"
 
 @class JavaMathBigInteger;
@@ -111,10 +111,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecRSAPrivateCrtKeySpec_initWithJavaMathBigI
 
 FOUNDATION_EXPORT JavaSecuritySpecRSAPrivateCrtKeySpec *new_JavaSecuritySpecRSAPrivateCrtKeySpec_initWithJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_(JavaMathBigInteger *modulus, JavaMathBigInteger *publicExponent, JavaMathBigInteger *privateExponent, JavaMathBigInteger *primeP, JavaMathBigInteger *primeQ, JavaMathBigInteger *primeExponentP, JavaMathBigInteger *primeExponentQ, JavaMathBigInteger *crtCoefficient) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecRSAPrivateCrtKeySpec *create_JavaSecuritySpecRSAPrivateCrtKeySpec_initWithJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_withJavaMathBigInteger_(JavaMathBigInteger *modulus, JavaMathBigInteger *publicExponent, JavaMathBigInteger *privateExponent, JavaMathBigInteger *primeP, JavaMathBigInteger *primeQ, JavaMathBigInteger *primeExponentP, JavaMathBigInteger *primeExponentQ, JavaMathBigInteger *crtCoefficient);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecRSAPrivateCrtKeySpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecRSAPrivateCrtKeySpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecRSAPrivateCrtKeySpec")

@@ -5,18 +5,18 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxNetSslKeyManagerFactorySpi_INCLUDE_ALL")
-#ifdef JavaxNetSslKeyManagerFactorySpi_RESTRICT
-#define JavaxNetSslKeyManagerFactorySpi_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxNetSslKeyManagerFactorySpi")
+#ifdef RESTRICT_JavaxNetSslKeyManagerFactorySpi
+#define INCLUDE_ALL_JavaxNetSslKeyManagerFactorySpi 0
 #else
-#define JavaxNetSslKeyManagerFactorySpi_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxNetSslKeyManagerFactorySpi 1
 #endif
-#undef JavaxNetSslKeyManagerFactorySpi_RESTRICT
+#undef RESTRICT_JavaxNetSslKeyManagerFactorySpi
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxNetSslKeyManagerFactorySpi_) && (JavaxNetSslKeyManagerFactorySpi_INCLUDE_ALL || defined(JavaxNetSslKeyManagerFactorySpi_INCLUDE))
+#if !defined (JavaxNetSslKeyManagerFactorySpi_) && (INCLUDE_ALL_JavaxNetSslKeyManagerFactorySpi || defined(INCLUDE_JavaxNetSslKeyManagerFactorySpi))
 #define JavaxNetSslKeyManagerFactorySpi_
 
 @class IOSCharArray;
@@ -83,4 +83,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxNetSslKeyManagerFactorySpi)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxNetSslKeyManagerFactorySpi_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxNetSslKeyManagerFactorySpi")

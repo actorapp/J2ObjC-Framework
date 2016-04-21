@@ -5,21 +5,21 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidTextNoCopySpan_INCLUDE_ALL")
-#ifdef AndroidTextNoCopySpan_RESTRICT
-#define AndroidTextNoCopySpan_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidTextNoCopySpan")
+#ifdef RESTRICT_AndroidTextNoCopySpan
+#define INCLUDE_ALL_AndroidTextNoCopySpan 0
 #else
-#define AndroidTextNoCopySpan_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidTextNoCopySpan 1
 #endif
-#undef AndroidTextNoCopySpan_RESTRICT
-#ifdef AndroidTextNoCopySpan_Concrete_INCLUDE
-#define AndroidTextNoCopySpan_INCLUDE 1
+#undef RESTRICT_AndroidTextNoCopySpan
+#ifdef INCLUDE_AndroidTextNoCopySpan_Concrete
+#define INCLUDE_AndroidTextNoCopySpan 1
 #endif
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidTextNoCopySpan_) && (AndroidTextNoCopySpan_INCLUDE_ALL || defined(AndroidTextNoCopySpan_INCLUDE))
+#if !defined (AndroidTextNoCopySpan_) && (INCLUDE_ALL_AndroidTextNoCopySpan || defined(INCLUDE_AndroidTextNoCopySpan))
 #define AndroidTextNoCopySpan_
 
 /*!
@@ -37,7 +37,7 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidTextNoCopySpan)
 
 #endif
 
-#if !defined (AndroidTextNoCopySpan_Concrete_) && (AndroidTextNoCopySpan_INCLUDE_ALL || defined(AndroidTextNoCopySpan_Concrete_INCLUDE))
+#if !defined (AndroidTextNoCopySpan_Concrete_) && (INCLUDE_ALL_AndroidTextNoCopySpan || defined(INCLUDE_AndroidTextNoCopySpan_Concrete))
 #define AndroidTextNoCopySpan_Concrete_
 
 /*!
@@ -59,10 +59,12 @@ FOUNDATION_EXPORT void AndroidTextNoCopySpan_Concrete_init(AndroidTextNoCopySpan
 
 FOUNDATION_EXPORT AndroidTextNoCopySpan_Concrete *new_AndroidTextNoCopySpan_Concrete_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidTextNoCopySpan_Concrete *create_AndroidTextNoCopySpan_Concrete_init();
+
 J2OBJC_TYPE_LITERAL_HEADER(AndroidTextNoCopySpan_Concrete)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidTextNoCopySpan_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidTextNoCopySpan")

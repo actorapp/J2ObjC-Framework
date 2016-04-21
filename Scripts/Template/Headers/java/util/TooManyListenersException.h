@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilTooManyListenersException_INCLUDE_ALL")
-#ifdef JavaUtilTooManyListenersException_RESTRICT
-#define JavaUtilTooManyListenersException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilTooManyListenersException")
+#ifdef RESTRICT_JavaUtilTooManyListenersException
+#define INCLUDE_ALL_JavaUtilTooManyListenersException 0
 #else
-#define JavaUtilTooManyListenersException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilTooManyListenersException 1
 #endif
-#undef JavaUtilTooManyListenersException_RESTRICT
+#undef RESTRICT_JavaUtilTooManyListenersException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilTooManyListenersException_) && (JavaUtilTooManyListenersException_INCLUDE_ALL || defined(JavaUtilTooManyListenersException_INCLUDE))
+#if !defined (JavaUtilTooManyListenersException_) && (INCLUDE_ALL_JavaUtilTooManyListenersException || defined(INCLUDE_JavaUtilTooManyListenersException))
 #define JavaUtilTooManyListenersException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../java/lang/Exception.h"
 
 /*!
@@ -55,9 +55,13 @@ FOUNDATION_EXPORT void JavaUtilTooManyListenersException_init(JavaUtilTooManyLis
 
 FOUNDATION_EXPORT JavaUtilTooManyListenersException *new_JavaUtilTooManyListenersException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilTooManyListenersException *create_JavaUtilTooManyListenersException_init();
+
 FOUNDATION_EXPORT void JavaUtilTooManyListenersException_initWithNSString_(JavaUtilTooManyListenersException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaUtilTooManyListenersException *new_JavaUtilTooManyListenersException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilTooManyListenersException *create_JavaUtilTooManyListenersException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTooManyListenersException)
 
@@ -65,4 +69,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilTooManyListenersException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilTooManyListenersException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilTooManyListenersException")

@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetContentHandler_INCLUDE_ALL")
-#ifdef JavaNetContentHandler_RESTRICT
-#define JavaNetContentHandler_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetContentHandler")
+#ifdef RESTRICT_JavaNetContentHandler
+#define INCLUDE_ALL_JavaNetContentHandler 0
 #else
-#define JavaNetContentHandler_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetContentHandler 1
 #endif
-#undef JavaNetContentHandler_RESTRICT
+#undef RESTRICT_JavaNetContentHandler
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetContentHandler_) && (JavaNetContentHandler_INCLUDE_ALL || defined(JavaNetContentHandler_INCLUDE))
+#if !defined (JavaNetContentHandler_) && (INCLUDE_ALL_JavaNetContentHandler || defined(INCLUDE_JavaNetContentHandler))
 #define JavaNetContentHandler_
 
 @class IOSObjectArray;
@@ -73,4 +73,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetContentHandler)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetContentHandler_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetContentHandler")

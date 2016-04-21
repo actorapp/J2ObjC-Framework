@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangRefSoftReference_INCLUDE_ALL")
-#ifdef JavaLangRefSoftReference_RESTRICT
-#define JavaLangRefSoftReference_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangRefSoftReference")
+#ifdef RESTRICT_JavaLangRefSoftReference
+#define INCLUDE_ALL_JavaLangRefSoftReference 0
 #else
-#define JavaLangRefSoftReference_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangRefSoftReference 1
 #endif
-#undef JavaLangRefSoftReference_RESTRICT
+#undef RESTRICT_JavaLangRefSoftReference
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangRefSoftReference_) && (JavaLangRefSoftReference_INCLUDE_ALL || defined(JavaLangRefSoftReference_INCLUDE))
+#if !defined (JavaLangRefSoftReference_) && (INCLUDE_ALL_JavaLangRefSoftReference || defined(INCLUDE_JavaLangRefSoftReference))
 #define JavaLangRefSoftReference_
 
-#define JavaLangRefReference_RESTRICT 1
-#define JavaLangRefReference_INCLUDE 1
+#define RESTRICT_JavaLangRefReference 1
+#define INCLUDE_JavaLangRefReference 1
 #include "../../../java/lang/ref/Reference.h"
 
 @class JavaLangRefReferenceQueue;
@@ -95,9 +95,13 @@ FOUNDATION_EXPORT void JavaLangRefSoftReference_initWithId_(JavaLangRefSoftRefer
 
 FOUNDATION_EXPORT JavaLangRefSoftReference *new_JavaLangRefSoftReference_initWithId_(id r) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangRefSoftReference *create_JavaLangRefSoftReference_initWithId_(id r);
+
 FOUNDATION_EXPORT void JavaLangRefSoftReference_initWithId_withJavaLangRefReferenceQueue_(JavaLangRefSoftReference *self, id r, JavaLangRefReferenceQueue *q);
 
 FOUNDATION_EXPORT JavaLangRefSoftReference *new_JavaLangRefSoftReference_initWithId_withJavaLangRefReferenceQueue_(id r, JavaLangRefReferenceQueue *q) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangRefSoftReference *create_JavaLangRefSoftReference_initWithId_withJavaLangRefReferenceQueue_(id r, JavaLangRefReferenceQueue *q);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefSoftReference)
 
@@ -105,4 +109,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangRefSoftReference)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangRefSoftReference_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangRefSoftReference")

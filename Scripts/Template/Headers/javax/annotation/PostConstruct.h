@@ -5,23 +5,26 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxAnnotationPostConstruct_INCLUDE_ALL")
-#ifdef JavaxAnnotationPostConstruct_RESTRICT
-#define JavaxAnnotationPostConstruct_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxAnnotationPostConstruct")
+#ifdef RESTRICT_JavaxAnnotationPostConstruct
+#define INCLUDE_ALL_JavaxAnnotationPostConstruct 0
 #else
-#define JavaxAnnotationPostConstruct_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxAnnotationPostConstruct 1
 #endif
-#undef JavaxAnnotationPostConstruct_RESTRICT
+#undef RESTRICT_JavaxAnnotationPostConstruct
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxAnnotationPostConstruct_) && (JavaxAnnotationPostConstruct_INCLUDE_ALL || defined(JavaxAnnotationPostConstruct_INCLUDE))
+#if !defined (JavaxAnnotationPostConstruct_) && (INCLUDE_ALL_JavaxAnnotationPostConstruct || defined(INCLUDE_JavaxAnnotationPostConstruct))
 #define JavaxAnnotationPostConstruct_
 
-#define JavaLangAnnotationAnnotation_RESTRICT 1
-#define JavaLangAnnotationAnnotation_INCLUDE 1
+#define RESTRICT_JavaLangAnnotationAnnotation 1
+#define INCLUDE_JavaLangAnnotationAnnotation 1
 #include "../../java/lang/annotation/Annotation.h"
+
+@class IOSClass;
+@class IOSObjectArray;
 
 /*!
  @brief javax.annotation.PostConstruct annotation.
@@ -38,10 +41,12 @@
 
 J2OBJC_EMPTY_STATIC_INIT(JavaxAnnotationPostConstruct)
 
+FOUNDATION_EXPORT id<JavaxAnnotationPostConstruct> create_JavaxAnnotationPostConstruct();
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaxAnnotationPostConstruct)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxAnnotationPostConstruct_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxAnnotationPostConstruct")

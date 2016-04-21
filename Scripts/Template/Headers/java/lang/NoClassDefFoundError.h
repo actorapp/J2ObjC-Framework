@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaLangNoClassDefFoundError_INCLUDE_ALL")
-#ifdef JavaLangNoClassDefFoundError_RESTRICT
-#define JavaLangNoClassDefFoundError_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaLangNoClassDefFoundError")
+#ifdef RESTRICT_JavaLangNoClassDefFoundError
+#define INCLUDE_ALL_JavaLangNoClassDefFoundError 0
 #else
-#define JavaLangNoClassDefFoundError_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaLangNoClassDefFoundError 1
 #endif
-#undef JavaLangNoClassDefFoundError_RESTRICT
+#undef RESTRICT_JavaLangNoClassDefFoundError
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaLangNoClassDefFoundError_) && (JavaLangNoClassDefFoundError_INCLUDE_ALL || defined(JavaLangNoClassDefFoundError_INCLUDE))
+#if !defined (JavaLangNoClassDefFoundError_) && (INCLUDE_ALL_JavaLangNoClassDefFoundError || defined(INCLUDE_JavaLangNoClassDefFoundError))
 #define JavaLangNoClassDefFoundError_
 
-#define JavaLangLinkageError_RESTRICT 1
-#define JavaLangLinkageError_INCLUDE 1
+#define RESTRICT_JavaLangLinkageError 1
+#define INCLUDE_JavaLangLinkageError 1
 #include "../../java/lang/LinkageError.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaLangNoClassDefFoundError_init(JavaLangNoClassDefFound
 
 FOUNDATION_EXPORT JavaLangNoClassDefFoundError *new_JavaLangNoClassDefFoundError_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaLangNoClassDefFoundError *create_JavaLangNoClassDefFoundError_init();
+
 FOUNDATION_EXPORT void JavaLangNoClassDefFoundError_initWithNSString_(JavaLangNoClassDefFoundError *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaLangNoClassDefFoundError *new_JavaLangNoClassDefFoundError_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaLangNoClassDefFoundError *create_JavaLangNoClassDefFoundError_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoClassDefFoundError)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaLangNoClassDefFoundError)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaLangNoClassDefFoundError_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaLangNoClassDefFoundError")

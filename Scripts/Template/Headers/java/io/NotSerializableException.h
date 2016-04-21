@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoNotSerializableException_INCLUDE_ALL")
-#ifdef JavaIoNotSerializableException_RESTRICT
-#define JavaIoNotSerializableException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoNotSerializableException")
+#ifdef RESTRICT_JavaIoNotSerializableException
+#define INCLUDE_ALL_JavaIoNotSerializableException 0
 #else
-#define JavaIoNotSerializableException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoNotSerializableException 1
 #endif
-#undef JavaIoNotSerializableException_RESTRICT
+#undef RESTRICT_JavaIoNotSerializableException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoNotSerializableException_) && (JavaIoNotSerializableException_INCLUDE_ALL || defined(JavaIoNotSerializableException_INCLUDE))
+#if !defined (JavaIoNotSerializableException_) && (INCLUDE_ALL_JavaIoNotSerializableException || defined(INCLUDE_JavaIoNotSerializableException))
 #define JavaIoNotSerializableException_
 
-#define JavaIoObjectStreamException_RESTRICT 1
-#define JavaIoObjectStreamException_INCLUDE 1
+#define RESTRICT_JavaIoObjectStreamException 1
+#define INCLUDE_JavaIoObjectStreamException 1
 #include "../../java/io/ObjectStreamException.h"
 
 /*!
@@ -59,9 +59,13 @@ FOUNDATION_EXPORT void JavaIoNotSerializableException_init(JavaIoNotSerializable
 
 FOUNDATION_EXPORT JavaIoNotSerializableException *new_JavaIoNotSerializableException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoNotSerializableException *create_JavaIoNotSerializableException_init();
+
 FOUNDATION_EXPORT void JavaIoNotSerializableException_initWithNSString_(JavaIoNotSerializableException *self, NSString *detailMessage);
 
 FOUNDATION_EXPORT JavaIoNotSerializableException *new_JavaIoNotSerializableException_initWithNSString_(NSString *detailMessage) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoNotSerializableException *create_JavaIoNotSerializableException_initWithNSString_(NSString *detailMessage);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoNotSerializableException)
 
@@ -69,4 +73,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoNotSerializableException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoNotSerializableException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoNotSerializableException")

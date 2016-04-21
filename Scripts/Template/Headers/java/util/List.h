@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilList_INCLUDE_ALL")
-#ifdef JavaUtilList_RESTRICT
-#define JavaUtilList_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilList")
+#ifdef RESTRICT_JavaUtilList
+#define INCLUDE_ALL_JavaUtilList 0
 #else
-#define JavaUtilList_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilList 1
 #endif
-#undef JavaUtilList_RESTRICT
+#undef RESTRICT_JavaUtilList
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilList_) && (JavaUtilList_INCLUDE_ALL || defined(JavaUtilList_INCLUDE))
+#if !defined (JavaUtilList_) && (INCLUDE_ALL_JavaUtilList || defined(INCLUDE_JavaUtilList))
 #define JavaUtilList_
 
-#define JavaUtilCollection_RESTRICT 1
-#define JavaUtilCollection_INCLUDE 1
+#define RESTRICT_JavaUtilCollection 1
+#define INCLUDE_JavaUtilCollection 1
 #include "../../java/util/Collection.h"
 
 @class IOSObjectArray;
@@ -360,4 +360,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilList)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilList_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilList")

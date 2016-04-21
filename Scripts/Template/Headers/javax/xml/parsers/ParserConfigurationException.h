@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaxXmlParsersParserConfigurationException_INCLUDE_ALL")
-#ifdef JavaxXmlParsersParserConfigurationException_RESTRICT
-#define JavaxXmlParsersParserConfigurationException_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaxXmlParsersParserConfigurationException")
+#ifdef RESTRICT_JavaxXmlParsersParserConfigurationException
+#define INCLUDE_ALL_JavaxXmlParsersParserConfigurationException 0
 #else
-#define JavaxXmlParsersParserConfigurationException_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaxXmlParsersParserConfigurationException 1
 #endif
-#undef JavaxXmlParsersParserConfigurationException_RESTRICT
+#undef RESTRICT_JavaxXmlParsersParserConfigurationException
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaxXmlParsersParserConfigurationException_) && (JavaxXmlParsersParserConfigurationException_INCLUDE_ALL || defined(JavaxXmlParsersParserConfigurationException_INCLUDE))
+#if !defined (JavaxXmlParsersParserConfigurationException_) && (INCLUDE_ALL_JavaxXmlParsersParserConfigurationException || defined(INCLUDE_JavaxXmlParsersParserConfigurationException))
 #define JavaxXmlParsersParserConfigurationException_
 
-#define JavaLangException_RESTRICT 1
-#define JavaLangException_INCLUDE 1
+#define RESTRICT_JavaLangException 1
+#define INCLUDE_JavaLangException 1
 #include "../../../java/lang/Exception.h"
 
 /*!
@@ -53,9 +53,13 @@ FOUNDATION_EXPORT void JavaxXmlParsersParserConfigurationException_init(JavaxXml
 
 FOUNDATION_EXPORT JavaxXmlParsersParserConfigurationException *new_JavaxXmlParsersParserConfigurationException_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaxXmlParsersParserConfigurationException *create_JavaxXmlParsersParserConfigurationException_init();
+
 FOUNDATION_EXPORT void JavaxXmlParsersParserConfigurationException_initWithNSString_(JavaxXmlParsersParserConfigurationException *self, NSString *msg);
 
 FOUNDATION_EXPORT JavaxXmlParsersParserConfigurationException *new_JavaxXmlParsersParserConfigurationException_initWithNSString_(NSString *msg) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaxXmlParsersParserConfigurationException *create_JavaxXmlParsersParserConfigurationException_initWithNSString_(NSString *msg);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersParserConfigurationException)
 
@@ -63,4 +67,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaxXmlParsersParserConfigurationException)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaxXmlParsersParserConfigurationException_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaxXmlParsersParserConfigurationException")

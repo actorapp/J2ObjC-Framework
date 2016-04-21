@@ -5,22 +5,22 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaSecuritySpecPKCS8EncodedKeySpec_INCLUDE_ALL")
-#ifdef JavaSecuritySpecPKCS8EncodedKeySpec_RESTRICT
-#define JavaSecuritySpecPKCS8EncodedKeySpec_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaSecuritySpecPKCS8EncodedKeySpec")
+#ifdef RESTRICT_JavaSecuritySpecPKCS8EncodedKeySpec
+#define INCLUDE_ALL_JavaSecuritySpecPKCS8EncodedKeySpec 0
 #else
-#define JavaSecuritySpecPKCS8EncodedKeySpec_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaSecuritySpecPKCS8EncodedKeySpec 1
 #endif
-#undef JavaSecuritySpecPKCS8EncodedKeySpec_RESTRICT
+#undef RESTRICT_JavaSecuritySpecPKCS8EncodedKeySpec
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaSecuritySpecPKCS8EncodedKeySpec_) && (JavaSecuritySpecPKCS8EncodedKeySpec_INCLUDE_ALL || defined(JavaSecuritySpecPKCS8EncodedKeySpec_INCLUDE))
+#if !defined (JavaSecuritySpecPKCS8EncodedKeySpec_) && (INCLUDE_ALL_JavaSecuritySpecPKCS8EncodedKeySpec || defined(INCLUDE_JavaSecuritySpecPKCS8EncodedKeySpec))
 #define JavaSecuritySpecPKCS8EncodedKeySpec_
 
-#define JavaSecuritySpecEncodedKeySpec_RESTRICT 1
-#define JavaSecuritySpecEncodedKeySpec_INCLUDE 1
+#define RESTRICT_JavaSecuritySpecEncodedKeySpec 1
+#define INCLUDE_JavaSecuritySpecEncodedKeySpec 1
 #include "../../../java/security/spec/EncodedKeySpec.h"
 
 @class IOSByteArray;
@@ -62,10 +62,12 @@ FOUNDATION_EXPORT void JavaSecuritySpecPKCS8EncodedKeySpec_initWithByteArray_(Ja
 
 FOUNDATION_EXPORT JavaSecuritySpecPKCS8EncodedKeySpec *new_JavaSecuritySpecPKCS8EncodedKeySpec_initWithByteArray_(IOSByteArray *encodedKey) NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaSecuritySpecPKCS8EncodedKeySpec *create_JavaSecuritySpecPKCS8EncodedKeySpec_initWithByteArray_(IOSByteArray *encodedKey);
+
 J2OBJC_TYPE_LITERAL_HEADER(JavaSecuritySpecPKCS8EncodedKeySpec)
 
 #endif
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaSecuritySpecPKCS8EncodedKeySpec_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaSecuritySpecPKCS8EncodedKeySpec")

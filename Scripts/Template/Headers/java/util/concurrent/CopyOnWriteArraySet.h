@@ -5,26 +5,26 @@
 
 #include "../../../J2ObjC_header.h"
 
-#pragma push_macro("JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE_ALL")
-#ifdef JavaUtilConcurrentCopyOnWriteArraySet_RESTRICT
-#define JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArraySet")
+#ifdef RESTRICT_JavaUtilConcurrentCopyOnWriteArraySet
+#define INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArraySet 0
 #else
-#define JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArraySet 1
 #endif
-#undef JavaUtilConcurrentCopyOnWriteArraySet_RESTRICT
+#undef RESTRICT_JavaUtilConcurrentCopyOnWriteArraySet
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaUtilConcurrentCopyOnWriteArraySet_) && (JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE_ALL || defined(JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE))
+#if !defined (JavaUtilConcurrentCopyOnWriteArraySet_) && (INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArraySet || defined(INCLUDE_JavaUtilConcurrentCopyOnWriteArraySet))
 #define JavaUtilConcurrentCopyOnWriteArraySet_
 
-#define JavaUtilAbstractSet_RESTRICT 1
-#define JavaUtilAbstractSet_INCLUDE 1
+#define RESTRICT_JavaUtilAbstractSet 1
+#define INCLUDE_JavaUtilAbstractSet 1
 #include "../../../java/util/AbstractSet.h"
 
-#define JavaIoSerializable_RESTRICT 1
-#define JavaIoSerializable_INCLUDE 1
+#define RESTRICT_JavaIoSerializable 1
+#define INCLUDE_JavaIoSerializable 1
 #include "../../../java/io/Serializable.h"
 
 @class IOSObjectArray;
@@ -299,9 +299,13 @@ FOUNDATION_EXPORT void JavaUtilConcurrentCopyOnWriteArraySet_init(JavaUtilConcur
 
 FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArraySet *new_JavaUtilConcurrentCopyOnWriteArraySet_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArraySet *create_JavaUtilConcurrentCopyOnWriteArraySet_init();
+
 FOUNDATION_EXPORT void JavaUtilConcurrentCopyOnWriteArraySet_initWithJavaUtilCollection_(JavaUtilConcurrentCopyOnWriteArraySet *self, id<JavaUtilCollection> c);
 
 FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArraySet *new_JavaUtilConcurrentCopyOnWriteArraySet_initWithJavaUtilCollection_(id<JavaUtilCollection> c) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaUtilConcurrentCopyOnWriteArraySet *create_JavaUtilConcurrentCopyOnWriteArraySet_initWithJavaUtilCollection_(id<JavaUtilCollection> c);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArraySet)
 
@@ -309,4 +313,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaUtilConcurrentCopyOnWriteArraySet)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaUtilConcurrentCopyOnWriteArraySet_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaUtilConcurrentCopyOnWriteArraySet")

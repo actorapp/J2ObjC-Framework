@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaNetCookieManager_INCLUDE_ALL")
-#ifdef JavaNetCookieManager_RESTRICT
-#define JavaNetCookieManager_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaNetCookieManager")
+#ifdef RESTRICT_JavaNetCookieManager
+#define INCLUDE_ALL_JavaNetCookieManager 0
 #else
-#define JavaNetCookieManager_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaNetCookieManager 1
 #endif
-#undef JavaNetCookieManager_RESTRICT
+#undef RESTRICT_JavaNetCookieManager
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaNetCookieManager_) && (JavaNetCookieManager_INCLUDE_ALL || defined(JavaNetCookieManager_INCLUDE))
+#if !defined (JavaNetCookieManager_) && (INCLUDE_ALL_JavaNetCookieManager || defined(INCLUDE_JavaNetCookieManager))
 #define JavaNetCookieManager_
 
-#define JavaNetCookieHandler_RESTRICT 1
-#define JavaNetCookieHandler_INCLUDE 1
+#define RESTRICT_JavaNetCookieHandler 1
+#define INCLUDE_JavaNetCookieHandler 1
 #include "../../java/net/CookieHandler.h"
 
 @class JavaNetURI;
@@ -135,9 +135,13 @@ FOUNDATION_EXPORT void JavaNetCookieManager_init(JavaNetCookieManager *self);
 
 FOUNDATION_EXPORT JavaNetCookieManager *new_JavaNetCookieManager_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaNetCookieManager *create_JavaNetCookieManager_init();
+
 FOUNDATION_EXPORT void JavaNetCookieManager_initWithJavaNetCookieStore_withJavaNetCookiePolicy_(JavaNetCookieManager *self, id<JavaNetCookieStore> store, id<JavaNetCookiePolicy> cookiePolicy);
 
 FOUNDATION_EXPORT JavaNetCookieManager *new_JavaNetCookieManager_initWithJavaNetCookieStore_withJavaNetCookiePolicy_(id<JavaNetCookieStore> store, id<JavaNetCookiePolicy> cookiePolicy) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaNetCookieManager *create_JavaNetCookieManager_initWithJavaNetCookieStore_withJavaNetCookiePolicy_(id<JavaNetCookieStore> store, id<JavaNetCookiePolicy> cookiePolicy);
 
 FOUNDATION_EXPORT NSString *JavaNetCookieManager_pathToCookiePathWithNSString_(NSString *path);
 
@@ -147,4 +151,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaNetCookieManager)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaNetCookieManager_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaNetCookieManager")

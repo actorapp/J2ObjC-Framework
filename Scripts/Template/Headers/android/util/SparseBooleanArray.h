@@ -5,18 +5,18 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("AndroidUtilSparseBooleanArray_INCLUDE_ALL")
-#ifdef AndroidUtilSparseBooleanArray_RESTRICT
-#define AndroidUtilSparseBooleanArray_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_AndroidUtilSparseBooleanArray")
+#ifdef RESTRICT_AndroidUtilSparseBooleanArray
+#define INCLUDE_ALL_AndroidUtilSparseBooleanArray 0
 #else
-#define AndroidUtilSparseBooleanArray_INCLUDE_ALL 1
+#define INCLUDE_ALL_AndroidUtilSparseBooleanArray 1
 #endif
-#undef AndroidUtilSparseBooleanArray_RESTRICT
+#undef RESTRICT_AndroidUtilSparseBooleanArray
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (AndroidUtilSparseBooleanArray_) && (AndroidUtilSparseBooleanArray_INCLUDE_ALL || defined(AndroidUtilSparseBooleanArray_INCLUDE))
+#if !defined (AndroidUtilSparseBooleanArray_) && (INCLUDE_ALL_AndroidUtilSparseBooleanArray || defined(INCLUDE_AndroidUtilSparseBooleanArray))
 #define AndroidUtilSparseBooleanArray_
 
 /*!
@@ -158,9 +158,13 @@ FOUNDATION_EXPORT void AndroidUtilSparseBooleanArray_init(AndroidUtilSparseBoole
 
 FOUNDATION_EXPORT AndroidUtilSparseBooleanArray *new_AndroidUtilSparseBooleanArray_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT AndroidUtilSparseBooleanArray *create_AndroidUtilSparseBooleanArray_init();
+
 FOUNDATION_EXPORT void AndroidUtilSparseBooleanArray_initWithInt_(AndroidUtilSparseBooleanArray *self, jint initialCapacity);
 
 FOUNDATION_EXPORT AndroidUtilSparseBooleanArray *new_AndroidUtilSparseBooleanArray_initWithInt_(jint initialCapacity) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT AndroidUtilSparseBooleanArray *create_AndroidUtilSparseBooleanArray_initWithInt_(jint initialCapacity);
 
 J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilSparseBooleanArray)
 
@@ -168,4 +172,4 @@ J2OBJC_TYPE_LITERAL_HEADER(AndroidUtilSparseBooleanArray)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("AndroidUtilSparseBooleanArray_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_AndroidUtilSparseBooleanArray")

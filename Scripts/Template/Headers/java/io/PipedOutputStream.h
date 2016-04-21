@@ -5,22 +5,22 @@
 
 #include "../../J2ObjC_header.h"
 
-#pragma push_macro("JavaIoPipedOutputStream_INCLUDE_ALL")
-#ifdef JavaIoPipedOutputStream_RESTRICT
-#define JavaIoPipedOutputStream_INCLUDE_ALL 0
+#pragma push_macro("INCLUDE_ALL_JavaIoPipedOutputStream")
+#ifdef RESTRICT_JavaIoPipedOutputStream
+#define INCLUDE_ALL_JavaIoPipedOutputStream 0
 #else
-#define JavaIoPipedOutputStream_INCLUDE_ALL 1
+#define INCLUDE_ALL_JavaIoPipedOutputStream 1
 #endif
-#undef JavaIoPipedOutputStream_RESTRICT
+#undef RESTRICT_JavaIoPipedOutputStream
 
 #pragma clang diagnostic push
 #pragma GCC diagnostic ignored "-Wdeprecated-declarations"
 
-#if !defined (JavaIoPipedOutputStream_) && (JavaIoPipedOutputStream_INCLUDE_ALL || defined(JavaIoPipedOutputStream_INCLUDE))
+#if !defined (JavaIoPipedOutputStream_) && (INCLUDE_ALL_JavaIoPipedOutputStream || defined(INCLUDE_JavaIoPipedOutputStream))
 #define JavaIoPipedOutputStream_
 
-#define JavaIoOutputStream_RESTRICT 1
-#define JavaIoOutputStream_INCLUDE 1
+#define RESTRICT_JavaIoOutputStream 1
+#define INCLUDE_JavaIoOutputStream 1
 #include "../../java/io/OutputStream.h"
 
 @class IOSByteArray;
@@ -148,9 +148,13 @@ FOUNDATION_EXPORT void JavaIoPipedOutputStream_init(JavaIoPipedOutputStream *sel
 
 FOUNDATION_EXPORT JavaIoPipedOutputStream *new_JavaIoPipedOutputStream_init() NS_RETURNS_RETAINED;
 
+FOUNDATION_EXPORT JavaIoPipedOutputStream *create_JavaIoPipedOutputStream_init();
+
 FOUNDATION_EXPORT void JavaIoPipedOutputStream_initWithJavaIoPipedInputStream_(JavaIoPipedOutputStream *self, JavaIoPipedInputStream *target);
 
 FOUNDATION_EXPORT JavaIoPipedOutputStream *new_JavaIoPipedOutputStream_initWithJavaIoPipedInputStream_(JavaIoPipedInputStream *target) NS_RETURNS_RETAINED;
+
+FOUNDATION_EXPORT JavaIoPipedOutputStream *create_JavaIoPipedOutputStream_initWithJavaIoPipedInputStream_(JavaIoPipedInputStream *target);
 
 J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedOutputStream)
 
@@ -158,4 +162,4 @@ J2OBJC_TYPE_LITERAL_HEADER(JavaIoPipedOutputStream)
 
 
 #pragma clang diagnostic pop
-#pragma pop_macro("JavaIoPipedOutputStream_INCLUDE_ALL")
+#pragma pop_macro("INCLUDE_ALL_JavaIoPipedOutputStream")
