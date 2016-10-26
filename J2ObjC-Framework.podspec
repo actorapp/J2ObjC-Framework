@@ -1,4 +1,4 @@
-@version = "1.0.2.2"
+@version = "1.2"
 
 Pod::Spec.new do |s|
   s.name         		= "J2ObjC-Framework"
@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.homepage        = "https://actor.im/"
   s.license         = { :type => 'MIT', :file => 'LICENSE' }
   s.author       		= { "Actor LLC" => "steve@actor.im" }
-  s.source          = { :git => "https://github.com/actorapp/J2ObjC-Framework.git", :tag => "v#{s.version}" }
+  s.source          = { :git => "https://github.com/Daeda88/J2ObjC-Framework.git", :tag => "v#{s.version}" }
 
   s.platform     		= :ios, "8.0"
   s.requires_arc 		= true
