@@ -9,7 +9,8 @@ Pod::Spec.new do |s|
   s.author       		= { "Actor LLC" => "steve@actor.im" }
   s.source          = { :git => "https://github.com/Daeda88/J2ObjC-Framework.git", :tag => "v#{s.version}" }
 
-  s.platform     		= :ios, "8.0"
+  s.ios.deployment_target = "8.0"
+  s.osx.deployment_target = "10.11"
   s.requires_arc 		= true
 
   s.frameworks      = 'Security'
