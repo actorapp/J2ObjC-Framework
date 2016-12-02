@@ -31,6 +31,7 @@
  Public so that users can add an
  explicit dependency to force load this class.
  */
+@protocol JavaUtilProperties_XmlLoader;
 @interface JavaUtilPropertiesXmlLoader : NSObject < JavaUtilProperties_XmlLoader >
 
 #pragma mark Public
