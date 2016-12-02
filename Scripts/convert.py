@@ -25,33 +25,33 @@ with open('include_framework/j2objc.h', 'w') as umbrella:
             destFile = os.path.join('include_framework', path)
 
             # Excluding protobuf
-            #if not path.startswith('com/google/protobuf'):
+            if not path.startswith('com/google/protobuf'):
 
-            if not os.path.exists(os.path.dirname(destFile)):
-                os.makedirs(os.path.dirname(destFile))
+                if not os.path.exists(os.path.dirname(destFile)):
+                    os.makedirs(os.path.dirname(destFile))
 
-            with open(srcFile, 'r') as f:
+                with open(srcFile, 'r') as f:
 
-                if path not in added:
-                    added.add(path)
-                    umbrella.write("#import \"" + path + "\"\n")
+                    if path not in added:
+                        added.add(path)
+                        umbrella.write("#import \"" + path + "\"\n")
 
-                with open(destFile, 'w') as d:
-                    for line in f:
-                        if (line.startswith("#include") or line.startswith("#import")) and '\"' in line:
+                    with open(destFile, 'w') as d:
+                        for line in f:
+                            if (line.startswith("#include") or line.startswith("#import")) and '\"' in line:
 
-                            start = line.index('\"')
-                            end = line.index('\"', start + 1)
-                            includedFile = line[start + 1:end]
+                                start = line.index('\"')
+                                end = line.index('\"', start + 1)
+                                includedFile = line[start + 1:end]
 
-                            if includedFile != 'objc/runtime.h':
+                                if includedFile != 'objc/runtime.h':
 
-                                # Hack for local include
-                                if "/" not in includedFile:
-                                    if os.path.exists(os.path.join(root, includedFile)):
-                                        if dirName != '/':
-                                            includedFile = dirName + includedFile
+                                    # Hack for local include
+                                    if "/" not in includedFile:
+                                        if os.path.exists(os.path.join(root, includedFile)):
+                                            if dirName != '/':
+                                                includedFile = dirName + includedFile
 
-                                line = line[0:start] + "\""+ prefix + includedFile + "\"" + line[end+1:]
+                                    line = line[0:start] + "\""+ prefix + includedFile + "\"" + line[end+1:]
 
-                        d.write(line)
+                            d.write(line)
